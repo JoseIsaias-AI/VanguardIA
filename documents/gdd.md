@@ -240,15 +240,40 @@ Na primeira sprint o grupo desenvolveu a versão inicial do jogo, tendo como foc
 
 No decorrer do desenvolvimento, foi construída a tela de uma das fases do jogo, em que o jogador poderá explorar a sala que o personagem está e interagir com um dos items.
 
-<img src="../assets/tela-fase.jpeg">
+<div align = "center">
 
-<img src="../assets/interacao-item.jpeg">
+<sup>Figura 1: Imagem do personagem da primeira fase.</sup><br>
+
+<img src="../assets/tela-fase.jpeg"><br>
+
+<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
+
+<sup>Figura 2: Imagem do personagem interagindo com um item.</sup><br>
+
+<img src="../assets/interacao-item.jpeg"><br>
+
+<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
+
+</div>
 
 Nesta tela também foram implementados um sistema de colisão básico — em apenas alguns pontos da tela — e um balão de chat.
 
-<img src="../assets/matriz-colisao.jpeg">
 
-<img src="../assets/balao-chat.jpeg">
+<div align = "center">
+
+<sup>Figura 3: Imagem da matriz de colisão na primeira tela.</sup><br>
+
+<img src="../assets/matriz-colisao.jpeg"><br>
+
+<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
+
+<sup>Figura 4: Imagem do balão de chat na tela.</sup><br>
+
+<img src="../assets/balao-chat.jpeg"><br>
+
+<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
+
+</div>
 
 Para os próximos passos, o grupo deseja implementar os requisitos 3 e 4, adicionar novas fases para implemnetar os requisitos 5 e 6.
 
