@@ -45,13 +45,13 @@ export class Fase01 extends Phaser.Scene {
         
         // Cria um container da tecla "E" que aparece perto dos objetos
         this.containerTecla = this.add.container(0, 0);
-        let quadrado = this.add.graphics();
-        quadrado.fillStyle(0xFFFFFF, 1);
-        quadrado.lineStyle(2, 0x000000, 1);
-        quadrado.fillRoundedRect(-15, -15, 30, 30, 5);
-        quadrado.strokeRoundedRect(-15, -15, 30, 30, 5);
+        let iconeTecla = this.add.graphics();
+        iconeTecla.fillStyle(0xFFFFFF, 1);
+        iconeTecla.lineStyle(2, 0x000000, 1);
+        iconeTecla.fillRoundedRect(-15, -15, 30, 30, 5);
+        iconeTecla.strokeRoundedRect(-15, -15, 30, 30, 5);
         let letra = this.add.text(0, 0, "E", { fontSize: "25px", color: "#000000", fontStyle: "bold" }).setOrigin(0.5);
-        this.containerTecla.add([quadrado, letra]);   // Adiciona desenho e texto ao container
+        this.containerTecla.add([iconeTecla, letra]);   // Adiciona desenho e texto ao container
         this.containerTecla.setVisible(false);
 
         // Animação leve de "flutuar" para a tecla "E"
@@ -104,7 +104,7 @@ export class Fase01 extends Phaser.Scene {
     }
 
     update() {
-        // Bolqueio do movimento. Se estiver lendo, o player não anda
+        // Bloqueio do movimento. Se estiver lendo, o player não anda
         if (this.lendoMensagem) {
             this.Principal.anims.stop();
             if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
@@ -114,30 +114,30 @@ export class Fase01 extends Phaser.Scene {
         }
 
         // Lógica de movimento nos eixos X e Y
-        let velocidade = 3;
-        let moveu = false;
+        let velocidPlayer = 3;
+        let movimentacao = false;
 
         if (this.cursors.left.isDown) {
-            this.Principal.x -= velocidade;
+            this.Principal.x -= velocidPlayer;
             this.Principal.anims.play("left", true);
-            moveu = true;
+            movimentacao = true;
         } else if (this.cursors.right.isDown) {
-            this.Principal.x += velocidade;
+            this.Principal.x += velocidPlayer;
             this.Principal.anims.play("right", true);
-            moveu = true;
+            movimentacao = true;
         }
 
         if (this.cursors.up.isDown) {
-            this.Principal.y -= velocidade;
-            if (!moveu) this.Principal.anims.play("back", true);
-            moveu = true;
+            this.Principal.y -= velocidPlayer;
+            if (!movimentacao) this.Principal.anims.play("back", true);
+            movimentacao = true;
         } else if (this.cursors.down.isDown) {
-            this.Principal.y += velocidade;
-            if (!moveu) this.Principal.anims.play("front", true);
-            moveu = true;
+            this.Principal.y += velocidPlayer;
+            if (!movimentacao) this.Principal.anims.play("front", true);
+            movimentacao = true;
         }
 
-        if (!moveu) this.Principal.anims.stop(); // Para a animação se o player soltar as teclas
+        if (!movimentacao) this.Principal.anims.stop(); // Para a animação se o player soltar as teclas
 
         // LÓGICA DE PROXIMIDADE TEOREMA DE Pitágoras AULA DE MATEMATICA
         let targetX, targetY;
