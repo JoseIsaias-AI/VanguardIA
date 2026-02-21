@@ -151,6 +151,8 @@ Sophia é a protagonista controlável do jogo, uma estagiária, engenheira e cie
 
 <sub>Fonte: Material produzido pelos autores (2026). </sub><br>
 
+</div>
+
 ### 3.2.2. Non-Playable Characters (NPC)
 
 *\<opcional\> Se existirem coadjuvantes ou vilões, aqui é o local para descrevê-los e ilustrá-los. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes. Caso não existam NPCs, remova esta seção.*
@@ -165,6 +167,8 @@ O nosso jogo possui outros 2 personagens. O primeiro é o Asimov, o companheiro 
 
 <sub>Fonte: Material produzido pelos autores (2026). </sub><br>
 
+</div>
+
 O segundo e menos desenvolvido na história do jogo é o cientista-chefe Watson, responsável por idealizar o plano de salvação da humanidade, sendo um pesquisador visionário e estratégico que previu o risco da dependência excessiva da inteligência artificial. Foi ele quem concebeu a criação do robô Asimov e decidiu pelo congelamento criogênico de Sophia, acreditando que, caso uma calamidade tecnológica acontecesse no futuro, alguém com pensamento crítico humano poderia despertar e restaurar o equilíbrio do mundo.
 
 <div align = "center">
@@ -174,6 +178,8 @@ O segundo e menos desenvolvido na história do jogo é o cientista-chefe Watson,
 <img src="../assets/Personagens/cientLider.png"><br>
 
 <sub>Fonte: Material produzido pelos autores (2026). </sub><br>
+
+</div>
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
