@@ -101,27 +101,35 @@ O perfil mais representativo do nosso usuário é o de um jovem de renda média-
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-*Descreva o que o jogador deve cumprir para avançar ou concluir o jogo*
+*Descreva o que o jogador deve cumprir para avançar ou concluir o jogo* O objetivo do jogo é ensinar o básico de inteligência artificial de um jeito divertido e que prenda a atenção do usuário (através de minigames e puzzles) , sempre tentando fazê-lo se conectar com a história e os personagens de um modo que seu aprendizado seja mais eficiente. E com isso, queremos despertar o interesse dos universitários sobre o assunto IA para que eles busquem os cursos de tecnologia da IBM.
 
-## 2.2. Características do Jogo (sprint 2)
+
+## 2.2. Características do Jogo (sprint 2) 
+O jogo é uma historia repleta de acão onde a protagonista deverá passar por desafios e durantes eles irá aprender sobre os fundamentos basicos da IA. O jogo tem graficos simples feitos no Piskel. Os personagens são a peca chave para o jogo, todos tem um contexto, historia e motivacões, assim deixando o jogador mais conectado com o jogo. 
 
 ### 2.2.1. Gênero do Jogo (sprint 2)
 
-*simulação, RPG, corrida, estratégia, esportes, ação, aventura etc.*  
+*simulação, RPG, corrida, estratégia, esportes, ação, aventura etc.*  O gênero do nosso jogo é o modo história e ação, com o objetivo de ensinar.
+
 
 ### 2.2.2. Plataforma do Jogo (sprint 2)
 
-*quanto ao dispositivo: desktop, smartphones, tablets, TV etc.*
+*quanto ao dispositivo: desktop, smartphones, tablets, TV etc.* 
 
-*quanto ao sistema: navegadores compatíveis*
+*quanto ao sistema: navegadores compatíveis* Nosso jogo estará disponível para todos os tipos de PC.
+
+
 
 ### 2.2.3. Número de jogadores (sprint 2)
 
-*1 jogador, 2 jogadores versus, 2 jogadores cooperação, multiplayer etc.*
+*1 jogador, 2 jogadores versus, 2 jogadores cooperação, multiplayer etc.* Apenas um jogador. Nosso jogo é uma história onde apenas 1 jogador é controlável, a nossa protagonista Sophia.
+
 
 ### 2.2.4. Títulos semelhantes e inspirações (sprint 2)
 
-*Liste e descreva títulos semelhantes e jogos que inspiram e são usados como referência do projeto*
+*Liste e descreva títulos semelhantes e jogos que inspiram e são usados como referência do projeto* Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensinar o usuário) , Hollow Knight (Design, como a luz em torno do personagem), Spaceship Runner e Among Us ( Gráfico e puzzles) , a inteligência artificial Learn Ia (Desenvolvimento de habilidades de IA, baseado em textos).
+
+
 
 ### 2.2.5. Tempo estimado de jogo (sprint 5)
 
