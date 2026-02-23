@@ -356,6 +356,17 @@ Para os próximos passos, o grupo deseja implementar os requisitos 3 e 4, adicio
 2 | posicionar o personagem em local seguro de inimigos | aguardar o tempo passar até o final da contagem | o personagem deve perder uma vida e reiniciar a fase
 3 | ...
 
+pré-condição | descrição do teste | pós-condição
+partida iniciada | pressionar teclas WASD ou setas | personagem se move corretamente nas direções corretamente 
+personagem próximo a obstáculo/colisão | movimentar personagem contra a parede/objeto | personagem não atravessa a parede ou o objeto
+missão ativa | completar objetivo da missão | missão marcada como concluída e recompensa entregue
+partida iniciada | jogar por 30 min em qualidade alta | FPS estável
+usuário acessa URL do jogo | clica em ´´iniciar`` | jogo inicia corretamente 
+jogador atinge condição de derrota | continuar jogando até perder | reiniciar a fase 
+jogo publicado online | abrir o jogo em diferentes navegadores | jogo funciona corretamente em todas
+
+
+
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
 ### 5.2.1 Registros de testes
