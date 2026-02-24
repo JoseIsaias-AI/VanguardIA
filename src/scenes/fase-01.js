@@ -8,8 +8,9 @@ export class Fase01 extends Phaser.Scene {
 
     preload() {
         // Carregando assets visuais estáticas do laboratório
-        this.load.image('CInicial', '../assets/Fases/lab01-2.png');
-        this.load.image('CFuturo', '../assets/Fases/lab01-1.png');
+        this.load.image('Lab1', '../assets/laboratórioBranco.png');
+        this.load.image("Perifericos", '../assets/periféricosLaboratórioBranco.png');
+        this.load.image('CFuturo', '../assets/Fases/laboratórioBranco.png');
         this.load.image('camara', '../assets/camara.png');
 
         // Carregando spritesheets
@@ -22,14 +23,17 @@ export class Fase01 extends Phaser.Scene {
         // Variáveis de estado
         this.lendoMensagem = false; // Bloqueia movimento se o jogador estiver lendo
         this.podeInteragir = false; // Indica se o jogador está próximo de um item interativo
-        this.scaleMapa = 0.3;
+        this.scaleMapa = 2.5;
         
         // Controle da narrativa: 0 = Falar com a Máquina, 1 = Abrir o Baú
         this.progressoHistoria = 0; 
 
         // Posicionamento do cenário
-        this.mapa = this.add.image(600, 400, "CInicial").setScale(this.scaleMapa);
+        this.mapa = this.add.image(600, 400, "Lab1").setScale(this.scaleMapa);
         this.mapa.setDepth(-10); // Garante que o chão fique atrás de tudo
+
+        this.perifericos = this.add.image(600, 400, "Perifericos").setScale(this.scaleMapa);
+        
 
         //  Criação do objetos interativos
         this.camara = this.add.image(600, 300, 'camara').setScale(0.2);
