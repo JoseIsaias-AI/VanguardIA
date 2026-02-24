@@ -86,9 +86,32 @@ GOOGLE CLOUD. Google Cloud Skills Boost. Disponível no site oficial do Google C
 
 *Posicione aqui a análise SWOT relacionada ao parceiro de projeto. Utilize a análise SWOT para fazer uma análise ambiental do parceiro no âmbito estratégico. Leve em consideração o contexto da indústria, concorrência e as características do ambiente interno (forças e fraquezas) e externo (oportunidades e ameaças) do parceiro.*
 
+<img src="../assets/SWOT_-_Projeto_Jogo_IBM.png">
+
+**Forças**
+As principais forças do projeto decorrem da parceria com a IBM. A associação a uma gigante da tecnologia confere credibilidade imediata ao jogo, funcionando como uma chancela de qualidade desde o seu lançamento. Além do peso da marca, a IBM conta com especialistas em IA que podem colaborar na curadoria e validação dos conteúdos educacionais, garantindo rigor técnico e relevância no aprendizado. Outro ponto forte é a base já consolidada do Skills Build, permitindo se apoiar nos conteúdos existentes no curso e utilizar dados e feedbacks da plataforma para orientar decisões de design instrucional e de jogabilidade.
+
+**Fraquezas**
+As fraquezas são, em boa medida, o reverso das forças. A vinculação a uma big tech consolidada traz consigo processos burocráticos que podem ser restritivos para um projeto em fase inicial. Toda decisão relevante depende de validação institucional da IBM, o que pode comprometer a agilidade necessária nas primeiras etapas de desenvolvimento. Há também uma dependência de dados e de políticas internas da empresa — como regras de uso de marca, propriedade intelectual e compliance — que podem gerar atrasos e limitar a autonomia criativa da equipe.
+
+**Oportunidades**
+A maior oportunidade é o crescimento acelerado do mercado de IA e a lacuna de conhecimento que ainda existe na população brasileira. Segundo a pesquisa "Consumo e uso de Inteligência Artificial no Brasil", realizada pelo Observatório Fundação Itaú em parceria com o Datafolha, 94% das pessoas das classes A/B já ouviram falar de IA, 88% na classe C e 66% nas classes D/E. Para 75% dos entrevistados, a IA já faz parte do cotidiano — 32% dizem que "muito" e 43% que "um pouco" CNN. No entanto, quando solicitados a definir o que é IA, poucos fazem menções ao modo como ela opera, apenas 14% citam a simulação da inteligência humana, 12% a descrevem como inovação tecnológica e 6% mencionam seu impacto na sociedade. Somadas, essas categorias representam cerca de 32% dos entrevistados — o que revela um público potencial enorme, especialmente entre jovens das classes C, D e E que têm contato com a tecnologia, mas carecem de conhecimento estruturado sobre como ela funciona.
+Além disso, o mercado de gamificação na educação está em franca expansão. De acordo com a Market Data Forecast, o mercado global de gamificação educacional foi avaliado em US$ 1,14 bilhão em 2024 e deve alcançar US$ 18,63 bilhões até 2033, com uma taxa de crescimento anual composta (CAGR) de 36,4%. Portanto, um jogo educacional sobre IA, lançado nesse contexto, nos posiciona como early adopters na interseção entre gamificação e ensino de tecnologia. O projeto também se alinha ao 4º Objetivo de Desenvolvimento Sustentável da ONU (Educação de Qualidade), ao democratizar o acesso a conteúdos introdutórios de IA de forma gratuita.
+
+**Ameaças**
+A principal ameaça é a concorrência. Uma busca simples por "curso introdutório de IA" no Google retorna diversas opções gratuitas — como o curso do Centro Paula Souza —, e o próprio Skills Build original pode ser percebido como alternativa mais direta e tradicional. O fato de o jogo adotar uma abordagem pedagógica diferenciada é ao mesmo tempo um diferencial e um risco, já que parte do público pode preferir métodos de ensino convencionais, especialmente num primeiro contato com o tema. Outra ameaça relevante é a velocidade de obsolescência dos conteúdos. Em uma área em que avanços disruptivos ocorrem em questão de meses, manter o jogo atualizado exigirá um processo contínuo de revisão, o que representa um custo operacional significativo.
+
+
 ### 1.1.3. Missão / Visão / Valores (sprint 2)
 
-*Posicione aqui a Missão, Visão e Valores do seu projeto.*
+**Missão: **
+Democratizar o acesso a conhecimentos sobre de IA para jovens de todas as classes sociais através da gamificação.
+
+**Visão: **
+Ser um modelo nacional na implementação da gamificação para educação de IA de maneira inclusiva. 
+
+**Valores: **
+Educação lúdica, democratização da IA, ensino nativo digital, aprendizado por descoberta, lisura e ética em IA.
 
 ### 1.1.4. Proposta de Valor (sprint 4)
 
