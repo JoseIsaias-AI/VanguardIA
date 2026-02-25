@@ -471,6 +471,9 @@ SOBRENOME, Nome. Título do livro: subtítulo do livro. Edição. Cidade de publ
 INTELI. Adalove. Disponível em: https://adalove.inteli.edu.br/feed. Acesso em: 1 out. 2023 <br>
 SOBRENOME, Nome. Título do site. Disponível em: link do site. Acesso em: Dia Mês Ano
 
+ZAKI, Adam. Less than a third of companies follow AI adoption best practices. Disponível em: https://www.cfo.com/news/less-than-third-of-companies-following-all-of-mckinseys-ai-best-practices-/742279/. Acesso em: 24 fev. 2026. <br>
+NORONHA, Heloísa. Rede pública x rede privada: onde estudam os brasileiros, conforme o IBGE. Disponível em: https://www.cnnbrasil.com.br/educacao/rede-publica-x-rede-privada-onde-estudam-os-brasileiros-conforme-o-ibge/. Acesso em: 24 fev. 2026.
+
 # <a name="c8"></a>Anexos
 
 *Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)*
