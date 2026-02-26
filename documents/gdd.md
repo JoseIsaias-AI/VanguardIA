@@ -294,6 +294,43 @@ Considerando que o público-alvo são estudantes universitários interessados em
 
 *Descreva como os personagens se movem no mundo criado e as relações entre as locações – como as áreas/fases são acessadas ou desbloqueadas, o que é necessário para serem acessadas etc. Utilize listas ou tabelas para organizar esta seção.*
 
+# Movimentação dos Personagens
+
+## Controles de Movimento
+
+| Tecla | Ação |
+| :--- | :--- |
+| **W** | Move o personagem para frente |
+| **A** | Move o personagem para a esquerda |
+| **S** | Move o personagem para trás |
+| **D** | Move o personagem para a direita |
+
+---
+
+## Interações
+A tecla **E** é utilizada para interagir com:
+* **Itens do cenário**
+* **NPCs**
+* **Objetos interativos**
+
+---
+
+## Tipo de Movimentação
+* **Perspectiva:** Terceira pessoa
+* **Exploração:** Livre dentro do mapa da fase atual
+
+---
+
+## Estrutura e Funcionamento
+
+| Elemento | Funcionamento |
+| :--- | :--- |
+| **Estrutura das fases** | Linear |
+| **Ordem das fases** | Sequencial e pré-definida |
+| **Condição para avançar** | Concluir todas as tasks da fase |
+| **Resultado do avanço** | Desbloqueio de nova área |
+| **Progressão narrativa** | Acontece a cada fase concluída |
+
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
 
 *\<opcional\> Descreva diferentes condições de clima que podem afetar o mundo e as fases, se aplicável*
