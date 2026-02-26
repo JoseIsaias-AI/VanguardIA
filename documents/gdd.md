@@ -57,29 +57,29 @@ https://abra.com.br/artigos/a-industria-de-games-br-e-o-nicho-de-jogos-educativo
 
 *Posicione aqui o modelo de 5 Forças de Porter para sustentar o contexto da indústria.*
 
-1. Ameaça de Novos Entrantes (Ameaça Média)
+1. **Ameaça de Novos Entrantes (Ameaça Média)**
 
 A criação de jogos educativos focados em Inteligência Artificial exige a superação de altas barreiras de entrada, principalmente no que tange ao conhecimento técnico. Para ingressar nesse mercado, uma nova empresa precisa dominar simultaneamente duas áreas complexas: o desenvolvimento de jogos (Game Design) e a própria engenharia de IA. A falta dessa expertise técnica rigorosa pode levar à criação de produtos com falhas conceituais, ensinando estruturas de IA de forma incorreta.
 
-Apesar dessas barreiras técnicas protegerem o mercado, a alta atratividade e o "boom" da IA podem incentivar startups e novas empresas a investirem pesado em aprendizagem gamificada. A entrada de novos players tornaria o mercado mais competitivo, forçando inovações contínuas, novas mecânicas e maior aprofundamento técnico nos jogos.
+Apesar dessas barreiras técnicas protegerem o mercado, a alta atratividade e o "boom" da IA podem incentivar startups e novas empresas a investirem pesado em aprendizagem gamificada. A entrada de novos players tornaria o mercado mais competitivo, forçando constante inovação na atratividade dos jogos.
 
-2. Ameaça de Produtos Substitutos (Ameaça Alta)
+2. **Ameaça de Produtos Substitutos (Ameaça Alta)**
 
 Existem plataformas de educação já consolidadas que distribuem ensino de tecnologia de diversas formas altamente acessíveis. Plataformas de vídeo gratuitas, como o YouTube (ex: canal Curso em Vídeo), ensinam de forma didática e estimulam a prática por meio de desafios. Paralelamente, plataformas de ensino remoto por assinatura, como Alura e AWS Skill Builder, além de bootcamps ágeis como a DIO, oferecem rotas de aprendizagem validadas pelo mercado.
 
 Esses substitutos são altamente relevantes, possuem um vasto leque de didáticas diferentes e forte reconhecimento. Como o objetivo final do usuário é "aprender IA", metodologias não gamificadas tradicionais representam um alto risco de substituição pela sua praticidade e abundância.
 
-3. Poder de Barganha dos Fornecedores (Poder Alto) 
+3. **Poder de Barganha dos Fornecedores (Poder Alto)** 
 
 Em projetos de tecnologia e desenvolvimento de software, a principal "matéria-prima" é o capital intelectual. O desenvolvimento de um jogo educativo de IA exige especialistas de nicho: engenheiros de IA, desenvolvedores de jogos experientes e Game Designers/roteiristas capazes de criar engajamento contínuo. O poder de barganha desses profissionais é altíssimo, pois são escassos e disputados por diversas indústrias globais. A gamificação deixou de ser apenas uma dinâmica isolada e tornou-se uma decisão estratégica de produto. Consequentemente, o valor de mercado desses especialistas é muito elevado — como evidenciado na matéria do site Exame ‘’A carreira de IA que ninguém te contou e pode pagar até R$ 1,5 milhão por ano”, no qual cargos como Engenheiro de Prompt podem atingir salários excepcionais devido à alta demanda.
 
 https://exame.com/carreira/a-carreira-de-ia-que-ninguem-te-contou-e-pode-pagar-ate-rs-150-mil-por-ano/
 
-4. Poder de Barganha dos Clientes (Poder Médio) 
+4. **Poder de Barganha dos Clientes (Poder Médio)**
 
 O público-alvo abrange desde estudantes do ensino médio e universitários até profissionais em transição de carreira que buscam uma introdução facilitada ao mundo da IA. Atualmente, a maioria dos cursos tradicionais exige a leitura prolongada de documentações complexas ou a visualização de vídeos com alta carga matemática, o que afasta o iniciante. Nesse cenário, um jogo educativo reduz a fricção do aprendizado prático, oferecendo uma proposta de valor quase única e diminuindo o poder do cliente por falta de equivalentes diretos. No entanto, o custo de troca (switching cost) no mercado de educação digital é baixíssimo; se o jogo não for engajador ou falhar em explicar a IA de maneira adequada e aplicável, o cliente pode facilmente migrar para os substitutos mencionados anteriormente, mantendo o poder de barganha em um nível médio.
 
-5. Rivalidade entre Concorrentes (Rivalidade Baixa) 
+5. **Rivalidade entre Concorrentes (Rivalidade Baixa)** 
 
 O mercado de ensino gamificado de IA ainda está em sua fase inicial de maturação, o que significa que há poucos players diretos, mas os que existem são gigantes da tecnologia atuando em subáreas específicas. Entre os concorrentes destacam-se o AWS DeepRacer, que utiliza um simulador 3D gamificado focado estritamente em Aprendizado por Reforço, e o Google Cloud Skills Boost, que utiliza laboratórios práticos e um sistema de badges (conquistas) para o ensino de IA na nuvem. Embora essas grandes empresas dominem nichos segmentados, suas ferramentas costumam ter limitações de uso atreladas a custos de infraestrutura (versões pagas após testes) ou focam exclusivamente em seus próprios ecossistemas corporativos. Isso indica que há espaço no mercado para uma solução de jogo independente, focada na didática universal da IA, resultando em uma rivalidade ainda moderada, mas de peso.
 
@@ -114,13 +114,16 @@ A principal ameaça é a concorrência. Uma busca simples por "curso introdutór
 
 ### 1.1.3. Missão / Visão / Valores (sprint 2)
 
-**Missão: **
+**Missão:**
+
 Democratizar o acesso a conhecimentos sobre de IA para jovens de todas as classes sociais através da gamificação.
 
-**Visão: **
+**Visão:**
+
 Ser um modelo nacional na implementação da gamificação para educação de IA de maneira inclusiva. 
 
-**Valores: **
+**Valores:**
+
 Educação lúdica, democratização da IA, ensino nativo digital, aprendizado por descoberta, lisura e ética em IA.
 
 ### 1.1.4. Proposta de Valor (sprint 4)
@@ -208,6 +211,24 @@ O jogo é uma historia repleta de acão onde a protagonista deverá passar por d
 *Descreva o enredo/história do jogo, criando contexto para os personagens (seção 3.2) e o mundo do jogo (seção 3.3). Uma boa história costuma ter um arco narrativo de contexto, conflito e resolução. Utilize etapas sequenciais para descrever esta história.* 
 
 *Caso seu jogo não possua enredo/história (ex. jogo Tetris), mencione os motivos de não existir e como o jogador pode se contextualizar com o ambiente do jogo.*
+
+Em um mundo onde a Inteligência Artificial ainda está em fase de desenvolvimento, surge a constante indagação sobre como essa tecnologia afetará o futuro da sociedade. A narrativa tem início em 2022, em um laboratório de pesquisa focado em aprendizado de máquina e robótica, repleto de profissionais renomados. Entre eles destaca-se Sophia, uma cientista brilhante reconhecida por sua curiosidade inata, mente analítica e criatividade na resolução de problemas. Ao iniciar o jogo, nós a encontramos no laboratório, rodeada por colegas que conduzem seus experimentos.
+
+Logo, Sophia é convocada para uma conversa com Watson, o cientista-chefe visionário responsável por ideias únicas. O diálogo gira em torno do perigo iminente que as criações dos agentes robóticos autônomos projetados para automatizar tarefas humanas, do laboratório, podem representar no futuro. Com a idade avançada, Watson tem um mau pressentimento: ele teme que a liderança do projeto caia em mãos erradas e que a tecnologia seja utilizada para ganho de poder e dominação.
+
+Para evitar esse cenário trágico, o líder convence Sophia a passar por um processo de criogenia. Seu corpo seria totalmente congelado para despertar apenas em 2099, tornando-se a esperança de um final promissor para o destino das máquinas inteligentes. Embora receosa, a cientista aceita, pois dedicou toda a sua vida à ciência. A relação dos dois, no entanto, vai além do ambiente profissional: Watson a adotou no passado, tornando-a sua filha e companheira de pesquisas até ela se consolidar como uma grande referência na área. Contudo, esse laço gera atrito com os demais colegas, que não a consideram digna de herdar o legado da empresa por não compartilhar do mesmo sangue do criador. Com profunda tristeza no olhar, Sophia se despede do pai adotivo, prometendo fazer o impossível para que suas criações sejam usadas para o bem da sociedade.
+
+Muitas décadas depois, a câmara criogênica se abre e a protagonista desperta em um mundo futuro e desconhecido. O antigo laboratório encontra-se em ruínas. Os piores temores de Watson se confirmaram: a realidade foi devastada pelo uso de IAs treinadas com o intuito de destruir o bem comum. Antes do congelamento, seu pai a havia alertado sobre Asimov, um robô criado por ele e mantido em absoluto segredo. Dotado de uma personalidade lógica, comportamento protetor e inteligência extrema, Asimov é capaz de solucionar qualquer dilema. Encontrá-lo torna-se, então, a missão principal de Sophia.
+
+Ao explorar os escombros, ela chega a um depósito de sucata eletrônica da antiga instalação. Lá, localiza Asimov, um robô de um olho só, que apresenta diversas falhas sistêmicas e perda de memória. Sem acesso físico direto a ele, a protagonista precisa guiá-lo verbalmente para fora dos destroços. O jogador passa, então, por três caminhos horizontais repletos de obstáculos. Superada essa fase, Asimov consolida-se como um companheiro de jornada.
+
+A partir desse momento, o objetivo central passa a ser o reaprendizado sobre IAs. Embora o robô detenha o conhecimento necessário, seus danos técnicos fazem com que as informações sejam repassadas de forma fragmentada. Para restaurar o banco de dados completo de Asimov, Sophia precisa de um item fundamental: um cristal de silício que deve ser inserido na estrutura interna da máquina.
+
+Sabendo disso, a cientista sai das ruínas do laboratório em busca dos parâmetros corretos para forjar esse cristal. Os dados estão armazenados em uma das muitas antigas sedes corporativas da região. Como procurar de porta em porta seria inviável, Sophia utiliza suas habilidades para treinar uma rede neural artificial e classificar as características visuais de uma porta específica o qual a leva para o lugar correto.
+
+No interior da instalação, ela encontra diversos arquivos detalhando minerais raros. Mais uma vez, é necessário treinar o sistema, agora para classificar e separar os dados entre "cristal adequado" e "cristal inadequado". Assim que localiza as especificações corretas, a Sophia corre contra o tempo, já que Asimov está prestes a desligar permanentemente.
+
+Sophia se dirige ao hub de fabricação e insere todas as características processadas na cúpula central para iniciar a sintetização. Com o mineral forjado, ela finalmente o acopla ao robô, garantindo sua recuperação total e reativando a esperança para o futuro.
 
 ## 3.2. Personagens (sprints 2 e 3)
 
