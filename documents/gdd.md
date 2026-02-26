@@ -115,7 +115,7 @@ A principal ameaça é a concorrência. Uma busca simples por "curso introdutór
 
 **Missão:**
 
-Democratizar o acesso a conhecimentos sobre de IA para jovens de todas as classes sociais através da gamificação com um jogo de web fácil acesso.
+Democratizar o acesso a conhecimentos sobre de IA para jovens de todas as classes sociais através da gamificação com um jogo web de fácil acesso.
 
 **Visão:**
 
