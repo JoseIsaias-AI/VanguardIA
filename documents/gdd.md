@@ -340,9 +340,7 @@ _**Estrutura e Funcionamento**_
 
 *Inclua imagens de Concept Art do jogo que ainda não foram demonstradas em outras seções deste documento. Para cada imagem, coloque legendas, como no exemplo abaixo.*
 
-<img src="../assets/concept1.jpg">
-
-Figura 1: detalhe da cena da partida do herói para a missão, usando sua nave
+Link para o acesso do Concept Art no docs: https://docs.google.com/document/d/19yr0fiV42CK17oZ3km1qEDT_DGSezbkxb-5vpMVW58o/edit?usp=sharing
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
