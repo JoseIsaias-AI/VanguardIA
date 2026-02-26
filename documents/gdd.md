@@ -104,8 +104,7 @@ As fraquezas são, em boa medida, o reverso das forças. A vinculação a uma bi
 
 **Oportunidades**
 
-A maior oportunidade é o crescimento acelerado do mercado de IA e a lacuna de conhecimento que ainda existe na população brasileira. Segundo a pesquisa "Consumo e uso de Inteligência Artificial no Brasil", realizada pelo Observatório Fundação Itaú em parceria com o Datafolha, 94% das pessoas das classes A/B já ouviram falar de IA, 88% na classe C e 66% nas classes D/E. Para 75% dos entrevistados, a IA já faz parte do cotidiano — desses 32% dizem que "muito" e 43% que "um pouco". No entanto, quando solicitados a definir o que é IA, poucos fazem menções ao modo como ela opera, apenas 14% citam a simulação da inteligência humana, 12% a descrevem como inovação tecnológica e 6% mencionam seu impacto na sociedade. Somadas, essas categorias representam cerca de 32% dos entrevistados — o que revela um público potencial enorme, especialmente entre jovens das classes C, D e E que têm contato com a tecnologia, mas carecem de conhecimento estruturado sobre como ela funciona.
-Além disso, o mercado de gamificação na educação está em franca expansão. De acordo com a Market Data Forecast, o mercado global de gamificação educacional foi avaliado em US$ 1,14 bilhão em 2024 e deve alcançar US$ 18,63 bilhões até 2033, com uma taxa de crescimento anual composta (CAGR) de 36,4%. Portanto, um jogo educacional sobre IA, lançado nesse contexto, nos posiciona como early adopters na interseção entre gamificação e ensino de tecnologia. O projeto também se alinha ao 4º Objetivo de Desenvolvimento Sustentável da ONU (Educação de Qualidade), ao democratizar o acesso a conteúdos introdutórios de IA de forma gratuita.
+O crescimento acelerado do mercado de IA, aliado à lacuna de conhecimento no Brasil, representa uma grande oportunidade. Embora a maioria da população já tenha ouvido falar em IA e 75% afirmem utilizá-la no cotidiano, poucos sabem defini-la corretamente, revelando um amplo público potencial — especialmente entre jovens das classes C, D e E. Paralelamente, o mercado de gamificação educacional está em forte expansão, com projeções bilionárias e alto crescimento anual. Nesse cenário, um jogo educativo sobre IA nos posiciona como early adopters e contribui para democratizar o acesso ao conhecimento, alinhando-se ao ODS 4 da ONU.
 
 **Ameaças**
 
@@ -294,9 +293,9 @@ Considerando que o público-alvo são estudantes universitários interessados em
 
 *Descreva como os personagens se movem no mundo criado e as relações entre as locações – como as áreas/fases são acessadas ou desbloqueadas, o que é necessário para serem acessadas etc. Utilize listas ou tabelas para organizar esta seção.*
 
-# Movimentação dos Personagens
+_**Movimentação dos Personagens**_
 
-# Controles de Movimento
+**Controles de Movimento**
 
 | Tecla | Ação |
 | :--- | :--- |
@@ -307,7 +306,7 @@ Considerando que o público-alvo são estudantes universitários interessados em
 
 ---
 
-# Interações
+**Interações**
 A tecla **E** é utilizada para interagir com:
 * **Itens do cenário**
 * **NPCs**
@@ -315,13 +314,13 @@ A tecla **E** é utilizada para interagir com:
 
 ---
 
-# Tipo de Movimentação
+**Tipo de Movimentação**
 * **Perspectiva:** Terceira pessoa
 * **Exploração:** Livre dentro do mapa da fase atual
 
 ---
 
-# Estrutura e Funcionamento
+_**Estrutura e Funcionamento**_
 
 | Elemento | Funcionamento |
 | :--- | :--- |
