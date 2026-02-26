@@ -296,7 +296,7 @@ Considerando que o público-alvo são estudantes universitários interessados em
 
 # Movimentação dos Personagens
 
-## Controles de Movimento
+# Controles de Movimento
 
 | Tecla | Ação |
 | :--- | :--- |
@@ -307,7 +307,7 @@ Considerando que o público-alvo são estudantes universitários interessados em
 
 ---
 
-## Interações
+# Interações
 A tecla **E** é utilizada para interagir com:
 * **Itens do cenário**
 * **NPCs**
@@ -315,13 +315,13 @@ A tecla **E** é utilizada para interagir com:
 
 ---
 
-## Tipo de Movimentação
+# Tipo de Movimentação
 * **Perspectiva:** Terceira pessoa
 * **Exploração:** Livre dentro do mapa da fase atual
 
 ---
 
-## Estrutura e Funcionamento
+# Estrutura e Funcionamento
 
 | Elemento | Funcionamento |
 | :--- | :--- |
