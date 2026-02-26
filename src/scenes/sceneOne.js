@@ -150,8 +150,8 @@ export class Scene01 extends Phaser.Scene {
       .setCollideWorldBounds(true);
     this.Principal.setDepth(2); // define que o personagem fica na frente dos objetos
     this.Principal.body.setAllowGravity(false); // desativa a gravidade para o personagem, já que é um jogo top-down
-    this.Principal.setSize(30,35); // ajusta o tamanho do corpo de colisão para ser menor que a sprite
-    this.Principal.setOffset(15, 20); // ajusta o offset do corpo de colisão para centralizar melhor
+    this.Principal.setSize(30, 25); // ajusta o tamanho do corpo de colisão para ser menor que a sprite
+    this.Principal.setOffset(15, 30); // ajusta o offset do corpo de colisão para centralizar melhor
 
     this.physics.add.collider(this.Principal, this.camara); // adiciona colisão entre o personagem e a camara criogenica
     this.physics.add.collider(this.Principal, this.paredes); // adiciona colisão entre o personagem e as paredes
