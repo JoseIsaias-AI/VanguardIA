@@ -8,24 +8,34 @@ export class Scene01 extends Phaser.Scene {
 
     this.load.image("labB", "assets/fases/sceneOne/labBranco.png"); // laboratório branco
     this.load.image("camara", "assets/objetos/sceneOne/partOne/camara.png"); // camara criogenica
-    this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64,frameHeight: 64 }); // spritesheet da sophia (player)
-    this.load.spritesheet("watson", "assets/Personagens/watson.png", { frameWidth: 64,frameHeight: 64 }); // spritesheet da watson (player)
-
-    this.load.image("CFuturo", "assets/fases/sceneOne/labDestruido.png"); // laboratorio destruido
-    this.load.spritesheet("bauanimado", "assets/objetos/bau.png", { frameWidth: 32, frameHeight: 32 }); // bau interativo
+    this.load.spritesheet("sophia", "assets/personagens/sophia.png", {
+      frameWidth: 64,
+      frameHeight: 64,
+    }); // spritesheet da sophia (player)
 
     // objetos do laboratório branco
     this.load.image("armario", "assets/objetos/sceneOne/partOne/armario.png");
     this.load.image("alvo", "assets/objetos/sceneOne/partOne/alvo.png");
-    this.load.image("criogenia", "assets/objetos/sceneOne/partOne/criogenia.png");
+    this.load.image(
+      "criogenia",
+      "assets/objetos/sceneOne/partOne/criogenia.png",
+    );
     this.load.image("mesa1", "assets/objetos/sceneOne/partOne/mesa1.png");
     this.load.image("mesa2", "assets/objetos/sceneOne/partOne/mesa2.png");
     this.load.image("mesa3", "assets/objetos/sceneOne/partOne/mesa3.png");
     this.load.image("pia1", "assets/objetos/sceneOne/partOne/pia1.png");
-    this.load.image("reservasCrio", "assets/objetos/sceneOne/partOne/reservasCrio.png");
-    this.load.image("comptBaixo", "assets/objetos/sceneOne/partOne/comptBaixo.png");
-    this.load.image("comptCima", "assets/objetos/sceneOne/partOne/comptCima.png");
-
+    this.load.image(
+      "reservasCrio",
+      "assets/objetos/sceneOne/partOne/reservasCrio.png",
+    );
+    this.load.image(
+      "comptBaixo",
+      "assets/objetos/sceneOne/partOne/comptBaixo.png",
+    );
+    this.load.image(
+      "comptCima",
+      "assets/objetos/sceneOne/partOne/comptCima.png",
+    );
   }
 
   create() {
@@ -36,11 +46,11 @@ export class Scene01 extends Phaser.Scene {
     this.podeInteragir = false; // indica se o jogador está próximo de um item interativo
     this.scaleMapa = 3;
 
-    // Controle da narrativa: 0 = Falar com a Máquina, 1 = Abrir o Baú
-    this.progressoHistoria = 0;
-
     // criando o mapa //
-    this.mapa = this.add.image(600, 400, "labB").setScale(this.scaleMapa).setDepth(-1); // define this.mapa como a imagem do laboratorio e define que estara no fundo
+    this.mapa = this.add
+      .image(600, 400, "labB")
+      .setScale(this.scaleMapa)
+      .setDepth(-1); // define this.mapa como a imagem do laboratorio e define que estara no fundo
 
     // criando uma barreira no laboratorio -> paredes //
     let larguraParede = this.mapa.displayWidth; // define a largura da parede como o tamanho do mapa
@@ -101,28 +111,65 @@ export class Scene01 extends Phaser.Scene {
     this.paredes.add(paredeDireita);
 
     // adicionando os objetos //
-    this.armario = this.add.image(220, 10, "armario").setScale(3.25).setDepth(1); // armário do laboratório
-    this.armario2 = this.add.image(980, 10, "armario").setScale(3.25).setDepth(1); // armário 2 do laboratório
+    this.armario = this.add
+      .image(220, 10, "armario")
+      .setScale(3.25)
+      .setDepth(1); // armário do laboratório
+    this.armario2 = this.add
+      .image(980, 10, "armario")
+      .setScale(3.25)
+      .setDepth(1); // armário 2 do laboratório
     this.alvo = this.add.image(215, 275, "alvo").setScale(3).setDepth(1); // mesa de alvo
     this.alvo2 = this.add.image(965, 375, "alvo").setScale(3.1).setDepth(1); // mesa de alvo
-    this.criogenia = this.add.image(600, 6, "criogenia").setScale(3).setDepth(1); // criogenia
+    this.criogenia = this.add
+      .image(600, 6, "criogenia")
+      .setScale(3)
+      .setDepth(1); // criogenia
     this.mesa1 = this.add.image(190, 140, "mesa1").setScale(3).setDepth(1); // mesa 1
     this.mesa1b = this.add.image(993, 518, "mesa1").setScale(3).setDepth(1); // mesa 2
     this.mesa2 = this.add.image(343, 20, "mesa2").setScale(3).setDepth(1); // mesa 2
     this.mesa3 = this.add.image(858, 18, "mesa3").setScale(3).setDepth(1); // mesa 3
     this.pia1 = this.add.image(203, 470, "pia1").setScale(3).setDepth(1); // pia
-    this.reservasCrio = this.add.image(1023, 165, "reservasCrio").setScale(3).setDepth(1); // reservas da criogenia
-    this.comutador1prt1 = this.add.image(385, 220, "comptCima").setScale(3).setDepth(3); // comutador 1 parte 1
-    this.comutador1prt2 = this.add.image(385, 260, "comptBaixo").setScale(3).setDepth(1); // comutador 1 parte 2
-    this.comutador2prt1 = this.add.image(812, 220, "comptCima").setScale(3).setDepth(3); // comutador 2 parte 1
-    this.comutador2prt2 = this.add.image(812, 260, "comptBaixo").setScale(3).setDepth(1); // comutador 2 parte 2
-    this.comutador3prt1 = this.add.image(385, 410, "comptCima").setScale(3).setDepth(3); // comutador 3 parte 1
-    this.comutador3prt2 = this.add.image(385, 450, "comptBaixo").setScale(3).setDepth(1); // comutador 3 parte 2
-    this.comutador4prt1 = this.add.image(812, 410, "comptCima").setScale(3).setDepth(3); // comutador 4 parte 1
-    this.comutador4prt2 = this.add.image(812, 450, "comptBaixo").setScale(3).setDepth(1); // comutador 4 parte 2
-    this.camara = this.physics.add.staticImage(600, 20, "camara").setScale(0.25).refreshBody(); // camara criogenica
-    this.bau = this.add.sprite(600, 300, "bauanimado").setScale(2.3); // baú interativo, começa invisível e só aparece na segunda parte da história
-    this.bau.setVisible(false);
+    this.reservasCrio = this.add
+      .image(1023, 165, "reservasCrio")
+      .setScale(3)
+      .setDepth(1); // reservas da criogenia
+    this.comutador1prt1 = this.add
+      .image(385, 220, "comptCima")
+      .setScale(3)
+      .setDepth(3); // comutador 1 parte 1
+    this.comutador1prt2 = this.add
+      .image(385, 260, "comptBaixo")
+      .setScale(3)
+      .setDepth(1); // comutador 1 parte 2
+    this.comutador2prt1 = this.add
+      .image(812, 220, "comptCima")
+      .setScale(3)
+      .setDepth(3); // comutador 2 parte 1
+    this.comutador2prt2 = this.add
+      .image(812, 260, "comptBaixo")
+      .setScale(3)
+      .setDepth(1); // comutador 2 parte 2
+    this.comutador3prt1 = this.add
+      .image(385, 410, "comptCima")
+      .setScale(3)
+      .setDepth(3); // comutador 3 parte 1
+    this.comutador3prt2 = this.add
+      .image(385, 450, "comptBaixo")
+      .setScale(3)
+      .setDepth(1); // comutador 3 parte 2
+    this.comutador4prt1 = this.add
+      .image(812, 410, "comptCima")
+      .setScale(3)
+      .setDepth(3); // comutador 4 parte 1
+    this.comutador4prt2 = this.add
+      .image(812, 450, "comptBaixo")
+      .setScale(3)
+      .setDepth(1); // comutador 4 parte 2
+    this.camara = this.physics.add
+      .staticImage(600, 20, "camara")
+      .setScale(0.25)
+      .refreshBody(); // camara criogenica
 
     // adiciona colisão a todos os objetos do laboratório pela função criarColisao
     this.criarColisao(this.armario);
@@ -198,17 +245,32 @@ export class Scene01 extends Phaser.Scene {
     this.caixaDialogo = this.add.graphics();
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
     this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.fillRoundedRect(
+      xCaixa,
+      yCaixa,
+      larguraCaixa,
+      alturaCaixa,
+      15,
+    );
+    this.caixaDialogo.strokeRoundedRect(
+      xCaixa,
+      yCaixa,
+      larguraCaixa,
+      alturaCaixa,
+      15,
+    );
     this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
 
-    this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 35, "", {
-      fontSize: "26px",
-      fontFamily: "'Courier New', Courier, monospace",
-      color: "#ccffff",
-      wordWrap: { width: larguraCaixa - 80 },
-      lineSpacing: 10,
-    }).setScrollFactor(0).setDepth(101);
+    this.textoDialogo = this.add
+      .text(xCaixa + 40, yCaixa + 35, "", {
+        fontSize: "26px",
+        fontFamily: "'Courier New', Courier, monospace",
+        color: "#ccffff",
+        wordWrap: { width: larguraCaixa - 80 },
+        lineSpacing: 10,
+      })
+      .setScrollFactor(0)
+      .setDepth(101);
 
     //  Inputs e câmera
     this.cursors = this.input.keyboard.createCursorKeys(); // Define setas do teclado como cursor
@@ -220,13 +282,39 @@ export class Scene01 extends Phaser.Scene {
     // Configurações da animação
     // Se a animação 'left' ainda não existir (prevenção de erro ao trocar de cena)
     if (!this.anims.exists("left")) {
-      this.anims.create({ key: "left", frames: this.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "right",  frames: this.anims.generateFrameNumbers("sophia", { start: 16, end: 21}), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "front",  frames: this.anims.generateFrameNumbers("sophia", { start: 0, end: 7 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "back", frames: this.anims.generateFrameNumbers("sophia", { start: 8, end: 15 }), frameRate: 10, repeat: -1});
-
-      this.anims.create({ key: "fechado", frames: [{ key: "bauanimado", frame: 0 }], frameRate: 1});
-      this.anims.create({ key: "abrindo", frames: this.anims.generateFrameNumbers("bauanimado", { start: 0, end: 1 }), frameRate: 2, repeat: 0 });
+      this.anims.create({
+        key: "left",
+        frames: this.anims.generateFrameNumbers("sophia", {
+          start: 24,
+          end: 29,
+        }),
+        frameRate: 10,
+        repeat: -1,
+      });
+      this.anims.create({
+        key: "right",
+        frames: this.anims.generateFrameNumbers("sophia", {
+          start: 16,
+          end: 21,
+        }),
+        frameRate: 10,
+        repeat: -1,
+      });
+      this.anims.create({
+        key: "front",
+        frames: this.anims.generateFrameNumbers("sophia", { start: 0, end: 7 }),
+        frameRate: 10,
+        repeat: -1,
+      });
+      this.anims.create({
+        key: "back",
+        frames: this.anims.generateFrameNumbers("sophia", {
+          start: 8,
+          end: 15,
+        }),
+        frameRate: 10,
+        repeat: -1,
+      });
     }
   }
 
@@ -269,20 +357,16 @@ export class Scene01 extends Phaser.Scene {
 
     if (!movimentacao) this.Principal.anims.stop(); // Para a animação se o player soltar as teclas
 
-    // LÓGICA DE PROXIMIDADE TEOREMA DE Pitágoras AULA DE MATEMATICA
-    let targetX, targetY;
-
-    // Verifica se estamos na parte da máquina ou do baú
-    if (this.progressoHistoria === 0) {
-      targetX = this.camara.x;
-      targetY = this.camara.y;
-    } else {
-      targetX = this.bau.x;
-      targetY = this.bau.y;
-    }
+    let targetX = this.camara.x;
+    let targetY = this.camara.y;
 
     // Calcula a distância entre dois pontos (Personagem e Objeto)
-    let distancia = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, targetX, targetY);
+    let distancia = Phaser.Math.Distance.Between(
+      this.Principal.x,
+      this.Principal.y,
+      targetX,
+      targetY,
+    );
 
     // Mostra o botão "E" se estiver perto do objeto
     if (distancia < 140) {
@@ -296,14 +380,7 @@ export class Scene01 extends Phaser.Scene {
 
     // Ação ao apertar a tecla "E"
     if (this.podeInteragir && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      if (this.progressoHistoria === 0) {
-        this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
-      } else {
-        this.bau.play("abrindo");
-        this.mostrarMensagem(
-          "MISSÃO: O mundo foi destruído.\nSua tarefa é achar o cristal e restaurar a energia da terra!",
-        );
-      }
+      this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
     }
   }
 
@@ -332,7 +409,7 @@ export class Scene01 extends Phaser.Scene {
     // Se apertar E enquanto ainda está escrevendo, ele termina de uma vez (opcional)
     if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
       this.timerEscrever.remove();
-      this.textoDialogo.setText(this.textoAtualArmazenado); 
+      this.textoDialogo.setText(this.textoAtualArmazenado);
       return; // Sai da função para não fechar a caixa ainda
     }
 
@@ -342,51 +419,31 @@ export class Scene01 extends Phaser.Scene {
     this.textoDialogo.setVisible(false);
     this.textoDialogo.setText("");
 
-    if (this.progressoHistoria === 0) {
-      this.viajarNoTempo();
-    } else if (this.progressoHistoria === 1) {
-      this.scene.start("Scene02");
-    }
-
-  }
-  
-
-  viajarNoTempo() {
-    this.lendoMensagem = true; // Trava o player na cut scene
-
-    // Fade Out (Tela preta)
-    this.cameras.main.fadeOut(1000, 0, 0, 0);
+    this.cameras.main.fadeOut(1000);
 
     this.cameras.main.once("camerafadeoutcomplete", () => {
-      // Troca de cenário e objetos
-      this.mapa.setTexture("CFuturo");
-      this.bau.setVisible(true);
-      this.bau.play("fechado");
-
-      // Atualiza fase da história
-      this.progressoHistoria = 1;
-      this.lendoMensagem = false;
-
-      // Fade In (Volta imagem)
-      this.cameras.main.fadeIn(2000, 0, 0, 0);
+      this.scene.start("SceneFuturo");
     });
   }
 
-  criarColisao(objeto, reduzirAltura = 1) { // objeto é a imagmem do objeto, reduzirAltura é um multiplicador para deixar a colisão menor que a imagem se necessário
-  this.physics.add.existing(objeto, true); // cria fisica e diz que é um corpo estático (true)
+  criarColisao(objeto, reduzirAltura = 1) {
+    // objeto é a imagmem do objeto, reduzirAltura é um multiplicador para deixar a colisão menor que a imagem se necessário
+    this.physics.add.existing(objeto, true); // cria fisica e diz que é um corpo estático (true)
 
-  let alturaOriginal = objeto.displayHeight; // pega a altura original da imagem para calcular o novo tamanho do corpo de colisão
+    let alturaOriginal = objeto.displayHeight; // pega a altura original da imagem para calcular o novo tamanho do corpo de colisão
 
-  objeto.body.setSize( // ajusta o tamanho do corpo de colisão para ser igual ao da imagem, mas com a altura reduzida se necessário
-    objeto.displayWidth, 
-    alturaOriginal * reduzirAltura
-  );
+    objeto.body.setSize(
+      // ajusta o tamanho do corpo de colisão para ser igual ao da imagem, mas com a altura reduzida se necessário
+      objeto.displayWidth,
+      alturaOriginal * reduzirAltura,
+    );
 
-  objeto.body.setOffset( // centraliza o offset
-    0, // deixa o offset x em 0 para alinhar com a imagem
-    alturaOriginal * (1 - reduzirAltura) // colisão vertical
-  );
+    objeto.body.setOffset(
+      // centraliza o offset
+      0, // deixa o offset x em 0 para alinhar com a imagem
+      alturaOriginal * (1 - reduzirAltura), // colisão vertical
+    );
 
-  this.objetosColisao.add(objeto); // adiciona o objeto ao grupo de objetos
-}
+    this.objetosColisao.add(objeto); // adiciona o objeto ao grupo de objetos
+  }
 }
