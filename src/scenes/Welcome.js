@@ -1,20 +1,20 @@
-export class Welcome extends Phaser.Scene {
+export class WelcomeScene extends Phaser.Scene {
 
-    alturaJogo = 800;
-    larguraJogo = 1200;
+    alturaJogo = 1080;
+    larguraJogo = 1920;
 
     constructor() {
-        super("Welcome");
+        super("WelcomeScene");
     }
 
     preload () {
-        this.load.image("cenario", "../assets/TeladeLogin/Cenario.png");
-        this.load.image("play", "../assets/TeladeLogin/Play.png");
+        this.load.image("cenario", "../assets/Menu/cenario.png");
+        this.load.image("play", "../assets/Menu/play.png");
     }
 
     create () {
-        this.add.image(this.larguraJogo/2, this.alturaJogo/2, "cenario");
-        this.play = this.add.image(this.larguraJogo/2, 450, "play").setScale(0.225).setInteractive();
+        this.add.image(this.larguraJogo/2, this.alturaJogo/2, "cenario").setScale(1.5);
+        this.play = this.add.image(this.larguraJogo/2, 610, "play").setScale(0.30).setInteractive();
 
         this.play.on( "pointerover", () => {
             this.input.setDefaultCursor("pointer");
