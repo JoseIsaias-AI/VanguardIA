@@ -8,8 +8,8 @@ export class WelcomeScene extends Phaser.Scene {
     }
 
     preload () {
-        this.load.image("cenario", "../assets/Menu/cenario.png");
-        this.load.image("play", "../assets/Menu/play.png");
+        this.load.image("cenario", "assets/menu/cenario.png");
+        this.load.image("play", "assets/menu/play.png");
     }
 
     create () {
@@ -25,7 +25,7 @@ export class WelcomeScene extends Phaser.Scene {
         });
 
         this.play.on( "pointerdown", () => {
-            this.scene.start("Fase01")
+            this.scene.start("Scene01")
         })
     }
 

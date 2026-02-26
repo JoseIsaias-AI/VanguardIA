@@ -1,16 +1,18 @@
-// FASE 2 - A RESTAURAÇÃO
+// FASE 2 - A RESTAURAÇÃO 
 
-export class Fase02 extends Phaser.Scene {
+export class Scene02 extends Phaser.Scene {
   constructor() {
-    super("Fase02");
+    super("Scene02");
   }
 
   preload() {
     // Carregando cenários (Noite e Restaurado)
-    this.load.image("cenarioNoite", "../assets/Fases/labCristal1.jpeg"); // laboratório com cristal
-    this.load.image("cenarioClaro", "../assets/Fases/labCristal2.png"); // laboratório com cristal claro
-    this.load.spritesheet("bauAnimado", "../assets/Objetos/bau.png", { frameWidth: 32, frameHeight: 32});
-    this.load.spritesheet("cientistaLider","../assets/Personagens/watson.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.image("cenarioNoite", "assets/fases/sceneTwo/labCristalEscuro.png"); // laboratório com cristal
+    this.load.image("objetosLabEsc", "assets/objetos/sceneTwo/objetosLabCristal1.png");
+    this.load.image("cenarioClaro", "assets/fases/sceneTwo/labCristalClaro.png"); // laboratório com cristal claro
+    this.load.image("objLabClaro", "assets/objetos/sceneTwo/objetosLabCristal2.png");
+    this.load.spritesheet("bauAnimado", "assets/objetos/bau.png", { frameWidth: 32, frameHeight: 32});
+    this.load.spritesheet("cientistaLider","assets/personagens/watson.png", { frameWidth: 64, frameHeight: 64 });
   }
 
   create() {
@@ -18,15 +20,18 @@ export class Fase02 extends Phaser.Scene {
     this.podeInteragir = false;
     this.temCristal = false; // Flag do inventário
     this.mapaRestaurado = false;
-    this.scaleMapa = 0.8;
+    this.scaleMapa = 3.0;
     this.background = this.add
       .image(600, 400, "cenarioNoite")
+      .setScale(this.scaleMapa);
+    this.objetos = this.add
+      .image(600, 400, "objetosLabEsc")
       .setScale(this.scaleMapa);
 
     // Sistema de colisão
     try {
       this.collisionImage = this.textures.get("colisao").getSourceImage();
-      this.collisionCanvas = document.createElement("canvas"); // Cria um canvas invisívelocidPlayer em memória
+      this.collisionCanvas = document.createElement("canvas"); // Cria um canvas invisívelocidade em memória
       this.collisionCanvas.width = this.collisionImage.width;
       this.collisionCanvas.height = this.collisionImage.height;
       this.collisionCtx = this.collisionCanvas.getContext("2d");
@@ -39,7 +44,7 @@ export class Fase02 extends Phaser.Scene {
     }
 
     // Baú
-    this.bauAnimado = this.add.sprite(525, 200, "bauAnimado").setScale(2.3);
+    this.bauAnimado = this.add.sprite(520, 160, "bauAnimado").setScale(2.3);
     // Garantindo que as anims existam caso Fase 1 não tenha carregado antes
     if (!this.anims.exists("fechado")) {
       this.anims.create({
@@ -89,26 +94,30 @@ export class Fase02 extends Phaser.Scene {
     });
 
     // HUD - Caixa de Diálogo - correção
-    // Adicionado .setScrollFactor(0) para o texto não andar junto com o mapa
-    // Adicionado .setDepth(100) para garantir que fique na frente de tudo
-    this.caixaDialogo = this.add
-      .graphics()
-      .fillStyle(0x1a1a1a, 0.9)
-      .lineStyle(4, 0x00ffff)
-      .fillRoundedRect(150, 550, 900, 150, 15)
-      .strokeRoundedRect(150, 550, 900, 150, 15)
-      .setScrollFactor(0)
-      .setDepth(100)
-      .setVisible(false);
 
-    this.textoDialogo = this.add
-      .text(180, 580, "", {
-        fontSize: "26px",
-        color: "#ccffff",
-        wordWrap: { width: 840 },
-      })
-      .setScrollFactor(0) // Fixa o texto na tela
-      .setDepth(101); // Texto fica na frente da caixa
+    const larguraJogo = this.cameras.main.width;
+    const alturaJogo = this.cameras.main.height;
+    const larguraCaixa = 1000;
+    const alturaCaixa = 180;
+    const xCaixa = (larguraJogo - larguraCaixa) / 2;
+    const yCaixa = alturaJogo - alturaCaixa - 40; // 40px de margem do fundo
+
+    this.caixaDialogo = this.add.graphics();
+    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
+    this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
+    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
+
+    this.textoDialogo = this.add.text(xCaixa + 50, yCaixa + 45, "", {
+      fontSize: "26px", // Aumentado para melhor leitura em 1920px
+      fontFamily: "'Courier New', Courier, monospace",
+      color: "#ccffff",
+      wordWrap: { width: larguraCaixa - 100 },
+      lineSpacing: 10
+    })
+    .setScrollFactor(0) // Fixa o texto na tela
+    .setDepth(101); // Texto fica na frente da caixa
 
     this.cursors = this.input.keyboard.createCursorKeys();
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
@@ -155,7 +164,7 @@ export class Fase02 extends Phaser.Scene {
     }
   }
 
-  // Checagem de cor no canvas invisívelocidPlayer
+  // Checagem de cor no canvas invisívelocidade
   colidiuComVerde(xMundo, yMundo) {
     if (!this.collisionCtx) return false;
     let origemX = 600 - (this.collisionImage.width * this.scaleMapa) / 2;
@@ -180,59 +189,42 @@ export class Fase02 extends Phaser.Scene {
 
   update() {
     if (this.lendoMensagem) {
+      this.cientistaLider.setVelocity(0, 0); // Garante que ele pare ao ler
       this.cientistaLider.anims.stop();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
       return;
     }
 
-    // Movimentação + Colisão
-    let velocidPlayer = 3;
-    let moviment = false;
+    // movimentação + Colisão
+    let velocidade = 150;
+    let movimentacao = false;
+
+    if (this.cursors.left.isDown) {
+      this.cientistaLider.setVelocityX(-velocidade);
+      this.cientistaLider.anims.play("left", true);
+      movimentacao = true;
+    } else if (this.cursors.right.isDown) {
+      this.cientistaLider.setVelocityX(+velocidade);
+      this.cientistaLider.anims.play("right", true);
+      movimentacao = true;
+    }
+
+    if (this.cursors.up.isDown) {
+      this.cientistaLider.setVelocityY(-velocidade);
+      if (!movimentacao) this.cientistaLider.anims.play("back", true);
+      movimentacao = true;
+    } else if (this.cursors.down.isDown) {
+      this.cientistaLider.setVelocityY(+velocidade);
+      if (!movimentacao) this.cientistaLider.anims.play("front", true);
+      movimentacao = true;
+    }
 
     // Antes de mover, checa se a nova posição colidiria em algo "verde" na máscara de colisão
-    if (
-      this.cursors.left.isDown &&
-      !this.colidiuComVerde(
-        this.cientistaLider.x - velocidPlayer,
-        this.cientistaLider.y,
-      )
-    ) {
-      this.cientistaLider.x -= velocidPlayer;
-      this.cientistaLider.anims.play("cient_left", true);
-      moviment = true;
-    } else if (
-      this.cursors.right.isDown &&
-      !this.colidiuComVerde(
-        this.cientistaLider.x + velocidPlayer,
-        this.cientistaLider.y,
-      )
-    ) {
-      this.cientistaLider.x += velocidPlayer;
-      this.cientistaLider.anims.play("cient_right", true);
-      moviment = true;
-    }
-    if (
-      this.cursors.up.isDown &&
-      !this.colidiuComVerde(
-        this.cientistaLider.x,
-        this.cientistaLider.y - velocidPlayer,
-      )
-    ) {
-      this.cientistaLider.y -= velocidPlayer;
-      this.cientistaLider.anims.play("cient_back", true);
-      moviment = true;
-    } else if (
-      this.cursors.down.isDown &&
-      !this.colidiuComVerde(
-        this.cientistaLider.x,
-        this.cientistaLider.y + velocidPlayer,
-      )
-    ) {
-      this.cientistaLider.y += velocidPlayer;
-      this.cientistaLider.anims.play("cient_front", true);
-      moviment = true;
-    }
-    if (!moviment) this.cientistaLider.anims.stop();
+    /* if (this.cursors.left.isDown && !this.colidiuComVerde(this.cientistaLider.x - velocidade, this.cientistaLider.y)) { this.cientistaLider.x -= velocidade; this.cientistaLider.anims.play("cient_left", true); movimentacao = true; }
+    else if (this.cursors.right.isDown && !this.colidiuComVerde(this.cientistaLider.x + velocidade, this.cientistaLider.y)) { this.cientistaLider.x += velocidade; this.cientistaLider.anims.play("cient_right", true); movimentacao = true; }
+    if (this.cursors.up.isDown && !this.colidiuComVerde(this.cientistaLider.x, this.cientistaLider.y - velocidade)) { this.cientistaLider.y -= velocidade; this.cientistaLider.anims.play("cient_back", true); movimentacao = true; }
+    else if (this.cursors.down.isDown && !this.colidiuComVerde(this.cientistaLider.x, this.cientistaLider.y + velocidade)) { this.cientistaLider.y += velocidade; this.cientistaLider.anims.play("cient_front", true); movimentacao = true; }
+    if (!movimentacao) this.cientistaLider.anims.stop(); */
 
     // Lógica de interação
     let distBau = Phaser.Math.Distance.Between(
@@ -253,7 +245,7 @@ export class Fase02 extends Phaser.Scene {
       this.containerTecla
         .setVisible(true)
         .setPosition(this.bauAnimado.x, this.bauAnimado.y - 50);
-    } else if (distCentro < 80 && this.temCristal && !this.mapaRestaurado) {
+    } else if (distCentro < 150 && this.temCristal && !this.mapaRestaurado) {
       this.podeInteragir = "centro";
       this.containerTecla.setVisible(true).setPosition(600, 350);
     } else {
@@ -278,30 +270,45 @@ export class Fase02 extends Phaser.Scene {
   restaurarMundo() {
     this.mapaRestaurado = true;
     this.cameras.main.flash(1000, 255, 255, 255); // Brilho branco na tela
-    this.background.setTexture("cenarioClaro"); // Muda o mapa para a versão restaurada
+    this.background.setTexture("cenarioClaro").setScale(2.0); // Muda o mapa para a versão restaurada
+    this.objetos.setTexture("objLabClaro").setScale(this.scaleMapa);
     this.mostrarMensagem(
-      "SISTEMA: Cristal depositado.\n\nO ecossistema foi restaurado com sucesso!",
+      "SISTEMA: Cristal depositado.\nO ecossistema foi restaurado com sucesso!",
     );
   }
 
   mostrarMensagem(texto) {
     this.lendoMensagem = true;
     this.caixaDialogo.setVisible(true);
+    this.textoDialogo.setVisible(true);
     this.textoDialogo.setText("");
+    this.textoAtual = texto;
+
+    if (this.timerEscrever) this.timerEscrever.remove();
+
     let letra = 0;
-    this.time.addEvent({
+    this.timerEscrever = this.time.addEvent({
       delay: 30,
       callback: () => {
-        this.textoDialogo.text += texto[letra];
-        letra++;
+        if (letra < texto.length) {
+          this.textoDialogo.text += texto[letra]; 
+          letra++; 
+        }
       },
       repeat: texto.length - 1,
     });
   }
 
   fecharMensagem() {
+    if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
+      this.timerEscrever.remove();
+      this.textoDialogo.setText(this.textoAtual);
+      return; 
+    }
+
     this.lendoMensagem = false;
     this.caixaDialogo.setVisible(false);
+    this.textoDialogo.setVisible(false);
     // CORREÇÃO Limpa o texto para não aparecer na próxima vez
     this.textoDialogo.setText("");
   }

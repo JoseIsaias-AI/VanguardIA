@@ -1,29 +1,30 @@
-export class Fase01 extends Phaser.Scene {
+export class Scene01 extends Phaser.Scene {
   constructor() {
-    super("Fase01"); // define o nome da cena
+    super("Scene01"); // define o nome da cena
   }
 
   preload() {
     // carrega as coisas na pagina
 
-    this.load.image("labB", "../assets/Fases/sceneOne/labBranco.png"); // laboratório branco
-    this.load.image("camara", "../assets/Objetos/sceneOne/camara.png"); // camara criogenica
-    this.load.spritesheet("sophia", "../assets/Personagens/sophia.png", { frameWidth: 64,frameHeight: 64 }); // spritesheet da sophia (player)
-    this.load.spritesheet("watson", "../assets/Personagens/watson.png", { frameWidth: 64,frameHeight: 64 }); // spritesheet da watson (player)
+    this.load.image("labB", "assets/fases/sceneOne/labBranco.png"); // laboratório branco
+    this.load.image("camara", "assets/objetos/sceneOne/partOne/camara.png"); // camara criogenica
+    this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64,frameHeight: 64 }); // spritesheet da sophia (player)
+    this.load.spritesheet("watson", "assets/Personagens/watson.png", { frameWidth: 64,frameHeight: 64 }); // spritesheet da watson (player)
 
-    this.load.image("CFuturo", "../assets/Fases/sceneTwo/labDestruido.png"); // laboratorio destruido
-    this.load.spritesheet("bauanimado", "../assets/Objetos/bau.png", { frameWidth: 32, frameHeight: 32 }); // bau interativo
+    this.load.image("CFuturo", "assets/fases/sceneOne/labDestruido.png"); // laboratorio destruido
+    this.load.spritesheet("bauanimado", "assets/objetos/bau.png", { frameWidth: 32, frameHeight: 32 }); // bau interativo
+
     // objetos do laboratório branco
-    this.load.image("armario", "../assets/Objetos/sceneOne/armario.png");
-    this.load.image("alvo", "../assets/Objetos/sceneOne/alvo.png");
-    this.load.image("criogenia", "../assets/Objetos/sceneOne/criogenia.png");
-    this.load.image("mesa1", "../assets/Objetos/sceneOne/mesa1.png");
-    this.load.image("mesa2", "../assets/Objetos/sceneOne/mesa2.png");
-    this.load.image("mesa3", "../assets/Objetos/sceneOne/mesa3.png");
-    this.load.image("pia1", "../assets/Objetos/sceneOne/pia1.png");
-    this.load.image("reservasCrio", "../assets/Objetos/sceneOne/reservasCrio.png");
-    this.load.image("comptBaixo", "../assets/Objetos/sceneOne/comptBaixo.png");
-    this.load.image("comptCima", "../assets/Objetos/sceneOne/comptCima.png");
+    this.load.image("armario", "assets/objetos/sceneOne/partOne/armario.png");
+    this.load.image("alvo", "assets/objetos/sceneOne/partOne/alvo.png");
+    this.load.image("criogenia", "assets/objetos/sceneOne/partOne/criogenia.png");
+    this.load.image("mesa1", "assets/objetos/sceneOne/partOne/mesa1.png");
+    this.load.image("mesa2", "assets/objetos/sceneOne/partOne/mesa2.png");
+    this.load.image("mesa3", "assets/objetos/sceneOne/partOne/mesa3.png");
+    this.load.image("pia1", "assets/objetos/sceneOne/partOne/pia1.png");
+    this.load.image("reservasCrio", "assets/objetos/sceneOne/partOne/reservasCrio.png");
+    this.load.image("comptBaixo", "assets/objetos/sceneOne/partOne/comptBaixo.png");
+    this.load.image("comptCima", "assets/objetos/sceneOne/partOne/comptCima.png");
 
   }
 
@@ -184,27 +185,30 @@ export class Fase01 extends Phaser.Scene {
       repeat: -1,
     });
 
+    // Variáveis de posicionamento dinâmico
+    const larguraJogo = this.cameras.main.width;
+    const alturaJogo = this.cameras.main.height;
+    const larguraCaixa = 1000;
+    const alturaCaixa = 180;
+    const xCaixa = (larguraJogo - larguraCaixa) / 2;
+    const yCaixa = alturaJogo - alturaCaixa - 40; // 40px de margem do fundo
+
     // Cria caixa de diálogo (HUD)
     // Importante: setScrollFactor(0) fixa o elemento na tela, ignorando a câmera
     this.caixaDialogo = this.add.graphics();
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
     this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(150, 550, 900, 150, 15);
-    this.caixaDialogo.strokeRoundedRect(150, 550, 900, 150, 15);
-    this.caixaDialogo.setScrollFactor(0);
-    this.caixaDialogo.setVisible(false);
-    this.caixaDialogo.setDepth(100); // Garante que o texto fique por cima de tudo
+    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
 
-    this.textoDialogo = this.add
-      .text(180, 580, "", {
-        fontSize: "26px",
-        fontFamily: "'Courier New', Courier, monospace",
-        color: "#ccffff",
-        wordWrap: { width: 840 },
-        lineSpacing: 10,
-      })
-      .setScrollFactor(0);
-    this.textoDialogo.setDepth(101);
+    this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 35, "", {
+      fontSize: "26px",
+      fontFamily: "'Courier New', Courier, monospace",
+      color: "#ccffff",
+      wordWrap: { width: larguraCaixa - 80 },
+      lineSpacing: 10,
+    }).setScrollFactor(0).setDepth(101);
 
     //  Inputs e câmera
     this.cursors = this.input.keyboard.createCursorKeys(); // Define setas do teclado como cursor
@@ -216,60 +220,20 @@ export class Fase01 extends Phaser.Scene {
     // Configurações da animação
     // Se a animação 'left' ainda não existir (prevenção de erro ao trocar de cena)
     if (!this.anims.exists("left")) {
-      this.anims.create({
-        key: "left",
-        frames: this.anims.generateFrameNumbers("sophia", {
-          start: 24,
-          end: 29,
-        }),
-        frameRate: 10,
-        repeat: -1,
-      });
-      this.anims.create({
-        key: "right",
-        frames: this.anims.generateFrameNumbers("sophia", {
-          start: 16,
-          end: 21,
-        }),
-        frameRate: 10,
-        repeat: -1,
-      });
-      this.anims.create({
-        key: "front",
-        frames: this.anims.generateFrameNumbers("sophia", { start: 0, end: 7 }),
-        frameRate: 10,
-        repeat: -1,
-      });
-      this.anims.create({
-        key: "back",
-        frames: this.anims.generateFrameNumbers("sophia", {
-          start: 8,
-          end: 15,
-        }),
-        frameRate: 10,
-        repeat: -1,
-      });
+      this.anims.create({ key: "left", frames: this.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }), frameRate: 10, repeat: -1 });
+      this.anims.create({ key: "right",  frames: this.anims.generateFrameNumbers("sophia", { start: 16, end: 21}), frameRate: 10, repeat: -1 });
+      this.anims.create({ key: "front",  frames: this.anims.generateFrameNumbers("sophia", { start: 0, end: 7 }), frameRate: 10, repeat: -1 });
+      this.anims.create({ key: "back", frames: this.anims.generateFrameNumbers("sophia", { start: 8, end: 15 }), frameRate: 10, repeat: -1});
 
-      this.anims.create({
-        key: "fechado",
-        frames: [{ key: "bauanimado", frame: 0 }],
-        frameRate: 1,
-      });
-      this.anims.create({
-        key: "abrindo",
-        frames: this.anims.generateFrameNumbers("bauanimado", {
-          start: 0,
-          end: 1,
-        }),
-        frameRate: 2,
-        repeat: 0,
-      });
+      this.anims.create({ key: "fechado", frames: [{ key: "bauanimado", frame: 0 }], frameRate: 1});
+      this.anims.create({ key: "abrindo", frames: this.anims.generateFrameNumbers("bauanimado", { start: 0, end: 1 }), frameRate: 2, repeat: 0 });
     }
   }
 
   update() {
     // Bloqueio do movimento. Se estiver lendo, o player não anda
     if (this.lendoMensagem) {
+      this.Principal.setVelocity(0, 0); // Garante que ele pare ao ler
       this.Principal.anims.stop();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
         this.fecharMensagem();
@@ -277,36 +241,33 @@ export class Fase01 extends Phaser.Scene {
       return;
     }
 
-    let velocidade = 150;
+    // Reseta a velocidade a cada frame para ele não deslizar eternamente
+    this.Principal.setVelocity(0, 0);
 
-    this.Principal.setVelocity(0);
+    let velocidade = 150;
+    let movimentacao = false;
 
     if (this.cursors.left.isDown) {
       this.Principal.setVelocityX(-velocidade);
       this.Principal.anims.play("left", true);
+      movimentacao = true;
     } else if (this.cursors.right.isDown) {
-      this.Principal.setVelocityX(velocidade);
+      this.Principal.setVelocityX(+velocidade);
       this.Principal.anims.play("right", true);
+      movimentacao = true;
     }
 
     if (this.cursors.up.isDown) {
       this.Principal.setVelocityY(-velocidade);
-      if (!this.cursors.left.isDown && !this.cursors.right.isDown)
-        this.Principal.anims.play("back", true);
+      if (!movimentacao) this.Principal.anims.play("back", true);
+      movimentacao = true;
     } else if (this.cursors.down.isDown) {
-      this.Principal.setVelocityY(velocidade);
-      if (!this.cursors.left.isDown && !this.cursors.right.isDown)
-        this.Principal.anims.play("front", true);
+      this.Principal.setVelocityY(+velocidade);
+      if (!movimentacao) this.Principal.anims.play("front", true);
+      movimentacao = true;
     }
 
-    if (
-      !this.cursors.left.isDown &&
-      !this.cursors.right.isDown &&
-      !this.cursors.up.isDown &&
-      !this.cursors.down.isDown
-    ) {
-      this.Principal.anims.stop();
-    }
+    if (!movimentacao) this.Principal.anims.stop(); // Para a animação se o player soltar as teclas
 
     // LÓGICA DE PROXIMIDADE TEOREMA DE Pitágoras AULA DE MATEMATICA
     let targetX, targetY;
@@ -321,12 +282,7 @@ export class Fase01 extends Phaser.Scene {
     }
 
     // Calcula a distância entre dois pontos (Personagem e Objeto)
-    let distancia = Phaser.Math.Distance.Between(
-      this.Principal.x,
-      this.Principal.y,
-      targetX,
-      targetY,
-    );
+    let distancia = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, targetX, targetY);
 
     // Mostra o botão "E" se estiver perto do objeto
     if (distancia < 140) {
@@ -355,7 +311,9 @@ export class Fase01 extends Phaser.Scene {
   mostrarMensagem(textoCompleto) {
     this.lendoMensagem = true;
     this.caixaDialogo.setVisible(true);
+    this.textoDialogo.setVisible(true);
     this.textoDialogo.setText("");
+    this.textoAtualArmazenado = textoCompleto;
 
     let letraAtual = 0;
     if (this.timerEscrever) this.timerEscrever.remove();
@@ -374,20 +332,24 @@ export class Fase01 extends Phaser.Scene {
     // Se apertar E enquanto ainda está escrevendo, ele termina de uma vez (opcional)
     if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
       this.timerEscrever.remove();
-      // Truque pra parar o loop
-    } else {
-      this.lendoMensagem = false;
-      this.caixaDialogo.setVisible(false);
-      this.textoDialogo.setText("");
-
-      // DECISÃO DE FLUXO Viajar no tempo ou Ir para Fase 2?
-      if (this.progressoHistoria === 0) {
-        this.viajarNoTempo();
-      } else if (this.progressoHistoria === 1) {
-        this.scene.start("Fase02");
-      }
+      this.textoDialogo.setText(this.textoAtualArmazenado); 
+      return; // Sai da função para não fechar a caixa ainda
     }
+
+    // Se já terminou de digitar, aí sim fecha
+    this.lendoMensagem = false;
+    this.caixaDialogo.setVisible(false);
+    this.textoDialogo.setVisible(false);
+    this.textoDialogo.setText("");
+
+    if (this.progressoHistoria === 0) {
+      this.viajarNoTempo();
+    } else if (this.progressoHistoria === 1) {
+      this.scene.start("Scene02");
+    }
+
   }
+  
 
   viajarNoTempo() {
     this.lendoMensagem = true; // Trava o player na cut scene
@@ -398,7 +360,6 @@ export class Fase01 extends Phaser.Scene {
     this.cameras.main.once("camerafadeoutcomplete", () => {
       // Troca de cenário e objetos
       this.mapa.setTexture("CFuturo");
-      this.camara.setVisible(false);
       this.bau.setVisible(true);
       this.bau.play("fechado");
 
