@@ -175,25 +175,37 @@ O jogo é uma historia repleta de acão onde a protagonista deverá passar por d
 
 ### 2.2.1. Gênero do Jogo (sprint 2)
 
-*simulação, RPG, corrida, estratégia, esportes, ação, aventura etc.*  O gênero do nosso jogo é o modo história e ação, com o objetivo de ensinar.
+*simulação, RPG, corrida, estratégia, esportes, ação, aventura etc.*  
 
+*O gênero do nosso jogo é de aventura, tendo modo história, ação e puzzles, tudo isso com o objetivo de ensinar.
 
 ### 2.2.2. Plataforma do Jogo (sprint 2)
 
-*quanto ao dispositivo: desktop, smartphones, tablets, TV etc.* 
+O jogo será desenvolvido para plataforma Web, sendo executado diretamente no navegador por meio do framework Phaser.
+Será compatível com:
+* **Computadores (desktop e notebook)** — Windows, macOS e Linux
+* **Smartphones** — Android e iOS
+* **Tablets** — Android e iPadOS
 
-*quanto ao sistema: navegadores compatíveis* Nosso jogo estará disponível para todos os tipos de PC.
+O jogo poderá ser acessado em qualquer dispositivo com navegador moderno atualizado (como Chrome, Safari, Edge ou Firefox) que suporte HTML5 e JavaScript, desde que possua desempenho suficiente para executar aplicações desenvolvidas em Phaser.
 
+Para interface e os controles serão necessários teclado e mouse independente do dispositivo.
+
+O objetivo dessas medidas é garantir ampla acessibilidade, sem necessidade de instalação, permitindo que o jogador acesse o jogo diretamente por um link, em poucos passos e sem depender de um dispositivo mais potente e, consequentemente, caro.
 
 
 ### 2.2.3. Número de jogadores (sprint 2)
 
-*1 jogador, 2 jogadores versus, 2 jogadores cooperação, multiplayer etc.* Apenas um jogador. Nosso jogo é uma história onde apenas 1 jogador é controlável, a nossa protagonista Sophia.
+*1 jogador, 2 jogadores versus, 2 jogadores cooperação, multiplayer etc.* 
+
+*Apenas um jogador. Nosso jogo é uma história onde apenas 1 jogador é controlável, a nossa protagonista Sophia.
 
 
 ### 2.2.4. Títulos semelhantes e inspirações (sprint 2)
 
-*Liste e descreva títulos semelhantes e jogos que inspiram e são usados como referência do projeto* Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensinar o usuário) , Hollow Knight (Design, como a luz em torno do personagem), Spaceship Runner e Among Us ( Gráfico e puzzles) , a inteligência artificial Learn Ia (Desenvolvimento de habilidades de IA, baseado em textos).
+*Liste e descreva títulos semelhantes e jogos que inspiram e são usados como referência do projeto* 
+
+*Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensinar o usuário) , Hollow Knight (Design, como a luz em torno do personagem), Spaceship Runner e Among Us ( Gráfico e puzzles) , a inteligência artificial Learn Ia (Desenvolvimento de habilidades de IA, baseado em textos).
 
 
 
