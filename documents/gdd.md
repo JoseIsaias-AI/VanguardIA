@@ -92,7 +92,7 @@ GOOGLE CLOUD. Google Cloud Skills Boost. Disponível no site oficial do Google C
 
 *Posicione aqui a análise SWOT relacionada ao parceiro de projeto. Utilize a análise SWOT para fazer uma análise ambiental do parceiro no âmbito estratégico. Leve em consideração o contexto da indústria, concorrência e as características do ambiente interno (forças e fraquezas) e externo (oportunidades e ameaças) do parceiro.*
 
-<img src="../assets/SWOT_-_Projeto_Jogo_IBM.png">
+<img src="../assets/gdd/SWOT_-_Projeto_Jogo_IBM.png">
 
 **Forças**
 
@@ -243,7 +243,7 @@ Sophia é a protagonista controlável do jogo, uma estagiária, engenheira e cie
 
 <sup>Figura 1: Imagem da Sophia.</sup><br>
 
-<img src="../assets/Personagens/cientPrincipal.png"><br>
+<img src="../assets/Personagens/sophia.png"><br>
 
 <sub>Fonte: Material produzido pelos autores (2026). </sub><br>
 
@@ -259,7 +259,7 @@ O nosso jogo possui outros 2 personagens. O primeiro é o Asimov, o companheiro 
 
 <sup>Figura 1: Imagem da Sophia.</sup><br>
 
-<img src="../assets/Personagens/roboAsimov.png"><br>
+<img src="../assets/Personagens/asimov.png"><br>
 
 <sub>Fonte: Material produzido pelos autores (2026). </sub><br>
 
@@ -271,7 +271,7 @@ O segundo e menos desenvolvido na história do jogo é o cientista-chefe Watson,
 
 <sup>Figura 1: Imagem da Sophia.</sup><br>
 
-<img src="../assets/Personagens/cientLider.png"><br>
+<img src="../assets/Personagens/watson.png"><br>
 
 <sub>Fonte: Material produzido pelos autores (2026). </sub><br>
 
@@ -385,7 +385,7 @@ Link para o acesso do Concept Art no docs: https://docs.google.com/document/d/19
 
 <div align="center">
   <sub>Storyboard de programação</sub><br>
-  <img src="../documents/imagensDoGDD/diagramaDeCenas.jpg" width="100%" alt="Descrição breve"><br>
+  <img src="../assets/gdd/diagramaDeCenas.jpg" width="100%" alt="Descrição breve"><br>
   <sup>Fonte: Material produzido pelos autores (2026).</sup>
 </div>
 
