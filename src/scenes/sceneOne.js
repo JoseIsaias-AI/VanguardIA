@@ -211,10 +211,10 @@ export class Scene01 extends Phaser.Scene {
     let iconeTecla = this.add.graphics();
     iconeTecla.fillStyle(0xffffff, 1);
     iconeTecla.lineStyle(2, 0x000000, 1);
-    iconeTecla.fillRoundedRect(-15, -15, 30, 30, 5);
-    iconeTecla.strokeRoundedRect(-15, -15, 30, 30, 5);
+    iconeTecla.fillRoundedRect(-70, -20, 140, 40, 10);
+    iconeTecla.strokeRoundedRect(-70, -20, 140, 40, 10);
     let letra = this.add
-      .text(0, 0, "E", {
+      .text(0, 0, "Aperte E", {
         fontSize: "25px",
         color: "#000000",
         fontStyle: "bold",

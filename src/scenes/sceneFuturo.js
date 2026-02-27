@@ -212,6 +212,47 @@ export class SceneFuturo extends Phaser.Scene {
     this.physics.add.collider(this.Principal, this.paredes); // adiciona colisão entre o personagem e as paredes
     this.physics.add.collider(this.Principal, this.objetosColisao); // adiciona colisão entre o personagem e os objetos do laboratório
 
+    // ===== VARIÁVEIS DE INTERAÇÃO =====
+    this.podeInteragir = false;
+
+    // ===== ÍCONE DA TECLA E =====
+    this.containerTecla = this.add.container(0, 0);
+
+    let largura = 140;
+    let altura = 40;
+
+    let iconeTecla = this.add.graphics();
+    iconeTecla.fillStyle(0xffffff, 1);
+    iconeTecla.lineStyle(2, 0x000000, 1);
+    iconeTecla.fillRoundedRect(-largura / 2, -altura / 2, largura, altura, 10);
+    iconeTecla.strokeRoundedRect(
+      -largura / 2,
+      -altura / 2,
+      largura,
+      altura,
+      10,
+    );
+
+    let letra = this.add
+      .text(0, 0, "Aperte E", {
+        fontSize: "20px",
+        color: "#000000",
+        fontStyle: "bold",
+      })
+      .setOrigin(0.5);
+
+    this.containerTecla.add([iconeTecla, letra]);
+    this.containerTecla.setVisible(false);
+
+    // animação flutuando
+    this.tweens.add({
+      targets: this.containerTecla,
+      y: "+=5",
+      duration: 800,
+      yoyo: true,
+      repeat: -1,
+    });
+
     // BAÚ
     this.bau = this.physics.add
       .staticSprite(600, 300, "bauanimado")
@@ -321,19 +362,28 @@ export class SceneFuturo extends Phaser.Scene {
       this.bau.y,
     );
 
+    // MOSTRAR ÍCONE E
+    if (distancia < 120 && !this.bauAberto) {
+      this.podeInteragir = true;
+      this.containerTecla.setVisible(true);
+      this.containerTecla.setPosition(this.bau.x, this.bau.y - 60);
+    } else {
+      this.podeInteragir = false;
+      this.containerTecla.setVisible(false);
+    }
+
+    // INTERAÇÃO
     if (
-      distancia < 120 &&
+      this.podeInteragir &&
       Phaser.Input.Keyboard.JustDown(this.teclaE) &&
       !this.bauAberto
     ) {
       this.bauAberto = true;
-
+      this.containerTecla.setVisible(false); // esconde o ícone
       this.bau.play("abrindo");
 
       this.time.delayedCall(800, () => {
         console.log("Baú aberto!");
-        // aqui você pode trocar de cena depois
-        // this.scene.start("ProximaCena");
       });
     }
   }
