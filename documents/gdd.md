@@ -535,7 +535,16 @@ INTELI. Adalove. Disponível em: https://adalove.inteli.edu.br/feed. Acesso em: 
 SOBRENOME, Nome. Título do site. Disponível em: link do site. Acesso em: Dia Mês Ano
 
 ZAKI, Adam. Less than a third of companies follow AI adoption best practices. Disponível em: https://www.cfo.com/news/less-than-third-of-companies-following-all-of-mckinseys-ai-best-practices-/742279/. Acesso em: 24 fev. 2026. <br>
+
 NORONHA, Heloísa. Rede pública x rede privada: onde estudam os brasileiros, conforme o IBGE. Disponível em: https://www.cnnbrasil.com.br/educacao/rede-publica-x-rede-privada-onde-estudam-os-brasileiros-conforme-o-ibge/. Acesso em: 24 fev. 2026.
+
+HARROW International School Hong Kong. Gamification: what it is and how it can be used in education. Disponível em: [https://www.harrowhongkong.hk/his/gamification-what-is-it-and-how-can-it-be-used-in-education/](https://www.harrowhongkong.hk/his/gamification-what-is-it-and-how-can-it-be-used-in-education/). Acesso em: 27 fev. 2026.
+
+MARKET DATA FORECAST. Gamification education market. Disponível em: [https://www.marketdataforecast.com/market-reports/gamification-education-market](https://www.marketdataforecast.com/market-reports/gamification-education-market). Acesso em: 27 fev. 2026.
+
+CPS SÃO PAULO. CPS lança curso livre online gratuito sobre inteligência artificial. Disponível em: [https://www.cps.sp.gov.br/cps-lanca-curso-livre-online-gratuito-sobre-inteligencia-artificial/](https://www.cps.sp.gov.br/cps-lanca-curso-livre-online-gratuito-sobre-inteligencia-artificial/). Acesso em: 27 fev. 2026.
+
+FUNDAÇÃO ITAÚ. Pesquisa Consumo e Uso da Inteligência Artificial no Brasil. Disponível em: [https://fundacaoitau.org.br/observatorio/biblioteca/pesquisa-consumo-e-uso-da-inteligencia-artificial-no-brasil](https://fundacaoitau.org.br/observatorio/biblioteca/pesquisa-consumo-e-uso-da-inteligencia-artificial-no-brasil). Acesso em: 27 fev. 2025.
 
 # <a name="c8"></a>Anexos
 
