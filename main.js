@@ -1,7 +1,8 @@
 import { WelcomeScene } from "./src/scenes/Welcome.js";
 import { Scene01 } from "./src/scenes/sceneOne.js";
+import { SceneFuturo } from "./src/scenes/sceneFuturo.js"
 import { Scene02 } from "./src/scenes/sceneTwo.js";
-import { SceneFuturo } from "./src/scenes/sceneFuturo.js";
+import { FaseUm } from "./src/scenes/FaseUm.js";
 
 const config = {
     type: Phaser.AUTO,
@@ -18,10 +19,11 @@ const config = {
         default: "arcade",
         arcade: {
             gravity: { y: 0 },
-            debug: false
+            debug: false  
         }
     },
-    scene: [WelcomeScene, Scene01, SceneFuturo, Scene02]
+    scene: [WelcomeScene, Scene01, SceneFuturo, Scene02, FaseUm]
+    //scene: [FaseUm]
 };
 
 const game = new Phaser.Game(config);

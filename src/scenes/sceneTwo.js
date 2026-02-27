@@ -18,6 +18,7 @@ export class Scene02 extends Phaser.Scene {
   create() {
     this.lendoMensagem = false;
     this.podeInteragir = false;
+    this.progressoHistoria = 0
     this.temCristal = false; // Flag do inventário
     this.mapaRestaurado = false;
     this.scaleMapa = 3.0;
@@ -189,42 +190,21 @@ export class Scene02 extends Phaser.Scene {
 
   update() {
     if (this.lendoMensagem) {
-      this.cientistaLider.setVelocity(0, 0); // Garante que ele pare ao ler
       this.cientistaLider.anims.stop();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
       return;
     }
 
     // movimentação + Colisão
-    let velocidade = 150;
+    let velocidade = 3;
     let movimentacao = false;
 
-    if (this.cursors.left.isDown) {
-      this.cientistaLider.setVelocityX(-velocidade);
-      this.cientistaLider.anims.play("left", true);
-      movimentacao = true;
-    } else if (this.cursors.right.isDown) {
-      this.cientistaLider.setVelocityX(+velocidade);
-      this.cientistaLider.anims.play("right", true);
-      movimentacao = true;
-    }
-
-    if (this.cursors.up.isDown) {
-      this.cientistaLider.setVelocityY(-velocidade);
-      if (!movimentacao) this.cientistaLider.anims.play("back", true);
-      movimentacao = true;
-    } else if (this.cursors.down.isDown) {
-      this.cientistaLider.setVelocityY(+velocidade);
-      if (!movimentacao) this.cientistaLider.anims.play("front", true);
-      movimentacao = true;
-    }
-
     // Antes de mover, checa se a nova posição colidiria em algo "verde" na máscara de colisão
-    /* if (this.cursors.left.isDown && !this.colidiuComVerde(this.cientistaLider.x - velocidade, this.cientistaLider.y)) { this.cientistaLider.x -= velocidade; this.cientistaLider.anims.play("cient_left", true); movimentacao = true; }
+    if (this.cursors.left.isDown && !this.colidiuComVerde(this.cientistaLider.x - velocidade, this.cientistaLider.y)) { this.cientistaLider.x -= velocidade; this.cientistaLider.anims.play("cient_left", true); movimentacao = true; }
     else if (this.cursors.right.isDown && !this.colidiuComVerde(this.cientistaLider.x + velocidade, this.cientistaLider.y)) { this.cientistaLider.x += velocidade; this.cientistaLider.anims.play("cient_right", true); movimentacao = true; }
     if (this.cursors.up.isDown && !this.colidiuComVerde(this.cientistaLider.x, this.cientistaLider.y - velocidade)) { this.cientistaLider.y -= velocidade; this.cientistaLider.anims.play("cient_back", true); movimentacao = true; }
     else if (this.cursors.down.isDown && !this.colidiuComVerde(this.cientistaLider.x, this.cientistaLider.y + velocidade)) { this.cientistaLider.y += velocidade; this.cientistaLider.anims.play("cient_front", true); movimentacao = true; }
-    if (!movimentacao) this.cientistaLider.anims.stop(); */
+    if (!movimentacao) this.cientistaLider.anims.stop();
 
     // Lógica de interação
     let distBau = Phaser.Math.Distance.Between(
@@ -272,6 +252,9 @@ export class Scene02 extends Phaser.Scene {
     this.cameras.main.flash(1000, 255, 255, 255); // Brilho branco na tela
     this.background.setTexture("cenarioClaro").setScale(2.0); // Muda o mapa para a versão restaurada
     this.objetos.setTexture("objLabClaro").setScale(this.scaleMapa);
+
+    this.progressoHistoria = 1;
+    
     this.mostrarMensagem(
       "SISTEMA: Cristal depositado.\nO ecossistema foi restaurado com sucesso!",
     );
@@ -311,5 +294,9 @@ export class Scene02 extends Phaser.Scene {
     this.textoDialogo.setVisible(false);
     // CORREÇÃO Limpa o texto para não aparecer na próxima vez
     this.textoDialogo.setText("");
+
+    if (this.progressoHistoria === 1) {
+      this.scene.start("FaseUm");
+    }
   }
 }

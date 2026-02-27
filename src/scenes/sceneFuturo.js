@@ -56,6 +56,7 @@ export class SceneFuturo extends Phaser.Scene {
 
   create() {
     this.scaleMapa = 3;
+    this.progressoHistoria = 0;
 
     // MAPA FUTURO
     this.mapa = this.add.image(600, 400, "CFuturo").setScale(this.scaleMapa);
@@ -384,6 +385,14 @@ export class SceneFuturo extends Phaser.Scene {
 
       this.time.delayedCall(800, () => {
         console.log("Baú aberto!");
+
+      this.progressoHistoria = 1;
+
+      if (this.progressoHistoria === 0) {
+        this.viajarNoTempo();
+      } else if (this.progressoHistoria === 1) {
+        this.scene.start("Scene02");
+      }
       });
     }
   }
