@@ -507,25 +507,127 @@ this.criarColisao(this.computador4p2);
 
 **Código utilizado para adicionar o personagem principal na scene 1:**
 
-![Código utilizado para adicionar o personagem principal na scene 1](./imagens/secao-4-2-scene1-personagem.png)
+```javascript
+// adiciona o personagem principal
+this.Principal = this.physics.add
+    .sprite(400, 300, "sophia")
+    .setScale(2)
+    .setCollideWorldBounds(true);
+
+this.Principal.setDepth(2);
+this.Principal.body.setAllowGravity(false);
+this.Principal.setSize(36, 25);
+this.Principal.setOffset(15, 30);
+
+this.physics.add.collider(this.Principal, this.camera);
+this.physics.add.collider(this.Principal, this.paredes);
+this.physics.add.collider(this.Principal, this.objetosColisao);
+```
 
 ---
 
 **Código utilizado para adicionar a função de apertar a letra “E” e aparecer uma mensagem de texto quando você estiver em determinado lugar do mapa:**
 
-![Código utilizado para adicionar a função da tecla E](./imagens/secao-4-2-tecla-e-hud.png)
+```javascript
+// HUD (Interface do usuário)
+
+// cria um container da tecla "E"
+this.containerTecla = this.add.container(0, 0);
+
+let iconeTecla = this.add.graphics();
+iconeTecla.fillStyle(0xffffff, 1);
+iconeTecla.lineStyle(2, 0x000000, 1);
+iconeTecla.fillRoundedRect(-70, -20, 140, 40, 10);
+iconeTecla.strokeRoundedRect(-70, -20, 140, 40, 10);
+
+let letra = this.add.text(0, 0, "Aperte E", {
+    fontSize: "25px",
+    color: "#000000",
+    fontStyle: "bold"
+}).setOrigin(0.5);
+
+this.containerTecla.add([iconeTecla, letra]);
+this.containerTecla.setVisible(false);
+
+// animação de "flutuar"
+this.tweens.add({
+    targets: this.containerTecla,
+    y: "+=5",
+    duration: 800,
+    yoyo: true,
+    repeat: -1,
+});
+```
 
 ---
 
 **Código utilizado para criar um efeito sobre a mensagem que aparece quando a letra “E” é clicada, quando for solicitado que ela seja acionada para uma caixa de texto aparecer:**
 
-![Código utilizado para criar efeito de texto digitado](./imagens/secao-4-2-efeito-texto-digitado.png)
+```javascript
+mostrarMensagem(textoCompleto) {
+    this.lendoMensagem = true;
+    this.caixaDialogo.setVisible(true);
+    this.textoDialogo.setVisible(true);
+    this.textoDialogo.setText("");
+
+    let letraAtual = 0;
+
+    if (this.timerEscrever) this.timerEscrever.remove();
+
+    this.timerEscrever = this.time.addEvent({
+        delay: 30,
+        callback: () => {
+            this.textoDialogo.text += textoCompleto[letraAtual];
+            letraAtual++;
+        },
+        repeat: textoCompleto.length - 1,
+    });
+}
+
+fecharMensagem() {
+    if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
+        this.timerEscrever.remove();
+        return;
+    }
+
+    this.lendoMensagem = false;
+    this.caixaDialogo.setVisible(false);
+    this.textoDialogo.setVisible(false);
+    this.textoDialogo.setText("");
+
+    this.cameras.main.fadeOut(1000);
+
+    this.cameras.main.once("camerafadeoutcomplete", () => {
+        this.scene.start("SceneFuturo");
+    });
+}
+```
 
 ---
 
 **Código utilizado para criar uma caixa de diálogo no jogo:**
 
-![Código utilizado para criar uma caixa de diálogo](./imagens/secao-4-2-caixa-dialogo.png)
+```
+// Cria caixa de diálogo (HUD)
+this.caixaDialogo = this.add.graphics();
+
+this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
+this.caixaDialogo.lineStyle(4, 0xffffff, 1);
+this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+
+this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
+
+this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 35, "", {
+    fontSize: "26px",
+    fontFamily: "'Courier New', Courier, monospace",
+    color: "#ffffff",
+    wordWrap: { width: larguraCaixa - 80 },
+    lineSpacing: 10,
+})
+.setScrollFactor(0)
+.setDepth(101);
+```
 
 ---
 
@@ -539,17 +641,72 @@ this.criarColisao(this.computador4p2);
 
 **Código utilizado para o sistema de colisão da scene 2:**
 
-![Código utilizado para o sistema de colisão da scene 2](./imagens/secao-4-2-scene2-colisao.png)
+```
+// Sistema de colisão
+try {
+    this.collisionImage = this.textures.get("colisao").getSourceImage();
+    this.collisionCanvas = document.createElement("canvas");
+    this.collisionCanvas.width = this.collisionImage.width;
+    this.collisionCanvas.height = this.collisionImage.height;
+
+    this.collisionCtx = this.collisionCanvas.getContext("2d");
+    this.collisionCtx.drawImage(this.collisionImage, 0, 0);
+} catch (e) {
+    console.warn("Aviso: Rodar em servidor local para colisão funcionar corretamente.");
+}
+```
 
 **Código utilizado para adicionar o elemento “baú” ao mapa da scene 2:**
 
-![Código utilizado para adicionar o elemento baú ao mapa da scene 2](./imagens/secao-4-2-scene2-bau.png)
+```
+// Baú
+this.bauAnimado = this.add.sprite(520, 160, "bauAnimado").setScale(2.3);
+
+if (!this.anims.exists("fechado")) {
+    this.anims.create({
+        key: "fechado",
+        frames: [{ key: "bauAnimado", frame: 0 }],
+        frameRate: 1,
+    });
+
+    this.anims.create({
+        key: "abrindo",
+        frames: this.anims.generateFrameNumbers("bauAnimado", {
+            start: 0,
+            end: 1,
+        }),
+        frameRate: 2,
+        repeat: 0,
+    });
+}
+
+this.bauAnimado.play("fechado");
+
+this.cientistaLider = this.add
+    .sprite(400, 300, "cientistaLider")
+    .setScale(2);
+```
 
 ---
 
 **Código utilizado para estabelecer a lógica da interação da cena 2:**
 
-![Código utilizado para estabelecer a lógica da interação da cena 2](./imagens/secao-4-2-scene2-logica-interacao.png)
+```
+// Lógica de interação
+let distBau = Phaser.Math.Distance.Between(
+    this.cientistaLider.x,
+    this.cientistaLider.y,
+    this.bauAnimado.x,
+    this.bauAnimado.y
+);
+
+let distCentro = Phaser.Math.Distance.Between(
+    this.cientistaLider.x,
+    this.cientistaLider.y,
+    600,
+    400
+);
+```
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 
