@@ -45,8 +45,6 @@
 
 ### 1.1.1. Contexto da indústria (sprint 2)
 
-*Posicione aqui o texto que explica o contexto da indústria/mercado do qual o parceiro de projeto faz parte. Contextualize o segmento de atuação do parceiro (pode ser indústria, comércio ou serviço). Caracterize as atividades executadas pelo negócio do parceiro e a abrangência de suas atividades (âmbito internacional, nacional ou regional).*
-
 Impulsionada pela pandemia, a indústria de jogos educativos tornou-se um dos nichos mais produzidos no Brasil. Enquanto players consolidados mantêm o foco no ensino passivo via texto e vídeo, a tendência do mercado exige metodologias dinâmicas para ensinar essas tecnologias amplamente usadas pelas grandes empresas de IA. Aproveitando essa lacuna de engajamento prático, o IBM SkillsBuild, plataforma de cursos online, posiciona-se estrategicamente como uma plataforma gratuita de capacitação. A iniciativa de encontrar jogos educativos democratiza o aprendizado tecnológico de ponta, preparando estudantes e profissionais para as reais demandas interativas do mercado de trabalho.
 
 https://academy.4.events/pt-br/mecanicas-de-gamificacao-que-aumentamengajamento-e-memorabilidade-de-participantes/
@@ -54,8 +52,6 @@ https://academy.4.events/pt-br/mecanicas-de-gamificacao-que-aumentamengajamento-
 https://abra.com.br/artigos/a-industria-de-games-br-e-o-nicho-de-jogos-educativos
 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
-
-*Posicione aqui o modelo de 5 Forças de Porter para sustentar o contexto da indústria.*
 
 1. **Ameaça de Novos Entrantes (Ameaça Média)**
 
@@ -89,8 +85,6 @@ GOOGLE CLOUD. Google Cloud Skills Boost. Disponível no site oficial do Google C
 
 
 ### 1.1.2. Análise SWOT (sprint 2)
-
-*Posicione aqui a análise SWOT relacionada ao parceiro de projeto. Utilize a análise SWOT para fazer uma análise ambiental do parceiro no âmbito estratégico. Leve em consideração o contexto da indústria, concorrência e as características do ambiente interno (forças e fraquezas) e externo (oportunidades e ameaças) do parceiro.*
 
 <img src="../assets/gdd/SWOT_-_Projeto_Jogo_IBM.png">
 
@@ -143,9 +137,6 @@ Educação lúdica, democratização da IA, ensino nativo digital, aprendizado p
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
-Os requisitos do projeto são uma parte fundamental para o planejamento devido a sua importância para guiar a construção durante o período determinado, pensando nisso elaborou-se a seguinte tabela com os requisitos do jogo.
-
-*Exemplo de tabela de requisitos*
 \# | Requisito  
 --- | ---
 1 | O jogo é iniciado com um toque em qualquer local da tela inicial.
@@ -157,8 +148,6 @@ Os requisitos do projeto são uma parte fundamental para o planejamento devido a
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
-*Posicione aqui uma descrição justificada do público-alvo do jogo, em termos demográficos e de preferências/gostos pessoais.*
-
 O público-alvo do jogo são jovens universitários com pouco ou nenhum contato aprofundado com tecnologia — especialmente com Inteligência Artificial. A maioria dessas pessoas limita sua experiência de AI ao uso casual de chatbots como ChatGPT, Gemini ou Claude, o que reflete bem a realidade, em que pesquisas, por exemplo, indicam que menos de 30% das empresas nos EUA de fato adotaram IA em seus processos, evidenciando que a expertise do grande público nessa área é frequentemente superestimada. Por ser um jogo introdutório, ele se encaixa tanto para estudantes de cursos que demandam apenas um uso superficial de IA quanto para calouros de cursos como Ciência da Computação, Engenharia de Software ou Engenharia da Computação que ainda não tiveram uma base sólida no tema, funcionando de forma análoga ao pré-cálculo adotado por diversas universidades para nivelar estudantes com lacunas matemáticas, mas para o uso de AI e sendo muito mais divertido e engajante.
 
 O perfil mais representativo do nosso usuário é o de um jovem de renda média-baixa, criado fora dos grandes centros urbanos e egresso de escola pública, levando em conta que mais de 80% dos estudantes do ensino médio brasileiro vem de escolas públicas, o público potencial do jogo seria bem grande. Esse usuário potencial do jogo tem afinidade e desenvoltura com tecnologias acessíveis do cotidiano, como celulares e videogames, mas nunca teve a oportunidade de se aprofundar tecnicamente. Agora, ao ingressar na universidade, enfrenta pela primeira vez a necessidade de desenvolver uma compreensão mais sólida da área, e é exatamente para esse primeiro passo que o jogo foi pensado.
@@ -167,15 +156,14 @@ O perfil mais representativo do nosso usuário é o de um jovem de renda média-
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-*Descreva o que o jogador deve cumprir para avançar ou concluir o jogo* O objetivo do jogo é ensinar o básico de inteligência artificial de um jeito divertido e que prenda a atenção do usuário (através de minigames e puzzles) , sempre tentando fazê-lo se conectar com a história e os personagens de um modo que seu aprendizado seja mais eficiente. E com isso, queremos despertar o interesse dos universitários sobre o assunto IA para que eles busquem os cursos de tecnologia da IBM.
+O objetivo do jogo é ensinar o básico de inteligência artificial de um jeito divertido e que prenda a atenção do usuário (através de minigames e puzzles) , sempre tentando fazê-lo se conectar com a história e os personagens de um modo que seu aprendizado seja mais eficiente. E com isso, queremos despertar o interesse dos universitários sobre o assunto IA para que eles busquem os cursos de tecnologia da IBM.
 
 
 ## 2.2. Características do Jogo (sprint 2) 
+
 O jogo é uma historia repleta de acão onde a protagonista deverá passar por desafios e durantes eles irá aprender sobre os fundamentos basicos da IA. O jogo tem graficos simples feitos no Piskel. Os personagens são a peca chave para o jogo, todos tem um contexto, historia e motivacões, assim deixando o jogador mais conectado com o jogo. 
 
 ### 2.2.1. Gênero do Jogo (sprint 2)
-
-*simulação, RPG, corrida, estratégia, esportes, ação, aventura etc.*  
 
 *O gênero do nosso jogo é de aventura, tendo modo história, ação e puzzles, tudo isso com o objetivo de ensinar.
 
@@ -196,14 +184,10 @@ O objetivo dessas medidas é garantir ampla acessibilidade, sem necessidade de i
 
 ### 2.2.3. Número de jogadores (sprint 2)
 
-*1 jogador, 2 jogadores versus, 2 jogadores cooperação, multiplayer etc.* 
-
 *Apenas um jogador. Nosso jogo é uma história onde apenas 1 jogador é controlável, a nossa protagonista Sophia.
 
 
 ### 2.2.4. Títulos semelhantes e inspirações (sprint 2)
-
-*Liste e descreva títulos semelhantes e jogos que inspiram e são usados como referência do projeto* 
 
 *Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensinar o usuário) , Hollow Knight (Design, como a luz em torno do personagem), Spaceship Runner e Among Us ( Gráfico e puzzles) , a inteligência artificial Learn Ia (Desenvolvimento de habilidades de IA, baseado em textos).
 
@@ -263,8 +247,6 @@ Sophia é a protagonista controlável do jogo, uma estagiária, engenheira e cie
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
-*\<opcional\> Se existirem coadjuvantes ou vilões, aqui é o local para descrevê-los e ilustrá-los. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes. Caso não existam NPCs, remova esta seção.*
-
 O nosso jogo possui outros 2 personagens. O primeiro é o Asimov, o companheiro robótico que acompanha Sophia durante a maior parte da jornada, caracterizado por sua personalidade lógica, comportamento protetor e inteligência extrema, além de habilidades como acesso a bancos de dados, tradução de informações antigas e suporte tecnológico em campo, funcionando inicialmente como guia e apoio constante ao jogador. Criado para auxiliar cientistas em um possível futuro corrompido, ele ajuda Sophia a compreender o mundo dominado pela inteligência artificial e facilita tarefas complexas, mas começa a apresentar falhas que aumentam ao decorrer do jogo, causadas pelo vírus que corrompe os sistemas globais. Ao longo da história, Asimov deixa de ser apenas uma ferramenta e passa a desenvolver uma relação de amizade com Sophia, tornando seu destino emocionalmente significativo e relevante.
 
 <div align = "center">
@@ -291,21 +273,15 @@ O segundo e menos desenvolvido na história do jogo é o cientista-chefe Watson,
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
-Considerando as personagens do game, analise se estas estão alinhadas ao público-alvo do jogo (seção 1.3), e compare-as dentro da realidade da sociedade brasileira. Por fim, discorra sobre qual é o impacto esperado da escolha dessas personagens.
-
 Considerando que o público-alvo são estudantes universitários interessados em aprender inteligência artificial, mas que enfrentam dificuldades com conteúdos muito teóricos, os personagens do jogo se conectam diretamente com essa realidade e ajudam a despertar interesse pelos cursos de tecnologia oferecidos pela IBM. Sophia representa o estudante que aprende na prática, experimentando, errando e evoluindo aos poucos, mostrando que qualquer pessoa pode começar a entender a tecnologia mesmo sem dominar toda a teoria inicialmente. Asimov simboliza as ferramentas tecnológicas modernas e o apoio que plataformas educacionais, como os cursos da IBM, oferecem para facilitar o aprendizado. Já Watson reforça o papel da ciência, da inovação e da necessidade de preparar profissionais para o futuro. Assim, o jogo funciona como uma porta de entrada motivadora, despertando curiosidade sobre inteligência artificial e incentivando os jogadores a buscar aprofundamento por meio dos cursos tecnológicos disponibilizados pela IBM.
 
 ## 3.3. Mundo do jogo (sprints 2 e 3)
 
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
-*Descreva o ambiente do jogo, em que locais ele ocorre. Ilustre com imagens. Se houverem mapas, posicione-os aqui, descrevendo as áreas em acordo com o enredo. Se houverem fases, descreva-as também em acordo com o enredo (pode ser um jogo de uma fase só). Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.*
-
 O jogo acontece em um mundo de ficção científica com uma atmosfera misteriosa e envolvente, onde o próprio ambiente ajuda no contexto da história. No começo, o jogo está em um laboratório moderno e bem cuidado, cheio de tecnologia avançada, luzes claras e equipamentos funcionando, transmitindo uma sensação de segurança e descoberta científica. Mais tarde, o jogador retorna ao mesmo laboratório, mas no futuro, encontrando o lugar abandonado, escuro e deteriorado, com máquinas quebradas e um clima mais pesado e silencioso, criando uma sensação de estranheza e suspense ao mostrar como tudo mudou com o tempo. Em outra fase, o jogo se passa em um lixão, um cenário caótico formado por sucatas e restos tecnológicos descartados, com um ambiente poluído e desorganizado que reforça a ideia de abandono.
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
-
-*Descreva como os personagens se movem no mundo criado e as relações entre as locações – como as áreas/fases são acessadas ou desbloqueadas, o que é necessário para serem acessadas etc. Utilize listas ou tabelas para organizar esta seção.*
 
 _**Movimentação dos Personagens**_
 
@@ -351,8 +327,6 @@ _**Estrutura e Funcionamento**_
 *Caso seja relevante, descreva como o tempo passa, se ele é um fator limitante ao jogo (ex. contagem de tempo para terminar uma fase)*
 
 ### 3.3.4. Concept Art (sprint 2)
-
-*Inclua imagens de Concept Art do jogo que ainda não foram demonstradas em outras seções deste documento. Para cada imagem, coloque legendas, como no exemplo abaixo.*
 
 Link para o acesso do Concept Art no docs: https://docs.google.com/document/d/19yr0fiV42CK17oZ3km1qEDT_DGSezbkxb-5vpMVW58o/edit?usp=sharing
 
@@ -607,7 +581,7 @@ fecharMensagem() {
 
 **Código utilizado para criar uma caixa de diálogo no jogo:**
 
-```
+```javascript
 // Cria caixa de diálogo (HUD)
 this.caixaDialogo = this.add.graphics();
 
@@ -641,7 +615,7 @@ this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 35, "", {
 
 **Código utilizado para o sistema de colisão da scene 2:**
 
-```
+```javascript
 // Sistema de colisão
 try {
     this.collisionImage = this.textures.get("colisao").getSourceImage();
@@ -658,7 +632,7 @@ try {
 
 **Código utilizado para adicionar o elemento “baú” ao mapa da scene 2:**
 
-```
+```javascript
 // Baú
 this.bauAnimado = this.add.sprite(520, 160, "bauAnimado").setScale(2.3);
 
@@ -691,7 +665,7 @@ this.cientistaLider = this.add
 
 **Código utilizado para estabelecer a lógica da interação da cena 2:**
 
-```
+```javascript
 // Lógica de interação
 let distBau = Phaser.Math.Distance.Between(
     this.cientistaLider.x,
