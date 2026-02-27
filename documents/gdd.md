@@ -468,7 +468,87 @@ Para os próximos passos, o grupo deseja implementar os requisitos 3 e 4, adicio
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
-*Descreva e ilustre aqui o desenvolvimento da versão básica do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos.*
+# Seção 4.2 - Redação do desenvolvimento básico
+
+- Em relação ao código foram feitas as cenas 1 e 2.
+
+---
+
+## SCENE 1
+
+- **Contexto:** personagem principal está no laboratório junto com uma equipe de cientistas, onde o líder dessa equipe terá uma conversa com a personagem principal sobre o problema causado pelo uso inadequado de AI (contexto).
+
+- **Parte técnica:**
+  1. Cena se passa em um laboratório de alta tecnologia;
+  2. Personagens: Dr. Watson (líder), Sophia (jogador) e NPC´s de fundo (cientistas);
+  3. Gameplay: WASD ou SETAS.
+
+**Código utilizado para criar colisão sobre todos os objetos do mapa na scene:**
+
+''' javascript
+// adiciona colisão a todos os objetos do laboratório pela função criarColisao
+this.criarColisao(this.armario);
+this.criarColisao(this.armario2);
+this.criarColisao(this.mesa1);
+this.criarColisao(this.mesa2);
+this.criarColisao(this.mesa3);
+this.criarColisao(this.pilar);
+this.criarColisao(this.reservAsCri);
+this.criarColisao(this.alvo);
+this.criarColisao(this.alvo2);
+this.criarColisao(this.criogenia);
+
+// colisão apenas na parte de baixo dos computadores
+this.criarColisao(this.computador1p1);
+this.criarColisao(this.computador2p2);
+this.criarColisao(this.computador3p2);
+this.criarColisao(this.computador4p2); '''
+
+**Código utilizado para adicionar o personagem principal na scene 1:**
+
+![Código utilizado para adicionar o personagem principal na scene 1](./imagens/secao-4-2-scene1-personagem.png)
+
+---
+
+**Código utilizado para adicionar a função de apertar a letra “E” e aparecer uma mensagem de texto quando você estiver em determinado lugar do mapa:**
+
+![Código utilizado para adicionar a função da tecla E](./imagens/secao-4-2-tecla-e-hud.png)
+
+---
+
+**Código utilizado para criar um efeito sobre a mensagem que aparece quando a letra “E” é clicada, quando for solicitado que ela seja acionada para uma caixa de texto aparecer:**
+
+![Código utilizado para criar efeito de texto digitado](./imagens/secao-4-2-efeito-texto-digitado.png)
+
+---
+
+**Código utilizado para criar uma caixa de diálogo no jogo:**
+
+![Código utilizado para criar uma caixa de diálogo](./imagens/secao-4-2-caixa-dialogo.png)
+
+---
+
+## SCENE 2
+
+- **Contexto:** o objetivo do jogador nessa fase será encontrar o protótipo chamado de Asimov.
+
+- **Parte técnica:**
+  1. Essa fase se passa no mesmo laboratório da cena 1, mas no futuro, onde o laboratório está todo destruído;
+  2. Personagens: Sophia (jogador) e Asimov (protótipo).
+
+**Código utilizado para o sistema de colisão da scene 2:**
+
+![Código utilizado para o sistema de colisão da scene 2](./imagens/secao-4-2-scene2-colisao.png)
+
+**Código utilizado para adicionar o elemento “baú” ao mapa da scene 2:**
+
+![Código utilizado para adicionar o elemento baú ao mapa da scene 2](./imagens/secao-4-2-scene2-bau.png)
+
+---
+
+**Código utilizado para estabelecer a lógica da interação da cena 2:**
+
+![Código utilizado para estabelecer a lógica da interação da cena 2](./imagens/secao-4-2-scene2-logica-interacao.png)
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 
