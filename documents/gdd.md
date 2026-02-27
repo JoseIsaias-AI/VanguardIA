@@ -544,7 +544,7 @@ MARKET DATA FORECAST. Gamification education market. Disponível em: [https://ww
 
 CPS SÃO PAULO. CPS lança curso livre online gratuito sobre inteligência artificial. Disponível em: [https://www.cps.sp.gov.br/cps-lanca-curso-livre-online-gratuito-sobre-inteligencia-artificial/](https://www.cps.sp.gov.br/cps-lanca-curso-livre-online-gratuito-sobre-inteligencia-artificial/). Acesso em: 27 fev. 2026.
 
-FUNDAÇÃO ITAÚ. Pesquisa Consumo e Uso da Inteligência Artificial no Brasil. Disponível em: [https://fundacaoitau.org.br/observatorio/biblioteca/pesquisa-consumo-e-uso-da-inteligencia-artificial-no-brasil](https://fundacaoitau.org.br/observatorio/biblioteca/pesquisa-consumo-e-uso-da-inteligencia-artificial-no-brasil). Acesso em: 27 fev. 2025.
+FUNDAÇÃO ITAÚ. Pesquisa Consumo e Uso da Inteligência Artificial no Brasil. Disponível em: [https://fundacaoitau.org.br/observatorio/biblioteca/pesquisa-consumo-e-uso-da-inteligencia-artificial-no-brasil](https://fundacaoitau.org.br/observatorio/biblioteca/pesquisa-consumo-e-uso-da-inteligencia-artificial-no-brasil). Acesso em: 27 fev. 2026.
 
 # <a name="c8"></a>Anexos
 
