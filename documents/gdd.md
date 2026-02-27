@@ -96,7 +96,7 @@ GOOGLE CLOUD. Google Cloud Skills Boost. Disponível no site oficial do Google C
 
 **Forças**
 
-As principais forças do projeto decorrem da parceria com a IBM. A associação a uma gigante da tecnologia confere credibilidade imediata ao jogo, funcionando como uma chancela de qualidade desde o seu lançamento. Além do peso da marca, a IBM conta com especialistas em IA que podem colaborar na curadoria e validação dos conteúdos educacionais, garantindo rigor técnico e relevância no aprendizado. Outro ponto forte é a base já consolidada do Skills Build, permitindo que o jogo chegue imediatamente para os usuários da plataforma, além de se apoiar nos conteúdos existentes no curso e utilizar dados e feedbacks da plataforma para orientar decisões de design instrucional e de jogabilidade.
+As principais forças do projeto decorrem da parceria com a IBM, conferindo, por exemplo, credibilidade imediata ao jogo e contato com especialistas em IA, garantindo rigor técnico e relevância no aprendizado. Além da base já consolidada do Skills Build, que traz um eixo de conteúdos e dados para se apoiar. Soma-se a isso a própria composição da equipe, formada por integrantes que fazem parte do público-alvo e com diferentes níveis de conhecimento em IA, possibilitando testar internamente a clareza e a eficácia da abordagem pedagógica do jogo, validando o processo de ensino a partir da própria experiência de aprendizagem do grupo.
 
 **Fraquezas**
 
