@@ -485,8 +485,8 @@ Para os próximos passos, o grupo deseja implementar os requisitos 3 e 4, adicio
 
 **Código utilizado para criar colisão sobre todos os objetos do mapa na scene:**
 
-''' javascript
-// adiciona colisão a todos os objetos do laboratório pela função criarColisao
+``` javascript 
+// adiciona colisão a todos os objetos do laboratório pela função criarColisao 
 this.criarColisao(this.armario);
 this.criarColisao(this.armario2);
 this.criarColisao(this.mesa1);
@@ -502,7 +502,8 @@ this.criarColisao(this.criogenia);
 this.criarColisao(this.computador1p1);
 this.criarColisao(this.computador2p2);
 this.criarColisao(this.computador3p2);
-this.criarColisao(this.computador4p2); '''
+this.criarColisao(this.computador4p2);   
+``` 
 
 **Código utilizado para adicionar o personagem principal na scene 1:**
 
