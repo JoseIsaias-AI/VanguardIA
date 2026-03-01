@@ -263,6 +263,15 @@ Considerando que o público-alvo são estudantes universitários interessados em
 
 O jogo acontece em um mundo de ficção científica com uma atmosfera misteriosa e envolvente, onde o próprio ambiente ajuda no contexto da história. No começo, o jogo está em um laboratório moderno e bem cuidado, cheio de tecnologia avançada, luzes claras e equipamentos funcionando, transmitindo uma sensação de segurança e descoberta científica. Mais tarde, o jogador retorna ao mesmo laboratório, mas no futuro, encontrando o lugar abandonado, escuro e deteriorado, com máquinas quebradas e um clima mais pesado e silencioso, criando uma sensação de estranheza e suspense ao mostrar como tudo mudou com o tempo. Em outra fase, o jogo se passa em um lixão, um cenário caótico formado por sucatas e restos tecnológicos descartados, com um ambiente poluído e desorganizado que reforça a ideia de abandono.
 
+<img src="documents/imagensDoGDD/LabBranco1.jpeg"><br>
+
+<img src="documents/imagensDoGDD/LabBranco2.jpeg"><br>
+
+<img src="documents/imagensDoGDD/LabDestruido1.jpeg"><br>
+
+<img src="../documents/imagensDoGDD/LabDestruido2.jpeg"><br>
+
+
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
 _**Movimentação dos Personagens**_
