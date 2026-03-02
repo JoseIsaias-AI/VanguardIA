@@ -120,7 +120,7 @@ Educação lúdica, democratização da IA, ensino nativo digital, aprendizado p
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
 
-*Registre na matriz os riscos identificados no projeto, visando avaliar situações que possam representar ameaças e oportunidades, bem como os impactos relevantes sobre o projeto. Apresente os riscos, ressaltando, para cada um, impactos e probabilidades com plano de ação e respostas.*
+*Registre na matriz os riscos identificados no projeto, visando avaliar situações que possam representar ameaças e oportunidades, bem como os impactos relevantes sobre o projeto. Apresente os riscos, ressaltando, para cada um, impactos e probabilidades com plano de ação e respostas..*
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
