@@ -264,19 +264,19 @@ O jogo acontece em um mundo de ficção científica com uma atmosfera misteriosa
 <div align = "center">
 
 <sup>Figura 5: Background da primeira parte da Cena 01.</sup><br>
-<img src="assets/fases/labBranco.png"><br>
+<img src="../assets/fases/sceneOne/labBranco.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 <sup>Figura 6: Periféricos da primeira parte da Cena 01.</sup><br>
-<img src="assets/objetos/partOne/objetosLabBNorm.png"><br>
+<img src="../assets/objetos/sceneOne/partOne/objetosLabBNorm.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 <sup>Figura 7: Background da segunda parte da Cena 01.</sup><br>
-<img src="assets/fases/LabDestruido.png"><br>
+<img src="../assets/fases/sceneOne/LabDestruido.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 <sup>Figura 8: Periféricos da segunda parte da Cena 01.</sup><br>
-<img src="../assets/objetos/partTwo/objLabBDest.png"><br>
+<img src="../assets/objetos/sceneOne/partTwo/objLabBDest.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
@@ -326,7 +326,6 @@ _**Estrutura e Funcionamento**_
 NÃO APLICÁVEL.
 
 ### 3.3.4. Concept Art (sprint 2)
-
 
 Durante o planejamento do jogo, com o objetivo de obter melhor visualização da proposta dos assets e do encaminhamento do projeto, foram desenvolvidas diversas concept arts relacionadas as cenas e personagens.
 
@@ -398,7 +397,7 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 *Posicione aqui seu "storyboard de programação" - o diagrama de cenas do jogo. Indique, por exemplo, como o jogo começa, quais opções o jogador tem, como ele avança nas fases, quais as condições de 'game over', como o jogo reinicia. Seu diagrama deve representar as classes, atributos e métodos usados no jogo.*
 
 <div align="center">
-<sub>Figura 09: Storyboard de programação</sub><br>
+<sub>Figura 15: Storyboard de programação</sub><br>
 <img src="../assets/gdd/diagramaDeCenas.jpg" width="85%"><br>
 <sup>Fonte: Autoria própria (2026).</sup><br>
 </div>
@@ -433,11 +432,11 @@ No decorrer do desenvolvimento, foi construída a tela de uma das fases do jogo,
 
 <div align = "center">
 
-<sup>Figura 10: Imagem do personagem da primeira fase.</sup><br>
+<sup>Figura 16: Imagem do personagem da primeira fase.</sup><br>
 <img src="../assets/gdd/telaFase.jpeg"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 11: Imagem do personagem interagindo com um item.</sup><br>
+<sup>Figura 17: Imagem do personagem interagindo com um item.</sup><br>
 <img src="../assets/gdd/interacaoItem.jpeg"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -447,11 +446,11 @@ Nesta tela também foram implementados um sistema de colisão básico — em ape
 
 <div align = "center">
 
-<sup>Figura 12: Imagem da matriz de colisão na primeira tela.</sup><br>
+<sup>Figura 18: Imagem da matriz de colisão na primeira tela.</sup><br>
 <img src="../assets/gdd/matrizColisaoTeste.jpeg"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 13: Imagem do balão de chat na tela.</sup><br>
+<sup>Figura 19: Imagem do balão de chat na tela.</sup><br>
 <img src="../assets/gdd/interacaoChat.jpeg"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -467,11 +466,11 @@ Inicialmente, os assets utilizados foram gerados por IA Generativa para melhor v
 
 <div align = "center">
 
-<sup>Figura 14: Imagem da matriz de colisão na primeira tela.</sup><br>
+<sup>Figura 20: Imagem da matriz de colisão na primeira tela.</sup><br>
 <img src="../assets/fases/sceneTwo/labCristalEscuro2.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 15: Background e periféricos integrados da segunda parte da Cena 02.</sup><br>
+<sup>Figura 21: Background e periféricos integrados da segunda parte da Cena 02.</sup><br>
 <img src="../assets/fases/sceneTwo/labCristalClaro2.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -481,7 +480,7 @@ Além disso, foram refatorados: os sistemas de colisão para que, ao invés de u
 
 <div align = "center">
 
-<sup>Figura 16: Imagem da matriz de colisão na primeira tela.</sup><br>
+<sup>Figura 22: Imagem da matriz de colisão na primeira tela.</sup><br>
 <img src="../assets/gdd/faseRefactor.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
