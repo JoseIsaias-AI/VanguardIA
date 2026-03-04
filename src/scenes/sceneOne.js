@@ -12,6 +12,10 @@ export class Scene01 extends Phaser.Scene {
       frameWidth: 64,
       frameHeight: 64,
     }); // spritesheet da sophia (player)
+    this.load.spritesheet("watson", "assets/personagens/watson.png", {
+      frameWidth: 64,
+      frameHeight: 64,
+    }); // spritesheet do watson (NPC)
 
     // objetos do laboratório branco
     this.load.image("armario", "assets/objetos/sceneOne/partOne/armario.png");
@@ -44,6 +48,7 @@ export class Scene01 extends Phaser.Scene {
     // variáveis de estado //
     this.lendoMensagem = false; // bloqueia movimento se o jogador estiver lendo
     this.podeInteragir = false; // indica se o jogador está próximo de um item interativo
+    this.podeInteragirWatson = false; // indica se o jogador está próximo do Watson
     this.scaleMapa = 3;
 
     // criando o mapa //
@@ -204,18 +209,55 @@ export class Scene01 extends Phaser.Scene {
     this.physics.add.collider(this.Principal, this.paredes); // adiciona colisão entre o personagem e as paredes
     this.physics.add.collider(this.Principal, this.objetosColisao); // adiciona colisão entre o personagem e os objetos do laboratório
 
+    // WATSON (NPC)
+    this.watson = this.physics.add
+      .sprite(720, 100, "watson")
+      .setScale(2.2)
+      .setDepth(2);
+    this.watson.body.setAllowGravity(false);
+    this.watson.setSize(30, 25);
+    this.watson.setOffset(15, 30);
+    this.watson.setImmovable(true);
+    this.physics.add.collider(this.Principal, this.watson);
+
+    // animações do Watson NPC
+    if (!this.anims.exists("watson_front")) {
+      this.anims.create({
+        key: "watson_front",
+        frames: this.anims.generateFrameNumbers("watson", { start: 0, end: 1 }),
+        frameRate: 4,
+        repeat: -1,
+      });
+      this.anims.create({
+        key: "watson_back",
+        frames: this.anims.generateFrameNumbers("watson", { start: 7, end: 9 }),
+        frameRate: 4,
+        repeat: -1,
+      });
+      this.anims.create({
+        key: "watson_side",
+        frames: this.anims.generateFrameNumbers("watson", { start: 14, end: 16 }),
+        frameRate: 4,
+        repeat: -1,
+      });
+    }
+
+    this.watson.play("watson_front");
+
     //  HUD (interface do usuário) //
 
     // cria um container da tecla "E" que aparece perto dos objetos
     this.containerTecla = this.add.container(0, 0);
+    let largura = 140;
+    let altura = 40;
     let iconeTecla = this.add.graphics();
     iconeTecla.fillStyle(0xffffff, 1);
     iconeTecla.lineStyle(2, 0x000000, 1);
-    iconeTecla.fillRoundedRect(-70, -20, 140, 40, 10);
-    iconeTecla.strokeRoundedRect(-70, -20, 140, 40, 10);
+    iconeTecla.fillRoundedRect(-largura / 2, -altura / 2, largura, altura, 10);
+    iconeTecla.strokeRoundedRect(-largura / 2, -altura / 2, largura, altura, 10);
     let letra = this.add
       .text(0, 0, "Aperte E", {
-        fontSize: "25px",
+        fontSize: "20px",
         color: "#000000",
         fontStyle: "bold",
       })
@@ -223,9 +265,37 @@ export class Scene01 extends Phaser.Scene {
     this.containerTecla.add([iconeTecla, letra]); // adiciona desenho e texto ao container
     this.containerTecla.setVisible(false);
 
-    // Animação leve de "flutuar" para a tecla "E"
+    // Animação leve de "flutuar" para a tecla "E" da câmara
     this.tweens.add({
       targets: this.containerTecla,
+      y: "+=5",
+      duration: 800,
+      yoyo: true,
+      repeat: -1,
+    });
+
+    // ===== ICONE DA TECLA E (WATSON) =====
+    this.containerTeclaWatson = this.add.container(0, 0);
+
+    let iconeTeclaWatson = this.add.graphics();
+    iconeTeclaWatson.fillStyle(0xffffff, 1);
+    iconeTeclaWatson.lineStyle(2, 0x000000, 1);
+    iconeTeclaWatson.fillRoundedRect(-largura / 2, -altura / 2, largura, altura, 10);
+    iconeTeclaWatson.strokeRoundedRect(-largura / 2, -altura / 2, largura, altura, 10);
+
+    let letraWatson = this.add
+      .text(0, 0, "Aperte E", {
+        fontSize: "20px",
+        color: "#000000",
+        fontStyle: "bold",
+      })
+      .setOrigin(0.5);
+
+    this.containerTeclaWatson.add([iconeTeclaWatson, letraWatson]);
+    this.containerTeclaWatson.setVisible(false);
+
+    this.tweens.add({
+      targets: this.containerTeclaWatson,
       y: "+=5",
       duration: 800,
       yoyo: true,
@@ -368,7 +438,15 @@ export class Scene01 extends Phaser.Scene {
       targetY,
     );
 
-    // Mostra o botão "E" se estiver perto do objeto
+    // distancia ate o watson
+    let distanciaWatson = Phaser.Math.Distance.Between(
+      this.Principal.x,
+      this.Principal.y,
+      this.watson.x,
+      this.watson.y,
+    );
+
+    // Mostra o botão "E" se estiver perto da câmara
     if (distancia < 140) {
       this.podeInteragir = true;
       this.containerTecla.setVisible(true);
@@ -378,9 +456,29 @@ export class Scene01 extends Phaser.Scene {
       this.containerTecla.setVisible(false);
     }
 
-    // Ação ao apertar a tecla "E"
+    // MOSTRAR ICONE E - WATSON
+    if (distanciaWatson < 120) {
+      this.podeInteragirWatson = true;
+      this.containerTeclaWatson.setVisible(true);
+      this.containerTeclaWatson.setPosition(this.watson.x, this.watson.y - 80);
+    } else {
+      this.podeInteragirWatson = false;
+      this.containerTeclaWatson.setVisible(false);
+    }
+
+    // Ação ao apertar a tecla "E" na câmara
     if (this.podeInteragir && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
       this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
+    }
+
+    // INTERACAO - WATSON
+    if (
+      this.podeInteragirWatson &&
+      Phaser.Input.Keyboard.JustDown(this.teclaE)
+    ) {
+      this.containerTeclaWatson.setVisible(false);
+      console.log("Interagiu com o Watson!");
+      // aqui voce pode adicionar dialogo, cutscene, etc.
     }
   }
 
