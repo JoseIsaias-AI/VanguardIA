@@ -22,7 +22,7 @@ const config = {
             debug: false  
         }
     },
-    scene: [WelcomeScene, Scene01, SceneFuturo, Scene02, FaseUm]
+    scene: [WelcomeScene, Scene01, SceneFuturo, Scene02]
     //scene: [FaseUm]
 };
 
