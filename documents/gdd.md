@@ -264,28 +264,21 @@ Dessa forma, o jogo promove representatividade de gênero, acadêmica e profissi
 
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
-O jogo acontece em um mundo de ficção científica com uma atmosfera misteriosa e envolvente, onde o próprio ambiente ajuda no contexto da história. No começo, o jogo está em um laboratório moderno e bem cuidado, cheio de tecnologia avançada, luzes claras e equipamentos funcionando, transmitindo uma sensação de segurança e descoberta científica. Mais tarde, o jogador retorna ao mesmo laboratório, mas no futuro, encontrando o lugar abandonado, escuro e deteriorado, com máquinas quebradas e um clima mais pesado e silencioso, criando uma sensação de estranheza e suspense ao mostrar como tudo mudou com o tempo. Em outra fase, o jogo se passa em um lixão, um cenário caótico formado por sucatas e restos tecnológicos descartados, com um ambiente poluído e desorganizado que reforça a ideia de abandono.
+O jogo acontece em um mundo de ficção científica com uma atmosfera misteriosa e envolvente, onde o próprio ambiente ajuda no contexto da história. No começo, o jogo está em um laboratório moderno e bem cuidado, cheio de tecnologia avançada, luzes claras e equipamentos funcionando, transmitindo uma sensação de segurança e descoberta científica. 
 
 <div align = "center">
-
-<sup>Figura 5: Background da primeira parte da Cena 01.</sup><br>
-<img src="../assets/fases/sceneOne/labBranco.png"><br>
+<sup>Figura 5: Mapa do laboratório inicial.</sup><br>
+<img src="../assets/Fases/sceneTwo/labCristalClaro2.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
-
-<sup>Figura 6: Periféricos da primeira parte da Cena 01.</sup><br>
-<img src="../assets/objetos/sceneOne/partOne/objetosLabBNorm.png"><br>
-<sub>Fonte: Autoria própria (2026). </sub><br>
-
-<sup>Figura 7: Background da segunda parte da Cena 01.</sup><br>
-<img src="../assets/fases/sceneOne/LabDestruido.png"><br>
-<sub>Fonte: Autoria própria (2026). </sub><br>
-
-<sup>Figura 8: Periféricos da segunda parte da Cena 01.</sup><br>
-<img src="../assets/objetos/sceneOne/partTwo/objLabBDest.png"><br>
-<sub>Fonte: Autoria própria (2026). </sub><br>
-
 </div>
 
+Mais tarde, o jogador retorna ao mesmo laboratório, mas no futuro, encontrando o lugar abandonado, escuro e deteriorado, com máquinas quebradas e um clima mais pesado e silencioso, criando uma sensação de estranheza e suspense ao mostrar como tudo mudou com o tempo. 
+
+<div align = "center">
+<sup>Figura 6: Mapa do laboratório no futuro.</sup><br>
+<img src="../assets/Fases/sceneTwo/labCristalEscuro2.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+</div>
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
