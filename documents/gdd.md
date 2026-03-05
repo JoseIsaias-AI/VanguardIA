@@ -264,7 +264,15 @@ Dessa forma, o jogo promove representatividade de gênero, acadêmica e profissi
 
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
-O jogo acontece em um mundo de ficção científica com uma atmosfera misteriosa e envolvente, onde o próprio ambiente ajuda no contexto da história. No começo, o jogo está em um laboratório moderno e bem cuidado, cheio de tecnologia avançada, luzes claras e equipamentos funcionando, transmitindo uma sensação de segurança e descoberta científica. 
+O jogo se passa em um laboratório de pesquisa em Inteligência Artificial e robótica. No início da narrativa, em 2022, o ambiente é apresentado como um espaço moderno, organizado e equipado com tecnologias avançadas, transmitindo a sensação de progresso científico e inovação. Após o salto temporal para 2098, quando Sophia desperta da criogenia, o jogador encontra o mesmo laboratório em estado de abandono, com estruturas danificadas, equipamentos quebrados e um ambiente escuro e silencioso, reforçando as consequências do uso indevido da tecnologia ao longo das décadas.
+
+Entre os principais ambientes explorados está a área de sucatas, um setor do laboratório onde foram acumulados equipamentos danificados, peças de robôs e restos de experimentos antigos. Esse espaço funciona como uma área inicial de exploração, onde Asimov é utilizado para navegar entre os destroços e encontrar pistas sobre a localização do cristal necessário para restaurar os sistemas do laboratório.
+
+Após essa etapa, Sophia e Asimov chegam à sala de arquivos, um ambiente onde estão armazenados registros e materiais de antigos experimentos científicos. Nesse local existe um baú contendo folhetos e imagens de diferentes tipos de cristais. Entre esses registros estão tanto imagens do cristal verdadeiro azul, brilhante e pontiagudo; quanto cristais falsos, vermelhos e com imperfeições estruturais.
+
+Em seguida, o jogador acessa a sala da esteira, onde ocorre a fase de classificação. Nesse ambiente, as imagens dos cristais são analisadas e separadas utilizando os comandos de guardar ou incinerar. Após a seleção correta das amostras, os cristais verdadeiros são enviados para um extrator de características, que gera a matriz de dados utilizada para o treinamento do sistema de Asimov.
+
+Por fim, o jogo apresenta a sala principal de controle do laboratório, onde se encontra o núcleo do mapa energético da instalação. Nesse local, Sophia deposita o cristal sintetizado no centro do sistema, restaurando a energia do laboratório e reativando seus principais sistemas, marcando um momento importante na reconstrução da tecnologia e no avanço da narrativa.
 
 <div align = "center">
 <sup>Figura 5: Mapa do laboratório inicial.</sup><br>
