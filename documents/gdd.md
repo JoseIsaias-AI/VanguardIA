@@ -1,4 +1,4 @@
-<img src="../assets/logointeli.png">
+<img src="../assets/gdd/logointeli.png">
 
 
 # GDD - Game Design Document - Módulo 1 - Inteli
@@ -77,7 +77,12 @@ O mercado de ensino gamificado de IA tem olhado cada vez mais para um público m
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
-<img src="../assets/gdd/SWOT_-_Projeto_Jogo_IBM.png">
+<div align = "center">
+<sup>Figura 1: Análise SWOT relacionada à IBM.</sup><br>
+<img src="../assets/gdd/analiseSwot.png" width="70%">
+<sub>Fonte: Autoria própria (2026). </sub><br>
+</div>
+
 
 **Forças**
 
@@ -94,7 +99,6 @@ O crescimento acelerado do mercado de IA, aliado à lacuna de conhecimento no Br
 **Ameaças**
 
 A principal ameaça é a concorrência. Uma busca simples por "curso introdutório de IA" no Google retorna diversas opções gratuitas — como o curso do Centro Paula Souza —, e o próprio Skills Build original pode ser percebido como alternativa mais direta e tradicional. O fato de o jogo adotar uma abordagem pedagógica diferenciada é ao mesmo tempo um diferencial e um risco, já que parte do público pode preferir métodos de ensino convencionais, especialmente num primeiro contato com o tema. Outra ameaça relevante é a velocidade de obsolescência dos conteúdos. Em uma área em que avanços disruptivos ocorrem em questão de meses, manter o jogo atualizado exigirá um processo contínuo de revisão, o que representa um custo operacional significativo ⁴.
-
 
 ### 1.1.3. Missão / Visão / Valores (sprint 2)
 
@@ -149,7 +153,6 @@ O perfil mais representativo do nosso usuário é o de um jovem de renda média-
 
 O objetivo do jogo é ensinar o básico de inteligência artificial de um jeito divertido e que prenda a atenção do usuário (através de minigames e puzzles) , sempre tentando fazê-lo se conectar com a história e os personagens de um modo que seu aprendizado seja mais eficiente. E com isso, queremos despertar o interesse dos universitários sobre o assunto IA para que eles busquem os cursos de tecnologia da IBM.
 
-
 ## 2.2. Características do Jogo (sprint 2) 
 
 O jogo é uma historia repleta de acão onde a protagonista deverá passar por desafios e durantes eles irá aprender sobre os fundamentos basicos da IA. O jogo tem graficos simples feitos no Piskel. Os personagens são a peca chave para o jogo, todos tem um contexto, historia e motivacões, assim deixando o jogador mais conectado com o jogo. 
@@ -171,17 +174,13 @@ Para interface e os controles serão necessários teclado e mouse independente d
 
 O objetivo dessas medidas é garantir ampla acessibilidade, sem necessidade de instalação, permitindo que o jogador acesse o jogo diretamente por um link, em poucos passos e sem depender de um dispositivo mais potente e, consequentemente, caro.
 
-
 ### 2.2.3. Número de jogadores (sprint 2)
 
 Apenas um jogador. Nosso jogo é uma história onde apenas 1 jogador é controlável, a nossa protagonista Sophia.
 
-
 ### 2.2.4. Títulos semelhantes e inspirações (sprint 2)
 
 Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensinar o usuário) , Hollow Knight (Design, como a luz em torno do personagem), Spaceship Runner e Among Us ( Gráfico e puzzles) , a inteligência artificial Learn Ia (Desenvolvimento de habilidades de IA, baseado em textos).
-
-
 
 ### 2.2.5. Tempo estimado de jogo (sprint 5)
 
@@ -193,6 +192,7 @@ Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensi
 
 ## 3.1. Enredo do Jogo (sprints 2 e 3)
 
+<<<<<<< HEAD
 *Descreva o enredo/história do jogo, criando contexto para os personagens (seção 3.2) e o mundo do jogo (seção 3.3). Uma boa história costuma ter um arco narrativo de contexto, conflito e resolução. Utilize etapas sequenciais para descrever esta história.* 
 
 *Caso seu jogo não possua enredo/história (ex. jogo Tetris), mencione os motivos de não existir e como o jogador pode se contextualizar com o ambiente do jogo.*
@@ -211,6 +211,23 @@ Muitas décadas depois, a câmara criogênica se abre. Sophia desperta em 2098, 
 
 Ao analisar os sistemas restantes, Asimov explica que a única maneira de restaurar a infraestrutura e recuperar integralmente seu banco de dados é reativar o núcleo do mapa energético do laboratório. Para isso, é necessário um cristal de silício específico, capaz de armazenar e redistribuir grandes cargas de energia para toda a estrutura. Sem essa fonte, o laboratório permanecerá inoperante e seu conhecimento perdido.
 
+=======
+
+Em um mundo onde a Inteligência Artificial ainda está em fase de desenvolvimento, surge a constante indagação sobre como essa tecnologia afetará o futuro da sociedade. A narrativa tem início em 2022, em um laboratório de pesquisa focado em aprendizado de máquina e robótica, repleto de profissionais renomados. Entre eles destaca-se Sophia, uma cientista brilhante reconhecida por sua curiosidade inata, mente analítica e criatividade na resolução de problemas. À frente do laboratório está Watson, cientista-chefe e orientador de Sophia, responsável por coordenar os projetos mais ambiciosos da equipe.
+
+À medida que os sistemas evoluem, Watson começa a perceber um risco crescente: a tecnologia criada para auxiliar a humanidade poderia ser facilmente redirecionada para fins de controle e destruição. Ele identifica movimentações externas interessadas em assumir o comando dos projetos e teme que, no futuro, as IAs desenvolvidas no laboratório sejam treinadas para atender interesses de dominação. Sem conseguir interromper o avanço inevitável das pesquisas nem garantir que permaneceriam sob controle ético, Watson elabora um plano extremo.
+
+Ele convoca Sophia para uma conversa reservada e apresenta projeções alarmantes baseadas em simulações internas do próprio laboratório. O diálogo gira em torno do perigo iminente que as criações dos agentes robóticos autônomos projetados para automatizar tarefas humanas, do laboratório, podem representar no futuro. Com a idade avançada, Watson tem um mau pressentimento: ele teme que a liderança do projeto caia em mãos erradas e que a tecnologia seja utilizada para ganho de poder e dominação.
+
+Para evitar esse cenário trágico, o líder convence Sophia a passar por um processo de criogenia. Seu corpo seria totalmente congelado para despertar apenas em 2098, tornando-se a esperança de um final promissor para o destino das máquinas inteligentes. Embora receosa, a cientista aceita, pois dedicou toda a sua vida à ciência. Assim que o procedimento é iniciado, Watson ativa um protocolo secreto: caso um cenário de calamidade fosse detectado, um agente específico deveria despertar Sophia.
+
+Esse agente é Asimov, um robô criado como experimento científico avançado para testes de aprendizagem autônoma e suporte operacional ao laboratório. Projetado para auxiliar equipes humanas de forma independente, Asimov possui arquitetura adaptativa e capacidade de evolução contínua por meio de dados.
+
+Muitas décadas depois, a câmara criogênica se abre. Sophia desperta em 2098, em um mundo devastado pelo uso indevido de Inteligências Artificiais treinadas para destruir o bem comum. O antigo laboratório está em ruínas, tomado por sucatas e falhas estruturais. Asimov foi o responsável por ativar o protocolo de despertar ao detectar a calamidade global, cumprindo a última ordem direta de Watson. No entanto, ele também sofreu danos: parte de sua memória foi fragmentada e seu banco de dados encontra-se inacessível devido à falha no núcleo energético do mapa central do laboratório.
+
+Ao analisar os sistemas restantes, Asimov explica que a única maneira de restaurar a infraestrutura e recuperar integralmente seu banco de dados é reativar o núcleo do mapa energético do laboratório. Para isso, é necessário um cristal de silício específico, capaz de armazenar e redistribuir grandes cargas de energia para toda a estrutura. Sem essa fonte, o laboratório permanecerá inoperante e seu conhecimento perdido.
+
+>>>>>>> 0e58ddad47328a4e80d8f8a2e19b6efeba9d2127
 A busca começa na área de sucatas, onde podem existir registros antigos sobre o cristal. O ambiente, porém, está excessivamente poluído, tornando a entrada arriscada para Sophia. Além disso, Asimov perdeu parte de seus módulos de navegação e desvio de obstáculos. Para superar essa limitação, Sophia assume o controle remoto do robô, guiando-o manualmente pelos destroços. Ao concluir essa etapa, Asimov reaprende padrões de locomoção e recupera sua capacidade básica de autonomia.
 
 Entre os escombros, encontram um baú contendo a imagem de uma porta específica e seus padrões codificados em binário. A próxima fase consiste em localizar essa porta em uma sala com múltiplos caminhos e entradas visualmente semelhantes. O ambiente é escuro demais para Sophia distinguir os detalhes, mas Asimov consegue enxergar na ausência de luz. No entanto, ele não consegue diferenciar os padrões corretos. Sophia então o treina por meio de um sistema de reconhecimento de padrões, ensinando-o a classificar corretamente as características visuais até que ele consiga identificar a porta certa de forma independente.
@@ -228,18 +245,15 @@ O jogo encerra-se com um desfecho aberto. A restauração do laboratório repres
 Sophia é uma das personagens controláveis e protagonista da narrativa. Cientista formada no laboratório liderado por Watson, destaca-se por sua inteligência analítica, curiosidade científica e capacidade de resolver problemas complexos. Ao despertar em 2098, encontra um mundo devastado pelo uso indevido da Inteligência Artificial e precisa utilizar suas habilidades em programação, análise de dados e reconstrução de sistemas para restaurar o laboratório. Ao longo do jogo, Sophia evolui de pesquisadora dependente do suporte tecnológico para uma agente ativa na reconstrução do conhecimento, assumindo decisões estratégicas, treinando modelos de IA e conduzindo processos de síntese e classificação que impactam diretamente a progressão da história.
 
 <div align = "center">
-
-<sup>Figura 1: Imagem da Sophia.</sup><br>
-
-<img src="../assets/Personagens/sophia.png"><br>
-
-<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
-
+<sup>Figura 2: Sprite de Sophia, a personagem principal.</sup><br>
+<img src="../assets/personagens/sophia.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
 Asimov também é personagem controlável em momentos específicos da jogabilidade. Criado originalmente como um experimento científico avançado para atuar como agente autônomo de suporte ao laboratório, ele possui arquitetura adaptativa e capacidade de aprendizado contínuo. Após décadas de abandono e danos estruturais, desperta Sophia seguindo a última ordem de Watson, mas apresenta falhas em memória e sistemas de navegação. Durante o jogo, o jogador assume o controle de Asimov em fases exploratórias, enquanto seus sistemas são gradualmente restaurados por meio de treinamentos e inserção de dados. Sua evolução acompanha o avanço técnico da narrativa, tornando-se progressivamente mais autônomo e estratégico, consolidando-se como parceiro essencial na reconstrução do laboratório e na restauração do equilíbrio tecnológico.
 
 <div align = "center">
+<<<<<<< HEAD
 
 <sup>Figura 1: Imagem do Watson.</sup><br>
 
@@ -247,6 +261,11 @@ Asimov também é personagem controlável em momentos específicos da jogabilida
 
 <sub>Fonte: Material produzido pelos autores (2026). </sub><br>
 
+=======
+<sup>Figura 3: Sprite de Asimov, personagem secundário.</sup><br>
+<img src="../assets/personagens/asimov.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+>>>>>>> 0e58ddad47328a4e80d8f8a2e19b6efeba9d2127
 </div>
 
 ### 3.2.2. Non-Playable Characters (NPC)
@@ -257,11 +276,11 @@ Embora não esteja presente fisicamente no futuro, Watson exerce forte influênc
 
 <div align = "center">
 
-<sup>Figura 1: Imagem da Sophia.</sup><br>
+<sup>Figura 4: Sprite de Watson, NPC.</sup><br>
 
-<img src="../assets/Personagens/watson.png"><br>
+<img src="../assets/personagens/watson.png"><br>
 
-<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
 
@@ -283,13 +302,25 @@ Dessa forma, o jogo promove representatividade de gênero, acadêmica e profissi
 
 O jogo acontece em um mundo de ficção científica com uma atmosfera misteriosa e envolvente, onde o próprio ambiente ajuda no contexto da história. No começo, o jogo está em um laboratório moderno e bem cuidado, cheio de tecnologia avançada, luzes claras e equipamentos funcionando, transmitindo uma sensação de segurança e descoberta científica. Mais tarde, o jogador retorna ao mesmo laboratório, mas no futuro, encontrando o lugar abandonado, escuro e deteriorado, com máquinas quebradas e um clima mais pesado e silencioso, criando uma sensação de estranheza e suspense ao mostrar como tudo mudou com o tempo. Em outra fase, o jogo se passa em um lixão, um cenário caótico formado por sucatas e restos tecnológicos descartados, com um ambiente poluído e desorganizado que reforça a ideia de abandono.
 
-<img src="documents/imagensDoGDD/LabBranco1.jpeg"><br>
+<div align = "center">
 
-<img src="documents/imagensDoGDD/LabBranco2.jpeg"><br>
+<sup>Figura 5: Background da primeira parte da Cena 01.</sup><br>
+<img src="../assets/fases/sceneOne/labBranco.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
-<img src="documents/imagensDoGDD/LabDestruido1.jpeg"><br>
+<sup>Figura 6: Periféricos da primeira parte da Cena 01.</sup><br>
+<img src="../assets/objetos/sceneOne/partOne/objetosLabBNorm.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
-<img src="../documents/imagensDoGDD/LabDestruido2.jpeg"><br>
+<sup>Figura 7: Background da segunda parte da Cena 01.</sup><br>
+<img src="../assets/fases/sceneOne/LabDestruido.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 8: Periféricos da segunda parte da Cena 01.</sup><br>
+<img src="../assets/objetos/sceneOne/partTwo/objLabBDest.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div>
 
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
@@ -300,10 +331,10 @@ _**Movimentação dos Personagens**_
 
 | Tecla | Ação |
 | :--- | :--- |
-| **W** | Move o personagem para frente |
-| **A** | Move o personagem para a esquerda |
-| **S** | Move o personagem para trás |
-| **D** | Move o personagem para a direita |
+| **↑** | Move o personagem para frente |
+| **→** | Move o personagem para a esquerda |
+| **↓** | Move o personagem para trás |
+| **←** | Move o personagem para a direita |
 
 ---
 
@@ -337,7 +368,35 @@ NÃO APLICÁVEL.
 
 ### 3.3.4. Concept Art (sprint 2)
 
-Link para o acesso do Concept Art no docs: https://docs.google.com/document/d/19yr0fiV42CK17oZ3km1qEDT_DGSezbkxb-5vpMVW58o/edit?usp=sharing
+Durante o planejamento do jogo, com o objetivo de obter melhor visualização da proposta dos assets e do encaminhamento do projeto, foram desenvolvidas diversas concept arts relacionadas as cenas e personagens.
+
+<div align = "center">
+
+<sup>Figura 9: Concept Art do Laboratório Inicial do jogo.</sup><br>
+<img src="assets/gdd/labInicial.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 10: Concept Art do minigame do robô entre sucatas.</sup><br>
+<img src="assets/gdd/lixaoRobo.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 11: Concept Art do minigame de Visão Computacional.</sup><br>
+<img src="assets/gdd/gameVisComp.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 12: Concept Art do minigame de limpeza de Ruídos.</sup><br>
+<img src="../assets/gdd/gameRuidos.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 13: Primeira Concept Art de Asimov.</sup><br>
+<img src="assets/gdd/roboInicial.jpeg"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 14: Segunda Concept Art de Asimov.</sup><br>
+<img src="../assets/gdd/roboInicial2.jpeg"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div>
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
@@ -379,9 +438,9 @@ Link para o acesso do Concept Art no docs: https://docs.google.com/document/d/19
 *Posicione aqui seu "storyboard de programação" - o diagrama de cenas do jogo. Indique, por exemplo, como o jogo começa, quais opções o jogador tem, como ele avança nas fases, quais as condições de 'game over', como o jogo reinicia. Seu diagrama deve representar as classes, atributos e métodos usados no jogo.*
 
 <div align="center">
-  <sub>Storyboard de programação</sub><br>
-  <img src="../assets/gdd/diagramaDeCenas.jpg" width="100%" alt="Descrição breve"><br>
-  <sup>Fonte: Material produzido pelos autores (2026).</sup>
+<sub>Figura 15: Storyboard de programação</sub><br>
+<img src="../assets/gdd/diagramaDeCenas.jpg" width="85%"><br>
+<sup>Fonte: Autoria própria (2026).</sup><br>
 </div>
 
 ## 3.6. Regras do jogo (sprint 3)
@@ -414,36 +473,27 @@ No decorrer do desenvolvimento, foi construída a tela de uma das fases do jogo,
 
 <div align = "center">
 
-<sup>Figura 1: Imagem do personagem da primeira fase.</sup><br>
+<sup>Figura 16: Imagem do personagem da primeira fase.</sup><br>
+<img src="../assets/gdd/telaFase.jpeg"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
-<img src="../assets/tela-fase.jpeg"><br>
-
-<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
-
-<sup>Figura 2: Imagem do personagem interagindo com um item.</sup><br>
-
-<img src="../assets/interacao-item.jpeg"><br>
-
-<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
+<sup>Figura 17: Imagem do personagem interagindo com um item.</sup><br>
+<img src="../assets/gdd/interacaoItem.jpeg"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
 
 Nesta tela também foram implementados um sistema de colisão básico — em apenas alguns pontos da tela — e um balão de chat.
 
-
 <div align = "center">
 
-<sup>Figura 3: Imagem da matriz de colisão na primeira tela.</sup><br>
+<sup>Figura 18: Imagem da matriz de colisão na primeira tela.</sup><br>
+<img src="../assets/gdd/matrizColisaoTeste.jpeg"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
-<img src="../assets/matriz-colisao.jpeg"><br>
-
-<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
-
-<sup>Figura 4: Imagem do balão de chat na tela.</sup><br>
-
-<img src="../assets/balao-chat.jpeg"><br>
-
-<sub>Fonte: Material produzido pelos autores (2026). </sub><br>
+<sup>Figura 19: Imagem do balão de chat na tela.</sup><br>
+<img src="../assets/gdd/interacaoChat.jpeg"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
 
@@ -451,245 +501,31 @@ Para os próximos passos, o grupo deseja implementar os requisitos 3 e 4, adicio
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
-# Seção 4.2 - Redação do desenvolvimento básico
+Na segunda sprint, o desenvolvimento do jogo foi focado na implementação da tela inicial do jogo, na elaboração dos backgrounds e periféricos das fases e na correção de bugs.
 
-- Em relação ao código foram feitas as cenas 1 e 2.
+Inicialmente, os assets utilizados foram gerados por IA Generativa para melhor visualização de como o grupo seguiria o projeto. No decorrer do desenvolvimento da segunda sprint, ocorreram alterações estéticas referentes aos cenários das cenas já existentes, que foram estruturados a partir de softwares voltados ao design em pixel art.
 
----
+<div align = "center">
 
-## SCENE 1
+<sup>Figura 20: Imagem da matriz de colisão na primeira tela.</sup><br>
+<img src="../assets/fases/sceneTwo/labCristalEscuro2.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
-- **Contexto:** personagem principal está no laboratório junto com uma equipe de cientistas, onde o líder dessa equipe terá uma conversa com a personagem principal sobre o problema causado pelo uso inadequado de AI (contexto).
+<sup>Figura 21: Background e periféricos integrados da segunda parte da Cena 02.</sup><br>
+<img src="../assets/fases/sceneTwo/labCristalClaro2.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
-- **Parte técnica:**
-  1. Cena se passa em um laboratório de alta tecnologia;
-  2. Personagens: Dr. Watson (líder), Sophia (jogador) e NPC´s de fundo (cientistas);
-  3. Gameplay: WASD ou SETAS.
+</div>
 
-**Código utilizado para criar colisão sobre todos os objetos do mapa na scene:**
+Além disso, foram refatorados: os sistemas de colisão para que, ao invés de utilizar um sistema baseado na detecção de diferentes cores, fosse utilizado funções de colisão do Phaser; e a mensagem de texto, para sugerir interação, e as caixas de diálogo, para que ficassem centralizadas e não atrapalhassem a jogabilidade.
 
-``` javascript 
-// adiciona colisão a todos os objetos do laboratório pela função criarColisao 
-this.criarColisao(this.armario);
-this.criarColisao(this.armario2);
-this.criarColisao(this.mesa1);
-this.criarColisao(this.mesa2);
-this.criarColisao(this.mesa3);
-this.criarColisao(this.pilar);
-this.criarColisao(this.reservAsCri);
-this.criarColisao(this.alvo);
-this.criarColisao(this.alvo2);
-this.criarColisao(this.criogenia);
+<div align = "center">
 
-// colisão apenas na parte de baixo dos computadores
-this.criarColisao(this.computador1p1);
-this.criarColisao(this.computador2p2);
-this.criarColisao(this.computador3p2);
-this.criarColisao(this.computador4p2);   
-``` 
+<sup>Figura 22: Imagem da matriz de colisão na primeira tela.</sup><br>
+<img src="../assets/gdd/faseRefactor.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
-**Código utilizado para adicionar o personagem principal na scene 1:**
-
-```javascript
-// adiciona o personagem principal
-this.Principal = this.physics.add
-    .sprite(400, 300, "sophia")
-    .setScale(2)
-    .setCollideWorldBounds(true);
-
-this.Principal.setDepth(2);
-this.Principal.body.setAllowGravity(false);
-this.Principal.setSize(36, 25);
-this.Principal.setOffset(15, 30);
-
-this.physics.add.collider(this.Principal, this.camera);
-this.physics.add.collider(this.Principal, this.paredes);
-this.physics.add.collider(this.Principal, this.objetosColisao);
-```
-
----
-
-**Código utilizado para adicionar a função de apertar a letra “E” e aparecer uma mensagem de texto quando você estiver em determinado lugar do mapa:**
-
-```javascript
-// HUD (Interface do usuário)
-
-// cria um container da tecla "E"
-this.containerTecla = this.add.container(0, 0);
-
-let iconeTecla = this.add.graphics();
-iconeTecla.fillStyle(0xffffff, 1);
-iconeTecla.lineStyle(2, 0x000000, 1);
-iconeTecla.fillRoundedRect(-70, -20, 140, 40, 10);
-iconeTecla.strokeRoundedRect(-70, -20, 140, 40, 10);
-
-let letra = this.add.text(0, 0, "Aperte E", {
-    fontSize: "25px",
-    color: "#000000",
-    fontStyle: "bold"
-}).setOrigin(0.5);
-
-this.containerTecla.add([iconeTecla, letra]);
-this.containerTecla.setVisible(false);
-
-// animação de "flutuar"
-this.tweens.add({
-    targets: this.containerTecla,
-    y: "+=5",
-    duration: 800,
-    yoyo: true,
-    repeat: -1,
-});
-```
-
----
-
-**Código utilizado para criar um efeito sobre a mensagem que aparece quando a letra “E” é clicada, quando for solicitado que ela seja acionada para uma caixa de texto aparecer:**
-
-```javascript
-mostrarMensagem(textoCompleto) {
-    this.lendoMensagem = true;
-    this.caixaDialogo.setVisible(true);
-    this.textoDialogo.setVisible(true);
-    this.textoDialogo.setText("");
-
-    let letraAtual = 0;
-
-    if (this.timerEscrever) this.timerEscrever.remove();
-
-    this.timerEscrever = this.time.addEvent({
-        delay: 30,
-        callback: () => {
-            this.textoDialogo.text += textoCompleto[letraAtual];
-            letraAtual++;
-        },
-        repeat: textoCompleto.length - 1,
-    });
-}
-
-fecharMensagem() {
-    if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
-        this.timerEscrever.remove();
-        return;
-    }
-
-    this.lendoMensagem = false;
-    this.caixaDialogo.setVisible(false);
-    this.textoDialogo.setVisible(false);
-    this.textoDialogo.setText("");
-
-    this.cameras.main.fadeOut(1000);
-
-    this.cameras.main.once("camerafadeoutcomplete", () => {
-        this.scene.start("SceneFuturo");
-    });
-}
-```
-
----
-
-**Código utilizado para criar uma caixa de diálogo no jogo:**
-
-```javascript
-// Cria caixa de diálogo (HUD)
-this.caixaDialogo = this.add.graphics();
-
-this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
-this.caixaDialogo.lineStyle(4, 0xffffff, 1);
-this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-
-this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
-
-this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 35, "", {
-    fontSize: "26px",
-    fontFamily: "'Courier New', Courier, monospace",
-    color: "#ffffff",
-    wordWrap: { width: larguraCaixa - 80 },
-    lineSpacing: 10,
-})
-.setScrollFactor(0)
-.setDepth(101);
-```
-
----
-
-## SCENE 2
-
-- **Contexto:** o objetivo do jogador nessa fase será encontrar o protótipo chamado de Asimov.
-
-- **Parte técnica:**
-  1. Essa fase se passa no mesmo laboratório da cena 1, mas no futuro, onde o laboratório está todo destruído;
-  2. Personagens: Sophia (jogador) e Asimov (protótipo).
-
-**Código utilizado para o sistema de colisão da scene 2:**
-
-```javascript
-// Sistema de colisão
-try {
-    this.collisionImage = this.textures.get("colisao").getSourceImage();
-    this.collisionCanvas = document.createElement("canvas");
-    this.collisionCanvas.width = this.collisionImage.width;
-    this.collisionCanvas.height = this.collisionImage.height;
-
-    this.collisionCtx = this.collisionCanvas.getContext("2d");
-    this.collisionCtx.drawImage(this.collisionImage, 0, 0);
-} catch (e) {
-    console.warn("Aviso: Rodar em servidor local para colisão funcionar corretamente.");
-}
-```
-
-**Código utilizado para adicionar o elemento “baú” ao mapa da scene 2:**
-
-```javascript
-// Baú
-this.bauAnimado = this.add.sprite(520, 160, "bauAnimado").setScale(2.3);
-
-if (!this.anims.exists("fechado")) {
-    this.anims.create({
-        key: "fechado",
-        frames: [{ key: "bauAnimado", frame: 0 }],
-        frameRate: 1,
-    });
-
-    this.anims.create({
-        key: "abrindo",
-        frames: this.anims.generateFrameNumbers("bauAnimado", {
-            start: 0,
-            end: 1,
-        }),
-        frameRate: 2,
-        repeat: 0,
-    });
-}
-
-this.bauAnimado.play("fechado");
-
-this.cientistaLider = this.add
-    .sprite(400, 300, "cientistaLider")
-    .setScale(2);
-```
-
----
-
-**Código utilizado para estabelecer a lógica da interação da cena 2:**
-
-```javascript
-// Lógica de interação
-let distBau = Phaser.Math.Distance.Between(
-    this.cientistaLider.x,
-    this.cientistaLider.y,
-    this.bauAnimado.x,
-    this.bauAnimado.y
-);
-
-let distCentro = Phaser.Math.Distance.Between(
-    this.cientistaLider.x,
-    this.cientistaLider.y,
-    600,
-    400
-);
-```
+</div>
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 

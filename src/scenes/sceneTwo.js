@@ -295,8 +295,8 @@ export class Scene02 extends Phaser.Scene {
     // CORREÇÃO Limpa o texto para não aparecer na próxima vez
     this.textoDialogo.setText("");
 
-    if (this.progressoHistoria === 1) {
+    /*if (this.progressoHistoria === 1) {
       this.scene.start("FaseUm");
-    }
+    }*/
   }
 }

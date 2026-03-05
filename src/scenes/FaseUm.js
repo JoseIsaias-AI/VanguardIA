@@ -16,14 +16,9 @@ export class FaseUm extends Phaser.Scene {
         this.lendoMensagem = false;
         this.podeInteragir = false;
 
-        const { width, height } = this.sys.game.config;
-        this.velocidade = 5;
-        this.finalizarJogo = false;
-
-        //this.mapa = this.add.image(1010, 540, "fundo").setScale(3.0);
-        this.mapa = this.add.tileSprite(width / 2, height / 2, width, height, 'fundo').setScale(2.0);
-
-        this.asimov = this.physics.add.sprite(600, 300, "asimov").setScale(5).setCollideWorldBounds(true);
+        this.mapa = this.add.image(1010, 540, "fundo").setScale(3.0);
+        
+        this.asimov = this.physics.add.sprite(600, 450, "asimov").setScale(5).setCollideWorldBounds(true);
         //this.asimov.setGravityX(10000);
 
         this.obstaculos = this.physics.add.group();
@@ -45,39 +40,12 @@ export class FaseUm extends Phaser.Scene {
                 frameRate: 10,
                 repeat: -1,
             });
-            this.anims.create({
-                key: "asimov_left",
-                frames: this.anims.generateFrameNumbers("asimov", {
-                    start: 21,
-                    end: 27,
-                }),
-                frameRate: 10,
-                repeat: -1,
-            });
-            this.anims.create({
-                key: "asimov_back",
-                frames: this.anims.generateFrameNumbers("asimov", {
-                    start: 14,
-                    end: 16,
-                }),
-                frameRate: 10,
-                repeat: -1,
-            });
-            this.anims.create({
-                key: "asimov_front",
-                frames: this.anims.generateFrameNumbers("asimov", {
-                    start: 7,
-                    end: 9,
-                }),
-                frameRate: 10,
-                repeat: -1,
-            });
         }
 
         this.asimov.play("asimov_right");
         this.time.addEvent({
             delay: 1500,
-            callback: this.spawnObstacle,                
+            callback: this.criarObstaculos,                
             callbackScope: this,
             loop: true
         });
