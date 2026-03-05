@@ -302,8 +302,7 @@ export class SceneFuturo extends Phaser.Scene {
       Phaser.Input.Keyboard.JustDown(this.teclaE)
     ) {
       this.containerTeclaAsimov.setVisible(false);
-      console.log("Interagiu com o Asimov!");
-      // aqui voce pode adicionar dialogo, cutscene, etc.
+      this.scene.start('FaseUm');
     }
   }
 
