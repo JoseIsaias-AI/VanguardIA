@@ -128,11 +128,11 @@ export class SceneFuturo extends Phaser.Scene {
     this.criarColisao(this.camara);
 
     // PLAYER
+    // FIX: depth não é fixo — será atualizado dinamicamente no update()
     this.Principal = this.physics.add
       .sprite(400, 300, "sophia")
       .setScale(2)
       .setCollideWorldBounds(true);
-    this.Principal.setDepth(2);
     this.Principal.body.setAllowGravity(false);
     this.Principal.setSize(30, 25);
     this.Principal.setOffset(15, 30);
@@ -141,10 +141,10 @@ export class SceneFuturo extends Phaser.Scene {
     this.physics.add.collider(this.Principal, this.objetosColisao);
 
     // ASIMOV (NPC)
+    // FIX: depth não é fixo — será atualizado dinamicamente no update()
     this.asimov = this.physics.add
       .sprite(600, 300, "asimov")
-      .setScale(3)
-      .setDepth(2);
+      .setScale(3);
     this.asimov.body.setAllowGravity(false);
     this.asimov.setSize(15, 12);
     this.asimov.setOffset(8, 16);
@@ -179,7 +179,8 @@ export class SceneFuturo extends Phaser.Scene {
     this.podeInteragirAsimov = false;
 
     // ===== ICONE DA TECLA E (ASIMOV) =====
-    this.containerTeclaAsimov = this.add.container(0, 0);
+    // FIX: setDepth(200) garante que o balão fique por cima de todos os objetos do cenário
+    this.containerTeclaAsimov = this.add.container(0, 0).setDepth(200);
 
     let largura = 140;
     let altura = 40;
@@ -271,6 +272,11 @@ export class SceneFuturo extends Phaser.Scene {
     }
 
     if (!movimentacao) this.Principal.anims.stop();
+
+    // FIX: Depth dinâmico baseado no Y — quem está mais abaixo na tela fica na frente
+    // Isso corrige Sophia passando por baixo do Asimov quando está acima dele
+    this.Principal.setDepth(this.Principal.y);
+    this.asimov.setDepth(this.asimov.y);
 
     // distancia ate o asimov
     let distanciaAsimov = Phaser.Math.Distance.Between(

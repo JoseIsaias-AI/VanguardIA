@@ -200,7 +200,7 @@ export class Scene01 extends Phaser.Scene {
       .sprite(400, 300, "sophia")
       .setScale(2)
       .setCollideWorldBounds(true);
-    this.Principal.setDepth(2); // define que o personagem fica na frente dos objetos
+    // FIX: depth da Sophia não é fixo — será atualizado dinamicamente no update()
     this.Principal.body.setAllowGravity(false); // desativa a gravidade para o personagem, já que é um jogo top-down
     this.Principal.setSize(30, 25); // ajusta o tamanho do corpo de colisão para ser menor que a sprite
     this.Principal.setOffset(15, 30); // ajusta o offset do corpo de colisão para centralizar melhor
@@ -247,7 +247,8 @@ export class Scene01 extends Phaser.Scene {
     //  HUD (interface do usuário) //
 
     // cria um container da tecla "E" que aparece perto dos objetos
-    this.containerTecla = this.add.container(0, 0);
+    // FIX: setDepth(200) garante que o balão fique por cima de todos os objetos do cenário
+    this.containerTecla = this.add.container(0, 0).setDepth(200);
     let largura = 140;
     let altura = 40;
     let iconeTecla = this.add.graphics();
@@ -274,8 +275,9 @@ export class Scene01 extends Phaser.Scene {
       repeat: -1,
     });
 
-    // ===== ICONE DA TECLA E (WATSON) =====
-    this.containerTeclaWatson = this.add.container(0, 0);
+    
+    // FIX: setDepth(200) garante que o balão fique por cima de todos os objetos do cenário
+    this.containerTeclaWatson = this.add.container(0, 0).setDepth(200);
 
     let iconeTeclaWatson = this.add.graphics();
     iconeTeclaWatson.fillStyle(0xffffff, 1);
@@ -350,7 +352,7 @@ export class Scene01 extends Phaser.Scene {
     this.cameras.main.setZoom(1.2);
 
     // Configurações da animação
-    // Se a animação 'left' ainda não existir (prevenção de erro ao trocar de cena)
+    
     if (!this.anims.exists("left")) {
       this.anims.create({
         key: "left",
@@ -426,6 +428,10 @@ export class Scene01 extends Phaser.Scene {
     }
 
     if (!movimentacao) this.Principal.anims.stop(); // Para a animação se o player soltar as teclas
+
+   
+    this.Principal.setDepth(this.Principal.y);
+    this.watson.setDepth(this.watson.y);
 
     let targetX = this.camara.x;
     let targetY = this.camara.y;
