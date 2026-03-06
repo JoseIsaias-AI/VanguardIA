@@ -250,11 +250,11 @@ Embora não esteja presente fisicamente no futuro, Watson exerce forte influênc
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
-A construção dos personagens foi pensada para dialogar diretamente com o público-alvo: estudantes universitários interessados em Inteligência Artificial que buscam uma abordagem mais aplicada e menos exclusivamente teórica. Nesse contexto, a representatividade não se limita a aspectos demográficos, mas também acadêmicos, profissionais e sociais.
+A construção dos personagens foi pensada para dialogar diretamente com o público-alvo: estudantes universitários interessados em Inteligência Artificial que buscam uma abordagem mais aplicada e menos teórica. Nesse contexto, a representatividade não se limita a aspectos demográficos, mas também acadêmicos, profissionais e sociais.
 
 Sophia exerce um papel central nesse eixo de diversidade ao representar a presença feminina na ciência e na tecnologia. Em uma área historicamente marcada pela desigualdade de gênero, ela ocupa o lugar de protagonista técnica, estrategista e agente da reconstrução científica. Não é retratada como coadjuvante, mas como responsável pelas decisões críticas, pelo treinamento dos sistemas e pela restauração do laboratório. Sua trajetória simboliza a luta e a consolidação das mulheres em espaços de pesquisa, liderança e inovação, funcionando como referência positiva para jogadoras e jogadores. Além disso, Sophia representa o estudante que aprende pela prática: evolui ao testar hipóteses, ajustar modelos e corrigir falhas, demonstrando que o domínio da IA é construído progressivamente.
 
-Asimov representa a dimensão tecnológica contemporânea. Ele simboliza as ferramentas de apoio ao aprendizado — como plataformas educacionais, ambientes de programação e sistemas inteligentes — que ampliam a capacidade humana sem substituir o raciocínio crítico. Sua evolução ao longo do jogo reforça a ideia de que tecnologia e ser humano devem atuar de forma complementar e ética.
+Asimov representa a dimensão tecnológica contemporânea. Ele simboliza as ferramentas de apoio ao aprendizado, como plataformas educacionais, ambientes de programação e sistemas inteligentes, que ampliam a capacidade humana sem substituir o raciocínio crítico. Sua evolução ao longo do jogo reforça a ideia de que tecnologia e ser humano devem atuar de forma complementar e ética.
 
 Watson, por sua vez, representa a tradição científica e a responsabilidade institucional. Como cientista-chefe e orientador, ele simboliza a importância da pesquisa estruturada, da formação sólida e da reflexão ética no desenvolvimento tecnológico.
 
@@ -266,7 +266,7 @@ Dessa forma, o jogo promove representatividade de gênero, acadêmica e profissi
 
 O jogo se passa em um laboratório de pesquisa em Inteligência Artificial e robótica. No início da narrativa, em 2022, o ambiente é apresentado como um espaço moderno, organizado e equipado com tecnologias avançadas, transmitindo a sensação de progresso científico e inovação. Após o salto temporal para 2098, quando Sophia desperta da criogenia, o jogador encontra o mesmo laboratório em estado de abandono, com estruturas danificadas, equipamentos quebrados e um ambiente escuro e silencioso, reforçando as consequências do uso indevido da tecnologia ao longo das décadas.
 
-Entre os principais ambientes explorados está a área de sucatas, um setor do laboratório onde foram acumulados equipamentos danificados, peças de robôs e restos de experimentos antigos. Esse espaço funciona como uma área inicial de exploração, onde Asimov é utilizado para navegar entre os destroços e encontrar pistas sobre a localização do cristal necessário para restaurar os sistemas do laboratório.
+Entre os principais ambientes explorados está a área de sucatas, um setor do laboratório onde foram acumulados equipamentos danificados, peças de robôs e restos de experimentos antigos. Esse espaço funciona como uma área inicial de exploração, onde sophia controla Asimov para navegar entre os destroços e encontrar pistas sobre a localização do cristal necessário para restaurar os sistemas do laboratório.
 
 Após essa etapa, Sophia e Asimov chegam à sala de arquivos, um ambiente onde estão armazenados registros e materiais de antigos experimentos científicos. Nesse local existe um baú contendo folhetos e imagens de diferentes tipos de cristais. Entre esses registros estão tanto imagens do cristal verdadeiro azul, brilhante e pontiagudo; quanto cristais falsos, vermelhos e com imperfeições estruturais.
 
@@ -296,10 +296,10 @@ _**Movimentação dos Personagens**_
 
 | Tecla | Ação |
 | :--- | :--- |
-| **↑** | Move o personagem para frente |
-| **→** | Move o personagem para a esquerda |
-| **↓** | Move o personagem para trás |
-| **←** | Move o personagem para a direita |
+| **↑** | Move o personagem para frente (+Y) |
+| **→** | Move o personagem para a direita (+X) |
+| **↓** | Move o personagem para trás (−Y) |
+| **←** | Move o personagem para a direita (-X) |
 
 ---
 
@@ -415,6 +415,16 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 *Ex. O jogador deve pilotar o carro e conseguir terminar a corrida dentro de um minuto sem bater em nenhum obstáculo.*
 
 *Ex. O jogador deve concluir a fase dentro do tempo, para obter uma estrela. Se além disso ele coletar todas as moedas, ganha mais uma estrela. E se além disso ele coletar os três medalhões espalhados, ganha mais uma estrela, totalizando três. Ao final do jogo, obtendo três estrelas em todas as fases, desbloqueia o mundo secreto.*  
+
+O jogador controla a personagem Sophia, acompanhada do robô Asimov, explorando diferentes áreas de um laboratório futurista para descobrir informações sobre os cristais e restaurar o sistema do local. O objetivo principal é avançar pelas áreas do laboratório resolvendo desafios baseados em conceitos de inteligência artificial.
+
+Inicialmente, o jogador explora o laboratório até chegar à área de sucatas, onde Sophia não consegue avançar devido às condições do ambiente. Nesse momento, o controle passa para Asimov, que deve atravessar a região cheia de obstáculos para permitir a continuidade da exploração.
+
+Após sair da área de sucatas, o jogador precisa treinar Asimov por meio de um minigame de rede neural, no qual o robô aprende a reconhecer padrões. Esse treinamento é necessário para que ele consiga identificar corretamente os padrões das portas do laboratório, permitindo escolher a porta correta e desbloquear o caminho para as próximas áreas.
+
+Em seguida, Sophia e Asimov acessam a sala de arquivamento, localizada após a área de sucatas, onde encontram um baú contendo imagens e registros dos cristais. A partir dessas informações, o jogador participa de um desafio de classificação de cristais em uma esteira, no qual deve analisar as imagens apresentadas e decidir entre guardar os cristais verdadeiros ou incinerar os falsos.
+
+Ao completar corretamente as classificações, o jogador obtém os dados necessários para gerar um cristal funcional, que será utilizado para restaurar o sistema do laboratório. Com isso, o jogo avança para a etapa final, onde Sophia passa a interagir com uma inteligência artificial mais avançada para planejar os próximos passos da missão.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
