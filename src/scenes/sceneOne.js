@@ -483,8 +483,8 @@ export class Scene01 extends Phaser.Scene {
       Phaser.Input.Keyboard.JustDown(this.teclaE)
     ) {
       this.containerTeclaWatson.setVisible(false);
-      console.log("Interagiu com o Watson!");
-      // aqui voce pode adicionar dialogo, cutscene, etc.
+      this.falando_watson = true;
+      this.mostrarMensagem("...");
     }
   }
 
@@ -517,11 +517,16 @@ export class Scene01 extends Phaser.Scene {
       return; // Sai da função para não fechar a caixa ainda
     }
 
-    // Se já terminou de digitar, aí sim fecha
+    
     this.lendoMensagem = false;
     this.caixaDialogo.setVisible(false);
     this.textoDialogo.setVisible(false);
     this.textoDialogo.setText("");
+
+    if (this.falando_watson) {
+      this.falando_watson = false;
+      return;
+    }
 
     this.cameras.main.fadeOut(1000);
 

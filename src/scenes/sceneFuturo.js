@@ -30,6 +30,7 @@ export class SceneFuturo extends Phaser.Scene {
   create() {
     this.scaleMapa = 3;
     this.progressoHistoria = 0;
+    this.lendoMensagem = false;
 
     // MAPA FUTURO
     this.mapa = this.add.image(600, 400, "CFuturo").setScale(this.scaleMapa);
@@ -179,7 +180,6 @@ export class SceneFuturo extends Phaser.Scene {
     this.podeInteragirAsimov = false;
 
     // ===== ICONE DA TECLA E (ASIMOV) =====
-    // FIX: setDepth(200) garante que o balão fique por cima de todos os objetos do cenário
     this.containerTeclaAsimov = this.add.container(0, 0).setDepth(200);
 
     let largura = 140;
@@ -209,6 +209,31 @@ export class SceneFuturo extends Phaser.Scene {
       yoyo: true,
       repeat: -1,
     });
+
+    const larguraJogo = this.cameras.main.width;
+    const alturaJogo = this.cameras.main.height;
+    const larguraCaixa = 1000;
+    const alturaCaixa = 180;
+    const xCaixa = (larguraJogo - larguraCaixa) / 2;
+    const yCaixa = alturaJogo - alturaCaixa - 40;
+
+    this.caixaDialogo = this.add.graphics();
+    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
+    this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
+    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
+
+    this.textoDialogo = this.add
+      .text(xCaixa + 40, yCaixa + 35, "", {
+        fontSize: "26px",
+        fontFamily: "'Courier New', Courier, monospace",
+        color: "#ccffff",
+        wordWrap: { width: larguraCaixa - 80 },
+        lineSpacing: 10,
+      })
+      .setScrollFactor(0)
+      .setDepth(101);
 
     if (!this.anims.exists("left")) {
       this.anims.create({
@@ -246,6 +271,15 @@ export class SceneFuturo extends Phaser.Scene {
   }
 
   update() {
+    if (this.lendoMensagem) {
+      this.Principal.setVelocity(0, 0);
+      this.Principal.anims.stop();
+      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+        this.fecharMensagem();
+      }
+      return;
+    }
+
     this.Principal.setVelocity(0);
 
     let velocidade = 150;
@@ -273,8 +307,7 @@ export class SceneFuturo extends Phaser.Scene {
 
     if (!movimentacao) this.Principal.anims.stop();
 
-    // FIX: Depth dinâmico baseado no Y — quem está mais abaixo na tela fica na frente
-    // Isso corrige Sophia passando por baixo do Asimov quando está acima dele
+   
     this.Principal.setDepth(this.Principal.y);
     this.asimov.setDepth(this.asimov.y);
 
@@ -302,9 +335,41 @@ export class SceneFuturo extends Phaser.Scene {
       Phaser.Input.Keyboard.JustDown(this.teclaE)
     ) {
       this.containerTeclaAsimov.setVisible(false);
-      console.log("Interagiu com o Asimov!");
-      // aqui voce pode adicionar dialogo, cutscene, etc.
+      this.mostrarMensagem("...");
     }
+  }
+
+  mostrarMensagem(textoCompleto) {
+    this.lendoMensagem = true;
+    this.caixaDialogo.setVisible(true);
+    this.textoDialogo.setVisible(true);
+    this.textoDialogo.setText("");
+    this.textoAtualArmazenado = textoCompleto;
+
+    let letraAtual = 0;
+    if (this.timerEscrever) this.timerEscrever.remove();
+
+    this.timerEscrever = this.time.addEvent({
+      delay: 30,
+      callback: () => {
+        this.textoDialogo.text += textoCompleto[letraAtual];
+        letraAtual++;
+      },
+      repeat: textoCompleto.length - 1,
+    });
+  }
+
+  fecharMensagem() {
+    if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
+      this.timerEscrever.remove();
+      this.textoDialogo.setText(this.textoAtualArmazenado);
+      return;
+    }
+
+    this.lendoMensagem = false;
+    this.caixaDialogo.setVisible(false);
+    this.textoDialogo.setVisible(false);
+    this.textoDialogo.setText("");
   }
 
   criarColisao(objeto, reduzirAltura = 1) {
