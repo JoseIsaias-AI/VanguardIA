@@ -335,7 +335,11 @@ export class SceneFuturo extends Phaser.Scene {
       Phaser.Input.Keyboard.JustDown(this.teclaE)
     ) {
       this.containerTeclaAsimov.setVisible(false);
+<<<<<<< HEAD
       this.mostrarMensagem("...");
+=======
+      this.scene.start('FaseUm');
+>>>>>>> 75e064c9683127c719a68694259a3cbd225a69d5
     }
   }
 
