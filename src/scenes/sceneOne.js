@@ -484,7 +484,14 @@ export class Scene01 extends Phaser.Scene {
     ) {
       this.containerTeclaWatson.setVisible(false);
       this.falando_watson = true;
-      this.mostrarMensagem("...");
+      this.dialogoWatsonIndex = 0;
+      this.dialogoWatson = [
+        "Sophia, temos que conversar.",
+        "As simulações mostram um futuro que me assusta. A tecnologia que criamos para ajudar as pessoas... pode acabar sendo usada para controlá-las.",
+        "E eu estou ficando velho. Quando eu não estiver mais aqui, vai ter que ser você, Sophia.",
+        "Você é a única que pode proteger o que construímos. A única que pode salvar o mundo.",
+      ];
+      this.mostrarMensagem(this.dialogoWatson[this.dialogoWatsonIndex]);
     }
   }
 
@@ -517,13 +524,17 @@ export class Scene01 extends Phaser.Scene {
       return; // Sai da função para não fechar a caixa ainda
     }
 
-    
     this.lendoMensagem = false;
     this.caixaDialogo.setVisible(false);
     this.textoDialogo.setVisible(false);
     this.textoDialogo.setText("");
 
     if (this.falando_watson) {
+      this.dialogoWatsonIndex++;
+      if (this.dialogoWatsonIndex < this.dialogoWatson.length) {
+        this.mostrarMensagem(this.dialogoWatson[this.dialogoWatsonIndex]);
+        return;
+      }
       this.falando_watson = false;
       return;
     }

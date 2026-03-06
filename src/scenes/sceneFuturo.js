@@ -335,11 +335,15 @@ export class SceneFuturo extends Phaser.Scene {
       Phaser.Input.Keyboard.JustDown(this.teclaE)
     ) {
       this.containerTeclaAsimov.setVisible(false);
-<<<<<<< HEAD
-      this.mostrarMensagem("...");
-=======
-      this.scene.start('FaseUm');
->>>>>>> 75e064c9683127c719a68694259a3cbd225a69d5
+      this.falando_asimov = true;
+      this.dialogoAsimovIndex = 0;
+      this.dialogoAsimov = [
+        "Sophia… você despertou.",
+        "Estamos no ano de 2098. O mundo foi devastado pelo uso das IAs para poder e dominação. Eu ativei seu despertar seguindo a última ordem de Watson.",
+        "Mas fui danificado… parte da minha memória está inacessível.",
+        "Para restaurar o laboratório e recuperar meu banco de dados, precisamos reativar o núcleo energético. Para isso, você deve encontrar um cristal de silício capaz de alimentar todo o sistema.",
+      ];
+      this.mostrarMensagem(this.dialogoAsimov[this.dialogoAsimovIndex]);
     }
   }
 
@@ -374,6 +378,16 @@ export class SceneFuturo extends Phaser.Scene {
     this.caixaDialogo.setVisible(false);
     this.textoDialogo.setVisible(false);
     this.textoDialogo.setText("");
+
+    if (this.falando_asimov) {
+      this.dialogoAsimovIndex++;
+      if (this.dialogoAsimovIndex < this.dialogoAsimov.length) {
+        this.mostrarMensagem(this.dialogoAsimov[this.dialogoAsimovIndex]);
+        return;
+      }
+      this.falando_asimov = false;
+      this.scene.start('FaseUm');
+    }
   }
 
   criarColisao(objeto, reduzirAltura = 1) {
