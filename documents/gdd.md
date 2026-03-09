@@ -224,15 +224,15 @@ Sophia é uma das personagens controláveis e protagonista da narrativa. Cientis
 
 <div align = "center">
 <sup>Figura 2: Sprite de Sophia, a personagem principal.</sup><br>
-<img src="../assets/personagens/sophia.png"><br>
+<img src="../assets/Personagens/sophia.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
 Asimov também é personagem controlável em momentos específicos da jogabilidade. Criado originalmente como um experimento científico avançado para atuar como agente autônomo de suporte ao laboratório, ele possui arquitetura adaptativa e capacidade de aprendizado contínuo. Após décadas de abandono e danos estruturais, desperta Sophia seguindo a última ordem de Watson, mas apresenta falhas em memória e sistemas de navegação. Durante o jogo, o jogador assume o controle de Asimov em fases exploratórias, enquanto seus sistemas são gradualmente restaurados por meio de treinamentos e inserção de dados. Sua evolução acompanha o avanço técnico da narrativa, tornando-se progressivamente mais autônomo e estratégico, consolidando-se como parceiro essencial na reconstrução do laboratório e na restauração do equilíbrio tecnológico.
 
 <div align = "center">
-<sup>Figura 1: Sprite de asimov, personagem secundário.</sup><br>
-<img src="../assets/personagens/asimov.png"><br>
+<sup>Figura 3: Sprite de asimov, personagem secundário.</sup><br>
+<img src="../assets/Personagens/asimov.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
@@ -244,7 +244,7 @@ Embora não esteja presente fisicamente no futuro, Watson exerce forte influênc
 
 <div align = "center">
 <sup>Figura 4: Sprite de Watson, NPC.</sup><br>
-<img src="../assets/personagens/watson.png"><br>
+<img src="../assets/Personagens/watson.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
@@ -337,28 +337,28 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 <div align = "center">
 
-<sup>Figura 9: Concept Art do Laboratório Inicial do jogo.</sup><br>
-<img src="assets/gdd/labInicial.png"><br>
+<sup>Figura 7: Concept Art do Laboratório Inicial do jogo.</sup><br>
+<img src="../assets/gdd/labInicial.png" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 10: Concept Art do minigame do robô entre sucatas.</sup><br>
-<img src="assets/gdd/lixaoRobo.png"><br>
+<sup>Figura 8: Concept Art do minigame do robô entre sucatas.</sup><br>
+<img src="../assets/gdd/lixaoRobo.png" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 11: Concept Art do minigame de Visão Computacional.</sup><br>
-<img src="assets/gdd/gameVisComp.png"><br>
+<sup>Figura 9: Concept Art do minigame de Visão Computacional.</sup><br>
+<img src="../assets/gdd/gameVisComp.png" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 12: Concept Art do minigame de limpeza de Ruídos.</sup><br>
-<img src="../assets/gdd/gameRuidos.png"><br>
+<sup>Figura 10: Concept Art do minigame de limpeza de Ruídos.</sup><br>
+<img src="../assets/gdd/gameRuidos.png" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 13: Primeira Concept Art de Asimov.</sup><br>
-<img src="assets/gdd/roboInicial.jpeg"><br>
+<sup>Figura 11: Primeira Concept Art de Asimov.</sup><br>
+<img src="../assets/gdd/roboInicial.jpeg" width="60%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 14: Segunda Concept Art de Asimov.</sup><br>
-<img src="../assets/gdd/roboInicial2.jpeg"><br>
+<sup>Figura 12: Segunda Concept Art de Asimov.</sup><br>
+<img src="../assets/gdd/roboInicial2.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
@@ -403,7 +403,7 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 *Posicione aqui seu "storyboard de programação" - o diagrama de cenas do jogo. Indique, por exemplo, como o jogo começa, quais opções o jogador tem, como ele avança nas fases, quais as condições de 'game over', como o jogo reinicia. Seu diagrama deve representar as classes, atributos e métodos usados no jogo.*
 
 <div align="center">
-<sub>Figura 15: Storyboard de programação</sub><br>
+<sub>Figura 13: Storyboard de programação</sub><br>
 <img src="../assets/gdd/diagramaDeCenas.jpg" width="85%"><br>
 <sup>Fonte: Autoria própria (2026).</sup><br>
 </div>
@@ -448,12 +448,12 @@ No decorrer do desenvolvimento, foi construída a tela de uma das fases do jogo,
 
 <div align = "center">
 
-<sup>Figura 16: Imagem do personagem da primeira fase.</sup><br>
-<img src="../assets/gdd/telaFase.jpeg"><br>
+<sup>Figura 14: Imagem do personagem da primeira fase.</sup><br>
+<img src="../assets/gdd/telaFase.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 17: Imagem do personagem interagindo com um item.</sup><br>
-<img src="../assets/gdd/interacaoItem.jpeg"><br>
+<sup>Figura 15: Imagem do personagem interagindo com um item.</sup><br>
+<img src="../assets/gdd/interacaoItem.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
@@ -462,12 +462,12 @@ Nesta tela também foram implementados um sistema de colisão básico — em ape
 
 <div align = "center">
 
-<sup>Figura 18: Imagem da matriz de colisão na primeira tela.</sup><br>
-<img src="../assets/gdd/matrizColisaoTeste.jpeg"><br>
+<sup>Figura 16: Imagem da matriz de colisão na primeira tela.</sup><br>
+<img src="../assets/gdd/matrizColisaoTeste.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 19: Imagem do balão de chat na tela.</sup><br>
-<img src="../assets/gdd/interacaoChat.jpeg"><br>
+<sup>Figura 17: Imagem do balão de chat na tela.</sup><br>
+<img src="../assets/gdd/interacaoChat.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
@@ -482,12 +482,12 @@ Inicialmente, os assets utilizados foram gerados por IA Generativa para melhor v
 
 <div align = "center">
 
-<sup>Figura 20: Imagem da matriz de colisão na primeira tela.</sup><br>
-<img src="../assets/fases/sceneTwo/labCristalEscuro2.png"><br>
+<sup>Figura 18: Imagem do Laboratório de Cristal ao começo do jogo.</sup><br>
+<img src="../assets/fases/sceneTwo/labCristalEscuro2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 21: Background e periféricos integrados da segunda parte da Cena 02.</sup><br>
-<img src="../assets/fases/sceneTwo/labCristalClaro2.png"><br>
+<sup>Figura 19: Imagem do Laboratório de Cristal ao fim do jogo.</sup><br>
+<img src="../assets/fases/sceneTwo/labCristalClaro2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
@@ -496,8 +496,8 @@ Além disso, foram refatorados: os sistemas de colisão para que, ao invés de u
 
 <div align = "center">
 
-<sup>Figura 22: Imagem da matriz de colisão na primeira tela.</sup><br>
-<img src="../assets/gdd/faseRefactor.png"><br>
+<sup>Figura 20: Imagem do Laboratório da Cena 01 no jogo.</sup><br>
+<img src="../assets/gdd/faseRefactor.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
