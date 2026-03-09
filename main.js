@@ -3,7 +3,7 @@ import { Scene01 } from "./src/scenes/sceneOne.js";
 import { SceneFuturo } from "./src/scenes/sceneFuturo.js"
 import { Scene02 } from "./src/scenes/sceneTwo.js";
 import { FaseUm } from "./src/scenes/FaseUm.js";
-import { FaseDois } from ".src/scenes/FaseDois.js"; 
+import { FaseDois } from "./src/scenes/FaseDois.js"; 
 
 const config = {
     type: Phaser.AUTO,
@@ -24,7 +24,7 @@ const config = {
         }
     },
 
-    scene: [WelcomeScene, Scene01, SceneFuturo, FaseUm, Scene02 ]
+    scene: [WelcomeScene, Scene01, SceneFuturo, FaseUm, Scene02, FaseDois ]
 };
 
 const game = new Phaser.Game(config);

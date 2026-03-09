@@ -11,6 +11,8 @@ export class FaseDois extends Phaser.Scene {
     }
 
     create () {
+        this.Principal = this.physics.add.sprite(400, 300, "sophia");
+        this.cursors = this.input.keyboard.createCursorKeys();
         // Configurações da animação
     
     if (!this.anims.exists("left")) {
@@ -50,37 +52,35 @@ export class FaseDois extends Phaser.Scene {
     }
   }
 
-    }
+    
 
-    upload () {
-        // Cria a movimentação de Sophia de acordo com o personagem e carrega seu Sprite
-    this.Principal.setVelocity(0, 0);
+    update () {
+            // Cria a movimentação de Sophia de acordo com o personagem e carrega seu Sprite
+        this.Principal.setVelocity(0, 0);
 
-    let velocidade = 150;
-    let movimentacao = false;
+        let velocidade = 150;
+        let movimentacao = false;
 
-    if (this.cursors.left.isDown) {
-      this.Principal.setVelocityX(-velocidade);
-      this.Principal.anims.play("left", true);
-      movimentacao = true;
-    } else if (this.cursors.right.isDown) {
-      this.Principal.setVelocityX(+velocidade);
-      this.Principal.anims.play("right", true);
-      movimentacao = true;
-    }
+        if (this.cursors.left.isDown) {
+        this.Principal.setVelocityX(-velocidade);
+        this.Principal.anims.play("left", true);
+        movimentacao = true;
+        } else if (this.cursors.right.isDown) {
+        this.Principal.setVelocityX(+velocidade);
+        this.Principal.anims.play("right", true);
+        movimentacao = true;
+        }
 
-    if (this.cursors.up.isDown) {
-      this.Principal.setVelocityY(-velocidade);
-      if (!movimentacao) this.Principal.anims.play("back", true);
-      movimentacao = true;
-    } else if (this.cursors.down.isDown) {
-      this.Principal.setVelocityY(+velocidade);
-      if (!movimentacao) this.Principal.anims.play("front", true);
-      movimentacao = true;
-    }
+        if (this.cursors.up.isDown) {
+        this.Principal.setVelocityY(-velocidade);
+        if (!movimentacao) this.Principal.anims.play("back", true);
+        movimentacao = true;
+        } else if (this.cursors.down.isDown) {
+        this.Principal.setVelocityY(+velocidade);
+        if (!movimentacao) this.Principal.anims.play("front", true);
+        movimentacao = true;
+        }
 
-    if (!movimentacao) this.Principal.anims.stop(); // Para a animação se o player soltar as teclas
+        if (!movimentacao) this.Principal.anims.stop(); // Para a animação se o player soltar as teclas
 
-    } 
-
-
+    } }
