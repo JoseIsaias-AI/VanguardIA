@@ -131,7 +131,7 @@ export class SceneFuturo extends Phaser.Scene {
     // PLAYER
     // FIX: depth não é fixo — será atualizado dinamicamente no update()
     this.Principal = this.physics.add
-      .sprite(400, 300, "sophia")
+      .sprite(600, 100, "sophia")
       .setScale(2)
       .setCollideWorldBounds(true);
     this.Principal.body.setAllowGravity(false);

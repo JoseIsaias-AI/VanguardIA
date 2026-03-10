@@ -5,9 +5,10 @@ export class FaseUm extends Phaser.Scene {
 
     preload () {
         //carregamento das imagens e sprites usados durante a fase1
-        this.load.image('fundo', 'assets/fases/faseUm/fundoFase1.png');
+        this.load.image('fundo', 'assets/fases/faseUm/fundoFaseUm.png');
         this.load.spritesheet('asimov', 'assets/personagens/asimov.png', { frameWidth: 32, frameHeight: 32 });
-        this.load.image('pedra', 'assets/objetos/faseUm/obstaculosPedra.png');
+        //this.load.image('pedra', 'assets/objetos/faseUm/obstaculosPedra.png');
+        this.load.image( 'obstaculos', 'assets/objetos/faseUm/obstáculosFaseUm.png')
         this.load.spritesheet('barra', 'assets/objetos/faseUm/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
         this.load.spritesheet('bauAnimado', 'assets/objetos/faseUm/bau.png', { frameWidth: 128, frameHeight: 128 });
         this.load.spritesheet('envelope', 'assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
@@ -38,7 +39,7 @@ export class FaseUm extends Phaser.Scene {
         this.cameraBalanco = 0;
         this.cameraBalancoAlvo = 0;
         
-        this.obstaculosJuntos = this.add.image(0, height / 2, "pedra").setScale(4.0).setOrigin(0, 0.5); //adiciona a imagem das pedras e troncos e define onde eles estarão localizados
+        this.obstaculosJuntos = this.add.image(0, height / 2, "obstaculos").setScale(4.0).setOrigin(0, 0.5); //adiciona a imagem dos obstáculos e define onde eles estarão localizados
         this.bau = this.add.sprite(this.mapa.displayWidth - 100, height / 2 - 50, "bauAnimado", 0).setScale(1.5); //bau está localizado 100 pixels da esquerda do tamanho da imagem do fundo
         this.bauAberto = false; //fechado até que o jogador interaja com ele
 
@@ -49,18 +50,18 @@ export class FaseUm extends Phaser.Scene {
         this.pergaminho = this.add.sprite(width - 500, height / 2, "pergaminho", 0).setScale(1.5).setScrollFactor(0).setDepth(102).setVisible(false);
 
         //============================================================================ PRECISA CORRIGIR
-        this.pedraCaixaColisão = null;
+        this.obstaculosCaixaColisão = null;
         try {
-            const imgPedra = this.textures.get("pedra").getSourceImage(); //precisa da imagem HTML nativa para desenhá-la em um canvas e ler seus pixels.
-            const canvasPedra = document.createElement("canvas"); //cria um elemento canvas HTML invisivel na memória
-            canvasPedra.width = imgPedra.width;
-            canvasPedra.height = imgPedra.height;
-            this.pedraCaixaColisao = canvasPedra.getContext("2d"); //cria um contexto 2D
-            this.pedraCaixaColisao.drawImage(imgPedra, 0, 0); //desenha a imagem no canvas invisivel
+            const imgObstaculos = this.textures.get("obstaculos").getSourceImage(); //precisa da imagem HTML nativa para desenhá-la em um canvas e ler seus pixels.
+            const canvasObstaculos = document.createElement("canvas"); //cria um elemento canvas HTML invisivel na memória
+            canvasObstaculos.width = imgObstaculos.width;
+            canvasObstaculos.height = imgObstaculos.height;
+            this.obstaculosCaixaColisao = canvasObstaculos.getContext("2d"); //cria um contexto 2D
+            this.obstaculosCaixaColisao.drawImage(imgObstaculos, 0, 0); //desenha a imagem no canvas invisivel
         } catch (e) {
             console.warn("Problema no sistema Canvas", e);
         }
-        this.pedraScale = 4.0;
+        this.obstaculosScale = 4.0;
         //==========================================================================
 
         this.barra = this.add.sprite(width / 2, 150, "barra").setScale(3).setScrollFactor(0).setDepth(50); //barra de progresso da fase
@@ -152,7 +153,7 @@ export class FaseUm extends Phaser.Scene {
             this.asimov.setVelocityY(0); //velocidade Y é sempre 0
             if (Phaser.Input.Keyboard.JustDown(this.keySpace)) { //movimento de subida do pulo com o aperto do SPACE
                 this.pulando = true;
-                this.asimov.setVelocity(280, -280); //personagem movimenta 280px para frente e 280 para cima
+                this.asimov.setVelocity(350, -280); //personagem movimenta 280px para frente e 280 para cima
             }
         }
         if (Phaser.Input.Keyboard.JustDown(this.teclaE) && this.pergaminhoAberto) { //assim que o jogador apertar a tecla E e o pergaminho está true é para mudar de de arquivo js
@@ -214,7 +215,7 @@ export class FaseUm extends Phaser.Scene {
                     this.baterObstaculos(this.asimov, this.obstaculosJuntos); //aciona função de sobreposição
                     break;
                 }
-                // cor específica #312e2e (bloqueia também durante o pulo)
+                // cor específica #39197e (bloqueia também durante o pulo)
                 if (tipo === 'cinzaPulo' /*&& this.pulando*/) {
                     this.baterObstaculos(this.asimov, this.obstaculosJuntos);
                     break;
@@ -230,11 +231,11 @@ export class FaseUm extends Phaser.Scene {
 
     //função que recebe a coordenada x e y e verifica a cor do pixel de contato
     sobrepoeObstaculo(xMundo, yMundo) {
-        if (!this.pedraCaixaColisao) return false; //proteção contra crash
+        if (!this.obstaculosCaixaColisao) return false; //proteção contra crash
 
         const { height } = this.sys.game.config; //acessa a propriedade de altura da configuração do game
-        const img = this.textures.get("pedra").getSourceImage(); //permite ler os pixels da imagem para colisão pixel a pixel
-        const scale = this.pedraScale;
+        const img = this.textures.get("obstaculos").getSourceImage(); //permite ler os pixels da imagem para colisão pixel a pixel
+        const scale = this.obstaculosScale;
         const topLeftY = height / 2 - img.height * scale / 2;
 
         const texX = (xMundo - 0) / scale; //pega a coordenada do asimov no eixo x
@@ -242,11 +243,11 @@ export class FaseUm extends Phaser.Scene {
 
         if (texX < 0 || texY < 0 || texX >= img.width || texY >= img.height) return false; //se as coordenadas estiverem fora da imagem ou menores que zero retorna falso que é sem colisão
 
-        const pixel = this.pedraCaixaColisao.getImageData(Math.floor(texX), Math.floor(texY), 1, 1).data; //variável que recebe método que extrai dados de pixels de uma região e retorna um array com 4 valores R, G, B, A
+        const pixel = this.obstaculosCaixaColisao.getImageData(Math.floor(texX), Math.floor(texY), 1, 1).data; //variável que recebe método que extrai dados de pixels de uma região e retorna um array com 4 valores R, G, B, A
         const [r, g, b, a] = pixel; //recebe o array de cores do pixel
         if (a <= 80) return false; //se o pixel for transparente, não há colisão
 
-        // Cor especial #2b2b2b: bloqueia também durante o pulo
+        // Cor especial #39197e: bloqueia também durante o pulo
         const corPulo =
             Math.abs(r - 43) < 5 &&
             Math.abs(g - 43) < 5 &&
@@ -259,20 +260,38 @@ export class FaseUm extends Phaser.Scene {
 
     //o que acontece quando bater no obstaculo, fenômeno não físico
     baterObstaculos(asimov, obstacle) {
-        this.physics.pause(); //jogo para
+        if (this.finalizarJogo) return; //se estiver true, então sai dessa condição
+        
         this.finalizarJogo = true;
-        asimov.setTint(0xff0000); //jogador fica com coloração avermelhada
-        asimov.anims.stop(); //para a animação do player
-
-        this.add.text(this.sys.game.config.width / 2, this.sys.game.config.height / 2,
-            'GAME OVER\nPressione F5 para reiniciar', {
-            fontFamily: 'fantasy',
-            fontSize: '64px',
-            fill: '#fff',
-            backgroundColor: '#000',
-            padding: { x: 20, y: 20 },
-            align: 'center'
-        }).setOrigin(0.5);
+        const { width } = this.sys.game.config;
+        
+        //reseta posição do jogador
+        asimov.x = width / 10;
+        asimov.y = 480;
+        this.faixaAtual = 1; //retorna para posição do meio 
+        
+        //reseta câmera
+        this.cameraSeguindo = false;
+        this.cameras.main.stopFollow(); //câmera para de seguir o personagem
+        this.cameras.main.scrollX = 0; //Câmera retorna para o ínicio, começo do mapa de fundo dessa fase
+        
+        //reseta barra de progresso para o ínicio
+        this.barraAnimando = false;
+        this.barra.stop();
+        this.barra.setFrame(0);
+        
+        //efeito de piscar por 3 segundos
+        this.tweens.add({
+            targets: asimov,
+            alpha: 0,
+            duration: 150,
+            yoyo: true,
+            repeat: 6, //6 piscadas
+            onComplete: () => {
+                asimov.alpha = 1;
+                this.finalizarJogo = false;
+            }
+        });
     }
 
     //função para quando abrir o bau
