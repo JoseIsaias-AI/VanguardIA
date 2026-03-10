@@ -204,9 +204,9 @@ Esse agente é Asimov, um robô criado como experimento científico avançado pa
 
 Muitas décadas depois, a câmara criogênica se abre. Sophia desperta em 2098, em um mundo devastado pelo uso indevido de Inteligências Artificiais treinadas para obter poder e dominação. O antigo laboratório está em ruínas, tomado por sucatas e falhas estruturais. Asimov foi o responsável por ativar o protocolo de despertar sophia ao detectar a calamidade global, cumprindo a última ordem direta de Watson. No entanto, ele também sofreu danos: parte de sua memória foi fragmentada e seu banco de dados encontra-se inacessível devido à falha no núcleo energético do mapa central do laboratório.
 
-Ao analisar os sistemas restantes, Asimov explica que a única maneira de restaurar a infraestrutura e recuperar integralmente seu banco de dados é reativar o núcleo do mapa energético do laboratório. Para isso, é necessário um cristal de silício específico, capaz de armazenar e redistribuir grandes cargas de energia para toda a estrutura. Sem essa fonte, o laboratório permanecerá inoperante e seu conhecimento perdido.
+Ao analisar os sistemas restantes, Asimov explica que a única maneira de restaurar a infraestrutura e recuperar integralmente seu banco de dados é reativar o núcleo do mapa energético do laboratório. Para isso, é necessário um cristal específico, capaz de armazenar e redistribuir grandes cargas de energia para toda a estrutura. Sem essa fonte, o laboratório permanecerá inoperante e seu conhecimento perdido.
 
-A busca começa na área de sucatas, onde podem existir registros antigos sobre o cristal. O ambiente, porém, está excessivamente poluído, tornando a entrada arriscada para Sophia. Além disso, Asimov perdeu parte de seus módulos de navegação e desvio de obstáculos. Para superar essa limitação, Sophia assume o controle remoto do robô, guiando-o manualmente pelos destroços. Ao concluir essa etapa, Asimov reaprende padrões de locomoção e recupera sua capacidade básica de autonomia.
+A busca começa na área de sucatas, onde podem existir registros antigos sobre o cristal. O ambiente, porém, está excessivamente poluído, tornando a entrada arriscada para Sophia. Além disso, Asimov perdeu parte de seus módulos de navegação e desvio de obstáculos. Para superar essa limitação, Sophia assume o controle remoto do robô, guiando-o manualmente pelos destroços. Ao concluir essa etapa, Asimov reaprende padrões de locomoção e recupera sua capacidade básica de navegação.
 
 Entre os escombros, encontram um baú contendo a imagem de uma porta específica e seus padrões codificados em binário. A próxima fase consiste em localizar essa porta em uma sala com múltiplos caminhos e entradas visualmente semelhantes. O ambiente é escuro demais para Sophia distinguir os detalhes, mas Asimov consegue enxergar na ausência de luz. No entanto, ele não consegue diferenciar os padrões corretos. Sophia então o treina por meio de um sistema de reconhecimento de padrões, ensinando-o a classificar corretamente as características visuais até que ele consiga identificar a porta certa de forma independente.
 
@@ -228,7 +228,7 @@ Sophia é uma das personagens controláveis e protagonista da narrativa. Cientis
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
-Asimov também é personagem controlável em momentos específicos da jogabilidade. Criado originalmente como um experimento científico avançado para atuar como agente autônomo de suporte ao laboratório, ele possui arquitetura adaptativa e capacidade de aprendizado contínuo. Após décadas de abandono e danos estruturais, desperta Sophia seguindo a última ordem de Watson, mas apresenta falhas em memória e sistemas de navegação. Durante o jogo, o jogador assume o controle de Asimov em fases exploratórias, enquanto seus sistemas são gradualmente restaurados por meio de treinamentos e inserção de dados. Sua evolução acompanha o avanço técnico da narrativa, tornando-se progressivamente mais autônomo e estratégico, consolidando-se como parceiro essencial na reconstrução do laboratório e na restauração do equilíbrio tecnológico.
+Asimov também é personagem controlável em momentos específicos da jogabilidade. Criado originalmente como um experimento científico avançado para atuar como agente autônomo de suporte ao laboratório, ele possui arquitetura adaptativa e capacidade de aprendizado contínuo. Após décadas de abandono e danos estruturais, desperta Sophia seguindo a última ordem de Watson, mas apresenta falhas em memória e sistemas de navegação. Durante o jogo, o jogador assume o controle de Asimov na fase 1, enquanto seus sistemas são gradualmente restaurados por meio de treinamentos e inserção de dados. Sua evolução acompanha o avanço técnico da narrativa, tornando-se progressivamente mais autônomo e estratégico, consolidando-se como parceiro essencial na reconstrução do laboratório e na restauração do equilíbrio tecnológico.
 
 <div align = "center">
 <sup>Figura 1: Sprite de asimov, personagem secundário.</sup><br>
@@ -424,7 +424,7 @@ Após sair da área de sucatas, o jogador precisa treinar Asimov por meio de um 
 
 Em seguida, Sophia e Asimov acessam a sala de arquivamento, localizada após a área de sucatas, onde encontram um baú contendo imagens e registros dos cristais. A partir dessas informações, o jogador participa de um desafio de classificação de cristais em uma esteira, no qual deve analisar as imagens apresentadas e decidir entre guardar os cristais verdadeiros ou incinerar os falsos.
 
-Ao completar corretamente as classificações, o jogador obtém os dados necessários para gerar um cristal funcional, que será utilizado para restaurar o sistema do laboratório. Com isso, o jogo avança para a etapa final, onde Sophia passa a interagir com uma inteligência artificial mais avançada para planejar os próximos passos da missão.
+Ao completar corretamente as classificações, o jogador obtém os dados necessários para gerar um cristal funcional, que será utilizado para restaurar o sistema do laboratório. Com isso, o jogo avança para a etapa final, onde Sophia passa a interagir com asimov agora com seu banco de dados completo virando uma super IA generativa que vai ajudar sophia a planejar os próximos passos para restaurar o universo.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
@@ -433,6 +433,37 @@ Ao completar corretamente as classificações, o jogador obtém os dados necess�
 *Ex. Em um jogo de plataforma 2D para desktop, o jogador pode usar as teclas WASD para mecânicas de andar, mirar para cima, agachar, e as teclas JKL para atacar, correr, arremesar etc.*
 
 *Ex. Em um jogo de puzzle para celular, o jogador pode tocar e arrastar sobre uma peça para movê-la sobre o tabuleiro, ou fazer um toque simples para rotacioná-la*
+
+## 3.7. Mecânicas do jogo (sprint 3)
+
+As mecânicas do jogo envolvem **exploração do ambiente, interação com objetos e resolução de desafios relacionados à inteligência artificial**. O jogador controla os personagens para investigar o laboratório, coletar informações e completar tarefas necessárias para avançar nas fases.
+
+### Mecânicas principais
+
+**1. Exploração do ambiente**
+O jogador pode se movimentar livremente dentro do mapa da fase atual para explorar salas do laboratório, como a área de sucatas, a sala de arquivos, a sala da esteira e a sala de controle principal. Durante a exploração é possível encontrar objetos, registros e equipamentos importantes para a progressão da história.
+
+**2. Interação com objetos e sistemas**
+Utilizando a tecla de interação, o jogador pode acessar **baús, arquivos, máquinas e terminais do laboratório**. Esses elementos liberam informações da narrativa ou ativam desafios necessários para continuar a fase.
+
+**3. Investigação e coleta de informações**
+Na **sala de arquivos**, o jogador encontra documentos e imagens de diferentes cristais armazenados em um baú. Essas informações ajudam a identificar quais cristais possuem as características corretas.
+
+**4. Classificação de cristais**
+Na **sala da esteira**, o jogador deve analisar imagens de cristais e realizar a classificação entre **cristais verdadeiros e falsos**.
+
+* Cristais verdadeiros (azuis, brilhantes e pontiagudos) devem ser **guardados**.
+* Cristais falsos (com imperfeições ou coloração diferente) devem ser **incinerados**.
+
+**5. Extração de características**
+Após selecionar corretamente os cristais verdadeiros, eles são enviados para um **extrator de características**, que gera uma **matriz de características** com os padrões do cristal correto.
+
+**6. Treinamento da rede neural de Asimov**
+Com os dados coletados, o jogador inicia o **treinamento da rede neural de Asimov**. Durante várias tentativas (épocas), o sistema melhora gradualmente sua capacidade de reconhecer padrões, aumentando sua taxa de acerto até alcançar uma precisão elevada.
+
+**7. Restauração do laboratório**
+Após o treinamento e a identificação correta do cristal verdadeiro, Sophia pode levá-lo até a **sala principal de controle**, onde o cristal é depositado no centro do sistema energético do laboratório, restaurando parte da energia e permitindo a continuidade da narrativa.
+
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
