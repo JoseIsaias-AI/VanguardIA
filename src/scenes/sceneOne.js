@@ -454,7 +454,7 @@ export class Scene01 extends Phaser.Scene {
     );
 
     // Mostra o botão "E" se estiver perto da câmara
-    if (distancia < 140) {
+    if (distancia < 140 && this.entrarNaCamara) {
       this.podeInteragir = true;
       this.containerTecla.setVisible(true);
       this.containerTecla.setPosition(targetX, targetY - 50);
@@ -478,7 +478,8 @@ export class Scene01 extends Phaser.Scene {
   this.podeInteragir && this.entrarNaCamara &&
   Phaser.Input.Keyboard.JustDown(this.teclaE) 
      )
-      {  this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
+      { 
+         this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
 } 
 
     // INTERACAO - WATSON
