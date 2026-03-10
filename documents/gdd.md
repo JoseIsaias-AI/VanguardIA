@@ -483,11 +483,11 @@ Inicialmente, os assets utilizados foram gerados por IA Generativa para melhor v
 <div align = "center">
 
 <sup>Figura 18: Imagem do Laboratório de Cristal ao começo do jogo.</sup><br>
-<img src="../assets/fases/sceneTwo/labCristalEscuro2.png" width = '70%' ><br>
+<img src="../assets/Fases/sceneTwo/labCristalEscuro2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 <sup>Figura 19: Imagem do Laboratório de Cristal ao fim do jogo.</sup><br>
-<img src="../assets/fases/sceneTwo/labCristalClaro2.png" width = '70%' ><br>
+<img src="../assets/Fases/sceneTwo/labCristalClaro2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
