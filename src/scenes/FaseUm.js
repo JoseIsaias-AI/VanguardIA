@@ -260,20 +260,38 @@ export class FaseUm extends Phaser.Scene {
 
     //o que acontece quando bater no obstaculo, fenômeno não físico
     baterObstaculos(asimov, obstacle) {
-        this.physics.pause(); //jogo para
+        if (this.finalizarJogo) return; //se estiver true, então sai dessa condição
+        
         this.finalizarJogo = true;
-        asimov.setTint(0xff0000); //jogador fica com coloração avermelhada
-        asimov.anims.stop(); //para a animação do player
-
-        this.add.text(this.sys.game.config.width / 2, this.sys.game.config.height / 2,
-            'GAME OVER\nPressione F5 para reiniciar', {
-            fontFamily: 'fantasy',
-            fontSize: '64px',
-            fill: '#fff',
-            backgroundColor: '#000',
-            padding: { x: 20, y: 20 },
-            align: 'center'
-        }).setOrigin(0.5);
+        const { width } = this.sys.game.config;
+        
+        //reseta posição do jogador
+        asimov.x = width / 10;
+        asimov.y = 480;
+        this.faixaAtual = 1; //retorna para posição do meio 
+        
+        //reseta câmera
+        this.cameraSeguindo = false;
+        this.cameras.main.stopFollow(); //câmera para de seguir o personagem
+        this.cameras.main.scrollX = 0; //Câmera retorna para o ínicio, começo do mapa de fundo dessa fase
+        
+        //reseta barra de progresso para o ínicio
+        this.barraAnimando = false;
+        this.barra.stop();
+        this.barra.setFrame(0);
+        
+        //efeito de piscar por 3 segundos
+        this.tweens.add({
+            targets: asimov,
+            alpha: 0,
+            duration: 150,
+            yoyo: true,
+            repeat: 6, //6 piscadas
+            onComplete: () => {
+                asimov.alpha = 1;
+                this.finalizarJogo = false;
+            }
+        });
     }
 
     //função para quando abrir o bau
