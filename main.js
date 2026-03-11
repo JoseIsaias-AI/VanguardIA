@@ -2,6 +2,7 @@
 import { WelcomeScene } from "./src/scenes/Welcome.js";
 import { Scene01 } from "./src/scenes/sceneOne.js";
 import { SceneFuturo } from "./src/scenes/sceneFuturo.js"
+import { SceneFuturo2 } from "./src/scenes/sceneFuturo2.js"
 import { Scene02 } from "./src/scenes/sceneTwo.js";
 import { FaseUm } from "./src/scenes/FaseUm.js";
 import { FaseDois } from "./src/scenes/FaseDois.js"; 
@@ -27,7 +28,7 @@ const config = {
     },
 
 
-    scene: [WelcomeScene, Scene01, SceneFuturo, FaseUm, Scene02, FaseDois ]
+    scene: [WelcomeScene, Scene01, SceneFuturo, FaseUm, Scene02, SceneFuturo2, FaseDois, ]
     //scene: [minigame1Fase2]
 
 };
