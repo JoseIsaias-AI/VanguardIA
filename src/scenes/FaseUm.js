@@ -5,14 +5,14 @@ export class FaseUm extends Phaser.Scene {
 
     preload () {
         //carregamento das imagens e sprites usados durante a fase1
-        this.load.image('fundo', 'assets/fases/faseUm/fundoFaseUm.png');
-        this.load.spritesheet('asimov', 'assets/personagens/asimov.png', { frameWidth: 32, frameHeight: 32 });
-        //this.load.image('pedra', 'assets/objetos/faseUm/obstaculosPedra.png');
-        this.load.image( 'obstaculos', 'assets/objetos/faseUm/obstaculosFaseUm.png')
-        this.load.spritesheet('barra', 'assets/objetos/faseUm/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
-        this.load.spritesheet('bauAnimado', 'assets/objetos/faseUm/bau.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('envelope', 'assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
-        this.load.spritesheet('pergaminho', 'assets/objetos/faseUm/pergaminho.png', { frameWidth: 1152, frameHeight: 648 });
+        this.load.image('fundo', '../assets/fases/faseUm/fundoFaseUm.png');
+        this.load.spritesheet('asimov', '../assets/personagens/asimov.png', { frameWidth: 32, frameHeight: 32 });
+        //this.load.image('pedra', '../assets/objetos/faseUm/obstaculosPedra.png');
+        this.load.image( 'obstaculos', '../assets/Objetos/faseUm/obstaculosFaseUm.png')
+        this.load.spritesheet('barra', '../assets/objetos/faseUm/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
+        this.load.spritesheet('bauAnimado', '../assets/objetos/faseUm/bau.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('envelope', '../assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
+        this.load.spritesheet('pergaminho', '../assets/objetos/faseUm/pergaminho.png', { frameWidth: 1152, frameHeight: 648 });
     }
 
     create () {
