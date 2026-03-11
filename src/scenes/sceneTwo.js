@@ -16,19 +16,9 @@ export class Scene02 extends Phaser.Scene {
     this.load.spritesheet("cientistaLider","assets/personagens/watson.png", { frameWidth: 64, frameHeight: 64 });
   }
 
-  create() {
-    //Agora, colocando a cut scene no começo da fase
-    this.cutscene = this.add.video(600, 400, "cutscene2");
 
-this.cutscene.setScale(1.2);
-this.cutscene.play();
 
-this.cutscene.once("complete", () => {
-    this.cutscene.destroy();
-    this.iniciarFase();
-}); }
-
-iniciarFase() {
+create() {
 
 
     this.lendoMensagem = false;

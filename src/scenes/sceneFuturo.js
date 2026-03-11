@@ -14,6 +14,13 @@ export class SceneFuturo extends Phaser.Scene {
       frameHeight: 32,
     });
 
+    this.load.video(
+  "cutscene2",
+  "assets/Cutscene/CutScene2.mp4",
+  "loadeddata",
+  false,
+  true
+);
     this.load.image("armarioD", "assets/objetos/sceneOne/partTwo/armarioDestruido.png");
     this.load.image("alvoD", "assets/objetos/sceneOne/partTwo/alvoDestruido.png");
     this.load.image("mesa1D", "assets/objetos/sceneOne/partTwo/mesa1Destruida.png");
@@ -26,8 +33,25 @@ export class SceneFuturo extends Phaser.Scene {
     this.load.image("criogeniaD", "assets/objetos/sceneOne/partTwo/criogeniaDestruida.png");
     this.load.image("camara", "assets/objetos/sceneOne/partOne/camara.png");
   }
-
+  
   create() {
+    this.videoDaFase(); }
+    
+    videoDaFase() {
+    //Agora, colocando a cut scene no começo da fase
+    this.cutscene = this.add.video(800, 400, "cutscene2");
+
+this.cutscene.setScale(1.2);
+ this.cutscene.setDepth(999);
+this.cutscene.setMute(true); // evita bloqueio de autoplay
+this.cutscene.play();
+
+this.cutscene.once("complete", () => {
+    this.cutscene.destroy();
+    this.iniciarFase();
+}); }
+iniciarFase () {
+
     this.scaleMapa = 3;
     this.progressoHistoria = 0;
     this.lendoMensagem = false;
@@ -271,6 +295,8 @@ export class SceneFuturo extends Phaser.Scene {
   }
 
   update() {
+    if (!this.Principal) return;
+
     if (this.lendoMensagem) {
       this.Principal.setVelocity(0, 0);
       this.Principal.anims.stop();
