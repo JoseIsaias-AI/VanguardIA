@@ -46,6 +46,7 @@ export class Scene01 extends Phaser.Scene {
     // cria as coisas na cena
 
     // variáveis de estado //
+    this.entrarNaCamara = false; // bloqueia o jogador de entrar na câmara antes de falar com o Watson
     this.lendoMensagem = false; // bloqueia movimento se o jogador estiver lendo
     this.podeInteragir = false; // indica se o jogador está próximo de um item interativo
     this.podeInteragirWatson = false; // indica se o jogador está próximo do Watson
@@ -211,8 +212,8 @@ export class Scene01 extends Phaser.Scene {
 
     // WATSON (NPC)
     this.watson = this.physics.add
-      .sprite(720, 100, "watson")
-      .setScale(2.2)
+      .sprite(830, 80, "watson")
+      .setScale(2.3)
       .setDepth(2);
     this.watson.body.setAllowGravity(false);
     this.watson.setSize(30, 25);
@@ -453,7 +454,7 @@ export class Scene01 extends Phaser.Scene {
     );
 
     // Mostra o botão "E" se estiver perto da câmara
-    if (distancia < 140) {
+    if (distancia < 140 && this.entrarNaCamara) {
       this.podeInteragir = true;
       this.containerTecla.setVisible(true);
       this.containerTecla.setPosition(targetX, targetY - 50);
@@ -473,9 +474,13 @@ export class Scene01 extends Phaser.Scene {
     }
 
     // Ação ao apertar a tecla "E" na câmara
-    if (this.podeInteragir && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
-    }
+    if (
+  this.podeInteragir && this.entrarNaCamara &&
+  Phaser.Input.Keyboard.JustDown(this.teclaE) 
+     )
+      { 
+         this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
+} 
 
     // INTERACAO - WATSON
     if (
@@ -536,6 +541,7 @@ export class Scene01 extends Phaser.Scene {
         return;
       }
       this.falando_watson = false;
+      this.entrarNaCamara = true;
       return;
     }
 
@@ -565,5 +571,4 @@ export class Scene01 extends Phaser.Scene {
     );
 
     this.objetosColisao.add(objeto); // adiciona o objeto ao grupo de objetos
-  }
-}
+  } }

@@ -7,6 +7,7 @@ export class Scene02 extends Phaser.Scene {
 
   preload() {
     // Carregando cenários (Noite e Restaurado)
+    this.load.video("cutscene2", "assets/Cutscene/CutScene2.mp4");
     this.load.image("cenarioNoite", "assets/fases/sceneTwo/labCristalEscuro.png"); // laboratório com cristal
     this.load.image("objetosLabEsc", "assets/objetos/sceneTwo/objetosLabCristal1.png");
     this.load.image("cenarioClaro", "assets/fases/sceneTwo/labCristalClaro.png"); // laboratório com cristal claro
@@ -16,6 +17,60 @@ export class Scene02 extends Phaser.Scene {
   }
 
   create() {
+    this.faseIniciada = false;
+    
+    console.log("Iniciando tentativa de tocar a cutscene...");
+
+    this.cutscene = this.add.video(600, 400, "cutscene2");
+    this.cutscene.setScale(1.2);
+
+    // 1. O 'true' dentro do play() força o vídeo a rodar MUTADO. 
+    // Se o vídeo aparecer agora, confirma que era bloqueio de áudio do navegador.
+    this.cutscene.play(true);
+
+    // 2. Evento de Erro: Se o caminho do MP4 estiver errado, ele avisa no F12
+    this.cutscene.on('error', (video, error) => {
+      console.error("Erro ao carregar ou tocar o vídeo:", error);
+      this.encerrarCutscene(); //AAAAA
+    });
+
+    // Evento de Sucesso
+    this.cutscene.on('complete', () => {
+      console.log("Vídeo terminou normalmente.");
+      this.encerrarCutscene();
+    });
+
+    // 3. Sistema para pular (Skip) a cutscene
+    this.textoSkip = this.add.text(1180, 780, "Pressione ESPAÇO para pular", {
+        fontSize: "20px",
+        color: "#ffffff",
+        backgroundColor: "#000000",
+        padding: { x: 10, y: 5 }
+    }).setOrigin(1, 1).setDepth(100);
+
+    this.input.keyboard.once('keydown-SPACE', () => {
+        console.log("O jogador pulou a cutscene.");
+        if (this.cutscene && this.cutscene.isPlaying()) {
+            this.cutscene.stop();
+        }
+        this.encerrarCutscene();
+    }); 
+  }
+
+  // Criei esta função auxiliar para evitar repetir código e limpar a tela direito
+  encerrarCutscene() {
+    // Garante que só chame iniciarFase uma única vez
+    if (this.faseIniciada) return; 
+
+    if (this.cutscene) this.cutscene.destroy();
+    if (this.textoSkip) this.textoSkip.destroy();
+    
+    this.iniciarFase();
+  }
+
+iniciarFase() {
+
+    this.faseIniciada = true;
     this.lendoMensagem = false;
     this.podeInteragir = false;
     this.progressoHistoria = 0
@@ -162,7 +217,7 @@ export class Scene02 extends Phaser.Scene {
         frameRate: 10,
         repeat: -1,
       });
-    }
+     } 
   }
 
   // Checagem de cor no canvas invisívelocidade
@@ -189,6 +244,9 @@ export class Scene02 extends Phaser.Scene {
   }
 
   update() {
+   // Se a cutscene estiver rodando, ignora todo o código abaixo
+    if (!this.faseIniciada) return;
+   
     if (this.lendoMensagem) {
       this.cientistaLider.anims.stop();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
