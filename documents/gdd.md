@@ -83,7 +83,6 @@ O mercado de ensino gamificado de IA tem olhado cada vez mais para um público m
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
-
 **Forças**
 
 As principais forças do projeto decorrem da parceria com a IBM, conferindo, por exemplo, credibilidade imediata ao jogo e contato com especialistas em IA, garantindo rigor técnico e relevância no aprendizado. Além da base já consolidada do Skills Build, que traz um eixo de conteúdos e dados para se apoiar. Soma-se a isso a própria composição da equipe, formada por integrantes que fazem parte do público-alvo e com diferentes níveis de conhecimento em IA, possibilitando testar internamente a clareza e a eficácia da abordagem pedagógica do jogo, validando o processo de ensino a partir da própria experiência de aprendizagem do grupo.
@@ -132,14 +131,18 @@ Educação lúdica, democratização da IA, ensino nativo digital, aprendizado p
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
+
+
 \# | Requisito  
 --- | ---
 1 | O jogo é iniciado com um toque em qualquer local da tela inicial.
 2 | O controle do personagem será realizado usando as teclas direcionais (→ ↑ ↓ ←) para navegação e a  interação com itens presentes no jogo será realizada com a tecla E.
-3 | A tela do mapa ficará com brilho baixo a não ser perto do personagem, onde haverá uma luz que o acompanha para que o jogador tenha a sensação de estar explorando o ambiente. 
-4 | O robô acompanhará o jogador durante a movimentação após a primeira fase do jogo.
-5 | Haverá uma barra de progresso na tela para que o jogador saiba o nível do conhecimento adquirido.
-6 | No decorrer do jogo o jogador desbloqueará conquistas a cada fase, que simbolizarão o conhecimento adquirido e apenas com todas elas ele poderá desbloquear a fase final.
+3 | A ação de pular é realizada utilizando a tecla SPACE.
+4 | A tela do mapa ficará com brilho baixo a não ser perto do personagem, onde haverá uma luz que o acompanha para que o jogador tenha a sensação de estar explorando o ambiente. 
+5 | O robô acompanhará o jogador durante a movimentação após a primeira fase do jogo.
+6 | Haverá uma barra de progresso na tela para que o jogador saiba o nível do conhecimento adquirido.
+7 | No decorrer do jogo o jogador desbloqueará conquistas a cada fase, que simbolizarão o conhecimento adquirido e apenas com todas elas ele poderá desbloquear a fase final.
+8 | Na cena inicial, o jogador só poderá interagir com a camâra de criogênia após interagir com o NPC Watson.
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
@@ -476,9 +479,9 @@ Para os próximos passos, o grupo deseja implementar os requisitos 3 e 4, adicio
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
-Na segunda sprint, o desenvolvimento do jogo foi focado na implementação da tela inicial do jogo, na elaboração dos backgrounds e periféricos das fases e na correção de bugs.
+Na segunda sprint o desenvolvimento do jogo foi focado na implementação da tela inicial do jogo, na elaboração dos backgrounds e periféricos das fases e na correção de bugs.
 
-Inicialmente, os assets utilizados foram gerados por IA Generativa para melhor visualização de como o grupo seguiria o projeto. No decorrer do desenvolvimento da segunda sprint, ocorreram alterações estéticas referentes aos cenários das cenas já existentes, que foram estruturados a partir de softwares voltados ao design em pixel art.
+No decorrer do desenvolvimento da segunda sprint, ocorreram alterações estéticas referentes aos cenários das cenas já existentes, que foram estruturados a partir de softwares voltados ao design em pixel art.
 
 <div align = "center">
 
@@ -500,11 +503,49 @@ Além disso, foram refatorados: os sistemas de colisão para que, ao invés de u
 <img src="../assets/gdd/faseRefactor.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-</div>
+</div> 
+
+Por fim, foram desenvolvidos os designs do background utilizado na Fase 01 e dos objetos utilizados como obstáculos na cena.
+
+<div align = "center">
+
+<sup>Figura 21: Background utilizado na Fase 01.</sup><br>
+<img src="../assets/Fases/faseUm/fundoFase1.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 22: Objetos utilizados na Fase 01.</sup><br>
+<img src="../assets/Objetos/faseUm/obstaculosPedra.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div> 
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 
-*Descreva e ilustre aqui o desenvolvimento da versão intermediária do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos.*
+Na terceira sprint o desenvolvimento foi focado na implementação de uma cena animada de introdução e da elaboração das fases jogavéis e cenas de transição entre fases.
+
+Durante o desenvolvimento houve uma reestruturação do design da cena e objetos utilizados na Fase 01 para melhor adequação ao enredo da história. 
+
+<div align = "center">
+
+<sup>Figura 23: Background reestruturado utilizado na Fase 01.</sup><br>
+<img src="../assets/Fases/faseUm/fundoFaseUm.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 24: Objetos reestruturados utilizados na Fase 01.</sup><br>
+<img src="../assets/Cutscene/CutScene2.mp4" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div> 
+
+Analogamente foi desenvolvido uma animação em forma de vídeo de uma Cena de Transição entre a troca de cenários na Cena 01.
+
+<div>
+
+<sup>Figura 25: Vídeo animado de transição.</sup><br>
+<img src="../assets/Objetos/faseUm/obstaculosFaseUm.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div> 
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 

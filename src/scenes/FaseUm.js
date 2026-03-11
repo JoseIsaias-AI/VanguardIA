@@ -8,7 +8,7 @@ export class FaseUm extends Phaser.Scene {
         this.load.image('fundo', 'assets/fases/faseUm/fundoFaseUm.png');
         this.load.spritesheet('asimov', 'assets/personagens/asimov.png', { frameWidth: 32, frameHeight: 32 });
         //this.load.image('pedra', 'assets/objetos/faseUm/obstaculosPedra.png');
-        this.load.image( 'obstaculos', 'assets/objetos/faseUm/obstáculosFaseUm.png')
+        this.load.image( 'obstaculos', 'assets/objetos/faseUm/obstaculosFaseUm.png')
         this.load.spritesheet('barra', 'assets/objetos/faseUm/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
         this.load.spritesheet('bauAnimado', 'assets/objetos/faseUm/bau.png', { frameWidth: 128, frameHeight: 128 });
         this.load.spritesheet('envelope', 'assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
