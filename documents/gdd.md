@@ -551,32 +551,41 @@ Por fim, foram desenvolvidos os designs do background utilizado na Fase 01 e dos
 </div> 
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
+Durante a Sprint 3, a equipe concentrou-se na implementação de elementos narrativos e mecânicos fundamentais para o funcionamento do jogo. As atividades foram conduzidas de forma paralela entre os membros da equipe e posteriormente integradas para compor a versão intermediária do jogo entregue nesta etapa.
 
-Na terceira sprint o desenvolvimento foi focado na implementação de uma cena animada de introdução e da elaboração das fases jogavéis e cenas de transição entre fases.
-
-Durante o desenvolvimento houve uma reestruturação do design da cena e objetos utilizados na Fase 01 para melhor adequação ao enredo da história. 
+Uma das frentes de desenvolvimento foi a implementação do sistema de diálogos, responsável por contextualizar a narrativa e orientar o jogador. Foram criados balões de fala para os personagens Dr. Watson e Asimov, permitindo que as interações apresentem a situação do mundo e introduzam conceitos iniciais relacionados aos fundamentos da Inteligência Artificial. Esse sistema também estabelece a progressão narrativa entre o laboratório inicial, o despertar no futuro e o início da primeira fase.
 
 <div align = "center">
 
-<sup>Figura 23: Background reestruturado utilizado na Fase 01.</sup><br>
-<img src="../assets/Fases/faseUm/fundoFaseUm.png" width = '70%' ><br>
+<sup>Figura 23: Dialogo com Asimov no futuro.</sup><br>
+<img src="../assets/gdd/printDialogo.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
-
-<sup>Figura 24: Objetos reestruturados utilizados na Fase 01.</sup><br>
-<img src="../assets/Cutscene/CutScene2.mp4" width = '70%' ><br>
-<sub>Fonte: Autoria própria (2026). </sub><br>
-
-</div> 
-
-Analogamente foi desenvolvido uma animação em forma de vídeo de uma Cena de Transição entre a troca de cenários na Cena 01.
 
 <div>
 
-<sup>Figura 25: Vídeo animado de transição.</sup><br>
-<img src="../assets/Objetos/faseUm/obstaculosFaseUm.png" width = '70%' ><br>
+Paralelamente, foi realizada a criação e instanciação dos NPCs no laboratório inicial, adicionando cientistas ao cenário para tornar o ambiente mais dinâmico e reforçar a ambientação de um laboratório ativo no início da narrativa. Esses personagens ajudam a compor o contexto da história antes do evento de criogenia da protagonista.
+
+*imagem do laboratório inicial com os NPCs
+
+A Fase 1 foi implementada e apresenta o robô Asimov em um cenário destruído. O personagem avança automaticamente enquanto o jogador utiliza as setas do teclado para alternar entre três faixas do cenário e a tecla espaço para realizar saltos e evitar obstáculos. A interação com o ambiente utiliza um sistema de colisão baseado na leitura de pixels da imagem de obstáculos, que reinicia a posição do personagem em caso de impacto. Ao final do percurso, o jogador encontra um baú interativo, que ativa uma sequência narrativa responsável por dar continuidade à história.
+
+<div align = "center">
+
+<sup>Figura 24: Fase 1</sup><br>
+<img src="../assets/gdd/printFase1.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-</div> 
+<div>
+
+Também foi desenvolvida a cutscene do despertar de Sophia, responsável por conectar narrativamente o passado e o futuro do jogo. A animação apresenta o momento em que Asimov desperta Sophia da criogenia em um laboratório destruído, iniciando a nova etapa da história. A cutscene foi produzida em animação 2D quadro a quadro, utilizando técnicas como onion skinning, onde é possível ver os frames passados e futuros,  para garantir maior fluidez nos movimentos.
+
+<div align = "center">
+
+<sup>Figura 25: CutScene do despertar.</sup><br>
+<img src="../assets/gdd/printCutScene2.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<div>
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
