@@ -5,14 +5,14 @@ export class FaseUm extends Phaser.Scene {
 
     preload () {
         //carregamento das imagens e sprites usados durante a fase1
-        this.load.image('fundo', 'assets/fases/faseUm/fundoFaseUm.png');
-        this.load.spritesheet('asimov', 'assets/personagens/asimov.png', { frameWidth: 32, frameHeight: 32 });
-        //this.load.image('pedra', 'assets/objetos/faseUm/obstaculosPedra.png');
-        this.load.image( 'obstaculos', 'assets/objetos/faseUm/obstaculosFaseUm.png')
-        this.load.spritesheet('barra', 'assets/objetos/faseUm/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
-        this.load.spritesheet('bauAnimado', 'assets/objetos/faseUm/bau.png', { frameWidth: 128, frameHeight: 128 });
-        this.load.spritesheet('envelope', 'assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
-        this.load.spritesheet('pergaminho', 'assets/objetos/faseUm/pergaminho.png', { frameWidth: 1152, frameHeight: 648 });
+        this.load.image('fundo', '../assets/fases/faseUm/fundoFaseUm.png');
+        this.load.spritesheet('asimov', '../assets/personagens/asimov.png', { frameWidth: 32, frameHeight: 32 });
+        //this.load.image('pedra', '../assets/objetos/faseUm/obstaculosPedra.png');
+        this.load.image( 'obstaculos', '../assets/Objetos/faseUm/obstaculosFaseUm.png')
+        this.load.spritesheet('barra', '../assets/objetos/faseUm/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
+        this.load.spritesheet('bauAnimado', '../assets/objetos/faseUm/bau.png', { frameWidth: 128, frameHeight: 128 });
+        this.load.spritesheet('envelope', '../assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
+        this.load.spritesheet('pergaminho', '../assets/objetos/faseUm/pergaminho.png', { frameWidth: 1152, frameHeight: 648 });
     }
 
     create () {
@@ -122,7 +122,7 @@ export class FaseUm extends Phaser.Scene {
             });
         }
         this.asimov.play("asimov_right"); //o jogador não precisa mover o robô para frente, ele ja faz isso naturalmente
- }
+    }
 
     update () {
         const gravidadeOriginal = 0; //sem gravidade
@@ -156,8 +156,8 @@ export class FaseUm extends Phaser.Scene {
                 this.asimov.setVelocity(350, -280); //personagem movimenta 280px para frente e 280 para cima
             }
         }
-        if (Phaser.Input.Keyboard.JustDown(this.teclaE) && this.pergaminhoAberto) { //assim que o jogador apertar a tecla E e o pergaminho está true é para mudar de de arquivo js
-            this.scene.start("Scene02");
+        if (Phaser.Input.Keyboard.JustDown(this.teclaE) && this.pergaminhoAberto) { //assim que o jogador apertar a tecla E e o pergaminho está true é para mudar de cena
+            this.scene.start("SceneFuturo2"); // ← ALTERADO: era "Scene02"
         }
         if (this.asimov.x < this.mapa.displayWidth - 200) { //faz com que o sprite do robô sempre retorne a animação de andando para a direita
             this.asimov.anims.play("asimov_right", true);

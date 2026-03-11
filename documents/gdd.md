@@ -1,6 +1,5 @@
 <img src="../assets/gdd/logointeli.png">
 
-
 # GDD - Game Design Document - Módulo 1 - Inteli
 
 **_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final_**
@@ -111,7 +110,7 @@ Ser um modelo nacional na implementação da gamificação para educação de IA
 
 **Valores:**
 
-Educação lúdica, democratização da IA, ensino nativo digital, aprendizado por descoberta, lisura e ética em IA.
+Educação lúdica, democratização da IA, inovação pedagógica, aprendizado por descoberta, lisura e ética em IA.
 
 ### 1.1.4. Proposta de Valor (sprint 4)
 
@@ -153,6 +152,8 @@ O perfil mais representativo do nosso usuário é o de um jovem de renda média-
 # <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)
 
 ## 2.1. Objetivos do Jogo (sprint 2)
+
+O objetivo principal do jogo é que o player consiga aprender sobre os conceitos de Inteligência Artificial e aplicá-los nos puzzles e minigames presentes para recuperar o banco de
 
 O objetivo do jogo é ensinar o básico de inteligência artificial de um jeito divertido e que prenda a atenção do usuário (através de minigames e puzzles) , sempre tentando fazê-lo se conectar com a história e os personagens de um modo que seu aprendizado seja mais eficiente. E com isso, queremos despertar o interesse dos universitários sobre o assunto IA para que eles busquem os cursos de tecnologia da IBM.
 
@@ -310,7 +311,6 @@ _**Movimentação dos Personagens**_
 A tecla **E** é utilizada para interagir com:
 * **Itens do cenário**
 * **NPCs**
-* **Objetos interativos**
 
 ---
 
@@ -332,7 +332,7 @@ _**Estrutura e Funcionamento**_
 
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
 
-NÃO APLICÁVEL.
+A existência de diferentes condições climáticas não foi uma possibilidade de aplicação dentro do enredo do jogo pois não foi considerado como fator de importância, devido aos ambientes do jogo se passarem em ambientes internos.
 
 ### 3.3.4. Concept Art (sprint 2)
 
@@ -381,29 +381,17 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 ### 3.4.1. Inventário
 
-*\<opcional\> Caso seu jogo utilize itens ou poderes para os personagens obterem, descreva-os aqui, indicando títulos, imagens, meios de obtenção e funções no jogo. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.* 
-
-*Exemplo de tabela*
-\# | item |  | como obter | função | efeito sonoro
---- | --- | --- | --- | --- | ---
-1 | moeda | <img src="../assets/coin.png"> | há muitas espalhadas em todas as fases | acumula dinheiro para comprar outros itens | som de moeda
-2 | madeira | <img src="../assets/wood.png"> | há muitas espalhadas em todas as fases | acumula madeira para construir casas | som de madeiras
-3 | ... 
+\# | item |  | como obter | função 
+--- | --- | --- | --- | --- 
+1 | baú | <img src="../assets/Objetos/bau.png"> | estão em algumas fases do jogo | guardam recompensas e informações 
+2 | envelope | <img src="../assets/Objetos/faseUm/envelopes.png"> | estará no primeiro baú | dá informações que serão utiliazadas em uma fase futura
+3 | pergaminho | <img src = '../assets/Objetis/faseUm/pergaminho.png'> | estará no primeiro baú | dá informações sobre a história do jogo
 
 ### 3.4.2. Bestiário
 
-*\<opcional\> Caso seu jogo tenha inimigos, descreva-os aqui, indicando nomes, imagens, momentos de aparição, funções e impactos no jogo. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.* 
-
-*Exemplo de tabela*
-\# | inimigo |  | ocorrências | função | impacto | efeito sonoro
---- | --- | --- | --- | --- | --- | ---
-1 | robô terrestre | <img src="../assets/inimigo2.PNG"> |  a partir da fase 1 | ataca o personagem vindo pelo chão em sua direção, com velocidade constante, atirando parafusos | se encostar no inimigo ou no parafuso arremessado, o personagem perde 1 ponto de vida | sons de tiros e engrenagens girando
-2 | robô voador | <img src="../assets/inimigo1.PNG"> | a partir da fase 2 | ataca o personagem vindo pelo ar, fazendo movimento em 'V' quando se aproxima | se encostar, o personagem perde 3 pontos de vida | som de hélice
-3 | ... 
+A existência de inimigos não foi uma possibilidade acordada dentro do enredo do jogo devido ao grau de importância que o grupo concluiu para esse fator, pois o projeto trabalhado será mais focado na resolução de problemas lógicos.
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
-
-*Posicione aqui seu "storyboard de programação" - o diagrama de cenas do jogo. Indique, por exemplo, como o jogo começa, quais opções o jogador tem, como ele avança nas fases, quais as condições de 'game over', como o jogo reinicia. Seu diagrama deve representar as classes, atributos e métodos usados no jogo.*
 
 <div align="center">
 <sub>Figura 13: Storyboard de programação</sub><br>
@@ -428,14 +416,6 @@ Após sair da área de sucatas, o jogador precisa treinar Asimov por meio de um 
 Em seguida, Sophia e Asimov acessam a sala de arquivamento, localizada após a área de sucatas, onde encontram um baú contendo imagens e registros dos cristais. A partir dessas informações, o jogador participa de um desafio de classificação de cristais em uma esteira, no qual deve analisar as imagens apresentadas e decidir entre guardar os cristais verdadeiros ou incinerar os falsos.
 
 Ao completar corretamente as classificações, o jogador obtém os dados necessários para gerar um cristal funcional, que será utilizado para restaurar o sistema do laboratório. Com isso, o jogo avança para a etapa final, onde Sophia passa a interagir com asimov agora com seu banco de dados completo virando uma super IA generativa que vai ajudar sophia a planejar os próximos passos para restaurar o universo.
-
-## 3.7. Mecânicas do jogo (sprint 3)
-
-*Descreva aqui as formas de controle e interação que o jogador tem sobre o jogo: quais os comandos disponíveis, quais combinações de comandos, e quais as ações consequentes desses comandos. Utilize listas ou tabelas para organizar esta seção.*
-
-*Ex. Em um jogo de plataforma 2D para desktop, o jogador pode usar as teclas WASD para mecânicas de andar, mirar para cima, agachar, e as teclas JKL para atacar, correr, arremesar etc.*
-
-*Ex. Em um jogo de puzzle para celular, o jogador pode tocar e arrastar sobre uma peça para movê-la sobre o tabuleiro, ou fazer um toque simples para rotacioná-la*
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
@@ -466,7 +446,6 @@ Com os dados coletados, o jogador inicia o **treinamento da rede neural de Asimo
 
 **7. Restauração do laboratório**
 Após o treinamento e a identificação correta do cristal verdadeiro, Sophia pode levá-lo até a **sala principal de controle**, onde o cristal é depositado no centro do sistema energético do laboratório, restaurando parte da energia e permitindo a continuidade da narrativa.
-
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -561,7 +540,19 @@ Uma das frentes de desenvolvimento foi a implementação do sistema de diálogos
 <img src="../assets/gdd/printDialogo.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
+<<<<<<< HEAD
 <div>
+=======
+<sup>Figura 24: Objetos reestruturados utilizados na Fase 01.</sup><br>
+<img src="../assets/Cutscene/CutScene2.mp4" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div> 
+
+Analogamente foi desenvolvido uma animação em forma de vídeo de uma Cena de Transição entre a troca de cenários na Cena 01.
+
+<div align = "center">
+>>>>>>> a7d7153209d7bcdf2d95c963c4714cf7876cb8e0
 
 Paralelamente, foi realizada a criação e instanciação dos NPCs no laboratório inicial, adicionando cientistas ao cenário para tornar o ambiente mais dinâmico e reforçar a ambientação de um laboratório ativo no início da narrativa. Esses personagens ajudam a compor o contexto da história antes do evento de criogenia da protagonista.
 
