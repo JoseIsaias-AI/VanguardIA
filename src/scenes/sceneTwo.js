@@ -17,60 +17,20 @@ export class Scene02 extends Phaser.Scene {
   }
 
   create() {
-    this.faseIniciada = false;
-    
-    console.log("Iniciando tentativa de tocar a cutscene...");
-
+    //Agora, colocando a cut scene no começo da fase
     this.cutscene = this.add.video(600, 400, "cutscene2");
-    this.cutscene.setScale(1.2);
 
-    // 1. O 'true' dentro do play() força o vídeo a rodar MUTADO. 
-    // Se o vídeo aparecer agora, confirma que era bloqueio de áudio do navegador.
-    this.cutscene.play(true);
+this.cutscene.setScale(1.2);
+this.cutscene.play();
 
-    // 2. Evento de Erro: Se o caminho do MP4 estiver errado, ele avisa no F12
-    this.cutscene.on('error', (video, error) => {
-      console.error("Erro ao carregar ou tocar o vídeo:", error);
-      this.encerrarCutscene(); //AAAAA
-    });
-
-    // Evento de Sucesso
-    this.cutscene.on('complete', () => {
-      console.log("Vídeo terminou normalmente.");
-      this.encerrarCutscene();
-    });
-
-    // 3. Sistema para pular (Skip) a cutscene
-    this.textoSkip = this.add.text(1180, 780, "Pressione ESPAÇO para pular", {
-        fontSize: "20px",
-        color: "#ffffff",
-        backgroundColor: "#000000",
-        padding: { x: 10, y: 5 }
-    }).setOrigin(1, 1).setDepth(100);
-
-    this.input.keyboard.once('keydown-SPACE', () => {
-        console.log("O jogador pulou a cutscene.");
-        if (this.cutscene && this.cutscene.isPlaying()) {
-            this.cutscene.stop();
-        }
-        this.encerrarCutscene();
-    }); 
-  }
-
-  // Criei esta função auxiliar para evitar repetir código e limpar a tela direito
-  encerrarCutscene() {
-    // Garante que só chame iniciarFase uma única vez
-    if (this.faseIniciada) return; 
-
-    if (this.cutscene) this.cutscene.destroy();
-    if (this.textoSkip) this.textoSkip.destroy();
-    
+this.cutscene.once("complete", () => {
+    this.cutscene.destroy();
     this.iniciarFase();
-  }
+}); }
 
 iniciarFase() {
 
-    this.faseIniciada = true;
+
     this.lendoMensagem = false;
     this.podeInteragir = false;
     this.progressoHistoria = 0
@@ -244,9 +204,6 @@ iniciarFase() {
   }
 
   update() {
-   // Se a cutscene estiver rodando, ignora todo o código abaixo
-    if (!this.faseIniciada) return;
-   
     if (this.lendoMensagem) {
       this.cientistaLider.anims.stop();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
