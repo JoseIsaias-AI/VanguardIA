@@ -39,9 +39,9 @@ export class SceneFuturo extends Phaser.Scene {
     
     videoDaFase() {
     //Agora, colocando a cut scene no começo da fase
-    this.cutscene = this.add.video(800, 400, "cutscene2");
+    this.cutscene = this.add.video(950, 550, "cutscene2");
 
-this.cutscene.setScale(1.2);
+this.cutscene.setScale(1.05);
  this.cutscene.setDepth(999);
 this.cutscene.setMute(true); // evita bloqueio de autoplay
 this.cutscene.play();
