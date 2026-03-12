@@ -125,7 +125,16 @@ create() {
     .setScrollFactor(0) // Fixa o texto na tela
     .setDepth(101); // Texto fica na frente da caixa
 
+   //Adicionando as teclas
     this.cursors = this.input.keyboard.createCursorKeys();
+     this.keys = this.input.keyboard.addKeys({
+      W: Phaser.Input.Keyboard.KeyCodes.W,
+      A: Phaser.Input.Keyboard.KeyCodes.A,
+      S: Phaser.Input.Keyboard.KeyCodes.S,
+      D: Phaser.Input.Keyboard.KeyCodes.D
+    });
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+this.pulando = false;
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
     this.cameras.main.startFollow(this.cientistaLider).setZoom(1.2);
@@ -205,11 +214,32 @@ create() {
     let movimentacao = false;
 
     // Antes de mover, checa se a nova posição colidiria em algo "verde" na máscara de colisão
-    if (this.cursors.left.isDown && !this.colidiuComVerde(this.cientistaLider.x - velocidade, this.cientistaLider.y)) { this.cientistaLider.x -= velocidade; this.cientistaLider.anims.play("cient_left", true); movimentacao = true; }
-    else if (this.cursors.right.isDown && !this.colidiuComVerde(this.cientistaLider.x + velocidade, this.cientistaLider.y)) { this.cientistaLider.x += velocidade; this.cientistaLider.anims.play("cient_right", true); movimentacao = true; }
-    if (this.cursors.up.isDown && !this.colidiuComVerde(this.cientistaLider.x, this.cientistaLider.y - velocidade)) { this.cientistaLider.y -= velocidade; this.cientistaLider.anims.play("cient_back", true); movimentacao = true; }
-    else if (this.cursors.down.isDown && !this.colidiuComVerde(this.cientistaLider.x, this.cientistaLider.y + velocidade)) { this.cientistaLider.y += velocidade; this.cientistaLider.anims.play("cient_front", true); movimentacao = true; }
+    if ((this.cursors.left.isDown ||this.keys.A.isDown) && !this.colidiuComVerde(this.cientistaLider.x - velocidade, this.cientistaLider.y)) { this.cientistaLider.x -= velocidade; this.cientistaLider.anims.play("cient_left", true); movimentacao = true; }
+    else if ((this.cursors.right.isDown || this.keys.D.isDown) && !this.colidiuComVerde(this.cientistaLider.x + velocidade, this.cientistaLider.y)) { this.cientistaLider.x += velocidade; this.cientistaLider.anims.play("cient_right", true); movimentacao = true; }
+    if ((this.cursors.up.isDown || this.keys.W.isDown) && !this.colidiuComVerde(this.cientistaLider.x, this.cientistaLider.y - velocidade)) { this.cientistaLider.y -= velocidade; this.cientistaLider.anims.play("cient_back", true); movimentacao = true; }
+    else if ((this.cursors.down.isDown || this.keys.S.isDown) && !this.colidiuComVerde(this.cientistaLider.x, this.cientistaLider.y + velocidade)) { this.cientistaLider.y += velocidade; this.cientistaLider.anims.play("cient_front", true); movimentacao = true; }
     if (!movimentacao) this.cientistaLider.anims.stop();
+
+    //Aqui, adicionamos o pulo do personagem
+    if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
+
+  this.pulando = true;
+  let yInicial = this.cientistaLider.y;
+
+  this.tweens.add({
+    targets: this.cientistaLider,
+    y: yInicial - 40,   // altura do pulo
+    duration: 150,
+    yoyo: true,
+    ease: "Sine.easeOut",
+
+    onComplete: () => {
+      this.cientistaLider.y = yInicial;
+      this.pulando = false;
+    }
+  });
+
+}
 
     // Lógica de interação
     let distBau = Phaser.Math.Distance.Between(

@@ -347,7 +347,15 @@ export class Scene01 extends Phaser.Scene {
 
     //  Inputs e câmera
     this.cursors = this.input.keyboard.createCursorKeys(); // Define setas do teclado como cursor
+     this.keys = this.input.keyboard.addKeys({ //Define as teclas WASD do teclado, para também serem usadas como cursor
+      W: Phaser.Input.Keyboard.KeyCodes.W,
+      A: Phaser.Input.Keyboard.KeyCodes.A,
+      S: Phaser.Input.Keyboard.KeyCodes.S,
+      D: Phaser.Input.Keyboard.KeyCodes.D
+    });
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E); // Define E para interação
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE); //Define SPACE para o pulo
+this.pulando = false;
 
     this.cameras.main.startFollow(this.Principal); // Define que a câmera deve seguir o jogador
     this.cameras.main.setZoom(1.2);
@@ -408,21 +416,21 @@ export class Scene01 extends Phaser.Scene {
     let velocidade = 150;
     let movimentacao = false;
 
-    if (this.cursors.left.isDown) {
+    if (this.cursors.left.isDown || this.keys.A.isDown) {
       this.Principal.setVelocityX(-velocidade);
       this.Principal.anims.play("left", true);
       movimentacao = true;
-    } else if (this.cursors.right.isDown) {
+    } else if (this.cursors.right.isDown || this.keys.D.isDown) {
       this.Principal.setVelocityX(+velocidade);
       this.Principal.anims.play("right", true);
       movimentacao = true;
     }
 
-    if (this.cursors.up.isDown) {
+    if (this.cursors.up.isDown || this.keys.W.isDown) {
       this.Principal.setVelocityY(-velocidade);
       if (!movimentacao) this.Principal.anims.play("back", true);
       movimentacao = true;
-    } else if (this.cursors.down.isDown) {
+    } else if (this.cursors.down.isDown || this.keys.S.isDown) {
       this.Principal.setVelocityY(+velocidade);
       if (!movimentacao) this.Principal.anims.play("front", true);
       movimentacao = true;
@@ -436,6 +444,26 @@ export class Scene01 extends Phaser.Scene {
 
     let targetX = this.camara.x;
     let targetY = this.camara.y;
+
+    if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
+
+  //Aqui, configuramos o pulo
+      this.pulando = true;
+  let yInicial = this.Principal.y;
+
+  this.tweens.add({
+    targets: this.Principal,
+    y: yInicial - 40,   // altura do pulo
+    duration: 150,
+    yoyo: true,         // volta para o lugar original
+    ease: "Sine.easeOut",
+    onComplete: () => {
+      this.Principal.y = yInicial;
+      this.pulando = false;
+    }
+  });
+
+}
 
     // Calcula a distância entre dois pontos (Personagem e Objeto)
     let distancia = Phaser.Math.Distance.Between(
