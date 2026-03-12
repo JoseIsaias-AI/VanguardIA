@@ -119,7 +119,7 @@ create() {
       fontSize: "26px", // Aumentado para melhor leitura em 1920px
       fontFamily: "'Courier New', Courier, monospace",
       color: "#ccffff",
-      wordWrap: { width: larguraCaixa - 100 },
+      wordWrap: { width: larguraCaixa - 200 },
       lineSpacing: 10
     })
     .setScrollFactor(0) // Fixa o texto na tela
@@ -128,7 +128,7 @@ create() {
     this.cursors = this.input.keyboard.createCursorKeys();
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
-    this.cameras.main.startFollow(this.cientistaLider).setZoom(1.2);
+    this.cameras.main.startFollow(this.cientistaLider).setZoom(1.8);
 
     if (!this.anims.exists("cient_left")) {
       this.anims.create({
