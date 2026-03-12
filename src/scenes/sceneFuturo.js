@@ -15,12 +15,12 @@ export class SceneFuturo extends Phaser.Scene {
     });
 
     this.load.video(
-  "cutscene2",
-  "assets/Cutscene/CutScene2.mp4",
-  "loadeddata",
-  false,
-  true
-);
+      "cutscene2",
+      "assets/Cutscene/CutScene2.mp4",
+      "loadeddata",
+      false,
+      true
+    );
     this.load.image("armarioD", "assets/objetos/sceneOne/partTwo/armarioDestruido.png");
     this.load.image("alvoD", "assets/objetos/sceneOne/partTwo/alvoDestruido.png");
     this.load.image("mesa1D", "assets/objetos/sceneOne/partTwo/mesa1Destruida.png");
@@ -33,33 +33,33 @@ export class SceneFuturo extends Phaser.Scene {
     this.load.image("criogeniaD", "assets/objetos/sceneOne/partTwo/criogeniaDestruida.png");
     this.load.image("camara", "assets/objetos/sceneOne/partOne/camara.png");
   }
-  
+
   create() {
-    this.videoDaFase(); }
-    
-    videoDaFase() {
-    //Agora, colocando a cut scene no começo da fase
+    this.videoDaFase();
+  }
+
+  videoDaFase() {
     this.cutscene = this.add.video(950, 550, "cutscene2");
+    this.cutscene.setScale(1.05);
+    this.cutscene.setDepth(999);
+    this.cutscene.setMute(true);
+    this.cutscene.play();
 
-this.cutscene.setScale(1.05);
- this.cutscene.setDepth(999);
-this.cutscene.setMute(true); // evita bloqueio de autoplay
-this.cutscene.play();
+    this.cutscene.once("complete", () => {
+      this.cutscene.destroy();
+      this.iniciarFase();
+    });
+  }
 
-this.cutscene.once("complete", () => {
-    this.cutscene.destroy();
-    this.iniciarFase();
-}); }
-iniciarFase () {
-
+  iniciarFase() {
     this.scaleMapa = 3;
     this.progressoHistoria = 0;
     this.lendoMensagem = false;
 
     // MAPA FUTURO
-    this.mapa = this.add.image(600, 400, "CFuturo").setScale(this.scaleMapa);
+    this.mapa = this.add.image(600, 400, "CFuturo").setScale(this.scaleMapa).setDepth(-1);
 
-    // criando uma barreira no laboratorio -> paredes //
+    // paredes
     let larguraParede = this.mapa.displayWidth;
     let alturaParede = 720;
     let centroX = this.mapa.x;
@@ -68,70 +68,42 @@ iniciarFase () {
     this.paredes = this.physics.add.staticGroup();
     this.objetosColisao = this.physics.add.staticGroup();
 
-    let paredeCima = this.add.rectangle(
-      centroX,
-      centroY - alturaParede / 2 + espessura / 2,
-      larguraParede,
-      espessura,
-      0xff0000,
-      0,
-    );
+    let paredeCima = this.add.rectangle(centroX, centroY - alturaParede / 2 + espessura / 2, larguraParede, espessura, 0xff0000, 0);
     this.physics.add.existing(paredeCima, true);
     this.paredes.add(paredeCima);
 
-    let paredeBaixo = this.add.rectangle(
-      centroX,
-      centroY + alturaParede / 2 - espessura / 2,
-      larguraParede,
-      espessura,
-      0xff0000,
-      0,
-    );
+    let paredeBaixo = this.add.rectangle(centroX, centroY + alturaParede / 2 - espessura / 2, larguraParede, espessura, 0xff0000, 0);
     this.physics.add.existing(paredeBaixo, true);
     this.paredes.add(paredeBaixo);
 
-    let paredeEsquerda = this.add.rectangle(
-      centroX - larguraParede / 2 + espessura / 2,
-      centroY,
-      espessura,
-      alturaParede,
-      0xff0000,
-      0,
-    );
+    let paredeEsquerda = this.add.rectangle(centroX - larguraParede / 2 + espessura / 2, centroY, espessura, alturaParede, 0xff0000, 0);
     this.physics.add.existing(paredeEsquerda, true);
     this.paredes.add(paredeEsquerda);
 
-    let paredeDireita = this.add.rectangle(
-      centroX + larguraParede / 2 - espessura / 2,
-      centroY,
-      espessura,
-      alturaParede,
-      0xff0000,
-      0,
-    );
+    let paredeDireita = this.add.rectangle(centroX + larguraParede / 2 - espessura / 2, centroY, espessura, alturaParede, 0xff0000, 0);
     this.physics.add.existing(paredeDireita, true);
     this.paredes.add(paredeDireita);
 
-    // adicionando os objetos //
-    this.armarioD = this.add.image(220, 10, "armarioD").setScale(3.25).setDepth(1);
-    this.armarioD2 = this.add.image(980, 10, "armarioD").setScale(3.25).setDepth(1);
-    this.alvoD = this.add.image(215, 275, "alvoD").setScale(3).setDepth(1);
-    this.alvoD2 = this.add.image(965, 375, "alvoD").setScale(3.1).setDepth(1);
-    this.criogeniaD = this.add.image(600, 6, "criogeniaD").setScale(3).setDepth(1);
-    this.mesa1D = this.add.image(190, 140, "mesa1D").setScale(3).setDepth(1);
-    this.mesa1Db = this.add.image(993, 518, "mesa1D").setScale(3).setDepth(1);
-    this.mesa2D = this.add.image(343, 20, "mesa2D").setScale(3).setDepth(1);
-    this.mesa3D = this.add.image(858, 18, "mesa3D").setScale(3).setDepth(1);
-    this.piaD = this.add.image(203, 470, "piaD").setScale(3).setDepth(1);
-    this.reservasCrioD = this.add.image(1023, 165, "reservasCrioD").setScale(3).setDepth(1);
-    this.comutador1Dprt1 = this.add.image(385, 220, "comptCimaD").setScale(3).setDepth(3);
-    this.comutador1Dprt2 = this.add.image(385, 260, "comptBaixoD").setScale(3).setDepth(1);
-    this.comutador2Dprt1 = this.add.image(812, 220, "comptCimaD").setScale(3).setDepth(3);
-    this.comutador2Dprt2 = this.add.image(812, 260, "comptBaixoD").setScale(3).setDepth(1);
-    this.comutador3Dprt1 = this.add.image(385, 410, "comptCimaD").setScale(3).setDepth(3);
-    this.comutador3Dprt2 = this.add.image(385, 450, "comptBaixoD").setScale(3).setDepth(1);
-    this.comutador4Dprt1 = this.add.image(812, 410, "comptCimaD").setScale(3).setDepth(3);
-    this.comutador4Dprt2 = this.add.image(812, 450, "comptBaixoD").setScale(3).setDepth(1);
+    // adicionando os objetos — sem setDepth fixo, será definido após criarColisao
+    this.armarioD = this.add.image(220, 10, "armarioD").setScale(3.25);
+    this.armarioD2 = this.add.image(980, 10, "armarioD").setScale(3.25);
+    this.alvoD = this.add.image(215, 275, "alvoD").setScale(3);
+    this.alvoD2 = this.add.image(965, 375, "alvoD").setScale(3.1);
+    this.criogeniaD = this.add.image(600, 6, "criogeniaD").setScale(3);
+    this.mesa1D = this.add.image(190, 140, "mesa1D").setScale(3);
+    this.mesa1Db = this.add.image(993, 518, "mesa1D").setScale(3);
+    this.mesa2D = this.add.image(343, 20, "mesa2D").setScale(3);
+    this.mesa3D = this.add.image(858, 18, "mesa3D").setScale(3);
+    this.piaD = this.add.image(203, 470, "piaD").setScale(3);
+    this.reservasCrioD = this.add.image(1023, 165, "reservasCrioD").setScale(3);
+    this.comutador1Dprt1 = this.add.image(385, 220, "comptCimaD").setScale(3);
+    this.comutador1Dprt2 = this.add.image(385, 260, "comptBaixoD").setScale(3);
+    this.comutador2Dprt1 = this.add.image(812, 220, "comptCimaD").setScale(3);
+    this.comutador2Dprt2 = this.add.image(812, 260, "comptBaixoD").setScale(3);
+    this.comutador3Dprt1 = this.add.image(385, 410, "comptCimaD").setScale(3);
+    this.comutador3Dprt2 = this.add.image(385, 450, "comptBaixoD").setScale(3);
+    this.comutador4Dprt1 = this.add.image(812, 410, "comptCimaD").setScale(3);
+    this.comutador4Dprt2 = this.add.image(812, 450, "comptBaixoD").setScale(3);
     this.camara = this.physics.add.staticImage(600, 20, "camara").setScale(0.25).refreshBody();
 
     // colisoes dos objetos
@@ -152,8 +124,24 @@ iniciarFase () {
     this.criarColisao(this.comutador4Dprt2);
     this.criarColisao(this.camara);
 
+    // FIX: depth sorting — usa apenas o Y de cada objeto como referência de profundidade
+    // Sistema simples: quem está mais abaixo na tela (Y maior) aparece na frente
+    [
+      this.armarioD, this.armarioD2,
+      this.alvoD, this.alvoD2,
+      this.criogeniaD,
+      this.mesa1D, this.mesa1Db,
+      this.mesa2D, this.mesa3D,
+      this.piaD, this.reservasCrioD,
+      this.comutador1Dprt1, this.comutador1Dprt2,
+      this.comutador2Dprt1, this.comutador2Dprt2,
+      this.comutador3Dprt1, this.comutador3Dprt2,
+      this.comutador4Dprt1, this.comutador4Dprt2,
+    ].forEach(obj => {
+      obj.setDepth(obj.y);
+    });
+
     // PLAYER
-    // FIX: depth não é fixo — será atualizado dinamicamente no update()
     this.Principal = this.physics.add
       .sprite(600, 100, "sophia")
       .setScale(2)
@@ -166,7 +154,6 @@ iniciarFase () {
     this.physics.add.collider(this.Principal, this.objetosColisao);
 
     // ASIMOV (NPC)
-    // FIX: depth não é fixo — será atualizado dinamicamente no update()
     this.asimov = this.physics.add
       .sprite(600, 300, "asimov")
       .setScale(3);
@@ -200,10 +187,10 @@ iniciarFase () {
 
     this.asimov.play("asimov_front");
 
-    // ===== VARIAVEIS DE INTERACAO =====
+    // variaveis de interacao
     this.podeInteragirAsimov = false;
 
-    // ===== ICONE DA TECLA E (ASIMOV) =====
+    // icone da tecla E (asimov)
     this.containerTeclaAsimov = this.add.container(0, 0).setDepth(200);
 
     let largura = 140;
@@ -286,7 +273,6 @@ iniciarFase () {
       });
     }
 
-    // INPUT
     this.cursors = this.input.keyboard.createCursorKeys();
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
@@ -333,7 +319,7 @@ iniciarFase () {
 
     if (!movimentacao) this.Principal.anims.stop();
 
-   
+    // FIX: depth sorting — Y puro, igual ao sistema dos objetos estáticos
     this.Principal.setDepth(this.Principal.y);
     this.asimov.setDepth(this.asimov.y);
 

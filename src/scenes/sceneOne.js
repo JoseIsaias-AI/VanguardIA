@@ -117,65 +117,59 @@ export class Scene01 extends Phaser.Scene {
     this.paredes.add(paredeDireita);
 
     // adicionando os objetos //
+    // FIX: todos os objetos agora usam setDepth baseado em seu Y (pé do objeto)
+    // O "pé" visual de cada objeto é aproximadamente y + displayHeight/2
+    // Isso permite que o sistema de depth por Y funcione corretamente com o jogador
+
     this.armario = this.add
       .image(220, 10, "armario")
-      .setScale(3.25)
-      .setDepth(1); // armário do laboratório
+      .setScale(3.25); // armário do laboratório
     this.armario2 = this.add
       .image(980, 10, "armario")
-      .setScale(3.25)
-      .setDepth(1); // armário 2 do laboratório
-    this.alvo = this.add.image(215, 275, "alvo").setScale(3).setDepth(1); // mesa de alvo
-    this.alvo2 = this.add.image(965, 375, "alvo").setScale(3.1).setDepth(1); // mesa de alvo
+      .setScale(3.25); // armário 2 do laboratório
+    this.alvo = this.add.image(215, 275, "alvo").setScale(3); // mesa de alvo
+    this.alvo2 = this.add.image(965, 375, "alvo").setScale(3.1); // mesa de alvo
     this.criogenia = this.add
       .image(600, 6, "criogenia")
-      .setScale(3)
-      .setDepth(1); // criogenia
-    this.mesa1 = this.add.image(190, 140, "mesa1").setScale(3).setDepth(1); // mesa 1
-    this.mesa1b = this.add.image(993, 518, "mesa1").setScale(3).setDepth(1); // mesa 2
-    this.mesa2 = this.add.image(343, 20, "mesa2").setScale(3).setDepth(1); // mesa 2
-    this.mesa3 = this.add.image(858, 18, "mesa3").setScale(3).setDepth(1); // mesa 3
-    this.pia1 = this.add.image(203, 470, "pia1").setScale(3).setDepth(1); // pia
+      .setScale(3); // criogenia
+    this.mesa1 = this.add.image(190, 140, "mesa1").setScale(3); // mesa 1
+    this.mesa1b = this.add.image(993, 518, "mesa1").setScale(3); // mesa 1b
+    this.mesa2 = this.add.image(343, 20, "mesa2").setScale(3); // mesa 2
+    this.mesa3 = this.add.image(858, 18, "mesa3").setScale(3); // mesa 3
+    this.pia1 = this.add.image(203, 470, "pia1").setScale(3); // pia
     this.reservasCrio = this.add
       .image(1023, 165, "reservasCrio")
-      .setScale(3)
-      .setDepth(1); // reservas da criogenia
+      .setScale(3); // reservas da criogenia
     this.comutador1prt1 = this.add
       .image(385, 220, "comptCima")
-      .setScale(3)
-      .setDepth(3); // comutador 1 parte 1
+      .setScale(3); // comutador 1 parte 1
     this.comutador1prt2 = this.add
       .image(385, 260, "comptBaixo")
-      .setScale(3)
-      .setDepth(1); // comutador 1 parte 2
+      .setScale(3); // comutador 1 parte 2
     this.comutador2prt1 = this.add
       .image(812, 220, "comptCima")
-      .setScale(3)
-      .setDepth(3); // comutador 2 parte 1
+      .setScale(3); // comutador 2 parte 1
     this.comutador2prt2 = this.add
       .image(812, 260, "comptBaixo")
-      .setScale(3)
-      .setDepth(1); // comutador 2 parte 2
+      .setScale(3); // comutador 2 parte 2
     this.comutador3prt1 = this.add
       .image(385, 410, "comptCima")
-      .setScale(3)
-      .setDepth(3); // comutador 3 parte 1
+      .setScale(3); // comutador 3 parte 1
     this.comutador3prt2 = this.add
       .image(385, 450, "comptBaixo")
-      .setScale(3)
-      .setDepth(1); // comutador 3 parte 2
+      .setScale(3); // comutador 3 parte 2
     this.comutador4prt1 = this.add
       .image(812, 410, "comptCima")
-      .setScale(3)
-      .setDepth(3); // comutador 4 parte 1
+      .setScale(3); // comutador 4 parte 1
     this.comutador4prt2 = this.add
       .image(812, 450, "comptBaixo")
-      .setScale(3)
-      .setDepth(1); // comutador 4 parte 2
+      .setScale(3); // comutador 4 parte 2
     this.camara = this.physics.add
       .staticImage(600, 20, "camara")
       .setScale(0.25)
       .refreshBody(); // camara criogenica
+
+    // (depth dos objetos será definido após criarColisao, para usar body.bottom)
 
     // adiciona colisão a todos os objetos do laboratório pela função criarColisao
     this.criarColisao(this.armario);
@@ -196,12 +190,32 @@ export class Scene01 extends Phaser.Scene {
     this.criarColisao(this.comutador3prt2);
     this.criarColisao(this.comutador4prt2);
 
+    // FIX: depth sorting por Y — definido APÓS criarColisao para que body.bottom esteja disponível
+    // body.bottom = borda inferior do corpo de colisão = "pé" real do objeto no mundo
+    // Isso garante compatibilidade com o body.bottom da Sophia no update()
+    [
+      this.armario, this.armario2,
+      this.alvo, this.alvo2,
+      this.criogenia,
+      this.mesa1, this.mesa1b,
+      this.mesa2, this.mesa3,
+      this.pia1, this.reservasCrio,
+      this.comutador1prt1, this.comutador1prt2,
+      this.comutador2prt1, this.comutador2prt2,
+      this.comutador3prt1, this.comutador3prt2,
+      this.comutador4prt1, this.comutador4prt2,
+    ].forEach(obj => {
+      // objetos sem body (comptCima) usam y + displayHeight/2 como fallback
+      const pe = obj.body ? obj.body.bottom : (obj.y + obj.displayHeight / 2);
+      obj.setDepth(pe);
+    });
+
     // adiciona o personagem principal //
     this.Principal = this.physics.add
       .sprite(400, 300, "sophia")
       .setScale(2)
       .setCollideWorldBounds(true);
-    // FIX: depth da Sophia não é fixo — será atualizado dinamicamente no update()
+    // Depth da Sophia é atualizado dinamicamente no update() com base no pé do personagem
     this.Principal.body.setAllowGravity(false); // desativa a gravidade para o personagem, já que é um jogo top-down
     this.Principal.setSize(30, 25); // ajusta o tamanho do corpo de colisão para ser menor que a sprite
     this.Principal.setOffset(15, 30); // ajusta o offset do corpo de colisão para centralizar melhor
@@ -213,8 +227,7 @@ export class Scene01 extends Phaser.Scene {
     // WATSON (NPC)
     this.watson = this.physics.add
       .sprite(830, 80, "watson")
-      .setScale(2.3)
-      .setDepth(2);
+      .setScale(2.3);
     this.watson.body.setAllowGravity(false);
     this.watson.setSize(30, 25);
     this.watson.setOffset(15, 30);
@@ -248,7 +261,6 @@ export class Scene01 extends Phaser.Scene {
     //  HUD (interface do usuário) //
 
     // cria um container da tecla "E" que aparece perto dos objetos
-    // FIX: setDepth(200) garante que o balão fique por cima de todos os objetos do cenário
     this.containerTecla = this.add.container(0, 0).setDepth(200);
     let largura = 140;
     let altura = 40;
@@ -276,8 +288,6 @@ export class Scene01 extends Phaser.Scene {
       repeat: -1,
     });
 
-    
-    // FIX: setDepth(200) garante que o balão fique por cima de todos os objetos do cenário
     this.containerTeclaWatson = this.add.container(0, 0).setDepth(200);
 
     let iconeTeclaWatson = this.add.graphics();
@@ -314,7 +324,6 @@ export class Scene01 extends Phaser.Scene {
     const yCaixa = alturaJogo - alturaCaixa - 40; // 40px de margem do fundo
 
     // Cria caixa de diálogo (HUD)
-    // Importante: setScrollFactor(0) fixa o elemento na tela, ignorando a câmera
     this.caixaDialogo = this.add.graphics();
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
     this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
@@ -353,7 +362,6 @@ export class Scene01 extends Phaser.Scene {
     this.cameras.main.setZoom(1.2);
 
     // Configurações da animação
-    
     if (!this.anims.exists("left")) {
       this.anims.create({
         key: "left",
@@ -430,9 +438,11 @@ export class Scene01 extends Phaser.Scene {
 
     if (!movimentacao) this.Principal.anims.stop(); // Para a animação se o player soltar as teclas
 
-   
-    this.Principal.setDepth(this.Principal.y);
-    this.watson.setDepth(this.watson.y);
+    // FIX: depth sorting por Y
+    // Usa o fundo do corpo de colisão (body.bottom) como pé de referência
+    // body.bottom = posição real dos pés no mundo, compatível com os objetos estáticos
+    this.Principal.setDepth(this.Principal.body.bottom);
+    this.watson.setDepth(this.watson.body.bottom);
 
     let targetX = this.camara.x;
     let targetY = this.camara.y;
@@ -475,12 +485,11 @@ export class Scene01 extends Phaser.Scene {
 
     // Ação ao apertar a tecla "E" na câmara
     if (
-  this.podeInteragir && this.entrarNaCamara &&
-  Phaser.Input.Keyboard.JustDown(this.teclaE) 
-     )
-      { 
-         this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
-} 
+      this.podeInteragir && this.entrarNaCamara &&
+      Phaser.Input.Keyboard.JustDown(this.teclaE)
+    ) {
+      this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
+    }
 
     // INTERACAO - WATSON
     if (
@@ -571,4 +580,5 @@ export class Scene01 extends Phaser.Scene {
     );
 
     this.objetosColisao.add(objeto); // adiciona o objeto ao grupo de objetos
-  } }
+  }
+}
