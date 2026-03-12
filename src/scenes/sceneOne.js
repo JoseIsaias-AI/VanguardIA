@@ -321,7 +321,7 @@ export class Scene01 extends Phaser.Scene {
     const larguraCaixa = 1000;
     const alturaCaixa = 180;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
-    const yCaixa = alturaJogo - alturaCaixa - 40; // 40px de margem do fundo
+    const yCaixa = alturaJogo - alturaCaixa - 250; // 100px de margem do fundo
 
     // Cria caixa de diálogo (HUD)
     this.caixaDialogo = this.add.graphics();
@@ -359,7 +359,7 @@ export class Scene01 extends Phaser.Scene {
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E); // Define E para interação
 
     this.cameras.main.startFollow(this.Principal); // Define que a câmera deve seguir o jogador
-    this.cameras.main.setZoom(1.2);
+    this.cameras.main.setZoom(1.8);
 
     // Configurações da animação
     if (!this.anims.exists("left")) {
