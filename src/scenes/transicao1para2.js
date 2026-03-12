@@ -96,26 +96,39 @@ export class LaboratorioScene extends Phaser.Scene {
         this.paredes.add(paredeDireita);
 
         // Personagens principais.
-        this.sophia = this.physics.add.sprite(w * 0.52, h * 0.58, "sophia").setScale(1.5).setDepth(12);
+        this.sophia = this.physics.add.sprite(this.mapa.x, this.mapa.y - 300, "sophia")
+            .setScale(2)
+            .setDepth(12);
         this.sophia.setCollideWorldBounds(true);
-        this.sophia.body.setSize(this.sophia.width * 0.45, this.sophia.height * 0.55, true);
+        this.sophia.body.setAllowGravity(false);
+        this.sophia.setSize(30, 25);
+        this.sophia.setOffset(15, 30);
         this.sophia.setInteractive({ useHandCursor: true });
         this.sophia.on("pointerdown", () => {
-        if (this.gamePhase !== "exploration" || this.isDialogueOpen) return;
-        this.startDialogue([{ speaker: "Sophia", text: "Sophia: O laboratório inteiro ainda carrega marcas do colapso." }]);
+            if (this.gamePhase !== "exploration" || this.isDialogueOpen) return;
+            this.startDialogue([{ speaker: "Sophia", text: "Sophia: O laboratório inteiro ainda carrega marcas do colapso." }]);
         });
 
-        this.asimov = this.physics.add.sprite(w / 2 - 200, h * 0.58, "asimov").setScale(1.2).setDepth(12);
+        this.asimov = this.physics.add.sprite(this.mapa.x, this.mapa.y - 100, "asimov")
+            .setScale(3)
+            .setDepth(12);
         this.asimov.setCollideWorldBounds(true);
-        this.asimov.body.setSize(this.asimov.width * 0.45, this.asimov.height * 0.55, true);
+        this.asimov.body.setAllowGravity(false);
+        this.asimov.setSize(15, 12);
+        this.asimov.setOffset(8, 16);
         this.asimov.setInteractive({ useHandCursor: true });
         this.asimov.on("pointerdown", () => {
-        if (this.gamePhase !== "exploration" || this.isDialogueOpen) return;
-        this.startDialogue([{ speaker: "Asimov", text: "Asimov: Ainda há uma saída ao norte. Precisamos seguir." }]);
+            if (this.gamePhase !== "exploration" || this.isDialogueOpen) return;
+            this.startDialogue([{ speaker: "Asimov", text: "Asimov: Ainda há uma saída ao norte. Precisamos seguir." }]);
         });
         this.createCharacterAnimations();
         this.sophia.play("sophia-idle-down");
         this.asimov.play("asimov-idle-right");
+
+        // Camera: mesmo comportamento de sceneFuturo (seguir player, zoom e fadeIn)
+        this.cameras.main.setBounds(0, 0, w, h);
+        this.cameras.main.startFollow(this.sophia).setZoom(1.8);
+        this.cameras.main.fadeIn(1000);
 
         // Colisão Sophia e Asimov
         this.physics.add.collider(this.sophia, this.asimov, () => {
@@ -131,20 +144,7 @@ export class LaboratorioScene extends Phaser.Scene {
         this.objetosColisao = this.physics.add.staticGroup();
         this.createInteractables();
 
-        // Cena majoritariamente escura, iluminada apenas ao redor de Sophia e Asimov.
-        this.darkOverlay = this.add.rectangle(w / 2, h / 2, w, h, 0x000000, 0.32).setDepth(30);
-        this.lightSophiaOuter = this.add.circle(this.sophia.x, this.sophia.y, 120, 0xbfd8f1, 0.2)
-        .setBlendMode(Phaser.BlendModes.ADD)
-        .setDepth(31);
-        this.lightSophiaInner = this.add.circle(this.sophia.x, this.sophia.y, 92, 0xe3f1ff, 0)
-        .setBlendMode(Phaser.BlendModes.ADD)
-        .setDepth(32);
-        this.lightAsimovOuter = this.add.circle(this.asimov.x, this.asimov.y, 140, 0xaed4f6, 0)
-        .setBlendMode(Phaser.BlendModes.ADD)
-        .setDepth(31);
-        this.lightAsimovInner = this.add.circle(this.asimov.x, this.asimov.y, 78, 0xd8ecff, 0)
-        .setBlendMode(Phaser.BlendModes.ADD)
-        .setDepth(32);
+        // Removida iluminação da cena (overlay e luzes ao redor dos personagens)
 
         // UI de dica de interação.
         this.interactionHint = this.add.text(w / 2, h - 140, "", {
@@ -176,7 +176,9 @@ export class LaboratorioScene extends Phaser.Scene {
     }
 
     update() {
-        this.updateCharacterLights();
+        // manter depth dinâmico igual ao sceneFuturo (ordenar por Y)
+        if (this.sophia) this.sophia.setDepth(this.sophia.y);
+        if (this.asimov) this.asimov.setDepth(this.asimov.y);
 
         if (this.gamePhase === "exploration") {
         this.handlePlayerMovement();
@@ -266,43 +268,64 @@ export class LaboratorioScene extends Phaser.Scene {
     }
 
     createDialogueUI() {
-        const w = this.scale.width;
-        const h = this.scale.height;
+        const larguraJogo = this.cameras.main.width;
+        const alturaJogo = this.cameras.main.height;
+        const larguraCaixa = 1000;
+        const alturaCaixa = 180;
+        const xCaixa = (larguraJogo - larguraCaixa) / 2;
+        const yCaixa = alturaJogo - alturaCaixa - 250;
 
-        this.dialogueBox = this.add.rectangle(w / 2, h - 96, w - 50, 150, 0x08111d, 0.9)
-        .setStrokeStyle(2, 0x5aa4d8, 0.9)
-        .setDepth(90)
-        .setScrollFactor(0)
-        .setVisible(false);
+        // caixa visual igual ao sceneFuturo
+        this.caixaDialogo = this.add.graphics();
+        this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
+        this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
+        this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+        this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+        this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
 
-        this.nameText = this.add.text(44, h - 156, "", {
-        fontSize: "21px",
-        color: "#9dd8ff",
-        fontStyle: "bold"
-        }).setDepth(91).setScrollFactor(0).setVisible(false);
+        // armazenar rect da caixa para posicionar escolhas dentro dela
+        this.dialogueBoxRect = { x: xCaixa, y: yCaixa, width: larguraCaixa, height: alturaCaixa };
 
-        this.dialogueText = this.add.text(44, h - 124, "", {
-        fontSize: "19px",
-        color: "#e8f4ff",
-        wordWrap: { width: w - 180 }
-        }).setDepth(91).setScrollFactor(0).setVisible(false);
+        // texto com mesma fonte/estilo do sceneFuturo
+        this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 35, "", {
+            fontSize: "26px",
+            fontFamily: "'Courier New', Courier, monospace",
+            color: "#ccffff",
+            wordWrap: { width: larguraCaixa - 80 },
+            lineSpacing: 10,
+        }).setScrollFactor(0).setDepth(101).setVisible(false);
 
-        this.advanceBtnBg = this.add.rectangle(w - 88, h - 38, 118, 36, 0x154469, 0.95)
-        .setStrokeStyle(1, 0x89cfff, 0.9)
-        .setDepth(92)
-        .setScrollFactor(0)
-        .setVisible(false)
-        .setInteractive({ useHandCursor: true });
+        // compatibilidade com o restante do código (mantém nomes usados antes)
+        this.dialogueBox = this.caixaDialogo;
+        this.dialogueText = this.textoDialogo;
 
-        this.advanceBtnLabel = this.add.text(w - 88, h - 38, "Avançar", {
-        fontSize: "16px",
-        color: "#e8f4ff"
-        }).setOrigin(0.5).setDepth(93).setScrollFactor(0).setVisible(false);
+        // nome do falante (visualmente compatível e mantido para mecânica)
+        this.nameText = this.add.text(xCaixa + 44, yCaixa - 26, "", {
+            fontSize: "21px",
+            color: "#9dd8ff",
+            fontStyle: "bold"
+        }).setDepth(101).setScrollFactor(0).setVisible(false);
+
+        // botão Avançar (previamente posicionado na caixa) -> agora invisível e cobre a tela inteira
+        const camW = this.cameras.main.width;
+        const camH = this.cameras.main.height;
+        // retângulo transparente cobrindo toda a tela — invisível visualmente, mas intercepta cliques
+        this.advanceBtnBg = this.add.rectangle(camW / 2, camH / 2, camW, camH, 0x000000, 0)
+            .setDepth(200)
+            .setScrollFactor(0)
+            .setVisible(false)
+            .setInteractive({ useHandCursor: true });
+
+        // rótulo deixado oculto (sem necessidade visual)
+        this.advanceBtnLabel = this.add.text(0, 0, "Avançar", {
+            fontSize: "16px",
+            color: "#e8f4ff"
+        }).setOrigin(0.5).setDepth(201).setScrollFactor(0).setVisible(false);
 
         this.advanceBtnBg.on("pointerdown", () => {
-        if (this.isDialogueOpen && !this.awaitingChoice) {
-            this.advanceDialogue();
-        }
+            if (this.isDialogueOpen && !this.awaitingChoice) {
+                this.advanceDialogue();
+            }
         });
 
         this.choiceButtons = [];
@@ -430,11 +453,12 @@ export class LaboratorioScene extends Phaser.Scene {
             }
         ];
 
-        // Caminhada lenta do Asimov em direção à Sophia durante a narrativa.
-        this.playAnimIfNeeded(this.asimov, "asimov-walk-right");
+        // Caminhada lenta do Asimov de baixo para cima em direção à Sophia.
+        this.playAnimIfNeeded(this.asimov, "asimov-walk-up");
         this.tweens.add({
         targets: this.asimov,
-        x: this.sophia.x - 60,
+        y: this.sophia.y + 60,
+        x: this.sophia.x,
         duration: 6800,
         ease: "Sine.inOut",
         onComplete: () => {
@@ -510,35 +534,50 @@ export class LaboratorioScene extends Phaser.Scene {
     }
 
     showChoices(entry) {
-        const w = this.scale.width;
-        const h = this.scale.height;
-
         let choicesList = entry.choices;
         if (typeof choicesList === "function") {
             choicesList = choicesList.call(this);
         }
-        entry.choices = choicesList; // mantém referência para futuras chamadas
+        entry.choices = choicesList; // mantém referência
 
+        const rect = this.dialogueBoxRect || { x: 50, y: this.scale.height - 430, width: this.scale.width - 100, height: 180 };
+        const centerX = rect.x + rect.width / 2;
+
+        // calcular Y inicial para as choices garantindo que fiquem abaixo do texto do diálogo
+        let startY = rect.y + 60;
+        try {
+            const textBounds = this.dialogueText.getBounds();
+            const textBottom = textBounds.y + textBounds.height;
+            // adiciona um pequeno padding abaixo do texto
+            startY = Math.max(startY, textBottom + 12);
+        } catch (e) {
+            // se getBounds falhar, mantém o startY padrão
+        }
+
+        // ajustar espaçamento para caber dentro da caixa sem ultrapassar
+        const availableHeight = rect.y + rect.height - startY - 12;
+        let spacing = 48;
+        if (choicesList.length * spacing > availableHeight && availableHeight > 0) {
+            spacing = Math.max(28, availableHeight / choicesList.length);
+        }
+
+        // criar botões de escolha posicionados a partir de startY com o espaçamento calculado
         choicesList.forEach((choice, index) => {
-            // Posiciona os botões dentro da caixa de diálogo (abaixo do texto, mas dentro da área)
-            const y = h - 140 - (index * 48);  // Ajustado para ficar dentro da dialogueBox (que vai de ~h-171 a h-21)
-            const bg = this.add.rectangle(w / 2, y, w - 90, 40, 0x14334f, 0.96)
+            const y = startY + index * spacing;
+            const bg = this.add.rectangle(centerX, y, rect.width - 80, Math.min(40, spacing - 6), 0x14334f, 0.96)
                 .setStrokeStyle(1, 0x7cc3f5, 0.8)
-                .setDepth(95)
+                .setDepth(105)
                 .setScrollFactor(0)
                 .setInteractive({ useHandCursor: true });
 
-            const label = this.add.text(w / 2, y, `${index + 1}. ${choice.label}`, {
+            const label = this.add.text(centerX, y, `${index + 1}. ${choice.label}`, {
                 fontSize: "17px",
                 color: "#e8f5ff"
-            }).setOrigin(0.5).setDepth(96).setScrollFactor(0);
+            }).setOrigin(0.5).setDepth(106).setScrollFactor(0);
 
             bg.on("pointerdown", () => {
-
                 this.awaitingChoice = false;
                 this.clearChoiceButtons();
-
-                // **Sophia pergunta** – exibimos na hora.
                 this.nameText.setText("Sophia");
                 this.dialogueText.setText(choice.response);
 
@@ -546,32 +585,24 @@ export class LaboratorioScene extends Phaser.Scene {
                     entry.afterChoice(choice);
                 }
 
-                // elimina a opção usada
                 if (Array.isArray(entry.choices)) {
                     entry.choices = entry.choices.filter(c => c.id !== choice.id);
                 }
 
-                // se ainda há perguntas, insere um novo “há algo mais?” logo
-                // após a resposta que acabamos de adicionar
-                const stillQuestions =
-                    !this.questionState.askedRestore ||
-                    !this.questionState.askedPriority;
-
+                const stillQuestions = !this.questionState.askedRestore || !this.questionState.askedPriority;
                 if (stillQuestions) {
                     this.dialogueQueue.splice(this.dialogueCursor + 2, 0, {
                         speaker: "Asimov",
-                        text: "Há algo mais que deseja perguntar?",
+                        text: "",
+                        hidden: true,
                         choices: () => entry.choices,
-                        afterChoice: entry.afterChoice  // reaproveita a mesma função
+                        afterChoice: entry.afterChoice
                     });
                 }
 
-                // avança para a resposta imediatamente (após um curtíssimo
-                // intervalo para o jogador digerir a pergunta)
                 this.time.delayedCall(1200, () => {
                     this.advanceDialogue();
                 });
-
             });
 
             this.choiceButtons.push(bg, label);

@@ -161,7 +161,7 @@ export class FaseUm extends Phaser.Scene {
             }
         }
         if (Phaser.Input.Keyboard.JustDown(this.teclaE) && this.pergaminhoAberto) { //assim que o jogador apertar a tecla E e o pergaminho está true é para mudar de cena
-            this.scene.start("SceneFuturo2"); // ← ALTERADO: era "Scene02"
+            this.scene.start("LaboratorioScene"); 
         }
         if (this.asimov.x < this.mapa.displayWidth - 200) { //faz com que o sprite do robô sempre retorne a animação de andando para a direita
             this.asimov.anims.play("asimov_right", true);
