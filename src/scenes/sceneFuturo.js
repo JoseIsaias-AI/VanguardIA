@@ -41,16 +41,16 @@ export class SceneFuturo extends Phaser.Scene {
     //Agora, colocando a cut scene no começo da fase
     this.cutscene = this.add.video(950, 550, "cutscene2");
 
-this.cutscene.setScale(1.05);
- this.cutscene.setDepth(999);
-this.cutscene.setMute(true); // evita bloqueio de autoplay
-this.cutscene.play();
+    this.cutscene.setScale(1.05);
+    this.cutscene.setDepth(999);
+    this.cutscene.setMute(true); // evita bloqueio de autoplay
+    this.cutscene.play();
 
-this.cutscene.once("complete", () => {
-    this.cutscene.destroy();
-    this.iniciarFase();
-}); }
-iniciarFase () {
+    this.cutscene.once("complete", () => {
+        this.cutscene.destroy();
+        this.iniciarFase();
+    }); }
+    iniciarFase () {
 
     this.scaleMapa = 3;
     this.progressoHistoria = 0;
@@ -239,7 +239,7 @@ iniciarFase () {
     const larguraCaixa = 1000;
     const alturaCaixa = 180;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
-    const yCaixa = alturaJogo - alturaCaixa - 40;
+    const yCaixa = alturaJogo - alturaCaixa - 250;
 
     this.caixaDialogo = this.add.graphics();
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
@@ -290,7 +290,7 @@ iniciarFase () {
     this.cursors = this.input.keyboard.createCursorKeys();
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
-    this.cameras.main.startFollow(this.Principal);
+    this.cameras.main.startFollow(this.Principal).setZoom(1.8);
     this.cameras.main.fadeIn(1000);
   }
 
