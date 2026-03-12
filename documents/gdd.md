@@ -153,9 +153,9 @@ O perfil mais representativo do nosso usuário é o de um jovem de renda média-
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-O objetivo principal do jogo é que o player consiga aprender sobre os conceitos de Inteligência Artificial e aplicá-los nos puzzles e minigames presentes para recuperar o banco de
+O objetivo do jogo é que o jogador ajude a protagonista Sophia a restaurar o funcionamento de um laboratório no futuro e proteger o banco de dados que contém informações essenciais para a humanidade. Para alcançar esse objetivo, o jogador deverá explorar o ambiente, superar obstáculos, resolver puzzles e completar minigames utilizando apenas as mecânicas e regras estabelecidas pelo jogo, progredindo gradualmente pelas fases até recuperar a energia do laboratório e garantir a preservação dos dados.
 
-O objetivo do jogo é ensinar o básico de inteligência artificial de um jeito divertido e que prenda a atenção do usuário (através de minigames e puzzles) , sempre tentando fazê-lo se conectar com a história e os personagens de um modo que seu aprendizado seja mais eficiente. E com isso, queremos despertar o interesse dos universitários sobre o assunto IA para que eles busquem os cursos de tecnologia da IBM.
+Além do objetivo narrativo e mecânico do jogo (objetivo lusório), o projeto também possui um propósito educacional, que é apresentar conceitos básicos de Inteligência Artificial de forma interativa. Por meio das mecânicas, desafios e situações enfrentadas durante a gameplay, o jogador entra em contato com fundamentos de IA, como reconhecimento de padrões e tomada de decisão, estimulando o interesse de estudantes universitários pela área e incentivando a busca por iniciativas educacionais relacionadas ao tema, como os cursos oferecidos pela IBM.
 
 ## 2.2. Características do Jogo (sprint 2) 
 
@@ -163,20 +163,15 @@ O jogo é uma historia repleta de acão onde a protagonista deverá passar por d
 
 ### 2.2.1. Gênero do Jogo (sprint 2)
 
-*O gênero do nosso jogo é de aventura, tendo modo história, ação e puzzles, tudo isso com o objetivo de ensinar.
+O gênero do nosso jogo é de aventura, tendo modo história, ação e puzzles, tudo isso com o objetivo de ensinar.
 
 ### 2.2.2. Plataforma do Jogo (sprint 2)
 
-O jogo será desenvolvido para plataforma Web, sendo executado diretamente no navegador por meio do framework Phaser.
+O jogo será desenvolvido para plataforma Web, sendo executado diretamente no navegador por meio do framework Phaser, utilizando tecnologias baseadas em HTML5 e JavaScript. O acesso ocorrerá por meio de um link, sem necessidade de instalação prévia do jogo.
 
-Será compatível com:
-Computadores (desktop e notebook) — Windows, macOS e Linux
+A experiência foi projetada principalmente para computadores (desktop e notebook) que utilizem sistemas operacionais como Windows, macOS ou Linux, desde que possuam um navegador moderno atualizado (como Chrome, Safari, Edge ou Firefox) compatível com aplicações em HTML5.
 
-O jogo poderá ser acessado em qualquer dispositivo com navegador moderno atualizado (como Chrome, Safari, Edge ou Firefox) que suporte HTML5 e JavaScript, desde que possua desempenho suficiente para executar aplicações desenvolvidas em Phaser.
-
-Para interface e os controles serão necessários teclado e mouse independente do dispositivo.
-
-O objetivo dessas medidas é garantir ampla acessibilidade, sem necessidade de instalação, permitindo que o jogador acesse o jogo diretamente por um link, em poucos passos e sem depender de um dispositivo mais potente e, consequentemente, caro.
+Embora o site possa ser acessado também por dispositivos móveis, o jogo não foi desenvolvido com interface responsiva, pois os controles utilizam teclado e mouse para movimentação e interação.
 
 ### 2.2.3. Número de jogadores (sprint 2)
 
@@ -401,25 +396,56 @@ A existência de inimigos não foi uma possibilidade acordada dentro do enredo d
 
 ## 3.6. Regras do jogo (sprint 3)
 
-*Descreva aqui as regras do seu jogo: objetivos/desafios, meios para se conseguir alcançar*
+Objetivo Geral da Sprint: O jogador deve investigar o laboratório em ruínas no ano de 2098 e forjar um novo núcleo de energia para reativar o banco de dados do robô Asimov. VERIFICAR ISSO AQUI
 
-*Ex. O jogador deve pilotar o carro e conseguir terminar a corrida dentro de um minuto sem bater em nenhum obstáculo.*
+1. O Salto Temporal (Prólogo)
 
-*Ex. O jogador deve concluir a fase dentro do tempo, para obter uma estrela. Se além disso ele coletar todas as moedas, ganha mais uma estrela. E se além disso ele coletar os três medalhões espalhados, ganha mais uma estrela, totalizando três. Ao final do jogo, obtendo três estrelas em todas as fases, desbloqueia o mundo secreto.*  
+Objetivo: Viajar para o futuro e estabelecer o primeiro contato com Asimov.
 
-O jogador controla a personagem Sophia, acompanhada do robô Asimov, explorando diferentes áreas de um laboratório futurista para descobrir informações sobre os cristais e restaurar o sistema do local. O objetivo principal é avançar pelas áreas do laboratório resolvendo desafios baseados em conceitos de inteligência artificial.
+Regras/Meios: A câmara criogênica inicia bloqueada. O jogador deve obrigatoriamente conversar com o cientista Watson e esgotar todas as opções de diálogo para que a transição temporal seja liberada. Ao chegar em 2098, a progressão do nível só é habilitada após o jogador ouvir completamente as instruções iniciais de Asimov.
 
-Inicialmente, o jogador explora o laboratório até chegar à área de sucatas, onde Sophia não consegue avançar devido às condições do ambiente. Nesse momento, o controle passa para Asimov, que deve atravessar a região cheia de obstáculos para permitir a continuidade da exploração.
+2. A Área de Sucata
 
-Após sair da área de sucatas, o jogador precisa treinar Asimov por meio de um minigame de rede neural, no qual o robô aprende a reconhecer padrões. Esse treinamento é necessário para que ele consiga identificar corretamente os padrões das portas do laboratório, permitindo escolher a porta correta e desbloquear o caminho para as próximas áreas.
+Objetivo: Encontrar pistas sobre o cristal de energia.
 
-Em seguida, Sophia e Asimov acessam a sala de arquivamento, localizada após a área de sucatas, onde encontram um baú contendo imagens e registros dos cristais. A partir dessas informações, o jogador participa de um desafio de classificação de cristais em uma esteira, no qual deve analisar as imagens apresentadas e decidir entre guardar os cristais verdadeiros ou incinerar os falsos.
+Regras/Meios: O jogador deve atravessar um percurso linear repleto de detritos do início ao fim. O desafio exige precisão: não é permitido colidir com nenhum obstáculo. Se houver colisão, o jogador falha na travessia e é forçado a recomeçar do início do percurso. Chegar ao final intacto garante a abertura de um baú contendo as pistas necessárias para a próxima fase.
 
-Ao completar corretamente as classificações, o jogador obtém os dados necessários para gerar um cristal funcional, que será utilizado para restaurar o sistema do laboratório. Com isso, o jogo avança para a etapa final, onde Sophia passa a interagir com asimov agora com seu banco de dados completo virando uma super IA generativa que vai ajudar sophia a planejar os próximos passos para restaurar o universo.
+3. Treinamento da Rede Neural e a Válvula Softmax
+
+Objetivo: Descobrir qual é a porta correta na escuridão do laboratório interpretando a saída da rede neural.
+
+Regras/Meios: O jogador deve usar as pistas encontradas na sucata para alimentar os neurônios da rede densa de Asimov. No entanto, a saída inicial de dados será bruta e ilegível. Mecânica Obrigatória: O jogador precisará encontrar e ativar manualmente a Válvula Softmax (que atua como a camada de ativação do sistema). Sem abrir essa válvula, é impossível obter a leitura correta da saída da rede neural densa.
+
+Uma vez ativada, a válvula converte os dados brutos em probabilidades de 0 a 100%. Com a leitura clara, o jogador enfrenta o desafio final da etapa: definir o "limiar de confiança" correto. Se tentar avançar com um limiar muito baixo ou errado, o sistema não reconhecerá a porta. Ao ajustar o limiar exato, as probabilidades baixas são descartadas, e Asimov consegue indicar a porta correta com sucesso.
+
+4. A Sala de Arquivamento
+
+Objetivo: Coletar informações precisas sobre os cristais.
+
+Regras/Meios: O jogador é desafiado a classificar uma sequência de fotos de cristais. A regra é eliminatória e binária: deve-se aprovar apenas os cristais azuis reluzentes (dados verdadeiros) e descartar/incinerar os cristais vermelhos opacos (dados corrompidos). O jogador precisa alcançar uma cota específica de acertos na classificação. Aprovar um cristal vermelho resulta em penalidade imediata ou falha do minigame.
+
+5. O Extrator de Características
+
+Objetivo: Mapear as propriedades das imagens dos cristais verdadeiros para treinar Asimov.
+
+Regras/Meios: Com as imagens corretas em mãos, o jogador deve interagir com a máquina "Extrator de Características". A regra exige que as imagens validadas sejam processadas nesta máquina para extrair seus dados essenciais (features). Apenas após a conclusão e coleta deste "mapa de características", o jogador consegue treinar Asimov, habilitando sua capacidade generativa para a etapa seguinte.
+
+6. Forja Generativa
+
+Objetivo: Sintetizar um cristal de energia puro e 100% funcional.
+
+Regras/Meios: Durante a geração do novo cristal, Asimov usando sua capacidade generativa inevitavelmente gerará "ruídos" (imperfeições visuais e falhas na estrutura do cristal). O jogador deve agir ativamente para eliminar essas falhas progressivamente antes que comprometam o processo. A condição de vitória deste desafio é preencher a "barra de pureza" até 100%. Se o jogador não conseguir limpar os ruídos dentro do limite de tempo, a forja falha e o processo de síntese reinicia.
+
+7. Restauração Final
+
+Objetivo: Reativar a energia total do laboratório.
+
+Regras/Meios: Esta é a condição de vitória e conclusão da Sprint. De posse do cristal 100% purificado, o jogador deve transportá-lo até o núcleo central. O ato de depositar o cristal verdadeiro no núcleo aciona o evento de final de fase: a energia é restaurada, Asimov evolui seu sistema, e a narrativa é desbloqueada para os próximos níveis.
+
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
-As mecânicas do jogo envolvem **exploração do ambiente, interação com objetos e resolução de desafios relacionados à inteligência artificial**. O jogador controla os personagens para investigar o laboratório, coletar informações e completar tarefas necessárias para avançar nas fases.
+As mecânicas do jogo envolvem exploração do ambiente, interação com objetos e resolução de desafios relacionados à inteligência artificial**. O jogador controla os personagens para investigar o laboratório, coletar informações e completar tarefas necessárias para avançar nas fases.
 
 ### Mecânicas principais
 
@@ -540,7 +566,7 @@ Uma das frentes de desenvolvimento foi a implementação do sistema de diálogos
 <img src="../assets/gdd/printDialogo.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<div>
+</div>
 
 Paralelamente, foi realizada a criação e instanciação dos NPCs no laboratório inicial, adicionando cientistas ao cenário para tornar o ambiente mais dinâmico e reforçar a ambientação de um laboratório ativo no início da narrativa. Esses personagens ajudam a compor o contexto da história antes do evento de criogenia da protagonista.
 
@@ -554,7 +580,7 @@ A Fase 1 foi implementada e apresenta o robô Asimov em um cenário destruído. 
 <img src="../assets/gdd/printFase1.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<div>
+</div>
 
 Também foi desenvolvida a cutscene do despertar de Sophia, responsável por conectar narrativamente o passado e o futuro do jogo. A animação apresenta o momento em que Asimov desperta Sophia da criogenia em um laboratório destruído, iniciando a nova etapa da história. A cutscene foi produzida em animação 2D quadro a quadro, utilizando técnicas como onion skinning, onde é possível ver os frames passados e futuros,  para garantir maior fluidez nos movimentos.
 
@@ -564,7 +590,7 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 <img src="../assets/gdd/printCutScene2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<div>
+</div>
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
@@ -580,15 +606,15 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 
 | pré-condição                          | descrição do teste                              | pós-condição                                              |
 |----------------------------------------|--------------------------------------------------|-----------------------------------------------------------|
-| partida iniciada                      | pressionar teclas WASD ou setas                 | personagem se move corretamente nas direções corretamente |
+| jogo iniciado                     | pressionar setas                 | personagem se move corretamente nas direções designadas |
 | personagem próximo a obstáculo/colisão| movimentar personagem contra a parede/objeto   | personagem não atravessa a parede ou o objeto            |
-| missão ativa                          | completar objetivo da missão                   | missão marcada como concluída e recompensa entregue      |
-| partida iniciada                      | jogar por 30 min em qualidade alta             | FPS estável                                              |
-| usuário acessa URL do jogo            | clica em "iniciar"                              | jogo inicia corretamente                                 |
-| jogador atinge condição de derrota    | continuar jogando até perder                   | reiniciar a fase                                         |
-| jogo publicado online                 | abrir o jogo em diferentes navegadores         | jogo funciona corretamente em todas                      |
-
-
+| estar perto do personagem Watson | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
+| função de diálogo ativada | pressionar tecla E | mudança do texto exibido na caixa de diálogo |
+| explicação por personagem finalizada | pressionar tecla E | caixa de diálogo para de ser exibida |
+| ter interagido com o personagem Watson e estar próximo da câmara criogência | pressionar tecla E | aparece vídeo de transição e ser transportado para o laboratório no futuro |
+| estar próximo de personagem Asimov | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
+| estar na fase 01 | apertar tecla SPACE | personagem deve pular corretamente |
+| estar na fase 01 | colidir com obstáculo | reiniciar fase 01 |
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
