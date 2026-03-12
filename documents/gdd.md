@@ -419,15 +419,54 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 *Ex. O jogador deve concluir a fase dentro do tempo, para obter uma estrela. Se além disso ele coletar todas as moedas, ganha mais uma estrela. E se além disso ele coletar os três medalhões espalhados, ganha mais uma estrela, totalizando três. Ao final do jogo, obtendo três estrelas em todas as fases, desbloqueia o mundo secreto.*  
 
-O jogador controla a personagem Sophia, acompanhada do robô Asimov, explorando diferentes áreas de um laboratório futurista para descobrir informações sobre os cristais e restaurar o sistema do local. O objetivo principal é avançar pelas áreas do laboratório resolvendo desafios baseados em conceitos de inteligência artificial.
+NESSA PARTE É IMPORTANTE LEMBRAR DE RESSALTAR A VALVULA QUE VAI COMANDAR TODA A QUESTAO DA CAMADA DE ATIVAÇÃO SOFTMAX QUE SE N ATIVAR N CONESEGUE TER A LEITURA CORRETA DA SAIDA QUE A REDE NEURAL DENSA ENTAO O USUARIO VAI TER QUE ATIVAR ESSA VALVULA
 
-Inicialmente, o jogador explora o laboratório até chegar à área de sucatas, onde Sophia não consegue avançar devido às condições do ambiente. Nesse momento, o controle passa para Asimov, que deve atravessar a região cheia de obstáculos para permitir a continuidade da exploração.
+Objetivo Geral da Sprint: O jogador deve investigar o laboratório em ruínas no ano de 2098, superar as travas de segurança da Inteligência Artificial do local e forjar um novo núcleo de energia para reativar o banco de dados do robô Asimov.
 
-Após sair da área de sucatas, o jogador precisa treinar Asimov por meio de um minigame de rede neural, no qual o robô aprende a reconhecer padrões. Esse treinamento é necessário para que ele consiga identificar corretamente os padrões das portas do laboratório, permitindo escolher a porta correta e desbloquear o caminho para as próximas áreas.
+1. O Salto Temporal (Prólogo)
 
-Em seguida, Sophia e Asimov acessam a sala de arquivamento, localizada após a área de sucatas, onde encontram um baú contendo imagens e registros dos cristais. A partir dessas informações, o jogador participa de um desafio de classificação de cristais em uma esteira, no qual deve analisar as imagens apresentadas e decidir entre guardar os cristais verdadeiros ou incinerar os falsos.
+Objetivo: Viajar para o futuro e estabelecer o primeiro contato com Asimov.
 
-Ao completar corretamente as classificações, o jogador obtém os dados necessários para gerar um cristal funcional, que será utilizado para restaurar o sistema do laboratório. Com isso, o jogo avança para a etapa final, onde Sophia passa a interagir com asimov agora com seu banco de dados completo virando uma super IA generativa que vai ajudar sophia a planejar os próximos passos para restaurar o universo.
+Regras/Meios: A câmara criogênica inicia bloqueada. O jogador deve obrigatoriamente conversar com o cientista Watson e esgotar todas as opções de diálogo para que a transição temporal seja liberada. Ao chegar em 2098, a progressão do nível só é habilitada após o jogador ouvir completamente as instruções iniciais de Asimov.
+
+2. A Área de Sucata
+
+Objetivo: Encontrar pistas sobre o cristal de energia.
+
+Regras/Meios: O jogador deve atravessar um percurso linear repleto de detritos do início ao fim. O desafio exige precisão: não é permitido colidir com nenhum obstáculo. Se houver colisão, o jogador falha na travessia e é forçado a recomeçar do início do percurso. Chegar ao final intacto garante a abertura de um baú contendo as pistas necessárias para a próxima fase.
+
+3. Treinamento da Rede Neural e a Válvula Softmax
+
+Objetivo: Descobrir qual é a porta correta na escuridão do laboratório interpretando a saída da rede neural.
+
+Regras/Meios: O jogador deve usar as pistas encontradas na sucata para alimentar os neurônios da rede densa de Asimov. No entanto, a saída inicial de dados será bruta e ilegível. Mecânica Obrigatória: O jogador precisará encontrar e ativar manualmente a Válvula Softmax (que atua como a camada de ativação do sistema). Sem abrir essa válvula, é impossível obter a leitura correta da saída da rede neural densa.
+
+Uma vez ativada, a válvula converte os dados brutos em probabilidades de 0 a 100%. Com a leitura clara, o jogador enfrenta o desafio final da etapa: definir o "limiar de confiança" correto. Se tentar avançar com um limiar muito baixo ou errado, o sistema não reconhecerá a porta. Ao ajustar o limiar exato, as probabilidades baixas são descartadas, e Asimov consegue indicar a porta correta com sucesso.
+
+4. A Sala de Arquivamento
+
+Objetivo: Coletar informações precisas sobre os cristais.
+
+Regras/Meios: O jogador é desafiado a classificar uma sequência de fotos de cristais. A regra é eliminatória e binária: deve-se aprovar apenas os cristais azuis reluzentes (dados verdadeiros) e descartar/incinerar os cristais vermelhos opacos (dados corrompidos). O jogador precisa alcançar uma cota específica de acertos na classificação. Aprovar um cristal vermelho resulta em penalidade imediata ou falha do minigame.
+
+5. O Extrator de Características
+
+Objetivo: Mapear as propriedades das imagens dos cristais verdadeiros para treinar Asimov.
+
+Regras/Meios: Com as imagens corretas em mãos, o jogador deve interagir com a máquina "Extrator de Características". A regra exige que as imagens validadas sejam processadas nesta máquina para extrair seus dados essenciais (features). Apenas após a conclusão e coleta deste "mapa de características", o jogador consegue treinar Asimov, habilitando sua capacidade generativa para a etapa seguinte.
+
+6. Forja Generativa
+
+Objetivo: Sintetizar um cristal de energia puro e 100% funcional.
+
+Regras/Meios: Durante a geração do novo cristal, Asimov usando sua capacidade generativa inevitavelmente gerará "ruídos" (imperfeições visuais e falhas na estrutura do cristal). O jogador deve agir ativamente para eliminar essas falhas progressivamente antes que comprometam o processo. A condição de vitória deste desafio é preencher a "barra de pureza" até 100%. Se o jogador não conseguir limpar os ruídos dentro do limite de tempo, a forja falha e o processo de síntese reinicia.
+
+7. Restauração Final
+
+Objetivo: Reativar a energia total do laboratório.
+
+Regras/Meios: Esta é a condição de vitória e conclusão da Sprint. De posse do cristal 100% purificado, o jogador deve transportá-lo até o núcleo central. O ato de depositar o cristal verdadeiro no núcleo aciona o evento de final de fase: a energia é restaurada, Asimov evolui seu sistema, e a narrativa é desbloqueada para os próximos níveis.
+
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
@@ -436,10 +475,6 @@ Ao completar corretamente as classificações, o jogador obtém os dados necess�
 *Ex. Em um jogo de plataforma 2D para desktop, o jogador pode usar as teclas WASD para mecânicas de andar, mirar para cima, agachar, e as teclas JKL para atacar, correr, arremesar etc.*
 
 *Ex. Em um jogo de puzzle para celular, o jogador pode tocar e arrastar sobre uma peça para movê-la sobre o tabuleiro, ou fazer um toque simples para rotacioná-la*
-
-## 3.7. Mecânicas do jogo (sprint 3)
-
-As mecânicas do jogo envolvem **exploração do ambiente, interação com objetos e resolução de desafios relacionados à inteligência artificial**. O jogador controla os personagens para investigar o laboratório, coletar informações e completar tarefas necessárias para avançar nas fases.
 
 ### Mecânicas principais
 
