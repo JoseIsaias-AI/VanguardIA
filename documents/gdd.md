@@ -153,9 +153,9 @@ O perfil mais representativo do nosso usuário é o de um jovem de renda média-
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-O objetivo principal do jogo é que o player consiga aprender sobre os conceitos de Inteligência Artificial e aplicá-los nos puzzles e minigames presentes para recuperar o banco de
+O objetivo do jogo é que o jogador ajude a protagonista Sophia a restaurar o funcionamento de um laboratório no futuro e proteger o banco de dados que contém informações essenciais para a humanidade. Para alcançar esse objetivo, o jogador deverá explorar o ambiente, superar obstáculos, resolver puzzles e completar minigames utilizando apenas as mecânicas e regras estabelecidas pelo jogo, progredindo gradualmente pelas fases até recuperar a energia do laboratório e garantir a preservação dos dados.
 
-O objetivo do jogo é ensinar o básico de inteligência artificial de um jeito divertido e que prenda a atenção do usuário (através de minigames e puzzles) , sempre tentando fazê-lo se conectar com a história e os personagens de um modo que seu aprendizado seja mais eficiente. E com isso, queremos despertar o interesse dos universitários sobre o assunto IA para que eles busquem os cursos de tecnologia da IBM.
+Além do objetivo narrativo e mecânico do jogo (objetivo lusório), o projeto também possui um propósito educacional, que é apresentar conceitos básicos de Inteligência Artificial de forma interativa. Por meio das mecânicas, desafios e situações enfrentadas durante a gameplay, o jogador entra em contato com fundamentos de IA, como reconhecimento de padrões e tomada de decisão, estimulando o interesse de estudantes universitários pela área e incentivando a busca por iniciativas educacionais relacionadas ao tema, como os cursos oferecidos pela IBM.
 
 ## 2.2. Características do Jogo (sprint 2) 
 
@@ -163,20 +163,15 @@ O jogo é uma historia repleta de acão onde a protagonista deverá passar por d
 
 ### 2.2.1. Gênero do Jogo (sprint 2)
 
-*O gênero do nosso jogo é de aventura, tendo modo história, ação e puzzles, tudo isso com o objetivo de ensinar.
+O gênero do nosso jogo é de aventura, tendo modo história, ação e puzzles, tudo isso com o objetivo de ensinar.
 
 ### 2.2.2. Plataforma do Jogo (sprint 2)
 
-O jogo será desenvolvido para plataforma Web, sendo executado diretamente no navegador por meio do framework Phaser.
+O jogo será desenvolvido para plataforma Web, sendo executado diretamente no navegador por meio do framework Phaser, utilizando tecnologias baseadas em HTML5 e JavaScript. O acesso ocorrerá por meio de um link, sem necessidade de instalação prévia do jogo.
 
-Será compatível com:
-Computadores (desktop e notebook) — Windows, macOS e Linux
+A experiência foi projetada principalmente para computadores (desktop e notebook) que utilizem sistemas operacionais como Windows, macOS ou Linux, desde que possuam um navegador moderno atualizado (como Chrome, Safari, Edge ou Firefox) compatível com aplicações em HTML5.
 
-O jogo poderá ser acessado em qualquer dispositivo com navegador moderno atualizado (como Chrome, Safari, Edge ou Firefox) que suporte HTML5 e JavaScript, desde que possua desempenho suficiente para executar aplicações desenvolvidas em Phaser.
-
-Para interface e os controles serão necessários teclado e mouse independente do dispositivo.
-
-O objetivo dessas medidas é garantir ampla acessibilidade, sem necessidade de instalação, permitindo que o jogador acesse o jogo diretamente por um link, em poucos passos e sem depender de um dispositivo mais potente e, consequentemente, caro.
+Embora o site possa ser acessado também por dispositivos móveis, o jogo não foi desenvolvido com interface responsiva, pois os controles utilizam teclado e mouse para movimentação e interação.
 
 ### 2.2.3. Número de jogadores (sprint 2)
 
