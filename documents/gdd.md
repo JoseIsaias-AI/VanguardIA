@@ -1,6 +1,5 @@
 <img src="../assets/gdd/logointeli.png">
 
-
 # GDD - Game Design Document - Módulo 1 - Inteli
 
 **_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final_**
@@ -111,7 +110,7 @@ Ser um modelo nacional na implementação da gamificação para educação de IA
 
 **Valores:**
 
-Educação lúdica, democratização da IA, ensino nativo digital, aprendizado por descoberta, lisura e ética em IA.
+Educação lúdica, democratização da IA, inovação pedagógica, aprendizado por descoberta, lisura e ética em IA.
 
 ### 1.1.4. Proposta de Valor (sprint 4)
 
@@ -153,6 +152,8 @@ O perfil mais representativo do nosso usuário é o de um jovem de renda média-
 # <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)
 
 ## 2.1. Objetivos do Jogo (sprint 2)
+
+O objetivo principal do jogo é que o player consiga aprender sobre os conceitos de Inteligência Artificial e aplicá-los nos puzzles e minigames presentes para recuperar o banco de
 
 O objetivo do jogo é ensinar o básico de inteligência artificial de um jeito divertido e que prenda a atenção do usuário (através de minigames e puzzles) , sempre tentando fazê-lo se conectar com a história e os personagens de um modo que seu aprendizado seja mais eficiente. E com isso, queremos despertar o interesse dos universitários sobre o assunto IA para que eles busquem os cursos de tecnologia da IBM.
 
@@ -310,7 +311,6 @@ _**Movimentação dos Personagens**_
 A tecla **E** é utilizada para interagir com:
 * **Itens do cenário**
 * **NPCs**
-* **Objetos interativos**
 
 ---
 
@@ -332,7 +332,7 @@ _**Estrutura e Funcionamento**_
 
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
 
-NÃO APLICÁVEL.
+A existência de diferentes condições climáticas não foi uma possibilidade de aplicação dentro do enredo do jogo pois não foi considerado como fator de importância, devido aos ambientes do jogo se passarem em ambientes internos.
 
 ### 3.3.4. Concept Art (sprint 2)
 
@@ -381,29 +381,17 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 ### 3.4.1. Inventário
 
-*\<opcional\> Caso seu jogo utilize itens ou poderes para os personagens obterem, descreva-os aqui, indicando títulos, imagens, meios de obtenção e funções no jogo. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.* 
-
-*Exemplo de tabela*
-\# | item |  | como obter | função | efeito sonoro
---- | --- | --- | --- | --- | ---
-1 | moeda | <img src="../assets/coin.png"> | há muitas espalhadas em todas as fases | acumula dinheiro para comprar outros itens | som de moeda
-2 | madeira | <img src="../assets/wood.png"> | há muitas espalhadas em todas as fases | acumula madeira para construir casas | som de madeiras
-3 | ... 
+\# | item |  | como obter | função 
+--- | --- | --- | --- | --- 
+1 | baú | <img src="../assets/Objetos/bau.png"> | estão em algumas fases do jogo | guardam recompensas e informações 
+2 | envelope | <img src="../assets/Objetos/faseUm/envelopes.png"> | estará no primeiro baú | dá informações que serão utiliazadas em uma fase futura
+3 | pergaminho | <img src = '../assets/Objetis/faseUm/pergaminho.png'> | estará no primeiro baú | dá informações sobre a história do jogo
 
 ### 3.4.2. Bestiário
 
-*\<opcional\> Caso seu jogo tenha inimigos, descreva-os aqui, indicando nomes, imagens, momentos de aparição, funções e impactos no jogo. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.* 
-
-*Exemplo de tabela*
-\# | inimigo |  | ocorrências | função | impacto | efeito sonoro
---- | --- | --- | --- | --- | --- | ---
-1 | robô terrestre | <img src="../assets/inimigo2.PNG"> |  a partir da fase 1 | ataca o personagem vindo pelo chão em sua direção, com velocidade constante, atirando parafusos | se encostar no inimigo ou no parafuso arremessado, o personagem perde 1 ponto de vida | sons de tiros e engrenagens girando
-2 | robô voador | <img src="../assets/inimigo1.PNG"> | a partir da fase 2 | ataca o personagem vindo pelo ar, fazendo movimento em 'V' quando se aproxima | se encostar, o personagem perde 3 pontos de vida | som de hélice
-3 | ... 
+A existência de inimigos não foi uma possibilidade acordada dentro do enredo do jogo devido ao grau de importância que o grupo concluiu para esse fator, pois o projeto trabalhado será mais focado na resolução de problemas lógicos.
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
-
-*Posicione aqui seu "storyboard de programação" - o diagrama de cenas do jogo. Indique, por exemplo, como o jogo começa, quais opções o jogador tem, como ele avança nas fases, quais as condições de 'game over', como o jogo reinicia. Seu diagrama deve representar as classes, atributos e métodos usados no jogo.*
 
 <div align="center">
 <sub>Figura 13: Storyboard de programação</sub><br>
@@ -413,15 +401,7 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 ## 3.6. Regras do jogo (sprint 3)
 
-*Descreva aqui as regras do seu jogo: objetivos/desafios, meios para se conseguir alcançar*
-
-*Ex. O jogador deve pilotar o carro e conseguir terminar a corrida dentro de um minuto sem bater em nenhum obstáculo.*
-
-*Ex. O jogador deve concluir a fase dentro do tempo, para obter uma estrela. Se além disso ele coletar todas as moedas, ganha mais uma estrela. E se além disso ele coletar os três medalhões espalhados, ganha mais uma estrela, totalizando três. Ao final do jogo, obtendo três estrelas em todas as fases, desbloqueia o mundo secreto.*  
-
-NESSA PARTE É IMPORTANTE LEMBRAR DE RESSALTAR A VALVULA QUE VAI COMANDAR TODA A QUESTAO DA CAMADA DE ATIVAÇÃO SOFTMAX QUE SE N ATIVAR N CONESEGUE TER A LEITURA CORRETA DA SAIDA QUE A REDE NEURAL DENSA ENTAO O USUARIO VAI TER QUE ATIVAR ESSA VALVULA
-
-Objetivo Geral da Sprint: O jogador deve investigar o laboratório em ruínas no ano de 2098, superar as travas de segurança da Inteligência Artificial do local e forjar um novo núcleo de energia para reativar o banco de dados do robô Asimov.
+Objetivo Geral da Sprint: O jogador deve investigar o laboratório em ruínas no ano de 2098 e forjar um novo núcleo de energia para reativar o banco de dados do robô Asimov. VERIFICAR ISSO AQUI
 
 1. O Salto Temporal (Prólogo)
 
@@ -470,11 +450,15 @@ Regras/Meios: Esta é a condição de vitória e conclusão da Sprint. De posse 
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
+<<<<<<< HEAD
 *Descreva aqui as formas de controle e interação que o jogador tem sobre o jogo: quais os comandos disponíveis, quais combinações de comandos, e quais as ações consequentes desses comandos. Utilize listas ou tabelas para organizar esta seção.*
 
 *Ex. Em um jogo de plataforma 2D para desktop, o jogador pode usar as teclas WASD para mecânicas de andar, mirar para cima, agachar, e as teclas JKL para atacar, correr, arremesar etc.*
 
 *Ex. Em um jogo de puzzle para celular, o jogador pode tocar e arrastar sobre uma peça para movê-la sobre o tabuleiro, ou fazer um toque simples para rotacioná-la*
+=======
+As mecânicas do jogo envolvem **exploração do ambiente, interação com objetos e resolução de desafios relacionados à inteligência artificial**. O jogador controla os personagens para investigar o laboratório, coletar informações e completar tarefas necessárias para avançar nas fases.
+>>>>>>> 686405c1b4038738f37447179d08c6f4e03b9144
 
 ### Mecânicas principais
 
@@ -501,7 +485,6 @@ Com os dados coletados, o jogador inicia o **treinamento da rede neural de Asimo
 
 **7. Restauração do laboratório**
 Após o treinamento e a identificação correta do cristal verdadeiro, Sophia pode levá-lo até a **sala principal de controle**, onde o cristal é depositado no centro do sistema energético do laboratório, restaurando parte da energia e permitindo a continuidade da narrativa.
-
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -586,32 +569,41 @@ Por fim, foram desenvolvidos os designs do background utilizado na Fase 01 e dos
 </div> 
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
+Durante a Sprint 3, a equipe concentrou-se na implementação de elementos narrativos e mecânicos fundamentais para o funcionamento do jogo. As atividades foram conduzidas de forma paralela entre os membros da equipe e posteriormente integradas para compor a versão intermediária do jogo entregue nesta etapa.
 
-Na terceira sprint o desenvolvimento foi focado na implementação de uma cena animada de introdução e da elaboração das fases jogavéis e cenas de transição entre fases.
-
-Durante o desenvolvimento houve uma reestruturação do design da cena e objetos utilizados na Fase 01 para melhor adequação ao enredo da história. 
+Uma das frentes de desenvolvimento foi a implementação do sistema de diálogos, responsável por contextualizar a narrativa e orientar o jogador. Foram criados balões de fala para os personagens Dr. Watson e Asimov, permitindo que as interações apresentem a situação do mundo e introduzam conceitos iniciais relacionados aos fundamentos da Inteligência Artificial. Esse sistema também estabelece a progressão narrativa entre o laboratório inicial, o despertar no futuro e o início da primeira fase.
 
 <div align = "center">
 
-<sup>Figura 23: Background reestruturado utilizado na Fase 01.</sup><br>
-<img src="../assets/Fases/faseUm/fundoFaseUm.png" width = '70%' ><br>
+<sup>Figura 23: Dialogo com Asimov no futuro.</sup><br>
+<img src="../assets/gdd/printDialogo.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 24: Objetos reestruturados utilizados na Fase 01.</sup><br>
-<img src="../assets/Cutscene/CutScene2.mp4" width = '70%' ><br>
+</div>
+
+Paralelamente, foi realizada a criação e instanciação dos NPCs no laboratório inicial, adicionando cientistas ao cenário para tornar o ambiente mais dinâmico e reforçar a ambientação de um laboratório ativo no início da narrativa. Esses personagens ajudam a compor o contexto da história antes do evento de criogenia da protagonista.
+
+*imagem do laboratório inicial com os NPCs
+
+A Fase 1 foi implementada e apresenta o robô Asimov em um cenário destruído. O personagem avança automaticamente enquanto o jogador utiliza as setas do teclado para alternar entre três faixas do cenário e a tecla espaço para realizar saltos e evitar obstáculos. A interação com o ambiente utiliza um sistema de colisão baseado na leitura de pixels da imagem de obstáculos, que reinicia a posição do personagem em caso de impacto. Ao final do percurso, o jogador encontra um baú interativo, que ativa uma sequência narrativa responsável por dar continuidade à história.
+
+<div align = "center">
+
+<sup>Figura 24: Fase 1</sup><br>
+<img src="../assets/gdd/printFase1.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-</div> 
+</div>
 
-Analogamente foi desenvolvido uma animação em forma de vídeo de uma Cena de Transição entre a troca de cenários na Cena 01.
+Também foi desenvolvida a cutscene do despertar de Sophia, responsável por conectar narrativamente o passado e o futuro do jogo. A animação apresenta o momento em que Asimov desperta Sophia da criogenia em um laboratório destruído, iniciando a nova etapa da história. A cutscene foi produzida em animação 2D quadro a quadro, utilizando técnicas como onion skinning, onde é possível ver os frames passados e futuros,  para garantir maior fluidez nos movimentos.
 
-<div>
+<div align = "center">
 
-<sup>Figura 25: Vídeo animado de transição.</sup><br>
-<img src="../assets/Objetos/faseUm/obstaculosFaseUm.png" width = '70%' ><br>
+<sup>Figura 25: CutScene do despertar.</sup><br>
+<img src="../assets/gdd/printCutScene2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-</div> 
+</div>
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
@@ -627,15 +619,15 @@ Analogamente foi desenvolvido uma animação em forma de vídeo de uma Cena de T
 
 | pré-condição                          | descrição do teste                              | pós-condição                                              |
 |----------------------------------------|--------------------------------------------------|-----------------------------------------------------------|
-| partida iniciada                      | pressionar teclas WASD ou setas                 | personagem se move corretamente nas direções corretamente |
+| jogo iniciado                     | pressionar setas                 | personagem se move corretamente nas direções designadas |
 | personagem próximo a obstáculo/colisão| movimentar personagem contra a parede/objeto   | personagem não atravessa a parede ou o objeto            |
-| missão ativa                          | completar objetivo da missão                   | missão marcada como concluída e recompensa entregue      |
-| partida iniciada                      | jogar por 30 min em qualidade alta             | FPS estável                                              |
-| usuário acessa URL do jogo            | clica em "iniciar"                              | jogo inicia corretamente                                 |
-| jogador atinge condição de derrota    | continuar jogando até perder                   | reiniciar a fase                                         |
-| jogo publicado online                 | abrir o jogo em diferentes navegadores         | jogo funciona corretamente em todas                      |
-
-
+| estar perto do personagem Watson | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
+| função de diálogo ativada | pressionar tecla E | mudança do texto exibido na caixa de diálogo |
+| explicação por personagem finalizada | pressionar tecla E | caixa de diálogo para de ser exibida |
+| ter interagido com o personagem Watson e estar próximo da câmara criogência | pressionar tecla E | aparece vídeo de transição e ser transportado para o laboratório no futuro |
+| estar próximo de personagem Asimov | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
+| estar na fase 01 | apertar tecla SPACE | personagem deve pular corretamente |
+| estar na fase 01 | colidir com obstáculo | reiniciar fase 01 |
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
