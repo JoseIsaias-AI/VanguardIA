@@ -7,6 +7,7 @@ import { Scene02 } from "./src/scenes/sceneTwo.js";
 import { FaseUm } from "./src/scenes/FaseUm.js";
 import { FaseDois } from "./src/scenes/FaseDois.js"; 
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js"; 
+import { LaboratorioScene as transicao1para2 } from "./src/scenes/transicao1para2.js";
 
 const config = {
     type: Phaser.AUTO,
