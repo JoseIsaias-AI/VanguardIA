@@ -80,6 +80,9 @@ this.physics.add.collider(this.player, this.walls);
       D: Phaser.Input.Keyboard.KeyCodes.D
     });
 
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.pulando = false;
+
     // Aqui, criamos as animações dos nossos sprites
     this.createAnimations();
 
@@ -156,7 +159,26 @@ this.physics.add.collider(this.player, this.walls);
       this.player.anims.stop();
       this.player.setFrame(0);
     }
+     // Aqui, adicionamos o pulo na fase
+     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
 
+     this.pulando = true;
+     let yInicial = this.player.y;
+
+     this.tweens.add({
+      targets: this.player,
+      y: yInicial - 40,
+      duration: 180,
+      yoyo: true,
+      ease: "Sine.easeOut",
+
+      onComplete: () => {
+      this.player.y = yInicial;
+      this.pulando = false;
+    }
+  });
+
+}
   }
 
 } 

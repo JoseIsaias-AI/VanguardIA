@@ -50,7 +50,7 @@ export class FaseUm extends Phaser.Scene {
         this.pergaminho = this.add.sprite(width - 500, height / 2, "pergaminho", 0).setScale(1.5).setScrollFactor(0).setDepth(102).setVisible(false);
 
         //============================================================================ PRECISA CORRIGIR
-        this.obstaculosCaixaColisão = null;
+        this.obstaculosCaixaColisao = null;
         try {
             const imgObstaculos = this.textures.get("obstaculos").getSourceImage(); //precisa da imagem HTML nativa para desenhá-la em um canvas e ler seus pixels.
             const canvasObstaculos = document.createElement("canvas"); //cria um elemento canvas HTML invisivel na memória
@@ -83,6 +83,10 @@ export class FaseUm extends Phaser.Scene {
 
         //teclas pressionadas encaixadas em variáveis
         this.cursors = this.input.keyboard.createCursorKeys(); 
+        this.keys = this.input.keyboard.addKeys({
+      W: Phaser.Input.Keyboard.KeyCodes.W, 
+      S: Phaser.Input.Keyboard.KeyCodes.S,
+    });
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
         this.keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -169,12 +173,12 @@ export class FaseUm extends Phaser.Scene {
         
         let movimentacao = false;
 
-        if (!this.pulando && Phaser.Input.Keyboard.JustDown(this.cursors.up)) { //caso o jogador não esteja pulando e apertar seta para cima
+        if (!this.pulando && (Phaser.Input.Keyboard.JustDown(this.cursors.up) || Phaser.Input.Keyboard.JustDown(this.keys.W))) { //caso o jogador não esteja pulando e apertar seta para cima ou W
             if (this.faixaAtual === 2) { this.faixaAtual = 1; this.asimov.y = 480; } //se for a ultima faixa, vai para o meio
             else if (this.faixaAtual === 1) { this.faixaAtual = 0; this.asimov.y = 300; } //se for a do meio vai para a primeira
             if (!movimentacao) this.asimov.anims.play("asimov_back", true);
             this.cameraBalancoAlvo = -3; //faz com que haja um balanço na câmera
-        } else if (!this.pulando && Phaser.Input.Keyboard.JustDown(this.cursors.down)) { //caso o jogador não esteja pulando e apertar seta para baixo
+        } else if (!this.pulando && (Phaser.Input.Keyboard.JustDown(this.cursors.down) || Phaser.Input.Keyboard.JustDown(this.keys.S))) { //caso o jogador não esteja pulando e apertar seta para baixo ou S
             if (this.faixaAtual === 0) { this.faixaAtual = 1; this.asimov.y = 480; } //se ele estiver na faixa de cima, muda para baixo
             else if (this.faixaAtual === 1) { this.faixaAtual = 2; this.asimov.y = 650; } //se estiver na faixa do meio, vai para baixo
             if (!movimentacao) this.asimov.anims.play("asimov_front", true);
