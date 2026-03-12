@@ -127,7 +127,7 @@ export class LaboratorioScene extends Phaser.Scene {
 
         // Camera: mesmo comportamento de sceneFuturo (seguir player, zoom e fadeIn)
         this.cameras.main.setBounds(0, 0, w, h);
-        this.cameras.main.startFollow(this.sophia).setZoom(1.8);
+        this.cameras.main.startFollow(this.sophia); // zoom padrão igual a sceneFuturo
         this.cameras.main.fadeIn(1000);
 
         // Colisão Sophia e Asimov
@@ -273,7 +273,8 @@ export class LaboratorioScene extends Phaser.Scene {
         const larguraCaixa = 1000;
         const alturaCaixa = 180;
         const xCaixa = (larguraJogo - larguraCaixa) / 2;
-        const yCaixa = alturaJogo - alturaCaixa - 250;
+        // mesmo deslocamento usado em sceneFuturo.js
+        const yCaixa = alturaJogo - alturaCaixa - 80;
 
         // caixa visual igual ao sceneFuturo
         this.caixaDialogo = this.add.graphics();
@@ -291,7 +292,7 @@ export class LaboratorioScene extends Phaser.Scene {
             fontSize: "26px",
             fontFamily: "'Courier New', Courier, monospace",
             color: "#ccffff",
-            wordWrap: { width: larguraCaixa - 80 },
+            wordWrap: { width: larguraCaixa - 120 }, // menos largura para evitar estouros
             lineSpacing: 10,
         }).setScrollFactor(0).setDepth(101).setVisible(false);
 
@@ -396,64 +397,43 @@ export class LaboratorioScene extends Phaser.Scene {
     }
 
     startIntroCutscene() {
+        // diálogo dividido em entradas menores
         this.cutsceneDialogue = [
+            { speaker: "Sophia", text: "Asimov, você voltou! Conseguiu completar a missão?" },
+            { speaker: "Asimov", text: "Missão concluída." },
+            { speaker: "Asimov", text: "Analisei os padrões do ambiente e agora consigo desviar de todos os obstáculos à minha frente." },
             {
                 speaker: "Asimov",
-                text: "Meu núcleo também sofreu danos. Parte da minha memória está fragmentada e o banco de dados central está inacessível.",
-                autoMs: 3500
+                text: "Porém… meus sistemas ainda não estão totalmente restaurados.\nMinha lógica está operando a aproximadamente 60% da capacidade.",
+                autoMs: 4500
+            },
+            { speaker: "Sophia", text: "Entendo. Então… o que você encontrou? Tem algo para me mostrar?" },
+            {
+                speaker: "Asimov",
+                text: "Sim. Durante a missão, coletei dados binários e um pergaminho com instruções."
             },
             {
                 speaker: "Asimov",
-                text: "Você terá que me guiar remotamente nos destroços. Meus módulos de navegação e desvio de obstáculos ainda estão comprometidos.",
-                autoMs: 3500
+                text: "Essas informações indicam que, para restaurar completamente minhas funções, preciso encontrar o cristal de energia que irá me reanimar."
+            },
+            { speaker: "Sophia", text: "E onde está esse cristal?" },
+            {
+                speaker: "Asimov",
+                text: "Os dados indicam que ele está dentro de uma porta no laboratório.\nPara encontrá‑lo, precisamos localizar a porta correta."
             },
             {
                 speaker: "Sophia",
-                text: "",
-                choices: () => {
-                    const choices = [];
-                    if (!this.questionState.askedRestore) {
-                        choices.push({
-                            id: "restore",
-                            label: "Como restauramos seus dados?",
-                            response: "Como restauramos seus dados e a infraestrutura?"
-                        });
-                    }
-                    if (!this.questionState.askedPriority) {
-                        choices.push({
-                            id: "priority",
-                            label: "Qual é nossa prioridade agora?",
-                            response: "Qual é a prioridade para estabilizar o laboratório?"
-                        });
-                    }
-                    return choices;
-                },
-                afterChoice: (choice) => {
-                    if (choice.id === "restore") {
-                        this.questionState.askedRestore = true;
-                        this.dialogueQueue.splice(this.dialogueCursor + 1, 0, {
-                            speaker: "Asimov",
-                            text: "Precisamos reativar o núcleo do mapa energético com um cristal de silício azul, pontiagudo e de alto brilho.",
-                            autoMs: 3600
-                        });
-                    }
-                    if (choice.id === "priority") {
-                        this.questionState.askedPriority = true;
-                        this.dialogueQueue.splice(this.dialogueCursor + 1, 0, {
-                            speaker: "Asimov",
-                            text: "A busca começa na área de sucatas. Lá podem existir registros antigos sobre o cristal correto.",
-                            autoMs: 3200
-                        });
-                    }
-                }
+                text: "Perfeito. Obrigada pelas informações, Asimov.\nVamos restaurar sua energia."
             },
+            { speaker: "Asimov", text: "Objetivo atualizado: encontrar a porta correta do laboratório." },
             {
-                speaker: "Sophia",
-                text: "Entendido. Vamos para a sucata, restaurar seu aprendizado e recuperar o núcleo energético."
+                speaker: "Sistema",
+                text: "Parabéns!\nNova missão desbloqueada: Procure a porta correta.",
+                autoMs: 4000
             }
         ];
 
-        // Caminhada lenta do Asimov de baixo para cima em direção à Sophia.
+        // caminhada lenta do Asimov de baixo para cima em direção à Sophia.
         this.playAnimIfNeeded(this.asimov, "asimov-walk-up");
         this.tweens.add({
         targets: this.asimov,
