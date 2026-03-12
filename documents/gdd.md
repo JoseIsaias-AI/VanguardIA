@@ -540,6 +540,8 @@ Uma das frentes de desenvolvimento foi a implementação do sistema de diálogos
 <img src="../assets/gdd/printDialogo.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
+<div>
+
 Paralelamente, foi realizada a criação e instanciação dos NPCs no laboratório inicial, adicionando cientistas ao cenário para tornar o ambiente mais dinâmico e reforçar a ambientação de um laboratório ativo no início da narrativa. Esses personagens ajudam a compor o contexto da história antes do evento de criogenia da protagonista.
 
 *imagem do laboratório inicial com os NPCs
