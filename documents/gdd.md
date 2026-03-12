@@ -540,7 +540,7 @@ Uma das frentes de desenvolvimento foi a implementação do sistema de diálogos
 <img src="../assets/gdd/printDialogo.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<div>
+</div>
 
 Paralelamente, foi realizada a criação e instanciação dos NPCs no laboratório inicial, adicionando cientistas ao cenário para tornar o ambiente mais dinâmico e reforçar a ambientação de um laboratório ativo no início da narrativa. Esses personagens ajudam a compor o contexto da história antes do evento de criogenia da protagonista.
 
@@ -554,7 +554,7 @@ A Fase 1 foi implementada e apresenta o robô Asimov em um cenário destruído. 
 <img src="../assets/gdd/printFase1.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<div>
+</div>
 
 Também foi desenvolvida a cutscene do despertar de Sophia, responsável por conectar narrativamente o passado e o futuro do jogo. A animação apresenta o momento em que Asimov desperta Sophia da criogenia em um laboratório destruído, iniciando a nova etapa da história. A cutscene foi produzida em animação 2D quadro a quadro, utilizando técnicas como onion skinning, onde é possível ver os frames passados e futuros,  para garantir maior fluidez nos movimentos.
 
@@ -564,7 +564,7 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 <img src="../assets/gdd/printCutScene2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<div>
+</div>
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
