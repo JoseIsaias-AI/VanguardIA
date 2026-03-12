@@ -540,20 +540,6 @@ Uma das frentes de desenvolvimento foi a implementação do sistema de diálogos
 <img src="../assets/gdd/printDialogo.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<<<<<<< HEAD
-<div>
-=======
-<sup>Figura 24: Objetos reestruturados utilizados na Fase 01.</sup><br>
-<img src="../assets/Cutscene/CutScene2.mp4" width = '70%' ><br>
-<sub>Fonte: Autoria própria (2026). </sub><br>
-
-</div> 
-
-Analogamente foi desenvolvido uma animação em forma de vídeo de uma Cena de Transição entre a troca de cenários na Cena 01.
-
-<div align = "center">
->>>>>>> a7d7153209d7bcdf2d95c963c4714cf7876cb8e0
-
 Paralelamente, foi realizada a criação e instanciação dos NPCs no laboratório inicial, adicionando cientistas ao cenário para tornar o ambiente mais dinâmico e reforçar a ambientação de um laboratório ativo no início da narrativa. Esses personagens ajudam a compor o contexto da história antes do evento de criogenia da protagonista.
 
 *imagem do laboratório inicial com os NPCs
