@@ -571,15 +571,15 @@ Analogamente foi desenvolvido uma animação em forma de vídeo de uma Cena de T
 
 | pré-condição                          | descrição do teste                              | pós-condição                                              |
 |----------------------------------------|--------------------------------------------------|-----------------------------------------------------------|
-| partida iniciada                      | pressionar teclas WASD ou setas                 | personagem se move corretamente nas direções corretamente |
+| jogo iniciado                     | pressionar setas                 | personagem se move corretamente nas direções designadas |
 | personagem próximo a obstáculo/colisão| movimentar personagem contra a parede/objeto   | personagem não atravessa a parede ou o objeto            |
-| missão ativa                          | completar objetivo da missão                   | missão marcada como concluída e recompensa entregue      |
-| partida iniciada                      | jogar por 30 min em qualidade alta             | FPS estável                                              |
-| usuário acessa URL do jogo            | clica em "iniciar"                              | jogo inicia corretamente                                 |
-| jogador atinge condição de derrota    | continuar jogando até perder                   | reiniciar a fase                                         |
-| jogo publicado online                 | abrir o jogo em diferentes navegadores         | jogo funciona corretamente em todas                      |
-
-
+| estar perto do personagem Watson | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
+| função de diálogo ativada | pressionar tecla E | mudança do texto exibido na caixa de diálogo |
+| explicação por personagem finalizada | pressionar tecla E | caixa de diálogo para de ser exibida |
+| ter interagido com o personagem Watson e estar próximo da câmara criogência | pressionar tecla E | aparece vídeo de transição e ser transportado para o laboratório no futuro |
+| estar próximo de personagem Asimov | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
+| estar na fase 01 | apertar tecla SPACE | personagem deve pular corretamente |
+| estar na fase 01 | colidir com obstáculo | reiniciar fase 01 |
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
