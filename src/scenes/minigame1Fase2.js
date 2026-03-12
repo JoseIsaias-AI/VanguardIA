@@ -6,12 +6,14 @@ export class minigame1Fase2 extends Phaser.Scene {
     //carregamento das imagens e sprites usados durante a fase1
     preload () {
         this.load.spritesheet('binarios', 'assets/Fases/FaseDois/NumerosBinarios.png', { frameWidth: 250, frameHeight: 150 });
-        this.load.image( 'fundo', 'assets/Fases/FaseDois/fundoMinigame1.png');
+        this.load.spritesheet('fundo', 'assets/Fases/FaseDois/spriteRedes.png', { frameWidth: 600, frameHeight: 340 });
+
+        //this.load.image( 'fundo', 'assets/Fases/FaseDois/f.png');
     }
 
     create() {
         const { width, height } = this.sys.game.config;
-        this.fundo = this.add.image(width / 2, height / 2, "fundo").setScale(3.5).setOrigin(0.5);
+        //this.fundo = this.add.image(width / 2, height / 2, "fundo").setScale(3.2).setOrigin(0.5);
         
         this.anims.create({
             key: 'animBinarios',
