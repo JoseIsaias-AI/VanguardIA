@@ -45,24 +45,11 @@ export class SceneFuturo extends Phaser.Scene {
     this.cutscene.setMute(true);
     this.cutscene.play();
 
-<<<<<<< HEAD
     this.cutscene.once("complete", () => {
       this.cutscene.destroy();
       this.iniciarFase();
     });
   }
-=======
-    this.cutscene.setScale(1.05);
-    this.cutscene.setDepth(999);
-    this.cutscene.setMute(true); // evita bloqueio de autoplay
-    this.cutscene.play();
-
-    this.cutscene.once("complete", () => {
-        this.cutscene.destroy();
-        this.iniciarFase();
-    }); }
-    iniciarFase () {
->>>>>>> fdc4eb35ea6e2733b3f928dde570904b478fc751
 
   iniciarFase() {
     this.scaleMapa = 3;
@@ -239,14 +226,16 @@ export class SceneFuturo extends Phaser.Scene {
     const larguraCaixa = 1000;
     const alturaCaixa = 180;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
-    const yCaixa = alturaJogo - alturaCaixa - 250;
+    // FIX: movida levemente para cima (80px de margem em vez de 40px)
+    const yCaixa = alturaJogo - alturaCaixa - 80;
 
     this.caixaDialogo = this.add.graphics();
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
     this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
     this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
     this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
+    // FIX: depth 1000 garante que a caixa fique acima de absolutamente tudo na cena
+    this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
 
     this.textoDialogo = this.add
       .text(xCaixa + 40, yCaixa + 35, "", {
@@ -257,7 +246,8 @@ export class SceneFuturo extends Phaser.Scene {
         lineSpacing: 10,
       })
       .setScrollFactor(0)
-      .setDepth(101);
+      // FIX: depth 1001 garante que o texto fique acima da caixa
+      .setDepth(1001);
 
     if (!this.anims.exists("left")) {
       this.anims.create({
@@ -289,7 +279,7 @@ export class SceneFuturo extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
-    this.cameras.main.startFollow(this.Principal).setZoom(1.8);
+    this.cameras.main.startFollow(this.Principal);
     this.cameras.main.fadeIn(1000);
   }
 
