@@ -430,9 +430,23 @@ export class SceneFuturo extends Phaser.Scene {
         return;
       }
       this.falando_asimov = false;
-      this.scene.start('FaseUm');
+      this.animacaoFinalAsimov();
     }
   }
+
+  animacaoFinalAsimov() {
+  // toca a animação de andar para baixo
+  this.asimov.play("asimov_front", true);
+
+  // move o Asimov para baixo
+  this.asimov.setVelocityY(50);
+
+  // depois de 5 segundos para e muda de fase
+  this.time.delayedCall(5000, () => {
+    this.asimov.setVelocity(0);
+    this.scene.start("FaseUm");
+  });
+}
 
   criarColisao(objeto, reduzirAltura = 1) {
     this.physics.add.existing(objeto, true);
