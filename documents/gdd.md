@@ -400,7 +400,7 @@ A existência de inimigos não foi uma possibilidade acordada dentro do enredo d
 
 ## 3.6. Regras do jogo (sprint 3)
 
-Objetivo Geral da Sprint: O jogador deve investigar o laboratório em ruínas no ano de 2098 e forjar um novo núcleo de energia para reativar o banco de dados do robô Asimov. VERIFICAR ISSO AQUI
+Objetivo Geral da Sprint: O jogador deve investigar o laboratório em ruínas no ano de 2098 e forjar um novo núcleo de energia para reativar o banco de dados do robô Asimov.
 
 1. O Salto Temporal (Prólogo)
 
