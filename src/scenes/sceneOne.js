@@ -183,7 +183,7 @@ export class Scene01 extends Phaser.Scene {
       .setScrollFactor(0)
       // FIX: depth 1001 garante que o texto fique acima da caixa
       .setDepth(1001);
-
+    //Aplicando os cursores de movimentação
     this.cursors = this.input.keyboard.createCursorKeys();
     this.keys = this.input.keyboard.addKeys({
       W: Phaser.Input.Keyboard.KeyCodes.W,
@@ -191,7 +191,14 @@ export class Scene01 extends Phaser.Scene {
       S: Phaser.Input.Keyboard.KeyCodes.S,
       D: Phaser.Input.Keyboard.KeyCodes.D
     });
+    //Aplicando os cursores de pulo
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.pulando = false;
+    
+    //Aplicando o botão de interação
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+
+    //Aplicando as configurações da camera
     this.cameras.main.startFollow(this.Principal);
     this.cameras.main.setZoom(1.2);
 
@@ -239,6 +246,27 @@ export class Scene01 extends Phaser.Scene {
     }
 
     if (!movimentacao) this.Principal.anims.stop();
+
+    //Aqui, adicionamos o pulo do personagem
+     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
+      this.pulando = true;
+      let yInicial = this.Principal.y;
+
+      this.tweens.add({
+        targets: this.Principal,
+        y: yInicial - 40,
+        duration: 180,
+        yoyo: true,
+        ease: "Sine.easeOut",
+
+        onComplete: () => {
+        this.Principal.y = yInicial;
+        this.pulando = false;
+      }
+    });
+
+  }
+
 
     // depth sorting: Y puro — mesmo sistema dos objetos estáticos
     this.Principal.setDepth(this.Principal.y);

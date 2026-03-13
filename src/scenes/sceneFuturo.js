@@ -303,6 +303,7 @@ export class SceneFuturo extends Phaser.Scene {
       return;
     }
 
+   //Aplicando a movimentação do personagem
     this.Principal.setVelocity(0);
 
     let velocidade = 150;
@@ -330,6 +331,7 @@ export class SceneFuturo extends Phaser.Scene {
 
     if (!movimentacao) this.Principal.anims.stop();
 
+    //Aplicando o pulo
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
       this.pulando = true;
       let yInicial = this.Principal.y;
