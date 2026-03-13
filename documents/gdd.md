@@ -449,33 +449,79 @@ Regras/Meios: Esta é a condição de vitória e conclusão da Sprint. De posse 
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
+<<<<<<< HEAD
 As mecânicas do jogo envolvem exploração do ambiente, interação com objetos e resolução de desafios relacionados à inteligência artificial**. O jogador controla os personagens para investigar o laboratório, coletar informações e completar tarefas necessárias para avançar nas fases.
 
+=======
+>>>>>>> df60c0d (Adicionando a mecanica do jogo)
 ### Mecânicas principais
 
-**1. Exploração do ambiente**
-O jogador pode se movimentar livremente dentro do mapa da fase atual para explorar salas do laboratório, como a área de sucatas, a sala de arquivos, a sala da esteira e a sala de controle principal. Durante a exploração é possível encontrar objetos, registros e equipamentos importantes para a progressão da história.
+As mecânicas do jogo envolvem exploração do ambiente, interação com objetos e resolução de desafios relacionados à inteligência artificial. O jogador controla os personagens para investigar o laboratório, coletar informações e completar tarefas necessárias para avançar nas fases.
 
-**2. Interação com objetos e sistemas**
-Utilizando a tecla de interação, o jogador pode acessar **baús, arquivos, máquinas e terminais do laboratório**. Esses elementos liberam informações da narrativa ou ativam desafios necessários para continuar a fase.
+1. Exploração do ambiente e Desvio de Obstáculos
+O jogador pode se movimentar livremente dentro do mapa inicial para explorar o laboratório. Na área de sucatas, a exploração muda para o controle de Asimov em um percurso linear, onde é estritamente necessário desviar de detritos.
 
-**3. Investigação e coleta de informações**
-Na **sala de arquivos**, o jogador encontra documentos e imagens de diferentes cristais armazenados em um baú. Essas informações ajudam a identificar quais cristais possuem as características corretas.
+Controles de Exploração Livre (Sophia):
 
-**4. Classificação de cristais**
-Na **sala da esteira**, o jogador deve analisar imagens de cristais e realizar a classificação entre **cristais verdadeiros e falsos**.
+Tecla W / Seta para Cima: Move para cima (Eixo Y+).
 
-* Cristais verdadeiros (azuis, brilhantes e pontiagudos) devem ser **guardados**.
-* Cristais falsos (com imperfeições ou coloração diferente) devem ser **incinerados**.
+Tecla S / Seta para Baixo: Move para baixo (Eixo Y-).
 
-**5. Extração de características**
-Após selecionar corretamente os cristais verdadeiros, eles são enviados para um **extrator de características**, que gera uma **matriz de características** com os padrões do cristal correto.
+Tecla D / Seta para a Direita: Move para a direita (Eixo X+).
 
-**6. Treinamento da rede neural de Asimov**
-Com os dados coletados, o jogador inicia o **treinamento da rede neural de Asimov**. Durante várias tentativas (épocas), o sistema melhora gradualmente sua capacidade de reconhecer padrões, aumentando sua taxa de acerto até alcançar uma precisão elevada.
+Tecla A / Seta para a Esquerda: Move para a esquerda (Eixo X-).
 
-**7. Restauração do laboratório**
-Após o treinamento e a identificação correta do cristal verdadeiro, Sophia pode levá-lo até a **sala principal de controle**, onde o cristal é depositado no centro do sistema energético do laboratório, restaurando parte da energia e permitindo a continuidade da narrativa.
+Barra de Espaço: Pular.
+
+Controles na Sucata (Asimov):
+
+Tecla W / Seta para Cima: Move para a faixa de cima.
+
+Tecla S / Seta para Baixo: Move para a faixa de baixo.
+
+Barra de Espaço: Saltar obstáculos.
+
+2. Interação com objetos e sistemas
+Utilizando a tecla de interação, o jogador pode acessar baús, arquivos, máquinas e terminais do laboratório, além de conversar com o cientista Watson e com Asimov. Esses elementos liberam informações da narrativa ou ativam desafios necessários para continuar a fase.
+
+Controles: Tecla "E" para interagir com personagens, avançar nos diálogos e interagir com objetos.
+
+3. Treinamento da rede neural de Asimov e Válvula Softmax
+Com as pistas coletadas, o jogador inicia o treinamento da rede neural. É obrigatório encontrar e ativar a Válvula Softmax para converter os dados brutos em probabilidades, além de definir o limiar de confiança exato na interface para que Asimov identifique a porta.
+
+Controles:
+
+Mouse (Movimento) + Clique Único: Para selecionar e ativar os neurônios na tela além de servir para interagir e abrir a Válvula Softmax.
+
+Clique e Arraste (Slider): Para ajustar a barra do "limiar de confiança" de 0 a 100% na interface.
+
+4. Investigação e coleta de informações
+Na sala de arquivos, o jogador encontra documentos e imagens de diferentes cristais armazenados em um baú. Essas informações ajudam a identificar quais cristais possuem as características corretas.
+
+Controles: Interação padrão (Tecla "E") para abrir o baú e ler as pistas.
+
+5. Classificação de cristais
+Na sala da esteira, o jogador deve analisar imagens de cristais e realizar a classificação entre cristais verdadeiros e falsos.
+
+Controles (Cliques na Interface):
+
+Botão "Guardar" (Verde): Para cristais verdadeiros (azuis, brilhantes e pontiagudos).
+
+Botão "Incinerar" (Vermelho): Para cristais falsos (com imperfeições ou coloração diferente).
+
+6. Extração de características e Forja Generativa
+Após selecionar corretamente os cristais verdadeiros, eles são enviados para um extrator de características, que gera uma matriz de características com os padrões do cristal correto. Em seguida, inicia-se a forja generativa, onde o jogador deve eliminar ativamente os "ruídos" (imperfeições visuais) gerados pelo processo.
+
+Controles:
+
+Tecla "E": Para ativar o terminal do extrator de características.
+
+Clique e Arraste (Botão Esquerdo do Mouse): Clicar e segurar em cima do esfregão e arrastar o mouse por todo o ruído (manchas no cristal em formação) para limpar as falhas até preencher a barra de pureza em 100%.
+
+7. Restauração do laboratório
+Após a forja e a identificação correta do cristal verdadeiro, Sophia pode levá-lo até a sala principal de controle, onde o cristal é depositado no centro do sistema energético do laboratório, restaurando parte da energia e permitindo a continuidade da narrativa.
+
+Controles: Movimentação livre (WASD / Setas) para transportar o cristal e Tecla "E" no núcleo central para depositá-lo e acionar a vitória da fase.
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
