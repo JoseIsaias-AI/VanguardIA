@@ -185,6 +185,12 @@ export class Scene01 extends Phaser.Scene {
       .setDepth(1001);
 
     this.cursors = this.input.keyboard.createCursorKeys();
+    this.keys = this.input.keyboard.addKeys({
+      W: Phaser.Input.Keyboard.KeyCodes.W,
+      A: Phaser.Input.Keyboard.KeyCodes.A,
+      S: Phaser.Input.Keyboard.KeyCodes.S,
+      D: Phaser.Input.Keyboard.KeyCodes.D
+    });
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     this.cameras.main.startFollow(this.Principal);
     this.cameras.main.setZoom(1.2);
@@ -212,21 +218,21 @@ export class Scene01 extends Phaser.Scene {
     let velocidade = 150;
     let movimentacao = false;
 
-    if (this.cursors.left.isDown) {
+    if (this.cursors.left.isDown || this.keys.A.isDown) {
       this.Principal.setVelocityX(-velocidade);
       this.Principal.anims.play("left", true);
       movimentacao = true;
-    } else if (this.cursors.right.isDown) {
+    } else if (this.cursors.right.isDown || this.keys.D.isDown) {
       this.Principal.setVelocityX(+velocidade);
       this.Principal.anims.play("right", true);
       movimentacao = true;
     }
 
-    if (this.cursors.up.isDown) {
+    if (this.cursors.up.isDown || this.keys.W.isDown) {
       this.Principal.setVelocityY(-velocidade);
       if (!movimentacao) this.Principal.anims.play("back", true);
       movimentacao = true;
-    } else if (this.cursors.down.isDown) {
+    } else if (this.cursors.down.isDown || this.keys.S.isDown) {
       this.Principal.setVelocityY(+velocidade);
       if (!movimentacao) this.Principal.anims.play("front", true);
       movimentacao = true;
