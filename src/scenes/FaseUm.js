@@ -13,6 +13,7 @@ export class FaseUm extends Phaser.Scene {
         this.load.spritesheet('bauAnimado', '../assets/objetos/faseUm/bau.png', { frameWidth: 128, frameHeight: 128 });
         this.load.spritesheet('envelope', '../assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
         this.load.spritesheet('pergaminho', '../assets/objetos/faseUm/pergaminho.png', { frameWidth: 1152, frameHeight: 648 });
+        this.load.video('videoFaseUm', '../assets/Fases/faseUm/videoFaseUm.mp4');
     }
 
     create () {
@@ -364,5 +365,15 @@ export class FaseUm extends Phaser.Scene {
             });
         }
         this.pergaminho.play('pergaminhoAnim');
+        
+        this.pergaminho.on('animationcomplete', () => {
+            const { width, height } = this.sys.game.config;
+            const video = this.add.video(width / 2, height / 2, 'videoFaseUm').setScale(2.0).setScrollFactor(0).setDepth(103);
+            video.play();
+            
+            video.on('complete', () => {
+                this.scene.start('LaboratorioScene');
+            });
+        });
     }
 }

@@ -30,7 +30,7 @@ const config = {
 
 
     scene: [WelcomeScene, Scene01, SceneFuturo, FaseUm, transicao1para2,Scene02, SceneFuturo2, FaseDois, ]
-    //scene: [minigame1Fase2]
+    //scene: [FaseUm]
     
 
 };
