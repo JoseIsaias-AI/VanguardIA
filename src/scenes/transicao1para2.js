@@ -36,7 +36,6 @@ export class LaboratorioScene extends Phaser.Scene {
             askedPriority: false
         };
 
-        // Fundo do laboratório (escurecido) - alterado para usar o novo asset labDestruido.png e removido o tint, assumindo que a imagem já representa o estado destruído
         // Alterado para corresponder ao sceneFuturo.js: mapa escalado e posicionado
         this.mapa = this.add.image(w / 2, h / 2, "labDestruido").setScale(3);
 
@@ -143,8 +142,6 @@ export class LaboratorioScene extends Phaser.Scene {
         this.interactables = [];
         this.objetosColisao = this.physics.add.staticGroup();
         this.createInteractables();
-
-        // Removida iluminação da cena (overlay e luzes ao redor dos personagens)
 
         // UI de dica de interação.
         this.interactionHint = this.add.text(w / 2, h - 140, "", {
@@ -494,8 +491,6 @@ export class LaboratorioScene extends Phaser.Scene {
         this.awaitingChoice = true;
         this.advanceBtnBg.setVisible(false);
         this.advanceBtnLabel.setVisible(false);
-        // não copia: usamos o mesmo objeto para manter o estado entre
-        // reapresentações
         this.showChoices(entry);
         return;
         }
