@@ -1,9 +1,9 @@
 
 import { WelcomeScene } from "./src/scenes/Welcome.js";
-import { Scene01 } from "./src/scenes/sceneOne.js";
-import { SceneFuturo } from "./src/scenes/sceneFuturo.js"
-import { SceneFuturo2 } from "./src/scenes/sceneFuturo2.js"
-import { Scene02 } from "./src/scenes/sceneTwo.js";
+import { SceneLabBranco01 } from "./src/scenes/SceneLabBranco01.js";
+import { SceneLabBranco02 } from "./src/scenes/sceneLabBranco02.js"
+import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js"
+import { SceneLabCristal } from "./src/scenes/SceneLabCristal.js";
 import { FaseUm } from "./src/scenes/FaseUm.js";
 import { FaseDois } from "./src/scenes/FaseDois.js"; 
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js"; 
@@ -29,8 +29,9 @@ const config = {
     },
 
 
-    scene: [WelcomeScene, Scene01, SceneFuturo, FaseUm, transicao1para2,Scene02, SceneFuturo2, FaseDois, ]
+    scene: [WelcomeScene, SceneLabBranco01, SceneLabBranco02, FaseUm, transicao1para2,SceneLabCristal, SceneRetornoLab, FaseDois, ]
     //scene: [FaseUm]
+    //scene: [SceneRetornoLab]
     
 
 };

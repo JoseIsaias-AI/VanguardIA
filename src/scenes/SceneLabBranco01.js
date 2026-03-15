@@ -1,23 +1,23 @@
-export class Scene01 extends Phaser.Scene {
+export class SceneLabBranco01 extends Phaser.Scene {
   constructor() {
-    super("Scene01"); // define o nome da cena
+    super("SceneLabBranco01"); // define o nome da cena
   }
 
   preload() {
-    this.load.image("labB", "assets/fases/sceneOne/labBranco.png");
-    this.load.image("camara", "assets/objetos/sceneOne/partOne/camara.png");
+    this.load.image("labB", "assets/fases/sceneLabBranco01/labBranco.png");
+    this.load.image("camara", "assets/objetos/sceneLabBranco01/partOne/camara.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.spritesheet("watson", "assets/personagens/watson.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.image("armario", "assets/objetos/sceneOne/partOne/armario.png");
-    this.load.image("alvo", "assets/objetos/sceneOne/partOne/alvo.png");
-    this.load.image("criogenia", "assets/objetos/sceneOne/partOne/criogenia.png");
-    this.load.image("mesa1", "assets/objetos/sceneOne/partOne/mesa1.png");
-    this.load.image("mesa2", "assets/objetos/sceneOne/partOne/mesa2.png");
-    this.load.image("mesa3", "assets/objetos/sceneOne/partOne/mesa3.png");
-    this.load.image("pia1", "assets/objetos/sceneOne/partOne/pia1.png");
-    this.load.image("reservasCrio", "assets/objetos/sceneOne/partOne/reservasCrio.png");
-    this.load.image("comptBaixo", "assets/objetos/sceneOne/partOne/comptBaixo.png");
-    this.load.image("comptCima", "assets/objetos/sceneOne/partOne/comptCima.png");
+    this.load.image("armario", "assets/objetos/sceneLabBranco01/partOne/armario.png");
+    this.load.image("alvo", "assets/objetos/sceneLabBranco01/partOne/alvo.png");
+    this.load.image("criogenia", "assets/objetos/sceneLabBranco01/partOne/criogenia.png");
+    this.load.image("mesa1", "assets/objetos/sceneLabBranco01/partOne/mesa1.png");
+    this.load.image("mesa2", "assets/objetos/sceneLabBranco01/partOne/mesa2.png");
+    this.load.image("mesa3", "assets/objetos/sceneLabBranco01/partOne/mesa3.png");
+    this.load.image("pia1", "assets/objetos/sceneLabBranco01/partOne/pia1.png");
+    this.load.image("reservasCrio", "assets/objetos/sceneLabBranco01/partOne/reservasCrio.png");
+    this.load.image("comptBaixo", "assets/objetos/sceneLabBranco01/partOne/comptBaixo.png");
+    this.load.image("comptCima", "assets/objetos/sceneLabBranco01/partOne/comptCima.png");
   }
 
   create() {
@@ -359,7 +359,7 @@ export class Scene01 extends Phaser.Scene {
 
     this.cameras.main.fadeOut(1000);
     this.cameras.main.once("camerafadeoutcomplete", () => {
-      this.scene.start("SceneFuturo");
+      this.scene.start("SceneLabBranco02");
     });
   }
 

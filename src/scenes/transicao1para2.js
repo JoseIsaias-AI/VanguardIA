@@ -4,20 +4,20 @@ export class LaboratorioScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image("labDestruido", "assets/fases/sceneOne/labDestruido.png");
+        this.load.image("labDestruido", "assets/fases/sceneLabBranco01/labDestruido.png");
         this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
-        this.load.image("armarioD", "assets/objetos/sceneOne/partTwo/armarioDestruido.png");
-        this.load.image("alvoD", "assets/objetos/sceneOne/partTwo/alvoDestruido.png");
-        this.load.image("mesa1D", "assets/objetos/sceneOne/partTwo/mesa1Destruida.png");
-        this.load.image("mesa2D", "assets/objetos/sceneOne/partTwo/mesa2Destruida.png");
-        this.load.image("mesa3D", "assets/objetos/sceneOne/partTwo/mesa3Destruida.png");
-        this.load.image("piaD", "assets/objetos/sceneOne/partTwo/piaDestruida.png");
-        this.load.image("reservasCrioD", "assets/objetos/sceneOne/partTwo/reservasCrioDestruidas.png");
-        this.load.image("comptCimaD", "assets/objetos/sceneOne/partTwo/comptCimaDestruido.png");
-        this.load.image("comptBaixoD", "assets/objetos/sceneOne/partTwo/comptBaixoDestruido.png");
-        this.load.image("criogeniaD", "assets/objetos/sceneOne/partTwo/criogeniaDestruida.png");
-        this.load.image("camara", "assets/objetos/sceneOne/partOne/camara.png");
+        this.load.image("armarioD", "assets/objetos/sceneLabBranco01/partTwo/armarioDestruido.png");
+        this.load.image("alvoD", "assets/objetos/sceneLabBranco01/partTwo/alvoDestruido.png");
+        this.load.image("mesa1D", "assets/objetos/sceneLabBranco01/partTwo/mesa1Destruida.png");
+        this.load.image("mesa2D", "assets/objetos/sceneLabBranco01/partTwo/mesa2Destruida.png");
+        this.load.image("mesa3D", "assets/objetos/sceneLabBranco01/partTwo/mesa3Destruida.png");
+        this.load.image("piaD", "assets/objetos/sceneLabBranco01/partTwo/piaDestruida.png");
+        this.load.image("reservasCrioD", "assets/objetos/sceneLabBranco01/partTwo/reservasCrioDestruidas.png");
+        this.load.image("comptCimaD", "assets/objetos/sceneLabBranco01/partTwo/comptCimaDestruido.png");
+        this.load.image("comptBaixoD", "assets/objetos/sceneLabBranco01/partTwo/comptBaixoDestruido.png");
+        this.load.image("criogeniaD", "assets/objetos/sceneLabBranco01/partTwo/criogeniaDestruida.png");
+        this.load.image("camara", "assets/objetos/sceneLabBranco01/partOne/camara.png");
     }
 
     create() {

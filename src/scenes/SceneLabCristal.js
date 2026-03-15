@@ -1,17 +1,17 @@
 // FASE 2 - A RESTAURAÇÃO 
 
-export class Scene02 extends Phaser.Scene {
+export class SceneLabCristal extends Phaser.Scene {
   constructor() {
-    super("Scene02");
+    super("SceneLabCristal");
   }
 
   preload() {
     // Carregando cenários (Noite e Restaurado)
     this.load.video("cutscene2", "assets/Cutscene/CutScene2.mp4");
-    this.load.image("cenarioNoite", "assets/fases/sceneTwo/labCristalEscuro.png"); // laboratório com cristal
-    this.load.image("objetosLabEsc", "assets/objetos/sceneTwo/objetosLabCristal1.png");
-    this.load.image("cenarioClaro", "assets/fases/sceneTwo/labCristalClaro.png"); // laboratório com cristal claro
-    this.load.image("objLabClaro", "assets/objetos/sceneTwo/objetosLabCristal2.png");
+    this.load.image("cenarioNoite", "assets/fases/sceneLabCristal/labCristalEscuro.png"); // laboratório com cristal
+    this.load.image("objetosLabEsc", "assets/objetos/sceneLabCristal/objetosLabCristal1.png");
+    this.load.image("cenarioClaro", "assets/fases/sceneLabCristal/labCristalClaro.png"); // laboratório com cristal claro
+    this.load.image("objLabClaro", "assets/objetos/sceneLabCristal/objetosLabCristal2.png");
     this.load.spritesheet("bauAnimado", "assets/objetos/bau.png", { frameWidth: 32, frameHeight: 32});
     this.load.spritesheet("cientistaLider","assets/personagens/watson.png", { frameWidth: 64, frameHeight: 64 });
   }

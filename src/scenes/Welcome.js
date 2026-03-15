@@ -25,7 +25,7 @@ export class WelcomeScene extends Phaser.Scene {
         });
 
         this.play.on( "pointerdown", () => {
-            this.scene.start("Scene01")
+            this.scene.start("SceneLabBranco01")
         })
     }
 
