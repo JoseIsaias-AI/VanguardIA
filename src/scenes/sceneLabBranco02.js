@@ -385,7 +385,7 @@ export class SceneLabBranco02 extends Phaser.Scene {
         "Sophia… você despertou.",
         "Estamos no ano de 2098. O mundo foi devastado pelo uso das IAs para poder e dominação. Eu ativei seu despertar seguindo a última ordem de Watson.",
         "Mas fui danificado… parte da minha memória está inacessível.",
-        "Para restaurar o laboratório e recuperar meu banco de dados, precisamos reativar o núcleo energético. Para isso, você deve encontrar um cristal de silício capaz de alimentar todo o sistema.",
+        "Para restaurar o laboratório e recuperar meu banco de dados, precisamos reativar o núcleo energético. Para isso, você deve encontrar um cristal azul capaz de alimentar todo o sistema.",
         "Como meu banco de dados está defeituoso, eu preciso que você me controle durante alguns obstáculos, e com os padrões, eu aprenderei a desviar dos obstáculos sozinho.",
       ];
       this.mostrarMensagem(this.dialogoAsimov[this.dialogoAsimovIndex]);
