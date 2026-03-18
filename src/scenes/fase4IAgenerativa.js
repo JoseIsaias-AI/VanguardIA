@@ -54,6 +54,16 @@ export class fase4 extends Phaser.Scene {
         this.barraFrame = 0;
         this.limpando = false;
         this.totalPixels = width * height;
+        this.cronometroIniciado = false;
+        this.tempoRestante = 120;
+        this.jogoParado = false;
+
+        this.textoTempo = this.add.text(20, height - 80, 'Tempo: 2:00', {
+            fontSize: '22px',
+            fill: '#ffffff',
+            stroke: '#000000',
+            strokeThickness: 4
+        }).setDepth(10);
 
         this.textoNitidez = this.add.text(20, height - 40, 'Nitidez: 0%', {
             fontSize: '22px',
@@ -67,6 +77,22 @@ export class fase4 extends Phaser.Scene {
 
         this.input.on('pointerdown', (pointer) => {
             this.limpando = true;
+            if (!this.cronometroIniciado) {
+                this.cronometroIniciado = true;
+                this.time.addEvent({
+                    delay: 1000,
+                    repeat: 119,
+                    callback: () => {
+                        this.tempoRestante--;
+                        const min = Math.floor(this.tempoRestante / 60);
+                        const seg = this.tempoRestante % 60;
+                        this.textoTempo.setText(`Tempo: ${min}:${seg.toString().padStart(2, '0')}`);
+                        if (this.tempoRestante <= 0) {
+                            this.mostrarMenu('Fim do tempo de treinamento.\nReinicie o tratamento desta imagem.');
+                        }
+                    }
+                });
+            }
             // determina qual camada apagar baseado no que JÁ foi apagado nesse ponto
             const x = Math.floor(pointer.x);
             const y = Math.floor(pointer.y);
@@ -107,12 +133,18 @@ export class fase4 extends Phaser.Scene {
     }
 
     update() {
+        if (this.jogoParado) return;
+
         if (this.limpando) {
             this.barraFrame = Math.min(66, this.barraFrame + 0.1);
         } else {
             this.barraFrame = Math.max(0, this.barraFrame - 0.1);
         }
         this.barra.setFrame(Math.floor(this.barraFrame));
+
+        if (Math.floor(this.barraFrame) >= 66) {
+            this.mostrarMenu('FALHA DE FABRICAÇÃO DO CRISTAL:\nO nível de ruído visual excedeu a tolerância desta etapa.\nInserir dados turvos comprometerá a generalização do\ntreinamento. A fabricação foi pausada.\nReinicie o tratamento desta imagem.');
+        }
 
         // conta pixels apagados no mapa2 (última camada)
         const dados = this.mapa2.getImageData(0, 0, this.mapa2.canvas.width, this.mapa2.canvas.height).data;
@@ -122,6 +154,32 @@ export class fase4 extends Phaser.Scene {
         }
         const pct = Math.floor((apagados / this.totalPixels) * 100);
         this.textoNitidez.setText(`Nitidez: ${pct}%`);
+    }
+
+    mostrarMenu(mensagem) {
+        if (this.jogoParado) return;
+        this.jogoParado = true;
+        this.limpando = false;
+
+        const { width, height } = this.sys.game.config;
+        const painelW = 800;
+        const painelH = 320;
+
+        this.input.off('pointermove');
+
+        const painel = this.add.rectangle(width / 2, height / 2, painelW, painelH, 0x8b7355).setDepth(20).setAlpha(0.92);
+        this.add.text(width / 2, height / 2, mensagem, {
+            fontSize: '28px',
+            fontStyle: 'bold',
+            fontFamily: "'Courier New', Courier, monospace",
+            fill: '#1a1a1a',
+            align: 'center',
+            wordWrap: { width: 760 }
+        }).setOrigin(0.5).setDepth(21);
+
+        this.input.once('pointerdown', () => {
+            this.scene.restart();
+        });
     }
 
     apagar(brush, x, y, brushSize) {
