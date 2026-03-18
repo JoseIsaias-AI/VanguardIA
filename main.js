@@ -31,8 +31,8 @@ const config = {
     },
 
 
-    //scene: [WelcomeScene, SceneLabBranco01, SceneLabBranco02, FaseUm, transicao1para2,SceneLabCristal, SceneRetornoLab, FaseDois, ]
-    scene: [fase4]
+    scene: [WelcomeScene, SceneLabBranco01, SceneLabBranco02, FaseUm, transicao1para2,SceneLabCristal, SceneRetornoLab, FaseDois, ]
+    //scene: [fase4]
     //scene: [SceneRetornoLab]
     
 
