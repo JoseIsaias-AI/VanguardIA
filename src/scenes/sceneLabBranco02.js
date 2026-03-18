@@ -84,7 +84,7 @@ export class SceneLabBranco02 extends Phaser.Scene {
     this.physics.add.existing(paredeDireita, true);
     this.paredes.add(paredeDireita);
 
-    // adicionando os objetos — sem setDepth fixo, será definido após criarColisao
+    // adicionando os objetos
     this.armarioD = this.add.image(220, 10, "armarioD").setScale(3.25);
     this.armarioD2 = this.add.image(980, 10, "armarioD").setScale(3.25);
     this.alvoD = this.add.image(215, 275, "alvoD").setScale(3);
@@ -124,8 +124,7 @@ export class SceneLabBranco02 extends Phaser.Scene {
     this.criarColisao(this.comutador4Dprt2);
     this.criarColisao(this.camara);
 
-    // FIX: depth sorting — usa apenas o Y de cada objeto como referência de profundidade
-    // Sistema simples: quem está mais abaixo na tela (Y maior) aparece na frente
+    // depth sorting por Y
     [
       this.armarioD, this.armarioD2,
       this.alvoD, this.alvoD2,
@@ -221,12 +220,12 @@ export class SceneLabBranco02 extends Phaser.Scene {
       repeat: -1,
     });
 
+    // Caixa de diálogo
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
     const larguraCaixa = 1000;
     const alturaCaixa = 180;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
-    // FIX: movida levemente para cima (80px de margem em vez de 40px)
     const yCaixa = alturaJogo - alturaCaixa - 80;
 
     this.caixaDialogo = this.add.graphics();
@@ -234,7 +233,6 @@ export class SceneLabBranco02 extends Phaser.Scene {
     this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
     this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
     this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    // FIX: depth 1000 garante que a caixa fique acima de absolutamente tudo na cena
     this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
 
     this.textoDialogo = this.add
@@ -246,8 +244,22 @@ export class SceneLabBranco02 extends Phaser.Scene {
         lineSpacing: 10,
       })
       .setScrollFactor(0)
-      // FIX: depth 1001 garante que o texto fique acima da caixa
-      .setDepth(1001);
+      .setDepth(1001)
+      .setVisible(false);
+
+    // Label do nome do falante — aparece acima da borda esquerda da caixa
+    this.labelNome = this.add
+      .text(xCaixa + 16, yCaixa - 28, "", {
+        fontSize: "20px",
+        fontFamily: "'Courier New', Courier, monospace",
+        color: "#00ffff",
+        fontStyle: "bold",
+        backgroundColor: "#1a1a1a",
+        padding: { left: 8, right: 8, top: 3, bottom: 3 },
+      })
+      .setScrollFactor(0)
+      .setDepth(1002)
+      .setVisible(false);
 
     if (!this.anims.exists("left")) {
       this.anims.create({
@@ -303,7 +315,7 @@ export class SceneLabBranco02 extends Phaser.Scene {
       return;
     }
 
-   //Aplicando a movimentação do personagem
+    // Aplicando a movimentação do personagem
     this.Principal.setVelocity(0);
 
     let velocidade = 150;
@@ -331,7 +343,7 @@ export class SceneLabBranco02 extends Phaser.Scene {
 
     if (!movimentacao) this.Principal.anims.stop();
 
-    //Aplicando o pulo
+    // Aplicando o pulo
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
       this.pulando = true;
       let yInicial = this.Principal.y;
@@ -344,14 +356,12 @@ export class SceneLabBranco02 extends Phaser.Scene {
         ease: "Sine.easeOut",
 
         onComplete: () => {
-        this.Principal.y = yInicial;
-        this.pulando = false;
-      }
-    });
+          this.Principal.y = yInicial;
+          this.pulando = false;
+        }
+      });
+    }
 
-  }
-
-  
     this.Principal.setDepth(this.Principal.y);
     this.asimov.setDepth(this.asimov.y);
 
@@ -388,16 +398,25 @@ export class SceneLabBranco02 extends Phaser.Scene {
         "Para restaurar o laboratório e recuperar meu banco de dados, precisamos reativar o núcleo energético. Para isso, você deve encontrar um cristal azul capaz de alimentar todo o sistema.",
         "Como meu banco de dados está defeituoso, eu preciso que você me controle durante alguns obstáculos, e com os padrões, eu aprenderei a desviar dos obstáculos sozinho.",
       ];
-      this.mostrarMensagem(this.dialogoAsimov[this.dialogoAsimovIndex]);
+      this.mostrarMensagem(this.dialogoAsimov[this.dialogoAsimovIndex], "Asimov");
     }
   }
 
-  mostrarMensagem(textoCompleto) {
+  // nome: string com o nome do falante (ex: "Sophia", "Asimov", "SISTEMA")
+  mostrarMensagem(textoCompleto, nome = "") {
     this.lendoMensagem = true;
     this.caixaDialogo.setVisible(true);
     this.textoDialogo.setVisible(true);
     this.textoDialogo.setText("");
     this.textoAtualArmazenado = textoCompleto;
+
+    // Atualiza e exibe o label do nome
+    if (nome && nome.trim() !== "") {
+      this.labelNome.setText(nome);
+      this.labelNome.setVisible(true);
+    } else {
+      this.labelNome.setVisible(false);
+    }
 
     let letraAtual = 0;
     if (this.timerEscrever) this.timerEscrever.remove();
@@ -423,11 +442,12 @@ export class SceneLabBranco02 extends Phaser.Scene {
     this.caixaDialogo.setVisible(false);
     this.textoDialogo.setVisible(false);
     this.textoDialogo.setText("");
+    this.labelNome.setVisible(false);
 
     if (this.falando_asimov) {
       this.dialogoAsimovIndex++;
       if (this.dialogoAsimovIndex < this.dialogoAsimov.length) {
-        this.mostrarMensagem(this.dialogoAsimov[this.dialogoAsimovIndex]);
+        this.mostrarMensagem(this.dialogoAsimov[this.dialogoAsimovIndex], "Asimov");
         return;
       }
       this.falando_asimov = false;
@@ -436,18 +456,18 @@ export class SceneLabBranco02 extends Phaser.Scene {
   }
 
   animacaoFinalAsimov() {
-  // toca a animação de andar para baixo
-  this.asimov.play("asimov_front", true);
+    // toca a animação de andar para baixo
+    this.asimov.play("asimov_front", true);
 
-  // move o Asimov para baixo
-  this.asimov.setVelocityY(50);
+    // move o Asimov para baixo
+    this.asimov.setVelocityY(50);
 
-  // depois de 5 segundos para e muda de fase
-  this.time.delayedCall(5000, () => {
-    this.asimov.setVelocity(0);
-    this.scene.start("FaseUm");
-  });
-}
+    // depois de 5 segundos para e muda de fase
+    this.time.delayedCall(5000, () => {
+      this.asimov.setVelocity(0);
+      this.scene.start("FaseUm");
+    });
+  }
 
   criarColisao(objeto, reduzirAltura = 1) {
     this.physics.add.existing(objeto, true);
