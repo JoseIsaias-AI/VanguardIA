@@ -161,7 +161,6 @@ export class SceneLabBranco01 extends Phaser.Scene {
     const larguraCaixa = 1000;
     const alturaCaixa = 180;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
-    // FIX: movida levemente para cima (80px de margem em vez de 40px)
     const yCaixa = alturaJogo - alturaCaixa - 140;
 
     this.caixaDialogo = this.add.graphics();
@@ -169,7 +168,6 @@ export class SceneLabBranco01 extends Phaser.Scene {
     this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
     this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
     this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    // FIX: depth 1000 garante que a caixa fique acima de absolutamente tudo na cena
     this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
 
     this.textoDialogo = this.add
@@ -181,9 +179,24 @@ export class SceneLabBranco01 extends Phaser.Scene {
         lineSpacing: 10,
       })
       .setScrollFactor(0)
-      // FIX: depth 1001 garante que o texto fique acima da caixa
-      .setDepth(1001);
-    //Aplicando os cursores de movimentação
+      .setDepth(1001)
+      .setVisible(false);
+
+    // Label do nome do falante — aparece acima da borda esquerda da caixa
+    this.labelNome = this.add
+      .text(xCaixa + 16, yCaixa - 28, "", {
+        fontSize: "20px",
+        fontFamily: "'Courier New', Courier, monospace",
+        color: "#00ffff",
+        fontStyle: "bold",
+        backgroundColor: "#1a1a1a",
+        padding: { left: 8, right: 8, top: 3, bottom: 3 },
+      })
+      .setScrollFactor(0)
+      .setDepth(1002)
+      .setVisible(false);
+
+    // Aplicando os cursores de movimentação
     this.cursors = this.input.keyboard.createCursorKeys();
     this.keys = this.input.keyboard.addKeys({
       W: Phaser.Input.Keyboard.KeyCodes.W,
@@ -191,14 +204,14 @@ export class SceneLabBranco01 extends Phaser.Scene {
       S: Phaser.Input.Keyboard.KeyCodes.S,
       D: Phaser.Input.Keyboard.KeyCodes.D
     });
-    //Aplicando os cursores de pulo
+    // Aplicando os cursores de pulo
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     this.pulando = false;
-    
-    //Aplicando o botão de interação
+
+    // Aplicando o botão de interação
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
-    //Aplicando as configurações da camera
+    // Aplicando as configurações da camera
     this.cameras.main.startFollow(this.Principal);
     this.cameras.main.setZoom(1.2);
 
@@ -247,8 +260,8 @@ export class SceneLabBranco01 extends Phaser.Scene {
 
     if (!movimentacao) this.Principal.anims.stop();
 
-    //Aqui, adicionamos o pulo do personagem
-     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
+    // Aqui, adicionamos o pulo do personagem
+    if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
       this.pulando = true;
       let yInicial = this.Principal.y;
 
@@ -260,13 +273,11 @@ export class SceneLabBranco01 extends Phaser.Scene {
         ease: "Sine.easeOut",
 
         onComplete: () => {
-        this.Principal.y = yInicial;
-        this.pulando = false;
-      }
-    });
-
-  }
-
+          this.Principal.y = yInicial;
+          this.pulando = false;
+        }
+      });
+    }
 
     // depth sorting: Y puro — mesmo sistema dos objetos estáticos
     this.Principal.setDepth(this.Principal.y);
@@ -297,7 +308,7 @@ export class SceneLabBranco01 extends Phaser.Scene {
     }
 
     if (this.podeInteragir && this.entrarNaCamara && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      this.mostrarMensagem("SISTEMA: Iniciando criogenia...");
+      this.mostrarMensagem("SISTEMA: Iniciando criogenia...", "SISTEMA");
     }
 
     if (this.podeInteragirWatson && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
@@ -310,16 +321,25 @@ export class SceneLabBranco01 extends Phaser.Scene {
         "E eu estou ficando velho. Quando eu não estiver mais aqui, vai ter que ser você, Sophia.",
         "Você é a única que pode proteger o que construímos. A única que pode salvar o mundo.",
       ];
-      this.mostrarMensagem(this.dialogoWatson[this.dialogoWatsonIndex]);
+      this.mostrarMensagem(this.dialogoWatson[this.dialogoWatsonIndex], "Watson");
     }
   }
 
-  mostrarMensagem(textoCompleto) {
+  // nome: string com o nome do falante (ex: "Sophia", "Watson", "SISTEMA")
+  mostrarMensagem(textoCompleto, nome = "") {
     this.lendoMensagem = true;
     this.caixaDialogo.setVisible(true);
     this.textoDialogo.setVisible(true);
     this.textoDialogo.setText("");
     this.textoAtualArmazenado = textoCompleto;
+
+    // Atualiza e exibe o label do nome
+    if (nome && nome.trim() !== "") {
+      this.labelNome.setText(nome);
+      this.labelNome.setVisible(true);
+    } else {
+      this.labelNome.setVisible(false);
+    }
 
     let letraAtual = 0;
     if (this.timerEscrever) this.timerEscrever.remove();
@@ -345,11 +365,12 @@ export class SceneLabBranco01 extends Phaser.Scene {
     this.caixaDialogo.setVisible(false);
     this.textoDialogo.setVisible(false);
     this.textoDialogo.setText("");
+    this.labelNome.setVisible(false);
 
     if (this.falando_watson) {
       this.dialogoWatsonIndex++;
       if (this.dialogoWatsonIndex < this.dialogoWatson.length) {
-        this.mostrarMensagem(this.dialogoWatson[this.dialogoWatsonIndex]);
+        this.mostrarMensagem(this.dialogoWatson[this.dialogoWatsonIndex], "Watson");
         return;
       }
       this.falando_watson = false;
