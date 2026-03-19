@@ -52,7 +52,7 @@ export class fase4 extends Phaser.Scene {
         this.mapa3 = criarMapa(width, height);
         this.mapa2 = criarMapa(width, height);
 
-        const tamBorracha = 180; //tamanho borracha
+        const tamBorracha = 220; //tamanho borracha
         const borracha = this.make.image({ key: 'esponja' }, false).setDisplaySize(tamBorracha, tamBorracha); //cria o objeto da borracha mas não mostra na tela, esse aqui é somente para realizar a funç
         this.esponja = this.add.image(-100, -100, 'esponja').setDisplaySize(tamBorracha, tamBorracha).setDepth(10); //mostra a imagem na tela
 

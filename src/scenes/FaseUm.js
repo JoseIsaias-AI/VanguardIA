@@ -40,7 +40,7 @@ export class FaseUm extends Phaser.Scene {
         this.cameraBalanco = 0;
         this.cameraBalancoAlvo = 0;
         
-        this.obstaculosJuntos = this.add.image(0, height / 2, "obstaculos").setScale(4.0).setOrigin(0, 0.5); //adiciona a imagem dos obstáculos e define onde eles estarão localizados
+        this.obstaculosJuntos = this.add.image(0, height / 2, "obstaculos").setScale(3.7).setOrigin(0, 0.5); //adiciona a imagem dos obstáculos e define onde eles estarão localizados
         this.bau = this.add.sprite(this.mapa.displayWidth - 100, height / 2 - 50, "bauAnimado", 0).setScale(1.5); //bau está localizado 100 pixels da esquerda do tamanho da imagem do fundo
         this.bauAberto = false; //fechado até que o jogador interaja com ele
 
@@ -62,7 +62,7 @@ export class FaseUm extends Phaser.Scene {
         } catch (e) {
             console.warn("Problema no sistema Canvas", e);
         }
-        this.obstaculosScale = 4.0;
+        this.obstaculosScale = 3.7;
         //==========================================================================
 
         this.barra = this.add.sprite(width / 2, 150, "barra").setScale(3).setScrollFactor(0).setDepth(50); //barra de progresso da fase
@@ -95,7 +95,7 @@ export class FaseUm extends Phaser.Scene {
         this.anims.create({ //da inicio aos frames da barra de progresso
             key: "barraProgresso",
             frames: this.anims.generateFrameNumbers("barra", {start: 0, end: 66}),
-            frameRate: 2.5,
+            frameRate: 1.9,
             repeat: 0
         })
 
@@ -138,6 +138,7 @@ export class FaseUm extends Phaser.Scene {
                 this.asimov.y = this.faixaY[this.faixaAtual]; //fixa o Asimov na faixa em que ele tem que andar já determinada pelo valor na lista
                 this.physics.world.gravity.y = gravidadeOriginal; //volta a zero
                 this.pulando = false; //acaba o movimento do pulo
+                this.ajustarFramerateBarra(false); //volta framerate da barra ao normal
             }
         } else { //pulo, abertura de baú e velocidades eixo X e Y
             this.physics.world.gravity.y = gravidadeOriginal;
@@ -159,6 +160,7 @@ export class FaseUm extends Phaser.Scene {
             if (Phaser.Input.Keyboard.JustDown(this.keySpace)) { //movimento de subida do pulo com o aperto do SPACE
                 this.pulando = true;
                 this.asimov.setVelocity(350, -280); //personagem movimenta 280px para frente e 280 para cima
+                this.ajustarFramerateBarra(true); //aumenta framerate da barra durante o pulo
             }
         }
         if (Phaser.Input.Keyboard.JustDown(this.teclaE) && this.pergaminhoAberto) { //assim que o jogador apertar a tecla E e o pergaminho está true é para mudar de cena
@@ -216,21 +218,31 @@ export class FaseUm extends Phaser.Scene {
             for (const [px, py] of pontos) {
                 const tipo = this.sobrepoeObstaculo(px, py);
                 // branco especial: sempre colide (mesmo no pulo)
-                if (tipo === 'branco') { //definido abaixo no código
+                /*if (tipo === 'branco') { //definido abaixo no código
                     this.baterObstaculos(this.asimov, this.obstaculosJuntos); //aciona função de sobreposição
                     break;
-                }
+                }*/
                 // cor específica #39197e (bloqueia também durante o pulo)
-                if (tipo === 'cinzaPulo' /*&& this.pulando*/) {
+                if (tipo === 'verdePulo' /*&& this.pulando*/) {
                     this.baterObstaculos(this.asimov, this.obstaculosJuntos);
                     break;
                 }
                 // outras áreas sólidas: só colidem se não estiver pulando
-                if (tipo === 'solido' && !this.pulando) {
+                if (tipo === 'marromPulo' && !this.pulando) {
                     this.baterObstaculos(this.asimov, this.obstaculosJuntos);
                     break;
                 }
             }
+        }
+    }
+
+    //ajusta o framerate da barra de progresso durante o pulo
+    ajustarFramerateBarra(pulando) {
+        if (!this.barra.anims.isPlaying) return;
+        if (pulando == true) {
+            this.barra.anims.msPerFrame = 1000 / 7.3; //esse msPerFrame autera o frameRate da animação da barra
+        } else {
+            this.barra.anims.msPerFrame = 1000 / 1.9;
         }
     }
 
@@ -252,15 +264,18 @@ export class FaseUm extends Phaser.Scene {
         const [r, g, b, a] = pixel; //recebe o array de cores do pixel
         if (a <= 80) return false; //se o pixel for transparente, não há colisão
 
-        // Cor especial #39197e: bloqueia também durante o pulo
-        const corPulo =
-            Math.abs(r - 43) < 5 &&
-            Math.abs(g - 43) < 5 &&
-            Math.abs(b - 43) < 5;
-        if (corPulo) return 'cinzaPulo';
+        // Cor especial #27c3a7: bloqueia também durante o pulo
+        const corPuloPedra =
+            Math.abs(r - 39) < 5 &&
+            Math.abs(g - 195) < 5 &&
+            Math.abs(b - 167) < 5;
+        if (corPuloPedra) return 'verdePulo';
 
-        // Qualquer tipo de cinza/área visível diferente de branco especial conta como sólido
-        return 'solido';
+        const corPuloArmario =
+            Math.abs(r - 83) < 5 &&
+            Math.abs(g - 53) < 5 &&
+            Math.abs(b - 19) < 5;
+        if (corPuloArmario) return 'marromPulo';
     }
 
     //o que acontece quando bater no obstaculo, fenômeno não físico
