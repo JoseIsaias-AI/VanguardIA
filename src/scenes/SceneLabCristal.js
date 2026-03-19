@@ -50,7 +50,7 @@ create() {
     }
 
     // Baú
-    this.bauAnimado = this.add.sprite(520, 160, "bauAnimado").setScale(2.3);
+    this.bauAnimado = this.add.sprite(520, 160, "bauAnimado").setScale(0.8);
     // Garantindo que as anims existam caso Fase 1 não tenha carregado antes
     if (!this.anims.exists("fechado")) {
       this.anims.create({

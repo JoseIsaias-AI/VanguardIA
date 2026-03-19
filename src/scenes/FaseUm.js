@@ -387,7 +387,7 @@ export class FaseUm extends Phaser.Scene {
             video.play();
             
             video.on('complete', () => {
-                this.scene.start('LaboratorioScene');
+                this.scene.start('transicao1para2');
             });
         });
     }
