@@ -7,7 +7,7 @@ import { SceneLabCristal } from "./src/scenes/SceneLabCristal.js";
 import { FaseUm } from "./src/scenes/FaseUm.js";
 import { FaseDois } from "./src/scenes/FaseDois.js"; 
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js"; 
-import { LaboratorioScene as transicao1para2 } from "./src/scenes/transicao1para2.js";
+import { transicao1para2 } from "./src/scenes/transicao1para2.js";
 import { fase4 } from "./src/scenes/fase4IAgenerativa.js"; 
 
 
@@ -31,9 +31,9 @@ const config = {
     },
 
 
-    scene: [WelcomeScene, SceneLabBranco01, SceneLabBranco02, FaseUm, transicao1para2,SceneLabCristal, SceneRetornoLab, FaseDois, ]
-    //scene: [fase4]
-    //scene: [SceneRetornoLab]
+    scene: [WelcomeScene, SceneLabBranco01, SceneLabBranco02, FaseUm, transicao1para2, FaseDois]
+    //scene: [fase4]                                                  //transico
+    //scene: [FaseDois]
     
 
 };

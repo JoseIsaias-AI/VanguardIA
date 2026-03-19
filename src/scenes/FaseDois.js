@@ -6,7 +6,7 @@ export class FaseDois extends Phaser.Scene {
 
   preload() {
 //Aqui, carregamos todos os arquivos que vamos usar
-    this.load.image ("fundo", "assets/Fases/FaseDois/salaPortas.png");
+    this.load.image ("portas", "assets/Fases/FaseDois/salaPortas.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", {
       frameWidth: 64,
       frameHeight: 64
@@ -16,7 +16,7 @@ export class FaseDois extends Phaser.Scene {
 
   create() {
     //Aqui, criamos o mapa de fundo
-    this.fundo = this.add.image(0, 0, "fundo").setOrigin(0,0).setScale(3);
+    this.fundo = this.add.image(0, 0, "portas").setOrigin(0,0).setScale(3);
     let larguraMapa = this.fundo.width * 3;
     let alturaMapa = this.fundo.height * 3;
 
