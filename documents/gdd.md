@@ -137,6 +137,15 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 
 *Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração*
 
+O principal objetivo do projeto é desenvolver um jogo educativo gamificado que ensine conceitos introdutórios de Inteligência Artificial de forma simples, interativa e acessível, especialmente para jovens que ainda não têm familiaridade com a área. A ideia é transformar um conteúdo que normalmente é visto como difícil e muito teórico em uma experiência prática, envolvente e mais fácil de entender. A partir desse objetivo, foram definidas metas seguindo o modelo SMART, que ajudam a guiar o desenvolvimento do projeto e permitem avaliar se a solução realmente cumpre o que se propõe.
+
+Uma das metas é fazer com que o jogador consiga compreender, ao longo da experiência, conceitos básicos de IA, como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning, por meio dos desafios e mecânicas do próprio jogo, onde o aprendizado é aplicado na prática. O indicador utilizado para isso é o desempenho do jogador nas atividades e minigames, observando se ele consegue avançar e resolver os desafios corretamente. Outra meta importante é reduzir a evasão, comum em cursos tradicionais, incentivando o jogador a continuar progredindo pelas fases por meio da narrativa e da gamificação; nesse caso, o indicador é a progressão dentro do jogo e a continuidade do usuário nas etapas.
+
+Também foi definida uma meta relacionada à experiência do usuário, buscando garantir que o jogo seja intuitivo, claro e interessante. Para avaliar isso, são considerados os feedbacks coletados durante os testes, analisando aspectos como jogabilidade, nível de dificuldade e diversão. Além disso, o projeto busca ser acessível, permitindo que o jogo funcione diretamente no navegador, sem necessidade de instalação ou alto desempenho do dispositivo, sendo o indicador o funcionamento em diferentes navegadores e a facilidade de acesso relatada pelos usuários. Por fim, o jogo também tem como meta despertar o interesse pela área de Inteligência Artificial, incentivando o usuário a continuar aprendendo após a experiência, inclusive em plataformas como o IBM SkillsBuild, sendo esse interesse identificado por meio dos feedbacks e comportamento dos jogadores.
+
+Dessa forma, os objetivos, metas e indicadores garantem que o projeto vá além de uma proposta teórica, permitindo avaliar na prática seu impacto no aprendizado, no engajamento e no interesse dos usuários pela área de Inteligência Artificial.
+
+
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
 
