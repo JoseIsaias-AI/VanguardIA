@@ -1,3 +1,5 @@
+import { registrarTeclaMenu } from '../menu.js';
+
 export class SceneRetornoLab extends Phaser.Scene {
   constructor() {
     super("SceneRetornoLab");
@@ -19,6 +21,8 @@ export class SceneRetornoLab extends Phaser.Scene {
   }
 
   create() {
+    registrarTeclaMenu(this);
+
     this.scaleMapa = 3;
 
     const { width, height } = this.sys.game.config;

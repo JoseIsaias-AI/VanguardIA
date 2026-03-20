@@ -1,4 +1,5 @@
 // FASE 2 - A RESTAURAÇÃO 
+import { registrarTeclaMenu } from '../menu.js';
 
 export class SceneLabCristal extends Phaser.Scene {
   constructor() {
@@ -19,6 +20,7 @@ export class SceneLabCristal extends Phaser.Scene {
 
 
 create() {
+    registrarTeclaMenu(this);
 
 
     this.lendoMensagem = false;

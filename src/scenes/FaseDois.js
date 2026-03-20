@@ -1,3 +1,5 @@
+import { registrarTeclaMenu } from '../menu.js';
+
 export class FaseDois extends Phaser.Scene {
 
   constructor() {
@@ -13,6 +15,8 @@ export class FaseDois extends Phaser.Scene {
   }
 
   create() {
+    registrarTeclaMenu(this);
+
     //Aqui, criamos o mapa de fundo
     this.fundo = this.add.image(0, 0, "portas").setOrigin(0,0).setScale(3);
     let larguraMapa = this.fundo.width * 3;

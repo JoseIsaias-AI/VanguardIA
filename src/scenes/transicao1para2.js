@@ -6,6 +6,7 @@
 // - Não há exploração livre: o jogador apenas assiste à cutscene.
 // - A tecla E (ou clique na tela) avança o diálogo.
 // =============================================================================
+import { registrarTeclaMenu } from '../menu.js';
 
 export class transicao1para2 extends Phaser.Scene {
     constructor() {
@@ -43,6 +44,8 @@ export class transicao1para2 extends Phaser.Scene {
     // CREATE: monta o cenário visual completo e inicia a cutscene
     // -------------------------------------------------------------------------
     create() {
+        registrarTeclaMenu(this);
+
         const w = this.scale.width;
         const h = this.scale.height;
 

@@ -2,6 +2,8 @@
 //O jogador tem um tempo limitado para terminar essa fase
 //O jogador precisa de uma nitide alta para passar de fase
 
+import { registrarTeclaMenu } from '../menu.js';
+
 export class fase4 extends Phaser.Scene {
     constructor () {
         super("fase4");
@@ -19,6 +21,8 @@ export class fase4 extends Phaser.Scene {
 
     //carrega todas as imagens e sprites
     create() {
+        registrarTeclaMenu(this);
+
         const { width, height } = this.sys.game.config; //a altura e o comprimento recebem valores definidos no sistema
         //altura - heigh
         //largura - width

@@ -1,3 +1,5 @@
+import { registrarTeclaMenu } from '../menu.js';
+
 export class FaseUm extends Phaser.Scene {
     constructor () {
         super("FaseUm");
@@ -17,6 +19,8 @@ export class FaseUm extends Phaser.Scene {
     }
 
     create () {
+        registrarTeclaMenu(this);
+
         //variáveis ao longo do código vão sendo explicados
         this.progressoHistoria = 0;
         this.lendoMensagem = false;
@@ -89,6 +93,7 @@ export class FaseUm extends Phaser.Scene {
       S: Phaser.Input.Keyboard.KeyCodes.S,
     });
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+        registrarTeclaMenu(this);
         this.keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 

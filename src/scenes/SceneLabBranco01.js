@@ -1,3 +1,5 @@
+import { registrarTeclaMenu } from '../menu.js';
+
 export class SceneLabBranco01 extends Phaser.Scene {
   constructor() {
     super("SceneLabBranco01"); // define o nome da cena
@@ -21,6 +23,8 @@ export class SceneLabBranco01 extends Phaser.Scene {
   }
 
   create() {
+    registrarTeclaMenu(this);
+
     this.entrarNaCamara = false;
     this.lendoMensagem = false;
     this.podeInteragir = false;

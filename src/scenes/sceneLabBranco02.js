@@ -1,3 +1,5 @@
+import { registrarTeclaMenu } from '../menu.js';
+
 export class SceneLabBranco02 extends Phaser.Scene {
   constructor() {
     super("SceneLabBranco02");
@@ -35,6 +37,7 @@ export class SceneLabBranco02 extends Phaser.Scene {
   }
 
   create() {
+    registrarTeclaMenu(this);
     this.videoDaFase();
   }
 
