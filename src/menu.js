@@ -1,6 +1,7 @@
 export function registrarTeclaMenu(cena) {
     cena.input.keyboard.on('keydown-M', () => {
         if (cena.scene.isActive('menu')) return;
+        //
         cena.scene.pause();
         cena.scene.launch('menu', { origem: cena.scene.key });
     });
