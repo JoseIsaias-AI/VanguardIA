@@ -5,6 +5,7 @@ export class SceneRetornoLab extends Phaser.Scene {
     super("SceneRetornoLab");
   }
 
+
   preload() {
     this.load.image("CFuturo", "../assets/Fases/sceneLabBranco01/labDestruido.png");
     this.load.image("armarioD", "assets/objetos/sceneLabBranco01/partTwo/armarioDestruido.png");

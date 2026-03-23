@@ -222,6 +222,7 @@ this.pulando = false;
     else if ((this.cursors.down.isDown || this.keys.S.isDown) && !this.colidiuComVerde(this.cientistaLider.x, this.cientistaLider.y + velocidade)) { this.cientistaLider.y += velocidade; this.cientistaLider.anims.play("cient_front", true); movimentacao = true; }
     if (!movimentacao) this.cientistaLider.anims.stop();
 
+    
     //Aqui, adicionamos o pulo do personagem
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
 
@@ -231,7 +232,7 @@ this.pulando = false;
   this.tweens.add({
     targets: this.cientistaLider,
     y: yInicial - 40,   // altura do pulo
-    duration: 150,
+    duration: 300,
     yoyo: true,
     ease: "Sine.easeOut",
 

@@ -170,7 +170,7 @@ this.physics.add.collider(this.player, this.walls);
      this.tweens.add({
       targets: this.player,
       y: yInicial - 40,
-      duration: 180,
+      duration: 300,
       yoyo: true,
       ease: "Sine.easeOut",
 
