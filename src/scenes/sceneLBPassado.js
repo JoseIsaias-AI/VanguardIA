@@ -436,7 +436,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.textoAviso.setVisible(true);
 
     // Faz o aviso sumir depois de 3 segundos
-    this.time.delayedCall(1500, () => {
+    this.time.delayedCall(3000, () => {
       this.retanguloAviso.setVisible(false);
       this.textoAviso.setVisible(false);
     });
