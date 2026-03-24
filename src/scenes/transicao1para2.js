@@ -20,24 +20,24 @@ export class transicao1para2 extends Phaser.Scene {
     // -------------------------------------------------------------------------
     preload() {
         // Mapa de fundo
-        this.load.image("labDestruido", "assets/fases/sceneLabBranco01/labDestruido.png");
+        this.load.image("labDestruido", "assets/fases/sceneLBPassado/labDestruido.png");
 
         // Spritesheets dos personagens
         this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
 
         // Objetos decorativos do cenário (mesmos do original, mas sem física/interação)
-        this.load.image("armarioD",      "assets/objetos/sceneLabBranco01/partTwo/armarioDestruido.png");
-        this.load.image("alvoD",         "assets/objetos/sceneLabBranco01/partTwo/alvoDestruido.png");
-        this.load.image("mesa1D",        "assets/objetos/sceneLabBranco01/partTwo/mesa1Destruida.png");
-        this.load.image("mesa2D",        "assets/objetos/sceneLabBranco01/partTwo/mesa2Destruida.png");
-        this.load.image("mesa3D",        "assets/objetos/sceneLabBranco01/partTwo/mesa3Destruida.png");
-        this.load.image("piaD",          "assets/objetos/sceneLabBranco01/partTwo/piaDestruida.png");
-        this.load.image("reservasCrioD", "assets/objetos/sceneLabBranco01/partTwo/reservasCrioDestruidas.png");
-        this.load.image("comptCimaD",    "assets/objetos/sceneLabBranco01/partTwo/comptCimaDestruido.png");
-        this.load.image("comptBaixoD",   "assets/objetos/sceneLabBranco01/partTwo/comptBaixoDestruido.png");
-        this.load.image("criogeniaD",    "assets/objetos/sceneLabBranco01/partTwo/criogeniaDestruida.png");
-        this.load.image("camara",        "assets/objetos/sceneLabBranco01/partOne/camara.png");
+        this.load.image("armarioD",      "assets/objetos/sceneLBPassado/partTwo/armarioDestruido.png");
+        this.load.image("alvoD",         "assets/objetos/sceneLBPassado/partTwo/alvoDestruido.png");
+        this.load.image("mesa1D",        "assets/objetos/sceneLBPassado/partTwo/mesa1Destruida.png");
+        this.load.image("mesa2D",        "assets/objetos/sceneLBPassado/partTwo/mesa2Destruida.png");
+        this.load.image("mesa3D",        "assets/objetos/sceneLBPassado/partTwo/mesa3Destruida.png");
+        this.load.image("piaD",          "assets/objetos/sceneLBPassado/partTwo/piaDestruida.png");
+        this.load.image("reservasCrioD", "assets/objetos/sceneLBPassado/partTwo/reservasCrioDestruidas.png");
+        this.load.image("comptCimaD",    "assets/objetos/sceneLBPassado/partTwo/comptCimaDestruido.png");
+        this.load.image("comptBaixoD",   "assets/objetos/sceneLBPassado/partTwo/comptBaixoDestruido.png");
+        this.load.image("criogeniaD",    "assets/objetos/sceneLBPassado/partTwo/criogeniaDestruida.png");
+        this.load.image("camara",        "assets/objetos/sceneLBPassado/partOne/camara.png");
     }
 
     // -------------------------------------------------------------------------
@@ -373,7 +373,7 @@ export class transicao1para2 extends Phaser.Scene {
             this.anims.create({ key: "asimov-idle-right", frames: [{ key: "asimov", frame: 28 }], frameRate: 1 });
             this.anims.create({ key: "asimov-idle-left",  frames: [{ key: "asimov", frame: 21 }], frameRate: 1 });
         }
-    }
+    } 
 
     playAnimIfNeeded(sprite, key) {
         if (!sprite.anims.currentAnim || sprite.anims.currentAnim.key !== key) {

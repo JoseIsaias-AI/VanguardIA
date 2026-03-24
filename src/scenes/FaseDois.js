@@ -1,15 +1,15 @@
 import { registrarTeclaMenu } from '../menu.js';
 
-export class FaseDois extends Phaser.Scene {
+export class faseDois extends Phaser.Scene {
 
   constructor() {
-    super("FaseDois");
+    super("faseDois");
   }
 
   preload() {
 //Aqui, carregamos todos os arquivos que vamos usar
-    this.load.image ("portas", "assets/Fases/FaseDois/salaPortas.png");
-    this.load.image("RedeNeural", "assets/Fases/FaseDois/RedesNeurais.png")
+    this.load.image ("portas", "assets/Fases/faseDois/salaPortas.png");
+    this.load.image("RedeNeural", "assets/Fases/faseDois/RedesNeurais.png")
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64});
 
   }

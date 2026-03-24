@@ -48,7 +48,7 @@ export class menu extends Phaser.Scene {
         this.scene.stop();
         if (irParaWelcome) {
             if (origem) this.scene.stop(origem);
-            this.scene.start('WelcomeScene');
+            this.scene.start('welcomeScene');
         } else {
             if (origem) this.scene.resume(origem);
         }

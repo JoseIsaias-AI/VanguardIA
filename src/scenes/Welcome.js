@@ -1,10 +1,10 @@
-export class WelcomeScene extends Phaser.Scene {
+export class welcomeScene extends Phaser.Scene {
 
     alturaJogo = 1080;
     larguraJogo = 1920;
 
     constructor() {
-        super("WelcomeScene");
+        super("welcomeScene");
     }
 
     preload () {
@@ -25,7 +25,7 @@ export class WelcomeScene extends Phaser.Scene {
         });
 
         this.play.on( "pointerdown", () => {
-            this.scene.start("SceneLabBranco01")
+            this.scene.start("sceneLBPassado")
         })
     }
 
