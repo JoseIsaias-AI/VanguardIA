@@ -4,12 +4,13 @@ import { sceneLBPassado } from "./src/scenes/sceneLBPassado.js";
 import { sceneLBFuturo } from "./src/scenes/sceneLBFuturo.js"
 import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js"
 import { SceneLabCristal } from "./src/scenes/SceneLabCristal.js";
-import { faseUm } from "./src/scenes/faseUm.js";
+import { faseUm } from "./src/scenes/FaseUm.js";
 import { faseDois } from "./src/scenes/faseDois.js"; 
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js"; 
 import { transicao1para2 } from "./src/scenes/transicao1para2.js";
 import { faseQuatro } from "./src/scenes/faseQuatro.js"; 
 import { menu } from "./src/menu.js"; 
+
 
 
 const config = {
