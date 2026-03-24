@@ -285,6 +285,9 @@ export class SceneLabBranco01 extends Phaser.Scene {
         this.Principal.anims.stop();
     }
 
+    // Aqui,corrigimos a velocidade diagonal do personagem (Para ela não andar mais rápido na diagonal)
+    this.Principal.body.velocity.normalize().scale(velocidade);
+
     // Aqui, adicionamos o pulo do personagem
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
       this.pulando = true;
@@ -293,7 +296,7 @@ export class SceneLabBranco01 extends Phaser.Scene {
       this.tweens.add({
         targets: this.Principal,
         y: yInicial - 40,
-        duration: 180,
+        duration: 300,
         yoyo: true,
         ease: "Sine.easeOut",
 
