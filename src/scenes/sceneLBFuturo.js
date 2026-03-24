@@ -38,6 +38,17 @@ export class sceneLBFuturo extends Phaser.Scene {
 
   create() {
     registrarTeclaMenu(this);
+
+    // Silencia o bgMusic nesta cena, mas não para permanentemente para não quebrar o retorno.
+    const bgMusic = this.sound.get('bgMusic');
+    if (bgMusic) {
+      bgMusic.setMute(true);
+      this.events.once('shutdown', () => {
+        // ao sair desta cena, desmute para restaurar música nas próximas cenas.
+        bgMusic.setMute(false);
+      });
+    }
+
     this.videoDaFase();
   }
 
@@ -45,10 +56,16 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.cutscene = this.add.video(950, 550, "cutscene2");
     this.cutscene.setScale(1.05);
     this.cutscene.setDepth(999);
-    this.cutscene.setMute(true);
+    this.cutscene.setMute(false);
     this.cutscene.play();
 
     this.cutscene.once("complete", () => {
+      // Quando o vídeo terminar, restaura o som de fundo (bgMusic) para tocar novamente.
+      const bgMusic = this.sound.get('bgMusic');
+      if (bgMusic) {
+        bgMusic.setMute(false);
+      }
+
       this.cutscene.destroy();
       this.iniciarFase();
     });

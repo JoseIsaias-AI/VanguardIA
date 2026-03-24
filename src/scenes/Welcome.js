@@ -13,6 +13,7 @@ export class welcomeScene extends Phaser.Scene {
     }
 
     create () {
+        
         this.add.image(this.larguraJogo/2, this.alturaJogo/2, "cenario").setScale(1.5);
         this.play = this.add.image(this.larguraJogo/2, 610, "play").setScale(0.30).setInteractive();
 
@@ -27,6 +28,9 @@ export class welcomeScene extends Phaser.Scene {
         this.play.on( "pointerdown", () => {
             this.scene.start("sceneLBPassado")
         })
+
+        // Inicia a cena de música de fundo (bgMusic) que toca em loop para todo o jogo.
+        this.scene.launch("bgMusic");
     }
 
     update (){

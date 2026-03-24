@@ -46,6 +46,9 @@ export class transicao1para2 extends Phaser.Scene {
     create() {
         registrarTeclaMenu(this);
 
+        // Inicia a cena de música de fundo (bgMusic) para manter a trilha sonora ativa durante a transição.
+        this.scene.launch("bgMusic");
+
         const w = this.scale.width;
         const h = this.scale.height;
 
