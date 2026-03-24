@@ -114,6 +114,8 @@ export class SceneLabBranco01 extends Phaser.Scene {
     this.Principal.body.setAllowGravity(false);
     this.Principal.setSize(30, 25);
     this.Principal.setOffset(15, 30);
+
+
     this.physics.add.collider(this.Principal, this.camara);
     this.physics.add.collider(this.Principal, this.paredes);
     this.physics.add.collider(this.Principal, this.objetosColisao);
@@ -237,32 +239,51 @@ export class SceneLabBranco01 extends Phaser.Scene {
       return;
     }
 
-    this.Principal.setVelocity(0, 0);
-
-    let velocidade = 150;
+    let atrito = 0.9; //atrito entre o personagem e o chão - o percentual do quanto isso vai diminuir a velocidade do personagem
+    let velocidadeImpulso = 30; //o quanto a velocidade aumenta por frame
+    let velocidadeMax = 150; //limite para o personagem não acelerar infinitamente
     let movimentacao = false;
 
+    //a cada frame, a velocidade vai estar percentualmente menor, até o personagem parar
+    this.Principal.body.velocity.x *= atrito;
+    this.Principal.body.velocity.y *= atrito;
+
     if (this.cursors.left.isDown || this.keys.A.isDown) {
-      this.Principal.setVelocityX(-velocidade);
-      this.Principal.anims.play("left", true);
+      this.Principal.body.velocity.x -= velocidadeImpulso;
+      this.Principal.anims.play("left", true); //iniciar animação
       movimentacao = true;
-    } else if (this.cursors.right.isDown || this.keys.D.isDown) {
-      this.Principal.setVelocityX(+velocidade);
+    } 
+    
+    else if (this.cursors.right.isDown || this.keys.D.isDown) {
+      this.Principal.body.velocity.x += velocidadeImpulso;
       this.Principal.anims.play("right", true);
       movimentacao = true;
     }
 
     if (this.cursors.up.isDown || this.keys.W.isDown) {
-      this.Principal.setVelocityY(-velocidade);
+      this.Principal.body.velocity.y -= velocidadeImpulso;
+
       if (!movimentacao) this.Principal.anims.play("back", true);
       movimentacao = true;
-    } else if (this.cursors.down.isDown || this.keys.S.isDown) {
-      this.Principal.setVelocityY(+velocidade);
+    } 
+    
+    else if (this.cursors.down.isDown || this.keys.S.isDown) {
+      this.Principal.body.velocity.y += velocidadeImpulso;
+
       if (!movimentacao) this.Principal.anims.play("front", true);
       movimentacao = true;
     }
 
-    if (!movimentacao) this.Principal.anims.stop();
+    //a função utilizada estabelece limites de velocidade ao personagem
+    this.Principal.body.velocity.x = Phaser.Math.Clamp(this.Principal.body.velocity.x, -velocidadeMax, velocidadeMax);
+    this.Principal.body.velocity.y = Phaser.Math.Clamp(this.Principal.body.velocity.y, -velocidadeMax, velocidadeMax);
+
+    //se o jogador não estiver abertando nenhum botão e a velocidade estiver bem baixa, o personagem para
+    if (!movimentacao && Math.abs(this.Principal.body.velocity.x) < 5 && Math.abs(this.Principal.body.velocity.y) < 5) {
+        this.Principal.body.velocity.x = 0;
+        this.Principal.body.velocity.y = 0;
+        this.Principal.anims.stop();
+    }
 
     // Aqui, adicionamos o pulo do personagem
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
