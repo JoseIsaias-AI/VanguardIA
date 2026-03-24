@@ -278,6 +278,10 @@ export class SceneLabBranco01 extends Phaser.Scene {
     this.Principal.body.velocity.x = Phaser.Math.Clamp(this.Principal.body.velocity.x, -velocidadeMax, velocidadeMax);
     this.Principal.body.velocity.y = Phaser.Math.Clamp(this.Principal.body.velocity.y, -velocidadeMax, velocidadeMax);
 
+
+    // Aqui,corrigimos a velocidade diagonal do personagem (Para ela não andar mais rápido na diagonal)
+    //this.Principal.body.velocity.normalize().scale(velocidadeMax);
+
     //se o jogador não estiver abertando nenhum botão e a velocidade estiver bem baixa, o personagem para
     if (!movimentacao && Math.abs(this.Principal.body.velocity.x) < 5 && Math.abs(this.Principal.body.velocity.y) < 5) {
         this.Principal.body.velocity.x = 0;
@@ -285,8 +289,7 @@ export class SceneLabBranco01 extends Phaser.Scene {
         this.Principal.anims.stop();
     }
 
-    // Aqui,corrigimos a velocidade diagonal do personagem (Para ela não andar mais rápido na diagonal)
-    this.Principal.body.velocity.normalize().scale(velocidade);
+    
 
     // Aqui, adicionamos o pulo do personagem
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
