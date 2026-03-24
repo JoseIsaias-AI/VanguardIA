@@ -115,7 +115,6 @@ export class sceneLBPassado extends Phaser.Scene {
     this.Principal.setSize(30, 25);
     this.Principal.setOffset(15, 30);
 
-
     this.physics.add.collider(this.Principal, this.camara);
     this.physics.add.collider(this.Principal, this.paredes);
     this.physics.add.collider(this.Principal, this.objetosColisao);
@@ -168,7 +167,7 @@ export class sceneLBPassado extends Phaser.Scene {
     const alturaCaixa = 180;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
     const yCaixa = alturaJogo - alturaCaixa - 140;
-
+    
     this.caixaDialogo = this.add.graphics();
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
     this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
@@ -187,6 +186,22 @@ export class sceneLBPassado extends Phaser.Scene {
       .setScrollFactor(0)
       .setDepth(1001)
       .setVisible(false);
+
+    this.retanguloAviso = this.add.graphics();
+    this.retanguloAviso.fillStyle(0x000000, 0.8); // Preto com 80% de opacidade
+    this.retanguloAviso.fillRect(700, 900, 500, 30, 15); 
+    this.retanguloAviso.setScrollFactor(0).setDepth(2000); // Fica fixo na tela e acima de tudo
+
+    // Criando a Frase
+    this.textoAviso = this.add.text(950, 910, "SISTEMA ATUALIZADO", {
+        fontSize: '18px',
+        fill: '#ffffff',
+        fontStyle: 'bold'
+    }).setOrigin(0.5).setScrollFactor(0).setDepth(2001);
+
+    // Começam invisíveis
+    this.retanguloAviso.setVisible(false);
+    this.textoAviso.setVisible(false);
 
     // Label do nome do falante — aparece acima da borda esquerda da caixa
     this.labelNome = this.add
@@ -227,6 +242,8 @@ export class sceneLBPassado extends Phaser.Scene {
       this.anims.create({ key: "front", frames: this.anims.generateFrameNumbers("sophia", { start: 0, end: 7 }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "back", frames: this.anims.generateFrameNumbers("sophia", { start: 8, end: 15 }), frameRate: 10, repeat: -1 });
     }
+
+    this.exibirAviso("Pressione a tecla M para acessar o menu.");
   }
 
   update() {
@@ -288,8 +305,6 @@ export class sceneLBPassado extends Phaser.Scene {
         this.Principal.body.velocity.y = 0;
         this.Principal.anims.stop();
     }
-
-    
 
     // Aqui, adicionamos o pulo do personagem
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
@@ -412,6 +427,18 @@ export class sceneLBPassado extends Phaser.Scene {
     this.cameras.main.fadeOut(1000);
     this.cameras.main.once("camerafadeoutcomplete", () => {
       this.scene.start("sceneLBFuturo");
+    });
+  }
+
+  exibirAviso(frase) {
+    this.textoAviso.setText(frase);
+    this.retanguloAviso.setVisible(true);
+    this.textoAviso.setVisible(true);
+
+    // Faz o aviso sumir depois de 3 segundos
+    this.time.delayedCall(1500, () => {
+      this.retanguloAviso.setVisible(false);
+      this.textoAviso.setVisible(false);
     });
   }
 
