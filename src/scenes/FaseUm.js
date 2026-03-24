@@ -1,21 +1,21 @@
 import { registrarTeclaMenu } from '../menu.js';
 
-export class FaseUm extends Phaser.Scene {
+export class faseUm extends Phaser.Scene {
     constructor () {
-        super("FaseUm");
+        super("faseUm");
     }
 
     preload () {
         //carregamento das imagens e sprites usados durante a fase1
-        this.load.image('fundo', '../assets/fases/faseUm/fundoFaseUm.png');
+        this.load.image('fundo', '../assets/fases/faseUm/fundofaseUm.png');
         this.load.spritesheet('asimov', '../assets/personagens/asimov.png', { frameWidth: 32, frameHeight: 32 });
         //this.load.image('pedra', '../assets/objetos/faseUm/obstaculosPedra.png');
-        this.load.image( 'obstaculos', '../assets/Objetos/faseUm/obstaculosFaseUm.png')
+        this.load.image( 'obstaculos', '../assets/Objetos/faseUm/obstaculosfaseUm.png')
         this.load.spritesheet('barra', '../assets/objetos/faseUm/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
         this.load.spritesheet('bauAnimado', '../assets/objetos/faseUm/bau.png', { frameWidth: 128, frameHeight: 128 });
         this.load.spritesheet('envelope', '../assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
         this.load.spritesheet('pergaminho', '../assets/objetos/faseUm/pergaminho.png', { frameWidth: 1152, frameHeight: 648 });
-        this.load.video('videoFaseUm', '../assets/Fases/faseUm/videoFaseUm.mp4');
+        this.load.video('videofaseUm', '../assets/Fases/faseUm/videofaseUm.mp4');
     }
 
     create () {
@@ -388,7 +388,7 @@ export class FaseUm extends Phaser.Scene {
         
         this.pergaminho.on('animationcomplete', () => {
             const { width, height } = this.sys.game.config;
-            const video = this.add.video(width / 2, height / 2, 'videoFaseUm').setScale(2.0).setScrollFactor(0).setDepth(103);
+            const video = this.add.video(width / 2, height / 2, 'videofaseUm').setScale(2.0).setScrollFactor(0).setDepth(103);
             video.play();
             
             video.on('complete', () => {

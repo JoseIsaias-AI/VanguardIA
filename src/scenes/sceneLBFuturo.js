@@ -1,12 +1,12 @@
 import { registrarTeclaMenu } from '../menu.js';
 
-export class SceneLabBranco02 extends Phaser.Scene {
+export class sceneLBFuturo extends Phaser.Scene {
   constructor() {
-    super("SceneLabBranco02");
+    super("sceneLBFuturo");
   }
 
   preload() {
-    this.load.image("CFuturo", "assets/fases/sceneLabBranco01/labDestruido.png");
+    this.load.image("CFuturo", "assets/fases/sceneLBPassado/labDestruido.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", {
       frameWidth: 64,
       frameHeight: 64,
@@ -23,17 +23,17 @@ export class SceneLabBranco02 extends Phaser.Scene {
       false,
       true
     );
-    this.load.image("armarioD", "assets/objetos/sceneLabBranco01/partTwo/armarioDestruido.png");
-    this.load.image("alvoD", "assets/objetos/sceneLabBranco01/partTwo/alvoDestruido.png");
-    this.load.image("mesa1D", "assets/objetos/sceneLabBranco01/partTwo/mesa1Destruida.png");
-    this.load.image("mesa2D", "assets/objetos/sceneLabBranco01/partTwo/mesa2Destruida.png");
-    this.load.image("mesa3D", "assets/objetos/sceneLabBranco01/partTwo/mesa3Destruida.png");
-    this.load.image("piaD", "assets/objetos/sceneLabBranco01/partTwo/piaDestruida.png");
-    this.load.image("reservasCrioD", "assets/objetos/sceneLabBranco01/partTwo/reservasCrioDestruidas.png");
-    this.load.image("comptCimaD", "assets/objetos/sceneLabBranco01/partTwo/comptCimaDestruido.png");
-    this.load.image("comptBaixoD", "assets/objetos/sceneLabBranco01/partTwo/comptBaixoDestruido.png");
-    this.load.image("criogeniaD", "assets/objetos/sceneLabBranco01/partTwo/criogeniaDestruida.png");
-    this.load.image("camara", "assets/objetos/sceneLabBranco01/partOne/camara.png");
+    this.load.image("armarioD", "assets/objetos/sceneLBPassado/partTwo/armarioDestruido.png");
+    this.load.image("alvoD", "assets/objetos/sceneLBPassado/partTwo/alvoDestruido.png");
+    this.load.image("mesa1D", "assets/objetos/sceneLBPassado/partTwo/mesa1Destruida.png");
+    this.load.image("mesa2D", "assets/objetos/sceneLBPassado/partTwo/mesa2Destruida.png");
+    this.load.image("mesa3D", "assets/objetos/sceneLBPassado/partTwo/mesa3Destruida.png");
+    this.load.image("piaD", "assets/objetos/sceneLBPassado/partTwo/piaDestruida.png");
+    this.load.image("reservasCrioD", "assets/objetos/sceneLBPassado/partTwo/reservasCrioDestruidas.png");
+    this.load.image("comptCimaD", "assets/objetos/sceneLBPassado/partTwo/comptCimaDestruido.png");
+    this.load.image("comptBaixoD", "assets/objetos/sceneLBPassado/partTwo/comptBaixoDestruido.png");
+    this.load.image("criogeniaD", "assets/objetos/sceneLBPassado/partTwo/criogeniaDestruida.png");
+    this.load.image("camara", "assets/objetos/sceneLBPassado/partOne/camara.png");
   }
 
   create() {
@@ -471,7 +471,7 @@ export class SceneLabBranco02 extends Phaser.Scene {
     // depois de 5 segundos para e muda de fase
     this.time.delayedCall(5000, () => {
       this.asimov.setVelocity(0);
-      this.scene.start("FaseUm");
+      this.scene.start("faseUm");
     });
   }
 

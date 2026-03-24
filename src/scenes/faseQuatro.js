@@ -4,19 +4,19 @@
 
 import { registrarTeclaMenu } from '../menu.js';
 
-export class fase4 extends Phaser.Scene {
+export class faseQuatro extends Phaser.Scene {
     constructor () {
-        super("fase4");
+        super("faseQuatro");
     }
 
     //carrega todas as imagens e sprites
     preload () {
-        this.load.image('cristais', 'assets/Fases/Fase4/cristais.png');
-        this.load.image('cristais2', 'assets/Fases/Fase4/cristais2.png');
-        this.load.image('cristais3', 'assets/Fases/Fase4/cristais3.png');
-        this.load.image('cristais4', 'assets/Fases/Fase4/cristais4.png');
-        this.load.image('esponja', 'assets/Fases/Fase4/esponja.png');
-        this.load.spritesheet('barra', 'assets/Fases/Fase4/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
+        this.load.image('cristais', 'assets/Fases/FaseQuatro/cristais.png');
+        this.load.image('cristais2', 'assets/Fases/FaseQuatro/cristais2.png');
+        this.load.image('cristais3', 'assets/Fases/FaseQuatro/cristais3.png');
+        this.load.image('cristais4', 'assets/Fases/FaseQuatro/cristais4.png');
+        this.load.image('esponja', 'assets/Fases/FaseQuatro/esponja.png');
+        this.load.spritesheet('barra', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
     }
 
     //carrega todas as imagens e sprites
