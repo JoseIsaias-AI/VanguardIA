@@ -25,6 +25,9 @@ export class sceneLBPassado extends Phaser.Scene {
   create() {
     registrarTeclaMenu(this);
 
+    // Inicia a cena de música de fundo (bgMusic) para música contínua na cena do laboratório passsado.
+    this.scene.launch("bgMusic");
+
     this.entrarNaCamara = false;
     this.lendoMensagem = false;
     this.podeInteragir = false;

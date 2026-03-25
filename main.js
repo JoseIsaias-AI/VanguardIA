@@ -1,42 +1,54 @@
-
+import { scenePreFase4 } from "./src/scenes/scenePreFase4.js"; 
 import { welcomeScene } from "./src/scenes/Welcome.js";
 import { sceneLBPassado } from "./src/scenes/sceneLBPassado.js";
-import { sceneLBFuturo } from "./src/scenes/sceneLBFuturo.js"
-import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js"
+import { sceneLBFuturo } from "./src/scenes/sceneLBFuturo.js";
+import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js";
 import { SceneLabCristal } from "./src/scenes/SceneLabCristal.js";
 import { faseUm } from "./src/scenes/FaseUm.js";
 import { faseDois } from "./src/scenes/faseDois.js"; 
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js"; 
 import { transicao1para2 } from "./src/scenes/transicao1para2.js";
-import { faseQuatro } from "./src/scenes/faseQuatro.js"; 
+import { faseQuatro } from "./src/scenes/faseQuatro.js";
 import { menu } from "./src/menu.js"; 
-import { scenePreFase4 } from "./src/scenes/scenePreFase4.js"; 
+import { BgMusic } from "./src/scenes/BgMusic.js";
 
 
 const config = {
-    type: Phaser.AUTO,
-    width: 1920,
-    height: 1080,
-    backgroundColor: "#262540",
-    render: {antialias: false},
-    roundPixel: false,
-    scale: {
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
+  type: Phaser.AUTO,
+  width: 1920,
+  height: 1080,
+  backgroundColor: "#262540",
+  pixelArt: true,
+  roundPixel: false,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
+  physics: {
+    default: "arcade",
+    arcade: {
+      gravity: { y: 0 },
+      debug: false,
     },
-    physics: {
-        default: "arcade",
-        arcade: {
-            gravity: { y: 0 },
-            debug: false  
-        }
-    },
+  },
+  audio: {
+    disableWebAudio: false,
+  },
 
-    scene: [welcomeScene, sceneLBPassado, sceneLBFuturo, faseUm, transicao1para2, faseDois, faseQuatro, menu]
-    //scene: [scenePreFase4, faseQuatro]
-    //scene: [SceneRetornoLab]
-    
-
+  scene: [
+    welcomeScene,
+    sceneLBPassado,
+    sceneLBFuturo,
+    faseUm,
+    transicao1para2,
+    faseDois,
+    scenePreFase4,
+    faseQuatro,
+    menu,
+    BgMusic,
+  ],
+  //scene: [menu]
+  //scene: [SceneRetornoLab]
 };
 
 const game = new Phaser.Game(config);

@@ -16,10 +16,16 @@ export class faseUm extends Phaser.Scene {
         this.load.spritesheet('envelope', '../assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
         this.load.spritesheet('pergaminho', '../assets/objetos/faseUm/pergaminho.png', { frameWidth: 1152, frameHeight: 648 });
         this.load.video('videofaseUm', '../assets/Fases/faseUm/videofaseUm.mp4');
+
+        // Carrega a música específica dessa fase
+        this.load.audio('bg-music-fases', 'assets/bg-music-fases.mp3');
     }
 
     create () {
         registrarTeclaMenu(this);
+
+        // Inicia a cena de música de fundo (bgMusic) para garantir áudio contínuo na fase.
+        this.scene.launch("bgMusic");
 
         //variáveis ao longo do código vão sendo explicados
         this.progressoHistoria = 0;

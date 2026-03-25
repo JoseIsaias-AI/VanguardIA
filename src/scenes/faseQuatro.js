@@ -24,6 +24,9 @@ export class faseQuatro extends Phaser.Scene {
     create() {
         registrarTeclaMenu(this);
 
+        // Inicia a cena de música de fundo (bgMusic) que executa em loop em segundo plano.
+        this.scene.launch("bgMusic");
+
         const { width, height } = this.sys.game.config; //a altura e o comprimento recebem valores definidos no sistema
         //altura - heigh
         //largura - width

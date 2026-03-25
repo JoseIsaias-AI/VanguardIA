@@ -21,7 +21,8 @@ export class SceneLabCristal extends Phaser.Scene {
 
 create() {
     registrarTeclaMenu(this);
-
+    // Inicia a cena de música de fundo
+    this.scene.launch("bgMusic");
 
     this.lendoMensagem = false;
     this.podeInteragir = false;
