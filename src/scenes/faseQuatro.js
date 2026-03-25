@@ -14,9 +14,10 @@ export class faseQuatro extends Phaser.Scene {
         this.load.image('cristais', 'assets/Fases/FaseQuatro/cristais.png');
         this.load.image('cristais2', 'assets/Fases/FaseQuatro/cristais2.png');
         this.load.image('cristais3', 'assets/Fases/FaseQuatro/cristais3.png');
-        this.load.image('cristais4', 'assets/Fases/FaseQuatro/cristais4.png');
+        this.load.image('cristais4', 'assets/Fases/FaseQuatro/cabeçaDoRobo.png');
         this.load.image('esponja', 'assets/Fases/FaseQuatro/esponja.png');
-        this.load.spritesheet('barra', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
+        this.load.image('textoExplicacao', 'assets/Fases/FaseQuatro/textoExplicação.png');
+        this.load.spritesheet('barra', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 256, frameHeight: 256 });
     }
 
     //carrega todas as imagens e sprites
@@ -32,7 +33,7 @@ export class faseQuatro extends Phaser.Scene {
         // cria objetos sem adicioná-los à cena automaticamente por causa do False. Carrega a imagem da key.
         const img2 = this.make.image({ key: 'cristais2' }, false).setDisplaySize(width, height); 
         const img3 = this.make.image({ key: 'cristais3' }, false).setDisplaySize(width, height);
-        const img4 = this.make.image({ key: 'cristais4' }, false).setDisplaySize(width, height);
+        const img4 = this.make.image({ key: 'cristais4' }, false).setScale(2.2);
 
         //fórmula de apagar utilizada encontrada no site da Phaser: https://phaser.io/examples/v3.85.0/game-objects/render-texture/view/erase-part-of-render-texture
         // cria o objeto com o renderTexture, dinâmica que pode ser desenhada e apagada em tempo real. Começa na posição x e y = 0
@@ -74,24 +75,43 @@ export class faseQuatro extends Phaser.Scene {
         this.tempoRestante = 120; //2 minutos de contador
         this.jogoParado = false;
 
-        this.textoTempo = this.add.text(20, height - 80, 'Tempo: 2:00', { //texto do tempo localizado no canto inferior esquerdo
-            fontSize: '22px', //tamanho
-            fill: '#ffffff', //cor
-            stroke: '#000000', //cor do contorno
-            strokeThickness: 4 //espessura do contorno das letras
-        }).setDepth(10);
+        const estilo = {
+            fontSize: '32px',
+            fontFamily: "'Georgia', serif",
+            fill: '#f0e6c8',
+            stroke: '#1a1a1a',
+            strokeThickness: 5,
+            padding: { x: 10, y: 6 }
+        };
 
-        this.textoNitidez = this.add.text(20, height - 40, 'Nitidez: 0%', { //texto da nitidez no canto inferior esquerdo
-            fontSize: '22px',
-            fill: '#ffffff',
-            stroke: '#000000',
-            strokeThickness: 4
-        }).setDepth(10);
+        this.fundoHUD = this.add.rectangle(14, height - 110, 260, 90, 0x000000, 0.55).setOrigin(0).setDepth(10);
+        this.textoTempo   = this.add.text(24, height - 105, 'Tempo: 2:00', estilo).setDepth(11);
+        this.textoNitidez = this.add.text(24, height - 65, 'Nitidez: 0%', estilo).setDepth(11);
 
         this.desenhoAtiva = null; // renderTexture da camada que será apagada nessa sessão
         this.mapaAtivo = null; // mapa correspondente
 
+        // Exibe texto explicativo no início
+        this.mostrandoExplicacao = true;
+        this.imagemExplicacao = this.add.image(width / 2, height / 2, 'textoExplicacao')
+            .setDepth(100)
+            .setScale(0.85);
+        
+        // Animação de escala
+        this.tweens.add({
+            targets: this.imagemExplicacao,
+            scaleX: 0.9,
+            scaleY: 0.9,
+            duration: 1000,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
+        
+        this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+
         this.input.on('pointerdown', (pointer) => { //quando o jogador clicar com o botão esquerdo do mouse
+            if (this.mostrandoExplicacao) return; // bloqueia interação durante explicação
             this.limpando = true;
             if (!this.cronometroIniciado) {
                 this.cronometroIniciado = true;
@@ -147,6 +167,7 @@ export class faseQuatro extends Phaser.Scene {
         });
 
         this.input.on('pointermove', (pointer) => { //a esponja move junto com o ponteiro do mouse
+            if (this.mostrandoExplicacao) return; // bloqueia movimento durante explicação
             this.esponja.setPosition(pointer.x, pointer.y); 
             if (pointer.isDown) {
                 this.apagar(borracha, pointer.x, pointer.y, tamBorracha);
@@ -155,6 +176,14 @@ export class faseQuatro extends Phaser.Scene {
     }
 
     update() {
+        if (this.mostrandoExplicacao) {
+            if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+                this.imagemExplicacao.destroy();
+                this.mostrandoExplicacao = false;
+            }
+            return;
+        }
+
         if (this.jogoParado) return; //sai das atualizações  se o jogador perdeu o tempo
 
         if (this.limpando) { //enquanto estiver limpando a barra de progresso aumenta os frames e vai subindo
