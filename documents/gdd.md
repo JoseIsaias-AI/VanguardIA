@@ -116,6 +116,75 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 
 *Posicione aqui o canvas de proposta de valor. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera.*
 
+<img src="../assets/gdd/canvasPropostadeValor.png " width="100%">
+
+## A. Perfil do Cliente
+
+## Público-alvo principal
+Estudantes universitários e jovens com baixo letramento em IA.
+
+## a) Tarefas do cliente (Customer Jobs)
+
+- Aprender conceitos de IA (machine learning, redes neurais, IA generativa)
+- Aplicar conhecimento na prática
+- Aprender sobre ética em IA
+- Adquirir letramento básico em IA sem precisar de base teórica avançada
+- Acompanhar tendências tecnológicas
+
+## b) Dores (Pains)
+
+- Baixo engajamento em cursos assíncronos
+- Excesso de conteúdo teórico
+- Dificuldade de aplicação prática
+- Evasão em cursos online
+- Falta de conhecimento sobre os principais motivos da evasão
+- Desorientação em relação à IA
+- Pouco conhecimento dos termos relacionados à IA
+- Não saber exatamente o que é IA
+- Medo em relação ao futuro da IA
+- Falta de motivação devido à ausência de progressão visível
+
+## c) Ganhos (Gains)
+
+- Aprendizado interativo e aplicado
+- Experiência imersiva
+- Maior retenção de conhecimento
+- Facilidade de compreensão de conceitos complexos
+- Entendimento geral sobre IA
+- AI literacy
+- Capacidade de aproveitar ganhos de produtividade com IA
+- Analogia entre a progressão da história e os aprendizados
+- Maior foco e motivação
+
+
+## B. Mapa de Valor
+
+## a) Produtos e Serviços
+
+- Jogo digital educacional baseado em IA com narrativa engajante
+- Módulos gamificados (níveis, desafios e simulações)
+- Experiências inspiradas no IBM SkillsBuild
+- Sistema de progressão gradual
+- Puzzles interativos que permitem ao jogador visualizar e interagir com o que está aprendendo
+- Conteúdos complexos atuais condensados e simplificados para favorecer aprendizagem e engajamento
+
+## b) Aliviadores de Dores
+
+- Substituição de conteúdo passivo por interação ativa
+- Simulação prática de conceitos
+- Feedback imediato
+- Transformação de conceitos abstratos em interações concretas
+- Uso de microdesafios para aumentar o engajamento
+- Visualização de processos relacionados à IA
+- Criação de um índice que identifique os critérios de evasão, permitindo monitoramento e ajustes contínuos
+
+## c) Criadores de Ganho
+
+- Narrativa imersiva
+- Progressão por níveis
+- Aplicação prática dos conceitos
+- Puzzles sobre IA
+
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
 *Descreva brevemente a solução desenvolvida para o parceiro de negócios. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera. Observe a seção 2 e verifique que ali é possível trazer mais detalhes, portanto seja objetivo aqui. Atualize esta descrição até a entrega final, conforme desenvolvimento.*
@@ -133,9 +202,217 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 
 *Registre na matriz os riscos identificados no projeto, visando avaliar situações que possam representar ameaças e oportunidades, bem como os impactos relevantes sobre o projeto. Apresente os riscos, ressaltando, para cada um, impactos e probabilidades com plano de ação e respostas..*
 
+<img src="../assets/gdd/matrizDeRiscos.png " width="100%">
+
+## Escalas Utilizadas
+
+## Probabilidade
+- 10: Muito improvável  
+- 30: Baixa  
+- 50: Média  
+- 70: Alta  
+- 90: Muito alta  
+
+## Impacto
+- Muito Baixo: Impacto irrelevante  
+- Baixo: Afeta aspectos pontuais  
+- Moderado: Prejudica a experiência  
+- Alto: Prejudica significativamente o projeto  
+- Muito Alto: Compromete o objetivo central  
+
+
+## Matriz de Riscos 
+
+## 1. Riscos Muito Altos
+
+## R1 – Riscos Pedagógicos
+- **Probabilidade:** 90  
+- **Impacto:** Muito Alto  
+
+**Descrição:**  
+Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
+
+**Plano de ação:**
+- Testes com usuários iniciantes  
+- Ajuste de ritmo e profundidade  
+
+**Indicadores:**
+- Retenção de conhecimento  
+- Taxa de conclusão  
+
+**Oportunidade:**
+- Criar um modelo pedagógico superior ao tradicional  
+
+## 2. Riscos Altos
+
+## R2 – Complexidade na Simulação de IA
+- **Probabilidade:** 50  
+- **Impacto:** Muito Alto  
+
+**Plano de ação:**
+- Prototipagem iterativa  
+- Validação com especialistas  
+
+**Indicadores:**
+- Compreensão dos usuários  
+- Feedback técnico  
+
+**Oportunidade:**
+- Diferenciação educacional forte  
+
+## R3 – Riscos Estratégicos para a IBM
+- **Probabilidade:** 50  
+- **Impacto:** Muito Alto  
+
+**Plano de ação:**
+- Definição de proposta de valor  
+- Benchmark  
+
+**Indicadores:**
+- Percepção de valor  
+- Comparação com alternativas  
+
+**Oportunidade:**
+- Tornar-se produto referência  
+
+
+## R4 – Desalinhamento com o SkillsBuild
+- **Probabilidade:** 30  
+- **Impacto:** Muito Alto  
+
+**Justificativa:**  
+Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
+
+**Plano de ação:**
+- Revisões por sprint  
+- Mapeamento com currículo  
+
+**Indicadores:**
+- Aderência ao conteúdo  
+- Aprovação da IBM  
+
+**Oportunidade:**
+- Maior liberdade criativa  
+
+
+## 3. Riscos Moderados
+
+## R5 – Engajamento e Entretenimento
+- **Probabilidade:** 70  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Testes de gameplay  
+- Iteração de mecânicas  
+
+**Indicadores:**
+- Tempo de sessão  
+- Taxa de abandono  
+
+**Oportunidade:**
+- Alto potencial de retenção  
+
+
+## R6 – Curva de Aprendizado Inadequada
+- **Probabilidade:** 70  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Ajuste dinâmico de dificuldade  
+
+**Indicadores:**
+- Tempo por fase  
+- Desistência  
+
+**Oportunidade:**
+- Sistema adaptativo avançado  
+
+
+## R7 – Experiência do Usuário (UX/UI)
+- **Probabilidade:** 50  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Testes de usabilidade  
+
+**Indicadores:**
+- Erros de navegação  
+- Tempo de aprendizado  
+
+**Oportunidade:**
+- Interface altamente eficiente  
+
+
+## R8 – Obsolescência do Conteúdo
+- **Probabilidade:** 50  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Atualizações periódicas  
+
+**Indicadores:**
+- Atualidade  
+
+**Oportunidade:**
+- Sistema modular  
+
+
+## R9 – Storytelling Desconectado
+- **Probabilidade:** 50  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Integração narrativa  
+
+**Indicadores:**
+- Clareza percebida  
+- Índice de conclusão  
+
+**Oportunidade:**
+- Narrativa como motor de retenção  
+
+
+#### R10 – Falta de Valor para o Usuário
+- **Probabilidade:** 50  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Testes de percepção  
+
+**Indicadores:**
+- NPS / satisfação  
+
+**Oportunidade:**
+- Refinamento da proposta  
+
+
+## 4. Riscos Baixos
+
+## R11 – Riscos de Design
+- **Probabilidade:** 30  
+- **Impacto:** Baixo  
+
+**Plano de ação:**
+- Iteração visual  
+
+**Indicadores:**
+- Feedback qualitativo  
+
+**Oportunidade:**
+- Identidade visual forte  
+
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
 *Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração*
+
+O principal objetivo do projeto é desenvolver um jogo educativo gamificado que ensine conceitos introdutórios de Inteligência Artificial de forma simples, interativa e acessível, especialmente para jovens que ainda não têm familiaridade com a área. A ideia é transformar um conteúdo que normalmente é visto como difícil e muito teórico em uma experiência prática, envolvente e mais fácil de entender. A partir desse objetivo, foram definidas metas seguindo o modelo SMART, que ajudam a guiar o desenvolvimento do projeto e permitem avaliar se a solução realmente cumpre o que se propõe.
+
+Uma das metas é fazer com que o jogador consiga compreender, ao longo da experiência, conceitos básicos de IA, como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning, por meio dos desafios e mecânicas do próprio jogo, onde o aprendizado é aplicado na prática. O indicador utilizado para isso é o desempenho do jogador nas atividades e minigames, observando se ele consegue avançar e resolver os desafios corretamente. Outra meta importante é reduzir a evasão, comum em cursos tradicionais, incentivando o jogador a continuar progredindo pelas fases por meio da narrativa e da gamificação; nesse caso, o indicador é a progressão dentro do jogo e a continuidade do usuário nas etapas.
+
+Também foi definida uma meta relacionada à experiência do usuário, buscando garantir que o jogo seja intuitivo, claro e interessante. Para avaliar isso, são considerados os feedbacks coletados durante os testes, analisando aspectos como jogabilidade, nível de dificuldade e diversão. Além disso, o projeto busca ser acessível, permitindo que o jogo funcione diretamente no navegador, sem necessidade de instalação ou alto desempenho do dispositivo, sendo o indicador o funcionamento em diferentes navegadores e a facilidade de acesso relatada pelos usuários. Por fim, o jogo também tem como meta despertar o interesse pela área de Inteligência Artificial, incentivando o usuário a continuar aprendendo após a experiência, inclusive em plataformas como o IBM SkillsBuild, sendo esse interesse identificado por meio dos feedbacks e comportamento dos jogadores.
+
+Dessa forma, os objetivos, metas e indicadores garantem que o projeto vá além de uma proposta teórica, permitindo avaliar na prática seu impacto no aprendizado, no engajamento e no interesse dos usuários pela área de Inteligência Artificial.
+
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 

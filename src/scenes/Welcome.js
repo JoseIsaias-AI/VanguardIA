@@ -1,10 +1,10 @@
-export class WelcomeScene extends Phaser.Scene {
+export class welcomeScene extends Phaser.Scene {
 
     alturaJogo = 1080;
     larguraJogo = 1920;
 
     constructor() {
-        super("WelcomeScene");
+        super("welcomeScene");
     }
 
     preload () {
@@ -13,6 +13,7 @@ export class WelcomeScene extends Phaser.Scene {
     }
 
     create () {
+        
         this.add.image(this.larguraJogo/2, this.alturaJogo/2, "cenario").setScale(1.5);
         this.play = this.add.image(this.larguraJogo/2, 610, "play").setScale(0.30).setInteractive();
 
@@ -25,8 +26,11 @@ export class WelcomeScene extends Phaser.Scene {
         });
 
         this.play.on( "pointerdown", () => {
-            this.scene.start("SceneLabBranco01")
+            this.scene.start("sceneLBPassado")
         })
+
+        // Inicia a cena de música de fundo (bgMusic) que toca em loop para todo o jogo.
+        this.scene.launch("bgMusic");
     }
 
     update (){

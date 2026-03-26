@@ -1,26 +1,37 @@
-export class SceneLabBranco01 extends Phaser.Scene {
+import { registrarTeclaMenu } from '../menu.js';
+
+export class sceneLBPassado extends Phaser.Scene {
   constructor() {
-    super("SceneLabBranco01"); // define o nome da cena
+    super("sceneLBPassado"); // define o nome da cena
   }
 
   preload() {
-    this.load.image("labB", "assets/fases/sceneLabBranco01/labBranco.png");
-    this.load.image("camara", "assets/objetos/sceneLabBranco01/partOne/camara.png");
+    this.load.image("labB", "assets/fases/sceneLBPassado/labBranco.png");
+    this.load.image("camara", "assets/objetos/sceneLBPassado/partOne/camara.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.spritesheet("watson", "assets/personagens/watson.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.image("armario", "assets/objetos/sceneLabBranco01/partOne/armario.png");
-    this.load.image("alvo", "assets/objetos/sceneLabBranco01/partOne/alvo.png");
-    this.load.image("criogenia", "assets/objetos/sceneLabBranco01/partOne/criogenia.png");
-    this.load.image("mesa1", "assets/objetos/sceneLabBranco01/partOne/mesa1.png");
-    this.load.image("mesa2", "assets/objetos/sceneLabBranco01/partOne/mesa2.png");
-    this.load.image("mesa3", "assets/objetos/sceneLabBranco01/partOne/mesa3.png");
-    this.load.image("pia1", "assets/objetos/sceneLabBranco01/partOne/pia1.png");
-    this.load.image("reservasCrio", "assets/objetos/sceneLabBranco01/partOne/reservasCrio.png");
-    this.load.image("comptBaixo", "assets/objetos/sceneLabBranco01/partOne/comptBaixo.png");
-    this.load.image("comptCima", "assets/objetos/sceneLabBranco01/partOne/comptCima.png");
+    this.load.image("armario", "assets/objetos/sceneLBPassado/partOne/armario.png");
+    this.load.image("alvo", "assets/objetos/sceneLBPassado/partOne/alvo.png");
+    this.load.image("criogenia", "assets/objetos/sceneLBPassado/partOne/criogenia.png");
+    this.load.image("mesa1", "assets/objetos/sceneLBPassado/partOne/mesa1.png");
+    this.load.image("mesa2", "assets/objetos/sceneLBPassado/partOne/mesa2.png");
+    this.load.image("mesa3", "assets/objetos/sceneLBPassado/partOne/mesa3.png");
+    this.load.image("pia1", "assets/objetos/sceneLBPassado/partOne/pia1.png");
+    this.load.image("reservasCrio", "assets/objetos/sceneLBPassado/partOne/reservasCrio.png");
+    this.load.image("comptBaixo", "assets/objetos/sceneLBPassado/partOne/comptBaixo.png");
+    this.load.image("comptCima", "assets/objetos/sceneLBPassado/partOne/comptCima.png");
+    this.load.image("npc1", "assets/Personagens/npc1.png");
+    this.load.image("npc2", "assets/Personagens/npc2.png");
+    this.load.image("npc3", "assets/Personagens/npc3.png");
+    this.load.image("npc4", "assets/Personagens/npc4.png");
   }
 
   create() {
+    registrarTeclaMenu(this);
+
+    // Inicia a cena de música de fundo (bgMusic) para música contínua na cena do laboratório passsado.
+    this.scene.launch("bgMusic");
+
     this.entrarNaCamara = false;
     this.lendoMensagem = false;
     this.podeInteragir = false;
@@ -110,9 +121,20 @@ export class SceneLabBranco01 extends Phaser.Scene {
     this.Principal.body.setAllowGravity(false);
     this.Principal.setSize(30, 25);
     this.Principal.setOffset(15, 30);
+
     this.physics.add.collider(this.Principal, this.camara);
     this.physics.add.collider(this.Principal, this.paredes);
     this.physics.add.collider(this.Principal, this.objetosColisao);
+
+    // NPCs decorativos
+    this.npc1 = this.add.image(290, 330, "npc1").setScale(2).setDepth(1000);
+    this.npc2 = this.add.image(350, 50, "npc2").setScale(2).setDepth(1000);
+    this.npc3 = this.add.image(820, 270, "npc3").setScale(2).setDepth(1000);
+    this.npc4 = this.add.image(800, 455, "npc4").setScale(2).setDepth(1000);
+    this.criarColisao(this.npc1);
+    this.criarColisao(this.npc2);
+    this.criarColisao(this.npc3);
+    this.criarColisao(this.npc4);
 
     // WATSON (NPC)
     this.watson = this.physics.add.sprite(830, 80, "watson").setScale(2.3);
@@ -162,10 +184,10 @@ export class SceneLabBranco01 extends Phaser.Scene {
     const alturaCaixa = 180;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
     const yCaixa = alturaJogo - alturaCaixa - 140;
-
+    
     this.caixaDialogo = this.add.graphics();
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
-    this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
+    this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
     this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
     this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
     this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
@@ -181,6 +203,22 @@ export class SceneLabBranco01 extends Phaser.Scene {
       .setScrollFactor(0)
       .setDepth(1001)
       .setVisible(false);
+
+    this.retanguloAviso = this.add.graphics();
+    this.retanguloAviso.fillStyle(0x000000, 0.8); // Preto com 80% de opacidade
+    this.retanguloAviso.fillRect(700, 900, 500, 30, 15); 
+    this.retanguloAviso.setScrollFactor(0).setDepth(2000); // Fica fixo na tela e acima de tudo
+
+    // Criando a Frase
+    this.textoAviso = this.add.text(950, 910, "SISTEMA ATUALIZADO", {
+        fontSize: '18px',
+        fill: '#ffffff',
+        fontStyle: 'bold'
+    }).setOrigin(0.5).setScrollFactor(0).setDepth(2001);
+
+    // Começam invisíveis
+    this.retanguloAviso.setVisible(false);
+    this.textoAviso.setVisible(false);
 
     // Label do nome do falante — aparece acima da borda esquerda da caixa
     this.labelNome = this.add
@@ -221,6 +259,8 @@ export class SceneLabBranco01 extends Phaser.Scene {
       this.anims.create({ key: "front", frames: this.anims.generateFrameNumbers("sophia", { start: 0, end: 7 }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "back", frames: this.anims.generateFrameNumbers("sophia", { start: 8, end: 15 }), frameRate: 10, repeat: -1 });
     }
+
+    this.exibirAviso("Pressione a tecla M para acessar o menu.");
   }
 
   update() {
@@ -233,32 +273,55 @@ export class SceneLabBranco01 extends Phaser.Scene {
       return;
     }
 
-    this.Principal.setVelocity(0, 0);
-
-    let velocidade = 150;
+    let atrito = 0.9; //atrito entre o personagem e o chão - o percentual do quanto isso vai diminuir a velocidade do personagem
+    let velocidadeImpulso = 30; //o quanto a velocidade aumenta por frame
+    let velocidadeMax = 150; //limite para o personagem não acelerar infinitamente
     let movimentacao = false;
 
+    //a cada frame, a velocidade vai estar percentualmente menor, até o personagem parar
+    this.Principal.body.velocity.x *= atrito;
+    this.Principal.body.velocity.y *= atrito;
+
     if (this.cursors.left.isDown || this.keys.A.isDown) {
-      this.Principal.setVelocityX(-velocidade);
-      this.Principal.anims.play("left", true);
+      this.Principal.body.velocity.x -= velocidadeImpulso;
+      this.Principal.anims.play("left", true); //iniciar animação
       movimentacao = true;
-    } else if (this.cursors.right.isDown || this.keys.D.isDown) {
-      this.Principal.setVelocityX(+velocidade);
+    } 
+    
+    else if (this.cursors.right.isDown || this.keys.D.isDown) {
+      this.Principal.body.velocity.x += velocidadeImpulso;
       this.Principal.anims.play("right", true);
       movimentacao = true;
     }
 
     if (this.cursors.up.isDown || this.keys.W.isDown) {
-      this.Principal.setVelocityY(-velocidade);
+      this.Principal.body.velocity.y -= velocidadeImpulso;
+
       if (!movimentacao) this.Principal.anims.play("back", true);
       movimentacao = true;
-    } else if (this.cursors.down.isDown || this.keys.S.isDown) {
-      this.Principal.setVelocityY(+velocidade);
+    } 
+    
+    else if (this.cursors.down.isDown || this.keys.S.isDown) {
+      this.Principal.body.velocity.y += velocidadeImpulso;
+
       if (!movimentacao) this.Principal.anims.play("front", true);
       movimentacao = true;
     }
 
-    if (!movimentacao) this.Principal.anims.stop();
+    //a função utilizada estabelece limites de velocidade ao personagem
+    this.Principal.body.velocity.x = Phaser.Math.Clamp(this.Principal.body.velocity.x, -velocidadeMax, velocidadeMax);
+    this.Principal.body.velocity.y = Phaser.Math.Clamp(this.Principal.body.velocity.y, -velocidadeMax, velocidadeMax);
+
+
+    // Aqui,corrigimos a velocidade diagonal do personagem (Para ela não andar mais rápido na diagonal)
+    //this.Principal.body.velocity.normalize().scale(velocidadeMax);
+
+    //se o jogador não estiver abertando nenhum botão e a velocidade estiver bem baixa, o personagem para
+    if (!movimentacao && Math.abs(this.Principal.body.velocity.x) < 5 && Math.abs(this.Principal.body.velocity.y) < 5) {
+        this.Principal.body.velocity.x = 0;
+        this.Principal.body.velocity.y = 0;
+        this.Principal.anims.stop();
+    }
 
     // Aqui, adicionamos o pulo do personagem
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
@@ -268,7 +331,7 @@ export class SceneLabBranco01 extends Phaser.Scene {
       this.tweens.add({
         targets: this.Principal,
         y: yInicial - 40,
-        duration: 180,
+        duration: 300,
         yoyo: true,
         ease: "Sine.easeOut",
 
@@ -380,7 +443,19 @@ export class SceneLabBranco01 extends Phaser.Scene {
 
     this.cameras.main.fadeOut(1000);
     this.cameras.main.once("camerafadeoutcomplete", () => {
-      this.scene.start("SceneLabBranco02");
+      this.scene.start("sceneLBFuturo");
+    });
+  }
+
+  exibirAviso(frase) {
+    this.textoAviso.setText(frase);
+    this.retanguloAviso.setVisible(true);
+    this.textoAviso.setVisible(true);
+
+    // Faz o aviso sumir depois de 5 segundos
+    this.time.delayedCall(5000, () => {
+      this.retanguloAviso.setVisible(false);
+      this.textoAviso.setVisible(false);
     });
   }
 

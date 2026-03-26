@@ -1,4 +1,5 @@
-export class FaseDois extends Phaser.Scene {
+import { registrarTeclaMenu } from "../menu.js";
+export class FaseDois extends Phaser.Scene { 
   constructor() {
     super("FaseDois");
   }
@@ -120,6 +121,7 @@ export class FaseDois extends Phaser.Scene {
 
     // ── Controles ─────────────────────────────────────────────────────────────
     this.speed   = 150;
+    // Aqui, definimos os controles do personagem (Setas + WASD)
     this.cursors = this.input.keyboard.createCursorKeys();
     this.keys    = this.input.keyboard.addKeys({
       W: Phaser.Input.Keyboard.KeyCodes.W,
@@ -164,6 +166,7 @@ export class FaseDois extends Phaser.Scene {
     this.cutsceneBauVelocidade = 120;
     this.cutsceneBauSophiaDelay = 200;
 
+    registrarTeclaMenu(this);
     this.createAnimations();
 
     // ── Botão "Aperte E" ──────────────────────────────────────────────────────
@@ -235,6 +238,7 @@ export class FaseDois extends Phaser.Scene {
   //  ANIMAÇÕES
   // ═══════════════════════════════════════════════════════════════════════════
   createAnimations() {
+
     if (!this.anims.exists("asimov_front")) {
       this.anims.create({ key: "asimov_front", frames: this.anims.generateFrameNumbers("asimov", { start: 0,  end: 1  }), frameRate: 4, repeat: -1 });
       this.anims.create({ key: "asimov_back",  frames: this.anims.generateFrameNumbers("asimov", { start: 7,  end: 9  }), frameRate: 4, repeat: -1 });
@@ -356,7 +360,6 @@ export class FaseDois extends Phaser.Scene {
         onComplete: () => { this.sophia.y = yi; this.pulando = false; },
       });
     }
-
     this.sophia.setDepth(this.sophia.y);
     this.asimov.setDepth(this.asimov.y);
 
@@ -559,7 +562,7 @@ export class FaseDois extends Phaser.Scene {
   //  FASE 1 — Arrastar binários
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_fase1_dialogo() {
-    this.mgRede.stop();
+    this.mgRede.anims.stop();
     this.mgRede.setFrame(0);
 
     this._mgDialogo(
@@ -811,7 +814,7 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _mg_fase3_resultado() {
-    this.mgRede.stop();
+    this.mgRede.anims.stop();
     this.mgRede.setFrame(18);
 
     if (this.mgTextoEpoca) {
@@ -1158,3 +1161,5 @@ export class FaseDois extends Phaser.Scene {
     });
   }
 }
+
+

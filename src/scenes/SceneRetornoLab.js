@@ -1,7 +1,10 @@
+import { registrarTeclaMenu } from '../menu.js';
+
 export class SceneRetornoLab extends Phaser.Scene {
   constructor() {
     super("SceneRetornoLab");
   }
+
 
   preload() {
     this.load.image("CFuturo", "../assets/Fases/sceneLabBranco01/labDestruido.png");
@@ -19,6 +22,11 @@ export class SceneRetornoLab extends Phaser.Scene {
   }
 
   create() {
+    registrarTeclaMenu(this);
+
+    // Inicia a cena de música de fundo (bgMusic) para som contínuo na cena de retorno ao laboratório.
+    this.scene.launch("bgMusic");
+
     this.scaleMapa = 3;
 
     const { width, height } = this.sys.game.config;

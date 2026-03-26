@@ -1,3 +1,5 @@
+import { registrarTeclaMenu } from '../menu.js';
+
 export class minigame1Fase2 extends Phaser.Scene {
     constructor () {
         super("minigame1Fase2");
@@ -12,6 +14,11 @@ export class minigame1Fase2 extends Phaser.Scene {
     }
 
     create() {
+        registrarTeclaMenu(this);
+
+        // Inicia a cena de música de fundo (bgMusic) para manter o loop durante o minigame.
+        this.scene.launch("bgMusic");
+
         const { width, height } = this.sys.game.config;
         //this.fundo = this.add.image(width / 2, height / 2, "fundo").setScale(3.2).setOrigin(0.5);
         

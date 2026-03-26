@@ -1,10 +1,12 @@
-export class SceneLabBranco02 extends Phaser.Scene {
+import { registrarTeclaMenu } from '../menu.js';
+
+export class sceneLBFuturo extends Phaser.Scene {
   constructor() {
-    super("SceneLabBranco02");
+    super("sceneLBFuturo");
   }
 
   preload() {
-    this.load.image("CFuturo", "assets/fases/sceneLabBranco01/labDestruido.png");
+    this.load.image("CFuturo", "assets/fases/sceneLBPassado/labDestruido.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", {
       frameWidth: 64,
       frameHeight: 64,
@@ -21,20 +23,32 @@ export class SceneLabBranco02 extends Phaser.Scene {
       false,
       true
     );
-    this.load.image("armarioD", "assets/objetos/sceneLabBranco01/partTwo/armarioDestruido.png");
-    this.load.image("alvoD", "assets/objetos/sceneLabBranco01/partTwo/alvoDestruido.png");
-    this.load.image("mesa1D", "assets/objetos/sceneLabBranco01/partTwo/mesa1Destruida.png");
-    this.load.image("mesa2D", "assets/objetos/sceneLabBranco01/partTwo/mesa2Destruida.png");
-    this.load.image("mesa3D", "assets/objetos/sceneLabBranco01/partTwo/mesa3Destruida.png");
-    this.load.image("piaD", "assets/objetos/sceneLabBranco01/partTwo/piaDestruida.png");
-    this.load.image("reservasCrioD", "assets/objetos/sceneLabBranco01/partTwo/reservasCrioDestruidas.png");
-    this.load.image("comptCimaD", "assets/objetos/sceneLabBranco01/partTwo/comptCimaDestruido.png");
-    this.load.image("comptBaixoD", "assets/objetos/sceneLabBranco01/partTwo/comptBaixoDestruido.png");
-    this.load.image("criogeniaD", "assets/objetos/sceneLabBranco01/partTwo/criogeniaDestruida.png");
-    this.load.image("camara", "assets/objetos/sceneLabBranco01/partOne/camara.png");
+    this.load.image("armarioD", "assets/objetos/sceneLBPassado/partTwo/armarioDestruido.png");
+    this.load.image("alvoD", "assets/objetos/sceneLBPassado/partTwo/alvoDestruido.png");
+    this.load.image("mesa1D", "assets/objetos/sceneLBPassado/partTwo/mesa1Destruida.png");
+    this.load.image("mesa2D", "assets/objetos/sceneLBPassado/partTwo/mesa2Destruida.png");
+    this.load.image("mesa3D", "assets/objetos/sceneLBPassado/partTwo/mesa3Destruida.png");
+    this.load.image("piaD", "assets/objetos/sceneLBPassado/partTwo/piaDestruida.png");
+    this.load.image("reservasCrioD", "assets/objetos/sceneLBPassado/partTwo/reservasCrioDestruidas.png");
+    this.load.image("comptCimaD", "assets/objetos/sceneLBPassado/partTwo/comptCimaDestruido.png");
+    this.load.image("comptBaixoD", "assets/objetos/sceneLBPassado/partTwo/comptBaixoDestruido.png");
+    this.load.image("criogeniaD", "assets/objetos/sceneLBPassado/partTwo/criogeniaDestruida.png");
+    this.load.image("camara", "assets/objetos/sceneLBPassado/partOne/camara.png");
   }
 
   create() {
+    registrarTeclaMenu(this);
+
+    // Silencia o bgMusic nesta cena, mas não para permanentemente para não quebrar o retorno.
+    const bgMusic = this.sound.get('bgMusic');
+    if (bgMusic) {
+      bgMusic.setMute(true);
+      this.events.once('shutdown', () => {
+        // ao sair desta cena, desmute para restaurar música nas próximas cenas.
+        bgMusic.setMute(false);
+      });
+    }
+
     this.videoDaFase();
   }
 
@@ -42,10 +56,16 @@ export class SceneLabBranco02 extends Phaser.Scene {
     this.cutscene = this.add.video(950, 550, "cutscene2");
     this.cutscene.setScale(1.05);
     this.cutscene.setDepth(999);
-    this.cutscene.setMute(true);
+    this.cutscene.setMute(false);
     this.cutscene.play();
 
     this.cutscene.once("complete", () => {
+      // Quando o vídeo terminar, restaura o som de fundo (bgMusic) para tocar novamente.
+      const bgMusic = this.sound.get('bgMusic');
+      if (bgMusic) {
+        bgMusic.setMute(false);
+      }
+
       this.cutscene.destroy();
       this.iniciarFase();
     });
@@ -343,6 +363,9 @@ export class SceneLabBranco02 extends Phaser.Scene {
 
     if (!movimentacao) this.Principal.anims.stop();
 
+    // Aqui,corrigimos a velocidade diagonal do personagem (Para ela não andar mais rápido na diagonal)
+    this.Principal.body.velocity.normalize().scale(velocidade);
+
     // Aplicando o pulo
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
       this.pulando = true;
@@ -351,7 +374,7 @@ export class SceneLabBranco02 extends Phaser.Scene {
       this.tweens.add({
         targets: this.Principal,
         y: yInicial - 40,
-        duration: 180,
+        duration: 300,
         yoyo: true,
         ease: "Sine.easeOut",
 
@@ -465,7 +488,7 @@ export class SceneLabBranco02 extends Phaser.Scene {
     // depois de 5 segundos para e muda de fase
     this.time.delayedCall(5000, () => {
       this.asimov.setVelocity(0);
-      this.scene.start("FaseUm");
+      this.scene.start("faseUm");
     });
   }
 
