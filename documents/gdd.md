@@ -116,12 +116,14 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 
 *Posicione aqui o canvas de proposta de valor. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera.*
 
+<img src="../assets/gdd/canvasPropostadeValor.png " width="70%">
+
 ## A. Perfil do Cliente
 
-### Público-alvo principal
+## Público-alvo principal
 Estudantes universitários e jovens com baixo letramento em IA
 
-### a) Tarefas do cliente (Customer Jobs)
+## a) Tarefas do cliente (Customer Jobs)
 
 - Aprender conceitos de IA (machine learning, redes neurais, IA generativa)
 - Aplicar conhecimento na prática
@@ -129,7 +131,7 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Adquirir letramento básico em IA sem precisar de base teórica avançada
 - Acompanhar tendências tecnológicas
 
-### b) Dores (Pains)
+## b) Dores (Pains)
 
 - Baixo engajamento em cursos assíncronos
 - Excesso de conteúdo teórico
@@ -142,7 +144,7 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Medo em relação ao futuro da IA
 - Falta de motivação devido à ausência de progressão visível
 
-### c) Ganhos (Gains)
+## c) Ganhos (Gains)
 
 - Aprendizado interativo e aplicado
 - Experiência imersiva
@@ -154,11 +156,10 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Analogia entre a progressão da história e os aprendizados
 - Maior foco e motivação
 
----
 
 ## B. Mapa de Valor
 
-### a) Produtos e Serviços
+## a) Produtos e Serviços
 
 - Jogo digital educacional baseado em IA com narrativa engajante
 - Módulos gamificados (níveis, desafios e simulações)
@@ -167,7 +168,7 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Puzzles interativos que permitem ao jogador visualizar e interagir com o que está aprendendo
 - Conteúdos complexos atuais condensados e simplificados para favorecer aprendizagem e engajamento
 
-### b) Aliviadores de Dores
+## b) Aliviadores de Dores
 
 - Substituição de conteúdo passivo por interação ativa
 - Simulação prática de conceitos
@@ -177,7 +178,7 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Visualização de processos relacionados à IA
 - Criação de um índice que identifique os critérios de evasão, permitindo monitoramento e ajustes contínuos
 
-### c) Criadores de Ganho
+## c) Criadores de Ganho
 
 - Narrativa imersiva
 - Progressão por níveis
@@ -205,14 +206,14 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 
 ## Escalas Utilizadas
 
-### Probabilidade
+## Probabilidade
 - 10: Muito improvável  
 - 30: Baixa  
 - 50: Média  
 - 70: Alta  
 - 90: Muito alta  
 
-### Impacto
+## Impacto
 - Muito Baixo: Impacto irrelevante  
 - Baixo: Afeta aspectos pontuais  
 - Moderado: Prejudica a experiência  
@@ -220,11 +221,11 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 - Muito Alto: Compromete o objetivo central  
 
 
-## Matriz de Riscos (Ordenada por Criticidade)
+## Matriz de Riscos 
 
-### 1. Riscos Muito Altos
+## 1. Riscos Muito Altos
 
-#### R1 – Riscos Pedagógicos
+## R1 – Riscos Pedagógicos
 - **Probabilidade:** 90  
 - **Impacto:** Muito Alto  
 
@@ -242,9 +243,9 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 **Oportunidade:**
 - Criar um modelo pedagógico superior ao tradicional  
 
-### 2. Riscos Altos
+## 2. Riscos Altos
 
-#### R2 – Complexidade na Simulação de IA
+## R2 – Complexidade na Simulação de IA
 - **Probabilidade:** 50  
 - **Impacto:** Muito Alto  
 
@@ -259,7 +260,7 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 **Oportunidade:**
 - Diferenciação educacional forte  
 
-#### R3 – Riscos Estratégicos para a IBM
+## R3 – Riscos Estratégicos para a IBM
 - **Probabilidade:** 50  
 - **Impacto:** Muito Alto  
 
@@ -275,7 +276,7 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 - Tornar-se produto referência  
 
 
-#### R4 – Desalinhamento com o SkillsBuild
+## R4 – Desalinhamento com o SkillsBuild
 - **Probabilidade:** 30  
 - **Impacto:** Muito Alto  
 
@@ -294,9 +295,9 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Maior liberdade criativa  
 
 
-### 3. Riscos Moderados
+## 3. Riscos Moderados
 
-#### R5 – Engajamento e Entretenimento
+## R5 – Engajamento e Entretenimento
 - **Probabilidade:** 70  
 - **Impacto:** Moderado  
 
@@ -312,7 +313,7 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Alto potencial de retenção  
 
 
-#### R6 – Curva de Aprendizado Inadequada
+## R6 – Curva de Aprendizado Inadequada
 - **Probabilidade:** 70  
 - **Impacto:** Moderado  
 
@@ -327,7 +328,7 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Sistema adaptativo avançado  
 
 
-#### R7 – Experiência do Usuário (UX/UI)
+## R7 – Experiência do Usuário (UX/UI)
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
 
@@ -342,7 +343,7 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Interface altamente eficiente  
 
 
-#### R8 – Obsolescência do Conteúdo
+## R8 – Obsolescência do Conteúdo
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
 
@@ -356,7 +357,7 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Sistema modular  
 
 
-#### R9 – Storytelling Desconectado
+## R9 – Storytelling Desconectado
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
 
@@ -385,9 +386,9 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Refinamento da proposta  
 
 
-### 4. Riscos Baixos
+## 4. Riscos Baixos
 
-#### R11 – Riscos de Design
+## R11 – Riscos de Design
 - **Probabilidade:** 30  
 - **Impacto:** Baixo  
 
