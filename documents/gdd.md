@@ -133,6 +133,216 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 
 *Registre na matriz os riscos identificados no projeto, visando avaliar situações que possam representar ameaças e oportunidades, bem como os impactos relevantes sobre o projeto. Apresente os riscos, ressaltando, para cada um, impactos e probabilidades com plano de ação e respostas..*
 
+## Escalas Utilizadas
+
+### Probabilidade
+- 10: Muito improvável  
+- 30: Baixa  
+- 50: Média  
+- 70: Alta  
+- 90: Muito alta  
+
+### Impacto
+- Muito Baixo: Impacto irrelevante  
+- Baixo: Afeta aspectos pontuais  
+- Moderado: Prejudica a experiência  
+- Alto: Prejudica significativamente o projeto  
+- Muito Alto: Compromete o objetivo central  
+
+---
+
+## Matriz de Riscos (Ordenada por Criticidade)
+
+### 1. Riscos Muito Altos
+
+#### R1 – Riscos Pedagógicos
+- **Probabilidade:** 90  
+- **Impacto:** Muito Alto  
+
+**Descrição:**  
+Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
+
+**Plano de ação:**
+- Testes com usuários iniciantes  
+- Ajuste de ritmo e profundidade  
+
+**Indicadores:**
+- Retenção de conhecimento  
+- Taxa de conclusão  
+
+**Oportunidade:**
+- Criar um modelo pedagógico superior ao tradicional  
+
+---
+
+### 2. Riscos Altos
+
+#### R2 – Complexidade na Simulação de IA
+- **Probabilidade:** 50  
+- **Impacto:** Muito Alto  
+
+**Plano de ação:**
+- Prototipagem iterativa  
+- Validação com especialistas  
+
+**Indicadores:**
+- Compreensão dos usuários  
+- Feedback técnico  
+
+**Oportunidade:**
+- Diferenciação educacional forte  
+
+---
+
+#### R3 – Riscos Estratégicos para a IBM
+- **Probabilidade:** 50  
+- **Impacto:** Muito Alto  
+
+**Plano de ação:**
+- Definição de proposta de valor  
+- Benchmark  
+
+**Indicadores:**
+- Percepção de valor  
+- Comparação com alternativas  
+
+**Oportunidade:**
+- Tornar-se produto referência  
+
+---
+
+#### R4 – Desalinhamento com o SkillsBuild
+- **Probabilidade:** 30  
+- **Impacto:** Muito Alto  
+
+**Justificativa:**  
+Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
+
+**Plano de ação:**
+- Revisões por sprint  
+- Mapeamento com currículo  
+
+**Indicadores:**
+- Aderência ao conteúdo  
+- Aprovação da IBM  
+
+**Oportunidade:**
+- Maior liberdade criativa  
+
+---
+
+### 3. Riscos Moderados
+
+#### R5 – Engajamento e Entretenimento
+- **Probabilidade:** 70  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Testes de gameplay  
+- Iteração de mecânicas  
+
+**Indicadores:**
+- Tempo de sessão  
+- Taxa de abandono  
+
+**Oportunidade:**
+- Alto potencial de retenção  
+
+---
+
+#### R6 – Curva de Aprendizado Inadequada
+- **Probabilidade:** 70  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Ajuste dinâmico de dificuldade  
+
+**Indicadores:**
+- Tempo por fase  
+- Desistência  
+
+**Oportunidade:**
+- Sistema adaptativo avançado  
+
+---
+
+#### R7 – Experiência do Usuário (UX/UI)
+- **Probabilidade:** 50  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Testes de usabilidade  
+
+**Indicadores:**
+- Erros de navegação  
+- Tempo de aprendizado  
+
+**Oportunidade:**
+- Interface altamente eficiente  
+
+---
+
+#### R8 – Obsolescência do Conteúdo
+- **Probabilidade:** 50  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Atualizações periódicas  
+
+**Indicadores:**
+- Atualidade  
+
+**Oportunidade:**
+- Sistema modular  
+
+---
+
+#### R9 – Storytelling Desconectado
+- **Probabilidade:** 50  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Integração narrativa  
+
+**Indicadores:**
+- Clareza percebida  
+- Índice de conclusão  
+
+**Oportunidade:**
+- Narrativa como motor de retenção  
+
+---
+
+#### R10 – Falta de Valor para o Usuário
+- **Probabilidade:** 50  
+- **Impacto:** Moderado  
+
+**Plano de ação:**
+- Testes de percepção  
+
+**Indicadores:**
+- NPS / satisfação  
+
+**Oportunidade:**
+- Refinamento da proposta  
+
+---
+
+### 4. Riscos Baixos
+
+#### R11 – Riscos de Design
+- **Probabilidade:** 30  
+- **Impacto:** Baixo  
+
+**Plano de ação:**
+- Iteração visual  
+
+**Indicadores:**
+- Feedback qualitativo  
+
+**Oportunidade:**
+- Identidade visual forte  
+
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
 *Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração*
