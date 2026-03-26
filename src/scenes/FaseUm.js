@@ -14,7 +14,7 @@ export class faseUm extends Phaser.Scene {
         this.load.spritesheet('barra', '../assets/objetos/faseUm/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
         this.load.spritesheet('bauAnimado', '../assets/objetos/faseUm/bau.png', { frameWidth: 128, frameHeight: 128 });
         this.load.spritesheet('envelope', '../assets/objetos/faseUm/envelopes.png', { frameWidth: 320, frameHeight: 320 });
-        this.load.spritesheet('pergaminho', '../assets/objetos/faseUm/pergaminho.png', { frameWidth: 1152, frameHeight: 648 });
+        this.load.spritesheet('pergaminho', '../assets/objetos/faseUm/perga.png', { frameWidth: 437.5, frameHeight: 438 });
         this.load.video('videofaseUm', '../assets/Fases/faseUm/videofaseUm.mp4');
 
         // Carrega a música específica dessa fase
@@ -34,6 +34,7 @@ export class faseUm extends Phaser.Scene {
         this.cliquesEnvelope = 0;
         this.frameEnvelope = 0;
         this.pergaminhoAberto = false;
+        this.pergaminhoEsperandoE = false;
 
         const { width, height } = this.sys.game.config;
         this.velocidade = 5;
@@ -54,11 +55,24 @@ export class faseUm extends Phaser.Scene {
         this.bau = this.add.sprite(this.mapa.displayWidth - 100, height / 2 - 50, "bauAnimado", 0).setScale(1.5); //bau está localizado 100 pixels da esquerda do tamanho da imagem do fundo
         this.bauAberto = false; //fechado até que o jogador interaja com ele
 
+        // Balão de fala — tecla E baú
+        this.containerTeclaBau = this.add.container(0, 0).setDepth(200);
+        let larguraBal = 140, alturaBal = 40;
+        let iconeBau = this.add.graphics();
+        iconeBau.fillStyle(0xffffff, 1);
+        iconeBau.lineStyle(2, 0x000000, 1);
+        iconeBau.fillRoundedRect(-larguraBal / 2, -alturaBal / 2, larguraBal, alturaBal, 10);
+        iconeBau.strokeRoundedRect(-larguraBal / 2, -alturaBal / 2, larguraBal, alturaBal, 10);
+        let letraBau = this.add.text(0, 0, "Aperte E", { fontSize: "20px", color: "#000000", fontStyle: "bold" }).setOrigin(0.5);
+        this.containerTeclaBau.add([iconeBau, letraBau]);
+        this.containerTeclaBau.setVisible(false);
+        this.tweens.add({ targets: this.containerTeclaBau, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
+
         //o setScollFactor(0), faz com que ele não fique para traz com o movimento da câmera. o Deph define o quão em cima das outras camadas ele ficará
         this.overlay = this.add.rectangle(0, 0, width * 3, height, 0x000000).setOrigin(0, 0).setScrollFactor(0).setDepth(100); //retangulo grande e preto para escurecer a tela no momento de abertura do baú
         this.overlay.alpha = 0; //transparência total
         this.envelope = this.add.sprite(width / 2, height + 200, "envelope", 0).setScale(1.5).setScrollFactor(0).setDepth(101).setVisible(false).setInteractive(); //o setInteractive ativa a detecção de entrada(cliques)
-        this.pergaminho = this.add.sprite(width - 500, height / 2, "pergaminho", 0).setScale(1.5).setScrollFactor(0).setDepth(102).setVisible(false);
+        this.pergaminho = this.add.sprite(width - 500, height / 2, "pergaminho", 0).setScale(2).setScrollFactor(0).setDepth(102).setVisible(true);
 
         //============================================================================ PRECISA CORRIGIR
         this.obstaculosCaixaColisao = null;
@@ -138,9 +152,34 @@ export class faseUm extends Phaser.Scene {
             });
         }
         this.asimov.play("asimov_right"); //o jogador não precisa mover o robô para frente, ele ja faz isso naturalmente
+
+        // Aviso fixo na tela
+        this.retanguloAviso = this.add.graphics();
+        this.retanguloAviso.fillStyle(0x000000, 0.8);
+        this.retanguloAviso.fillRect(700, 990, 500, 30, 15);
+        this.retanguloAviso.setScrollFactor(0).setDepth(2000).setVisible(false);
+
+        this.textoAviso = this.add.text(950, 1000, "", {
+            fontSize: '18px',
+            fill: '#ffffff',
+            fontStyle: 'bold'
+        }).setOrigin(0.5).setScrollFactor(0).setDepth(2001).setVisible(false);
     }
 
     update () {
+        if (this.pergaminhoEsperandoE) {
+            if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+                this.pergaminhoEsperandoE = false;
+                const { width, height } = this.sys.game.config;
+                const video = this.add.video(width / 2, height / 2, 'videofaseUm').setScale(2.0).setScrollFactor(0).setDepth(103);
+                video.play();
+                video.on('complete', () => {
+                    this.scene.start('transicao1para2');
+                });
+            }
+            return;
+        }
+
         const gravidadeOriginal = 0; //sem gravidade
         //no moento do pulo
         if (this.pulando) {
@@ -158,13 +197,18 @@ export class faseUm extends Phaser.Scene {
                 this.asimov.setVelocityX(0);
                 this.asimov.anims.stop();
                 
+                this.containerTeclaBau.setPosition(this.bau.x, this.bau.y - 120);
+                if (!this.bauAberto) this.containerTeclaBau.setVisible(true);
+
                 if (Phaser.Input.Keyboard.JustDown(this.teclaE) && !this.bauAberto) { //se apertar E o baú se abre
                     this.bauAberto = true;
+                    this.containerTeclaBau.setVisible(false);
                     this.bau.setFrame(1);
                     this.abrirBau();
                 } 
                 
             } else {
+                this.containerTeclaBau.setVisible(false);
                 this.asimov.setVelocityX(this.velocidadeAsimov); //se ele não chegou ao final do mapa, então mantém a velocidade X determinada no início do código
             }
             this.asimov.setVelocityY(0); //velocidade Y é sempre 0
@@ -173,9 +217,6 @@ export class faseUm extends Phaser.Scene {
                 this.asimov.setVelocity(350, -280); //personagem movimenta 280px para frente e 280 para cima
                 this.ajustarFramerateBarra(true); //aumenta framerate da barra durante o pulo
             }
-        }
-        if (Phaser.Input.Keyboard.JustDown(this.teclaE) && this.pergaminhoAberto) { //assim que o jogador apertar a tecla E e o pergaminho está true é para mudar de cena
-            this.scene.start("LaboratorioScene"); 
         }
         if (this.asimov.x < this.mapa.displayWidth - 200) { //faz com que o sprite do robô sempre retorne a animação de andando para a direita
             this.asimov.anims.play("asimov_right", true);
@@ -343,8 +384,10 @@ export class faseUm extends Phaser.Scene {
             duration: 1000,
             ease: 'Back.easeOut'
         });
+        
 
         this.envelope.on('pointerdown', () => this.clicarEnvelope());
+        this.exibirAviso("Baú aberto! Clique no envelope para continuar.");
     }
 
     //função para animação de quando abrie envelope
@@ -385,7 +428,7 @@ export class faseUm extends Phaser.Scene {
         if (!this.anims.exists('pergaminhoAnim')) {
             this.anims.create({
                 key: 'pergaminhoAnim',
-                frames: this.anims.generateFrameNumbers('pergaminho', { start: 0, end: 96 }),
+                frames: this.anims.generateFrameNumbers('pergaminho', { start: 0, end: 11 }),
                 frameRate: 10,
                 repeat: 0
             });
@@ -393,13 +436,20 @@ export class faseUm extends Phaser.Scene {
         this.pergaminho.play('pergaminhoAnim');
         
         this.pergaminho.on('animationcomplete', () => {
-            const { width, height } = this.sys.game.config;
-            const video = this.add.video(width / 2, height / 2, 'videofaseUm').setScale(2.0).setScrollFactor(0).setDepth(103);
-            video.play();
-            
-            video.on('complete', () => {
-                this.scene.start('transicao1para2');
-            });
+            this.pergaminhoEsperandoE = true;
+            this.exibirAviso("Aperte E para continuar.");
+        });
+    }
+
+    exibirAviso(frase) {
+        this.texto
+        this.textoAviso.setText(frase);
+        this.retanguloAviso.setVisible(true);
+        this.textoAviso.setVisible(true);
+
+        this.time.delayedCall(7000, () => {
+            this.retanguloAviso.setVisible(false);
+            this.textoAviso.setVisible(false);
         });
     }
 }
