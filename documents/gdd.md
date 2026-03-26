@@ -116,6 +116,74 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 
 *Posicione aqui o canvas de proposta de valor. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera.*
 
+## A. Perfil do Cliente
+
+### Público-alvo principal
+Estudantes universitários e jovens com baixo letramento em IA
+
+### a) Tarefas do cliente (Customer Jobs)
+
+- Aprender conceitos de IA (machine learning, redes neurais, IA generativa)
+- Aplicar conhecimento na prática
+- Aprender sobre ética em IA
+- Adquirir letramento básico em IA sem precisar de base teórica avançada
+- Acompanhar tendências tecnológicas
+
+### b) Dores (Pains)
+
+- Baixo engajamento em cursos assíncronos
+- Excesso de conteúdo teórico
+- Dificuldade de aplicação prática
+- Evasão em cursos online
+- Falta de conhecimento sobre os principais motivos da evasão
+- Desorientação em relação à IA
+- Pouco conhecimento dos termos relacionados à IA
+- Não saber exatamente o que é IA
+- Medo em relação ao futuro da IA
+- Falta de motivação devido à ausência de progressão visível
+
+### c) Ganhos (Gains)
+
+- Aprendizado interativo e aplicado
+- Experiência imersiva
+- Maior retenção de conhecimento
+- Facilidade de compreensão de conceitos complexos
+- Entendimento geral sobre IA
+- AI literacy
+- Capacidade de aproveitar ganhos de produtividade com IA
+- Analogia entre a progressão da história e os aprendizados
+- Maior foco e motivação
+
+---
+
+## B. Mapa de Valor
+
+### a) Produtos e Serviços
+
+- Jogo digital educacional baseado em IA com narrativa engajante
+- Módulos gamificados (níveis, desafios e simulações)
+- Experiências inspiradas no IBM SkillsBuild
+- Sistema de progressão gradual
+- Puzzles interativos que permitem ao jogador visualizar e interagir com o que está aprendendo
+- Conteúdos complexos atuais condensados e simplificados para favorecer aprendizagem e engajamento
+
+### b) Aliviadores de Dores
+
+- Substituição de conteúdo passivo por interação ativa
+- Simulação prática de conceitos
+- Feedback imediato
+- Transformação de conceitos abstratos em interações concretas
+- Uso de microdesafios para aumentar o engajamento
+- Visualização de processos relacionados à IA
+- Criação de um índice que identifique os critérios de evasão, permitindo monitoramento e ajustes contínuos
+
+### c) Criadores de Ganho
+
+- Narrativa imersiva
+- Progressão por níveis
+- Aplicação prática dos conceitos
+- Puzzles sobre IA
+
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
 *Descreva brevemente a solução desenvolvida para o parceiro de negócios. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera. Observe a seção 2 e verifique que ali é possível trazer mais detalhes, portanto seja objetivo aqui. Atualize esta descrição até a entrega final, conforme desenvolvimento.*
@@ -151,7 +219,6 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 - Alto: Prejudica significativamente o projeto  
 - Muito Alto: Compromete o objetivo central  
 
----
 
 ## Matriz de Riscos (Ordenada por Criticidade)
 
@@ -175,8 +242,6 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 **Oportunidade:**
 - Criar um modelo pedagógico superior ao tradicional  
 
----
-
 ### 2. Riscos Altos
 
 #### R2 – Complexidade na Simulação de IA
@@ -194,8 +259,6 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 **Oportunidade:**
 - Diferenciação educacional forte  
 
----
-
 #### R3 – Riscos Estratégicos para a IBM
 - **Probabilidade:** 50  
 - **Impacto:** Muito Alto  
@@ -211,7 +274,6 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 **Oportunidade:**
 - Tornar-se produto referência  
 
----
 
 #### R4 – Desalinhamento com o SkillsBuild
 - **Probabilidade:** 30  
@@ -231,7 +293,6 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 **Oportunidade:**
 - Maior liberdade criativa  
 
----
 
 ### 3. Riscos Moderados
 
@@ -250,7 +311,6 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 **Oportunidade:**
 - Alto potencial de retenção  
 
----
 
 #### R6 – Curva de Aprendizado Inadequada
 - **Probabilidade:** 70  
@@ -266,7 +326,6 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 **Oportunidade:**
 - Sistema adaptativo avançado  
 
----
 
 #### R7 – Experiência do Usuário (UX/UI)
 - **Probabilidade:** 50  
@@ -282,7 +341,6 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 **Oportunidade:**
 - Interface altamente eficiente  
 
----
 
 #### R8 – Obsolescência do Conteúdo
 - **Probabilidade:** 50  
@@ -297,7 +355,6 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 **Oportunidade:**
 - Sistema modular  
 
----
 
 #### R9 – Storytelling Desconectado
 - **Probabilidade:** 50  
@@ -313,7 +370,6 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 **Oportunidade:**
 - Narrativa como motor de retenção  
 
----
 
 #### R10 – Falta de Valor para o Usuário
 - **Probabilidade:** 50  
@@ -328,7 +384,6 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 **Oportunidade:**
 - Refinamento da proposta  
 
----
 
 ### 4. Riscos Baixos
 
