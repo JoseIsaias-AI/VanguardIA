@@ -202,7 +202,7 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 
 *Registre na matriz os riscos identificados no projeto, visando avaliar situações que possam representar ameaças e oportunidades, bem como os impactos relevantes sobre o projeto. Apresente os riscos, ressaltando, para cada um, impactos e probabilidades com plano de ação e respostas..*
 
-<img src="../assets/gdd/matrizDeRiscos.png " width="70%">
+<img src="../assets/gdd/matrizDeRiscos.png " width="100%">
 
 ## Escalas Utilizadas
 
