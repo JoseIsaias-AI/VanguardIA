@@ -116,12 +116,12 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 
 *Posicione aqui o canvas de proposta de valor. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera.*
 
-<img src="../assets/gdd/canvasPropostadeValor.png " width="70%">
+<img src="../assets/gdd/canvasPropostadeValor.png " width="100%">
 
 ## A. Perfil do Cliente
 
 ## Público-alvo principal
-Estudantes universitários e jovens com baixo letramento em IA
+Estudantes universitários e jovens com baixo letramento em IA.
 
 ## a) Tarefas do cliente (Customer Jobs)
 
