@@ -53,8 +53,8 @@ const config = {
     menu,
     BgMusic,
   ],
+  //scene: [scenePreFase4, faseQuatro]
   //scene: [faseQuatro]
-  //scene: [SceneRetornoLab]
 };
 
 const game = new Phaser.Game(config);
