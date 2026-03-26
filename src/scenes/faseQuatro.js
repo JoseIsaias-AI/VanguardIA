@@ -11,12 +11,13 @@ export class faseQuatro extends Phaser.Scene {
 
     //carrega todas as imagens e sprites
     preload () {
-        this.load.image('cristais', 'assets/Fases/FaseQuatro/cristais.png');
-        this.load.image('cristais2', 'assets/Fases/FaseQuatro/cristais2.png');
-        this.load.image('cristais3', 'assets/Fases/FaseQuatro/cristais3.png');
-        this.load.image('cristais4', 'assets/Fases/FaseQuatro/cabeçaDoRobo.png');
+        this.load.image('cristais', 'assets/Fases/FaseQuatro/cabeça1.png');
+        this.load.image('cristais2', 'assets/Fases/FaseQuatro/cabeça2.png');
+        this.load.image('cristais3', 'assets/Fases/FaseQuatro/cabeça3.png');
+        this.load.image('cristais4', 'assets/Fases/FaseQuatro/cabeça4.png');
         this.load.image('esponja', 'assets/Fases/FaseQuatro/esponja.png');
         this.load.image('textoExplicacao', 'assets/Fases/FaseQuatro/textoExplicação.png');
+        this.load.image('textoPerda', 'assets/Fases/FaseQuatro/textoPerda.png');
         this.load.spritesheet('barra', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 256, frameHeight: 256 });
     }
 
@@ -36,7 +37,7 @@ export class faseQuatro extends Phaser.Scene {
         // cria objetos sem adicioná-los à cena automaticamente por causa do False. Carrega a imagem da key.
         const img2 = this.make.image({ key: 'cristais2' }, false).setDisplaySize(width, height); 
         const img3 = this.make.image({ key: 'cristais3' }, false).setDisplaySize(width, height);
-        const img4 = this.make.image({ key: 'cristais4' }, false).setScale(2.2);
+        const img4 = this.make.image({ key: 'cristais4' }, false).setDisplaySize(width, height);
 
         //fórmula de apagar utilizada encontrada no site da Phaser: https://phaser.io/examples/v3.85.0/game-objects/render-texture/view/erase-part-of-render-texture
         // cria o objeto com o renderTexture, dinâmica que pode ser desenhada e apagada em tempo real. Começa na posição x e y = 0
@@ -54,7 +55,7 @@ export class faseQuatro extends Phaser.Scene {
         const criarMapa = (w, h) => { //recebe a coordenada de largura e de altura
             const c = document.createElement('canvas'); // cria o canvas explicado acima e armazena na variavedl c
             c.width = w; c.height = h;
-            return c.getContext('2d'); //o canvas tem que ser em 2D, por isso o context('2d')
+            return c.getContext('2d', { willReadFrequently: true }); //o canvas tem que ser em 2D, por isso o context('2d')
         };
         this.mapa4 = criarMapa(width, height);
         this.mapa3 = criarMapa(width, height);
@@ -67,8 +68,8 @@ export class faseQuatro extends Phaser.Scene {
         this.barra = this.add.sprite(width / 2, 120, 'barra', 0).setScale(3).setDepth(10); //adiciona a barra do overfitting
         this.anims.create({ //animação da passagem de frames
             key: 'barraProgresso4',
-            frames: this.anims.generateFrameNumbers('barra', { start: 0, end: 66 }), // são 67 imagens da barra
-            frameRate: 2.5, 
+            frames: this.anims.generateFrameNumbers('barra', { start: 0, end: 15 }), // são 15 imagens da barra
+            frameRate: 1, 
             repeat: 0
         });
         this.barraFrame = 0; //começa com o primeiro frame
@@ -190,14 +191,14 @@ export class faseQuatro extends Phaser.Scene {
         if (this.jogoParado) return; //sai das atualizações  se o jogador perdeu o tempo
 
         if (this.limpando) { //enquanto estiver limpando a barra de progresso aumenta os frames e vai subindo
-            this.barraFrame = Math.min(66, this.barraFrame + 0.1);
+            this.barraFrame = Math.min(16, this.barraFrame + 0.1);
         } else {
             this.barraFrame = Math.max(0, this.barraFrame - 0.1); //enquanto estiver sem limpar a barra de progresso diminui os frames e vai subindo
         }
         this.barra.setFrame(Math.floor(this.barraFrame));
 
-        if (Math.floor(this.barraFrame) >= 66) { //se os frames forem iguais a quantidade maxima, o jogador perde por Overfitting
-            this.mostrarMenu('FALHA DE FABRICAÇÃO DO CRISTAL:\nO nível de ruído visual excedeu a tolerância desta etapa.\nInserir dados turvos comprometerá a generalização do\ntreinamento. A fabricação foi pausada.\nReinicie o tratamento desta imagem.');
+        if (Math.floor(this.barraFrame) >= 16) { //se os frames forem iguais a quantidade maxima, o jogador perde por Overfitting
+            this.mostrarMenuPerda();
         }
 
         // conta pixels apagados no mapa2 (última camada)
@@ -208,6 +209,32 @@ export class faseQuatro extends Phaser.Scene {
         }
         const pct = Math.floor((apagados / this.totalPixels) * 100); //pega o número da porcentagem
         this.textoNitidez.setText(`Nitidez: ${pct}%`);
+    }
+
+    mostrarMenuPerda() {
+        if (this.jogoParado) return;
+        this.jogoParado = true;
+        this.limpando = false;
+
+        const { width, height } = this.sys.game.config;
+        this.input.off('pointermove');
+
+        const imagemPerda = this.add.image(width / 2, height / 2, 'textoPerda').setDepth(20).setScale(0.85);
+
+        this.tweens.add({
+            targets: imagemPerda,
+            scaleX: 0.9,
+            scaleY: 0.9,
+            duration: 1000,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
+
+        this.input.once('pointerdown', () => {
+            this.scene.restart();
+        });
+        
     }
 
     mostrarMenu(mensagem) {
@@ -241,7 +268,7 @@ export class faseQuatro extends Phaser.Scene {
         if (!this.desenhoAtiva) return; //caso chegar na ultima imagem que não tem uma renderTexture
         const metade = tamBorracha / 2;
         this.desenhoAtiva.erase(borracha, x, y); //pega o molde do objeto apagador e faz com que apague com aquele molde nos pontos x e y
-        //this.mapaAtivo.beginPath(); melhora no desempenho do navegador, mas estou testando ainda para ver se realmente é necessário
+        this.mapaAtivo.beginPath(); //melhora no desempenho do navegador, mas estou testando ainda para ver se realmente é necessário
         this.mapaAtivo.arc(x, y, metade, 0, Math.PI * 2); //Cria um círculo perfeito na posição do mouse, sem isso ele não apaga a camada de baixo
         this.mapaAtivo.fill(); //anota a parte que ja esta limpa
     }

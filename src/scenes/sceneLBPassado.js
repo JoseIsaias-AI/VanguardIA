@@ -20,6 +20,10 @@ export class sceneLBPassado extends Phaser.Scene {
     this.load.image("reservasCrio", "assets/objetos/sceneLBPassado/partOne/reservasCrio.png");
     this.load.image("comptBaixo", "assets/objetos/sceneLBPassado/partOne/comptBaixo.png");
     this.load.image("comptCima", "assets/objetos/sceneLBPassado/partOne/comptCima.png");
+    this.load.image("npc1", "assets/Personagens/npc1.png");
+    this.load.image("npc2", "assets/Personagens/npc2.png");
+    this.load.image("npc3", "assets/Personagens/npc3.png");
+    this.load.image("npc4", "assets/Personagens/npc4.png");
   }
 
   create() {
@@ -121,6 +125,16 @@ export class sceneLBPassado extends Phaser.Scene {
     this.physics.add.collider(this.Principal, this.camara);
     this.physics.add.collider(this.Principal, this.paredes);
     this.physics.add.collider(this.Principal, this.objetosColisao);
+
+    // NPCs decorativos
+    this.npc1 = this.add.image(290, 330, "npc1").setScale(2).setDepth(1000);
+    this.npc2 = this.add.image(350, 50, "npc2").setScale(2).setDepth(1000);
+    this.npc3 = this.add.image(820, 270, "npc3").setScale(2).setDepth(1000);
+    this.npc4 = this.add.image(800, 455, "npc4").setScale(2).setDepth(1000);
+    this.criarColisao(this.npc1);
+    this.criarColisao(this.npc2);
+    this.criarColisao(this.npc3);
+    this.criarColisao(this.npc4);
 
     // WATSON (NPC)
     this.watson = this.physics.add.sprite(830, 80, "watson").setScale(2.3);

@@ -47,7 +47,7 @@ const config = {
     menu,
     BgMusic,
   ],
-  //scene: [menu]
+  //scene: [faseQuatro]
   //scene: [SceneRetornoLab]
 };
 
