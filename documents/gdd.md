@@ -844,6 +844,128 @@ Controles: Movimentação livre (WASD / Setas) para transportar o cristal e Tecl
 
 *Descreva aqui a função que implementa a movimentação/animação de personagens ou elementos gráficos no seu jogo. Sua função deve se basear em alguma formulação matemática (e.g. fórmula de aceleração). A explicação do funcionamento desta função deve conter notação matemática formal de fórmulas/equações. Se necessário, crie subseções para sua descrição.*
 
+
+## 3.8.1 Parâmetros do Modelo
+
+| Símbolo | Descrição                        | Valor       |
+|---------|----------------------------------|-------------|
+| xᵢ      | Posição inicial X                | 1065 px     |
+| yᵢ      | Posição inicial Y                | 235 px      |
+| xf      | Posição final X                  | 861 px      |
+| yf      | Posição final Y                  | 235 px      |
+| T       | Duração total da animação        | 2 s         |
+| aᵧ      | Aceleração gravitacional do jogo | 200 px/s²   |
+
+> **Nota sobre coordenadas:** No Phaser 3 o eixo Y cresce **para baixo**.
+> Velocidade inicial negativa em Y = movimento **para cima** na tela.
+> Aceleração positiva em Y = gravidade puxando **para baixo**.
+
+
+
+## 3.8.2 Eixo X — Movimento Uniforme (MU)
+
+No MU a aceleração é nula e a velocidade é constante. Partindo da definição de velocidade média:
+
+$$
+v_x = \frac{x_f - x_i}{T} = \frac{861 - 1065}{2} = -102 \text{ px/s}
+$$
+
+Equação horária da posição em X:
+
+$$
+x(t) = x_i + v_x \cdot t
+$$
+
+**Verificação:** $x(2) = 1065 + (-102)(2) = 861 \text{ px}$ ✓
+
+
+
+## 3.8.3 Eixo Y — Movimento Uniformemente Variado (MUV)
+
+Como $y_i = y_f = 235$ px, a pedra executa um arco simétrico — sobe e retorna ao mesmo nível.
+
+**Aceleração (parâmetro de projeto):**
+
+$$
+a_y = +200 \text{ px/s}^2
+$$
+
+**Velocidade inicial em Y** — obtida impondo $y(T) = y_f$ na equação horária:
+
+$$
+y(T) = y_i + v_{y0} \cdot T + \frac{1}{2} \cdot a_y \cdot T^2 = y_f
+$$
+
+$$
+v_{y0} \cdot T = y_f - y_i - \frac{1}{2} \cdot a_y \cdot T^2
+$$
+
+$$
+v_{y0} = \frac{(y_f - y_i) - \frac{1}{2} \cdot a_y \cdot T^2}{T} = \frac{0 - \frac{1}{2} \cdot 200 \cdot 4}{2} = -200 \text{ px/s}
+$$
+
+**Equação horária da velocidade em Y:**
+
+$$
+v_y(t) = v_{y0} + a_y \cdot t
+$$
+
+**Equação horária da posição em Y:**
+
+$$
+y(t) = y_i + v_{y0} \cdot t + \frac{1}{2} \cdot a_y \cdot t^2
+$$
+
+**Verificações:**
+- Pico em $t = 1$ s: $y(1) = 235 + (-200)(1) + \frac{1}{2}(200)(1) = 135 \text{ px}$ → sobe 100 px ✓
+- Retorno em $t = 2$ s: $y(2) = 235 + (-200)(2) + \frac{1}{2}(200)(4) = 235 \text{ px}$ ✓
+
+
+
+# 3.8.4 Visualização das Trajetórias
+
+![Gráfico das trajetórias Δx(t) e Δy(t)](../assets/gdd/grafico_trajetorias.svg)
+
+$$
+\Delta x(t) = -102 \cdot t \quad | \quad \Delta y(t) = -200 \cdot t + \frac{1}{2} \cdot 200 \cdot t^2 \quad | \quad \Delta y(1) = -100 \text{ px (pico do arco)}
+$$
+
+
+
+# 3.8.5 Localização no Código-Fonte
+
+- **Arquivo:** `faseTres.js`
+- **Função:** --> add
+- **Linha de início:** linha 1 de --> add 
+
+
+
+# 3.8.6 Código — Implementação em Phaser 3 com JavaScript
+
+--> adicionar isso
+
+
+
+## 3.8.7 Tabela de Validação
+
+| t (s) | x(t) px | vx (px/s) | y(t) px | vy(t) px/s | ay (px/s²) |
+|-------|---------|-----------|---------|------------|------------|
+| 0,000 | 1065,00 | −102,00   | 235,00  | −200,00    | 200,00     |
+| 0,500 | 1014,00 | −102,00   | 185,00  | −100,00    | 200,00     |
+| **1,000** | **963,00** | **−102,00** | **135,00** | **0,00** | **200,00** |
+| 1,500 | 912,00  | −102,00   | 185,00  | +100,00    | 200,00     |
+| 2,000 | 861,00  | −102,00   | 235,00  | +200,00    | 200,00     |
+
+> Em **t = 1 s** (linha em negrito): $v_y = 0$ confirma o pico do arco.
+> Em **t = 2 s**: $x = 861$ px e $y = 235$ px confirmam o retorno às coordenadas finais. ✓
+
+
+
+# Fontes --> colocar no lugar certo
+
+1. HALLIDAY, D.; RESNICK, R.; WALKER, J. *Fundamentos de Física — Mecânica.* Vol. 1, cap. 4. LTC, 10ª ed., 2016. — Base para as equações de MU e MUV.
+2. NUSSENZVEIG, H. M. *Curso de Física Básica — Mecânica.* Vol. 1, cap. 3. Blucher, 5ª ed., 2013.
+
 # <a name="c4"></a>4. Desenvolvimento do Jogo
 
 ## 4.1. Desenvolvimento preliminar do jogo (sprint 1)

@@ -1,15 +1,18 @@
 import { scenePreFase4 } from "./src/scenes/scenePreFase4.js";
 import { welcomeScene } from "./src/scenes/Welcome.js";
+import { sceneInicial } from "./src/scenes/sceneInicial.js";
 import { sceneLBPassado } from "./src/scenes/sceneLBPassado.js";
 import { sceneLBFuturo } from "./src/scenes/sceneLBFuturo.js";
 import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js";
-import { SceneLabCristal } from "./src/scenes/SceneLabCristal.js";
+import { sceneRestauracao } from "./src/scenes/sceneRestauracao.js";
 import { faseUm } from "./src/scenes/FaseUm.js";
 import { FaseDois } from "./src/scenes/FaseDois.js";
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js";
 import { transicao1para2 } from "./src/scenes/transicao1para2.js";
+import { faseTres } from "./src/scenes/faseTres.js";
 import { FaseDoischao } from "./src/scenes/ChãoCaindo.js";
 import { faseQuatro } from "./src/scenes/faseQuatro.js";
+import { faseCinco } from "./src/scenes/faseCinco.js";
 import { menu } from "./src/menu.js";
 import { BgMusic } from "./src/scenes/BgMusic.js";
 
@@ -34,23 +37,30 @@ const config = {
   audio: {
     disableWebAudio: false,
   },
+  //scene: [transicao1para2, FaseDois],
+  //scene: [sceneRestauracao,faseCinco, menu, BgMusic],
+  //scene: [faseUm],
+  //scene: [faseQuatro],
+
   scene: [
     welcomeScene,
+    sceneInicial,
     sceneLBPassado,
     sceneLBFuturo,
     faseUm,
     transicao1para2,
     FaseDois,
     FaseDoischao,
+    faseTres,
     SceneRetornoLab,
-    SceneLabCristal,
     minigame1Fase2,
     scenePreFase4,
     faseQuatro,
+    sceneRestauracao,
+    faseCinco,
     menu,
     BgMusic,
   ],
-  //scene: scenePreFase4
 };
 
 const game = new Phaser.Game(config);
