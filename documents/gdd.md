@@ -2,8 +2,6 @@
 
 # GDD - Game Design Document - Módulo 1 - Inteli
 
-**_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final_**
-
 ## Nome do Grupo
 
 #### Nomes dos integrantes do grupo
@@ -199,8 +197,6 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
-
-*Registre na matriz os riscos identificados no projeto, visando avaliar situações que possam representar ameaças e oportunidades, bem como os impactos relevantes sobre o projeto. Apresente os riscos, ressaltando, para cada um, impactos e probabilidades com plano de ação e respostas..*
 
 <img src="../assets/gdd/matrizDeRiscos.png " width="100%">
 
@@ -431,30 +427,39 @@ Construir uma identidade visual marcante e coerente, reforçando branding e reco
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
-*Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração*
+**Objetivos Estratégicos**
 
-1. Objetivos Estratégicos
 1. Aumentar o engajamento de jovens com pouco conhecimento em IA
  Criar uma experiência interativa que seja mais interessante do que cursos tradicionais, incentivando o usuário a continuar.
+
 2. Melhorar a aprendizagem de conceitos básicos de IA
  Garantir que o usuário entenda ideias como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning.
+
 3. Despertar interesse pela área de Inteligência Artificial
  Fazer com que o usuário perceba que IA é acessível e se interesse em continuar aprendendo.
+
 4. Incentivar o usuário a concluir o jogo
  Usar elementos de jogo e narrativa para manter o usuário até o final da experiência.
-2. Metas (SMART)
+
+**Metas (SMART)**
+
 M1 - Conclusão do jogo
  Alcançar uma taxa de conclusão de pelo menos setenta por cento dos usuários que iniciarem o jogo, em até oito semanas após o lançamento.
+
 M2 - Redução da evasão
  Diminuir o abandono entre o início e o final do jogo em pelo menos trinta por cento, em comparação com cursos online tradicionais, até o fim do piloto.
+
 M3 - Aprendizagem
  Alcançar uma média de acertos de pelo menos sessenta e cinco por cento nos testes após cada módulo, durante o piloto.
+
 M4 - Satisfação do usuário
  Alcançar um nível de satisfação de pelo menos cinquenta pontos no NPS, medido ao final do uso do jogo.
+
 M5 - Continuidade do aprendizado
  Garantir que pelo menos quarenta por cento dos usuários que terminarem o jogo acessem outros conteúdos de aprendizagem em até trinta dias.
 
-3. KPIs (Indicadores)
+**KPIs (Indicadores)**
+
 KPI 1 - Taxa de conclusão
 Mede quantos usuários terminam o jogo em relação aos que começaram
 Meta: pelo menos setenta por cento
@@ -752,15 +757,6 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
-*Descreva a trilha sonora do jogo, indicando quais músicas serão utilizadas no mundo e nas fases. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.*
-
-*Exemplo de tabela*
-\# | titulo | ocorrência | autoria
---- | --- | --- | ---
-1 | tema de abertura | tela de início | própria
-2 | tema de combate | cena de combate com inimigos comuns | Hans Zimmer
-3 | ... 
-
 Trilha sonora 1
 
 Título                    Autoria               Ocorrência              Duração
@@ -934,8 +930,6 @@ Após a forja e a identificação correta do cristal verdadeiro, Sophia pode lev
 Controles: Movimentação livre (WASD / Setas) para transportar o cristal e Tecla "E" no núcleo central para depositá-lo e acionar a vitória da fase.
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
-
-*Descreva aqui a função que implementa a movimentação/animação de personagens ou elementos gráficos no seu jogo. Sua função deve se basear em alguma formulação matemática (e.g. fórmula de aceleração). A explicação do funcionamento desta função deve conter notação matemática formal de fórmulas/equações. Se necessário, crie subseções para sua descrição.*
 
 
 ## 3.8.1 Parâmetros do Modelo
