@@ -433,13 +433,76 @@ Construir uma identidade visual marcante e coerente, reforçando branding e reco
 
 *Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração*
 
-O principal objetivo do projeto é desenvolver um jogo educativo gamificado que ensine conceitos introdutórios de Inteligência Artificial de forma simples, interativa e acessível, especialmente para jovens que ainda não têm familiaridade com a área. A ideia é transformar um conteúdo que normalmente é visto como difícil e muito teórico em uma experiência prática, envolvente e mais fácil de entender. A partir desse objetivo, foram definidas metas seguindo o modelo SMART, que ajudam a guiar o desenvolvimento do projeto e permitem avaliar se a solução realmente cumpre o que se propõe.
+1. Objetivos Estratégicos
+1. Aumentar o engajamento de jovens com pouco conhecimento em IA
+ Criar uma experiência interativa que seja mais interessante do que cursos tradicionais, incentivando o usuário a continuar.
+2. Melhorar a aprendizagem de conceitos básicos de IA
+ Garantir que o usuário entenda ideias como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning.
+3. Despertar interesse pela área de Inteligência Artificial
+ Fazer com que o usuário perceba que IA é acessível e se interesse em continuar aprendendo.
+4. Incentivar o usuário a concluir o jogo
+ Usar elementos de jogo e narrativa para manter o usuário até o final da experiência.
+2. Metas (SMART)
+M1 - Conclusão do jogo
+ Alcançar uma taxa de conclusão de pelo menos setenta por cento dos usuários que iniciarem o jogo, em até oito semanas após o lançamento.
+M2 - Redução da evasão
+ Diminuir o abandono entre o início e o final do jogo em pelo menos trinta por cento, em comparação com cursos online tradicionais, até o fim do piloto.
+M3 - Aprendizagem
+ Alcançar uma média de acertos de pelo menos sessenta e cinco por cento nos testes após cada módulo, durante o piloto.
+M4 - Satisfação do usuário
+ Alcançar um nível de satisfação de pelo menos cinquenta pontos no NPS, medido ao final do uso do jogo.
+M5 - Continuidade do aprendizado
+ Garantir que pelo menos quarenta por cento dos usuários que terminarem o jogo acessem outros conteúdos de aprendizagem em até trinta dias.
 
-Uma das metas é fazer com que o jogador consiga compreender, ao longo da experiência, conceitos básicos de IA, como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning, por meio dos desafios e mecânicas do próprio jogo, onde o aprendizado é aplicado na prática. O indicador utilizado para isso é o desempenho do jogador nas atividades e minigames, observando se ele consegue avançar e resolver os desafios corretamente. Outra meta importante é reduzir a evasão, comum em cursos tradicionais, incentivando o jogador a continuar progredindo pelas fases por meio da narrativa e da gamificação; nesse caso, o indicador é a progressão dentro do jogo e a continuidade do usuário nas etapas.
+3. KPIs (Indicadores)
+KPI 1 - Taxa de conclusão
+Mede quantos usuários terminam o jogo em relação aos que começaram
+Meta: pelo menos setenta por cento
+Frequência: ao final do piloto
+Foco: engajamento
 
-Também foi definida uma meta relacionada à experiência do usuário, buscando garantir que o jogo seja intuitivo, claro e interessante. Para avaliar isso, são considerados os feedbacks coletados durante os testes, analisando aspectos como jogabilidade, nível de dificuldade e diversão. Além disso, o projeto busca ser acessível, permitindo que o jogo funcione diretamente no navegador, sem necessidade de instalação ou alto desempenho do dispositivo, sendo o indicador o funcionamento em diferentes navegadores e a facilidade de acesso relatada pelos usuários. Por fim, o jogo também tem como meta despertar o interesse pela área de Inteligência Artificial, incentivando o usuário a continuar aprendendo após a experiência, inclusive em plataformas como o IBM SkillsBuild, sendo esse interesse identificado por meio dos feedbacks e comportamento dos jogadores.
+KPI 2 - Taxa de abandono
+Mede quantos usuários desistem antes de terminar o jogo
+Meta: no máximo trinta por cento, comparado ao padrão
+Frequência: por fase e acumulado
+Foco: engajamento
 
-Dessa forma, os objetivos, metas e indicadores garantem que o projeto vá além de uma proposta teórica, permitindo avaliar na prática seu impacto no aprendizado, no engajamento e no interesse dos usuários pela área de Inteligência Artificial.
+KPI 3 - Desempenho nos testes
+Mede o número de respostas corretas nos testes após cada fase
+Meta: pelo menos sessenta e cinco por cento de acerto
+Frequência: ao final de cada módulo
+Foco: aprendizagem
+
+KPI 4 - Evolução do aprendizado
+Compara o desempenho antes e depois do jogo
+Meta: aumento mínimo de vinte e cinco pontos percentuais
+Frequência: ao final do piloto
+Foco: aprendizagem real
+
+KPI 5 - Tempo médio de uso
+Mede quanto tempo o usuário passa no jogo em cada sessão
+Meta: pelo menos quinze minutos por sessão
+Frequência: semanal
+Foco: engajamento
+
+KPI 6 - Retorno ao jogo
+Mede quantos usuários voltam a jogar depois da primeira vez
+Meta: pelo menos sessenta por cento retornam
+Frequência: sete dias após o primeiro acesso
+Foco: engajamento
+
+KPI 7 - Satisfação (NPS)
+Mede o quanto os usuários recomendariam o jogo
+Meta: pelo menos cinquenta pontos
+Frequência: após a conclusão
+Foco: experiência
+
+KPI 8 - Continuidade do aprendizado
+Mede quantos usuários buscam aprender mais depois do jogo
+Meta: pelo menos quarenta por cento
+Frequência: até trinta dias após o término
+Foco: impacto educacional
+
 
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
@@ -697,6 +760,36 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 1 | tema de abertura | tela de início | própria
 2 | tema de combate | cena de combate com inimigos comuns | Hans Zimmer
 3 | ... 
+
+Trilha sonora 1
+
+Título                    Autoria               Ocorrência              Duração
+
+Batida, tensa             Própria              Durante todas          32 segundos,
+Futurista                                        as fases               em loop
+
+
+
+
+DESCRIÇÃO 
+
+A trilha sonora do jogo é um elemento de ambiente futurista, construída para colocar o jogador dentro de um universo tecnológico sombrio e instável. Ela não conta uma história, mas condiciona o estado emocional de quem joga, através de batidas metálicas que remetem a maquinário pesado e estruturas industriais, glitches e estáticos que lembram televisões analógicas falhando. Tudo isso junto passa a sensação de um futuro que existe, mas está quebrado. A tecnologia funciona, porém à beira do colapso, e o mundo ao redor respira de forma robotizada e fria.
+
+
+
+Trilha sonora 2
+
+Título                    Autoria               Ocorrência              Duração
+
+Frequência Estável        Própria           durante os momentos          32 segundos, 
+                                            que não tem desafios.          em loop
+
+
+
+DESCRIÇÃO
+
+É a música que toca enquanto Sophia ainda está descobrindo o que aconteceu e o que precisa fazer.O som continua sendo eletrônico e futurista, porque o mundo do jogo é assim, mas sem aquela sensação de perigo. As batidas são mais espaçadas, o ritmo é mais tranquilo. Dá pra sentir que as coisas ainda estão se encaixando, que existe uma chance de consertar tudo. É o som de um mundo quebrado que ainda tem esperança.
+
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
@@ -1083,7 +1176,246 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
-*Descreva e ilustre aqui o desenvolvimento da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e planos futuros.*
+
+# **Desenvolvimento Final do MVP**
+
+## **Visão Geral do MVP**
+
+O MVP reúne todas as cenas e fases que formam a jornada de Sophia e Asimov, desde o laboratório de 2022 até a restauração final em 2098\. O jogador passa pelo prólogo com Watson, pela cutscene do despertar, pelas cinco fases de minigames e chega até a cena final onde o cristal é depositado no núcleo energético.
+
+Do ponto de vista do aprendizado, o MVP cobre os cinco conceitos de IA previstos no projeto: Aprendizagem de padroes (Fase 1), redes neurais e função Softmax (Fase 2), classificação de dados (Fase 3), extração de características (Fase 4\) e IA generativa (Fase 5). Cada conceito aparece dentro da mecânica da fase, sem precisar de texto explicativo separado.
+
+##  **Funcionalidades Entregues**
+
+### **Concluídas**
+
+* Sistema de diálogos com Watson, Asimov e Sophia 
+
+* Cutscene do despertar de Sophia
+
+* Exploração livre do laboratório inicial 
+
+* Transição temporal pela câmara criogênica 
+
+* Fase 1 – Desviar dos obstáculos do corredor, com controle de Asimov 
+
+* Baú com pistas sobre o cristal 
+
+* Fase 2 – Treinamento da rede neural e Softmax
+
+* Fase 3 – Classificação de cristais,certos (azuis) e errados (vermelhos).
+
+* Fase 4 – Forja generativa com limpeza de ruídos
+
+* Fase 5 –  Aprendizado sobre Prompt
+
+* Restauração do laboratório na cena final
+
+* Barra de progresso de conhecimento 
+
+* Asimov acompanhou Sophia na movimentação 
+
+* Trilha sonora e efeitos de áudio
+
+
+### **Parcialmente Concluídas**
+
+* Luz que acompanha o personagem  – implementada parcialmente, ainda com ajustes visuais pendentes
+
+* Sistema de conquistas por fase 
+
+
+## **Fases e Cenas Implementadas**
+
+A seguir estão descritas todas as fases e cenas entregues no MVP, com suas mecânicas e o conceito de IA abordado em cada uma.
+
+### **Prólogo — Laboratório Inicial (2022)**
+
+**Mecânicas**
+
+* Exploração livre do laboratório
+
+* Interação com NPCs cientistas
+
+* Diálogo obrigatório com Watson antes de liberar a câmara criogênica
+
+* Interação com a câmara para ativar a cutscene
+
+**Conceito de IA**
+
+Não há conteúdo técnico de IA nessa cena. O objetivo é apresentar o contexto da história e introduzir os personagens.
+
+### **Transição Temporal — Cutscene do Despertar**
+
+**Mecânicas**
+
+* Animação 2D automática, sem controle do jogador
+
+* Ativada ao interagir com a câmara criogênica
+
+**Conceito de IA**
+
+Cena narrativa que conecta o passado e o futuro. Não há mecânica de IA, mas reforça o contexto de um mundo afetado pelo uso indevido da tecnologia.
+
+### **Laboratório em Ruínas (2098)**
+
+**Mecânicas**
+
+* Exploração do laboratório destruído
+
+* Diálogos com Asimov que explicam a situação e orientam o jogador
+
+**Conceito de IA**
+
+Apresenta os danos causados pelo uso irresponsável de IAs e introduz Asimov como sistema com memória fragmentada, criando a motivação para as fases seguintes.
+
+### **Fase 1 — Corredor com obstáculos.**
+
+**Mecânicas**
+
+* Controle de Asimov (setas para trocar de faixa, espaço para pular)
+
+* Percurso linear com obstáculos
+
+* Colisão reinicia a fase do início
+
+* Baú no final ativa diálogo e libera as pistas do cristal
+
+**Conceito de IA**
+
+Aprendizado de padrões, jogador treina Asimov para navegar evitando obstáculos, simulando como um agente aprende por tentativa e erro.
+
+### **Fase 2 — Treinamento da Rede Neural**
+
+**Mecânicas**
+
+* Clicar nos neurônios para alimentar a rede com os dados coletados
+
+* Localizar e ativar a Válvula Softmax para converter saída bruta em probabilidades
+
+* Arrastar o slider do limiar de confiança até o valor correto
+
+* O sistema só identifica a porta quando o limiar exato é definido
+
+**Conceito de IA**
+
+Fundamentos de redes neurais densas e função de ativação Softmax, o jogador entende como uma rede transforma dados em probabilidades e como definir um limiar de decisão.
+
+### **Fase 3 — Classificação de Cristais**
+
+**Mecânicas**
+
+* Examinar imagens de cristais no baú da sala de arquivos
+
+* Sair do buraco e pegar os cristais certos.
+
+* Pegar um cristal falso gera penalidade imediata
+
+* É necessário pegar todos os cristais certos para avançar
+
+**Conceito de IA**
+
+O jogador aprende a separar dados corretos de dados corrompidos com base em características visuais, simulando um modelo de classificação binária.
+
+### **Fase 4 — Forja Generativa**
+
+**Mecânicas**
+
+* Asimov gera o cristal com imperfeições (ruídos)
+
+* O jogador usa o esfregão (clique e arraste) para limpar as manchas
+
+* A barra de Overthinking não deve chegar a 100% 
+
+* Se o tempo acabar antes, a forja reinicia
+
+**Conceito de IA**
+
+IA generativa e redução de ruídos, o jogador entende como modelos generativos produzem resultados com falhas e como o processo de refinamento melhora a saída até chegar ao resultado ideal.
+
+**Fase 5 — Prompt**
+
+**Mecânicas**
+
+* Vão aparecer Prompts aleatoriamente na tela, Alguns Prompts bons e éticos e outros ruins.  
+* O jogador deve avaliar se é um bom prompt ou não.  
+* Ao final, o jogador deve ter acertado no mínimo 7/10 avaliações.
+
+**Conceitos de IA**
+
+O jogador aprenderá a montar um bom prompt para mandar para a IA e também aprender a usar a ética nela.
+
+### **Restauração Final**
+
+**Mecânicas**
+
+* Sophia transporta o cristal até a sala de controle
+
+* Pressionar E no núcleo energético deposita o cristal e aciona o evento final
+
+**Conceito de IA**
+
+Cena de desfecho: a restauração do laboratório representa a conclusão do ciclo de aprendizado e abre espaço para reflexão sobre o uso ético da IA.
+
+##  **Elementos Narrativos e Audiovisuais**
+
+### **Diálogos e NPCs**
+
+O sistema de diálogos cobre todas as interações do prólogo com Watson, do laboratório em ruínas com Asimov e das cenas de transição entre fases. Os balões de fala foram centralizados na tela para não atrapalhar a navegação, ajuste feito na Sprint 2\. No laboratório de 2022, foram adicionados NPCs cientistas para deixar o ambiente mais movimentado.
+
+### **Cutscene**
+
+A cutscene do despertar de Sophia foi feita em animação 2D quadro a quadro. Foi usada a técnica de onion skinning, que permite ver os frames anteriores e posteriores durante a criação, garantindo movimentos mais fluidos. A animação é ativada automaticamente ao final do prólogo.
+
+### **Assets Visuais**
+
+Todos os assets principais estão finalizados para o MVP:
+
+* Sprites de Sophia, Asimov e Watson
+
+* Background do laboratório de 2022, laboratório em ruínas de 2098, Fase 1, Fase 2, Fase 3, Fase 4, Fase 5 e Sala de controle.
+
+* Objetos dos laboratórios, Obstáculos da Fase 1,Baú, envelope e pergaminho (objetos de inventário), objetos fase 2, fase 3, fase 4, fase 5 e da sala de controle.
+
+Todos os assets foram criados em pixel art no software Piskel.
+
+### **Trilha Sonora e Efeitos**
+
+## Nós temos duas músicas de fundo, A primeira é uma mais calma e animada para os momentos comuns, de interação e exploração. A segunda música é uma mais forte e fria, para dar um ar de tensão para o jogador nos momentos das fases e desafios.
+
+## 
+
+## **Dificuldades Encontradas**
+
+Durante o desenvolvimento do MVP, a equipe enfrentou algumas dificuldades que precisaram de atenção:
+
+- Falta de comunicação e atualização do que foi feito.  
+- Discussões que não levavam a lugar nenhum.  
+- Distribuição incorreta das tarefas.  
+- Confusão na hora de dar os commits.  
+- 
+
+## **O que Ficou de Fora do MVP**
+
+As funcionalidades abaixo foram planejadas no GDD, mas não entraram no MVP por falta de tempo ou por depender de outras partes ainda em desenvolvimento:
+
+### **Luz que acompanha o personagem (Req. 4\)**
+
+Nós fizemos apenas a camera seguir o jogador, não implementamos a luz envolta dele.
+
+### **Sistema de conquistas por fase** 
+
+Os emblemas que o jogador ganha ao concluir cada fase, e o requisito de ter todos para desbloquear a fase final, não foram implementados no MVP.
+
+**Desfecho do Jogo**
+
+No MVP nós paramos no momento em que a Fase 5 termina, ainda falta desenvolver o resto.
+
+##  **Planos para a Sprint 5**
+
+- Correção de Bugs  
+- Fazer teste com usuários   
+- Aprimoramento de possíveis designs e falas
 
 ## 4.5. Revisão do MVP (sprint 5)
 
