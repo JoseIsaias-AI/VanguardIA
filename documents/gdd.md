@@ -920,7 +920,7 @@ y(t) = yi + vy0·t + (1/2)·ay·t²
 
 # 3.8.4 Visualização das Trajetórias
 
-![Gráfico das trajetórias Δx(t) e Δy(t)](grafico_trajetorias.svg)
+![Gráfico das trajetórias Δx(t) e Δy(t)](../assets/gdd/grafico_trajetorias.svg)
 
 *Δx(t) = −102 · t (MU — linear) | Δy(t) = −200 · t + ½ · 200 · t² (MUV — parábola) | pico em t = 1 s*
 
