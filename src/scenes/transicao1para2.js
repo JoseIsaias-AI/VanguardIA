@@ -46,6 +46,9 @@ export class transicao1para2 extends Phaser.Scene {
     create() {
         registrarTeclaMenu(this);
 
+        // Inicia a cena de música de fundo (bgMusic) para manter a trilha sonora ativa durante a transição.
+        this.scene.launch("bgMusic");
+
         const w = this.scale.width;
         const h = this.scale.height;
 
@@ -163,20 +166,13 @@ export class transicao1para2 extends Phaser.Scene {
     // =========================================================================
     startIntroCutscene() {
         this.cutsceneDialogue = [
-            { speaker: "Sophia", text: "Asimov, você voltou! Conseguiu completar a missão?" },
-            { speaker: "Asimov", text: "Missão concluída!" },
+            { speaker: "Sophia", text: "Então, Asimov, como foi a missão?" },
+            { speaker: "Asimov", text: "Obrigada pela ajuda, Sophia! Agora aprendi através da repetição de padrões e posso me movimentar sozinho." },
             { speaker: "Asimov", text: "Analisei os padrões do ambiente e agora consigo desviar de todos os obstáculos à minha frente." },
-            {
-                speaker: "Asimov",
-                text:    "Porém… meus sistemas ainda não estão totalmente restaurados.",
-                autoMs:  4500
-            },
-            { speaker: "Sophia", text: "Entendo. Então… o que você encontrou? Tem algo para me mostrar?" },
-            { speaker: "Asimov", text: "Sim. Durante a missão, coletei números binários e um pergaminho com instruções e a imagem de uma porta." },
-            { speaker: "Asimov", text: "Essas informações indicam que precisamos seguir as pistas para encontrar o cristal capaz de restaurar a energia do laboratório." },
-            { speaker: "Sophia", text: "E onde está esse cristal?" },
-            { speaker: "Asimov", text: "Os dados indicam que ele está dentro de uma porta no laboratório.\nPara encontrá‑lo, precisamos localizar a porta correta." },
-            { speaker: "Sophia", text: "Perfeito. Obrigada pelas informações, Asimov.\nVamos restaurar sua energia." },
+            {speaker: "Asimov", text: "Sophia, durante minha jornada de aprendizado, encontrei informações que podem nos ajudar à restaurar a energia do laboratório."},
+            { speaker: "Sophia", text: "O que você encontrou?" },
+            { speaker: "Asimov", text: "Encontrei um conjunto de números binários que nos ajudarão a localizar uma porta específica e nessa porta poderemos encontrar mais informações sobre o cristal!"},
+            { speaker: "Sophia", text: "Perfeito. Obrigada pelas informações, Asimov.\nVamos continuar nossa missão." },
             { speaker: "Asimov", text: "Objetivo atualizado: encontrar a porta correta do laboratório." },
             {
                 speaker: "Sistema",

@@ -24,6 +24,9 @@ export class SceneRetornoLab extends Phaser.Scene {
   create() {
     registrarTeclaMenu(this);
 
+    // Inicia a cena de música de fundo (bgMusic) para som contínuo na cena de retorno ao laboratório.
+    this.scene.launch("bgMusic");
+
     this.scaleMapa = 3;
 
     const { width, height } = this.sys.game.config;

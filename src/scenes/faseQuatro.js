@@ -11,17 +11,22 @@ export class faseQuatro extends Phaser.Scene {
 
     //carrega todas as imagens e sprites
     preload () {
-        this.load.image('cristais', 'assets/Fases/FaseQuatro/cristais.png');
-        this.load.image('cristais2', 'assets/Fases/FaseQuatro/cristais2.png');
-        this.load.image('cristais3', 'assets/Fases/FaseQuatro/cristais3.png');
-        this.load.image('cristais4', 'assets/Fases/FaseQuatro/cristais4.png');
+        this.load.image('cristais', 'assets/Fases/FaseQuatro/cabeça1.png');
+        this.load.image('cristais2', 'assets/Fases/FaseQuatro/cabeça2.png');
+        this.load.image('cristais3', 'assets/Fases/FaseQuatro/cabeça3.png');
+        this.load.image('cristais4', 'assets/Fases/FaseQuatro/cabeça4.png');
         this.load.image('esponja', 'assets/Fases/FaseQuatro/esponja.png');
-        this.load.spritesheet('barra', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 256, frameHeight: 128 });
+        this.load.image('textoExplicacao', 'assets/Fases/FaseQuatro/textoExplicação.png');
+        this.load.image('textoPerda', 'assets/Fases/FaseQuatro/textoPerda.png');
+        this.load.spritesheet('barra', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
     }
 
     //carrega todas as imagens e sprites
     create() {
         registrarTeclaMenu(this);
+
+        // Inicia a cena de música de fundo (bgMusic) que executa em loop em segundo plano.
+        this.scene.launch("bgMusic");
 
         const { width, height } = this.sys.game.config; //a altura e o comprimento recebem valores definidos no sistema
         //altura - heigh
@@ -43,14 +48,11 @@ export class faseQuatro extends Phaser.Scene {
         this.desenho4 = this.add.renderTexture(0, 0, width, height);
         this.desenho4.draw(img4, width / 2, height / 2);
 
-        //pode ser feito dessa maneira também, diretamente ^
-        //this.desenho2.draw(this.make.image({ key: 'cristais2' }, false).setDisplaySize(width, height), width / 2, height / 2);
-
         // criação de canvas - corresponde a uma tela de desenho em branco que é controlada pelo javascript. Ela não aparece visualmente ao usuaário, mas é possivel manipular os pixels
         const criarMapa = (w, h) => { //recebe a coordenada de largura e de altura
             const c = document.createElement('canvas'); // cria o canvas explicado acima e armazena na variavedl c
             c.width = w; c.height = h;
-            return c.getContext('2d'); //o canvas tem que ser em 2D, por isso o context('2d')
+            return c.getContext('2d', { willReadFrequently: true }); //o canvas tem que ser em 2D, por isso o context('2d')
         };
         this.mapa4 = criarMapa(width, height);
         this.mapa3 = criarMapa(width, height);
@@ -62,9 +64,9 @@ export class faseQuatro extends Phaser.Scene {
 
         this.barra = this.add.sprite(width / 2, 120, 'barra', 0).setScale(3).setDepth(10); //adiciona a barra do overfitting
         this.anims.create({ //animação da passagem de frames
-            key: 'barraProgresso4',
-            frames: this.anims.generateFrameNumbers('barra', { start: 0, end: 66 }), // são 67 imagens da barra
-            frameRate: 2.5, 
+            key: 'barra',
+            frames: this.anims.generateFrameNumbers('barra', { start: 0, end: 33 }), // são 34 imagens da barra
+            frameRate: 1, 
             repeat: 0
         });
         this.barraFrame = 0; //começa com o primeiro frame
@@ -74,24 +76,51 @@ export class faseQuatro extends Phaser.Scene {
         this.tempoRestante = 120; //2 minutos de contador
         this.jogoParado = false;
 
-        this.textoTempo = this.add.text(20, height - 80, 'Tempo: 2:00', { //texto do tempo localizado no canto inferior esquerdo
-            fontSize: '22px', //tamanho
-            fill: '#ffffff', //cor
-            stroke: '#000000', //cor do contorno
-            strokeThickness: 4 //espessura do contorno das letras
-        }).setDepth(10);
+        const estilo = {
+            fontSize: '32px',
+            fontFamily: "'Georgia', serif",
+            fill: '#f0e6c8',
+            stroke: '#1a1a1a',
+            strokeThickness: 5,
+            padding: { x: 10, y: 6 }
+        };
 
-        this.textoNitidez = this.add.text(20, height - 40, 'Nitidez: 0%', { //texto da nitidez no canto inferior esquerdo
-            fontSize: '22px',
-            fill: '#ffffff',
-            stroke: '#000000',
-            strokeThickness: 4
-        }).setDepth(10);
+        this.fundoHUD = this.add.rectangle(14, height - 110, 260, 90, 0x000000, 0.55).setOrigin(0).setDepth(10);
+        this.textoTempo   = this.add.text(24, height - 105, 'Tempo: 2:00', estilo).setDepth(11);
+        this.textoNitidez = this.add.text(24, height - 65, 'Nitidez: 0%', estilo).setDepth(11);
 
         this.desenhoAtiva = null; // renderTexture da camada que será apagada nessa sessão
         this.mapaAtivo = null; // mapa correspondente
 
+        // Exibe texto explicativo no início
+        this.mostrandoExplicacao = true;
+        this.mostrandoPerda = false;
+        this.imagemExplicacao = this.add.image(width / 2, height / 2, 'textoExplicacao')
+            .setDepth(100)
+            .setScale(0.85);
+        
+        // Animação de escala
+        this.tweens.add({
+            targets: this.imagemExplicacao,
+            scaleX: 0.9,
+            scaleY: 0.9,
+            duration: 1000,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
+        
+        this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+
         this.input.on('pointerdown', (pointer) => { //quando o jogador clicar com o botão esquerdo do mouse
+            if (this.mostrandoExplicacao) {
+                this.fecharExplicacao();
+                return;
+            }
+            if (this.mostrandoPerda) {
+                this.scene.restart();
+                return;
+            }
             this.limpando = true;
             if (!this.cronometroIniciado) {
                 this.cronometroIniciado = true;
@@ -147,6 +176,7 @@ export class faseQuatro extends Phaser.Scene {
         });
 
         this.input.on('pointermove', (pointer) => { //a esponja move junto com o ponteiro do mouse
+            if (this.mostrandoExplicacao) return; // bloqueia movimento durante explicação
             this.esponja.setPosition(pointer.x, pointer.y); 
             if (pointer.isDown) {
                 this.apagar(borracha, pointer.x, pointer.y, tamBorracha);
@@ -154,18 +184,37 @@ export class faseQuatro extends Phaser.Scene {
         });
     }
 
+    fecharExplicacao() {
+        this.imagemExplicacao.destroy();
+        this.mostrandoExplicacao = false;
+    }
+
     update() {
+        if (this.mostrandoExplicacao) {
+            if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+                this.fecharExplicacao();
+            }
+            return;
+        }
+
+        if (this.mostrandoPerda) {
+            if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+                this.scene.restart();
+            }
+            return;
+        }
+
         if (this.jogoParado) return; //sai das atualizações  se o jogador perdeu o tempo
 
         if (this.limpando) { //enquanto estiver limpando a barra de progresso aumenta os frames e vai subindo
-            this.barraFrame = Math.min(66, this.barraFrame + 0.1);
+            this.barraFrame = Math.min(33, this.barraFrame + 0.1);
         } else {
             this.barraFrame = Math.max(0, this.barraFrame - 0.1); //enquanto estiver sem limpar a barra de progresso diminui os frames e vai subindo
         }
         this.barra.setFrame(Math.floor(this.barraFrame));
 
-        if (Math.floor(this.barraFrame) >= 66) { //se os frames forem iguais a quantidade maxima, o jogador perde por Overfitting
-            this.mostrarMenu('FALHA DE FABRICAÇÃO DO CRISTAL:\nO nível de ruído visual excedeu a tolerância desta etapa.\nInserir dados turvos comprometerá a generalização do\ntreinamento. A fabricação foi pausada.\nReinicie o tratamento desta imagem.');
+        if (Math.floor(this.barraFrame) >= 33) { //se os frames forem iguais a quantidade maxima, o jogador perde por Overfitting
+            this.mostrarMenuPerda();
         }
 
         // conta pixels apagados no mapa2 (última camada)
@@ -176,6 +225,28 @@ export class faseQuatro extends Phaser.Scene {
         }
         const pct = Math.floor((apagados / this.totalPixels) * 100); //pega o número da porcentagem
         this.textoNitidez.setText(`Nitidez: ${pct}%`);
+    }
+
+    mostrarMenuPerda() {
+        if (this.jogoParado) return;
+        this.jogoParado = true;
+        this.mostrandoPerda = true;
+        this.limpando = false;
+
+        const { width, height } = this.sys.game.config;
+        this.input.off('pointermove');
+
+        const imagemPerda = this.add.image(width / 2, height / 2, 'textoPerda').setDepth(20).setScale(0.85);
+
+        this.tweens.add({
+            targets: imagemPerda,
+            scaleX: 0.9,
+            scaleY: 0.9,
+            duration: 1000,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
     }
 
     mostrarMenu(mensagem) {
@@ -209,7 +280,7 @@ export class faseQuatro extends Phaser.Scene {
         if (!this.desenhoAtiva) return; //caso chegar na ultima imagem que não tem uma renderTexture
         const metade = tamBorracha / 2;
         this.desenhoAtiva.erase(borracha, x, y); //pega o molde do objeto apagador e faz com que apague com aquele molde nos pontos x e y
-        //this.mapaAtivo.beginPath(); melhora no desempenho do navegador, mas estou testando ainda para ver se realmente é necessário
+        this.mapaAtivo.beginPath(); //melhora no desempenho do navegador, mas estou testando ainda para ver se realmente é necessário
         this.mapaAtivo.arc(x, y, metade, 0, Math.PI * 2); //Cria um círculo perfeito na posição do mouse, sem isso ele não apaga a camada de baixo
         this.mapaAtivo.fill(); //anota a parte que ja esta limpa
     }

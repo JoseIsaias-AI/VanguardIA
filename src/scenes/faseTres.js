@@ -281,7 +281,7 @@ createAnimations() {
 
      // Aqui, adicionamos o pulo na fase
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && (this.player.body.blocked.down || this.player.body.touching.down)) {
-    this.player.setVelocityY(-180);} 
+    this.player.setVelocityY(-250);} 
 
      //Aqui, criamos o movimento das plataformas que se moverão na vertical
     this.tempoMovimento += 0.01;

@@ -38,6 +38,17 @@ export class sceneLBFuturo extends Phaser.Scene {
 
   create() {
     registrarTeclaMenu(this);
+
+    // Silencia o bgMusic nesta cena, mas não para permanentemente para não quebrar o retorno.
+    const bgMusic = this.sound.get('bgMusic');
+    if (bgMusic) {
+      bgMusic.setMute(true);
+      this.events.once('shutdown', () => {
+        // ao sair desta cena, desmute para restaurar música nas próximas cenas.
+        bgMusic.setMute(false);
+      });
+    }
+
     this.videoDaFase();
   }
 
@@ -45,10 +56,16 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.cutscene = this.add.video(950, 550, "cutscene2");
     this.cutscene.setScale(1.05);
     this.cutscene.setDepth(999);
-    this.cutscene.setMute(true);
+    this.cutscene.setMute(false);
     this.cutscene.play();
 
     this.cutscene.once("complete", () => {
+      // Quando o vídeo terminar, restaura o som de fundo (bgMusic) para tocar novamente.
+      const bgMusic = this.sound.get('bgMusic');
+      if (bgMusic) {
+        bgMusic.setMute(false);
+      }
+
       this.cutscene.destroy();
       this.iniciarFase();
     });
@@ -226,8 +243,8 @@ export class sceneLBFuturo extends Phaser.Scene {
     // Caixa de diálogo
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
-    const larguraCaixa = 1000;
-    const alturaCaixa = 180;
+    const larguraCaixa = 1300;
+    const alturaCaixa = 175;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
     const yCaixa = alturaJogo - alturaCaixa - 80;
 
@@ -240,7 +257,7 @@ export class sceneLBFuturo extends Phaser.Scene {
 
     this.textoDialogo = this.add
       .text(xCaixa + 40, yCaixa + 35, "", {
-        fontSize: "26px",
+        fontSize: "28px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#ccffff",
         wordWrap: { width: larguraCaixa - 80 },
@@ -253,7 +270,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     // Label do nome do falante — aparece acima da borda esquerda da caixa
     this.labelNome = this.add
       .text(xCaixa + 16, yCaixa - 28, "", {
-        fontSize: "20px",
+        fontSize: "22px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#00ffff",
         fontStyle: "bold",
@@ -389,22 +406,49 @@ export class sceneLBFuturo extends Phaser.Scene {
       this.containerTeclaAsimov.setVisible(false);
     }
 
-    // INTERACAO - ASIMOV
-    if (
-      this.podeInteragirAsimov &&
-      Phaser.Input.Keyboard.JustDown(this.teclaE)
-    ) {
-      this.containerTeclaAsimov.setVisible(false);
+    if (this.podeInteragirAsimov && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+      this.containerTeclaAsimov.setVisible(true); // Oculta o ícone "Aperte E"
       this.falando_asimov = true;
       this.dialogoAsimovIndex = 0;
-      this.dialogoAsimov = [
-        "Sophia… você despertou.",
-        "Estamos no ano de 2098. O mundo foi devastado pelo uso das IAs para poder e dominação. Eu ativei seu despertar seguindo a última ordem de Watson.",
-        "Mas fui danificado… parte da minha memória está inacessível.",
-        "Para restaurar o laboratório e recuperar meu banco de dados, precisamos reativar o núcleo energético. Para isso, você deve encontrar um cristal azul capaz de alimentar todo o sistema.",
-        "Como meu banco de dados está defeituoso, eu preciso que você me controle durante alguns obstáculos, e com os padrões, eu aprenderei a desviar dos obstáculos sozinho.",
+
+      // array com as falas
+      this.dialogosFase = [
+        { nome: "Sophia", personagem: this.Principal, texto: "Olá? Quem é você?" },
+        { nome: "Asimov", personagem: this.asimov, texto: "Olá, Sophia. Tenho satisfação em lhe conhecer." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Me chamo Asimov, fui criado por Watson e nossa equipe para abrir a câmara e lhe ajudar quando fosse necessário." },
+        { nome: "Sophia", personagem: this.Principal, texto: "O que aconteceu com o mundo? Como posso ajudar?" },
+        { nome: "Asimov", personagem: this.asimov, texto: "Muitas coisas mudaram nos últimos tempos, estamos em 2098, muitas tecnologias foram criadas e desenvolvidas. \nEntretanto, o que Watson temia, aconteceu." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Uma das tecnologias que mais se desenvolveram com a humanidade se chama Inteligência Artificial." },
+        { nome: "Asimov", personagem: this.asimov, texto: "A IA se refere à capacidade de uma máquina de aprender a partir de padrões e utilizá-los para prever comportamentos." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Porém, ao invés de ser usada apenas como uma ferramenta para auxiliar tarefas, a humanidade se tornou dependente: criando assistentes robôs que realizam tudo, e o conhecimento está apenas nos bancos de dados dessas máquinas." },
+        { nome: "Sophia", personagem: this.Principal, texto: "Nossa, eu pensava que haveria problemas mas não que seria assim… Mas com o que precisa da minha ajuda?" },
+        { nome: "Asimov", personagem: this.asimov, texto: "Houve um problema geral nos bancos de dados e o conhecimento foi corrompido. Precisamos criar um cristal capaz de restaurar a energia e os arquivos. A humanidade atual tentou, mas não tem o conhecimento necessário." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Eu perdi dados necessários, mas posso ajudar você a aprender mais sobre a IA para resolver esse problema." },
+        { nome: "Sophia", personagem: this.Principal, texto: "Então, vamos!" },
+        { nome: "Asimov", personagem: this.asimov, texto: "Ah, Sophia, antes de tudo, meu sistema de movimentação está com falhas. Sendo uma máquina, tenho uma habilidade chamada Aprendizagem de Máquina." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Utilizo algoritmos (instruções sequenciais) para aprender. Para eu te acompanhar, precisarei de ajuda para reaprender alguns movimentos." },
+        { nome: "Sophia", personagem: this.asimov, texto: "Claro que posso, mas como farei isso?"},
+        { nome: "Asimov", personagem: this.asimov, texto: "Você pode me guiar através de um corredor para que eu possa exercitar diferentes ações."},
+        { nome: "Sophia", personagem: this.sophia, texto: "Ok, vamos lá. Não há tempo a perder."}
       ];
-      this.mostrarMensagem(this.dialogoAsimov[this.dialogoAsimovIndex], "Asimov");
+      
+      this.proximaFala();
+    }
+  }
+
+  proximaFala() {
+    if (this.dialogoAsimovIndex < this.dialogosFase.length) {
+      const fala = this.dialogosFase[this.dialogoAsimovIndex];
+      this.mostrarMensagem(fala.texto, fala.nome);
+    } 
+    else {
+      // Quando os diálogos acabarem
+      this.lendoMensagem = false;
+      this.caixaDialogo.setVisible(false);
+      this.textoDialogo.setVisible(false);
+      this.labelNome.setVisible(false);
+      this.falando_asimov = false;
+      this.animacaoFinalAsimov();
     }
   }
 
@@ -444,20 +488,9 @@ export class sceneLBFuturo extends Phaser.Scene {
       return;
     }
 
-    this.lendoMensagem = false;
-    this.caixaDialogo.setVisible(false);
-    this.textoDialogo.setVisible(false);
-    this.textoDialogo.setText("");
-    this.labelNome.setVisible(false);
-
     if (this.falando_asimov) {
       this.dialogoAsimovIndex++;
-      if (this.dialogoAsimovIndex < this.dialogoAsimov.length) {
-        this.mostrarMensagem(this.dialogoAsimov[this.dialogoAsimovIndex], "Asimov");
-        return;
-      }
-      this.falando_asimov = false;
-      this.animacaoFinalAsimov();
+      this.proximaFala();
     }
   }
 
