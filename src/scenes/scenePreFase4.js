@@ -9,6 +9,7 @@ export class scenePreFase4 extends Phaser.Scene {
     super("scenePreFase4");
   }
 
+  //------------------carregamento das imagens e sprites usados durante a fase1 -----------------------------
   preload() {
     this.load.image("labEscuro2", "assets/fases/sceneLabCristal/labCristalEscuro.png");
     this.load.spritesheet("objetosLab", "assets/Fases/preFase4/objetosLabCristal1.png", {frameWidth: 320, frameHeight: 213});
@@ -22,23 +23,25 @@ export class scenePreFase4 extends Phaser.Scene {
     this.load.image("cutscene_5", "assets/Fases/preFase4/5.png");
   }
 
+ //------------------ criação das variáveis, instancia das imagens e criação de animações -----------------------------
   create() {
     registrarTeclaMenu(this);
 
     this.lendoMensagem = false;
-    this.scaleMapa = 3;
+    this.scaleMapa = 3; //escala que será usada no mapa e nos objetos da cena. Tudo seguindo essa variável padrão
 
-    this.mapa = this.add.image(600, 400, "labEscuro2").setScale(this.scaleMapa).setDepth(-1);
+    this.mapa = this.add.image(600, 400, "labEscuro2").setScale(this.scaleMapa).setDepth(-1); // criação do mapa abaixo de tudo
 
-    // Objeto do lab — fica parado no frame 0 ate a interacao com o Asimov
+    // Objeto do lab — fica parado no frame 0 até a interacao com o Asimov
     this.objetosLab = this.add.sprite(600, 400, "objetosLab", 0).setScale(this.scaleMapa).setDepth(1);
 
-    this.anims.create({
+    this.anims.create({ //como existe uma animação para os papeis da maquina perto do Asimov, iniciamos ela aqui que atualiza todos os objetos, mas sentimos apenas a percepção de mudança na máquina
       key: "objetosLab_anim",
       frames: this.anims.generateFrameNumbers("objetosLab", { start: 0, end: 18 }),
       frameRate: 12,
       repeat: 3
     });
+    //--------- máscara super importante para a colisão, aparece invisivel, mas sempre está na cena -------
     this.add.image(600, 400, "mascaraPrefase4").setScale(this.scaleMapa).setDepth(0).setAlpha(0);
 
     // Sistema de colisão por canvas (máscara invisível)
@@ -53,19 +56,12 @@ export class scenePreFase4 extends Phaser.Scene {
       console.warn("Colisão: rode em servidor local para funcionar corretamente.", e);
     }
 
-    // SOPHIA (jogável)
+    // ---------------SOPHIA (jogável) --------------
     this.Principal = this.physics.add.sprite(400, 300, "sophia").setScale(1.5).setCollideWorldBounds(true);
     this.Principal.body.setAllowGravity(false);
     //this.Principal.setOffset(15, 30);
 
-    // ASIMOV (NPC)
-    this.asimov = this.physics.add.sprite(900, 250, "asimov").setScale(2);
-    this.asimov.body.setAllowGravity(false);
-    this.asimov.setOffset(8, 16);
-    this.asimov.setImmovable(true);
-    this.physics.add.collider(this.Principal, this.asimov);
-
-    // Animações Sophia
+      // Animações Sophia de movimentação
     if (!this.anims.exists("left")) {
       this.anims.create({ key: "left",  frames: this.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "right", frames: this.anims.generateFrameNumbers("sophia", { start: 16, end: 21 }), frameRate: 10, repeat: -1 });
@@ -73,7 +69,14 @@ export class scenePreFase4 extends Phaser.Scene {
       this.anims.create({ key: "back",  frames: this.anims.generateFrameNumbers("sophia", { start: 8,  end: 15 }), frameRate: 10, repeat: -1 });
     }
 
-    // Animações Asimov
+    // ----------------ASIMOV (NPC) -----------------
+    this.asimov = this.physics.add.sprite(900, 250, "asimov").setScale(2);
+    this.asimov.body.setAllowGravity(false);
+    this.asimov.setOffset(8, 16);
+    this.asimov.setImmovable(true);
+    this.physics.add.collider(this.Principal, this.asimov);
+
+    // Animações Asimov para movimentação
     if (!this.anims.exists("asimov_front")) {
       this.anims.create({ key: "asimov_front", frames: this.anims.generateFrameNumbers("asimov", { start: 0,  end: 1  }), frameRate: 4, repeat: -1 });
       this.anims.create({ key: "asimov_back",  frames: this.anims.generateFrameNumbers("asimov", { start: 7,  end: 9  }), frameRate: 4, repeat: -1 });
@@ -86,42 +89,42 @@ export class scenePreFase4 extends Phaser.Scene {
     this.containerTeclaAsimov = this.add.container(0, 0).setDepth(200);
     let largura = 140, altura = 40;
     let icone = this.add.graphics();
+    // estilização CSS para esse balão de interação e o texto interno
     icone.fillStyle(0xffffff, 1).lineStyle(2, 0x000000, 1);
     icone.fillRoundedRect(-largura / 2, -altura / 2, largura, altura, 10);
     icone.strokeRoundedRect(-largura / 2, -altura / 2, largura, altura, 10);
     let letraE = this.add.text(0, 0, "Aperte E", { fontSize: "20px", color: "#000000", fontStyle: "bold" }).setOrigin(0.5);
     this.containerTeclaAsimov.add([icone, letraE]);
-    this.containerTeclaAsimov.setVisible(false);
+    this.containerTeclaAsimov.setVisible(false); //é iniciada de forma invisivel
     this.tweens.add({ targets: this.containerTeclaAsimov, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
-    /* Caixa de diálogo */
-    const lj = this.cameras.main.width;
-    const aj = this.cameras.main.height;
-    const lc = 500, ac = 90;
-    const xc = (lj - lc) / 2, yc = aj - ac - 300;
+    // ------------------------------------ Caixa de diálogo --------------------------------------------- 
+    const larguraJogo = this.cameras.main.width;
+    const alturaJogo = this.cameras.main.height;
+    const larguraCaixa = 500, alturaCaixa = 90;
+    const posXCaixa = (larguraJogo - larguraCaixa) / 2, posYCaixa = alturaJogo - alturaCaixa - 300;
 
     this.caixaDialogo = this.add.graphics();
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
     this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xc, yc, lc, ac, 15);
-    this.caixaDialogo.strokeRoundedRect(xc, yc, lc, ac, 15);
+    this.caixaDialogo.fillRoundedRect(posXCaixa, posYCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.strokeRoundedRect(posXCaixa, posYCaixa, larguraCaixa, alturaCaixa, 15);
     this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
 
-    this.textoDialogo = this.add.text(xc + 40, yc + 35, "", {
+    this.textoDialogo = this.add.text(posXCaixa + 40, posYCaixa + 35, "", {
       fontSize: "14px", fontFamily: "'Courier New', Courier, monospace",
-      color: "#ccffff", wordWrap: { width: lc - 80 }, lineSpacing: 10
+      color: "#ccffff", wordWrap: { width: larguraCaixa - 80 }, lineSpacing: 10
     }).setScrollFactor(0).setDepth(1001).setVisible(false);
 
-    this.labelNome = this.add.text(xc + 16, yc - 28, "", {
+    this.labelNome = this.add.text(posXCaixa + 16, posYCaixa - 28, "", {
       fontSize: "14px", fontFamily: "'Courier New', Courier, monospace",
       color: "#00ffff", fontStyle: "bold", backgroundColor: "#1a1a1a",
       padding: { left: 8, right: 8, top: 3, bottom: 3 }
     }).setScrollFactor(0).setDepth(1002).setVisible(false);
 
-    /* Caixa de diálogo ajustada */
-    /* Caixa de diálogo ajustada para ocupar todo o comprimento */
+    //---------------------------^^^^ FECHA sistema da caixa de diálogo ^^^^----------------------------------------
  
-    // Controles
+    // ----------------- Inserção de INPUTS do jogador: CONTROLES ------------------
     this.cursors = this.input.keyboard.createCursorKeys();
     this.keys = this.input.keyboard.addKeys({
       W: Phaser.Input.Keyboard.KeyCodes.W,
@@ -133,19 +136,22 @@ export class scenePreFase4 extends Phaser.Scene {
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     this.pulando = false;
 
-    this.cameras.main.startFollow(this.Principal).setZoom(2);
+    //ZOOM DA CÂMERA EM 2
+    this.cameras.main.startFollow(this.Principal).setZoom(2); 
   }
 
   update() {
     if (!this.Principal) return;
 
+    //Quando o jogador estiver lendo alguma mensagem esse IF pausa a animação do personagem
     if (this.lendoMensagem) {
       this.Principal.setVelocity(0, 0);
       this.Principal.anims.stop();
-      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
+      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem(); //Tecla E selecionada para fechar as mensagens
       return;
     }
 
+    //Este IF é usado para imagens com textos, mas que não são gerados por código. Ele também determina como fechar esta imagem 
     if (this.aguardandoLeitura) {
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
         this.notificacaoLeitura.destroy();
@@ -155,17 +161,18 @@ export class scenePreFase4 extends Phaser.Scene {
       return;
     }
 
+    //Este IF é usado quando o documento de explicação da IA generativa acontece.
     if (this.emCutscene) {
-      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) { //quando apertar a tecla E, vai para a proxima imagem programada
         this.cutsceneIndex++;
         if (this.cutsceneIndex < this.sequenciaCutscene.length) {
           this.imgCutscene.setTexture(this.sequenciaCutscene[this.cutsceneIndex]);
         } else {
           this.imgCutscene.destroy();
-          if (this.folhasFundo) this.folhasFundo.forEach(f => f.destroy());
+          if (this.folhasFundo) this.folhasFundo.forEach(f => f.destroy()); //elimina com as folhas já lidas
           if (this.filtroEscuro) this.filtroEscuro.destroy();
           this.emCutscene = false;
-          this.transicaoParaFase4();
+          this.transicaoParaFase4(); //chama a função programada com as açoes para mudar de cena
         }
       }
       return;
@@ -174,43 +181,48 @@ export class scenePreFase4 extends Phaser.Scene {
     this.Principal.setVelocity(0);
     let velocidade = 150;
     let movimentacao = false;
-    let nx = this.Principal.x;
-    let ny = this.Principal.y;
 
-    const margem = 16;
-    const offsetPes = 28;
+    //------------------ VERIFICAÇÃO DIRECIONAL DOS PONTOS DE COLISÃO DO PERSONAGEM -------------------
+    //variáveis para guardar a posição instantânea da personagem
+    let posX = this.Principal.x;
+    let posY = this.Principal.y;
 
-    if (this.cursors.left.isDown || this.keys.A.isDown) {
-      if (!this.colidiuComVerde(nx - margem, ny + offsetPes)) {
+    const margem = 16; //para não ficar colado aos objetos, tem essa margem
+    const offsetPes = 28; //por ser um jogo com vista top down, o jogador pode, no eixo y, dar a sensação de estar passando para cima do objeto na parte superior.
+
+    if (this.cursors.left.isDown || this.keys.A.isDown) { //--------quando o jogador vai para a esquerda ---------
+      if (!this.colidiuComVerde(posX - margem, posY + offsetPes)) {
         this.Principal.setVelocityX(-velocidade);
       }
       this.Principal.anims.play("left", true);
       movimentacao = true;
-    } else if (this.cursors.right.isDown || this.keys.D.isDown) {
-      if (!this.colidiuComVerde(nx + margem, ny + offsetPes)) {
+    } else if (this.cursors.right.isDown || this.keys.D.isDown) { //--------quando o jogador vai para a direita ---------
+      if (!this.colidiuComVerde(posX + margem, posY + offsetPes)) {
         this.Principal.setVelocityX(+velocidade);
       }
       this.Principal.anims.play("right", true);
       movimentacao = true;
     }
 
-    if (this.cursors.up.isDown || this.keys.W.isDown) {
-      if (!this.colidiuComVerde(nx, ny + offsetPes - margem)) {
+    if (this.cursors.up.isDown || this.keys.W.isDown) { //--------quando o jogador vai para cima ---------
+      if (!this.colidiuComVerde(posX, posY + offsetPes - margem)) {
         this.Principal.setVelocityY(-velocidade);
       }
       if (!movimentacao) this.Principal.anims.play("back", true);
       movimentacao = true;
-    } else if (this.cursors.down.isDown || this.keys.S.isDown) {
-      if (!this.colidiuComVerde(nx, ny + offsetPes + margem)) {
+    } else if (this.cursors.down.isDown || this.keys.S.isDown) { //--------quando o jogador vai para baixo ---------
+      if (!this.colidiuComVerde(posX, posY + offsetPes + margem)) {
         this.Principal.setVelocityY(+velocidade);
       }
       if (!movimentacao) this.Principal.anims.play("front", true);
       movimentacao = true;
     }
+    //------------------------^^^^ Fechamento das verificação direcionais de colisão do personagem ^^^^-------------------------------
 
     if (!movimentacao) this.Principal.anims.stop();
     if (movimentacao) this.Principal.body.velocity.normalize().scale(velocidade);
 
+    // ------------------ o que acontece quando o jogador aperta SPACE -------------------------
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
       this.pulando = true;
       let yInicial = this.Principal.y;
@@ -221,6 +233,7 @@ export class scenePreFase4 extends Phaser.Scene {
       });
     }
 
+    //define 
     this.Principal.setDepth(this.Principal.y);
     this.asimov.setDepth(this.asimov.y);
 
@@ -304,6 +317,7 @@ export class scenePreFase4 extends Phaser.Scene {
 
   exibirCutscenes() {
     const sequencia = ["cutscene_1", "cutscene_2", "cutscene_3", "cutscene_4", "cutscene_5"];
+    //this.textures.get('cutscene_1').setFilter(Phaser.Textures.FilterMode.LINEAR);
     this.cutsceneIndex = 0;
     this.emCutscene = true;
 

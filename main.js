@@ -50,6 +50,7 @@ const config = {
     menu,
     BgMusic,
   ],
+  //scene: scenePreFase4
 };
 
 const game = new Phaser.Game(config);
