@@ -10,8 +10,8 @@ export class scenePreFase4 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("labEscuro2", "assets/fases/sceneLabCristal/labCristalEscuro.png");
-    this.load.spritesheet("objetosLab", "assets/Fases/preFase4/objetosLabCristal1.png", {frameWidth: 320, frameHeight: 213});
+    this.load.image("labEscuro2", "assets/Fases/sceneLabCristal/labCristalEscuro.png");
+    this.load.spritesheet("objetosLab1", "assets/Fases/preFase4/objetosLabCristal1.png", {frameWidth: 320, frameHeight: 213});
     this.load.image("mascaraPrefase4", "assets/Fases/preFase4/mascaraPrefase4.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
@@ -31,11 +31,11 @@ export class scenePreFase4 extends Phaser.Scene {
     this.mapa = this.add.image(600, 400, "labEscuro2").setScale(this.scaleMapa).setDepth(-1);
 
     // Objeto do lab — fica parado no frame 0 ate a interacao com o Asimov
-    this.objetosLab = this.add.sprite(600, 400, "objetosLab", 0).setScale(this.scaleMapa).setDepth(1);
+    this.objetosLab1 = this.add.sprite(600, 400, "objetosLab1", 0).setScale(this.scaleMapa).setDepth(1);
 
     this.anims.create({
-      key: "objetosLab_anim",
-      frames: this.anims.generateFrameNumbers("objetosLab", { start: 0, end: 18 }),
+      key: "objetosLab1_anim",
+      frames: this.anims.generateFrameNumbers("objetosLab1", { start: 0, end: 18 }),
       frameRate: 12,
       repeat: 3
     });
@@ -288,8 +288,8 @@ export class scenePreFase4 extends Phaser.Scene {
         return;
       }
       this.falando_asimov = false;
-      this.objetosLab.play("objetosLab_anim");
-      this.objetosLab.once("animationcomplete", () => {
+      this.objetosLab1.play("objetosLab1_anim");
+      this.objetosLab1.once("animationcomplete", () => {
         this.notificacaoLeitura = this.add.text(
           this.cameras.main.width / 2,
           this.cameras.main.height - 60,
