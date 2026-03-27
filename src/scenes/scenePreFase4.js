@@ -97,7 +97,7 @@ export class scenePreFase4 extends Phaser.Scene {
     /* Caixa de diálogo */
     const lj = this.cameras.main.width;
     const aj = this.cameras.main.height;
-    const lc = 500, ac = 90;
+    const lc = 800, ac = 100;
     const xc = (lj - lc) / 2, yc = aj - ac - 300;
 
     this.caixaDialogo = this.add.graphics();
@@ -108,12 +108,12 @@ export class scenePreFase4 extends Phaser.Scene {
     this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
 
     this.textoDialogo = this.add.text(xc + 40, yc + 35, "", {
-      fontSize: "14px", fontFamily: "'Courier New', Courier, monospace",
+      fontSize: "18px", fontFamily: "'Courier New', Courier, monospace",
       color: "#ccffff", wordWrap: { width: lc - 80 }, lineSpacing: 10
     }).setScrollFactor(0).setDepth(1001).setVisible(false);
 
     this.labelNome = this.add.text(xc + 16, yc - 28, "", {
-      fontSize: "14px", fontFamily: "'Courier New', Courier, monospace",
+      fontSize: "16px", fontFamily: "'Courier New', Courier, monospace",
       color: "#00ffff", fontStyle: "bold", backgroundColor: "#1a1a1a",
       padding: { left: 8, right: 8, top: 3, bottom: 3 }
     }).setScrollFactor(0).setDepth(1002).setVisible(false);
