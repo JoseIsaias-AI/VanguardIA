@@ -230,7 +230,7 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 - **Impacto:** Muito Alto  
 
 **Descrição:**  
-Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
+Existe um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público (excesso de abstração ou simplificação), falta de progressão lógica ou ausência de reforço prático. Isso pode se manifestar em baixa retenção, dificuldade de aplicação prática e sensação de “aprendi nada”. Como consequência, o projeto perde sua função central de ensinar IA, gerando abandono e descrédito.
 
 **Plano de ação:**
 - Testes com usuários iniciantes  
@@ -241,13 +241,16 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 - Taxa de conclusão  
 
 **Oportunidade:**
-- Criar um modelo pedagógico superior ao tradicional  
+Desenvolver um modelo pedagógico original baseado em aprendizagem ativa + simulação, que supere métodos tradicionais ao integrar prática imediata, feedback contínuo, gamificação e storytelling.
 
 ## 2. Riscos Altos
 
 ## R2 – Complexidade na Simulação de IA
 - **Probabilidade:** 50  
 - **Impacto:** Muito Alto  
+
+**Descrição:**  
+A simulação de conceitos de IA pode se tornar tecnicamente complexa a ponto de comprometer clareza ou viabilidade. Há risco de criar abstrações confusas, simplificações incorretas ou sistemas difíceis de implementar. Isso pode gerar experiências inconsistentes, erros conceituais (tanto do jogo quanto jogador) ou até inviabilizar partes do produto.
 
 **Plano de ação:**
 - Prototipagem iterativa  
@@ -258,11 +261,14 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 - Feedback técnico  
 
 **Oportunidade:**
-- Diferenciação educacional forte  
+Criar um uma base simplificada de simulação de IA educacional, reutilizável, que transforme conceitos complexos em interações intuitivas, tendo potencial de virar diferencial técnico e até ativo replicável.
 
 ## R3 – Riscos Estratégicos para a IBM
 - **Probabilidade:** 50  
 - **Impacto:** Muito Alto  
+
+**Descrição:**  
+Existe o risco de o projeto não gerar valor estratégico claro para a IBM, seja por desalinhamento com objetivos institucionais, baixa diferenciação frente a concorrentes ou falta de aplicabilidade prática. Isso pode resultar em baixa priorização interna, perda de apoio ou descontinuidade.
 
 **Plano de ação:**
 - Definição de proposta de valor  
@@ -273,15 +279,15 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 - Comparação com alternativas  
 
 **Oportunidade:**
-- Tornar-se produto referência  
+Posicionar o projeto como referência de educação em IA da IBM, para um público alvo que não tem contato com essas tecnologias, fortalecendo a presença da empresa como líder em capacitação tecnológica.
 
 
 ## R4 – Desalinhamento com o SkillsBuild
 - **Probabilidade:** 30  
 - **Impacto:** Muito Alto  
 
-**Justificativa:**  
-Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
+**Descrição:**  
+Mesmo com alinhamento inicial, há risco de divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos do SkillsBuild (conteúdo, linguagem, profundidade). Isso pode gerar revisões excessivas, reprovação de entregas ou necessidade de reestruturação.
 
 **Plano de ação:**
 - Revisões por sprint  
@@ -292,7 +298,7 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Aprovação da IBM  
 
 **Oportunidade:**
-- Maior liberdade criativa  
+Explorar a liberdade criativa dada para criar um formato inovador dentro do SkillsBuild, ampliando o escopo tradicional da plataforma com abordagens interativas e experimentais.
 
 
 ## 3. Riscos Moderados
@@ -300,6 +306,9 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 ## R5 – Engajamento e Entretenimento
 - **Probabilidade:** 70  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+Há risco de o produto não ser suficientemente envolvente, com mecânicas repetitivas, pouco estímulo ou ausência de recompensa clara. Isso pode levar a sessões curtas, abandono precoce e baixa retenção, mesmo com bom conteúdo.
 
 **Plano de ação:**
 - Testes de gameplay  
@@ -310,12 +319,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Taxa de abandono  
 
 **Oportunidade:**
-- Alto potencial de retenção  
+Criar um sistema de engajamento baseado em progressão, desafios e feedback imediato, aumentando retenção e transformando aprendizado em hábito.
 
 
 ## R6 – Curva de Aprendizado Inadequada
 - **Probabilidade:** 70  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+A dificuldade pode escalar rápido demais (gerando frustração) ou devagar demais (gerando tédio). Isso impacta diretamente o fluxo de aprendizagem, causando desistência ou desengajamento.
 
 **Plano de ação:**
 - Ajuste dinâmico de dificuldade  
@@ -325,12 +337,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Desistência  
 
 **Oportunidade:**
-- Sistema adaptativo avançado  
+Implementar um sistema adaptativo de dificuldade, que ajuste o conteúdo com base no desempenho do usuário, personalizando a experiência.
 
 
 ## R7 – Experiência do Usuário (UX/UI)
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+Interfaces confusas, fluxos pouco intuitivos ou excesso de complexidade visual podem dificultar a navegação e o entendimento do produto. Isso gera fricção, erros de uso e aumento do tempo necessário para aprender a usar a plataforma e de conclusão do jogo.
 
 **Plano de ação:**
 - Testes de usabilidade  
@@ -340,12 +355,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Tempo de aprendizado  
 
 **Oportunidade:**
-- Interface altamente eficiente  
+Desenvolver uma UX altamente orientada à aprendizagem, onde a interface reduz carga cognitiva e acelera a compreensão, concentrando o máximo de atenção do usuário no conteúdo e maximizando seu aprendizado.
 
 
 ## R8 – Obsolescência do Conteúdo
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+O campo de IA evolui rapidamente, tornando conteúdos desatualizados em curto prazo. Isso pode reduzir a relevância do produto e comprometer sua credibilidade.
 
 **Plano de ação:**
 - Atualizações periódicas  
@@ -354,12 +372,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Atualidade  
 
 **Oportunidade:**
-- Sistema modular  
+Criar uma arquitetura modular e atualizável, permitindo atualização contínua sem necessidade de reconstrução total.
 
 
 ## R9 – Storytelling Desconectado
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+A narrativa pode não se integrar bem com os objetivos educacionais, tornando-se superficial ou irrelevante. Isso reduz imersão e prejudica a retenção de conteúdo.
 
 **Plano de ação:**
 - Integração narrativa  
@@ -369,12 +390,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Índice de conclusão  
 
 **Oportunidade:**
-- Narrativa como motor de retenção  
+Usar storytelling como suporte ao aprendizado do usuário, conectando narrativa e conceitos para aumentar retenção e significado.
 
 
 #### R10 – Falta de Valor para o Usuário
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+Os usuários podem não perceber valor claro no produto, seja por falta de aplicabilidade prática, diferenciação ou clareza de benefícios. Isso impacta adoção, engajamento e recomendação.
 
 **Plano de ação:**
 - Testes de percepção  
@@ -383,7 +407,7 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - NPS / satisfação  
 
 **Oportunidade:**
-- Refinamento da proposta  
+Refinar a proposta para entregar valor tangível (habilidade + usabilidade + compreensão real de IA), aumentando percepção e adesão dos jogadores.
 
 
 ## 4. Riscos Baixos
@@ -392,6 +416,9 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - **Probabilidade:** 30  
 - **Impacto:** Baixo  
 
+**Descrição:**  
+Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando percepção de profissionalismo e identidade do produto, mas sem comprometer sua funcionalidade.
+
 **Plano de ação:**
 - Iteração visual  
 
@@ -399,7 +426,8 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Feedback qualitativo  
 
 **Oportunidade:**
-- Identidade visual forte  
+Construir uma identidade visual marcante e coerente, reforçando branding e reconhecimento do produto.
+
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
