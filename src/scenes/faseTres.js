@@ -1,3 +1,70 @@
+//Antes de tudo, criaremos uma função que cobre os requisitos do GDD de matemática, que envolve MU e MUV, e vamos fazer isso usando uma pedra no cenário do jogo
+
+// Aqui, fazemos uma função responsável por simular o lançamento oblíquo da pedra
+// Obs: Não usamos a física do Phaser, apenas equações de movimento (MU e MUV)
+function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
+
+  // Aqui, definimos uma constante do tempo total do movimento, em segundos
+  const T = duration;
+
+  // Aqui, definimos a aceleração no eixo Y
+  const ay = 200;
+
+  // Aqui, criamos a velocidade constante no eixo horizontal (MU)
+  const vx = (xf - xi) / T;
+
+  // Aqui, criamos a velocidade variável no eixo vertical (MUV)
+  // Aqui, calculamos a velocidade y inicial, usando a fórmula de "Sorvetão", para que a pedra chegue no final no ponto que esperamos
+  const vy0 = ((yf - yi) - 0.5 * ay * T * T) / T;
+
+  // Aqui, criamos uma variável que guarda quanto tempo passou desde o início do movimento
+  let elapsed = 0;
+
+  // Aqui, fazemos essa função ser chamada a cada frame, para criar a animação da pedra
+  function onUpdate(time, delta) {
+
+    // Aqui, convertemos o delta de milissegundos para segundos, para calcularmos o tempo a partir dos segundos
+    elapsed += delta / 1000;
+
+    // Aqui, garantimos que o tempo da animação nunca ultrapasse o tempo total da equação, ao chegar no tempo total, a animação para
+    const t = Math.min(elapsed, T);
+
+    //Aqui, calculamos a posição x da pedra, usando s= s0 + v.t
+    const x = xi + vx * t;
+
+    //Aqui, calculamos a velocidade y da pedra, usando v = v0 + a.t
+    const vy = vy0 + ay * t;
+
+    //Aqui, calculamos a posição y da pedra, a partir da equação de "sorvetão"
+    const y = yi + vy0 * t + 0.5 * ay * t * t;
+
+    // Aqui, atualizamos a posição da pedra na tela
+    stone.x = x;
+    stone.y = y;
+
+    // Aqui, verificamos se o tempo de movimento já acabou
+    if (t >= T) {
+
+      // Aqui, paramos a animação se o tempo de movimento estiver acabado
+      scene.events.off('update', onUpdate);
+
+      // Aqui, removemos a pedra quando ela chegar na sua posição final
+      stone.destroy(); 
+
+      // Aqui, criamos uma nova pedra na posição inicial, para animação se repetir, e o movimento ser percebido pelo jogador
+      const novaPedra = scene.add.image(xi, yi, "pedra");     
+
+      // Aqui, reiniciamos a animação
+      launchStoneProjectile(scene, novaPedra, xi, yi, xf, yf, T);
+    }
+  }
+
+  // Aqui, fazemos a função não só ser chamada a cada frame, mas seja executada a cada frame
+  scene.events.on('update', onUpdate);
+}
+
+
+//Aqui, temos a fase 3 por completo, que consiste em pular plataformas e coletar cristais
 export class faseTres extends Phaser.Scene {
   constructor() {
     super("faseTres");
@@ -6,6 +73,7 @@ export class faseTres extends Phaser.Scene {
   preload() {
     //Aqui, carregamos os arquivos que vamos usar nessa fase
     this.load.image("parede", "assets/Fases/faseTres/backgroundFase3Escuro.png");
+    this.load.image("pedra", "assets/Objetos/faseTres/pedrinha.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.image("plataforma", "assets/Objetos/faseTres/Cano 1, Fase 3.png");
     this.load.image("plataformaMovel", "assets/Objetos/faseTres/Cano 2, Fase 3.png");
@@ -102,6 +170,14 @@ export class faseTres extends Phaser.Scene {
     this.physics.add.collider(this.player, this.plataformas);
     this.physics.add.collider(this.player, this.plataformasMoveis);
 
+    // Aqui, criamos a pedra do fundo na tela, em sua posição inicial
+    const stone = this.add.image(1065, 235, "pedra");
+      //Aqui, iniciamos o movimento da pedra usando cinemática manual, definindo a posição inicial e final
+       // Posição inicial (1065, 235)
+       // Posição final (861, 235)
+    launchStoneProjectile(this, stone, 1065, 235, 861, 235, 2);
+
+
     this.createAnimations();
 
     //Aqui, criamos os grupos de cristais
@@ -115,6 +191,8 @@ export class faseTres extends Phaser.Scene {
       c.body.setAllowGravity(false);
       c.body.setSize(500, 500);
       c.body.setOffset(500, 800);
+
+      
     };
 
     //Aqui, posicionamos os cristais
