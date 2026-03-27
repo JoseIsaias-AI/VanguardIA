@@ -27,6 +27,7 @@ export class sceneLBPassado extends Phaser.Scene {
   }
 
   create() {
+    console.log("Cena criada");
     registrarTeclaMenu(this);
 
     // Inicia a cena de música de fundo (bgMusic) para música contínua na cena do laboratório passsado.
@@ -157,9 +158,9 @@ export class sceneLBPassado extends Phaser.Scene {
     this.physics.add.collider(this.Principal, this.npc4);
 
     if (!this.anims.exists("npc1_idle")) {
-      this.anims.create({ key: "npc1_idle", frames: this.anims.generateFrameNumbers("npc1", { start: 0, end: 8 }), frameRate: 2, repeat: -1 });
-      this.anims.create({ key: "npc2_idle", frames: this.anims.generateFrameNumbers("npc2", { start: 0, end: 16 }), frameRate: 2, repeat: -1 });
-      this.anims.create({ key: "npc3_idle", frames: this.anims.generateFrameNumbers("npc3", { start: 0, end: 20 }), frameRate: 2, repeat: -1 });
+      this.anims.create({ key: "npc1_idle", frames: this.anims.generateFrameNumbers("npc1", { start: 0, end: 8 }), frameRate: 4, repeat: -1 });
+      this.anims.create({ key: "npc2_idle", frames: this.anims.generateFrameNumbers("npc2", { start: 0, end: 16 }), frameRate: 4, repeat: -1 });
+      this.anims.create({ key: "npc3_idle", frames: this.anims.generateFrameNumbers("npc3", { start: 0, end: 20 }), frameRate: 4, repeat: -1 });
     }
     this.npc1.play("npc1_idle");
     this.npc2.play("npc2_idle");
