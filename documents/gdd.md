@@ -924,7 +924,7 @@ $$
 
 # 3.8.4 Visualização das Trajetórias
 
-![Gráfico das trajetórias Δx(t) e Δy(t)](grafico_trajetorias.svg)
+![Gráfico das trajetórias Δx(t) e Δy(t)](../assets/gdd/grafico_trajetorias.svg)
 
 $$
 \Delta x(t) = -102 \cdot t \quad | \quad \Delta y(t) = -200 \cdot t + \frac{1}{2} \cdot 200 \cdot t^2 \quad | \quad \Delta y(1) = -100 \text{ px (pico do arco)}
