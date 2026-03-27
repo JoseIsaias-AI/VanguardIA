@@ -209,8 +209,8 @@ export class sceneLBPassado extends Phaser.Scene {
     // Caixa de diálogo
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
-    const larguraCaixa = 1000;
-    const alturaCaixa = 180;
+    const larguraCaixa = 1300;
+    const alturaCaixa = 175;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
     const yCaixa = alturaJogo - alturaCaixa - 140;
     
@@ -223,7 +223,7 @@ export class sceneLBPassado extends Phaser.Scene {
 
     this.textoDialogo = this.add
       .text(xCaixa + 40, yCaixa + 35, "", {
-        fontSize: "26px",
+        fontSize: "28px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#ccffff",
         wordWrap: { width: larguraCaixa - 80 },
@@ -252,7 +252,7 @@ export class sceneLBPassado extends Phaser.Scene {
     // Label do nome do falante — aparece acima da borda esquerda da caixa
     this.labelNome = this.add
       .text(xCaixa + 16, yCaixa - 28, "", {
-        fontSize: "20px",
+        fontSize: "22px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#00ffff",
         fontStyle: "bold",
@@ -412,10 +412,7 @@ export class sceneLBPassado extends Phaser.Scene {
       this.falando_watson = true;
       this.dialogoWatsonIndex = 0;
       this.dialogoWatson = [
-        "Sophia, temos que conversar.",
-        "As simulações mostram um futuro que me assusta. A tecnologia que criamos para ajudar as pessoas... pode acabar sendo usada para controlá-las.",
-        "E eu estou ficando velho. Quando eu não estiver mais aqui, vai ter que ser você, Sophia.",
-        "Você é a única que pode proteger o que construímos. A única que pode salvar o mundo.",
+        "Sophia, boa sorte, estaremos torcendo para que você fique sempre bem.",
       ];
       this.mostrarMensagem(this.dialogoWatson[this.dialogoWatsonIndex], "Watson");
     }

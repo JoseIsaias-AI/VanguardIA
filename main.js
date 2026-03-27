@@ -1,5 +1,6 @@
 import { scenePreFase4 } from "./src/scenes/scenePreFase4.js";
 import { welcomeScene } from "./src/scenes/Welcome.js";
+import { sceneInicial } from "./src/scenes/sceneInicial.js";
 import { sceneLBPassado } from "./src/scenes/sceneLBPassado.js";
 import { sceneLBFuturo } from "./src/scenes/sceneLBFuturo.js";
 import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js";
@@ -15,6 +16,7 @@ import { BgMusic } from "./src/scenes/BgMusic.js";
 
 const config = {
   type: Phaser.AUTO,
+  pixelArt: true,
   width: 1920,
   height: 1080,
   backgroundColor: "#262540",
@@ -34,8 +36,10 @@ const config = {
   audio: {
     disableWebAudio: false,
   },
+  //scene: [sceneInicial],
   scene: [
     welcomeScene,
+    sceneInicial,
     sceneLBPassado,
     sceneLBFuturo,
     faseUm,

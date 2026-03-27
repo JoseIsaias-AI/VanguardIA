@@ -243,8 +243,8 @@ export class sceneLBFuturo extends Phaser.Scene {
     // Caixa de diálogo
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
-    const larguraCaixa = 1000;
-    const alturaCaixa = 180;
+    const larguraCaixa = 1300;
+    const alturaCaixa = 175;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
     const yCaixa = alturaJogo - alturaCaixa - 80;
 
@@ -257,7 +257,7 @@ export class sceneLBFuturo extends Phaser.Scene {
 
     this.textoDialogo = this.add
       .text(xCaixa + 40, yCaixa + 35, "", {
-        fontSize: "26px",
+        fontSize: "28px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#ccffff",
         wordWrap: { width: larguraCaixa - 80 },
@@ -270,7 +270,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     // Label do nome do falante — aparece acima da borda esquerda da caixa
     this.labelNome = this.add
       .text(xCaixa + 16, yCaixa - 28, "", {
-        fontSize: "20px",
+        fontSize: "22px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#00ffff",
         fontStyle: "bold",
