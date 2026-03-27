@@ -64,7 +64,7 @@ export class sceneRestauracao extends Phaser.Scene {
     this.asimov = this.add.sprite(surgirX - 40, surgirY, "asimov").setScale(2);
 
     // Baú
-    this.bauAnimado = this.add.sprite(875, 310, "bauAnimado").setScale(2.5);
+    this.bauAnimado = this.add.sprite(875, 310, "bauAnimado").setScale(1.0);
     if (!this.anims.exists("fechado")) {
       this.anims.create({ key: "fechado", frames: [{ key: "bauAnimado", frame: 0 }], frameRate: 1 });
       this.anims.create({

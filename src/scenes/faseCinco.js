@@ -6,7 +6,7 @@ export class faseCinco extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image("cenarioClaro", "assets/fases/sceneLabCristal/labCristalClaro2.png");
+        this.load.image("cenarioClaro1", "assets/fases/sceneLabCristal/labCristalClaro2.png");
         this.load.spritesheet("asimov", "assets/personagens/asimov.png", {
             frameWidth: 32,
             frameHeight: 32,
@@ -32,7 +32,7 @@ export class faseCinco extends Phaser.Scene {
         this.jogoAtivo = false;
         this.perguntasRespondidas = 0;
 
-        this.mapa = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "cenarioClaro").setScale(this.scaleMapa).setDepth(0);
+        this.mapa = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "cenarioClaro1").setScale(this.scaleMapa).setDepth(0);
 
         let escurecerFundo = this.add.rectangle(0, 0, larguraJogo, alturaJogo, 0x000000);
         escurecerFundo.setOrigin(0, 0).setAlpha(0.9).setDepth(1);
