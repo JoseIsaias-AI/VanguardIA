@@ -4,7 +4,7 @@ import { sceneInicial } from "./src/scenes/sceneInicial.js";
 import { sceneLBPassado } from "./src/scenes/sceneLBPassado.js";
 import { sceneLBFuturo } from "./src/scenes/sceneLBFuturo.js";
 import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js";
-import { SceneLabCristal } from "./src/scenes/SceneLabCristal.js";
+import { faseCinco } from "./src/scenes/faseCinco.js";
 import { faseUm } from "./src/scenes/FaseUm.js";
 import { FaseDois } from "./src/scenes/FaseDois.js";
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js";
@@ -36,24 +36,25 @@ const config = {
   audio: {
     disableWebAudio: false,
   },
+  scene: [faseCinco],
   //scene: [sceneInicial],
-  scene: [
-    welcomeScene,
-    sceneInicial,
-    sceneLBPassado,
-    sceneLBFuturo,
-    faseUm,
-    transicao1para2,
-    FaseDois,
-    FaseDoischao,
-    SceneRetornoLab,
-    SceneLabCristal,
-    minigame1Fase2,
-    scenePreFase4,
-    faseQuatro,
-    menu,
-    BgMusic,
-  ],
+  // scene: [
+  //   welcomeScene,
+  //   sceneInicial,
+  //   sceneLBPassado,
+  //   sceneLBFuturo,
+  //   faseUm,
+  //   transicao1para2,
+  //   FaseDois,
+  //   FaseDoischao,
+  //   SceneRetornoLab,
+  //   minigame1Fase2,
+  //   scenePreFase4,
+  //   faseQuatro,
+  //   faseCinco,
+  //   menu,
+  //   BgMusic,
+  // ],
 };
 
 const game = new Phaser.Game(config);
