@@ -10,6 +10,7 @@ import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js";
 import { transicao1para2 } from "./src/scenes/transicao1para2.js";
 import { faseQuatro } from "./src/scenes/faseQuatro.js"; 
 import { menu } from "./src/menu.js"; 
+import { faseTres } from "./src/scenes/faseTres.js";
 
 
 
@@ -28,11 +29,11 @@ const config = {
         default: "arcade",
         arcade: {
             gravity: { y: 0 },
-            debug: false  
+            debug: false
         }
     },
 
-    scene: [welcomeScene, sceneLBPassado, sceneLBFuturo, faseUm, transicao1para2, faseDois, faseQuatro, menu]
+    scene: [welcomeScene, sceneLBPassado, sceneLBFuturo, faseUm, transicao1para2, faseDois, faseTres, faseQuatro, menu]
     //scene: [menu]
     //scene: [SceneRetornoLab]
     

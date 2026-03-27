@@ -23,6 +23,12 @@ export class sceneLBPassado extends Phaser.Scene {
   }
 
   create() {
+
+  //REMOVER DEPOIS
+    this.input.keyboard.on("keydown-T", () => {
+        this.scene.start("faseTres");
+    });
+
     registrarTeclaMenu(this);
 
     this.entrarNaCamara = false;
