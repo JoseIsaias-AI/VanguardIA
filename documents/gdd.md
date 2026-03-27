@@ -433,13 +433,76 @@ Construir uma identidade visual marcante e coerente, reforçando branding e reco
 
 *Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração*
 
-O principal objetivo do projeto é desenvolver um jogo educativo gamificado que ensine conceitos introdutórios de Inteligência Artificial de forma simples, interativa e acessível, especialmente para jovens que ainda não têm familiaridade com a área. A ideia é transformar um conteúdo que normalmente é visto como difícil e muito teórico em uma experiência prática, envolvente e mais fácil de entender. A partir desse objetivo, foram definidas metas seguindo o modelo SMART, que ajudam a guiar o desenvolvimento do projeto e permitem avaliar se a solução realmente cumpre o que se propõe.
+1. Objetivos Estratégicos
+1. Aumentar o engajamento de jovens com pouco conhecimento em IA
+ Criar uma experiência interativa que seja mais interessante do que cursos tradicionais, incentivando o usuário a continuar.
+2. Melhorar a aprendizagem de conceitos básicos de IA
+ Garantir que o usuário entenda ideias como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning.
+3. Despertar interesse pela área de Inteligência Artificial
+ Fazer com que o usuário perceba que IA é acessível e se interesse em continuar aprendendo.
+4. Incentivar o usuário a concluir o jogo
+ Usar elementos de jogo e narrativa para manter o usuário até o final da experiência.
+2. Metas (SMART)
+M1 - Conclusão do jogo
+ Alcançar uma taxa de conclusão de pelo menos setenta por cento dos usuários que iniciarem o jogo, em até oito semanas após o lançamento.
+M2 - Redução da evasão
+ Diminuir o abandono entre o início e o final do jogo em pelo menos trinta por cento, em comparação com cursos online tradicionais, até o fim do piloto.
+M3 - Aprendizagem
+ Alcançar uma média de acertos de pelo menos sessenta e cinco por cento nos testes após cada módulo, durante o piloto.
+M4 - Satisfação do usuário
+ Alcançar um nível de satisfação de pelo menos cinquenta pontos no NPS, medido ao final do uso do jogo.
+M5 - Continuidade do aprendizado
+ Garantir que pelo menos quarenta por cento dos usuários que terminarem o jogo acessem outros conteúdos de aprendizagem em até trinta dias.
 
-Uma das metas é fazer com que o jogador consiga compreender, ao longo da experiência, conceitos básicos de IA, como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning, por meio dos desafios e mecânicas do próprio jogo, onde o aprendizado é aplicado na prática. O indicador utilizado para isso é o desempenho do jogador nas atividades e minigames, observando se ele consegue avançar e resolver os desafios corretamente. Outra meta importante é reduzir a evasão, comum em cursos tradicionais, incentivando o jogador a continuar progredindo pelas fases por meio da narrativa e da gamificação; nesse caso, o indicador é a progressão dentro do jogo e a continuidade do usuário nas etapas.
+3. KPIs (Indicadores)
+KPI 1 - Taxa de conclusão
+Mede quantos usuários terminam o jogo em relação aos que começaram
+Meta: pelo menos setenta por cento
+Frequência: ao final do piloto
+Foco: engajamento
 
-Também foi definida uma meta relacionada à experiência do usuário, buscando garantir que o jogo seja intuitivo, claro e interessante. Para avaliar isso, são considerados os feedbacks coletados durante os testes, analisando aspectos como jogabilidade, nível de dificuldade e diversão. Além disso, o projeto busca ser acessível, permitindo que o jogo funcione diretamente no navegador, sem necessidade de instalação ou alto desempenho do dispositivo, sendo o indicador o funcionamento em diferentes navegadores e a facilidade de acesso relatada pelos usuários. Por fim, o jogo também tem como meta despertar o interesse pela área de Inteligência Artificial, incentivando o usuário a continuar aprendendo após a experiência, inclusive em plataformas como o IBM SkillsBuild, sendo esse interesse identificado por meio dos feedbacks e comportamento dos jogadores.
+KPI 2 - Taxa de abandono
+Mede quantos usuários desistem antes de terminar o jogo
+Meta: no máximo trinta por cento, comparado ao padrão
+Frequência: por fase e acumulado
+Foco: engajamento
 
-Dessa forma, os objetivos, metas e indicadores garantem que o projeto vá além de uma proposta teórica, permitindo avaliar na prática seu impacto no aprendizado, no engajamento e no interesse dos usuários pela área de Inteligência Artificial.
+KPI 3 - Desempenho nos testes
+Mede o número de respostas corretas nos testes após cada fase
+Meta: pelo menos sessenta e cinco por cento de acerto
+Frequência: ao final de cada módulo
+Foco: aprendizagem
+
+KPI 4 - Evolução do aprendizado
+Compara o desempenho antes e depois do jogo
+Meta: aumento mínimo de vinte e cinco pontos percentuais
+Frequência: ao final do piloto
+Foco: aprendizagem real
+
+KPI 5 - Tempo médio de uso
+Mede quanto tempo o usuário passa no jogo em cada sessão
+Meta: pelo menos quinze minutos por sessão
+Frequência: semanal
+Foco: engajamento
+
+KPI 6 - Retorno ao jogo
+Mede quantos usuários voltam a jogar depois da primeira vez
+Meta: pelo menos sessenta por cento retornam
+Frequência: sete dias após o primeiro acesso
+Foco: engajamento
+
+KPI 7 - Satisfação (NPS)
+Mede o quanto os usuários recomendariam o jogo
+Meta: pelo menos cinquenta pontos
+Frequência: após a conclusão
+Foco: experiência
+
+KPI 8 - Continuidade do aprendizado
+Mede quantos usuários buscam aprender mais depois do jogo
+Meta: pelo menos quarenta por cento
+Frequência: até trinta dias após o término
+Foco: impacto educacional
+
 
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
