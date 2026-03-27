@@ -17,7 +17,7 @@ export class sceneInicial extends Phaser.Scene {
     }
 
     create() {
-        this.cameras.main.fadeIn(1000, 0, 0, 0);
+        this.cameras.main.fadeIn(400, 0, 0, 0);
 
         const larguraJogo = this.cameras.main.width;
         const alturaJogo = this.cameras.main.height;
