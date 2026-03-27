@@ -29,6 +29,7 @@ export class FaseDois extends Phaser.Scene {
       frameWidth:  128,
       frameHeight: 128,
     });
+    this.load.audio('bg-music-fases', 'assets/bg-music-fases.mp3');
   }
 
   create() {
@@ -94,6 +95,8 @@ export class FaseDois extends Phaser.Scene {
     this.cameras.main.startFollow(this.sophia);
     this.cameras.main.setBounds(0, 0, larguraMapa, alturaMapa);
     this.cameras.main.setZoom(this.zoomExploracaoFaseDois);
+
+    this.scene.launch("bgMusic");
 
     // ── Paredes ───────────────────────────────────────────────────────────────
     this.walls = this.physics.add.staticGroup();
@@ -563,6 +566,13 @@ export class FaseDois extends Phaser.Scene {
   iniciarMiniGame() {
     this.miniGameAtivo = true;
 
+    // Troca para música de fases
+    if (this.game.sound.get('bgMusic')) {
+      this.game.sound.get('bgMusic').stop();
+    }
+    this.musicFases = this.sound.add('bg-music-fases');
+    this.musicFases.play({ loop: true });
+
     const W = this.cameras.main.width;
     const H = this.cameras.main.height;
 
@@ -958,6 +968,12 @@ export class FaseDois extends Phaser.Scene {
     this.mgRede.destroy();
     this.mgTextoE.destroy();
     if (this.mgBrilho) this.mgBrilho.destroy();
+
+    // Volta para música padrão
+    if (this.musicFases) {
+      this.musicFases.stop();
+    }
+    this.scene.launch("bgMusic");
 
     // Revela o baú com brilho pulsante
     this.bauAnimado.setVisible(true);

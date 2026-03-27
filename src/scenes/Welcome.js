@@ -80,6 +80,18 @@ export class welcomeScene extends Phaser.Scene {
       this.scene.start("sceneInicial");
     });
 
+    this.options.on("pointerdown", () => {
+      this.scene.launch("menu", { origem: this.scene.key });
+    });
+
+    this.options.on("pointerover", () => {
+      this.input.setDefaultCursor("pointer");
+    });
+
+    this.options.on("pointerout", () => {
+      this.input.setDefaultCursor("default");
+    });
+
     // Inicia a cena de música de fundo (bgMusic) que toca em loop para todo o jogo.
     this.scene.launch("bgMusic");
   }

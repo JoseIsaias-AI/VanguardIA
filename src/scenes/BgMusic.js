@@ -22,6 +22,11 @@ export class BgMusic extends Phaser.Scene {
         volume: 0.70  // Define o volume em 70%
       });
       this.music.play();// Inicia a reprodução da música.
+    } else {
+      this.music = this.game.sound.get('bgMusic');
+      if (!this.music.isPlaying) {
+        this.music.play();
+      }
     }
   }
 }
