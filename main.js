@@ -9,6 +9,7 @@ import { faseUm } from "./src/scenes/FaseUm.js";
 import { FaseDois } from "./src/scenes/FaseDois.js";
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js";
 import { transicao1para2 } from "./src/scenes/transicao1para2.js";
+import { faseTres } from "./src/scenes/faseTres.js";
 import { FaseDoischao } from "./src/scenes/ChãoCaindo.js";
 import { faseQuatro } from "./src/scenes/faseQuatro.js";
 import { faseCinco } from "./src/scenes/faseCinco.js";
@@ -39,7 +40,7 @@ const config = {
   //scene: [transicao1para2, FaseDois],
   //scene: [sceneRestauracao,faseCinco, menu, BgMusic],
   //scene: [faseUm],
-  //scene: [faseQuatro, sceneRestauracao, faseCinco],
+  //scene: [ scenePreFase4, faseQuatro, sceneRestauracao, faseCinco],
   //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
 
   scene: [
@@ -51,6 +52,7 @@ const config = {
     transicao1para2,
     FaseDois,
     FaseDoischao,
+    faseTres,
     SceneRetornoLab,
     minigame1Fase2,
     scenePreFase4,
