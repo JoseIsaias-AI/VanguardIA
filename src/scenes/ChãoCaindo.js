@@ -30,7 +30,7 @@ export class FaseDoischao extends Phaser.Scene {
     // PRÓXIMA CENA
     // =========================
     // Nome da cena que será iniciada ao fim da transição.
-    this.proximaCena = "fase4";
+    this.proximaCena = "faseTres";
 
     // =========================
     // PONTO PRINCIPAL NO MAPA

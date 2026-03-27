@@ -93,7 +93,7 @@ create() {
     this.walls.add(this.add.rectangle(1000, 970, 500, 99,));
     this.walls.add(this.add.rectangle(1171, 600, 100, 2000,));
     this.walls.add(this.add.rectangle(749, 600, 100, 2000,));
-    this.walls.add(this.add.rectangle(1000, 135, 500, 1, 0xff0000));
+    this.walls.add(this.add.rectangle(1000, 135, 500, 1,));
 
     
 
@@ -192,9 +192,10 @@ ativarCorda() {
         x: alvoX,
         duration: 1000,
         onComplete: () => {
-          // libera controle novamente
-          this.player.body.allowGravity = true;
-          this.subindoCorda = false;
+          this.scene.transition({
+          target: "FaseQuatro",
+          duration: 1000
+});
         }
       });
 
@@ -281,7 +282,7 @@ createAnimations() {
 
      // Aqui, adicionamos o pulo na fase
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && (this.player.body.blocked.down || this.player.body.touching.down)) {
-    this.player.setVelocityY(-250);} 
+    this.player.setVelocityY(-200);} 
 
      //Aqui, criamos o movimento das plataformas que se moverão na vertical
     this.tempoMovimento += 0.01;
