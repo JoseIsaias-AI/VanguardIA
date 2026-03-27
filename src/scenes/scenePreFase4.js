@@ -97,25 +97,28 @@ export class scenePreFase4 extends Phaser.Scene {
     /* Caixa de diálogo */
     const lj = this.cameras.main.width;
     const aj = this.cameras.main.height;
-    const lc = 500, ac = 90;
-    const xc = (lj - lc) / 2, yc = aj - ac - 300;
+    const margem = 20;
+    const lc = lj - margem * 2;
+    const ac = 140;
+    const xc = margem;
+    const yc = aj - ac - margem;
 
     this.caixaDialogo = this.add.graphics();
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
+    this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
     this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xc, yc, lc, ac, 15);
-    this.caixaDialogo.strokeRoundedRect(xc, yc, lc, ac, 15);
+    this.caixaDialogo.fillRoundedRect(xc, yc, lc, ac, 10);
+    this.caixaDialogo.strokeRoundedRect(xc, yc, lc, ac, 10);
     this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
 
-    this.textoDialogo = this.add.text(xc + 40, yc + 35, "", {
-      fontSize: "14px", fontFamily: "'Courier New', Courier, monospace",
-      color: "#ccffff", wordWrap: { width: lc - 80 }, lineSpacing: 10
+    this.textoDialogo = this.add.text(xc + 16, yc + 22, "", {
+      fontSize: "32px", fontFamily: "'Courier New', Courier, monospace",
+      color: "#ccffff", wordWrap: { width: lc - 32 }, lineSpacing: 6
     }).setScrollFactor(0).setDepth(1001).setVisible(false);
 
-    this.labelNome = this.add.text(xc + 16, yc - 28, "", {
-      fontSize: "14px", fontFamily: "'Courier New', Courier, monospace",
+    this.labelNome = this.add.text(xc + 12, yc - 18, "", {
+      fontSize: "32px", fontFamily: "'Courier New', Courier, monospace",
       color: "#00ffff", fontStyle: "bold", backgroundColor: "#1a1a1a",
-      padding: { left: 8, right: 8, top: 3, bottom: 3 }
+      padding: { left: 6, right: 6, top: 2, bottom: 2 }
     }).setScrollFactor(0).setDepth(1002).setVisible(false);
 
     /* Caixa de diálogo ajustada */

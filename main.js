@@ -10,6 +10,7 @@ import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js";
 import { transicao1para2 } from "./src/scenes/transicao1para2.js";
 import { FaseDoischao } from "./src/scenes/ChãoCaindo.js";
 import { faseQuatro } from "./src/scenes/faseQuatro.js";
+import { faseCinco } from "./src/scenes/faseCinco.js";
 import { menu } from "./src/menu.js";
 import { BgMusic } from "./src/scenes/BgMusic.js";
 
@@ -47,9 +48,15 @@ const config = {
     minigame1Fase2,
     scenePreFase4,
     faseQuatro,
+    faseCinco,
     menu,
     BgMusic,
   ],
+
+  // scene: [
+  //   FaseDois, FaseDoischao
+  // ]
 };
+
 
 const game = new Phaser.Game(config);

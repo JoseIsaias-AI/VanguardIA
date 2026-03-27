@@ -72,7 +72,7 @@ export class sceneLBFuturo extends Phaser.Scene {
   }
 
   iniciarFase() {
-    this.scaleMapa = 3;
+    this.scaleMapa = 3.2;
     this.progressoHistoria = 0;
     this.lendoMensagem = false;
 
@@ -243,25 +243,26 @@ export class sceneLBFuturo extends Phaser.Scene {
     // Caixa de diálogo
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
-    const larguraCaixa = 1000;
-    const alturaCaixa = 180;
-    const xCaixa = (larguraJogo - larguraCaixa) / 2;
-    const yCaixa = alturaJogo - alturaCaixa - 80;
+    const margem = 20;
+    const larguraCaixa = larguraJogo - margem * 2;
+    const alturaCaixa = 140;
+    const xCaixa = margem;
+    const yCaixa = alturaJogo - alturaCaixa - margem;
 
     this.caixaDialogo = this.add.graphics();
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
-    this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
+    this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
+    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
+    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
     this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
 
     this.textoDialogo = this.add
-      .text(xCaixa + 40, yCaixa + 35, "", {
-        fontSize: "26px",
+      .text(xCaixa + 16, yCaixa + 22, "", {
+        fontSize: "32px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#ccffff",
-        wordWrap: { width: larguraCaixa - 80 },
-        lineSpacing: 10,
+        wordWrap: { width: larguraCaixa - 32 },
+        lineSpacing: 6,
       })
       .setScrollFactor(0)
       .setDepth(1001)
@@ -269,13 +270,13 @@ export class sceneLBFuturo extends Phaser.Scene {
 
     // Label do nome do falante — aparece acima da borda esquerda da caixa
     this.labelNome = this.add
-      .text(xCaixa + 16, yCaixa - 28, "", {
-        fontSize: "20px",
+      .text(xCaixa + 12, yCaixa - 18, "", {
+        fontSize: "32px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#00ffff",
         fontStyle: "bold",
         backgroundColor: "#1a1a1a",
-        padding: { left: 8, right: 8, top: 3, bottom: 3 },
+        padding: { left: 6, right: 6, top: 2, bottom: 2 },
       })
       .setScrollFactor(0)
       .setDepth(1002)

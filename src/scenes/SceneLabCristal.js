@@ -106,24 +106,25 @@ create() {
 
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
-    const larguraCaixa = 1000;
-    const alturaCaixa = 180;
-    const xCaixa = (larguraJogo - larguraCaixa) / 2;
-    const yCaixa = alturaJogo - alturaCaixa - 40; // 40px de margem do fundo
+    const margem = 20;
+    const larguraCaixa = larguraJogo - margem * 2;
+    const alturaCaixa = 140;
+    const xCaixa = margem;
+    const yCaixa = alturaJogo - alturaCaixa - margem;
 
     this.caixaDialogo = this.add.graphics();
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
-    this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
+    this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
+    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
+    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
     this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
 
-    this.textoDialogo = this.add.text(xCaixa + 50, yCaixa + 45, "", {
-      fontSize: "26px", // Aumentado para melhor leitura em 1920px
+    this.textoDialogo = this.add.text(xCaixa + 16, yCaixa + 22, "", {
+      fontSize: "32px",
       fontFamily: "'Courier New', Courier, monospace",
       color: "#ccffff",
-      wordWrap: { width: larguraCaixa - 200 },
-      lineSpacing: 10
+      wordWrap: { width: larguraCaixa - 32 },
+      lineSpacing: 6
     })
     .setScrollFactor(0) // Fixa o texto na tela
     .setDepth(101); // Texto fica na frente da caixa

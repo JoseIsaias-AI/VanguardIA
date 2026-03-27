@@ -215,10 +215,10 @@ export class sceneLBPassado extends Phaser.Scene {
     const yCaixa = alturaJogo - alturaCaixa - 140;
     
     this.caixaDialogo = this.add.graphics();
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
+    this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
     this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
+    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
     this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
 
     this.textoDialogo = this.add

@@ -64,9 +64,9 @@ export class FaseDoischao extends Phaser.Scene {
     // ZOOM
     // =========================
     // ALTERE AQUI: zoom inicial da cena ChaoCaindo.
-    this.zoomInicial = 3;
+    this.zoomInicial = 2.4;
     // ALTERE AQUI: zoom usado caso voce queira reutilizar a aproximacao cinematica.
-    this.zoomCutscene = 3;
+    this.zoomCutscene = 1;
 
     // =========================
     // CONFIG DA CÂMERA

@@ -175,10 +175,10 @@ export class transicao1para2 extends Phaser.Scene {
                 autoMs:  4500
             },
             { speaker: "Sophia", text: "Entendo. Então… o que você encontrou? Tem algo para me mostrar?" },
-            { speaker: "Asimov", text: "Sim. Durante a missão, coletei números binários e um pergaminho com instruções e a imagem de uma porta." },
+            { speaker: "Asimov", text: "Sim. Durante a missão, coletei números binários e um pergaminho com instruções." },
             { speaker: "Asimov", text: "Essas informações indicam que precisamos seguir as pistas para encontrar o cristal capaz de restaurar a energia do laboratório." },
             { speaker: "Sophia", text: "E onde está esse cristal?" },
-            { speaker: "Asimov", text: "Os dados indicam que ele está dentro de uma porta no laboratório.\nPara encontrá‑lo, precisamos localizar a porta correta." },
+            { speaker: "Asimov", text: "O pergaminho indica que ele está dentro de uma porta no laboratório.\nPara encontrá‑lo, precisamos localizar a porta correta." },
             { speaker: "Sophia", text: "Perfeito. Obrigada pelas informações, Asimov.\nVamos restaurar sua energia." },
             { speaker: "Asimov", text: "Objetivo atualizado: encontrar a porta correta do laboratório." },
             {
@@ -233,10 +233,10 @@ export class transicao1para2 extends Phaser.Scene {
 
         // Fundo escuro com borda ciano — depth 900
         this.caixaDialogo = this.add.graphics();
-        this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
-        this.caixaDialogo.lineStyle(4, 0x00ffff, 1);
-        this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-        this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+        this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
+        this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
+        this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
+        this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
         this.caixaDialogo.setScrollFactor(0).setDepth(900).setVisible(false);
         // ↑ CORREÇÃO: antes estava 1000, causando a caixa cobrir o texto (depth 101)
 
@@ -244,20 +244,23 @@ export class transicao1para2 extends Phaser.Scene {
         this.dialogueBoxRect = { x: xCaixa, y: yCaixa, width: larguraCaixa, height: alturaCaixa };
 
         // Nome do falante — depth 901 (na frente da caixa)
-        this.nameText = this.add.text(xCaixa + 44, yCaixa - 26, "", {
-            fontSize:  "21px",
-            color:     "#9dd8ff",
-            fontStyle: "bold"
+        this.nameText = this.add.text(xCaixa + 12, yCaixa - 18, "", {
+            fontSize:        "32px",
+            fontFamily:      "'Courier New', Courier, monospace",
+            color:           "#00ffff",
+            fontStyle:       "bold",
+            backgroundColor: "#1a1a1a",
+            padding: { left: 6, right: 6, top: 2, bottom: 2 }
         }).setScrollFactor(0).setDepth(901).setVisible(false);
         // ↑ CORREÇÃO: antes estava 101 (atrás da caixa que era 1000)
 
         // Texto da fala — depth 902 (na frente da caixa)
-        this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 35, "", {
-            fontSize:    "26px",
+        this.textoDialogo = this.add.text(xCaixa + 16, yCaixa + 22, "", {
+            fontSize:    "32px",
             fontFamily:  "'Courier New', Courier, monospace",
             color:       "#ccffff",
-            wordWrap:    { width: larguraCaixa - 120 },
-            lineSpacing: 10,
+            wordWrap:    { width: larguraCaixa - 32 },
+            lineSpacing: 6,
         }).setScrollFactor(0).setDepth(902).setVisible(false);
         // ↑ CORREÇÃO: antes estava 101 (atrás da caixa que era 1000)
 
