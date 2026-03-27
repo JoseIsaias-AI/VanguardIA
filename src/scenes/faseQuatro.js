@@ -18,7 +18,7 @@ export class faseQuatro extends Phaser.Scene {
         this.load.image('esponja', 'assets/Fases/FaseQuatro/esponja.png');
         this.load.image('textoExplicacao', 'assets/Fases/FaseQuatro/textoExplicação.png');
         this.load.image('textoPerda', 'assets/Fases/FaseQuatro/textoPerda.png');
-        this.load.spritesheet('barra', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
+        this.load.spritesheet('barraCarregamento', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
     }
 
     //carrega todas as imagens e sprites
@@ -63,14 +63,14 @@ export class faseQuatro extends Phaser.Scene {
         const borracha = this.make.image({ key: 'esponja' }, false).setDisplaySize(tamBorracha, tamBorracha); //cria o objeto da borracha mas não mostra na tela, esse aqui é somente para realizar a funç
         this.esponja = this.add.image(-100, -100, 'esponja').setDisplaySize(tamBorracha, tamBorracha).setDepth(10); //mostra a imagem na tela
 
-        this.barra = this.add.sprite(width / 2, 120, 'barra', 0).setScale(3).setDepth(10); //adiciona a barra do overfitting
+        this.barraCarregamento = this.add.sprite(width / 2, 120, 'barraCarregamento', 0).setScale(3).setDepth(10); //adiciona a barra do overfitting
         this.anims.create({ //animação da passagem de frames
-            key: 'barra',
-            frames: this.anims.generateFrameNumbers('barra', { start: 0, end: 33 }), // são 34 imagens da barra
+            key: 'barraCarregamento',
+            frames: this.anims.generateFrameNumbers('barraCarregamento', { start: 0, end: 33 }), // são 34 imagens da barra
             frameRate: 1,
             repeat: 0
         });
-        this.barraFrame = 0; //começa com o primeiro frame
+        this.barraCarregamentoFrame = 0; //começa com o primeiro frame
         this.limpando = false;
         this.totalPixels = width * height; //resolução da tela
         this.cronometroIniciado = false;
@@ -208,13 +208,13 @@ export class faseQuatro extends Phaser.Scene {
         if (this.jogoParado) return; //sai das atualizações  se o jogador perdeu o tempo
 
         if (this.limpando) { //enquanto estiver limpando a barra de progresso aumenta os frames e vai subindo
-            this.barraFrame = Math.min(33, this.barraFrame + 0.1);
+            this.barraCarregamentoFrame = Math.min(33, this.barraCarregamentoFrame + 0.1);
         } else {
-            this.barraFrame = Math.max(0, this.barraFrame - 0.1); //enquanto estiver sem limpar a barra de progresso diminui os frames e vai subindo
+            this.barraCarregamentoFrame = Math.max(0, this.barraCarregamentoFrame - 0.1); //enquanto estiver sem limpar a barra de progresso diminui os frames e vai subindo
         }
-        this.barra.setFrame(Math.floor(this.barraFrame));
+        this.barraCarregamento.setFrame(Math.floor(this.barraCarregamentoFrame));
 
-        if (Math.floor(this.barraFrame) >= 33) { //se os frames forem iguais a quantidade maxima, o jogador perde por Overfitting
+        if (Math.floor(this.barraCarregamentoFrame) >= 33) { //se os frames forem iguais a quantidade maxima, o jogador perde por Overfitting
             this.mostrarMenuPerda();
         }
 
