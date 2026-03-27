@@ -300,6 +300,12 @@ export class faseCinco extends Phaser.Scene {
     }
 
     finalizarCena() {
+        if (this.cenaFinalizando) return;
+        this.cenaFinalizando = true;
+
+        this.sophia.destroy();
+        this.asimov.destroy();
+
         this.cameras.main.fadeOut(1000);
         this.cameras.main.once("camerafadeoutcomplete", () => {
             this.scene.start("sceneLBPassado");

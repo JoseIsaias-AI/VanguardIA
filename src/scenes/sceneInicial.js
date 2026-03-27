@@ -171,10 +171,15 @@ export class sceneInicial extends Phaser.Scene {
     }
 
     finalizarCena() {
+        if (this.cenaFinalizando) return;
+        this.cenaFinalizando = true;
+
         this.lendoMensagem = false;
         this.caixaDialogo.setVisible(false);
         this.textoDialogo.setVisible(false);
         this.labelNome.setVisible(false);
+        this.sophia.destroy();
+        this.watson.destroy();
 
         this.cameras.main.fadeOut(1000);
         this.cameras.main.once("camerafadeoutcomplete", () => {
