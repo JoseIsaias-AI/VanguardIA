@@ -698,6 +698,36 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 2 | tema de combate | cena de combate com inimigos comuns | Hans Zimmer
 3 | ... 
 
+Trilha sonora 1
+
+Título                    Autoria               Ocorrência              Duração
+
+Batida, tensa             Própria              Durante todas          32 segundos,
+Futurista                                        as fases               em loop
+
+
+
+
+DESCRIÇÃO 
+
+A trilha sonora do jogo é um elemento de ambiente futurista, construída para colocar o jogador dentro de um universo tecnológico sombrio e instável. Ela não conta uma história, mas condiciona o estado emocional de quem joga, através de batidas metálicas que remetem a maquinário pesado e estruturas industriais, glitches e estáticos que lembram televisões analógicas falhando. Tudo isso junto passa a sensação de um futuro que existe, mas está quebrado. A tecnologia funciona, porém à beira do colapso, e o mundo ao redor respira de forma robotizada e fria.
+
+
+
+Trilha sonora 2
+
+Título                    Autoria               Ocorrência              Duração
+
+Frequência Estável        Própria           durante os momentos          32 segundos, 
+                                            que não tem desafios.          em loop
+
+
+
+DESCRIÇÃO
+
+É a música que toca enquanto Sophia ainda está descobrindo o que aconteceu e o que precisa fazer.O som continua sendo eletrônico e futurista, porque o mundo do jogo é assim, mas sem aquela sensação de perigo. As batidas são mais espaçadas, o ritmo é mais tranquilo. Dá pra sentir que as coisas ainda estão se encaixando, que existe uma chance de consertar tudo. É o som de um mundo quebrado que ainda tem esperança.
+
+
 ## 3.4. Inventário e Bestiário (sprint 3)
 
 ### 3.4.1. Inventário
