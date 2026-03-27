@@ -845,7 +845,7 @@ Controles: Movimentação livre (WASD / Setas) para transportar o cristal e Tecl
 *Descreva aqui a função que implementa a movimentação/animação de personagens ou elementos gráficos no seu jogo. Sua função deve se basear em alguma formulação matemática (e.g. fórmula de aceleração). A explicação do funcionamento desta função deve conter notação matemática formal de fórmulas/equações. Se necessário, crie subseções para sua descrição.*
 
 
-# 3.8.1 Parâmetros do Modelo
+## 3.8.1 Parâmetros do Modelo
 
 | Símbolo | Descrição                        | Valor       |
 |---------|----------------------------------|-------------|
@@ -862,67 +862,73 @@ Controles: Movimentação livre (WASD / Setas) para transportar o cristal e Tecl
 
 
 
-# 3.8.2 Eixo X — Movimento Uniforme (MU)
+## 3.8.2 Eixo X — Movimento Uniforme (MU)
 
 No MU a aceleração é nula e a velocidade é constante. Partindo da definição de velocidade média:
 
-```
-vx = (xf - xi) / T = (861 - 1065) / 2 = -102 px/s
-```
+$$
+v_x = \frac{x_f - x_i}{T} = \frac{861 - 1065}{2} = -102 \text{ px/s}
+$$
 
 Equação horária da posição em X:
 
-```
-x(t) = xi + vx · t
-```
+$$
+x(t) = x_i + v_x \cdot t
+$$
 
-**Verificação:** x(2) = 1065 + (−102)(2) = **861 px** ✓
+**Verificação:** $x(2) = 1065 + (-102)(2) = 861 \text{ px}$ ✓
 
 
 
-# 3.8.3 Eixo Y — Movimento Uniformemente Variado (MUV)
+## 3.8.3 Eixo Y — Movimento Uniformemente Variado (MUV)
 
-Como yᵢ = yf = 235 px, a pedra executa um arco simétrico — sobe e retorna ao mesmo nível.
+Como $y_i = y_f = 235$ px, a pedra executa um arco simétrico — sobe e retorna ao mesmo nível.
 
 **Aceleração (parâmetro de projeto):**
 
-```
-ay = +200 px/s²
-```
+$$
+a_y = +200 \text{ px/s}^2
+$$
 
-**Velocidade inicial em Y** — obtida impondo y(T) = yf na equação horária:
+**Velocidade inicial em Y** — obtida impondo $y(T) = y_f$ na equação horária:
 
-```
-y(T) = yi + vy0·T + (1/2)·ay·T² = yf
+$$
+y(T) = y_i + v_{y0} \cdot T + \frac{1}{2} \cdot a_y \cdot T^2 = y_f
+$$
 
-vy0 = [(yf - yi) - (1/2)·ay·T²] / T
-vy0 = [0 - (1/2)·200·4] / 2
-vy0 = -400 / 2 = -200 px/s
-```
+$$
+v_{y0} \cdot T = y_f - y_i - \frac{1}{2} \cdot a_y \cdot T^2
+$$
+
+$$
+v_{y0} = \frac{(y_f - y_i) - \frac{1}{2} \cdot a_y \cdot T^2}{T} = \frac{0 - \frac{1}{2} \cdot 200 \cdot 4}{2} = -200 \text{ px/s}
+$$
 
 **Equação horária da velocidade em Y:**
 
-```
-vy(t) = vy0 + ay · t
-```
+$$
+v_y(t) = v_{y0} + a_y \cdot t
+$$
 
 **Equação horária da posição em Y:**
 
-```
-y(t) = yi + vy0·t + (1/2)·ay·t²
-```
+$$
+y(t) = y_i + v_{y0} \cdot t + \frac{1}{2} \cdot a_y \cdot t^2
+$$
 
 **Verificações:**
-- Pico em t = 1 s: y(1) = 235 + (−200)(1) + ½(200)(1) = **135 px** → sobe 100 px ✓
-- Retorno em t = 2 s: y(2) = 235 + (−200)(2) + ½(200)(4) = **235 px** ✓
+- Pico em $t = 1$ s: $y(1) = 235 + (-200)(1) + \frac{1}{2}(200)(1) = 135 \text{ px}$ → sobe 100 px ✓
+- Retorno em $t = 2$ s: $y(2) = 235 + (-200)(2) + \frac{1}{2}(200)(4) = 235 \text{ px}$ ✓
 
 
 
 # 3.8.4 Visualização das Trajetórias
 
-![Gráfico das trajetórias Δx(t) e Δy(t)](../assets/gdd/grafico_trajetorias.svg)
+![Gráfico das trajetórias Δx(t) e Δy(t)](grafico_trajetorias.svg)
 
-*Δx(t) = −102 · t (MU — linear) | Δy(t) = −200 · t + ½ · 200 · t² (MUV — parábola) | pico em t = 1 s*
+$$
+\Delta x(t) = -102 \cdot t \quad | \quad \Delta y(t) = -200 \cdot t + \frac{1}{2} \cdot 200 \cdot t^2 \quad | \quad \Delta y(1) = -100 \text{ px (pico do arco)}
+$$
 
 
 
@@ -939,7 +945,8 @@ y(t) = yi + vy0·t + (1/2)·ay·t²
 --> adicionar isso
 
 
-# 3.8.7 Tabela de Validação
+
+## 3.8.7 Tabela de Validação
 
 | t (s) | x(t) px | vx (px/s) | y(t) px | vy(t) px/s | ay (px/s²) |
 |-------|---------|-----------|---------|------------|------------|
@@ -949,8 +956,8 @@ y(t) = yi + vy0·t + (1/2)·ay·t²
 | 1,500 | 912,00  | −102,00   | 185,00  | +100,00    | 200,00     |
 | 2,000 | 861,00  | −102,00   | 235,00  | +200,00    | 200,00     |
 
-> Em **t = 1 s** (linha em negrito): vy = 0 confirma o pico do arco.
-> Em **t = 2 s**: x = 861 px e y = 235 px confirmam o retorno às coordenadas finais. ✓
+> Em **t = 1 s** (linha em negrito): $v_y = 0$ confirma o pico do arco.
+> Em **t = 2 s**: $x = 861$ px e $y = 235$ px confirmam o retorno às coordenadas finais. ✓
 
 
 
