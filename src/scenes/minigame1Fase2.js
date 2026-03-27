@@ -11,13 +11,18 @@ export class minigame1Fase2 extends Phaser.Scene {
         this.load.spritesheet('fundo', 'assets/Fases/FaseDois/spriteRedes.png', { frameWidth: 600, frameHeight: 340 });
 
         //this.load.image( 'fundo', 'assets/Fases/FaseDois/f.png');
+        this.load.audio('bg-music-fases', 'assets/bg-music-fases.mp3');
     }
 
     create() {
         registrarTeclaMenu(this);
 
-        // Inicia a cena de música de fundo (bgMusic) para manter o loop durante o minigame.
-        this.scene.launch("bgMusic");
+        // Inicia a música específica das fases
+        if (this.game.sound.get('bgMusic')) {
+            this.game.sound.get('bgMusic').stop();
+        }
+        this.musicFases = this.sound.add('bg-music-fases');
+        this.musicFases.play({ loop: true });
 
         const { width, height } = this.sys.game.config;
         //this.fundo = this.add.image(width / 2, height / 2, "fundo").setScale(3.2).setOrigin(0.5);
