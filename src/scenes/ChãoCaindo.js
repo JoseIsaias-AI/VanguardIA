@@ -30,7 +30,7 @@ export class FaseDoischao extends Phaser.Scene {
     // PRÓXIMA CENA
     // =========================
     // Nome da cena que será iniciada ao fim da transição.
-    this.proximaCena = "fase4";
+    this.proximaCena = "faseTres";
 
     // =========================
     // PONTO PRINCIPAL NO MAPA
@@ -99,7 +99,8 @@ export class FaseDoischao extends Phaser.Scene {
 
     // Configurações visuais centralizadas para facilitar ajustes da animação.
     this.sophiaCaindoDepth = 4100;
-    this.sophiaCaindoAlphaInicial = 1;
+    // Alpha igual ao do fundo (0.2) para o sprite se misturar naturalmente com a cena escura.
+    this.sophiaCaindoAlphaInicial = 0.2;
     this.escurecimentoCena = 0.35;
 
     // =========================
@@ -118,39 +119,55 @@ export class FaseDoischao extends Phaser.Scene {
     this.criarUI();
 
     // =========================
-    // INPUT
-    // =========================
-    this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
-
-    // =========================
     // CÂMERA INICIAL
     // =========================
     this.cameras.main.setZoom(this.zoomInicial);
     this.cameras.main.setScroll(this.cameraScrollX, this.cameraScrollY);
 
     // =========================
+    // SPRITE DA QUEDA — criado aqui para já estar presente ao entrar na cena
+    // =========================
+    const sophiaCaindoX = this.pontoBauX + this.sophiaCaindoOffsetX;
+    const sophiaCaindoY = this.pontoBauY + this.sophiaCaindoOffsetY;
+
+    this.spriteQueda = this.add.sprite(sophiaCaindoX, sophiaCaindoY, "sophiaCaindo")
+      .setDepth(this.sophiaCaindoDepth)
+      .setDisplaySize(this.sophiaCaindoLargura, this.sophiaCaindoAltura)
+      .setAlpha(this.sophiaCaindoAlphaInicial)
+      .setFrame(0); // parado no primeiro frame enquanto o fade entra
+
+    // Overlay escuro sobre a cena — mesmo tom do fundo.
+    this.overlayEscuro = this.add.rectangle(
+      0, 0,
+      this.cameras.main.width,
+      this.cameras.main.height,
+      0x000000,
+      this.escurecimentoCena
+    )
+      .setOrigin(0, 0)
+      .setDepth(4050)
+      .setScrollFactor(0);
+
+    // =========================
     // FADE INICIAL
     // =========================
+    // Entra sobre tudo (depth alto) e some rapidamente antes de tocar a animação.
     this.fadeInicial = this.add.rectangle(
-      0,
-      0,
+      0, 0,
       this.cameras.main.width,
       this.cameras.main.height,
       0x000000,
       1
     )
       .setOrigin(0, 0)
-      .setDepth(3999)
+      .setDepth(5500)
       .setScrollFactor(0);
 
     this.time.delayedCall(150, () => this.iniciarSequencia());
   }
 
-  // Enquanto houver mensagem aberta, a tecla E fecha ou acelera o diálogo.
   update() {
-    if (this.lendoMensagem && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      this.fecharMensagem();
-    }
+    // Cena de transição automática: não exige input do jogador.
   }
 
   // Monta a caixa de diálogo fixa na tela.
@@ -164,6 +181,8 @@ export class FaseDoischao extends Phaser.Scene {
 
     const xCaixa = margem;
     const yCaixa = alturaTela - alturaCaixa - margem;
+    this.dialogoLarguraTexto = larguraCaixa - 32;
+    this.dialogoAlturaTexto = alturaCaixa - 24;
 
     this.caixaDialogo = this.add.graphics()
       .setDepth(5000)
@@ -177,7 +196,7 @@ export class FaseDoischao extends Phaser.Scene {
 
     this.textoDialogo = this.add.text(xCaixa + 16, yCaixa + 22, "", {
       fontSize: "32px",
-      fontFamily: "'Courier New'",
+      fontFamily: "'Courier New', Courier, monospace",
       color: "#ccffff",
       wordWrap: { width: larguraCaixa - 32 },
     })
@@ -187,12 +206,46 @@ export class FaseDoischao extends Phaser.Scene {
 
     this.labelNome = this.add.text(xCaixa + 12, yCaixa - 18, "", {
       fontSize: "32px",
+      fontFamily: "'Courier New', Courier, monospace",
       color: "#00ffff",
       fontStyle: "bold",
+      backgroundColor: "#1a1a1a",
+      padding: { left: 6, right: 6, top: 2, bottom: 2 },
     })
       .setDepth(5002)
       .setVisible(false)
       .setScrollFactor(0);
+  }
+
+  _ajustarTextoDialogo(textoCompleto) {
+    const tamanhos = [32, 30, 28, 26, 24, 22, 20];
+
+    for (const tamanho of tamanhos) {
+      const lineSpacing = tamanho >= 30 ? 6 : tamanho >= 26 ? 4 : 2;
+
+      this.textoDialogo.setStyle({
+        fontSize: `${tamanho}px`,
+        fontFamily: "'Courier New', Courier, monospace",
+        color: "#ccffff",
+        wordWrap: { width: this.dialogoLarguraTexto },
+        lineSpacing,
+      });
+
+      this.textoDialogo.setText(textoCompleto);
+      if (this.textoDialogo.height <= this.dialogoAlturaTexto) {
+        this.textoDialogo.setText("");
+        return;
+      }
+    }
+
+    this.textoDialogo.setStyle({
+      fontSize: "20px",
+      fontFamily: "'Courier New', Courier, monospace",
+      color: "#ccffff",
+      wordWrap: { width: this.dialogoLarguraTexto },
+      lineSpacing: 2,
+    });
+    this.textoDialogo.setText("");
   }
 
   // Exibe um texto com efeito de digitação e nome do personagem.
@@ -201,6 +254,7 @@ export class FaseDoischao extends Phaser.Scene {
     this.textoAtualArmazenado = textoCompleto;
 
     this.caixaDialogo.setVisible(true);
+    this._ajustarTextoDialogo(textoCompleto);
     this.textoDialogo.setVisible(true).setText("");
 
     this.labelNome.setVisible(nome.trim() !== "");
@@ -223,7 +277,6 @@ export class FaseDoischao extends Phaser.Scene {
     });
   }
 
-  // Fecha o diálogo atual ou acelera a escrita até o texto completo.
   fecharMensagem() {
     if (this._fecharMensagemOverride) {
       this._fecharMensagemOverride();
@@ -242,7 +295,7 @@ export class FaseDoischao extends Phaser.Scene {
     this.labelNome.setVisible(false);
   }
 
-  // Remove o fade inicial preto e inicia a parte principal da cutscene.
+  // Remove o fade inicial preto e dispara a animação imediatamente.
   iniciarSequencia() {
     this.tweens.add({
       targets: this.fadeInicial,
@@ -255,8 +308,7 @@ export class FaseDoischao extends Phaser.Scene {
     });
   }
 
-  // Método legado que fazia uma aproximação do baú antes da queda.
-  // Foi mantido como referência, mas o fluxo atual vai direto para tocarAnimacaoQueda().
+  // Método legado mantido como referência.
   destacarBau() {
     this.tweens.add({
       targets: this.cameras.main,
@@ -275,62 +327,33 @@ export class FaseDoischao extends Phaser.Scene {
     });
   }
 
-  // Cria o sprite da queda, escurece a cena e toca a animação imediatamente.
+  // Toca a animação da queda — o sprite já existe, só precisa dar play.
   tocarAnimacaoQueda() {
-    if (this.sophia) {
-      this.sophia.setVisible(false);
-    }
+    // Sobe o alpha do sprite para ficar visível junto ao overlay escuro.
+    this.tweens.add({
+      targets: this.spriteQueda,
+      alpha: 1,
+      duration: 200,
+      onComplete: () => {
+        this.spriteQueda.play("sophiaCaindo");
 
-    // POSIÇÃO FINAL DO SPRITE
-    const sophiaCaindoX = this.pontoBauX + this.sophiaCaindoOffsetX;
-    const sophiaCaindoY = this.pontoBauY + this.sophiaCaindoOffsetY;
-
-    this.spriteQueda = this.add.sprite(
-      sophiaCaindoX,
-      sophiaCaindoY,
-      "sophiaCaindo"
-    )
-      .setDepth(this.sophiaCaindoDepth)
-      .setDisplaySize(this.sophiaCaindoLargura, this.sophiaCaindoAltura)
-      .setAlpha(this.sophiaCaindoAlphaInicial);
-
-    this.overlayEscuro = this.add.rectangle(
-      0,
-      0,
-      this.cameras.main.width,
-      this.cameras.main.height,
-      0x000000,
-      this.escurecimentoCena
-    )
-      .setOrigin(0, 0)
-      .setDepth(4050)
-      .setScrollFactor(0);
-
-    this.spriteQueda.play("sophiaCaindo");
-    this.spriteQueda.once("animationcomplete", () => {
-      this.time.delayedCall(300, () => this.encerrarCutscene());
+        // Ao terminar a animação, vai direto para a transição — sem input do jogador.
+        this.spriteQueda.once("animationcomplete", () => {
+          this.encerrarCutscene();
+        });
+      },
     });
   }
 
-  // Finaliza a animação com fade e entrega o controle para a próxima cena.
+  // Faz o fade final e troca de cena automaticamente.
   encerrarCutscene() {
+    // Fade para preto sobre o sprite e o overlay.
     this.tweens.add({
       targets: [this.spriteQueda, this.overlayEscuro],
       alpha: 1,
-      duration: 700,
+      duration: 300,
       onComplete: () => {
-        this.mostrarMensagem("AAAH... o chao rachou!", "Sophia");
-
-        this._fecharMensagemOverride = () => {
-          if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
-            this.timerEscrever.remove();
-            this.textoDialogo.setText(this.textoAtualArmazenado);
-            return;
-          }
-
-          this._fecharMensagemOverride = null;
-          this.scene.start(this.proximaCena);
-        };
+        this.scene.start(this.proximaCena);
       },
     });
   }

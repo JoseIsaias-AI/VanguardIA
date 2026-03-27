@@ -166,8 +166,8 @@ export class transicao1para2 extends Phaser.Scene {
     // =========================================================================
     startIntroCutscene() {
         this.cutsceneDialogue = [
-            { speaker: "Sophia", text: "Asimov, você voltou! Conseguiu completar a missão?" },
-            { speaker: "Asimov", text: "Missão concluída!" },
+            { speaker: "Sophia", text: "Então, Asimov, como foi a missão?" },
+            { speaker: "Asimov", text: "Obrigada pela ajuda, Sophia! Agora aprendi através da repetição de padrões e posso me movimentar sozinho." },
             { speaker: "Asimov", text: "Analisei os padrões do ambiente e agora consigo desviar de todos os obstáculos à minha frente." },
             {
                 speaker: "Asimov",

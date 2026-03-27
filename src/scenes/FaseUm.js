@@ -72,7 +72,7 @@ export class faseUm extends Phaser.Scene {
         this.overlay = this.add.rectangle(0, 0, width * 3, height, 0x000000).setOrigin(0, 0).setScrollFactor(0).setDepth(100); //retangulo grande e preto para escurecer a tela no momento de abertura do baú
         this.overlay.alpha = 0; //transparência total
         this.envelope = this.add.sprite(width / 2, height + 200, "envelope", 0).setScale(1.5).setScrollFactor(0).setDepth(101).setVisible(false).setInteractive(); //o setInteractive ativa a detecção de entrada(cliques)
-        this.pergaminho = this.add.sprite(width - 500, height / 2, "pergaminho", 0).setScale(2).setScrollFactor(0).setDepth(102).setVisible(true);
+        this.pergaminho = this.add.sprite(width - 500, height / 2, "pergaminho", 0).setScale(2).setScrollFactor(0).setDepth(102).setVisible(false);
 
         //============================================================================ PRECISA CORRIGIR
         this.obstaculosCaixaColisao = null;

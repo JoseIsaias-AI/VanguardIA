@@ -1,4 +1,4 @@
-/*Esta cenca consiste em um momento de transição entre fases, no qual o jogador sai do minigame de plataformas(fase3), sai da sala das 
+/*Esta cena consiste em um momento de transição entre fases, no qual o jogador sai do minigame de plataformas(fase3), sai da sala das 
 portas e vem para o HUB do cristal e agora precisa fabricar o cristal, mas para isso ele precisa treinar uma IA generativa e o 
 minigame consiste na limpeza dos ruídos*/
 

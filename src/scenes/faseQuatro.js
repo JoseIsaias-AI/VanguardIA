@@ -5,12 +5,12 @@
 import { registrarTeclaMenu } from '../menu.js';
 
 export class faseQuatro extends Phaser.Scene {
-    constructor () {
+    constructor() {
         super("faseQuatro");
     }
 
     //carrega todas as imagens e sprites
-    preload () {
+    preload() {
         this.load.image('cristais', 'assets/Fases/FaseQuatro/cabeça1.png');
         this.load.image('cristais2', 'assets/Fases/FaseQuatro/cabeça2.png');
         this.load.image('cristais3', 'assets/Fases/FaseQuatro/cabeça3.png');
@@ -24,6 +24,7 @@ export class faseQuatro extends Phaser.Scene {
     //carrega todas as imagens e sprites
     create() {
         registrarTeclaMenu(this);
+        this.cameras.main.fadeIn(400, 0, 0, 0);
 
         // Inicia a cena de música de fundo (bgMusic) que executa em loop em segundo plano.
         this.scene.launch("bgMusic");
@@ -35,7 +36,7 @@ export class faseQuatro extends Phaser.Scene {
         this.add.image(width / 2, height / 2, 'cristais').setDisplaySize(width, height); //adiciona a imagem real do cristal que fica no fundo de tudo
 
         // cria objetos sem adicioná-los à cena automaticamente por causa do False. Carrega a imagem da key.
-        const img2 = this.make.image({ key: 'cristais2' }, false).setDisplaySize(width, height); 
+        const img2 = this.make.image({ key: 'cristais2' }, false).setDisplaySize(width, height);
         const img3 = this.make.image({ key: 'cristais3' }, false).setDisplaySize(width, height);
         const img4 = this.make.image({ key: 'cristais4' }, false).setDisplaySize(width, height);
 
@@ -66,7 +67,7 @@ export class faseQuatro extends Phaser.Scene {
         this.anims.create({ //animação da passagem de frames
             key: 'barra',
             frames: this.anims.generateFrameNumbers('barra', { start: 0, end: 33 }), // são 34 imagens da barra
-            frameRate: 1, 
+            frameRate: 1,
             repeat: 0
         });
         this.barraFrame = 0; //começa com o primeiro frame
@@ -86,7 +87,7 @@ export class faseQuatro extends Phaser.Scene {
         };
 
         this.fundoHUD = this.add.rectangle(14, height - 110, 260, 90, 0x000000, 0.55).setOrigin(0).setDepth(10);
-        this.textoTempo   = this.add.text(24, height - 105, 'Tempo: 2:00', estilo).setDepth(11);
+        this.textoTempo = this.add.text(24, height - 105, 'Tempo: 2:00', estilo).setDepth(11);
         this.textoNitidez = this.add.text(24, height - 65, 'Nitidez: 0%', estilo).setDepth(11);
 
         this.desenhoAtiva = null; // renderTexture da camada que será apagada nessa sessão
@@ -98,7 +99,7 @@ export class faseQuatro extends Phaser.Scene {
         this.imagemExplicacao = this.add.image(width / 2, height / 2, 'textoExplicacao')
             .setDepth(100)
             .setScale(0.85);
-        
+
         // Animação de escala
         this.tweens.add({
             targets: this.imagemExplicacao,
@@ -109,7 +110,7 @@ export class faseQuatro extends Phaser.Scene {
             repeat: -1,
             ease: 'Sine.easeInOut'
         });
-        
+
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
         this.input.on('pointerdown', (pointer) => { //quando o jogador clicar com o botão esquerdo do mouse
@@ -128,7 +129,7 @@ export class faseQuatro extends Phaser.Scene {
                     delay: 1000,//de um em um segundo acontece repetindo 119 vezes que da um minuto
                     repeat: 119,
                     callback: () => { //chamada a cada segundo
-                        this.tempoRestante--; 
+                        this.tempoRestante--;
                         const min = Math.floor(this.tempoRestante / 60); //arredonda pro numero inteiro inferior achando o número dos minutos. 100 / 60 = 1,66 -> 1
                         const seg = this.tempoRestante % 60; //o resto da divisão feita acima
                         this.textoTempo.setText(`Tempo: ${min}:${seg.toString().padStart(2, '0')}`); //o padStart faz com que o número inferior a 10 tenha um zero a sua esquerda
@@ -147,8 +148,8 @@ export class faseQuatro extends Phaser.Scene {
                 G - [1]
                 B - [2]
                 A - [3]*/
-            
-            const apagado4 = this.mapa4.getImageData(x, y, 1, 1).data[3] > 0; 
+
+            const apagado4 = this.mapa4.getImageData(x, y, 1, 1).data[3] > 0;
             const apagado3 = this.mapa3.getImageData(x, y, 1, 1).data[3] > 0;
             const apagado2 = this.mapa2.getImageData(x, y, 1, 1).data[3] > 0;
 
@@ -177,7 +178,7 @@ export class faseQuatro extends Phaser.Scene {
 
         this.input.on('pointermove', (pointer) => { //a esponja move junto com o ponteiro do mouse
             if (this.mostrandoExplicacao) return; // bloqueia movimento durante explicação
-            this.esponja.setPosition(pointer.x, pointer.y); 
+            this.esponja.setPosition(pointer.x, pointer.y);
             if (pointer.isDown) {
                 this.apagar(borracha, pointer.x, pointer.y, tamBorracha);
             }
@@ -225,6 +226,10 @@ export class faseQuatro extends Phaser.Scene {
         }
         const pct = Math.floor((apagados / this.totalPixels) * 100); //pega o número da porcentagem
         this.textoNitidez.setText(`Nitidez: ${pct}%`);
+
+        if (pct >= 50 && !this.jogoParado) {
+            this.ganharFase();
+        }
     }
 
     mostrarMenuPerda() {
@@ -283,5 +288,27 @@ export class faseQuatro extends Phaser.Scene {
         this.mapaAtivo.beginPath(); //melhora no desempenho do navegador, mas estou testando ainda para ver se realmente é necessário
         this.mapaAtivo.arc(x, y, metade, 0, Math.PI * 2); //Cria um círculo perfeito na posição do mouse, sem isso ele não apaga a camada de baixo
         this.mapaAtivo.fill(); //anota a parte que ja esta limpa
+    }
+
+    ganharFase() {
+        this.jogoParado = true;
+        this.cronometroIniciado = false; // Para o tempo
+
+        const { width, height } = this.sys.game.config;
+
+        // Adicione uma mensagem de vitória ou mude de cena
+        this.add.text(width / 2, height / 2, 'LIMPEZA REALIZADA!\nO Cristal foi coletado\nClique para avançar', {
+            fontSize: '40px',
+            fill: '#ffffff',
+            align: 'center',
+            backgroundColor: '#000000'
+        }).setOrigin(0.5).setDepth(100);
+
+        this.input.once('pointerdown', () => {
+            this.cameras.main.fadeOut(1000);
+            this.cameras.main.once("camerafadeoutcomplete", () => {
+                this.scene.start("sceneRestauracao");
+            });
+        });
     }
 }

@@ -200,6 +200,8 @@ export class FaseDois extends Phaser.Scene {
     const alturaCaixa  = 140;
     const xCaixa       = margem;
     const yCaixa       = H - alturaCaixa - margem;
+    this.dialogoLarguraTexto = larguraCaixa - 32;
+    this.dialogoAlturaTexto = alturaCaixa - 24;
 
     this.caixaDialogo = this.add.graphics().setDepth(3000).setVisible(false);
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
@@ -252,6 +254,37 @@ export class FaseDois extends Phaser.Scene {
       this.anims.create({ key: "sophia-front", frames: this.anims.generateFrameNumbers("sophia", { start: 0,  end: 7  }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "sophia-back",  frames: this.anims.generateFrameNumbers("sophia", { start: 8,  end: 15 }), frameRate: 10, repeat: -1 });
     }
+  }
+
+  _ajustarTextoDialogo(textoCompleto) {
+    const tamanhos = [32, 30, 28, 26, 24, 22, 20];
+
+    for (const tamanho of tamanhos) {
+      const lineSpacing = tamanho >= 30 ? 6 : tamanho >= 26 ? 4 : 2;
+
+      this.textoDialogo.setStyle({
+        fontSize: `${tamanho}px`,
+        fontFamily: "'Courier New', Courier, monospace",
+        color: "#ccffff",
+        wordWrap: { width: this.dialogoLarguraTexto },
+        lineSpacing,
+      });
+
+      this.textoDialogo.setText(textoCompleto);
+      if (this.textoDialogo.height <= this.dialogoAlturaTexto) {
+        this.textoDialogo.setText("");
+        return;
+      }
+    }
+
+    this.textoDialogo.setStyle({
+      fontSize: "20px",
+      fontFamily: "'Courier New', Courier, monospace",
+      color: "#ccffff",
+      wordWrap: { width: this.dialogoLarguraTexto },
+      lineSpacing: 2,
+    });
+    this.textoDialogo.setText("");
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -428,6 +461,7 @@ export class FaseDois extends Phaser.Scene {
   mostrarMensagem(textoCompleto, nome = "") {
     this.lendoMensagem = true;
     this.caixaDialogo.setVisible(true);
+    this._ajustarTextoDialogo(textoCompleto);
     this.textoDialogo.setVisible(true).setText("");
     this.textoAtualArmazenado = textoCompleto;
     this.labelNome.setVisible(nome.trim() !== "");
@@ -477,6 +511,7 @@ export class FaseDois extends Phaser.Scene {
   // ═══════════════════════════════════════════════════════════════════════════
   _mgDialogo(texto, falante, callback) {
     this.caixaDialogo.setVisible(true);
+    this._ajustarTextoDialogo(texto);
     this.textoDialogo.setVisible(true).setText("");
     this.textoAtualArmazenado = texto;
     this.labelNome.setVisible(true).setText(falante);
@@ -945,7 +980,7 @@ export class FaseDois extends Phaser.Scene {
     });
 
     // miniGameAtivo permanece true até o fim da cutscene
-    this.time.delayedCall(600, () => this._cutscene_bau_fade());
+    this.time.delayedCall(250, () => this._cutscene_dialogo_asimov(() => this._cutscene_bau_fade()));
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -997,7 +1032,13 @@ export class FaseDois extends Phaser.Scene {
             duration: this.cutsceneBauDuracaoFade,
             onComplete: () => {
               fadePreto.destroy();
-              this.time.delayedCall(250, () => this._cutscene_dialogo_asimov());
+              if (this.tweenBauBrilho) {
+                this.tweenBauBrilho.stop();
+                this.tweenBauBrilho = null;
+              }
+              this.bauAnimado.setAlpha(1).clearTint();
+              this.miniGameAtivo = false;
+              this.bauLiberadoParaSophia = true;
             },
           });
         });
@@ -1080,22 +1121,13 @@ export class FaseDois extends Phaser.Scene {
   // ═══════════════════════════════════════════════════════════════════════════
   //  CUTSCENE — Asimov fala; libera Sophia para ir ao baú
   // ═══════════════════════════════════════════════════════════════════════════
-  _cutscene_dialogo_asimov() {
+  _cutscene_dialogo_asimov(aoConcluir) {
     // Usa _mgDialogo (tem listener próprio, não interfere no update)
     this._mgDialogo(
       "Sophia, agora eu sei qual é a porta correta. A pista que precisamos está naquele baú na sala ao lado. Vá até ele que estamos no caminho certo.",
       "Asimov",
       () => {
-        // Para o brilho e estabiliza o baú
-        if (this.tweenBauBrilho) {
-          this.tweenBauBrilho.stop();
-          this.tweenBauBrilho = null;
-        }
-        this.bauAnimado.setAlpha(1).clearTint();
-
-        // Libera controle de Sophia
-        this.miniGameAtivo         = false;
-        this.bauLiberadoParaSophia = true;
+        if (aoConcluir) aoConcluir();
       }
     );
   }
@@ -1161,5 +1193,7 @@ export class FaseDois extends Phaser.Scene {
     });
   }
 }
+
+
 
 

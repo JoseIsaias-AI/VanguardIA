@@ -1,13 +1,15 @@
 import { scenePreFase4 } from "./src/scenes/scenePreFase4.js";
 import { welcomeScene } from "./src/scenes/Welcome.js";
+import { sceneInicial } from "./src/scenes/sceneInicial.js";
 import { sceneLBPassado } from "./src/scenes/sceneLBPassado.js";
 import { sceneLBFuturo } from "./src/scenes/sceneLBFuturo.js";
 import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js";
-import { SceneLabCristal } from "./src/scenes/SceneLabCristal.js";
+import { sceneRestauracao } from "./src/scenes/sceneRestauracao.js";
 import { faseUm } from "./src/scenes/FaseUm.js";
 import { FaseDois } from "./src/scenes/FaseDois.js";
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js";
 import { transicao1para2 } from "./src/scenes/transicao1para2.js";
+import { faseTres } from "./src/scenes/faseTres.js";
 import { FaseDoischao } from "./src/scenes/ChãoCaindo.js";
 import { faseQuatro } from "./src/scenes/faseQuatro.js";
 import { faseCinco } from "./src/scenes/faseCinco.js";
@@ -35,27 +37,35 @@ const config = {
   audio: {
     disableWebAudio: false,
   },
-  scene: [
-    welcomeScene,
-    sceneLBPassado,
-    sceneLBFuturo,
-    faseUm,
-    transicao1para2,
-    FaseDois,
-    FaseDoischao,
-    SceneRetornoLab,
-    SceneLabCristal,
-    minigame1Fase2,
-    scenePreFase4,
-    faseQuatro,
-    faseCinco,
-    menu,
-    BgMusic,
-  ],
+  //scene: [transicao1para2, FaseDois],
+  //scene: [sceneRestauracao,faseCinco, menu, BgMusic],
+  //scene: [faseUm],
+  //scene: [ scenePreFase4, faseQuatro, sceneRestauracao, faseCinco],
+  //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
 
   // scene: [
-  //   FaseDois, FaseDoischao
-  // ]
+  //   welcomeScene,
+  //   sceneInicial,
+  //   sceneLBPassado,
+  //   sceneLBFuturo,
+  //   faseUm,
+  //   transicao1para2,
+  //   FaseDois,
+  //   FaseDoischao,
+  //   faseTres,
+  //   SceneRetornoLab,
+  //   minigame1Fase2,
+  //   scenePreFase4,
+  //   faseQuatro,
+  //   faseCinco,
+  //   menu,
+  //   BgMusic,
+  // ],
+
+
+  scene: [
+    FaseDois, FaseDoischao, faseTres
+   ]
 };
 
 
