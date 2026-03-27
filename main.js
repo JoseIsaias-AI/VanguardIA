@@ -1,18 +1,17 @@
-import { scenePreFase4 } from "./src/scenes/scenePreFase4.js"; 
+import { scenePreFase4 } from "./src/scenes/scenePreFase4.js";
 import { welcomeScene } from "./src/scenes/Welcome.js";
 import { sceneLBPassado } from "./src/scenes/sceneLBPassado.js";
 import { sceneLBFuturo } from "./src/scenes/sceneLBFuturo.js";
 import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js";
 import { SceneLabCristal } from "./src/scenes/SceneLabCristal.js";
 import { faseUm } from "./src/scenes/FaseUm.js";
-import { faseDois } from "./src/scenes/FaseDois.js"; 
-import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js"; 
-import { transicao1para2 } from "./src/scenes/transicao1para2.js"; 
-import { FaseDoischao} from "./src/scenes/ChãoCaindo.js";
+import { FaseDois } from "./src/scenes/FaseDois.js";
+import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js";
+import { transicao1para2 } from "./src/scenes/transicao1para2.js";
+import { FaseDoischao } from "./src/scenes/ChãoCaindo.js";
 import { faseQuatro } from "./src/scenes/faseQuatro.js";
-import { menu } from "./src/menu.js"; 
+import { menu } from "./src/menu.js";
 import { BgMusic } from "./src/scenes/BgMusic.js";
-
 
 const config = {
   type: Phaser.AUTO,
@@ -35,26 +34,22 @@ const config = {
   audio: {
     disableWebAudio: false,
   },
-
-    //scene: [WelcomeScene, SceneLabBranco01, SceneLabBranco02, FaseUm, transicao1para2, FaseDois, fase4]
-
-    //scene: [fase4]
-    // scene: [FaseDois, FaseDoischao]
-    
   scene: [
     welcomeScene,
     sceneLBPassado,
     sceneLBFuturo,
     faseUm,
     transicao1para2,
-    faseDois,
+    FaseDois,
+    FaseDoischao,
+    SceneRetornoLab,
+    SceneLabCristal,
+    minigame1Fase2,
     scenePreFase4,
     faseQuatro,
     menu,
     BgMusic,
   ],
-  //scene: [scenePreFase4, faseQuatro]
-  //scene: [faseQuatro]
 };
 
 const game = new Phaser.Game(config);
