@@ -3,7 +3,7 @@ import { registrarTeclaMenu } from '../menu.js';
 export class sceneLBPassado extends Phaser.Scene {
   constructor() {
     super("sceneLBPassado"); // define o nome da cena
-  }
+  } 
 
   preload() {
     this.load.image("labB", "assets/fases/sceneLBPassado/labBranco.png");

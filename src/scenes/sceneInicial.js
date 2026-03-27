@@ -181,4 +181,4 @@ export class sceneInicial extends Phaser.Scene {
             this.scene.start("sceneLBPassado");
         });
     }
-}
+} 
