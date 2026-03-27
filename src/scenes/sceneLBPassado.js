@@ -3,7 +3,7 @@ import { registrarTeclaMenu } from '../menu.js';
 export class sceneLBPassado extends Phaser.Scene {
   constructor() {
     super("sceneLBPassado"); // define o nome da cena
-  }
+  } 
 
   preload() {
     this.load.image("labB", "assets/fases/sceneLBPassado/labBranco.png");
@@ -20,13 +20,14 @@ export class sceneLBPassado extends Phaser.Scene {
     this.load.image("reservasCrio", "assets/objetos/sceneLBPassado/partOne/reservasCrio.png");
     this.load.image("comptBaixo", "assets/objetos/sceneLBPassado/partOne/comptBaixo.png");
     this.load.image("comptCima", "assets/objetos/sceneLBPassado/partOne/comptCima.png");
-    this.load.image("npc1", "assets/Personagens/npc1.png");
-    this.load.image("npc2", "assets/Personagens/npc2.png");
-    this.load.image("npc3", "assets/Personagens/npc3.png");
+    this.load.spritesheet("npc1", "assets/Personagens/npc1.png", { frameWidth: 30, frameHeight: 50 });
+    this.load.spritesheet("npc2", "assets/Personagens/npc2.png", { frameWidth: 25, frameHeight: 48 });
+    this.load.spritesheet("npc3", "assets/Personagens/npc3.png", { frameWidth: 29, frameHeight: 49 });
     this.load.image("npc4", "assets/Personagens/npc4.png");
   }
 
   create() {
+    console.log("Cena criada");
     registrarTeclaMenu(this);
 
     // Inicia a cena de música de fundo (bgMusic) para música contínua na cena do laboratório passsado.
@@ -127,14 +128,43 @@ export class sceneLBPassado extends Phaser.Scene {
     this.physics.add.collider(this.Principal, this.objetosColisao);
 
     // NPCs decorativos
-    this.npc1 = this.add.image(290, 330, "npc1").setScale(2).setDepth(1000);
-    this.npc2 = this.add.image(350, 50, "npc2").setScale(2).setDepth(1000);
-    this.npc3 = this.add.image(820, 270, "npc3").setScale(2).setDepth(1000);
-    this.npc4 = this.add.image(800, 455, "npc4").setScale(2).setDepth(1000);
-    this.criarColisao(this.npc1);
-    this.criarColisao(this.npc2);
-    this.criarColisao(this.npc3);
-    this.criarColisao(this.npc4);
+    this.npc1 = this.physics.add.sprite(290, 330, "npc1").setScale(2).setDepth(1000);
+    this.npc1.body.setAllowGravity(false);
+    this.npc1.setSize(20, 12);
+    this.npc1.setOffset(5, 38);
+    this.npc1.setImmovable(true);
+
+    this.npc2 = this.physics.add.sprite(350, 50, "npc2").setScale(2).setDepth(1000);
+    this.npc2.body.setAllowGravity(false);
+    this.npc2.setSize(20, 12);
+    this.npc2.setOffset(2, 36);
+    this.npc2.setImmovable(true);
+
+    this.npc3 = this.physics.add.sprite(820, 270, "npc3").setScale(2).setDepth(1000);
+    this.npc3.body.setAllowGravity(false);
+    this.npc3.setSize(20, 12);
+    this.npc3.setOffset(4, 37);
+    this.npc3.setImmovable(true);
+
+    this.npc4 = this.physics.add.sprite(800, 455, "npc4").setScale(2).setDepth(1000);
+    this.npc4.body.setAllowGravity(false);
+    this.npc4.setSize(20, 12);
+    this.npc4.setOffset(5, 38);
+    this.npc4.setImmovable(true);
+
+    this.physics.add.collider(this.Principal, this.npc1);
+    this.physics.add.collider(this.Principal, this.npc2);
+    this.physics.add.collider(this.Principal, this.npc3);
+    this.physics.add.collider(this.Principal, this.npc4);
+
+    if (!this.anims.exists("npc1_idle")) {
+      this.anims.create({ key: "npc1_idle", frames: this.anims.generateFrameNumbers("npc1", { start: 0, end: 8 }), frameRate: 4, repeat: -1 });
+      this.anims.create({ key: "npc2_idle", frames: this.anims.generateFrameNumbers("npc2", { start: 0, end: 16 }), frameRate: 4, repeat: -1 });
+      this.anims.create({ key: "npc3_idle", frames: this.anims.generateFrameNumbers("npc3", { start: 0, end: 20 }), frameRate: 4, repeat: -1 });
+    }
+    this.npc1.play("npc1_idle");
+    this.npc2.play("npc2_idle");
+    this.npc3.play("npc3_idle");
 
     // WATSON (NPC)
     this.watson = this.physics.add.sprite(830, 80, "watson").setScale(2.3);
@@ -180,8 +210,8 @@ export class sceneLBPassado extends Phaser.Scene {
     // Caixa de diálogo
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
-    const larguraCaixa = 1000;
-    const alturaCaixa = 180;
+    const larguraCaixa = 1300;
+    const alturaCaixa = 175;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
     const yCaixa = alturaJogo - alturaCaixa - 140;
     
@@ -194,7 +224,7 @@ export class sceneLBPassado extends Phaser.Scene {
 
     this.textoDialogo = this.add
       .text(xCaixa + 40, yCaixa + 35, "", {
-        fontSize: "26px",
+        fontSize: "28px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#ccffff",
         wordWrap: { width: larguraCaixa - 80 },
@@ -223,7 +253,7 @@ export class sceneLBPassado extends Phaser.Scene {
     // Label do nome do falante — aparece acima da borda esquerda da caixa
     this.labelNome = this.add
       .text(xCaixa + 16, yCaixa - 28, "", {
-        fontSize: "20px",
+        fontSize: "22px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#00ffff",
         fontStyle: "bold",
@@ -345,6 +375,10 @@ export class sceneLBPassado extends Phaser.Scene {
     // depth sorting: Y puro — mesmo sistema dos objetos estáticos
     this.Principal.setDepth(this.Principal.y);
     this.watson.setDepth(this.watson.y);
+    this.npc1.setDepth(this.npc1.y);
+    this.npc2.setDepth(this.npc2.y);
+    this.npc3.setDepth(this.npc3.y);
+    this.npc4.setDepth(this.npc4.y);
 
     let targetX = this.camara.x;
     let targetY = this.camara.y;
@@ -379,10 +413,7 @@ export class sceneLBPassado extends Phaser.Scene {
       this.falando_watson = true;
       this.dialogoWatsonIndex = 0;
       this.dialogoWatson = [
-        "Sophia, temos que conversar.",
-        "As simulações mostram um futuro que me assusta. A tecnologia que criamos para ajudar as pessoas... pode acabar sendo usada para controlá-las.",
-        "E eu estou ficando velho. Quando eu não estiver mais aqui, vai ter que ser você, Sophia.",
-        "Você é a única que pode proteger o que construímos. A única que pode salvar o mundo.",
+        "Sophia, boa sorte, estaremos torcendo para que você fique sempre bem.",
       ];
       this.mostrarMensagem(this.dialogoWatson[this.dialogoWatsonIndex], "Watson");
     }

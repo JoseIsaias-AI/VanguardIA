@@ -116,12 +116,14 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 
 *Posicione aqui o canvas de proposta de valor. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera.*
 
+<img src="../assets/gdd/canvasPropostadeValor.png " width="100%">
+
 ## A. Perfil do Cliente
 
-### Público-alvo principal
-Estudantes universitários e jovens com baixo letramento em IA
+## Público-alvo principal
+Estudantes universitários e jovens com baixo letramento em IA.
 
-### a) Tarefas do cliente (Customer Jobs)
+## a) Tarefas do cliente (Customer Jobs)
 
 - Aprender conceitos de IA (machine learning, redes neurais, IA generativa)
 - Aplicar conhecimento na prática
@@ -129,7 +131,7 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Adquirir letramento básico em IA sem precisar de base teórica avançada
 - Acompanhar tendências tecnológicas
 
-### b) Dores (Pains)
+## b) Dores (Pains)
 
 - Baixo engajamento em cursos assíncronos
 - Excesso de conteúdo teórico
@@ -142,7 +144,7 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Medo em relação ao futuro da IA
 - Falta de motivação devido à ausência de progressão visível
 
-### c) Ganhos (Gains)
+## c) Ganhos (Gains)
 
 - Aprendizado interativo e aplicado
 - Experiência imersiva
@@ -154,11 +156,10 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Analogia entre a progressão da história e os aprendizados
 - Maior foco e motivação
 
----
 
 ## B. Mapa de Valor
 
-### a) Produtos e Serviços
+## a) Produtos e Serviços
 
 - Jogo digital educacional baseado em IA com narrativa engajante
 - Módulos gamificados (níveis, desafios e simulações)
@@ -167,7 +168,7 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Puzzles interativos que permitem ao jogador visualizar e interagir com o que está aprendendo
 - Conteúdos complexos atuais condensados e simplificados para favorecer aprendizagem e engajamento
 
-### b) Aliviadores de Dores
+## b) Aliviadores de Dores
 
 - Substituição de conteúdo passivo por interação ativa
 - Simulação prática de conceitos
@@ -177,7 +178,7 @@ Estudantes universitários e jovens com baixo letramento em IA
 - Visualização de processos relacionados à IA
 - Criação de um índice que identifique os critérios de evasão, permitindo monitoramento e ajustes contínuos
 
-### c) Criadores de Ganho
+## c) Criadores de Ganho
 
 - Narrativa imersiva
 - Progressão por níveis
@@ -201,18 +202,18 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 
 *Registre na matriz os riscos identificados no projeto, visando avaliar situações que possam representar ameaças e oportunidades, bem como os impactos relevantes sobre o projeto. Apresente os riscos, ressaltando, para cada um, impactos e probabilidades com plano de ação e respostas..*
 
-<img src="../assets/gdd/matrizDeRiscos.png " width="70%">
+<img src="../assets/gdd/matrizDeRiscos.png " width="100%">
 
 ## Escalas Utilizadas
 
-### Probabilidade
+## Probabilidade
 - 10: Muito improvável  
 - 30: Baixa  
 - 50: Média  
 - 70: Alta  
 - 90: Muito alta  
 
-### Impacto
+## Impacto
 - Muito Baixo: Impacto irrelevante  
 - Baixo: Afeta aspectos pontuais  
 - Moderado: Prejudica a experiência  
@@ -220,16 +221,16 @@ A criação de valor do produto está em tornar o aprendizado de Inteligência A
 - Muito Alto: Compromete o objetivo central  
 
 
-## Matriz de Riscos (Ordenada por Criticidade)
+## Matriz de Riscos 
 
-### 1. Riscos Muito Altos
+## 1. Riscos Muito Altos
 
-#### R1 – Riscos Pedagógicos
+## R1 – Riscos Pedagógicos
 - **Probabilidade:** 90  
 - **Impacto:** Muito Alto  
 
 **Descrição:**  
-Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
+Existe um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público (excesso de abstração ou simplificação), falta de progressão lógica ou ausência de reforço prático. Isso pode se manifestar em baixa retenção, dificuldade de aplicação prática e sensação de “aprendi nada”. Como consequência, o projeto perde sua função central de ensinar IA, gerando abandono e descrédito.
 
 **Plano de ação:**
 - Testes com usuários iniciantes  
@@ -240,13 +241,16 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 - Taxa de conclusão  
 
 **Oportunidade:**
-- Criar um modelo pedagógico superior ao tradicional  
+Desenvolver um modelo pedagógico original baseado em aprendizagem ativa + simulação, que supere métodos tradicionais ao integrar prática imediata, feedback contínuo, gamificação e storytelling.
 
-### 2. Riscos Altos
+## 2. Riscos Altos
 
-#### R2 – Complexidade na Simulação de IA
+## R2 – Complexidade na Simulação de IA
 - **Probabilidade:** 50  
 - **Impacto:** Muito Alto  
+
+**Descrição:**  
+A simulação de conceitos de IA pode se tornar tecnicamente complexa a ponto de comprometer clareza ou viabilidade. Há risco de criar abstrações confusas, simplificações incorretas ou sistemas difíceis de implementar. Isso pode gerar experiências inconsistentes, erros conceituais (tanto do jogo quanto jogador) ou até inviabilizar partes do produto.
 
 **Plano de ação:**
 - Prototipagem iterativa  
@@ -257,11 +261,14 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 - Feedback técnico  
 
 **Oportunidade:**
-- Diferenciação educacional forte  
+Criar um uma base simplificada de simulação de IA educacional, reutilizável, que transforme conceitos complexos em interações intuitivas, tendo potencial de virar diferencial técnico e até ativo replicável.
 
-#### R3 – Riscos Estratégicos para a IBM
+## R3 – Riscos Estratégicos para a IBM
 - **Probabilidade:** 50  
 - **Impacto:** Muito Alto  
+
+**Descrição:**  
+Existe o risco de o projeto não gerar valor estratégico claro para a IBM, seja por desalinhamento com objetivos institucionais, baixa diferenciação frente a concorrentes ou falta de aplicabilidade prática. Isso pode resultar em baixa priorização interna, perda de apoio ou descontinuidade.
 
 **Plano de ação:**
 - Definição de proposta de valor  
@@ -272,15 +279,15 @@ Falha na eficácia do ensino (conteúdo inadequado, baixa retenção).
 - Comparação com alternativas  
 
 **Oportunidade:**
-- Tornar-se produto referência  
+Posicionar o projeto como referência de educação em IA da IBM, para um público alvo que não tem contato com essas tecnologias, fortalecendo a presença da empresa como líder em capacitação tecnológica.
 
 
-#### R4 – Desalinhamento com o SkillsBuild
+## R4 – Desalinhamento com o SkillsBuild
 - **Probabilidade:** 30  
 - **Impacto:** Muito Alto  
 
-**Justificativa:**  
-Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
+**Descrição:**  
+Mesmo com alinhamento inicial, há risco de divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos do SkillsBuild (conteúdo, linguagem, profundidade). Isso pode gerar revisões excessivas, reprovação de entregas ou necessidade de reestruturação.
 
 **Plano de ação:**
 - Revisões por sprint  
@@ -291,14 +298,17 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Aprovação da IBM  
 
 **Oportunidade:**
-- Maior liberdade criativa  
+Explorar a liberdade criativa dada para criar um formato inovador dentro do SkillsBuild, ampliando o escopo tradicional da plataforma com abordagens interativas e experimentais.
 
 
-### 3. Riscos Moderados
+## 3. Riscos Moderados
 
-#### R5 – Engajamento e Entretenimento
+## R5 – Engajamento e Entretenimento
 - **Probabilidade:** 70  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+Há risco de o produto não ser suficientemente envolvente, com mecânicas repetitivas, pouco estímulo ou ausência de recompensa clara. Isso pode levar a sessões curtas, abandono precoce e baixa retenção, mesmo com bom conteúdo.
 
 **Plano de ação:**
 - Testes de gameplay  
@@ -309,12 +319,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Taxa de abandono  
 
 **Oportunidade:**
-- Alto potencial de retenção  
+Criar um sistema de engajamento baseado em progressão, desafios e feedback imediato, aumentando retenção e transformando aprendizado em hábito.
 
 
-#### R6 – Curva de Aprendizado Inadequada
+## R6 – Curva de Aprendizado Inadequada
 - **Probabilidade:** 70  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+A dificuldade pode escalar rápido demais (gerando frustração) ou devagar demais (gerando tédio). Isso impacta diretamente o fluxo de aprendizagem, causando desistência ou desengajamento.
 
 **Plano de ação:**
 - Ajuste dinâmico de dificuldade  
@@ -324,12 +337,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Desistência  
 
 **Oportunidade:**
-- Sistema adaptativo avançado  
+Implementar um sistema adaptativo de dificuldade, que ajuste o conteúdo com base no desempenho do usuário, personalizando a experiência.
 
 
-#### R7 – Experiência do Usuário (UX/UI)
+## R7 – Experiência do Usuário (UX/UI)
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+Interfaces confusas, fluxos pouco intuitivos ou excesso de complexidade visual podem dificultar a navegação e o entendimento do produto. Isso gera fricção, erros de uso e aumento do tempo necessário para aprender a usar a plataforma e de conclusão do jogo.
 
 **Plano de ação:**
 - Testes de usabilidade  
@@ -339,12 +355,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Tempo de aprendizado  
 
 **Oportunidade:**
-- Interface altamente eficiente  
+Desenvolver uma UX altamente orientada à aprendizagem, onde a interface reduz carga cognitiva e acelera a compreensão, concentrando o máximo de atenção do usuário no conteúdo e maximizando seu aprendizado.
 
 
-#### R8 – Obsolescência do Conteúdo
+## R8 – Obsolescência do Conteúdo
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+O campo de IA evolui rapidamente, tornando conteúdos desatualizados em curto prazo. Isso pode reduzir a relevância do produto e comprometer sua credibilidade.
 
 **Plano de ação:**
 - Atualizações periódicas  
@@ -353,12 +372,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Atualidade  
 
 **Oportunidade:**
-- Sistema modular  
+Criar uma arquitetura modular e atualizável, permitindo atualização contínua sem necessidade de reconstrução total.
 
 
-#### R9 – Storytelling Desconectado
+## R9 – Storytelling Desconectado
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+A narrativa pode não se integrar bem com os objetivos educacionais, tornando-se superficial ou irrelevante. Isso reduz imersão e prejudica a retenção de conteúdo.
 
 **Plano de ação:**
 - Integração narrativa  
@@ -368,12 +390,15 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Índice de conclusão  
 
 **Oportunidade:**
-- Narrativa como motor de retenção  
+Usar storytelling como suporte ao aprendizado do usuário, conectando narrativa e conceitos para aumentar retenção e significado.
 
 
 #### R10 – Falta de Valor para o Usuário
 - **Probabilidade:** 50  
 - **Impacto:** Moderado  
+
+**Descrição:**  
+Os usuários podem não perceber valor claro no produto, seja por falta de aplicabilidade prática, diferenciação ou clareza de benefícios. Isso impacta adoção, engajamento e recomendação.
 
 **Plano de ação:**
 - Testes de percepção  
@@ -382,14 +407,17 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - NPS / satisfação  
 
 **Oportunidade:**
-- Refinamento da proposta  
+Refinar a proposta para entregar valor tangível (habilidade + usabilidade + compreensão real de IA), aumentando percepção e adesão dos jogadores.
 
 
-### 4. Riscos Baixos
+## 4. Riscos Baixos
 
-#### R11 – Riscos de Design
+## R11 – Riscos de Design
 - **Probabilidade:** 30  
 - **Impacto:** Baixo  
+
+**Descrição:**  
+Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando percepção de profissionalismo e identidade do produto, mas sem comprometer sua funcionalidade.
 
 **Plano de ação:**
 - Iteração visual  
@@ -398,7 +426,8 @@ Aprovação prévia da IBM e escopo amplo reduzem a probabilidade.
 - Feedback qualitativo  
 
 **Oportunidade:**
-- Identidade visual forte  
+Construir uma identidade visual marcante e coerente, reforçando branding e reconhecimento do produto.
+
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
@@ -814,6 +843,128 @@ Controles: Movimentação livre (WASD / Setas) para transportar o cristal e Tecl
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
 *Descreva aqui a função que implementa a movimentação/animação de personagens ou elementos gráficos no seu jogo. Sua função deve se basear em alguma formulação matemática (e.g. fórmula de aceleração). A explicação do funcionamento desta função deve conter notação matemática formal de fórmulas/equações. Se necessário, crie subseções para sua descrição.*
+
+
+## 3.8.1 Parâmetros do Modelo
+
+| Símbolo | Descrição                        | Valor       |
+|---------|----------------------------------|-------------|
+| xᵢ      | Posição inicial X                | 1065 px     |
+| yᵢ      | Posição inicial Y                | 235 px      |
+| xf      | Posição final X                  | 861 px      |
+| yf      | Posição final Y                  | 235 px      |
+| T       | Duração total da animação        | 2 s         |
+| aᵧ      | Aceleração gravitacional do jogo | 200 px/s²   |
+
+> **Nota sobre coordenadas:** No Phaser 3 o eixo Y cresce **para baixo**.
+> Velocidade inicial negativa em Y = movimento **para cima** na tela.
+> Aceleração positiva em Y = gravidade puxando **para baixo**.
+
+
+
+## 3.8.2 Eixo X — Movimento Uniforme (MU)
+
+No MU a aceleração é nula e a velocidade é constante. Partindo da definição de velocidade média:
+
+$$
+v_x = \frac{x_f - x_i}{T} = \frac{861 - 1065}{2} = -102 \text{ px/s}
+$$
+
+Equação horária da posição em X:
+
+$$
+x(t) = x_i + v_x \cdot t
+$$
+
+**Verificação:** $x(2) = 1065 + (-102)(2) = 861 \text{ px}$ ✓
+
+
+
+## 3.8.3 Eixo Y — Movimento Uniformemente Variado (MUV)
+
+Como $y_i = y_f = 235$ px, a pedra executa um arco simétrico — sobe e retorna ao mesmo nível.
+
+**Aceleração (parâmetro de projeto):**
+
+$$
+a_y = +200 \text{ px/s}^2
+$$
+
+**Velocidade inicial em Y** — obtida impondo $y(T) = y_f$ na equação horária:
+
+$$
+y(T) = y_i + v_{y0} \cdot T + \frac{1}{2} \cdot a_y \cdot T^2 = y_f
+$$
+
+$$
+v_{y0} \cdot T = y_f - y_i - \frac{1}{2} \cdot a_y \cdot T^2
+$$
+
+$$
+v_{y0} = \frac{(y_f - y_i) - \frac{1}{2} \cdot a_y \cdot T^2}{T} = \frac{0 - \frac{1}{2} \cdot 200 \cdot 4}{2} = -200 \text{ px/s}
+$$
+
+**Equação horária da velocidade em Y:**
+
+$$
+v_y(t) = v_{y0} + a_y \cdot t
+$$
+
+**Equação horária da posição em Y:**
+
+$$
+y(t) = y_i + v_{y0} \cdot t + \frac{1}{2} \cdot a_y \cdot t^2
+$$
+
+**Verificações:**
+- Pico em $t = 1$ s: $y(1) = 235 + (-200)(1) + \frac{1}{2}(200)(1) = 135 \text{ px}$ → sobe 100 px ✓
+- Retorno em $t = 2$ s: $y(2) = 235 + (-200)(2) + \frac{1}{2}(200)(4) = 235 \text{ px}$ ✓
+
+
+
+# 3.8.4 Visualização das Trajetórias
+
+![Gráfico das trajetórias Δx(t) e Δy(t)](../assets/gdd/grafico_trajetorias.svg)
+
+$$
+\Delta x(t) = -102 \cdot t \quad | \quad \Delta y(t) = -200 \cdot t + \frac{1}{2} \cdot 200 \cdot t^2 \quad | \quad \Delta y(1) = -100 \text{ px (pico do arco)}
+$$
+
+
+
+# 3.8.5 Localização no Código-Fonte
+
+- **Arquivo:** `faseTres.js`
+- **Função:** --> add
+- **Linha de início:** linha 1 de --> add 
+
+
+
+# 3.8.6 Código — Implementação em Phaser 3 com JavaScript
+
+--> adicionar isso
+
+
+
+## 3.8.7 Tabela de Validação
+
+| t (s) | x(t) px | vx (px/s) | y(t) px | vy(t) px/s | ay (px/s²) |
+|-------|---------|-----------|---------|------------|------------|
+| 0,000 | 1065,00 | −102,00   | 235,00  | −200,00    | 200,00     |
+| 0,500 | 1014,00 | −102,00   | 185,00  | −100,00    | 200,00     |
+| **1,000** | **963,00** | **−102,00** | **135,00** | **0,00** | **200,00** |
+| 1,500 | 912,00  | −102,00   | 185,00  | +100,00    | 200,00     |
+| 2,000 | 861,00  | −102,00   | 235,00  | +200,00    | 200,00     |
+
+> Em **t = 1 s** (linha em negrito): $v_y = 0$ confirma o pico do arco.
+> Em **t = 2 s**: $x = 861$ px e $y = 235$ px confirmam o retorno às coordenadas finais. ✓
+
+
+
+# Fontes --> colocar no lugar certo
+
+1. HALLIDAY, D.; RESNICK, R.; WALKER, J. *Fundamentos de Física — Mecânica.* Vol. 1, cap. 4. LTC, 10ª ed., 2016. — Base para as equações de MU e MUV.
+2. NUSSENZVEIG, H. M. *Curso de Física Básica — Mecânica.* Vol. 1, cap. 3. Blucher, 5ª ed., 2013.
 
 # <a name="c4"></a>4. Desenvolvimento do Jogo
 

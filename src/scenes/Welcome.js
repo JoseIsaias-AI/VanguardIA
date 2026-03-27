@@ -77,7 +77,7 @@ export class welcomeScene extends Phaser.Scene {
     });
 
     this.play.on("pointerdown", () => {
-      this.scene.start("sceneLBPassado");
+      this.scene.start("sceneInicial");
     });
 
     // Inicia a cena de música de fundo (bgMusic) que toca em loop para todo o jogo.
