@@ -73,7 +73,6 @@ function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
   scene.events.on('update', onUpdate);
 }
 
-
 //Aqui, temos a fase 3 por completo, que consiste em pular plataformas e coletar cristais
 export class faseTres extends Phaser.Scene {
   constructor() {
