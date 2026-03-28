@@ -131,7 +131,7 @@ Estudantes universitários e jovens com baixo letramento em IA.
 
 ## b) Dores (Pains)
 
-- Baixo engajamento em cursos assíncronos
+- Baixo engajamento em cursos assíncronos ¹¹
 - Excesso de conteúdo teórico
 - Dificuldade de aplicação prática
 - Evasão em cursos online
@@ -166,7 +166,7 @@ Estudantes universitários e jovens com baixo letramento em IA.
 - Puzzles interativos que permitem ao jogador visualizar e interagir com o que está aprendendo
 - Conteúdos complexos atuais condensados e simplificados para favorecer aprendizagem e engajamento
 
-## b) Aliviadores de Dores
+## b) Aliviadores de Dores ⁹
 
 - Substituição de conteúdo passivo por interação ativa
 - Simulação prática de conceitos
@@ -179,21 +179,28 @@ Estudantes universitários e jovens com baixo letramento em IA.
 ## c) Criadores de Ganho
 
 - Narrativa imersiva
-- Progressão por níveis
+- Progressão por níveis ¹⁰
 - Aplicação prática dos conceitos
 - Puzzles sobre IA
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
-*Descreva brevemente a solução desenvolvida para o parceiro de negócios. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera. Observe a seção 2 e verifique que ali é possível trazer mais detalhes, portanto seja objetivo aqui. Atualize esta descrição até a entrega final, conforme desenvolvimento.*
+A solução desenvolvida consiste em um jogo educativo web gamificado voltado ao ensino introdutório de Inteligência Artificial, integrado ao contexto do IBM SkillsBuild. O projeto parte do diagnóstico de que os cursos online tradicionais sofrem com baixo engajamento, altas taxas de evasão e um modelo de aprendizado predominantemente passivo, incapaz de manter o interesse de jovens iniciantes. Esse problema é agravado pela natureza excessivamente técnica de grande parte do conteúdo sobre IA disponível, criando uma barreira de entrada significativa para o público-alvo identificado: jovens universitários de renda média-baixa, egressos de escola pública, com familiaridade cotidiana com tecnologia mas sem formação técnica formal na área.
 
-A solução desenvolvida consiste em um jogo educativo web gamificado voltado ao ensino introdutório de Inteligência Artificial, integrado ao contexto do IBM SkillsBuild. O projeto busca resolver problemas comuns dos cursos online tradicionais, como o baixo engajamento dos usuários, o alto índice de evasão e o modelo de aprendizado passivo, que muitas vezes não consegue manter o interesse de jovens iniciantes na área. Além disso, muitos conteúdos de IA são excessivamente técnicos e teóricos, dificultando o primeiro contato com o tema..
+A resposta a esse cenário é uma experiência narrativa e interativa protagonizada por Sophia, cientista que desperta em 2098 após décadas em criogenia, encontrando um mundo devastado pelo uso indevido de Inteligências Artificiais. Acompanhada pelo robô Asimov, ela precisa restaurar o laboratório em ruínas e reconstruir sistemas de IA com responsabilidade. Esse enredo contribui com o jogo, de modo que cada fase da jornada corresponde a um conceito real de Inteligência Artificial, transformando o aprendizado em consequência direta da progressão narrativa.
 
-O jogo propõe a transformação desses conteúdos em experiências interativas, utilizando uma narrativa envolvente protagonizada por Sophia, em um cenário futurista. Ao longo da jornada, o jogador aprende conceitos fundamentais de Inteligência Artificial por meio da resolução de desafios, puzzles e minigames, abordando temas reais como machine learning, reconhecimento de padrões, tomada de decisão algorítmica, além de conceitos importantes como ética em IA e vieses em sistemas automatizados. Dessa forma, o aprendizado deixa de ser apenas teórico e passa a ser aplicado dentro do próprio jogo.
+A primeira fase introduz ao jogador o conceito fundamental de reconhecimento de padrões em máquinas. O jogador assume o controle de Asimov e o guia por um percurso repleto de obstáculos, utilizando as teclas direcionais para mover o robô para cima e para baixo entre as faixas do cenário e a barra de espaço para realizar saltos. O intuito pedagógico é explícito, no qual ao executar esses desvios repetidamente, o jogador vivencia, na perspectiva do robô, o processo pelo qual uma máquina identifica e responde a padrões no ambiente, fundamento sobre o qual toda a Inteligência Artificial moderna se apoia.
 
-A aplicação foi desenvolvida utilizando tecnologias web (HTML5, JavaScript e Phaser), permitindo acesso fácil via navegador, sem necessidade de instalação. O usuário acessa o jogo por meio de um link e navega por níveis progressivos, organizados em módulos que representam diferentes áreas da IA. Em cada fase, o jogador resolve desafios práticos baseados nos conceitos apresentados, recebe feedback imediato sobre suas decisões e evolui dentro do jogo conforme seu desempenho. Esse sistema de progressão contínua incentiva a permanência e o engajamento, tornando o aprendizado mais dinâmico e motivador.
+Ao concluir esse percurso, Asimov encontra um baú com pistas sobre o cristal de energia necessário para restaurar o laboratório. No entanto, as informações que levam até ele estão escondidas atrás de uma das portas do laboratório, e nem Sophia nem Asimov sabem qual é a correta. Para resolver esse problema, o jogador acessa o processamento interno de Asimov e alimenta sua rede neural com três valores binários que representam, respectivamente, a cor da porta, sua identificação e o padrão de sua maçaneta. Esses valores são inseridos nos neurônios de entrada da rede, e o jogador clica nos nós da camada oculta para ativar o processamento. A partir disso, o próprio jogo exibe uma animação que representa o aprendizado da rede ao longo das épocas de treinamento, tornando visível um processo que normalmente permanece opaco. Em seguida, o jogador precisa acionar a Válvula Softmax, que representa a camada de ativação responsável por converter as saídas brutas da rede em probabilidades interpretáveis, e regular o valor de saída até que Asimov consiga identificar a porta correta com confiança suficiente¹⁴.
 
-A criação de valor do produto está em tornar o aprendizado de Inteligência Artificial mais simples, acessível e interessante para jovens que ainda não têm muito contato com a área. Para o usuário, a solução oferece um aprendizado ativo, prático e contextualizado, aumentando o engajamento e facilitando a compreensão dos conteúdos. Para a IBM, o projeto representa uma forma inovadora de expandir iniciativas educacionais digitais, como o próprio SkillsBuild, utilizando gamificação para alcançar novos públicos. Já para a sociedade, a proposta contribui para a democratização do conhecimento em IA, permitindo que mais pessoas tenham acesso a uma formação inicial na área, independentemente de recursos financeiros, e se preparem melhor para o mercado de tecnologia.
+Ao abrir a porta, o chão cede e Sophia cai em um ambiente inferior. Para retornar, o jogador precisa subir por plataformas saltando entre elas, e ao longo desse percurso coleta documentos com imagens de cristais verdadeiros. Essa fase introduz a visão computacional e a lógica do seu treinamento, ou seja,  quanto mais imagens corretas Sophia recolhe, mais preciso será o sistema que guiará Asimov na etapa seguinte. A mecânica de coleta transmite de forma intuitiva o princípio de que a qualidade e a quantidade de dados de treino determinam a capacidade de um modelo de reconhecer corretamente o que lhe é apresentado ¹⁶ .
+
+Na quarta fase, Asimov já possui as informações coletadas e inicia a geração interna de uma projeção do cristal. Contudo, o processo produz ruídos, imperfeições visuais que distorcem a imagem gerada. O jogador utiliza o cursor do mouse como se fosse uma esponja e arrasta-o sobre as manchas e distorções que aparecem na projeção, eliminando progressivamente as falhas até que a imagem atinja nitidez suficiente. Essa mecânica materializa dois conceitos centrais da IA moderna: o funcionamento de modelos generativos, que produzem saídas a partir de padrões aprendidos, e o problema do overfitting, em que ruídos e interferências nos dados de treinamento comprometem a qualidade do resultado gerado. O jogador não lê sobre esses conceitos ele usa-os com o mouse como se fosse a própria IA.
+
+Com o cristal sintetizado, Sophia o transporta até o centro do laboratório para realizar a restauração final. Nesse momento, antes de depositar o cristal no núcleo energético, o jogador é confrontado com uma série de perguntas éticas sobre o uso da Inteligência Artificial, precisando clicar nas respostas corretas para concluir o jogo. Essa etapa posiciona a ética não como fator primordial e como condição de desfecho, pois o laboratório só é restaurado quando o jogador demonstra compreender que a tecnologia, por si só, não determina seus impactos. Quem a direciona, e com quais valores, é o que define se ela reconstrói ou destrói¹⁵.
+
+A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimina a necessidade de instalação e garante acesso imediato via navegador, reduzindo uma barreira relevante para o perfil socioeconômico do público-alvo. A progressão linear e sequencial entre as fases, na qual cada etapa só é desbloqueada após a conclusão da anterior, garante que o jogador construa gradualmente os conceitos antes de avançar, evitando que a experiência se torne superficial. A criação de valor do produto está em converter conceitos como reconhecimento de padrões, redes neurais, softmax, visão computacional, modelos generativos e ética em IA em ações concretas que o jogador executa e compreende pelo fazer, ampliando o alcance do IBM SkillsBuild a um público que dificilmente seria atingido por plataformas textuais tradicionais e contribuindo para a democratização do letramento em Inteligência Artificial.
+
 
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
@@ -1022,16 +1029,18 @@ $$
 # 3.8.5 Localização no Código-Fonte
 
 - **Arquivo:** `faseTres.js`
-- **Função:** --> add
-- **Linha de início:** linha 1 de --> add 
+- **Função:** launchStoneProjectile
+- **Linhas de início:** linha 1 de 390 até linha 75 de 390; linha 183 de 390 até linha 188 de 390. 
 
 
 
 # 3.8.6 Código — Implementação em Phaser 3 com JavaScript
 
---> adicionar isso
+Para acesso ao código direto para a linha do console.log da posição X, somente realizar o acesso a este link: https://git.inteli.edu.br/graduacao/2026-1a/t29/g03/-/blob/main/src/scenes/faseTres.js?ref_type=heads#L43
 
+Para acesso ao código direto para a linha do console.log da posição Y, somente realizar o acesso a este link: https://git.inteli.edu.br/graduacao/2026-1a/t29/g03/-/blob/main/src/scenes/faseTres.js?ref_type=heads#L48
 
+Para acesso ao código direto para a linha do inicio da função de matemática/física da bolinha, somente realizar o acesso a este link:https://git.inteli.edu.br/graduacao/2026-1a/t29/g03/-/blob/main/src/scenes/faseTres.js?ref_type=heads#L5
 
 ## 3.8.7 Tabela de Validação
 
@@ -1047,11 +1056,8 @@ $$
 > Em **t = 2 s**: $x = 861$ px e $y = 235$ px confirmam o retorno às coordenadas finais. ✓
 
 
+Para garantir que a movimentação e a gravidade no jogo funcionem de maneira fluida e precisa, a lógica de programação foi estruturada com rigor científico. A modelagem matemática das equações de Movimento Uniforme (MU) e Movimento Uniformemente Variado (MUV) aplicadas ao motor gráfico foi baseada na obra Fundamentos de Física: Mecânica (HALLIDAY; RESNICK; WALKER, 2016)¹². Além disso, o suporte conceitual para a mecânica bidimensional e o cálculo exato de trajetórias parabólicas, como o tempo de voo e o impulso dos pulos, fundamentou-se no Curso de Física Básica: Mecânica (NUSSENZVEIG, 2013)¹³.
 
-# Fontes --> colocar no lugar certo
-
-1. HALLIDAY, D.; RESNICK, R.; WALKER, J. *Fundamentos de Física — Mecânica.* Vol. 1, cap. 4. LTC, 10ª ed., 2016. — Base para as equações de MU e MUV.
-2. NUSSENZVEIG, H. M. *Curso de Física Básica — Mecânica.* Vol. 1, cap. 3. Blucher, 5ª ed., 2013.
 
 # <a name="c4"></a>4. Desenvolvimento do Jogo
 
@@ -1478,6 +1484,30 @@ O que poderia melhorar no jogo? | A responsividade do personagem aos controles, 
 ⁷ EXAME. A carreira de IA que ninguém te contou e pode pagar até R$ 1,5 milhão por ano. Exame, 2025. Disponível em: https://exame.com/carreira/a-carreira-de-ia-que-ninguem-te-contou-e-pode-pagar-ate-rs-150-mil-por-ano/. Acesso em: 27 fev. 2026.
 
 ⁸ MARKET DATA FORECAST. Gamification education market. Disponível em: https://www.marketdataforecast.com/market-reports/gamification-education-market. Acesso em: 27 fev. 2026.
+
+⁹ SILVA, R. F. da; RODRIGUES, N. A. P.; TOMAZINI, S. M. Um Jogo para Apoiar o Ensino de Conceitos de IA e Visão Computacional na Educação Básica. RENOTE, 2026. Disponível em: https://seer.ufrgs.br/index.php/renote/article/view/153558. Acesso em: 27 mar. 2026.
+
+¹⁰ MICROSOFT. Teaching AI Development Through Gamification. Microsoft Tech Community, 2026. Disponível em: https://techcommunity.microsoft.com/blog/azuredevcommunityblog/teaching-ai-development-through-gamification/4490755. Acesso em: 27 mar. 2026.
+
+¹¹ MENDONÇA, A. P. B.; ALVES, L. R. G. Cursos Online Abertos e Massivos (MOOC) em contextos corporativos: uma revisão da literatura. Texto Livre, 2024. Disponível em: https://www.scielo.br/j/tl/a/RFbMyKKQGVfWxcTNFy8FLpn/?lang=pt. Acesso em: 27 mar. 2026.
+
+¹² HALLIDAY, D.; RESNICK, R.; WALKER, J. Fundamentos de Física — Mecânica. Vol. 1, cap. 4. 10ª ed. LTC, 2016.
+
+¹³ NUSSENZVEIG, H. M. Curso de Física Básica — Mecânica. Vol. 1, cap. 3. 5ª ed. Blucher, 2013.
+
+¹⁴ GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. Deep Learning. Cambridge: MIT Press, 2016. Disponível em: https://www.deeplearningbook.org. Acesso em: 27 mar. 2026.
+
+¹⁵ UNESCO. Recomendação sobre a ética da inteligência artificial. Paris: UNESCO, 2022. Disponível em: https://unesdoc.unesco.org/ark:/48223/pf0000381137_por. Acesso em: 27 mar. 2026.
+
+¹⁶ AMAZON WEB SERVICES. O que é visão computacional? Disponível em: https://aws.amazon.com/pt/what-is/computer-vision/. Acesso em: 27 mar. 2026.
+
+
 # <a name="c8"></a>Anexos
+
+
+
+
+
+
 
 *Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)*

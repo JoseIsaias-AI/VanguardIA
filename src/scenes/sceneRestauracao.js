@@ -1,4 +1,4 @@
-import { registrarTeclaMenu } from '../menu.js';
+﻿import { registrarTeclaMenu } from '../menu.js';
 
 export class sceneRestauracao extends Phaser.Scene {
   constructor() {
@@ -6,7 +6,7 @@ export class sceneRestauracao extends Phaser.Scene {
   }
 
   preload() {
-    // Carregando cenários (Noite e Restaurado)
+    // Carregando cenÃ¡rios (Noite e Restaurado)
     this.load.video("cutscene2", "assets/Cutscene/CutScene2.mp4");
     this.load.image("cenarioNoite", "assets/fases/sceneLabCristal/labCristalEscuro.png"); 
     this.load.image("objetosLabEsc", "assets/objetos/sceneLabCristal/objetosLabCristal1.png");
@@ -43,7 +43,7 @@ export class sceneRestauracao extends Phaser.Scene {
     this.background = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "cenarioNoite").setScale(this.scaleMapa);
     this.objetos = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "objetosLabEsc").setScale(this.scaleMapa);
 
-    // Sistema de colisão via Canvas
+    // Sistema de colisÃ£o via Canvas
     try {
       this.collisionImage = this.textures.get("colisao").getSourceImage();
       this.collisionCanvas = document.createElement("canvas");
@@ -52,7 +52,7 @@ export class sceneRestauracao extends Phaser.Scene {
       this.collisionCtx = this.collisionCanvas.getContext("2d");
       this.collisionCtx.drawImage(this.collisionImage, 0, 0);
     } catch (e) {
-      console.warn("Erro ao carregar mapa de colisão. Certifique-se de usar um servidor local.", e);
+      console.warn("Erro ao carregar mapa de colisÃ£o. Certifique-se de usar um servidor local.", e);
     }
 
     const surgirX = this.background.x - 100;
@@ -63,7 +63,7 @@ export class sceneRestauracao extends Phaser.Scene {
 
     this.asimov = this.add.sprite(surgirX - 40, surgirY, "asimov").setScale(2);
 
-    // Baú
+    // BaÃº
     this.bauAnimado = this.add.sprite(875, 310, "bauAnimado").setScale(0.6);
     if (!this.anims.exists("fechado")) {
       this.anims.create({ key: "fechado", frames: [{ key: "bauAnimado", frame: 0 }], frameRate: 1 });
@@ -82,11 +82,11 @@ export class sceneRestauracao extends Phaser.Scene {
     let letra = this.add.text(0, 0, "E", { fontSize: "25px", color: "#000000", fontStyle: "bold" }).setOrigin(0.5);
     this.containerTecla.add([iconTecla, letra]);
 
-    // Animação HUD
+    // AnimaÃ§Ã£o HUD
     this.tweens.add({ targets: this.containerTecla, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
     // =============================================
-    // HUD Caixa de Diálogo — fixada na tela (setScrollFactor(0))
+    // HUD Caixa de DiÃ¡logo â€” fixada na tela (setScrollFactor(0))
     // =============================================
     const larguraCaixa = 900;
     const alturaCaixa = 180;
@@ -102,14 +102,14 @@ export class sceneRestauracao extends Phaser.Scene {
       .strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 14);
     this.caixaDialogo.setScrollFactor(0).setDepth(200).setVisible(false);
 
-    // Ícone decorativo lateral (linha ciano)
+    // Ãcone decorativo lateral (linha ciano)
     this.caixaDetalhe = this.add.graphics();
     this.caixaDetalhe
       .fillStyle(0x00ffff, 1)
       .fillRect(xCaixa + 14, yCaixa + 20, 4, alturaCaixa - 40);
     this.caixaDetalhe.setScrollFactor(0).setDepth(201).setVisible(false);
 
-    // Texto principal do diálogo
+    // Texto principal do diÃ¡logo
     this.textoDialogo = this.add.text(xCaixa + 36, yCaixa + 22, "", {
       fontSize: "22px",
       fontFamily: "'Courier New', Courier, monospace",
@@ -142,7 +142,7 @@ export class sceneRestauracao extends Phaser.Scene {
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     this.pulando = false;
 
-    // Animações Personagem
+    // AnimaÃ§Ãµes Personagem
     this.criarAnimacoes();
   }
 
@@ -251,7 +251,7 @@ export class sceneRestauracao extends Phaser.Scene {
       });
     }
 
-    // Interações
+    // InteraÃ§Ãµes
     let distBau = Phaser.Math.Distance.Between(this.sophia.x, this.sophia.y, this.bauAnimado.x, this.bauAnimado.y);
     let distCentro = Phaser.Math.Distance.Between(this.sophia.x, this.sophia.y, this.pontoRestauracaoX, this.pontoRestauracaoY);
 
@@ -272,7 +272,7 @@ export class sceneRestauracao extends Phaser.Scene {
       if (this.podeInteragir === "bau") {
         this.bauAnimado.play("abrindo");
         this.temCristal = true;
-        // Diálogo ao coletar o cristal
+        // DiÃ¡logo ao coletar o cristal
         this.mostrarMensagem(
           "Voce acaba de coletar o cristal capaz de restaurar a energia do laboratorio.\n" +
           "Va ate o centro do mapa e deposite ele."
@@ -303,11 +303,11 @@ export class sceneRestauracao extends Phaser.Scene {
   mostrarMensagem(texto) {
     this.lendoMensagem = true;
 
-    // Garante que todos os elementos estão visíveis
+    // Garante que todos os elementos estÃ£o visÃ­veis
     this.caixaDialogo.setVisible(true);
     this.caixaDetalhe.setVisible(true);
     this.textoDialogo.setVisible(true).setText("");
-    this.textoFechar.setVisible(false); // aparece só após terminar de escrever
+    this.textoFechar.setVisible(false); // aparece sÃ³ apÃ³s terminar de escrever
 
     this.textoAtual = texto;
 
@@ -331,7 +331,7 @@ export class sceneRestauracao extends Phaser.Scene {
   }
 
   fecharMensagem() {
-    // Se ainda está escrevendo, mostra o texto completo imediatamente
+    // Se ainda estÃ¡ escrevendo, mostra o texto completo imediatamente
     if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
       this.timerEscrever.remove();
       this.textoDialogo.setText(this.textoAtual);

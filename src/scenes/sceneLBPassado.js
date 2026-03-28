@@ -475,7 +475,7 @@ export class sceneLBPassado extends Phaser.Scene {
 
     this.cameras.main.fadeOut(1000);
     this.cameras.main.once("camerafadeoutcomplete", () => {
-      this.scene.start("sceneLBFuturo");
+      this.scene.start("faseTres");
     });
   }
 
