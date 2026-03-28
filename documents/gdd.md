@@ -1029,8 +1029,8 @@ $$
 # 3.8.5 Localização no Código-Fonte
 
 - **Arquivo:** `faseTres.js`
-- **Função:** --> add
-- **Linha de início:** linha 1 de --> add 
+- **Função:** launchStoneProjectile
+- **Linhas de início:** linha 1 de 390 até linha 75 de 390; linha 183 de 390 até linha 188 de 390. 
 
 
 
