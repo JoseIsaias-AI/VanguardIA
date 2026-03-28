@@ -131,7 +131,7 @@ Estudantes universitários e jovens com baixo letramento em IA.
 
 ## b) Dores (Pains)
 
-- Baixo engajamento em cursos assíncronos
+- Baixo engajamento em cursos assíncronos ¹¹
 - Excesso de conteúdo teórico
 - Dificuldade de aplicação prática
 - Evasão em cursos online
@@ -166,7 +166,7 @@ Estudantes universitários e jovens com baixo letramento em IA.
 - Puzzles interativos que permitem ao jogador visualizar e interagir com o que está aprendendo
 - Conteúdos complexos atuais condensados e simplificados para favorecer aprendizagem e engajamento
 
-## b) Aliviadores de Dores
+## b) Aliviadores de Dores ⁹
 
 - Substituição de conteúdo passivo por interação ativa
 - Simulação prática de conceitos
@@ -179,13 +179,11 @@ Estudantes universitários e jovens com baixo letramento em IA.
 ## c) Criadores de Ganho
 
 - Narrativa imersiva
-- Progressão por níveis
+- Progressão por níveis ¹⁰
 - Aplicação prática dos conceitos
 - Puzzles sobre IA
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
-
-*Descreva brevemente a solução desenvolvida para o parceiro de negócios. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera. Observe a seção 2 e verifique que ali é possível trazer mais detalhes, portanto seja objetivo aqui. Atualize esta descrição até a entrega final, conforme desenvolvimento.*
 
 A solução desenvolvida consiste em um jogo educativo web gamificado voltado ao ensino introdutório de Inteligência Artificial, integrado ao contexto do IBM SkillsBuild. O projeto busca resolver problemas comuns dos cursos online tradicionais, como o baixo engajamento dos usuários, o alto índice de evasão e o modelo de aprendizado passivo, que muitas vezes não consegue manter o interesse de jovens iniciantes na área. Além disso, muitos conteúdos de IA são excessivamente técnicos e teóricos, dificultando o primeiro contato com o tema..
 
@@ -1047,6 +1045,8 @@ $$
 > Em **t = 2 s**: $x = 861$ px e $y = 235$ px confirmam o retorno às coordenadas finais. ✓
 
 
+Para garantir que a movimentação e a gravidade no jogo funcionem de maneira fluida e precisa, a lógica de programação foi estruturada com rigor científico. A modelagem matemática das equações de Movimento Uniforme (MU) e Movimento Uniformemente Variado (MUV) aplicadas ao motor gráfico foi baseada na obra Fundamentos de Física: Mecânica (HALLIDAY; RESNICK; WALKER, 2016)¹². Além disso, o suporte conceitual para a mecânica bidimensional e o cálculo exato de trajetórias parabólicas, como o tempo de voo e o impulso dos pulos, fundamentou-se no Curso de Física Básica: Mecânica (NUSSENZVEIG, 2013)¹³.
+
 
 # Fontes --> colocar no lugar certo
 
@@ -1478,6 +1478,27 @@ O que poderia melhorar no jogo? | A responsividade do personagem aos controles, 
 ⁷ EXAME. A carreira de IA que ninguém te contou e pode pagar até R$ 1,5 milhão por ano. Exame, 2025. Disponível em: https://exame.com/carreira/a-carreira-de-ia-que-ninguem-te-contou-e-pode-pagar-ate-rs-150-mil-por-ano/. Acesso em: 27 fev. 2026.
 
 ⁸ MARKET DATA FORECAST. Gamification education market. Disponível em: https://www.marketdataforecast.com/market-reports/gamification-education-market. Acesso em: 27 fev. 2026.
+
+⁹ SILVA, R. F. da; RODRIGUES, N. A. P.; TOMAZINI, S. M. Um Jogo para Apoiar o Ensino de Conceitos de IA e Visão Computacional na Educação Básica. RENOTE, 2026. Disponível em: https://seer.ufrgs.br/index.php/renote/article/view/153558. Acesso em: 27 mar. 2026.
+
+¹⁰ MICROSOFT. Teaching AI Development Through Gamification. Microsoft Tech Community, 2026. Disponível em: https://techcommunity.microsoft.com/blog/azuredevcommunityblog/teaching-ai-development-through-gamification/4490755. Acesso em: 27 mar. 2026.
+
+¹¹ MENDONÇA, A. P. B.; ALVES, L. R. G. Cursos Online Abertos e Massivos (MOOC) em contextos corporativos: uma revisão da literatura. Texto Livre, 2024. Disponível em: https://www.scielo.br/j/tl/a/RFbMyKKQGVfWxcTNFy8FLpn/?lang=pt. Acesso em: 27 mar. 2026.
+
+¹² HALLIDAY, D.; RESNICK, R.; WALKER, J. Fundamentos de Física — Mecânica. Vol. 1, cap. 4. 10ª ed. LTC, 2016.
+
+¹³ NUSSENZVEIG, H. M. Curso de Física Básica — Mecânica. Vol. 1, cap. 3. 5ª ed. Blucher, 2013.
+
+
 # <a name="c8"></a>Anexos
+
+
+
+
+
+
+1. HALLIDAY, D.; RESNICK, R.; WALKER, J. *Fundamentos de Física — Mecânica.* Vol. 1, cap. 4. LTC, 10ª ed., 2016. — Base para as equações de MU e MUV.
+
+
 
 *Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)*
