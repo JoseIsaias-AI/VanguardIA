@@ -38,6 +38,17 @@ function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
     //Aqui, calculamos a posição y da pedra, a partir da equação de "sorvetão"
     const y = yi + vy0 * t + 0.5 * ay * t * t;
 
+    //Aqui, fazemos a impressão da velocidade, aceleração e posição da pedra, em diferentes eixos
+     // MU (eixo X)
+     console.log(
+     `[MU - eixo X] t=${t.toFixed(2)}s | posição x=${x.toFixed(2)} | velocidade vx=${vx.toFixed(2)}`
+     );
+
+     // MUV (eixo Y)
+     console.log(
+     `[MUV - eixo Y] t=${t.toFixed(2)}s | posição y=${y.toFixed(2)} | velocidade vy=${vy.toFixed(2)} | aceleração ay=${ay}`
+    );
+
     // Aqui, atualizamos a posição da pedra na tela
     stone.x = x;
     stone.y = y;
