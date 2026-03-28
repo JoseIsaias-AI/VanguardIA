@@ -55,8 +55,8 @@ export class sceneRestauracao extends Phaser.Scene {
       console.warn("Erro ao carregar mapa de colisão. Certifique-se de usar um servidor local.", e);
     }
 
-    const surgirX = this.background.x - 100; // 100 pixels à esquerda do centro
-    const surgirY = this.background.y + 50;  // 50 pixels abaixo do centro
+    const surgirX = this.background.x - 100;
+    const surgirY = this.background.y + 50;
 
     this.sophia = this.add.sprite(surgirX, surgirY, "sophia").setScale(2);
     this.cameras.main.startFollow(this.sophia).setZoom(1.8);
@@ -64,7 +64,7 @@ export class sceneRestauracao extends Phaser.Scene {
     this.asimov = this.add.sprite(surgirX - 40, surgirY, "asimov").setScale(2);
 
     // Baú
-    this.bauAnimado = this.add.sprite(875, 310, "bauAnimado").setScale(2.5);
+    this.bauAnimado = this.add.sprite(875, 310, "bauAnimado").setScale(0.6);
     if (!this.anims.exists("fechado")) {
       this.anims.create({ key: "fechado", frames: [{ key: "bauAnimado", frame: 0 }], frameRate: 1 });
       this.anims.create({
@@ -85,24 +85,50 @@ export class sceneRestauracao extends Phaser.Scene {
     // Animação HUD
     this.tweens.add({ targets: this.containerTecla, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
-    // HUD Caixa de Diálogo
-    const larguraCaixa = 1000;
+    // =============================================
+    // HUD Caixa de Diálogo — fixada na tela (setScrollFactor(0))
+    // =============================================
+    const larguraCaixa = 900;
     const alturaCaixa = 180;
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
-    const yCaixa = alturaJogo - alturaCaixa - 40;
+    const yCaixa = alturaJogo - alturaCaixa - 30;
 
+    // Fundo da caixa
     this.caixaDialogo = this.add.graphics();
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9).lineStyle(4, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15).strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.setScrollFactor(0).setDepth(100).setVisible(false);
+    this.caixaDialogo
+      .fillStyle(0x0d0d1a, 0.92)
+      .lineStyle(3, 0x00ffff, 1)
+      .fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 14)
+      .strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 14);
+    this.caixaDialogo.setScrollFactor(0).setDepth(200).setVisible(false);
 
-    this.textoDialogo = this.add.text(xCaixa + 50, yCaixa + 45, "", {
-      fontSize: "26px",
+    // Ícone decorativo lateral (linha ciano)
+    this.caixaDetalhe = this.add.graphics();
+    this.caixaDetalhe
+      .fillStyle(0x00ffff, 1)
+      .fillRect(xCaixa + 14, yCaixa + 20, 4, alturaCaixa - 40);
+    this.caixaDetalhe.setScrollFactor(0).setDepth(201).setVisible(false);
+
+    // Texto principal do diálogo
+    this.textoDialogo = this.add.text(xCaixa + 36, yCaixa + 22, "", {
+      fontSize: "22px",
       fontFamily: "'Courier New', Courier, monospace",
       color: "#ccffff",
-      wordWrap: { width: larguraCaixa - 200 },
-      lineSpacing: 10
-    }).setScrollFactor(0).setDepth(101);
+      wordWrap: { width: larguraCaixa - 80 },
+      lineSpacing: 8,
+    }).setScrollFactor(0).setDepth(202).setVisible(false);
+
+    // Indicador "[ E ] Fechar" no canto inferior direito da caixa
+    this.textoFechar = this.add.text(
+      xCaixa + larguraCaixa - 16,
+      yCaixa + alturaCaixa - 22,
+      "[ E ] Fechar",
+      {
+        fontSize: "16px",
+        fontFamily: "'Courier New', Courier, monospace",
+        color: "#336666",
+      }
+    ).setOrigin(1, 1).setScrollFactor(0).setDepth(202).setVisible(false);
 
     // Inputs
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -130,25 +156,19 @@ export class sceneRestauracao extends Phaser.Scene {
     let larguraReal = this.collisionImage.width * escalaAtual;
     let alturaReal = this.collisionImage.height * escalaAtual;
 
-    // Calcula a quina superior esquerda do mapa na tela
     let origemX = bgX - larguraReal / 2;
     let origemY = bgY - alturaReal / 2;
 
-    // Converte a posição do personagem para a posição dentro da imagem original (0 a largura da imagem)
     let xLocal = (xMundo - origemX) / escalaAtual;
     let yLocal = (yMundo - origemY) / escalaAtual;
 
-    // Se estiver fora dos limites da imagem, considera colisão (impede de sair do mapa)
     if (xLocal < 0 || yLocal < 0 || xLocal >= this.collisionImage.width || yLocal >= this.collisionImage.height) {
         return true;
     }
 
     let pixel = this.collisionCtx.getImageData(Math.floor(xLocal), Math.floor(yLocal), 1, 1).data;
-    
-    // Verde puro: R=0, G=255, B=0. 
-    // Ajustado para aceitar variações de tons de verde:
     return pixel[1] > 150 && pixel[0] < 100 && pixel[2] < 100;
-}
+  }
 
   update() {
     if (this.lendoMensagem) {
@@ -160,11 +180,9 @@ export class sceneRestauracao extends Phaser.Scene {
     let velocidade = 3;
     let movimentacao = false;
     
-    // Ponto de checagem na base dos pés do personagem
     let checkX = this.sophia.x;
     let checkY = this.sophia.y + 25; 
 
-    // Movimentação com Colisão Preditiva
     if ((this.cursors.left.isDown || this.keys.A.isDown) && !this.colidiuComVerde(checkX - velocidade, checkY)) {
       this.sophia.x -= velocidade;
       this.sophia.anims.play("sophia_left", true);
@@ -187,7 +205,7 @@ export class sceneRestauracao extends Phaser.Scene {
 
     if (!movimentacao) this.sophia.anims.stop();
 
-    // --- LÓGICA DO ASIMOV SEGUIR COM ANIMAÇÕES DIRECIONAIS ---
+    // --- ASIMOV SEGUIR ---
     let distMin = 60; 
     let velAsimov = 2.4; 
 
@@ -199,35 +217,27 @@ export class sceneRestauracao extends Phaser.Scene {
       let vx = (dx / distancia) * velAsimov;
       let vy = (dy / distancia) * velAsimov;
 
-      // Checa colisão antes de mover
       if (!this.colidiuComVerde(this.asimov.x + vx, this.asimov.y + vy + 10)) {
         this.asimov.x += vx;
         this.asimov.y += vy;
 
-        // Determina qual animação tocar baseada no eixo de maior movimento
         if (Math.abs(vx) > Math.abs(vy)) {
-          // Movimento prioritário na Horizontal
           if (vx > 0) this.asimov.anims.play("asimov_right", true);
           else this.asimov.anims.play("asimov_left", true);
-        } 
-        else {
-          // Movimento prioritário na Vertical
+        } else {
           if (vy > 0) this.asimov.anims.play("asimov_front", true);
           else this.asimov.anims.play("asimov_back", true);
         }
       }
-    } 
-    else {
-      // Quando para, ele fica de frente (ou você pode escolher o frame 0)
-       this.asimov.anims.stop();
+    } else {
+      this.asimov.anims.stop();
     }
     
-    // --- SISTEMA DE PROFUNDIDADE (Y-SORTING) ---
-    // Isso impede que um personagem "entre" no outro visualmente de forma errada
+    // Y-Sorting
     this.sophia.setDepth(this.sophia.y);
     this.asimov.setDepth(this.asimov.y);
 
-    // Lógica do Pulo
+    // Pulo
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
       this.pulando = true;
       let yInicial = this.sophia.y;
@@ -262,7 +272,11 @@ export class sceneRestauracao extends Phaser.Scene {
       if (this.podeInteragir === "bau") {
         this.bauAnimado.play("abrindo");
         this.temCristal = true;
-        this.mostrarMensagem("Você obteve o CRISTAL DE ENERGIA!\nLeve-o até o centro do mapa.");
+        // Diálogo ao coletar o cristal
+        this.mostrarMensagem(
+          "Voce acaba de coletar o cristal capaz de restaurar a energia do laboratorio.\n" +
+          "Va ate o centro do mapa e deposite ele."
+        );
       } 
       else if (this.podeInteragir === "centro") {
         this.restaurarMundo();
@@ -288,17 +302,28 @@ export class sceneRestauracao extends Phaser.Scene {
 
   mostrarMensagem(texto) {
     this.lendoMensagem = true;
+
+    // Garante que todos os elementos estão visíveis
     this.caixaDialogo.setVisible(true);
+    this.caixaDetalhe.setVisible(true);
     this.textoDialogo.setVisible(true).setText("");
+    this.textoFechar.setVisible(false); // aparece só após terminar de escrever
+
     this.textoAtual = texto;
+
     if (this.timerEscrever) this.timerEscrever.remove();
-    let letra = 0;
+
+    let indice = 0;
     this.timerEscrever = this.time.addEvent({
-      delay: 30,
+      delay: 28,
       callback: () => {
-        if (letra < texto.length) {
-          this.textoDialogo.text += texto[letra];
-          letra++;
+        if (indice < texto.length) {
+          this.textoDialogo.text += texto[indice];
+          indice++;
+        }
+        // Quando terminar de escrever, mostra o indicador de fechar
+        if (indice >= texto.length) {
+          this.textoFechar.setVisible(true);
         }
       },
       repeat: texto.length - 1,
@@ -306,19 +331,24 @@ export class sceneRestauracao extends Phaser.Scene {
   }
 
   fecharMensagem() {
+    // Se ainda está escrevendo, mostra o texto completo imediatamente
     if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
       this.timerEscrever.remove();
       this.textoDialogo.setText(this.textoAtual);
+      this.textoFechar.setVisible(true);
       return;
     }
+
+    // Fecha a caixa
     this.lendoMensagem = false;
     this.caixaDialogo.setVisible(false);
+    this.caixaDetalhe.setVisible(false);
     this.textoDialogo.setVisible(false).setText("");
+    this.textoFechar.setVisible(false);
 
     this.time.delayedCall(100, () => {
       this.podeInteragir = false; 
     });
-
   }
 
   criarAnimacoes() {

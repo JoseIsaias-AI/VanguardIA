@@ -72,7 +72,7 @@ export class sceneLBFuturo extends Phaser.Scene {
   }
 
   iniciarFase() {
-    this.scaleMapa = 3.2;
+    this.scaleMapa = 3;
     this.progressoHistoria = 0;
     this.lendoMensagem = false;
 
@@ -208,6 +208,7 @@ export class sceneLBFuturo extends Phaser.Scene {
 
     // variaveis de interacao
     this.podeInteragirAsimov = false;
+    this.dialogoAsimovJaIniciado = false;
 
     // icone da tecla E (asimov)
     this.containerTeclaAsimov = this.add.container(0, 0).setDepth(200);
@@ -243,36 +244,25 @@ export class sceneLBFuturo extends Phaser.Scene {
     // Caixa de diálogo
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
-    const margem = 20;
-    const larguraCaixa = larguraJogo - margem * 2;
-    const alturaCaixa = 140;
-    const xCaixa = margem;
-    const yCaixa = alturaJogo - alturaCaixa - margem;
-
-//     const larguraCaixa = 1300;
-//     const alturaCaixa = 175;
-//     const xCaixa = (larguraJogo - larguraCaixa) / 2;
-//     const yCaixa = alturaJogo - alturaCaixa - 80;
-// >>>>>>> 74064c2a0b8d20e5ee3ef16d94feb0a6620811dd
+    const larguraCaixa = 1300;
+    const alturaCaixa = 220;
+    const xCaixa = (larguraJogo - larguraCaixa) / 2;
+    const yCaixa = alturaJogo - alturaCaixa - 50;
 
     this.caixaDialogo = this.add.graphics();
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
+    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
     this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
-    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
+    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
     this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
 
     this.textoDialogo = this.add
-
-      .text(xCaixa + 16, yCaixa + 22, "", {
+      .text(xCaixa + 40, yCaixa + 30, "", {
         fontSize: "32px",
-
-      // .text(xCaixa + 40, yCaixa + 35, "", {
-      //   fontSize: "28px",
         fontFamily: "'Courier New', Courier, monospace",
         color: "#ccffff",
-        wordWrap: { width: larguraCaixa - 32 },
-        lineSpacing: 6,
+        wordWrap: { width: larguraCaixa - 80 },
+        lineSpacing: 10,
       })
       .setScrollFactor(0)
       .setDepth(1001)
@@ -280,17 +270,13 @@ export class sceneLBFuturo extends Phaser.Scene {
 
     // Label do nome do falante — aparece acima da borda esquerda da caixa
     this.labelNome = this.add
-
-      .text(xCaixa + 12, yCaixa - 18, "", {
+      .text(xCaixa + 16, yCaixa - 28, "", {
         fontSize: "32px",
-      // .text(xCaixa + 16, yCaixa - 28, "", { ///////////////////////////////////////////
-      //   fontSize: "22px",
-
         fontFamily: "'Courier New', Courier, monospace",
         color: "#00ffff",
         fontStyle: "bold",
         backgroundColor: "#1a1a1a",
-        padding: { left: 6, right: 6, top: 2, bottom: 2 },
+        padding: { left: 8, right: 8, top: 3, bottom: 3 },
       })
       .setScrollFactor(0)
       .setDepth(1002)
@@ -412,7 +398,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     );
 
     // MOSTRAR ICONE E - ASIMOV
-    if (distanciaAsimov < 120) {
+    if (!this.dialogoAsimovJaIniciado && distanciaAsimov < 120) {
       this.podeInteragirAsimov = true;
       this.containerTeclaAsimov.setVisible(true);
       this.containerTeclaAsimov.setPosition(this.asimov.x, this.asimov.y - 80);
@@ -423,6 +409,9 @@ export class sceneLBFuturo extends Phaser.Scene {
 
     if (this.podeInteragirAsimov && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
       this.containerTeclaAsimov.setVisible(true); // Oculta o ícone "Aperte E"
+      this.dialogoAsimovJaIniciado = true;
+      this.containerTeclaAsimov.setVisible(false);
+      this.tweens.killTweensOf(this.containerTeclaAsimov);
       this.falando_asimov = true;
       this.dialogoAsimovIndex = 0;
 

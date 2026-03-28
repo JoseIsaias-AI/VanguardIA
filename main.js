@@ -40,33 +40,30 @@ const config = {
   //scene: [transicao1para2, FaseDois],
   //scene: [sceneRestauracao,faseCinco, menu, BgMusic],
   //scene: [faseUm],
-  //scene: [ faseQuatro, sceneRestauracao, faseCinco],
+  // scene: [ sceneRestauracao, faseCinco],
   //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
-
-  // scene: [
-  //   welcomeScene,
-  //   sceneInicial,
-  //   sceneLBPassado,
-  //   sceneLBFuturo,
-  //   faseUm,
-  //   transicao1para2,
-  //   FaseDois,
-  //   FaseDoischao,
-  //   faseTres,
-  //   SceneRetornoLab,
-  //   minigame1Fase2,
-  //   scenePreFase4,
-  //   faseQuatro,
-  //   faseCinco,
-  //   menu,
-  //   BgMusic,
-  // ],
 
 
   scene: [
-    FaseDois, FaseDoischao, faseTres
-   ]
-};
+    welcomeScene,
+    sceneInicial,
+    sceneLBPassado,
+    sceneLBFuturo,
+    faseUm,
+    transicao1para2,
+    FaseDois,
+    FaseDoischao,
+    faseTres,
+    SceneRetornoLab,
+    minigame1Fase2,
+    scenePreFase4,
+    faseQuatro,
+    sceneRestauracao,
+    faseCinco,
+    menu,
+    BgMusic,
+  ],
 
+};
 
 const game = new Phaser.Game(config);

@@ -446,8 +446,8 @@ export class FaseDois extends Phaser.Scene {
   // ═══════════════════════════════════════════════════════════════════════════
   _iniciarDialogoAsimov() {
     this.dialogoAsimov = [
-      { texto: "Chegamos, Sophia. Essa é a sala com 3 portas. Vá até a porta representada na imagem.", falante: "Asimov" },
-      { texto: "Asimov… está tudo escuro para mim. Só consigo enxergar seu olho brilhando. Não vou conseguir identificar a porta correta.", falante: "Sophia" },
+      { texto: "Chegamos, Sophia. Essa é a sala com 3 portas.", falante: "Asimov" },
+      { texto: "Asimov… está tudo escuro para mim. Só consigo enxergar seu olho brilhando.", falante: "Sophia" },
       { texto: "Entendi, Sophia. Eu consigo enxergar no escuro… mas meus sensores de reconhecimento de padrões foram corrompidos.", falante: "Asimov" },
       { texto: "Mas existe uma solução! Você precisa entrar na minha cabeça e religar os neurônios que foram desligados.", falante: "Asimov" },
       { texto: "Espera… você tem um cérebro de verdade aí dentro?", falante: "Sophia" },
@@ -807,7 +807,7 @@ export class FaseDois extends Phaser.Scene {
     this.mgRede.setFrame(16);
 
     this._mgDialogo(
-      "Todos os neurônios do miolo estão recebendo as informações! É igualzinho ao seu cérebro quando você estuda: cada vez que você pratica algo, as conexões entre seus neurônios ficam mais fortes. Agora vou usar esses neurônios para aprender com os dados — vou errar, corrigir e melhorar várias vezes. Isso se chama treinamento!",
+      "Todos os neurônios do miolo estão recebendo as informações! É igualzinho ao seu cérebro quando você estuda: cada vez que você pratica algo, as conexões entre seus neurônios ficam mais fortes. Agora vou usar esses neurônios para aprender com os dados vou errar, corrigir e melhorar várias vezes. Isso se chama treinamento!",
       "Asimov",
       () => this._mg_fase3_epocas()
     );
@@ -870,7 +870,7 @@ export class FaseDois extends Phaser.Scene {
     }
 
     this._mgDialogo(
-      "Hmm… treinei bastante, mas tem algo errado na saída. Sabe quando você estuda muito mas na hora da prova trava? Comigo aconteceu algo parecido — o fluxo do meu pensamento está desregulado. Tem uma válvula que controla isso. Você consegue girá-la pra mim?",
+      "Hmm… treinei bastante, mas tem algo errado na saída. Sabe quando você estuda muito mas na hora da prova trava? Comigo aconteceu algo parecido o fluxo do meu pensamento está desregulado. Tem uma válvula que controla isso. Você consegue girá-la pra mim?",
       "Asimov",
       () => this._mg_valvula()
     );
@@ -948,7 +948,7 @@ export class FaseDois extends Phaser.Scene {
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_dialogo_final() {
     this._mgDialogo(
-      "FUNCIONOU! Olha só — o neurônio de saída correto acendeu! Meu cérebro aprendeu qual porta é a certa. Vamos, Sophia eu sei o caminho!",
+      "FUNCIONOU! Olha só o neurônio de saída correto acendeu! Meu cérebro aprendeu qual porta é a certa. Vamos, Sophia eu sei o caminho!",
       "Asimov",
       () => this._mg_encerrar()
     );
@@ -1157,8 +1157,8 @@ export class FaseDois extends Phaser.Scene {
     this.sophia.setVelocity(0, 0);
     this.bauAnimado.play("abrindo");
 
-    this.time.delayedCall(400, () => {
-      this.mostrarMensagem("Achei a pista... então era aqui.", "Sophia");
+    this.time.delayedCall(600, () => {
+      this.mostrarMensagem("Achei imagens de cristais...", "Sophia");
 
       this.time.delayedCall(900, () => {
         if (this.timerEscrever) {

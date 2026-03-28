@@ -1,3 +1,80 @@
+//Antes de tudo, criaremos uma função que cobre os requisitos do GDD de matemática, que envolve MU e MUV, e vamos fazer isso usando uma pedra no cenário do jogo
+
+// Aqui, fazemos uma função responsável por simular o lançamento oblíquo da pedra
+// Obs: Não usamos a física do Phaser, apenas equações de movimento (MU e MUV)
+function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
+
+  // Aqui, definimos uma constante do tempo total do movimento, em segundos
+  const T = duration;
+
+  // Aqui, definimos a aceleração no eixo Y
+  const ay = 200;
+
+  // Aqui, criamos a velocidade constante no eixo horizontal (MU)
+  const vx = (xf - xi) / T;
+
+  // Aqui, criamos a velocidade variável no eixo vertical (MUV)
+  // Aqui, calculamos a velocidade y inicial, usando a fórmula de "Sorvetão", para que a pedra chegue no final no ponto que esperamos
+  const vy0 = ((yf - yi) - 0.5 * ay * T * T) / T;
+
+  // Aqui, criamos uma variável que guarda quanto tempo passou desde o início do movimento
+  let elapsed = 0;
+
+  // Aqui, fazemos essa função ser chamada a cada frame, para criar a animação da pedra
+  function onUpdate(time, delta) {
+
+    // Aqui, convertemos o delta de milissegundos para segundos, para calcularmos o tempo a partir dos segundos
+    elapsed += delta / 1000;
+
+    // Aqui, garantimos que o tempo da animação nunca ultrapasse o tempo total da equação, ao chegar no tempo total, a animação para
+    const t = Math.min(elapsed, T);
+
+    //Aqui, calculamos a posição x da pedra, usando s= s0 + v.t
+    const x = xi + vx * t;
+
+    //Aqui, calculamos a velocidade y da pedra, usando v = v0 + a.t
+    const vy = vy0 + ay * t;
+
+    //Aqui, calculamos a posição y da pedra, a partir da equação de "sorvetão"
+    const y = yi + vy0 * t + 0.5 * ay * t * t;
+    console.log(
+      `[MU - eixo X] t=${t.toFixed(2)}s | posicao x=${x.toFixed(2)} | velocidade vx=${vx.toFixed(2)}`
+    );
+    console.log(
+      `[MUV - eixo Y] t=${t.toFixed(2)}s | posicao y=${y.toFixed(2)} | velocidade vy=${vy.toFixed(2)} | aceleracao ay=${ay}`
+    );
+
+    // Aqui, atualizamos a posição da pedra na tela
+    stone.x = x;
+    stone.y = y;
+
+    // Aqui, verificamos se o tempo de movimento já acabou
+    if (t >= T) {
+
+      // Aqui, paramos a animação se o tempo de movimento estiver acabado
+      scene.events.off('update', onUpdate);
+
+      // Aqui, removemos a pedra quando ela chegar na sua posição final
+      stone.destroy(); 
+
+      // Aqui, criamos uma nova pedra na posição inicial, para animação se repetir, e o movimento ser percebido pelo jogador
+      const novaPedra = scene.add.image(xi, yi, "pedra");
+      scene.pedraFundo = novaPedra;
+      if (scene.uiCamera) {
+        scene.uiCamera.ignore(novaPedra);
+      }
+
+      // Aqui, reiniciamos a animação
+      launchStoneProjectile(scene, novaPedra, xi, yi, xf, yf, T);
+    }
+  }
+
+  // Aqui, fazemos a função não só ser chamada a cada frame, mas seja executada a cada frame
+  scene.events.on('update', onUpdate);
+}
+
+
+//Aqui, temos a fase 3 por completo, que consiste em pular plataformas e coletar cristais
 export class faseTres extends Phaser.Scene {
   constructor() {
     super("faseTres");
@@ -6,6 +83,7 @@ export class faseTres extends Phaser.Scene {
   preload() {
     //Aqui, carregamos os arquivos que vamos usar nessa fase
     this.load.image("parede", "assets/Fases/faseTres/backgroundFase3Escuro.png");
+    this.load.image("pedra", "assets/Fases/faseTres/pedrinha.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.image("plataforma", "assets/Objetos/faseTres/Cano 1, Fase 3.png");
     this.load.image("plataformaMovel", "assets/Objetos/faseTres/Cano 2, Fase 3.png");
@@ -34,6 +112,7 @@ export class faseTres extends Phaser.Scene {
       D: Phaser.Input.Keyboard.KeyCodes.D
     });
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
     //Aqui, configuramos as plataformas para a fase
     const criarPlataforma = (x, y) => {
@@ -102,6 +181,14 @@ export class faseTres extends Phaser.Scene {
     this.physics.add.collider(this.player, this.plataformas);
     this.physics.add.collider(this.player, this.plataformasMoveis);
 
+    // Aqui, criamos a pedra do fundo na tela, em sua posição inicial
+    this.pedraFundo = this.add.image(1065, 235, "pedra");
+      //Aqui, iniciamos o movimento da pedra usando cinemática manual, definindo a posição inicial e final
+       // Posição inicial (1065, 235)
+       // Posição final (861, 235)
+    launchStoneProjectile(this, this.pedraFundo, 1065, 235, 861, 235, 2);
+
+
     this.createAnimations();
 
     //Aqui, criamos os grupos de cristais
@@ -115,6 +202,8 @@ export class faseTres extends Phaser.Scene {
       c.body.setAllowGravity(false);
       c.body.setSize(500, 500);
       c.body.setOffset(500, 800);
+
+      
     };
 
     //Aqui, posicionamos os cristais
@@ -140,10 +229,13 @@ export class faseTres extends Phaser.Scene {
     this.contadorFalsos = 0;
     this.contadorTotal = 0;
 
-    this.textoCristais = this.add.text(800, 450, "", {
-      fontSize: "12px",
-      fill: "#ffffff"
-    }).setScrollFactor(0);
+    this.textoCristais = this.add.text(30, 30, "", {
+      fontSize: "26px",
+      fontFamily: "'Courier New', Courier, monospace",
+      fill: "#ffffff",
+      backgroundColor: "#1a1a1a",
+      padding: { left: 10, right: 10, top: 8, bottom: 8 }
+    }).setScrollFactor(0).setDepth(1003);
 
     //Aqui, detectamos a coleta dos cristais
     this.physics.add.overlap(this.player, this.cristaisVerdadeiros, this.coletarVerdadeiro, null, this);
@@ -159,6 +251,86 @@ export class faseTres extends Phaser.Scene {
     this.physics.add.existing(this.corda, true);
     this.subindoCorda = false;
     this.physics.add.overlap(this.player, this.corda, this.ativarCorda, null, this);
+
+    this.criarUIDialogo();
+    this.configurarCameraUI();
+    this.mostrarDialogoInicial(
+      "Sophia, o chão estava muito velho e você acabou caindo. Preciso que voce suba e colete apenas as imagens dos cristais azuis.",
+      "Asimov"
+    );
+  }
+
+  criarUIDialogo() {
+    const larguraJogo = this.cameras.main.width;
+    const alturaJogo = this.cameras.main.height;
+    const larguraCaixa = 1300;
+    const alturaCaixa = 220;
+    const xCaixa = (larguraJogo - larguraCaixa) / 2;
+    const yCaixa = alturaJogo - alturaCaixa - 50;
+
+    this.caixaDialogo = this.add.graphics();
+    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
+    this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
+    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+    this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
+
+    this.labelNome = this.add.text(xCaixa + 16, yCaixa - 28, "", {
+      fontSize: "32px",
+      fontFamily: "'Courier New', Courier, monospace",
+      color: "#00ffff",
+      fontStyle: "bold",
+      backgroundColor: "#1a1a1a",
+      padding: { left: 8, right: 8, top: 3, bottom: 3 },
+    }).setScrollFactor(0).setDepth(1001).setVisible(false);
+
+    this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 30, "", {
+      fontSize: "32px",
+      fontFamily: "'Courier New', Courier, monospace",
+      color: "#ccffff",
+      wordWrap: { width: larguraCaixa - 80 },
+      lineSpacing: 10,
+    }).setScrollFactor(0).setDepth(1002).setVisible(false);
+  }
+
+  mostrarDialogoInicial(texto, nome) {
+    this.dialogoInicialAtivo = true;
+    this.caixaDialogo.setVisible(true);
+    this.labelNome.setText(nome).setVisible(true);
+    this.textoDialogo.setText(texto).setVisible(true);
+  }
+
+  fecharDialogoInicial() {
+    this.dialogoInicialAtivo = false;
+    this.caixaDialogo.setVisible(false);
+    this.labelNome.setVisible(false);
+    this.textoDialogo.setVisible(false);
+  }
+
+  configurarCameraUI() {
+    this.uiCamera = this.cameras.add(0, 0, this.scale.width, this.scale.height);
+
+    const objetosDoMundo = [
+      this.fundo,
+      this.player,
+      this.corda,
+      this.pedraFundo,
+      ...this.plataformas.getChildren(),
+      ...this.plataformasMoveis.getChildren(),
+      ...this.walls.getChildren(),
+      ...this.cristaisVerdadeiros.getChildren(),
+      ...this.cristaisFalsos.getChildren(),
+    ].filter(Boolean);
+
+    const objetosUI = [
+      this.caixaDialogo,
+      this.labelNome,
+      this.textoDialogo,
+      this.textoCristais,
+    ].filter(Boolean);
+
+    this.uiCamera.ignore(objetosDoMundo);
+    this.cameras.main.ignore(objetosUI);
   }
 
   //Aqui, criamos uma função que ativa a animação da corda
@@ -241,6 +413,14 @@ createAnimations() {
 }
 
 update() {
+
+  if (this.dialogoInicialAtivo) {
+    this.player.setVelocity(0);
+    if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+      this.fecharDialogoInicial();
+    }
+    return;
+  }
 
   //Aqui, bloqueamos os controles do personagem durante a subida da corda
   if (this.subindoCorda) {

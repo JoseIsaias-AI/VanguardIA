@@ -169,17 +169,10 @@ export class transicao1para2 extends Phaser.Scene {
             { speaker: "Sophia", text: "Então, Asimov, como foi a missão?" },
             { speaker: "Asimov", text: "Obrigada pela ajuda, Sophia! Agora aprendi através da repetição de padrões e posso me movimentar sozinho." },
             { speaker: "Asimov", text: "Analisei os padrões do ambiente e agora consigo desviar de todos os obstáculos à minha frente." },
-            {
-                speaker: "Asimov",
-                text:    "Porém… meus sistemas ainda não estão totalmente restaurados.",
-                autoMs:  4500
-            },
-            { speaker: "Sophia", text: "Entendo. Então… o que você encontrou? Tem algo para me mostrar?" },
-            { speaker: "Asimov", text: "Sim. Durante a missão, coletei números binários e um pergaminho com instruções." },
-            { speaker: "Asimov", text: "Essas informações indicam que precisamos seguir as pistas para encontrar o cristal capaz de restaurar a energia do laboratório." },
-            { speaker: "Sophia", text: "E onde está esse cristal?" },
-            { speaker: "Asimov", text: "O pergaminho indica que ele está dentro de uma porta no laboratório.\nPara encontrá‑lo, precisamos localizar a porta correta." },
-            { speaker: "Sophia", text: "Perfeito. Obrigada pelas informações, Asimov.\nVamos restaurar sua energia." },
+            {speaker: "Asimov", text: "Sophia, durante minha jornada de aprendizado, encontrei informações que podem nos ajudar à restaurar a energia do laboratório."},
+            { speaker: "Sophia", text: "O que você encontrou?" },
+            { speaker: "Asimov", text: "Encontrei um conjunto de números binários que nos ajudarão a localizar uma porta específica e nessa porta poderemos encontrar mais informações sobre o cristal!"},
+            { speaker: "Sophia", text: "Perfeito. Obrigada pelas informações, Asimov.\nVamos continuar nossa missão." },
             { speaker: "Asimov", text: "Objetivo atualizado: encontrar a porta correta do laboratório." },
             {
                 speaker: "Sistema",
@@ -216,10 +209,10 @@ export class transicao1para2 extends Phaser.Scene {
     createDialogueUI() {
         const larguraJogo  = this.cameras.main.width;
         const alturaJogo   = this.cameras.main.height;
-        const larguraCaixa = 1000;
-        const alturaCaixa  = 180;
+        const larguraCaixa = 1300;
+        const alturaCaixa  = 220;
         const xCaixa = (larguraJogo - larguraCaixa) / 2;
-        const yCaixa = alturaJogo - alturaCaixa - 80;
+        const yCaixa = alturaJogo - alturaCaixa - 50;
 
         // -----------------------------------------------------------------------
         // HIERARQUIA DE DEPTH DA UI DE DIÁLOGO:
@@ -233,10 +226,10 @@ export class transicao1para2 extends Phaser.Scene {
 
         // Fundo escuro com borda ciano — depth 900
         this.caixaDialogo = this.add.graphics();
-        this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
+        this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
         this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-        this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
-        this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
+        this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
+        this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
         this.caixaDialogo.setScrollFactor(0).setDepth(900).setVisible(false);
         // ↑ CORREÇÃO: antes estava 1000, causando a caixa cobrir o texto (depth 101)
 
@@ -244,23 +237,23 @@ export class transicao1para2 extends Phaser.Scene {
         this.dialogueBoxRect = { x: xCaixa, y: yCaixa, width: larguraCaixa, height: alturaCaixa };
 
         // Nome do falante — depth 901 (na frente da caixa)
-        this.nameText = this.add.text(xCaixa + 12, yCaixa - 18, "", {
-            fontSize:        "32px",
-            fontFamily:      "'Courier New', Courier, monospace",
-            color:           "#00ffff",
-            fontStyle:       "bold",
+        this.nameText = this.add.text(xCaixa + 16, yCaixa - 28, "", {
+            fontSize:  "32px",
+            fontFamily: "'Courier New', Courier, monospace",
+            color:     "#00ffff",
+            fontStyle: "bold",
             backgroundColor: "#1a1a1a",
-            padding: { left: 6, right: 6, top: 2, bottom: 2 }
+            padding: { left: 8, right: 8, top: 3, bottom: 3 }
         }).setScrollFactor(0).setDepth(901).setVisible(false);
         // ↑ CORREÇÃO: antes estava 101 (atrás da caixa que era 1000)
 
         // Texto da fala — depth 902 (na frente da caixa)
-        this.textoDialogo = this.add.text(xCaixa + 16, yCaixa + 22, "", {
+        this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 30, "", {
             fontSize:    "32px",
             fontFamily:  "'Courier New', Courier, monospace",
             color:       "#ccffff",
-            wordWrap:    { width: larguraCaixa - 32 },
-            lineSpacing: 6,
+            wordWrap:    { width: larguraCaixa - 80 },
+            lineSpacing: 10,
         }).setScrollFactor(0).setDepth(902).setVisible(false);
         // ↑ CORREÇÃO: antes estava 101 (atrás da caixa que era 1000)
 

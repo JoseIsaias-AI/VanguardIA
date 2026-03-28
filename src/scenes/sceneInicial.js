@@ -34,9 +34,9 @@ export class sceneInicial extends Phaser.Scene {
         this.watson = this.add.sprite(larguraJogo - 300, alturaJogo - 250, "watson").setScale(20).setVisible(false);
         this.sophia = this.add.sprite(300, alturaJogo - 250, "sophia").setScale(18).setFlipX(true).setVisible(false);
 
-        // Caixa de Diálogo
+        // Caixa de Diálogo — altura aumentada para comportar duas linhas longas
         const larguraCaixa = 1300;
-        const alturaCaixa = 175; 
+        const alturaCaixa = 220;
         const xCaixa = (larguraJogo - larguraCaixa) / 2;
         const yCaixa = alturaJogo - alturaCaixa - 50;
 
@@ -47,16 +47,17 @@ export class sceneInicial extends Phaser.Scene {
         this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
         this.caixaDialogo.setDepth(1000).setVisible(false);
 
-        this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 35, "", {
-            fontSize: "28px",
+        // Fonte reduzida de 28px para 22px para caber o texto sem cortar
+        this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 30, "", {
+            fontSize: "32px",
             fontFamily: "'Courier New', Courier, monospace",
             color: "#ccffff",
             wordWrap: { width: larguraCaixa - 80 },
-            lineSpacing: 8,
+            lineSpacing: 10,
         }).setDepth(1001).setVisible(false);
 
         this.labelNome = this.add.text(xCaixa + 16, yCaixa - 28, "", {
-            fontSize: "22px",
+            fontSize: "32px",
             fontFamily: "'Courier New', Courier, monospace",
             color: "#00ffff",
             fontStyle: "bold",
@@ -126,7 +127,6 @@ export class sceneInicial extends Phaser.Scene {
         if (this.indiceDialogo < this.dialogos.length) {
             const falaAtual = this.dialogos[this.indiceDialogo];
             
-            // Lógica de sumir um e aparecer outro
             this.watson.setVisible(false);
             this.sophia.setVisible(false);
             falaAtual.personagem.setVisible(true);
@@ -158,14 +158,12 @@ export class sceneInicial extends Phaser.Scene {
     }
 
     gerenciarInteracao() {
-        // Se ainda estiver "digitando" o texto, completa ele instantaneamente
         if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
             this.timerEscrever.remove();
             this.textoDialogo.setText(this.textoAtualArmazenado);
             return;
         }
 
-        // Se o texto já acabou, pula para o próximo diálogo do array
         this.indiceDialogo++;
         this.proximoPasso();
     }
@@ -186,4 +184,4 @@ export class sceneInicial extends Phaser.Scene {
             this.scene.start("sceneLBPassado");
         });
     }
-} 
+}
