@@ -1,10 +1,15 @@
 import { registrarTeclaMenu } from "../menu.js";
+
+// Esta cena organiza toda a progressao da fase 2:
+// exploracao do mapa, dialogos com Asimov, mini game da rede neural,
+// liberacao do bau e transicao para a proxima cena.
 export class FaseDois extends Phaser.Scene { 
   constructor() {
     super("FaseDois");
   }
 
   preload() {
+    // Carrega os assets visuais e sonoros usados em todos os momentos da fase.
     this.load.image("portas", "assets/Fases/FaseDois/salaPortas.png");
     this.load.image("B1", "assets/Fases/FaseDois/binario1.png");
     this.load.image("B2", "assets/Fases/FaseDois/binario2.png");
@@ -33,9 +38,12 @@ export class FaseDois extends Phaser.Scene {
   }
 
   create() {
+    // Este array guarda objetos que pertencem ao mundo da fase.
+    // A camera de UI ignora tudo aqui para manter HUD e dialogos fixos na tela.
     this.worldObjects = [];
 
     // ── Mapa ─────────────────────────────────────────────────────────────────
+    // O fundo e quase invisivel para reforcar que a sala esta escura para Sophia.
     this.portas = this.add.image(0, 0, "portas").setOrigin(0, 0).setScale(3).setAlpha(0.1);
     this.worldObjects.push(this.portas);
 
@@ -44,6 +52,8 @@ export class FaseDois extends Phaser.Scene {
     this.physics.world.setBounds(0, 0, larguraMapa, alturaMapa);
 
     // ── Baú — invisível até o minigame terminar ───────────────────────────────
+    // O bau ja existe no mapa, mas comeca invisivel e sem colisao.
+    // Ele so e liberado depois que o mini game termina.
     this.bauAnimado = this.physics.add.staticSprite(880, 640, "bauAnimado").setScale(0.6);
     this.bauAnimado.body.setSize(60, 40);
     this.bauAnimado.body.setOffset(34, 70);
@@ -53,6 +63,7 @@ export class FaseDois extends Phaser.Scene {
     this.bauAnimado.setInteractive({ useHandCursor: true });
     this.worldObjects.push(this.bauAnimado);
 
+    // As animacoes globais do bau so sao criadas uma vez.
     if (!this.anims.exists("fechado")) {
       this.anims.create({
         key: "fechado",
@@ -69,6 +80,7 @@ export class FaseDois extends Phaser.Scene {
     this.bauAnimado.play("fechado");
 
     // ── Asimov ───────────────────────────────────────────────────────────────
+    // Asimov funciona como NPC fixo da fase e depois participa da cutscene.
     this.asimov = this.physics.add.sprite(this.portas.x + 480, this.portas.y + 340, "asimov")
       .setScale(3);
     this.asimov.body.setAllowGravity(false);
@@ -79,6 +91,7 @@ export class FaseDois extends Phaser.Scene {
     this.worldObjects.push(this.asimov);
 
     // ── Sophia ───────────────────────────────────────────────────────────────
+    // Sophia e o personagem controlado pelo jogador.
     this.sophia = this.physics.add.sprite(100, 500, "sophia").setScale(2);
     this.sophia.setCollideWorldBounds(true);
     this.sophia.body.setSize(22, 10, true);
@@ -89,6 +102,7 @@ export class FaseDois extends Phaser.Scene {
     this.physics.add.collider(this.sophia, this.asimov);
 
     // ALTERE AQUI: zoom padrao da exploracao na FaseDois.
+    // Parametros de camera centralizados para facilitar ajuste fino da cena.
     this.zoomExploracaoFaseDois = 2;
     // ALTERE AQUI: zoom usado quando a camera aproxima do bau na transicao final.
     this.zoomTransicaoBauFaseDois = 2;
@@ -99,6 +113,7 @@ export class FaseDois extends Phaser.Scene {
     this.scene.launch("bgMusic");
 
     // ── Paredes ───────────────────────────────────────────────────────────────
+    // As paredes sao retangulos invisiveis posicionados manualmente sobre a arte.
     this.walls = this.physics.add.staticGroup();
     const s = 3;
     [
@@ -124,7 +139,7 @@ export class FaseDois extends Phaser.Scene {
 
     // ── Controles ─────────────────────────────────────────────────────────────
     this.speed   = 150;
-    // Aqui, definimos os controles do personagem (Setas + WASD)
+    // Sophia aceita setas e WASD como controles de movimento.
     this.cursors = this.input.keyboard.createCursorKeys();
     this.keys    = this.input.keyboard.addKeys({
       W: Phaser.Input.Keyboard.KeyCodes.W,
@@ -135,6 +150,7 @@ export class FaseDois extends Phaser.Scene {
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     this.teclaE   = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
+    // Flags que travam ou liberam partes da logica conforme a cena avanca.
     this.pulando               = false;
     this.podeInteragirAsimov   = false;
     this.podeInteragirBau      = false;
@@ -169,10 +185,12 @@ export class FaseDois extends Phaser.Scene {
     this.cutsceneBauVelocidade = 120;
     this.cutsceneBauSophiaDelay = 200;
 
+    // Registra o atalho global de menu desta cena.
     registrarTeclaMenu(this);
     this.createAnimations();
 
     // ── Botão "Aperte E" ──────────────────────────────────────────────────────
+    // O mesmo indicador "Aperte E" e reutilizado para o Asimov e para o bau.
     this.containerTeclaAsimov = this.add.container(0, 0).setDepth(200);
     const icone = this.add.graphics();
     icone.fillStyle(0xffffff, 1);
@@ -191,6 +209,7 @@ export class FaseDois extends Phaser.Scene {
     });
 
     // ── UI Camera ─────────────────────────────────────────────────────────────
+    // Camera exclusiva da interface, usada por dialogos e overlays.
     const W = this.cameras.main.width;
     const H = this.cameras.main.height;
     this.uiCamera = this.cameras.add(0, 0, W, H);
@@ -206,6 +225,7 @@ export class FaseDois extends Phaser.Scene {
     this.dialogoLarguraTexto = larguraCaixa - 32;
     this.dialogoAlturaTexto = alturaCaixa - 24;
 
+    // Caixa de dialogo compartilhada por exploracao, mini game e cutscenes.
     this.caixaDialogo = this.add.graphics().setDepth(3000).setVisible(false);
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
     this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
@@ -231,6 +251,7 @@ export class FaseDois extends Phaser.Scene {
 
     this.cameras.main.ignore([this.caixaDialogo, this.textoDialogo, this.labelNome]);
 
+    // Alem da tecla E, o bau aceita clique quando estiver liberado.
     this.bauAnimado.on("pointerdown", () => {
       if (this.bauLiberadoParaSophia && !this.bauInteragido) {
         this.containerTeclaAsimov.setVisible(false);
@@ -243,7 +264,9 @@ export class FaseDois extends Phaser.Scene {
   //  ANIMAÇÕES
   // ═══════════════════════════════════════════════════════════════════════════
   createAnimations() {
-
+    // Define animacoes basicas dos personagens.
+    // Como as chaves de animacao vivem globalmente no Phaser, sempre verificamos
+    // se elas ja existem antes de criar novamente.
     if (!this.anims.exists("asimov_front")) {
       this.anims.create({ key: "asimov_front", frames: this.anims.generateFrameNumbers("asimov", { start: 0,  end: 1  }), frameRate: 4, repeat: -1 });
       this.anims.create({ key: "asimov_back",  frames: this.anims.generateFrameNumbers("asimov", { start: 7,  end: 9  }), frameRate: 4, repeat: -1 });
@@ -260,6 +283,8 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _ajustarTextoDialogo(textoCompleto) {
+    // Tenta encaixar a fala dentro da caixa reduzindo a fonte aos poucos.
+    // Isso evita overflow quando o texto e grande.
     const tamanhos = [32, 30, 28, 26, 24, 22, 20];
 
     for (const tamanho of tamanhos) {
@@ -294,6 +319,7 @@ export class FaseDois extends Phaser.Scene {
   //  UPDATE
   // ═══════════════════════════════════════════════════════════════════════════
   _atualizarAnimacaoSophiaDuranteMovimento(dx, dy) {
+    // Escolhe a direcao com base no eixo dominante do deslocamento.
     if (Math.abs(dx) >= Math.abs(dy)) {
       this.sophia.anims.play(dx < 0 ? "sophia-left" : "sophia-right", true);
       return;
@@ -303,6 +329,8 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _moverSpriteComAnimacao(sprite, destinoX, destinoY, velocidade, aoConcluir) {
+    // Helper de cutscene:
+    // move um sprite em linha reta e mantem a animacao coerente com a direcao.
     const posicaoInicialX = sprite.x;
     const posicaoInicialY = sprite.y;
     const distancia = Phaser.Math.Distance.Between(posicaoInicialX, posicaoInicialY, destinoX, destinoY);
@@ -335,6 +363,8 @@ export class FaseDois extends Phaser.Scene {
         }
       },
       onUpdate: () => {
+        // Para Sophia, recalculamos a direcao durante o tween.
+        // Isso deixa a animacao mais natural em trajetos curtos.
         const dx = sprite.x - ultimoX;
         const dy = sprite.y - ultimoY;
 
@@ -346,6 +376,7 @@ export class FaseDois extends Phaser.Scene {
         ultimoY = sprite.y;
       },
       onComplete: () => {
+        // Quando o movimento termina, o sprite volta para o frame parado.
         sprite.anims.stop();
 
         if (sprite === this.asimov) {
@@ -363,6 +394,10 @@ export class FaseDois extends Phaser.Scene {
   }
 
   update() {
+    // Ordem de prioridade do update:
+    // 1. Se o mini game estiver ativo, a exploracao fica congelada.
+    // 2. Se houver dialogo aberto, Sophia para e "E" avanca a fala.
+    // 3. So depois disso processamos movimento e interacoes do mapa.
     if (this.miniGameAtivo) {
       this.sophia.setVelocity(0, 0);
       this.sophia.anims.stop();
@@ -377,6 +412,7 @@ export class FaseDois extends Phaser.Scene {
     }
 
     // ── Movimento de Sophia ───────────────────────────────────────────────────
+    // Movimento livre da Sophia durante a exploracao.
     let vx = 0, vy = 0;
     if      (this.cursors.left.isDown  || this.keys.A.isDown) { vx = -this.speed; this.sophia.anims.play("sophia-left",  true); }
     else if (this.cursors.right.isDown || this.keys.D.isDown) { vx =  this.speed; this.sophia.anims.play("sophia-right", true); }
@@ -387,6 +423,7 @@ export class FaseDois extends Phaser.Scene {
     this.sophia.body.velocity.normalize().scale(this.speed);
     if (vx === 0 && vy === 0) { this.sophia.anims.stop(); this.sophia.setFrame(0); }
 
+    // O pulo e apenas visual: um tween curto no eixo Y.
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
       this.pulando = true;
       const yi = this.sophia.y;
@@ -400,6 +437,7 @@ export class FaseDois extends Phaser.Scene {
     this.asimov.setDepth(this.asimov.y);
 
     // ── Interação com Asimov — apenas uma vez ─────────────────────────────────
+    // O indicador de interacao com Asimov so aparece antes do primeiro dialogo.
     if (!this.dialogoAsimovJaIniciado) {
       const dist = Phaser.Math.Distance.Between(
         this.sophia.x, this.sophia.y, this.asimov.x, this.asimov.y
@@ -421,6 +459,7 @@ export class FaseDois extends Phaser.Scene {
     }
 
     // ── Interação com o baú — só após cutscene completa ──────────────────────
+    // O bau entra no loop de interacao apenas depois da cutscene do mini game.
     if (this.bauLiberadoParaSophia && !this.bauInteragido) {
       const distBau = Phaser.Math.Distance.Between(
         this.sophia.x, this.sophia.y, this.bauAnimado.x, this.bauAnimado.y
@@ -445,6 +484,8 @@ export class FaseDois extends Phaser.Scene {
   //  DIÁLOGO DO ASIMOV — usa sistema normal (update fecha via JustDown)
   // ═══════════════════════════════════════════════════════════════════════════
   _iniciarDialogoAsimov() {
+    // O dialogo inicial e armazenado como lista de falas.
+    // fecharMensagem() percorre esse array uma fala por vez.
     this.dialogoAsimov = [
       { texto: "Chegamos, Sophia. Essa é a sala com 3 portas.", falante: "Asimov" },
       { texto: "Asimov… está tudo escuro para mim. Só consigo enxergar seu olho brilhando.", falante: "Sophia" },
@@ -462,6 +503,8 @@ export class FaseDois extends Phaser.Scene {
   //  DIÁLOGO NORMAL
   // ═══════════════════════════════════════════════════════════════════════════
   mostrarMensagem(textoCompleto, nome = "") {
+    // Sistema padrao de dialogo da exploracao:
+    // abre a caixa, mostra o nome do falante e escreve o texto aos poucos.
     this.lendoMensagem = true;
     this.caixaDialogo.setVisible(true);
     this._ajustarTextoDialogo(textoCompleto);
@@ -480,12 +523,14 @@ export class FaseDois extends Phaser.Scene {
   }
 
   fecharMensagem() {
+    // Sequencias especiais podem substituir temporariamente o fechamento padrao.
     // Delega para override quando a sequência do baú estiver ativa
     if (this._fecharMensagemOverride) {
       this._fecharMensagemOverride();
       return;
     }
 
+    // Primeiro aperto termina o efeito de digitacao, sem fechar a mensagem.
     if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
       this.timerEscrever.remove();
       this.textoDialogo.setText(this.textoAtualArmazenado);
@@ -497,6 +542,7 @@ export class FaseDois extends Phaser.Scene {
     this.textoDialogo.setVisible(false).setText("");
     this.labelNome.setVisible(false);
 
+    // Quando a conversa inicial acaba, a cena muda para o mini game.
     if (this.falando_asimov) {
       this.dialogoAsimovIndex++;
       if (this.dialogoAsimovIndex < this.dialogoAsimov.length) {
@@ -513,6 +559,8 @@ export class FaseDois extends Phaser.Scene {
   //  HELPER — Diálogo dentro do mini-game (listener próprio, não usa update)
   // ═══════════════════════════════════════════════════════════════════════════
   _mgDialogo(texto, falante, callback) {
+    // Versao do dialogo usada dentro do mini game.
+    // Ela nao depende do update e gerencia seu proprio listener da tecla E.
     this.caixaDialogo.setVisible(true);
     this._ajustarTextoDialogo(texto);
     this.textoDialogo.setVisible(true).setText("");
@@ -535,6 +583,7 @@ export class FaseDois extends Phaser.Scene {
     });
 
     // Remove qualquer listener anterior antes de adicionar um novo
+    // Evita empilhar varios callbacks na mesma tecla E.
     if (this._mgListenerE) {
       this.teclaE.off("down", this._mgListenerE);
       this._mgListenerE = null;
@@ -564,6 +613,7 @@ export class FaseDois extends Phaser.Scene {
   //  MINI-GAME — INICIAR
   // ═══════════════════════════════════════════════════════════════════════════
   iniciarMiniGame() {
+    // A exploracao congela e a cena vira uma interface didatica por cima do mapa.
     this.miniGameAtivo = true;
 
     // Troca para música de fases
@@ -576,6 +626,7 @@ export class FaseDois extends Phaser.Scene {
     const W = this.cameras.main.width;
     const H = this.cameras.main.height;
 
+    // Overlay escuro para esconder temporariamente o mapa da sala.
     this.mgOverlay = this.add.graphics()
       .fillStyle(0x000000, 0.92)
       .fillRect(0, 0, W, H)
@@ -600,6 +651,7 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _escalaRede(W, H) {
+    // Escala responsiva para a sprite da rede caber em diferentes resolucoes.
     return Math.min((W * 0.88) / 320, (H * 0.80) / 320);
   }
 
@@ -607,6 +659,7 @@ export class FaseDois extends Phaser.Scene {
   //  FASE 1 — Arrastar binários
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_fase1_dialogo() {
+    // Apresenta a metafora das entradas da rede usando os binarios da fase 1.
     this.mgRede.anims.stop();
     this.mgRede.setFrame(0);
 
@@ -618,6 +671,7 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _mg_fase1_interativo() {
+    // Etapa 1: arrastar os tres binarios ate seus neuronios de entrada.
     const W = this.cameras.main.width;
     const H = this.cameras.main.height;
 
@@ -633,6 +687,7 @@ export class FaseDois extends Phaser.Scene {
     ];
     const raioAlvo = 14 * escala;
 
+    // Cada acerto avanca um frame da rede para mostrar progresso visual.
     const spritesPorDeposito = [1, 2, 3];
 
     const binariosConfig = [
@@ -641,6 +696,7 @@ export class FaseDois extends Phaser.Scene {
       { key: "B3", oriX: W * 0.08, oriY: H * 0.70, alvo: 2 },
     ];
 
+    // Cria as zonas-alvo com um marcador visual e um estado logico.
     this.mgZonasFase1 = entradaYs.map((ey, idx) => {
       const g = this.add.graphics().setDepth(2008);
       g.lineStyle(2, 0x00ffff, 0.55);
@@ -668,6 +724,7 @@ export class FaseDois extends Phaser.Scene {
       this.mgBinarios.push({ img, oriX: cfg.oriX, oriY: cfg.oriY, alvo: cfg.alvo, encaixado: false });
     });
 
+    // Enquanto o objeto nao foi encaixado, ele segue o cursor normalmente.
     this.input.on("drag", (_p, obj, dx, dy) => {
       const bin = this.mgBinarios.find(b => b.img === obj);
       if (bin && !bin.encaixado) { obj.x = dx; obj.y = dy; }
@@ -680,6 +737,7 @@ export class FaseDois extends Phaser.Scene {
       const zona = this.mgZonasFase1[bin.alvo];
       const dist = Phaser.Math.Distance.Between(obj.x, obj.y, zona.x, zona.y);
 
+      // A folga extra no raio deixa o encaixe mais amigavel para o jogador.
       if (!zona.ativo && dist <= zona.raio + 26) {
         bin.encaixado = true;
         zona.ativo    = true;
@@ -697,6 +755,7 @@ export class FaseDois extends Phaser.Scene {
 
         obj.disableInteractive();
 
+        // Atualiza o frame da rede de acordo com quantas entradas ja foram ligadas.
         const spriteAlvo = spritesPorDeposito[this.mgEntradaAtivadas - 1];
         this.mgRede.setFrame(spriteAlvo);
 
@@ -707,6 +766,7 @@ export class FaseDois extends Phaser.Scene {
         }
 
       } else {
+        // Se o jogador errar, o binario volta para a origem e a zona pisca em vermelho.
         this.tweens.add({ targets: obj, x: bin.oriX, y: bin.oriY, duration: 220, ease: "Sine.easeOut" });
 
         zona.g.clear();
@@ -724,6 +784,7 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _mg_fase1_concluida() {
+    // Limpa os elementos da fase 1 antes de abrir a etapa seguinte.
     this.mgBinarios.forEach(b => b.img.destroy());
     this.mgZonasFase1.forEach(z => { z.g.destroy(); z.label.destroy(); });
     this.mgRede.setFrame(3);
@@ -739,6 +800,7 @@ export class FaseDois extends Phaser.Scene {
   //  FASE 2 — Clicar nos 12 neurônios
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_fase2_interativo() {
+    // Etapa 2: ativar manualmente os 12 neuronios das camadas centrais.
     const W = this.cameras.main.width;
     const H = this.cameras.main.height;
 
@@ -763,6 +825,7 @@ export class FaseDois extends Phaser.Scene {
     const raio = 14 * escala;
     this.mgBtnsDensa = [];
 
+    // Helper que cria uma coluna de 6 neuronios clicaveis.
     const criarNeuronios = (xPos) => {
       densaYs.forEach((dy) => {
         const g = this.add.graphics().setDepth(2015);
@@ -775,6 +838,7 @@ export class FaseDois extends Phaser.Scene {
         this.cameras.main.ignore(zona);
 
         zona.once("pointerdown", () => {
+          // once() garante que cada neuronio so conte uma unica vez.
           if (zona._ativado) return;
           zona._ativado = true;
           this.mgDensaAtivados++;
@@ -786,6 +850,7 @@ export class FaseDois extends Phaser.Scene {
           g.strokeCircle(xPos, dy, raio);
           this.tweens.add({ targets: g, alpha: 0.35, duration: 180, yoyo: true, repeat: 2 });
 
+          // Cada clique energiza um pouco mais a rede na animacao.
           this.mgFrameAtual = Math.min(this.mgFrameAtual + 1, 16);
           this.mgRede.setFrame(this.mgFrameAtual);
 
@@ -804,6 +869,7 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _mg_fase2_concluida() {
+    // Encerrada a parte manual, o Asimov explica a ideia de treinamento.
     this.mgRede.setFrame(16);
 
     this._mgDialogo(
@@ -817,6 +883,7 @@ export class FaseDois extends Phaser.Scene {
   //  FASE 3 — Treinamento
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_fase3_epocas() {
+    // Etapa 3: a rede "treina sozinha" em varias epocas consecutivas.
     this.mgBtnsDensa.forEach(b => { b.g.destroy(); b.zona.destroy(); });
 
     const W = this.cameras.main.width;
@@ -838,6 +905,7 @@ export class FaseDois extends Phaser.Scene {
     let epocaAtual = 0;
     let frameLocal = 0;
 
+    // Cada tick avanca um frame; ao completar o ciclo, conta uma epoca.
     const tick = () => {
       this.mgRede.setFrame(frameInicio + frameLocal);
       frameLocal++;
@@ -859,6 +927,7 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _mg_fase3_resultado() {
+    // O frame 18 representa o estado em que algo deu errado na saida da rede.
     this.mgRede.anims.stop();
     this.mgRede.setFrame(18);
 
@@ -880,6 +949,7 @@ export class FaseDois extends Phaser.Scene {
   //  VÁLVULA
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_valvula() {
+    // Mini desafio extra: girar a valvula para "destravar" a rede.
     const W = this.cameras.main.width;
     const H = this.cameras.main.height;
 
@@ -906,6 +976,7 @@ export class FaseDois extends Phaser.Scene {
       targets: this.mgTextoValvula, alpha: 0.15, duration: 650, yoyo: true, repeat: -1,
     });
 
+    // O clique dispara a animacao da valvula frame a frame.
     this.mgValvula.once("pointerdown", () => {
       if (this.tweenValvulaTexto) this.tweenValvulaTexto.stop();
       this.mgTextoValvula.setAlpha(0.6).setText("Girando…");
@@ -928,6 +999,7 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _mg_valvula_concluida() {
+    // Apos a valvula, a rede reaparece no estado corrigido.
     this.tweens.add({
       targets: [this.mgValvula, this.mgTextoValvula], alpha: 0, duration: 350,
       onComplete: () => {
@@ -947,6 +1019,7 @@ export class FaseDois extends Phaser.Scene {
   //  DIÁLOGO FINAL DO MINIGAME
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_dialogo_final() {
+    // Fecha a narrativa do mini game antes de devolver o jogador ao mapa.
     this._mgDialogo(
       "FUNCIONOU! Olha só o neurônio de saída correto acendeu! Meu cérebro aprendeu qual porta é a certa. Vamos, Sophia eu sei o caminho!",
       "Asimov",
@@ -964,6 +1037,7 @@ export class FaseDois extends Phaser.Scene {
       this._mgListenerE = null;
     }
 
+    // Limpa a interface criada exclusivamente para o mini game.
     this.mgOverlay.destroy();
     this.mgRede.destroy();
     this.mgTextoE.destroy();
@@ -976,6 +1050,7 @@ export class FaseDois extends Phaser.Scene {
     this.scene.launch("bgMusic");
 
     // Revela o baú com brilho pulsante
+    // O bau passa a existir de fato na cena e ganha destaque visual.
     this.bauAnimado.setVisible(true);
     this.bauAnimado.setAlpha(1);
     this.bauAnimado.body.enable = true;
@@ -1003,6 +1078,7 @@ export class FaseDois extends Phaser.Scene {
   //  CUTSCENE — Asimov para 100px acima do baú; Sophia segue ao lado
   // ═══════════════════════════════════════════════════════════════════════════
   _cutscene_bau_fade() {
+    // Versao usada hoje: escurece a tela, reposiciona personagens e revela o bau.
     const bauX = this.bauAnimado.x;
     const bauY = this.bauAnimado.y;
 
@@ -1013,6 +1089,7 @@ export class FaseDois extends Phaser.Scene {
     const sophiaDestinoFinalX = asimovDestinoFinalX + this.cutsceneBauSophiaOffsetX;
     const sophiaDestinoFinalY = asimovDestinoFinalY + this.cutsceneBauSophiaOffsetY;
 
+    // Overlay preto fixo na camera para a troca de enquadramento da cutscene.
     const fadePreto = this.add.rectangle(
       0,
       0,
@@ -1034,6 +1111,7 @@ export class FaseDois extends Phaser.Scene {
       alpha: 1,
       duration: this.cutsceneBauDuracaoFade,
       onComplete: () => {
+        // Reposiciona tudo enquanto a tela esta completamente preta.
         this.asimov.setPosition(asimovDestinoFinalX, asimovDestinoFinalY);
         this.sophia.setPosition(sophiaDestinoFinalX, sophiaDestinoFinalY);
         this.asimov.setFrame(0).setFlipX(false);
@@ -1063,6 +1141,8 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _cutscene_bau() {
+    // Metodo antigo da cutscene, mantido como referencia.
+    // Hoje a cena usa _cutscene_bau_fade() para ter um resultado mais previsivel.
     const bauX = this.bauAnimado.x;
     const bauY = this.bauAnimado.y;
 
@@ -1094,6 +1174,7 @@ export class FaseDois extends Phaser.Scene {
       );
     });
 
+    // O bloco abaixo ficou como rascunho antigo e nao executa por causa deste return.
     return;
 
     if (Math.abs(dxA) >= Math.abs(dyA)) {
@@ -1138,6 +1219,7 @@ export class FaseDois extends Phaser.Scene {
   //  CUTSCENE — Asimov fala; libera Sophia para ir ao baú
   // ═══════════════════════════════════════════════════════════════════════════
   _cutscene_dialogo_asimov(aoConcluir) {
+    // Reaproveita o dialogo do mini game para nao depender do update.
     // Usa _mgDialogo (tem listener próprio, não interfere no update)
     this._mgDialogo(
       "Sophia, agora eu sei qual é a porta correta. A pista que precisamos está naquele baú na sala ao lado. Vá até ele que estamos no caminho certo.",
@@ -1152,12 +1234,14 @@ export class FaseDois extends Phaser.Scene {
   //  INTERAÇÃO COM O BAÚ — Sophia abre e vai pra fase 3
   // ═══════════════════════════════════════════════════════════════════════════
   _cutscene_interagir_bau() {
+    // Interacao final: Sophia abre o bau, le a pista e a fase termina.
     this.bauInteragido = true;
     this.miniGameAtivo = true;
     this.sophia.setVelocity(0, 0);
     this.bauAnimado.play("abrindo");
 
     this.time.delayedCall(600, () => {
+      // A fala do bau e curta e funciona como confirmacao da pista encontrada.
       this.mostrarMensagem("Achei imagens de cristais...", "Sophia");
 
       this.time.delayedCall(900, () => {
@@ -1175,6 +1259,7 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _transicao_para_chaocaindo() {
+    // Faz o fechamento cinematografico da fase antes de trocar de cena.
     const overlay = this.add.rectangle(0, 0, 1920, 1080, 0x000000, 0)
       .setOrigin(0, 0)
       .setDepth(5000)
@@ -1209,7 +1294,3 @@ export class FaseDois extends Phaser.Scene {
     });
   }
 }
-
-
-
-

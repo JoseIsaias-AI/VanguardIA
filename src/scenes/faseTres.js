@@ -254,7 +254,7 @@ export class faseTres extends Phaser.Scene {
     this.criarUIDialogo();
     this.configurarCameraUI();
     this.mostrarDialogoInicial(
-      "Sophia, o chÃ£o estava muito velho e vocÃª acabou caindo. Preciso que voce suba e colete apenas as imagens dos cristais azuis.",
+      "Sophia, o chão estava muito velho e você acabou caindo. Preciso que você suba e colete apenas as imagens dos cristais azuis.",
       "Asimov"
     );
   }
