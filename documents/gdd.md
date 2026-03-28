@@ -1036,9 +1036,11 @@ $$
 
 # 3.8.6 Código — Implementação em Phaser 3 com JavaScript
 
---> adicionar isso
+Para acesso ao código direto para a linha do console.log da posição X, somente realizar o acesso a este link: https://git.inteli.edu.br/graduacao/2026-1a/t29/g03/-/blob/main/src/scenes/faseTres.js?ref_type=heads#L43
 
+Para acesso ao código direto para a linha do console.log da posição Y, somente realizar o acesso a este link: https://git.inteli.edu.br/graduacao/2026-1a/t29/g03/-/blob/main/src/scenes/faseTres.js?ref_type=heads#L48
 
+Para acesso ao código direto para a linha do inicio da função de matemática/física da bolinha, somente realizar o acesso a este link:https://git.inteli.edu.br/graduacao/2026-1a/t29/g03/-/blob/main/src/scenes/faseTres.js?ref_type=heads#L5
 
 ## 3.8.7 Tabela de Validação
 
