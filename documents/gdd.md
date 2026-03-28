@@ -1048,11 +1048,6 @@ $$
 Para garantir que a movimentação e a gravidade no jogo funcionem de maneira fluida e precisa, a lógica de programação foi estruturada com rigor científico. A modelagem matemática das equações de Movimento Uniforme (MU) e Movimento Uniformemente Variado (MUV) aplicadas ao motor gráfico foi baseada na obra Fundamentos de Física: Mecânica (HALLIDAY; RESNICK; WALKER, 2016)¹². Além disso, o suporte conceitual para a mecânica bidimensional e o cálculo exato de trajetórias parabólicas, como o tempo de voo e o impulso dos pulos, fundamentou-se no Curso de Física Básica: Mecânica (NUSSENZVEIG, 2013)¹³.
 
 
-# Fontes --> colocar no lugar certo
-
-1. HALLIDAY, D.; RESNICK, R.; WALKER, J. *Fundamentos de Física — Mecânica.* Vol. 1, cap. 4. LTC, 10ª ed., 2016. — Base para as equações de MU e MUV.
-2. NUSSENZVEIG, H. M. *Curso de Física Básica — Mecânica.* Vol. 1, cap. 3. Blucher, 5ª ed., 2013.
-
 # <a name="c4"></a>4. Desenvolvimento do Jogo
 
 ## 4.1. Desenvolvimento preliminar do jogo (sprint 1)
