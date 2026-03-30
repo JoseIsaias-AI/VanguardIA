@@ -112,7 +112,7 @@ export class FaseDoischao extends Phaser.Scene {
         frames: this.anims.generateFrameNumbers("sophiaCaindo", { start: 0, end: 35 }),
         frameRate: 10,
         repeat: 0,
-      });
+      })
     }
 
     // Cria a interface de diálogo usada depois da animação.
