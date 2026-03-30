@@ -10,7 +10,7 @@ import { FaseDois } from "./src/scenes/FaseDois.js";
 import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js";
 import { transicao1para2 } from "./src/scenes/transicao1para2.js";
 import { faseTres } from "./src/scenes/faseTres.js";
-import { FaseDoischao } from "./src/scenes/ChãoCaindo.js";
+import { FaseDoischao } from "./src/scenes/ChaoCaindo.js";
 import { faseQuatro } from "./src/scenes/faseQuatro.js";
 import { faseCinco } from "./src/scenes/faseCinco.js";
 import { menu } from "./src/menu.js";
