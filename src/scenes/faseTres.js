@@ -153,7 +153,7 @@ export class faseTres extends Phaser.Scene {
     this.plataformaMovel2.setSize(160, 60);
     this.plataformaMovel2.setOffset(10, 98);
 
-    //Aqui, criamos a plataforma que se moverÃ¡ na horizontal
+    //Aqui, criamos a plataforma que se moverão na horizontal
     this.plataformaHorizontal = this.plataformasMoveis.create(900, 480, "plataformaMovel");
     this.plataformaHorizontal.setScale(0.4);
     this.plataformaHorizontal.body.setAllowGravity(false);
@@ -251,6 +251,12 @@ export class faseTres extends Phaser.Scene {
     this.subindoCorda = false;
     this.physics.add.overlap(this.player, this.corda, this.ativarCorda, null, this);
 
+   //Aqui, criamos variáveis que vamos usar no diálogo final
+   this.resultadoFaseAtivo = false;
+   this.tipoResultado = null; 
+   
+   
+    //Aqui, criamos o diálogo inicial
     this.criarUIDialogo();
     this.configurarCameraUI();
     this.mostrarDialogoInicial(
@@ -363,8 +369,20 @@ export class faseTres extends Phaser.Scene {
           x: alvoX,
           duration: 1000,
           onComplete: () => {
-            this.scene.start("scenePreFase4");
-          }
+
+          // Verifica se coletou cristais falsos
+          if (this.contadorFalsos > 0) {
+           this.tipoResultado = "erro";
+          this.mostrarDialogoInicial(
+           "Você coletou imagens de cristais falsos, assim, meu sistema treinará com informações falsas e não conseguiremos fabricar o cristal verdadeiro.",
+           "Asimov" );}
+          else {
+           this.tipoResultado = "sucesso";
+          this.mostrarDialogoInicial(
+           "Boa, você coletou apenas imagens de cristais verdadeiros, isso é muito importante para evitar que meu sistema seja treinado com informações falsas!",
+           "Asimov");}
+          this.resultadoFaseAtivo = true;
+}
         });
       }
     });
@@ -413,13 +431,29 @@ createAnimations() {
 
 update() {
 
+  //Aqui, adicionamos as interações aos diálogos inicial e final
   if (this.dialogoInicialAtivo) {
-    this.player.setVelocity(0);
-    if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      this.fecharDialogoInicial();
+  this.player.setVelocity(0);
+  this.player.anims.stop();
+  this.player.setFrame(0);
+
+
+  if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+
+    this.fecharDialogoInicial();
+
+    // Aqui, adicionamos os dois possíveis finais da fase
+    if (this.resultadoFaseAtivo) {
+     this.resultadoFaseAtivo = false;
+     if (this.tipoResultado === "erro") {
+      this.scene.restart(); //Aqui, reiniciamos a fase
+       } else {
+        this.scene.start("scenePreFase4"); // Aqui, avançamos para a próxima fase
+      }
     }
-    return;
   }
+  return;
+}
 
   //Aqui, bloqueamos os controles do personagem durante a subida da corda
   if (this.subindoCorda) {
