@@ -6,6 +6,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     super("sceneLBFuturo");
   }
 
+  // Carrega os assets usados na cutscene e no laboratório futuro.
   preload() {
     this.load.image("CFuturo", "assets/fases/sceneLBPassado/labDestruido.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", {frameWidth: 64, frameHeight: 64,});
@@ -31,6 +32,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.load.image("camara", "assets/objetos/sceneLBPassado/partOne/camara.png");
   }
 
+  // Prepara a cena e inicia a cutscene de abertura.
   create() {
     registrarTeclaMenu(this);
 
@@ -47,6 +49,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.videoDaFase();
   }
 
+  // Exibe o vídeo introdutório antes de liberar a exploração.
   videoDaFase() {
     this.cutscene = this.add.video(950, 550, "cutscene2");
     this.cutscene.setScale(1.05);
@@ -66,15 +69,18 @@ export class sceneLBFuturo extends Phaser.Scene {
     });
   }
 
+  // Monta o mapa, personagens, colisões e interface de diálogo.
   iniciarFase() {
     this.scaleMapa = 3;
     this.progressoHistoria = 0;
     this.lendoMensagem = false;
     this.animacaoSaidaAtiva = false;
 
+    // Adiciona a imagem de fundo principal da cena.
     // MAPA FUTURO
     this.mapa = this.add.image(600, 400, "CFuturo").setScale(this.scaleMapa).setDepth(-1);
 
+    // Cria limites invisíveis para a área jogável.
     // paredes
     let larguraParede = this.mapa.displayWidth;
     let alturaParede = 720;
@@ -100,6 +106,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.physics.add.existing(paredeDireita, true);
     this.paredes.add(paredeDireita);
 
+    // Posiciona os elementos visuais do cenário.
     // adicionando os objetos
     this.armarioD = this.add.image(220, 10, "armarioD").setScale(3.25);
     this.armarioD2 = this.add.image(980, 10, "armarioD").setScale(3.25);
@@ -122,6 +129,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.comutador4Dprt2 = this.add.image(812, 450, "comptBaixoD").setScale(3);
     this.camara = this.physics.add.staticImage(600, 20, "camara").setScale(0.25).refreshBody();
 
+    // Ativa colisão nos objetos que devem bloquear passagem.
     // colisoes dos objetos
     this.criarColisao(this.armarioD);
     this.criarColisao(this.armarioD2);
@@ -140,6 +148,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.criarColisao(this.comutador4Dprt2);
     this.criarColisao(this.camara);
 
+    // Ajusta a profundidade dos objetos com base na posição vertical.
     // depth sorting por Y
     [
       this.armarioD, this.armarioD2,
@@ -156,6 +165,7 @@ export class sceneLBFuturo extends Phaser.Scene {
       obj.setDepth(obj.y);
     });
 
+    // Cria a personagem controlada pelo jogador.
     // PLAYER
     this.sophia = this.physics.add
       .sprite(600, 100, "sophia")
@@ -168,6 +178,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.physics.add.collider(this.sophia, this.paredes);
     this.physics.add.collider(this.sophia, this.objetosColisao);
 
+    // Cria o NPC principal da cena.
     // ASIMOV (NPC)
     this.asimov = this.physics.add
       .sprite(600, 300, "asimov")
@@ -183,10 +194,13 @@ export class sceneLBFuturo extends Phaser.Scene {
 
     this.asimov.play("asimov_frente");
 
+    // Inicializa os estados usados durante a interação com o NPC.
     // variaveis de interacao
     this.podeInteragirAsimov = false;
     this.dialogoAsimovJaIniciado = false;
+    this.falandoAsimov = false;
 
+    // Monta o indicador visual de interação com a tecla E.
     // icone da tecla E (asimov)
     this.containerTeclaAsimov = this.add.container(0, 0).setDepth(200);
 
@@ -219,6 +233,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     });
 
     // Caixa de diálogo
+    // Cria a interface usada para exibir as falas.
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
     const larguraCaixa = 1300;
@@ -246,6 +261,7 @@ export class sceneLBFuturo extends Phaser.Scene {
       .setVisible(false);
 
     // Label do nome do falante — aparece acima da borda esquerda da caixa
+    // Exibe o nome do personagem que está falando.
     this.labelNome = this.add
       .text(xCaixa + 16, yCaixa - 28, "", {
         fontSize: "32px",
@@ -259,6 +275,7 @@ export class sceneLBFuturo extends Phaser.Scene {
       .setDepth(1002)
       .setVisible(false);
 
+    // Ativa animações, controles e câmera principal.
     criarAnimacaoSophia(this);
     registrarControles(this);
 
@@ -266,9 +283,11 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.cameras.main.fadeIn(1000);
   }
 
+  // Atualiza movimento, interação e estado da cena a cada frame.
   update() {
     if (!this.sophia) return;
 
+    // Enquanto o diálogo está aberto, a Sophia fica parada.
     if (this.lendoMensagem) {
       this.sophia.setVelocity(0, 0);
       this.sophia.anims.stop();
@@ -278,12 +297,14 @@ export class sceneLBFuturo extends Phaser.Scene {
       return;
     }
 
+    // Durante a saída final, mantém só o depth dos personagens.
     if (this.animacaoSaidaAtiva) {
       this.sophia.setDepth(this.sophia.y);
       this.asimov.setDepth(this.asimov.y);
       return;
     }
 
+    // Aplica movimentação livre da Sophia.
     movimentacaoSophia(this, this.sophia, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" });
     puloSophia(this, this.sophia);
 
@@ -294,6 +315,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.sophia.setDepth(this.sophia.y);
     this.asimov.setDepth(this.asimov.y);
 
+    // Mede a distância até o Asimov para decidir se mostra a interação.
     // distancia ate o asimov
     let distanciaAsimov = Phaser.Math.Distance.Between(
       this.sophia.x,
@@ -302,6 +324,7 @@ export class sceneLBFuturo extends Phaser.Scene {
       this.asimov.y,
     );
 
+    // Mostra ou esconde o aviso de interação.
     // MOSTRAR ICONE E - ASIMOV
     if (!this.dialogoAsimovJaIniciado && distanciaAsimov < 120) {
       this.podeInteragirAsimov = true;
@@ -312,12 +335,13 @@ export class sceneLBFuturo extends Phaser.Scene {
       this.containerTeclaAsimov.setVisible(false);
     }
 
+    // Inicia o diálogo quando o jogador confirma a interação.
     if (this.podeInteragirAsimov && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
       this.containerTeclaAsimov.setVisible(true); // Oculta o ícone "Aperte E"
       this.dialogoAsimovJaIniciado = true;
       this.containerTeclaAsimov.setVisible(false);
       this.tweens.killTweensOf(this.containerTeclaAsimov);
-      this.falando_asimov = true;
+      this.falandoAsimov = true;
       this.dialogoAsimovIndex = 0;
 
       // array com as falas
@@ -345,6 +369,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     }
   }
 
+  // Avança para a próxima fala ou encerra o diálogo.
   proximaFala() {
     if (this.dialogoAsimovIndex < this.dialogosFase.length) {
       const fala = this.dialogosFase[this.dialogoAsimovIndex];
@@ -356,12 +381,12 @@ export class sceneLBFuturo extends Phaser.Scene {
       this.caixaDialogo.setVisible(false);
       this.textoDialogo.setVisible(false);
       this.labelNome.setVisible(false);
-      this.falando_asimov = false;
+      this.falandoAsimov = false;
       this.iniciarAnimacaoFinal();
     }
   }
 
-  // nome: string com o nome do falante (ex: "Sophia", "Asimov", "SISTEMA")
+  // Exibe uma fala com efeito de digitação.
   mostrarMensagem(textoCompleto, nome = "") {
     this.lendoMensagem = true;
     this.caixaDialogo.setVisible(true);
@@ -369,7 +394,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.textoDialogo.setText("");
     this.textoAtualArmazenado = textoCompleto;
 
-    // Atualiza e exibe o label do nome
+    // Atualiza o nome mostrado acima da caixa de diálogo.
     if (nome && nome.trim() !== "") {
       this.labelNome.setText(nome);
       this.labelNome.setVisible(true);
@@ -377,6 +402,7 @@ export class sceneLBFuturo extends Phaser.Scene {
       this.labelNome.setVisible(false);
     }
 
+    // Escreve o texto gradualmente.
     let letraAtual = 0;
     if (this.timerEscrever) this.timerEscrever.remove();
 
@@ -390,19 +416,22 @@ export class sceneLBFuturo extends Phaser.Scene {
     });
   }
 
+  // Fecha a mensagem atual ou avança para a próxima fala.
   fecharMensagem() {
     if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
+      // Se o texto ainda está sendo digitado, revela tudo de uma vez.
       this.timerEscrever.remove();
       this.textoDialogo.setText(this.textoAtualArmazenado);
       return;
     }
 
-    if (this.falando_asimov) {
+    if (this.falandoAsimov) {
       this.dialogoAsimovIndex++;
       this.proximaFala();
     }
   }
 
+  // Método antigo que move apenas o Asimov ao fim da cena.
   animacaoFinalAsimov() {
       // toca a animação de andar para baixo
       this.asimov.play("asimov_frente", true);
@@ -418,6 +447,7 @@ export class sceneLBFuturo extends Phaser.Scene {
       });
     }
 
+  // Método antigo que move apenas a Sophia ao fim da cena.
   animacaoFinalSophia() {
       // toca a animação de andar para baixo
       this.sophia.play("sophia_frente", true);
@@ -433,6 +463,7 @@ export class sceneLBFuturo extends Phaser.Scene {
       });
     }
 
+  // Executa a saída atual com Sophia e Asimov andando juntos.
   iniciarAnimacaoFinal() {
       this.animacaoSaidaAtiva = true;
       this.asimov.play("asimov_frente", true);
@@ -440,6 +471,7 @@ export class sceneLBFuturo extends Phaser.Scene {
       this.asimov.setVelocity(0, 50);
       this.sophia.setVelocity(0, 50);
 
+      // Após a animação, encerra a cena e abre a próxima fase.
       this.time.delayedCall(5000, () => {
         this.asimov.setVelocity(0, 0);
         this.sophia.setVelocity(0, 0);
@@ -447,9 +479,11 @@ export class sceneLBFuturo extends Phaser.Scene {
       });
     }
 
+  // Cria e ajusta a hitbox de colisão de um objeto do cenário.
   criarColisao(objeto, reduzirAltura = 1) {
     this.physics.add.existing(objeto, true);
 
+    // Permite reduzir a altura útil da colisão sem alterar o sprite.
     let alturaOriginal = objeto.displayHeight;
 
     objeto.body.setSize(
