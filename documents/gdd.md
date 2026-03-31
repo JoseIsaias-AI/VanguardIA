@@ -542,9 +542,9 @@ O perfil mais representativo do nosso usuário é o de um jovem de renda média-
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-O objetivo do jogo é que o jogador ajude a protagonista Sophia a restaurar o funcionamento de um laboratório no futuro e proteger o banco de dados que contém informações essenciais para a humanidade. Para alcançar esse objetivo, o jogador deverá explorar o ambiente, superar obstáculos, resolver puzzles e completar minigames utilizando apenas as mecânicas e regras estabelecidas pelo jogo, progredindo gradualmente pelas fases até recuperar a energia do laboratório e garantir a preservação dos dados.
+O objetivo do jogo é restaurar o funcionamento do laboratório e proteger os dados essenciais para a humanidade. O objetivo lusório consiste em alcançar esse resultado respeitando as regras e limitações impostas pelo jogo, como desviar de obstáculos, resolver puzzles e utilizar corretamente as mecânicas específicas de cada fase, incluindo os controles de movimentação e os minigames propostos.
 
-Além do objetivo narrativo e mecânico do jogo (objetivo lusório), o projeto também possui um propósito educacional, que é apresentar conceitos básicos de Inteligência Artificial de forma interativa. Por meio das mecânicas, desafios e situações enfrentadas durante a gameplay, o jogador entra em contato com fundamentos de IA, como reconhecimento de padrões e tomada de decisão, estimulando o interesse de estudantes universitários pela área e incentivando a busca por iniciativas educacionais relacionadas ao tema, como os cursos oferecidos pela IBM.
+Além do objetivo narrativo e lusório, o projeto também possui um propósito educacional de apresentar conceitos básicos de Inteligência Artificial de forma interativa. Por meio das mecânicas, desafios e situações enfrentadas durante a gameplay, o jogador entra em contato com fundamentos de IA, como reconhecimento de padrões e tomada de decisão, adquirindo fluência básica no tema, além de estimular o interesse de estudantes universitários pela área e incentivar a busca por iniciativas educacionais relacionadas, como os próprios cursos oferecidos pelo IBM SkillsBuild.
 
 ## 2.2. Características do Jogo (sprint 2) 
 
