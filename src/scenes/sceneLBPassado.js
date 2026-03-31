@@ -1,12 +1,18 @@
 import { registrarTeclaMenu } from '../menu.js';
-import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles } from './movimentacao.js';
+
+import {
+  registrarControles,
+  movimentacaoSophia,
+  puloSophia,
+  criarAnimacaoSophia
+} from '../scenes/movimentacao.js';
 
 export class sceneLBPassado extends Phaser.Scene {
   constructor() {
     super("sceneLBPassado"); // define o nome da cena
   } 
 
-  preload() {
+ preload() {
     this.load.image("labB", "assets/fases/sceneLBPassado/labBranco.png");
     this.load.image("camara", "assets/objetos/sceneLBPassado/partOne/camara.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
@@ -27,148 +33,198 @@ export class sceneLBPassado extends Phaser.Scene {
     this.load.image("npc4", "assets/Personagens/npc4.png");
   }
 
-  create() {
+ create() {
     
+   //Aqui, imprimimos se a cena foi criada e aplicamos a tecla de menu
     console.log("Cena criada");
     registrarTeclaMenu(this);
 
     // Inicia a cena de música de fundo (bgMusic) para música contínua na cena do laboratório passsado.
     this.scene.launch("bgMusic");
 
-    this.entrarNaCamara = false;
-    this.lendoMensagem = false;
-    this.podeInteragir = false;
-    this.podeInteragirWatson = false;
-    this.scaleMapa = 3;
+  // Aqui, iniciamos todas as funções, que estão separadas para melhor organização 
+    this.estadosDaCena();
 
-    this.mapa = this.add.image(600, 400, "labB").setScale(this.scaleMapa).setDepth(-1);
+    this.createMapa();
 
-    let larguraParede = this.mapa.displayWidth;
-    let alturaParede = 720;
-    let centroX = this.mapa.x;
-    let centroY = 283;
-    let espessura = 30;
-    this.paredes = this.physics.add.staticGroup();
-    this.objetosColisao = this.physics.add.staticGroup();
+    this.paredesDeColisao();
 
-    let paredeCima = this.add.rectangle(centroX, centroY - alturaParede / 2 + espessura / 2, larguraParede, espessura, 0xff0000, 0);
-    this.physics.add.existing(paredeCima, true);
-    this.paredes.add(paredeCima);
+    this.createObjetos();
 
-    let paredeBaixo = this.add.rectangle(centroX, centroY + alturaParede / 2 - espessura / 2, larguraParede, espessura, 0xff0000, 0);
-    this.physics.add.existing(paredeBaixo, true);
-    this.paredes.add(paredeBaixo);
+    this.createPlayer();
 
-    let paredeEsquerda = this.add.rectangle(centroX - larguraParede / 2 + espessura / 2, centroY, espessura, alturaParede, 0xff0000, 0);
-    this.physics.add.existing(paredeEsquerda, true);
-    this.paredes.add(paredeEsquerda);
+    this.createNPCs();
 
-    let paredeDireita = this.add.rectangle(centroX + larguraParede / 2 - espessura / 2, centroY, espessura, alturaParede, 0xff0000, 0);
-    this.physics.add.existing(paredeDireita, true);
-    this.paredes.add(paredeDireita);
+    this.createWatson();
 
-    // objetos — depth definido após criarColisao
-    this.armario = this.add.image(220, 10, "armario").setScale(3.25);
-    this.armario2 = this.add.image(980, 10, "armario").setScale(3.25);
-    this.alvo = this.add.image(215, 275, "alvo").setScale(3);
-    this.alvo2 = this.add.image(965, 375, "alvo").setScale(3.1);
-    this.criogenia = this.add.image(600, 6, "criogenia").setScale(3);
-    this.mesa1 = this.add.image(190, 140, "mesa1").setScale(3);
-    this.mesa1b = this.add.image(993, 518, "mesa1").setScale(3);
-    this.mesa2 = this.add.image(343, 20, "mesa2").setScale(3);
-    this.mesa3 = this.add.image(858, 18, "mesa3").setScale(3);
-    this.pia1 = this.add.image(203, 470, "pia1").setScale(3);
-    this.reservasCrio = this.add.image(1023, 165, "reservasCrio").setScale(3);
-    this.comutador1prt1 = this.add.image(385, 220, "comptCima").setScale(3);
-    this.comutador1prt2 = this.add.image(385, 260, "comptBaixo").setScale(3);
-    this.comutador2prt1 = this.add.image(812, 220, "comptCima").setScale(3);
-    this.comutador2prt2 = this.add.image(812, 260, "comptBaixo").setScale(3);
-    this.comutador3prt1 = this.add.image(385, 410, "comptCima").setScale(3);
-    this.comutador3prt2 = this.add.image(385, 450, "comptBaixo").setScale(3);
-    this.comutador4prt1 = this.add.image(812, 410, "comptCima").setScale(3);
-    this.comutador4prt2 = this.add.image(812, 450, "comptBaixo").setScale(3);
-    this.camara = this.physics.add.staticImage(600, 20, "camara").setScale(0.25).refreshBody();
+    this.createHUD();
 
-    this.criarColisao(this.armario);
-    this.criarColisao(this.armario2);
-    this.criarColisao(this.mesa1);
-    this.criarColisao(this.mesa1b);
-    this.criarColisao(this.mesa2);
-    this.criarColisao(this.mesa3);
-    this.criarColisao(this.pia1);
-    this.criarColisao(this.reservasCrio);
-    this.criarColisao(this.alvo);
-    this.criarColisao(this.alvo2);
-    this.criarColisao(this.criogenia);
-    this.criarColisao(this.comutador1prt2);
-    this.criarColisao(this.comutador2prt2);
-    this.criarColisao(this.comutador3prt2);
-    this.criarColisao(this.comutador4prt2);
+    this.createDialogo();
 
-    // depth sorting: Y puro para todos os objetos estáticos
-    [
-      this.armario, this.armario2,
-      this.alvo, this.alvo2,
-      this.criogenia,
-      this.mesa1, this.mesa1b,
-      this.mesa2, this.mesa3,
-      this.pia1, this.reservasCrio,
-      this.comutador1prt1, this.comutador1prt2,
-      this.comutador2prt1, this.comutador2prt2,
-      this.comutador3prt1, this.comutador3prt2,
-      this.comutador4prt1, this.comutador4prt2,
-    ].forEach(obj => obj.setDepth(obj.y));
+    registrarControles(this);
 
-    // personagem principal
-    this.Principal = this.physics.add.sprite(400, 300, "sophia").setScale(2).setCollideWorldBounds(true);
-    this.Principal.body.setAllowGravity(false);
-    this.Principal.setSize(30, 25);
-    this.Principal.setOffset(15, 30);
+    criarAnimacaoSophia(this);
 
-    this.physics.add.collider(this.Principal, this.camara);
-    this.physics.add.collider(this.Principal, this.paredes);
-    this.physics.add.collider(this.Principal, this.objetosColisao);
+    // Aplicando as configurações da camera
+    this.cameras.main.startFollow(this.Principal);
+    this.cameras.main.setZoom(1.2);
 
-    // NPCs decorativos
-    this.npc1 = this.physics.add.sprite(290, 330, "npc1").setScale(2).setDepth(1000);
-    this.npc1.body.setAllowGravity(false);
-    this.npc1.setSize(20, 12);
-    this.npc1.setOffset(5, 38);
-    this.npc1.setImmovable(true);
+    //Aqui, criamos a caixa de aviso para o menu
+    this.exibirAviso("Pressione a tecla M para acessar o menu.");
+  }
 
-    this.npc2 = this.physics.add.sprite(350, 50, "npc2").setScale(2).setDepth(1000);
-    this.npc2.body.setAllowGravity(false);
-    this.npc2.setSize(20, 12);
-    this.npc2.setOffset(2, 36);
-    this.npc2.setImmovable(true);
+  //Aplicando as funções que se iniciam no create
+ estadosDaCena() {
+  //Aqui, iniciamos e organizamos os estados de cena, importante para o controle lógico da cena
+  this.entrarNaCamara = false;
+  this.lendoMensagem = false;
+  this.podeInteragir = false;
+  this.podeInteragirWatson = false;
+  this.scaleMapa = 3;
+}
 
-    this.npc3 = this.physics.add.sprite(820, 270, "npc3").setScale(2).setDepth(1000);
-    this.npc3.body.setAllowGravity(false);
-    this.npc3.setSize(20, 12);
-    this.npc3.setOffset(4, 37);
-    this.npc3.setImmovable(true);
+ createMapa() {
+  //Nessa função, criamos o mapa de fundo 
+  this.mapa = this.add.image(600, 400, "labB")
+    .setScale(this.scaleMapa)
+    //Aqui, definimos que o mapa ficará por trás de tudo
+    .setDepth(-1);
+}
 
-    this.npc4 = this.physics.add.sprite(800, 455, "npc4").setScale(2).setDepth(1000);
-    this.npc4.body.setAllowGravity(false);
-    this.npc4.setSize(20, 12);
-    this.npc4.setOffset(5, 38);
-    this.npc4.setImmovable(true);
+ paredesDeColisao() {
+  //Aqui, criamos o grupo de colisão para as paredes
+  this.paredes = this.physics.add.staticGroup();
+  
 
-    this.physics.add.collider(this.Principal, this.npc1);
-    this.physics.add.collider(this.Principal, this.npc2);
-    this.physics.add.collider(this.Principal, this.npc3);
-    this.physics.add.collider(this.Principal, this.npc4);
+  //Aqui, definimos as dimensões
+  const larguraParede = this.mapa.displayWidth;
+  const alturaParede = 720;
+  const centroX = this.mapa.x;
+  const centroY = 283;
+  const espessura = 30;
 
-    if (!this.anims.exists("npc1_idle")) {
-      this.anims.create({ key: "npc1_idle", frames: this.anims.generateFrameNumbers("npc1", { start: 0, end: 8 }), frameRate: 4, repeat: -1 });
-      this.anims.create({ key: "npc2_idle", frames: this.anims.generateFrameNumbers("npc2", { start: 0, end: 16 }), frameRate: 4, repeat: -1 });
-      this.anims.create({ key: "npc3_idle", frames: this.anims.generateFrameNumbers("npc3", { start: 0, end: 20 }), frameRate: 4, repeat: -1 });
-    }
-    this.npc1.play("npc1_idle");
-    this.npc2.play("npc2_idle");
-    this.npc3.play("npc3_idle");
+  //Aqui, fazemos uma função para criar as paredes
+  const criarParede = (x, y, w, h) => {
+    let p = this.add.rectangle(x, y, w, h, 0xff0000, 0);
+    this.physics.add.existing(p, true);
+    this.paredes.add(p);
+  };
+  //Aqui, criamos as 4 paredes que delimitam o mapa
+  criarParede(centroX, centroY - alturaParede / 2 + espessura / 2, larguraParede, espessura);
+  criarParede(centroX, centroY + alturaParede / 2 - espessura / 2, larguraParede, espessura);
+  criarParede(centroX - larguraParede / 2 + espessura / 2, centroY, espessura, alturaParede);
+  criarParede(centroX + larguraParede / 2 - espessura / 2, centroY, espessura, alturaParede);
+}
 
-    // WATSON (NPC)
+ createObjetos() {
+  //Aqui, criamos o grupo de colisão para os objetos
+  this.objetosColisao = this.physics.add.staticGroup();
+
+  //Aqui, adicionamos cada objeto do cenário em seu devido lugar
+  this.armario = this.add.image(220, 10, "armario").setScale(3.25);
+  this.armario2 = this.add.image(980, 10, "armario").setScale(3.25);
+  this.alvo = this.add.image(215, 275, "alvo").setScale(3);
+  this.alvo2 = this.add.image(965, 375, "alvo").setScale(3.1);
+  this.criogenia = this.add.image(600, 6, "criogenia").setScale(3);
+  this.mesa1 = this.add.image(190, 140, "mesa1").setScale(3);
+  this.mesa1b = this.add.image(993, 518, "mesa1").setScale(3);
+  this.mesa2 = this.add.image(343, 20, "mesa2").setScale(3);
+  this.mesa3 = this.add.image(858, 18, "mesa3").setScale(3);
+  this.pia1 = this.add.image(203, 470, "pia1").setScale(3);
+  this.reservasCrio = this.add.image(1023, 165, "reservasCrio").setScale(3);
+  this.comutador1prt1 = this.add.image(385, 220, "comptCima").setScale(3);
+  this.comutador1prt2 = this.add.image(385, 260, "comptBaixo").setScale(3);
+  this.comutador2prt1 = this.add.image(812, 220, "comptCima").setScale(3);
+  this.comutador2prt2 = this.add.image(812, 260, "comptBaixo").setScale(3);
+  this.comutador3prt1 = this.add.image(385, 410, "comptCima").setScale(3);
+  this.comutador3prt2 = this.add.image(385, 450, "comptBaixo").setScale(3);
+  this.comutador4prt1 = this.add.image(812, 410, "comptCima").setScale(3);
+  this.comutador4prt2 = this.add.image(812, 450, "comptBaixo").setScale(3);
+  this.camara = this.physics.add.staticImage(600, 20, "camara").setScale(0.25).refreshBody();
+  
+  //Aqui, aplicamos colisão para os objetos
+  [
+    this.armario, this.armario2,
+    this.alvo, this.alvo2,
+    this.criogenia,
+    this.mesa1, this.mesa1b,
+    this.mesa2, this.mesa3,
+    this.pia1, this.reservasCrio,
+    this.comutador1prt1, this.comutador1prt2,
+    this.comutador2prt1, this.comutador2prt2,
+    this.comutador3prt1, this.comutador3prt2,
+    this.comutador4prt1, this.comutador4prt2,
+  ].forEach(obj => {
+    this.criarColisao(obj);
+    obj.setDepth(obj.y);
+  });
+}
+
+ createPlayer() {
+  //Aqui, criamos a personagem principal na fase
+  this.Principal = this.physics.add.sprite(400, 300, "sophia")
+    .setScale(2)
+    .setCollideWorldBounds(true);
+  //Aqui, aplicamos colisão e física da personagem
+  this.Principal.body.setAllowGravity(false);
+  this.Principal.setSize(30, 25);
+  this.Principal.setOffset(15, 30);
+  //Aqui, configuramos os objetos nos quais a parsonagem colide
+  this.physics.add.collider(this.Principal, this.camara);
+  this.physics.add.collider(this.Principal, this.paredes);
+  this.physics.add.collider(this.Principal, this.objetosColisao);
+}
+
+ createNPC(x, y, sprite, animKey) {
+  //Aqui, fazemos uma função criadora para gerar NPC's com animação, física e colisão
+  const npc = this.physics.add.sprite(x, y, sprite)
+    .setScale(2)
+    .setDepth(1000);
+
+  //Aqui, aplicamos a física do NPC
+    npc.body.setAllowGravity(false);
+  npc.setImmovable(true);
+
+  //Aqui, aplicamos a animação do NPC
+  npc.play(animKey);
+
+  //Aqui, fazemos os NPC's colidirem com o personagem principal
+  this.physics.add.collider(this.Principal, npc);
+
+  return npc;
+}
+
+ createNPCs() {
+//Aqui, criamos as animações do NPC
+  this.anims.create({
+  key: "npc1_idle",
+  frames: this.anims.generateFrameNumbers("npc1", { start: 0, end: 8 }),
+  frameRate: 6,
+  repeat: -1
+});
+
+this.anims.create({
+  key: "npc2_idle",
+  frames: this.anims.generateFrameNumbers("npc2", { start: 0, end: 16 }),
+  frameRate: 6,
+  repeat: -1
+});
+
+this.anims.create({
+  key: "npc3_idle",
+  frames: this.anims.generateFrameNumbers("npc3", { start: 0, end: 20 }),
+  frameRate: 6,
+  repeat: -1
+});
+//Aqui, criamos os NPC's usando a função criadora createNPC
+this.npc1 = this.createNPC(290, 330, "npc1", "npc1_idle");
+this.npc2 = this.createNPC(350, 50, "npc2", "npc2_idle");
+this.npc3 = this.createNPC(820, 270, "npc3", "npc3_idle");
+this.npc4 = this.createNPC(800, 455, "npc4", "npc4_idle");
+}
+
+ createWatson(){
+// Aqui, criamos o Watson, NPC principal
     this.watson = this.physics.add.sprite(830, 80, "watson").setScale(2.3);
     this.watson.body.setAllowGravity(false);
     this.watson.setSize(30, 25);
@@ -176,14 +232,17 @@ export class sceneLBPassado extends Phaser.Scene {
     this.watson.setImmovable(true);
     this.physics.add.collider(this.Principal, this.watson);
 
+    //Aqui, criamos as animações do Watson
     if (!this.anims.exists("watson_front")) {
       this.anims.create({ key: "watson_front", frames: this.anims.generateFrameNumbers("watson", { start: 0, end: 1 }), frameRate: 4, repeat: -1 });
       this.anims.create({ key: "watson_back", frames: this.anims.generateFrameNumbers("watson", { start: 7, end: 9 }), frameRate: 4, repeat: -1 });
       this.anims.create({ key: "watson_side", frames: this.anims.generateFrameNumbers("watson", { start: 14, end: 16 }), frameRate: 4, repeat: -1 });
     }
     this.watson.play("watson_front");
+}
 
-    // HUD — tecla E câmara
+ createHUD(){
+//Aqui, criamos o HUD da tecla E para a câmara
     this.containerTecla = this.add.container(0, 0).setDepth(500);
     let largura = 140;
     let altura = 40;
@@ -197,7 +256,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.containerTecla.setVisible(false);
     this.tweens.add({ targets: this.containerTecla, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
-    // HUD — tecla E watson
+    //Aqui, criamos o HUD da tecla E para o Watson
     this.containerTeclaWatson = this.add.container(0, 0).setDepth(500);
     let iconeTeclaWatson = this.add.graphics();
     iconeTeclaWatson.fillStyle(0xffffff, 1);
@@ -208,8 +267,10 @@ export class sceneLBPassado extends Phaser.Scene {
     this.containerTeclaWatson.add([iconeTeclaWatson, letraWatson]);
     this.containerTeclaWatson.setVisible(false);
     this.tweens.add({ targets: this.containerTeclaWatson, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
+}
 
-    // Caixa de diálogo
+ createDialogo(){
+//Aqui, criamos as caixas de diálogo
     const larguraJogo = this.cameras.main.width;
     const alturaJogo = this.cameras.main.height;
     const larguraCaixa = 1300;
@@ -217,6 +278,7 @@ export class sceneLBPassado extends Phaser.Scene {
     const xCaixa = (larguraJogo - larguraCaixa) / 2;
     const yCaixa = alturaJogo - alturaCaixa - 140;
     
+    //Aqui, configuramos o design das caixas
     this.caixaDialogo = this.add.graphics();
     this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
     this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
@@ -265,17 +327,8 @@ export class sceneLBPassado extends Phaser.Scene {
       .setScrollFactor(0)
       .setDepth(1002)
       .setVisible(false);
-
-    // Aplicando as configurações da camera
-    this.cameras.main.startFollow(this.Principal);
-    this.cameras.main.setZoom(1.2);
-
-    registrarControles(this);
-    criarAnimacaoSophia(this);
-    this.exibirAviso("Pressione a tecla M para acessar o menu.");
-  }
-
-  update() {
+}
+ update() {
     if (this.lendoMensagem) {
       this.Principal.setVelocity(0, 0);
       this.Principal.anims.stop();
@@ -285,8 +338,14 @@ export class sceneLBPassado extends Phaser.Scene {
       return;
     }
 
-    movimentacaoSophia(this, this.Principal, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" });
-    puloSophia(this, this.Principal);
+  movimentacaoSophia(this, this.Principal, {
+  left: "sophia_esquerda",
+  right: "sophia_direita",
+  front: "sophia_frente",
+  back: "sophia_tras"
+});
+
+puloSophia(this, this.Principal);
 
     // depth sorting: Y puro — mesmo sistema dos objetos estáticos
     this.Principal.setDepth(this.Principal.y);
@@ -333,7 +392,7 @@ export class sceneLBPassado extends Phaser.Scene {
       ];
       this.mostrarMensagem(this.dialogoWatson[this.dialogoWatsonIndex], "Watson");
     }
-  }
+}
 
   // nome: string com o nome do falante (ex: "Sophia", "Watson", "SISTEMA")
   mostrarMensagem(textoCompleto, nome = "") {
