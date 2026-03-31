@@ -158,13 +158,13 @@ export class FaseDois extends Phaser.Scene {
     this.lendoMensagem         = false;
     this.miniGameAtivo         = false;
     this.bauLiberadoParaSophia = false;
-    this.falando_asimov        = false;
+    this.falandoAsimov         = false;
 
     // Garante que o diálogo do Asimov só dispare UMA vez
     this.dialogoAsimovJaIniciado = false;
 
     // Override de fecharMensagem (usado na sequência do baú)
-    this._fecharMensagemOverride = null;
+    this.fecharMensagemOverride = null;
 
     // Ajustes da cutscene apÃ³s a rede neural:
     // altere estes valores para reposicionar Asimov e Sophia perto do baÃº.
@@ -210,18 +210,18 @@ export class FaseDois extends Phaser.Scene {
 
     // ── UI Camera ─────────────────────────────────────────────────────────────
     // Camera exclusiva da interface, usada por dialogos e overlays.
-    const W = this.cameras.main.width;
-    const H = this.cameras.main.height;
-    this.uiCamera = this.cameras.add(0, 0, W, H);
+    const uiWidth = this.cameras.main.width;
+    const uiHeight = this.cameras.main.height;
+    this.uiCamera = this.cameras.add(0, 0, uiWidth, uiHeight);
     this.uiCamera.setScroll(0, 0);
     this.uiCamera.ignore(this.worldObjects);
 
     // ── Caixa de diálogo ──────────────────────────────────────────────────────
     const margem       = 20;
-    const larguraCaixa = W - margem * 2;
+    const larguraCaixa = uiWidth - margem * 2;
     const alturaCaixa  = 140;
     const xCaixa       = margem;
-    const yCaixa       = H - alturaCaixa - margem;
+    const yCaixa       = uiHeight - alturaCaixa - margem;
     this.dialogoLarguraTexto = larguraCaixa - 32;
     this.dialogoAlturaTexto = alturaCaixa - 24;
 
@@ -395,19 +395,19 @@ export class FaseDois extends Phaser.Scene {
 
   update() {
     // Ordem de prioridade do update:
-    // 1. Se o mini game estiver ativo, a exploracao fica congelada.
-    // 2. Se houver dialogo aberto, Sophia para e "E" avanca a fala.
+    // 1. Se houver dialogo aberto, Sophia para e "E" avanca a fala.
+    // 2. Se o mini game estiver ativo, a exploracao fica congelada.
     // 3. So depois disso processamos movimento e interacoes do mapa.
-    if (this.miniGameAtivo) {
-      this.sophia.setVelocity(0, 0);
-      this.sophia.anims.stop();
-      return;
-    }
-
     if (this.lendoMensagem) {
       this.sophia.setVelocity(0, 0);
       this.sophia.anims.stop();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
+      return;
+    }
+
+    if (this.miniGameAtivo) {
+      this.sophia.setVelocity(0, 0);
+      this.sophia.anims.stop();
       return;
     }
 
@@ -495,7 +495,7 @@ export class FaseDois extends Phaser.Scene {
       { texto: "Uma versão artificial, sim! Funciona igual ao seu — com neurônios que se conectam e aprendem. Só que os meus estão apagados. Você me ajuda a religar?", falante: "Asimov" },
     ];
     this.dialogoAsimovIndex = 0;
-    this.falando_asimov = true;
+    this.falandoAsimov = true;
     this.mostrarMensagem(this.dialogoAsimov[0].texto, this.dialogoAsimov[0].falante);
   }
 
@@ -525,8 +525,8 @@ export class FaseDois extends Phaser.Scene {
   fecharMensagem() {
     // Sequencias especiais podem substituir temporariamente o fechamento padrao.
     // Delega para override quando a sequência do baú estiver ativa
-    if (this._fecharMensagemOverride) {
-      this._fecharMensagemOverride();
+    if (this.fecharMensagemOverride) {
+      this.fecharMensagemOverride();
       return;
     }
 
@@ -543,14 +543,14 @@ export class FaseDois extends Phaser.Scene {
     this.labelNome.setVisible(false);
 
     // Quando a conversa inicial acaba, a cena muda para o mini game.
-    if (this.falando_asimov) {
+    if (this.falandoAsimov) {
       this.dialogoAsimovIndex++;
       if (this.dialogoAsimovIndex < this.dialogoAsimov.length) {
         const p = this.dialogoAsimov[this.dialogoAsimovIndex];
         this.mostrarMensagem(p.texto, p.falante);
         return;
       }
-      this.falando_asimov = false;
+      this.falandoAsimov = false;
       this.iniciarMiniGame();
     }
   }
@@ -584,9 +584,9 @@ export class FaseDois extends Phaser.Scene {
 
     // Remove qualquer listener anterior antes de adicionar um novo
     // Evita empilhar varios callbacks na mesma tecla E.
-    if (this._mgListenerE) {
-      this.teclaE.off("down", this._mgListenerE);
-      this._mgListenerE = null;
+    if (this.mgListenerE) {
+      this.teclaE.off("down", this.mgListenerE);
+      this.mgListenerE = null;
     }
 
     const onE = () => {
@@ -596,7 +596,7 @@ export class FaseDois extends Phaser.Scene {
         return;
       }
       this.teclaE.off("down", onE);
-      this._mgListenerE = null;
+      this.mgListenerE = null;
       this.caixaDialogo.setVisible(false);
       this.textoDialogo.setVisible(false).setText("");
       this.labelNome.setVisible(false);
@@ -605,7 +605,7 @@ export class FaseDois extends Phaser.Scene {
       callback();
     };
 
-    this._mgListenerE = onE;
+    this.mgListenerE = onE;
     this.teclaE.on("down", onE);
   }
 
@@ -623,36 +623,36 @@ export class FaseDois extends Phaser.Scene {
     this.musicFases = this.sound.add('bg-music-fases');
     this.musicFases.play({ loop: true });
 
-    const W = this.cameras.main.width;
-    const H = this.cameras.main.height;
+    const cameraWidth = this.cameras.main.width;
+    const cameraHeight = this.cameras.main.height;
 
     // Overlay escuro para esconder temporariamente o mapa da sala.
     this.mgOverlay = this.add.graphics()
       .fillStyle(0x000000, 0.92)
-      .fillRect(0, 0, W, H)
+      .fillRect(0, 0, cameraWidth, cameraHeight)
       .setDepth(2000);
     this.cameras.main.ignore(this.mgOverlay);
 
-    const escala  = this._escalaRede(W, H);
-    this.mgRede   = this.add.sprite(W / 2, H / 2, "redeNeural")
+    const escala  = this._escalaRede(cameraWidth, cameraHeight);
+    this.mgRede   = this.add.sprite(cameraWidth / 2, cameraHeight / 2, "redeNeural")
       .setDepth(2001)
       .setScale(escala)
       .setFrame(0);
     this.cameras.main.ignore(this.mgRede);
 
-    this.mgTextoE = this.add.text(W / 2, H - 18, "Pressione E para continuar", {
+    this.mgTextoE = this.add.text(cameraWidth / 2, cameraHeight - 18, "Pressione E para continuar", {
       fontSize: "13px", fontFamily: "'Courier New', Courier, monospace", color: "#00ffff",
     }).setOrigin(0.5, 1).setDepth(2002).setAlpha(0);
     this.cameras.main.ignore(this.mgTextoE);
 
-    this._mgListenerE = null;
+    this.mgListenerE = null;
 
     this._mg_fase1_dialogo();
   }
 
-  _escalaRede(W, H) {
+  _escalaRede(cameraWidth, cameraHeight) {
     // Escala responsiva para a sprite da rede caber em diferentes resolucoes.
-    return Math.min((W * 0.88) / 320, (H * 0.80) / 320);
+    return Math.min((cameraWidth * 0.88) / 320, (cameraHeight * 0.80) / 320);
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -672,12 +672,12 @@ export class FaseDois extends Phaser.Scene {
 
   _mg_fase1_interativo() {
     // Etapa 1: arrastar os tres binarios ate seus neuronios de entrada.
-    const W = this.cameras.main.width;
-    const H = this.cameras.main.height;
+    const cameraWidth = this.cameras.main.width;
+    const cameraHeight = this.cameras.main.height;
 
-    const escala = this._escalaRede(W, H);
-    const redeCX = W / 2;
-    const redeCY = H / 2;
+    const escala = this._escalaRede(cameraWidth, cameraHeight);
+    const redeCX = cameraWidth / 2;
+    const redeCY = cameraHeight / 2;
 
     const entradaX = redeCX - 320 * escala * 0.335;
     const entradaYs = [
@@ -691,9 +691,9 @@ export class FaseDois extends Phaser.Scene {
     const spritesPorDeposito = [1, 2, 3];
 
     const binariosConfig = [
-      { key: "B1", oriX: W * 0.08, oriY: H * 0.30, alvo: 0 },
-      { key: "B2", oriX: W * 0.08, oriY: H * 0.50, alvo: 1 },
-      { key: "B3", oriX: W * 0.08, oriY: H * 0.70, alvo: 2 },
+      { key: "B1", oriX: cameraWidth * 0.08, oriY: cameraHeight * 0.30, alvo: 0 },
+      { key: "B2", oriX: cameraWidth * 0.08, oriY: cameraHeight * 0.50, alvo: 1 },
+      { key: "B3", oriX: cameraWidth * 0.08, oriY: cameraHeight * 0.70, alvo: 2 },
     ];
 
     // Cria as zonas-alvo com um marcador visual e um estado logico.
@@ -725,12 +725,12 @@ export class FaseDois extends Phaser.Scene {
     });
 
     // Enquanto o objeto nao foi encaixado, ele segue o cursor normalmente.
-    this.input.on("drag", (_p, obj, dx, dy) => {
+    this.input.on("drag", (pointer, obj, dx, dy) => {
       const bin = this.mgBinarios.find(b => b.img === obj);
       if (bin && !bin.encaixado) { obj.x = dx; obj.y = dy; }
     });
 
-    this.input.on("dragend", (_p, obj) => {
+    this.input.on("dragend", (pointer, obj) => {
       const bin = this.mgBinarios.find(b => b.img === obj);
       if (!bin || bin.encaixado) return;
 
@@ -801,25 +801,25 @@ export class FaseDois extends Phaser.Scene {
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_fase2_interativo() {
     // Etapa 2: ativar manualmente os 12 neuronios das camadas centrais.
-    const W = this.cameras.main.width;
-    const H = this.cameras.main.height;
+    const cameraWidth = this.cameras.main.width;
+    const cameraHeight = this.cameras.main.height;
 
     this.mgRede.setFrame(3);
     this.mgFrameAtual    = 3;
     this.mgDensaAtivados = 0;
 
-    const escala = this._escalaRede(W, H);
-    const redeCX = W / 2;
-    const redeCY = H / 2.35;
+    const escala = this._escalaRede(cameraWidth, cameraHeight);
+    const redeCX = cameraWidth / 2;
+    const redeCY = cameraHeight / 2.35;
 
     const densaX1 = redeCX - 320 * escala * 0.128;
     const densaX2 = redeCX + 320 * escala * 0.11;
 
     const topOffset = 320 * escala * 0.30;
     const botOffset = 320 * escala * 0.30;
-    const N = 6;
-    const densaYs = Array.from({ length: N }, (_, i) => {
-      return redeCY - topOffset + (topOffset + botOffset) * (i / (N - 1));
+    const neuroniosPorColuna = 6;
+    const densaYs = Array.from({ length: neuroniosPorColuna }, (_, i) => {
+      return redeCY - topOffset + (topOffset + botOffset) * (i / (neuroniosPorColuna - 1));
     });
 
     const raio = 14 * escala;
@@ -839,8 +839,8 @@ export class FaseDois extends Phaser.Scene {
 
         zona.once("pointerdown", () => {
           // once() garante que cada neuronio so conte uma unica vez.
-          if (zona._ativado) return;
-          zona._ativado = true;
+          if (zona.ativado) return;
+          zona.ativado = true;
           this.mgDensaAtivados++;
 
           g.clear();
@@ -854,7 +854,7 @@ export class FaseDois extends Phaser.Scene {
           this.mgFrameAtual = Math.min(this.mgFrameAtual + 1, 16);
           this.mgRede.setFrame(this.mgFrameAtual);
 
-          if (this.mgDensaAtivados >= N * 2) {
+          if (this.mgDensaAtivados >= neuroniosPorColuna * 2) {
             this.mgBtnsDensa.forEach(b => b.zona.disableInteractive());
             this.time.delayedCall(500, () => this._mg_fase2_concluida());
           }
@@ -886,10 +886,10 @@ export class FaseDois extends Phaser.Scene {
     // Etapa 3: a rede "treina sozinha" em varias epocas consecutivas.
     this.mgBtnsDensa.forEach(b => { b.g.destroy(); b.zona.destroy(); });
 
-    const W = this.cameras.main.width;
-    const H = this.cameras.main.height;
+    const cameraWidth = this.cameras.main.width;
+    const cameraHeight = this.cameras.main.height;
 
-    this.mgTextoEpoca = this.add.text(W / 2, H * 0.06, "Época: 0 / 10", {
+    this.mgTextoEpoca = this.add.text(cameraWidth / 2, cameraHeight * 0.06, "Época: 0 / 10", {
       fontSize: "18px", fontFamily: "'Courier New', Courier, monospace",
       color: "#00ffff", fontStyle: "bold",
     }).setOrigin(0.5).setDepth(2025).setAlpha(0);
@@ -950,22 +950,22 @@ export class FaseDois extends Phaser.Scene {
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_valvula() {
     // Mini desafio extra: girar a valvula para "destravar" a rede.
-    const W = this.cameras.main.width;
-    const H = this.cameras.main.height;
+    const cameraWidth = this.cameras.main.width;
+    const cameraHeight = this.cameras.main.height;
 
     this.tweens.add({
       targets: this.mgRede, alpha: 0, duration: 350,
       onComplete: () => this.mgRede.setVisible(false),
     });
 
-    const escalaValvula = Math.min((W * 0.55) / 160, (H * 0.55) / 160);
+    const escalaValvula = Math.min((cameraWidth * 0.55) / 160, (cameraHeight * 0.55) / 160);
 
-    this.mgValvula = this.add.sprite(W / 2, H / 2, "valvula")
+    this.mgValvula = this.add.sprite(cameraWidth / 2, cameraHeight / 2, "valvula")
       .setDepth(2030).setScale(escalaValvula).setFrame(0).setAlpha(0).setInteractive();
     this.cameras.main.ignore(this.mgValvula);
     this.tweens.add({ targets: this.mgValvula, alpha: 1, duration: 350 });
 
-    this.mgTextoValvula = this.add.text(W / 2, H * 0.88, "Clique na válvula para girar!", {
+    this.mgTextoValvula = this.add.text(cameraWidth / 2, cameraHeight * 0.88, "Clique na válvula para girar!", {
       fontSize: "16px", fontFamily: "'Courier New', Courier, monospace",
       color: "#ffff00", fontStyle: "bold",
     }).setOrigin(0.5).setDepth(2031).setAlpha(0);
@@ -1032,9 +1032,9 @@ export class FaseDois extends Phaser.Scene {
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_encerrar() {
     // Garante que nenhum listener de E do minigame sobrou
-    if (this._mgListenerE) {
-      this.teclaE.off("down", this._mgListenerE);
-      this._mgListenerE = null;
+    if (this.mgListenerE) {
+      this.teclaE.off("down", this.mgListenerE);
+      this.mgListenerE = null;
     }
 
     // Limpa a interface criada exclusivamente para o mini game.
@@ -1240,21 +1240,24 @@ export class FaseDois extends Phaser.Scene {
     this.sophia.setVelocity(0, 0);
     this.bauAnimado.play("abrindo");
 
-    this.time.delayedCall(600, () => {
-      // A fala do bau e curta e funciona como confirmacao da pista encontrada.
+    this.time.delayedCall(1000, () => {
+      // A fala do bau fica aberta ate o jogador confirmar com E.
       this.mostrarMensagem("Achei imagens de cristais...", "Sophia");
 
-      this.time.delayedCall(900, () => {
-        if (this.timerEscrever) {
+      this.fecharMensagemOverride = () => {
+        if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
           this.timerEscrever.remove();
+          this.textoDialogo.setText(this.textoAtualArmazenado);
+          return;
         }
-        this._fecharMensagemOverride = null;
+
+        this.fecharMensagemOverride = null;
         this.lendoMensagem = false;
         this.caixaDialogo.setVisible(false);
         this.textoDialogo.setVisible(false).setText("");
         this.labelNome.setVisible(false);
         this._transicao_para_chaocaindo();
-      });
+      };
     });
   }
 
