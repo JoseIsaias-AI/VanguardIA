@@ -700,6 +700,10 @@ _**Movimentação dos Personagens**_
 | **→** | Move o personagem para a direita (+X) |
 | **↓** | Move o personagem para trás (−Y) |
 | **←** | Move o personagem para a direita (-X) |
+| **W** | Move o personagem para frente (+Y) |
+| **D** | Move o personagem para a direita (+X) |
+| **S** | Move o personagem para trás (−Y) |
+| **A** | Move o personagem para a direita (-X) |
 
 ---
 
