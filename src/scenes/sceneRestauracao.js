@@ -1,4 +1,5 @@
 ﻿import { registrarTeclaMenu } from '../menu.js';
+import { movimentacaoSophia, movimentacaoAsimov, criarAnimacaoSophia, criarAnimacaoAsimov, puloSophia, registrarControles } from './movimentacao.js';
 
 export class sceneRestauracao extends Phaser.Scene {
   constructor() {
@@ -58,8 +59,9 @@ export class sceneRestauracao extends Phaser.Scene {
     const surgirX = this.background.x - 100;
     const surgirY = this.background.y + 50;
 
-    this.sophia = this.add.sprite(surgirX, surgirY, "sophia").setScale(2);
-    this.cameras.main.startFollow(this.sophia).setZoom(1.8);
+    this.Principal = this.physics.add.sprite(surgirX, surgirY, "sophia").setScale(2);
+    this.Principal.body.setAllowGravity(false);
+    this.cameras.main.startFollow(this.Principal).setZoom(1.8);
 
     this.asimov = this.add.sprite(surgirX - 40, surgirY, "asimov").setScale(2);
 
@@ -130,20 +132,11 @@ export class sceneRestauracao extends Phaser.Scene {
       }
     ).setOrigin(1, 1).setScrollFactor(0).setDepth(202).setVisible(false);
 
-    // Inputs
-    this.cursors = this.input.keyboard.createCursorKeys();
-    this.keys = this.input.keyboard.addKeys({
-      W: Phaser.Input.Keyboard.KeyCodes.W,
-      A: Phaser.Input.Keyboard.KeyCodes.A,
-      S: Phaser.Input.Keyboard.KeyCodes.S,
-      D: Phaser.Input.Keyboard.KeyCodes.D
-    });
-    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
-    this.pulando = false;
+    registrarControles(this);
 
-    // AnimaÃ§Ãµes Personagem
-    this.criarAnimacoes();
+    // Animações Personagem
+    criarAnimacaoSophia(this);
+    criarAnimacaoAsimov(this);
   }
 
   colidiuComVerde(xMundo, yMundo) {
@@ -172,97 +165,31 @@ export class sceneRestauracao extends Phaser.Scene {
 
   update() {
     if (this.lendoMensagem) {
-      this.sophia.anims.stop();
+      this.Principal.anims.stop();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
       return;
     }
 
-    let velocidade = 3;
-    let movimentacao = false;
-    
-    let checkX = this.sophia.x;
-    let checkY = this.sophia.y + 25; 
-
-    if ((this.cursors.left.isDown || this.keys.A.isDown) && !this.colidiuComVerde(checkX - velocidade, checkY)) {
-      this.sophia.x -= velocidade;
-      this.sophia.anims.play("sophia_left", true);
-      movimentacao = true;
-    } else if ((this.cursors.right.isDown || this.keys.D.isDown) && !this.colidiuComVerde(checkX + velocidade, checkY)) {
-      this.sophia.x += velocidade;
-      this.sophia.anims.play("sophia_right", true);
-      movimentacao = true;
-    }
-
-    if ((this.cursors.up.isDown || this.keys.W.isDown) && !this.colidiuComVerde(checkX, checkY - velocidade)) {
-      this.sophia.y -= velocidade;
-      if (!movimentacao) this.sophia.anims.play("sophia_back", true);
-      movimentacao = true;
-    } else if ((this.cursors.down.isDown || this.keys.S.isDown) && !this.colidiuComVerde(checkX, checkY + velocidade)) {
-      this.sophia.y += velocidade;
-      if (!movimentacao) this.sophia.anims.play("sophia_front", true);
-      movimentacao = true;
-    }
-
-    if (!movimentacao) this.sophia.anims.stop();
-
-    // --- ASIMOV SEGUIR ---
-    let distMin = 60; 
-    let velAsimov = 2.4; 
-
-    let dx = this.sophia.x - this.asimov.x;
-    let dy = this.sophia.y - this.asimov.y;
-    let distancia = Math.sqrt(dx * dx + dy * dy);
-
-    if (distancia > distMin) {
-      let vx = (dx / distancia) * velAsimov;
-      let vy = (dy / distancia) * velAsimov;
-
-      if (!this.colidiuComVerde(this.asimov.x + vx, this.asimov.y + vy + 10)) {
-        this.asimov.x += vx;
-        this.asimov.y += vy;
-
-        if (Math.abs(vx) > Math.abs(vy)) {
-          if (vx > 0) this.asimov.anims.play("asimov_right", true);
-          else this.asimov.anims.play("asimov_left", true);
-        } else {
-          if (vy > 0) this.asimov.anims.play("asimov_front", true);
-          else this.asimov.anims.play("asimov_back", true);
-        }
-      }
-    } else {
-      this.asimov.anims.stop();
-    }
+    movimentacaoSophia(this, this.Principal, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" }, (x, y) => this.colidiuComVerde(x, y + 25));
+    movimentacaoAsimov(this, this.asimov, this.Principal, (x, y) => this.colidiuComVerde(x, y));
+    puloSophia(this, this.Principal);
     
     // Y-Sorting
-    this.sophia.setDepth(this.sophia.y);
+    this.Principal.setDepth(this.Principal.y);
     this.asimov.setDepth(this.asimov.y);
 
-    // Pulo
-    if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
-      this.pulando = true;
-      let yInicial = this.sophia.y;
-      this.tweens.add({
-        targets: this.sophia,
-        y: yInicial - 40,
-        duration: 300,
-        yoyo: true,
-        ease: "Sine.easeOut",
-        onComplete: () => { this.pulando = false; }
-      });
-    }
-
-    // InteraÃ§Ãµes
-    let distBau = Phaser.Math.Distance.Between(this.sophia.x, this.sophia.y, this.bauAnimado.x, this.bauAnimado.y);
-    let distCentro = Phaser.Math.Distance.Between(this.sophia.x, this.sophia.y, this.pontoRestauracaoX, this.pontoRestauracaoY);
+    // Interações
+    let distBau = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, this.bauAnimado.x, this.bauAnimado.y);
+    let distCentro = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, this.pontoRestauracaoX, this.pontoRestauracaoY);
 
     if (distBau < 60 && !this.temCristal) {
       this.podeInteragir = "bau";
       this.containerTecla.setVisible(true).setPosition(this.bauAnimado.x, this.bauAnimado.y - 50);
-    } 
+    }
     else if (distCentro < 150 && this.temCristal && !this.mapaRestaurado) {
       this.podeInteragir = "centro";
       this.containerTecla.setVisible(true).setPosition(this.pontoRestauracaoX, this.pontoRestauracaoY - 40);
-    } 
+    }
     else {
       this.podeInteragir = false;
       this.containerTecla.setVisible(false);
@@ -349,21 +276,5 @@ export class sceneRestauracao extends Phaser.Scene {
     this.time.delayedCall(100, () => {
       this.podeInteragir = false; 
     });
-  }
-
-  criarAnimacoes() {
-    if (!this.anims.exists("sophia_left")) {
-      this.anims.create({ key: "sophia_left", frames: this.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "sophia_right", frames: this.anims.generateFrameNumbers("sophia", { start: 16, end: 21 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "sophia_front", frames: this.anims.generateFrameNumbers("sophia", { start: 0, end: 7 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "sophia_back", frames: this.anims.generateFrameNumbers("sophia", { start: 8, end: 15 }), frameRate: 10, repeat: -1 });
-    }
-
-    if (!this.anims.exists("asimov_walk")) {
-      this.anims.create({ key: "asimov_left", frames: this.anims.generateFrameNumbers("asimov", { start: 21, end: 27 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "asimov_right", frames: this.anims.generateFrameNumbers("asimov", { start: 28, end: 34 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "asimov_front", frames: this.anims.generateFrameNumbers("asimov", { start: 7, end: 9 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "asimov_back", frames: this.anims.generateFrameNumbers("asimov", { start: 14, end: 16 }), frameRate: 10, repeat: -1 });
-    }
   }
 }

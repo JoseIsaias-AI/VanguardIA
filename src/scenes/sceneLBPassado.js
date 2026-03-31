@@ -1,4 +1,5 @@
 import { registrarTeclaMenu } from '../menu.js';
+import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles } from './movimentacao.js';
 
 export class sceneLBPassado extends Phaser.Scene {
   constructor() {
@@ -265,32 +266,12 @@ export class sceneLBPassado extends Phaser.Scene {
       .setDepth(1002)
       .setVisible(false);
 
-    // Aplicando os cursores de movimentação
-    this.cursors = this.input.keyboard.createCursorKeys();
-    this.keys = this.input.keyboard.addKeys({
-      W: Phaser.Input.Keyboard.KeyCodes.W,
-      A: Phaser.Input.Keyboard.KeyCodes.A,
-      S: Phaser.Input.Keyboard.KeyCodes.S,
-      D: Phaser.Input.Keyboard.KeyCodes.D
-    });
-    // Aplicando os cursores de pulo
-    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    this.pulando = false;
-
-    // Aplicando o botão de interação
-    this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
-
     // Aplicando as configurações da camera
     this.cameras.main.startFollow(this.Principal);
     this.cameras.main.setZoom(1.2);
 
-    if (!this.anims.exists("left")) {
-      this.anims.create({ key: "left", frames: this.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "right", frames: this.anims.generateFrameNumbers("sophia", { start: 16, end: 21 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "front", frames: this.anims.generateFrameNumbers("sophia", { start: 0, end: 7 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "back", frames: this.anims.generateFrameNumbers("sophia", { start: 8, end: 15 }), frameRate: 10, repeat: -1 });
-    }
-
+    registrarControles(this);
+    criarAnimacaoSophia(this);
     this.exibirAviso("Pressione a tecla M para acessar o menu.");
   }
 
@@ -304,74 +285,8 @@ export class sceneLBPassado extends Phaser.Scene {
       return;
     }
 
-    let atrito = 0.9; //atrito entre o personagem e o chão - o percentual do quanto isso vai diminuir a velocidade do personagem
-    let velocidadeImpulso = 30; //o quanto a velocidade aumenta por frame
-    let velocidadeMax = 150; //limite para o personagem não acelerar infinitamente
-    let movimentacao = false;
-
-    //a cada frame, a velocidade vai estar percentualmente menor, até o personagem parar
-    this.Principal.body.velocity.x *= atrito;
-    this.Principal.body.velocity.y *= atrito;
-
-    if (this.cursors.left.isDown || this.keys.A.isDown) {
-      this.Principal.body.velocity.x -= velocidadeImpulso;
-      this.Principal.anims.play("left", true); //iniciar animação
-      movimentacao = true;
-    } 
-    
-    else if (this.cursors.right.isDown || this.keys.D.isDown) {
-      this.Principal.body.velocity.x += velocidadeImpulso;
-      this.Principal.anims.play("right", true);
-      movimentacao = true;
-    }
-
-    if (this.cursors.up.isDown || this.keys.W.isDown) {
-      this.Principal.body.velocity.y -= velocidadeImpulso;
-
-      if (!movimentacao) this.Principal.anims.play("back", true);
-      movimentacao = true;
-    } 
-    
-    else if (this.cursors.down.isDown || this.keys.S.isDown) {
-      this.Principal.body.velocity.y += velocidadeImpulso;
-
-      if (!movimentacao) this.Principal.anims.play("front", true);
-      movimentacao = true;
-    }
-
-    //a função utilizada estabelece limites de velocidade ao personagem
-    this.Principal.body.velocity.x = Phaser.Math.Clamp(this.Principal.body.velocity.x, -velocidadeMax, velocidadeMax);
-    this.Principal.body.velocity.y = Phaser.Math.Clamp(this.Principal.body.velocity.y, -velocidadeMax, velocidadeMax);
-
-
-    // Aqui,corrigimos a velocidade diagonal do personagem (Para ela não andar mais rápido na diagonal)
-    //this.Principal.body.velocity.normalize().scale(velocidadeMax);
-
-    //se o jogador não estiver abertando nenhum botão e a velocidade estiver bem baixa, o personagem para
-    if (!movimentacao && Math.abs(this.Principal.body.velocity.x) < 5 && Math.abs(this.Principal.body.velocity.y) < 5) {
-        this.Principal.body.velocity.x = 0;
-        this.Principal.body.velocity.y = 0;
-        this.Principal.anims.stop();
-    }
-
-    // Aqui, adicionamos o pulo do personagem
-    if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
-      this.pulando = true;
-      let yInicial = this.Principal.y;
-
-      this.tweens.add({
-        targets: this.Principal,
-        y: yInicial - 40,
-        duration: 300,
-        yoyo: true,
-        ease: "Sine.easeOut",
-
-        onComplete: () => {
-          this.Principal.y = yInicial;
-          this.pulando = false;
-        }
-      });
-    }
+    movimentacaoSophia(this, this.Principal, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" });
+    puloSophia(this, this.Principal);
 
     // depth sorting: Y puro — mesmo sistema dos objetos estáticos
     this.Principal.setDepth(this.Principal.y);

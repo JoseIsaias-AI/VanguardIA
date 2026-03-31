@@ -39,8 +39,8 @@ const config = {
   },
   //scene: [transicao1para2, FaseDois],
   //scene: [sceneRestauracao,faseCinco, menu, BgMusic],
-  //scene: [faseUm],
-  // scene: [ sceneRestauracao, faseCinco],
+  //scene: [transicao1para2],
+  //scene: [ sceneRestauracao],
   //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
 
 

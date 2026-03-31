@@ -7,6 +7,7 @@
 // - A tecla E (ou clique na tela) avança o diálogo.
 // =============================================================================
 import { registrarTeclaMenu } from '../menu.js';
+import { movimentacaoSophia } from './movimentacao.js';
 
 export class transicao1para2 extends Phaser.Scene {
     constructor() {

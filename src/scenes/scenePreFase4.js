@@ -2,7 +2,8 @@
 portas e vem para o HUB do cristal e agora precisa fabricar o cristal, mas para isso ele precisa treinar uma IA generativa e o 
 minigame consiste na limpeza dos ruídos*/
 
-import { registrarTeclaMenu } from '../menu.js'; //importa o Menu
+import { registrarTeclaMenu } from '../menu.js';
+import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles } from './movimentacao.js';
 
 export class scenePreFase4 extends Phaser.Scene {
   constructor() {
@@ -66,12 +67,7 @@ export class scenePreFase4 extends Phaser.Scene {
     this.Principal.body.setAllowGravity(false);
     //this.Principal.setOffset(15, 30);
     // Animações Sophia
-    if (!this.anims.exists("left")) {
-      this.anims.create({ key: "left",  frames: this.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "right", frames: this.anims.generateFrameNumbers("sophia", { start: 16, end: 21 }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "front", frames: this.anims.generateFrameNumbers("sophia", { start: 0,  end: 7  }), frameRate: 10, repeat: -1 });
-      this.anims.create({ key: "back",  frames: this.anims.generateFrameNumbers("sophia", { start: 8,  end: 15 }), frameRate: 10, repeat: -1 });
-    }
+    criarAnimacaoSophia(this);
     //----------------------------------------------
 
     // ------------------ASIMOV (NPC)------------------
@@ -132,19 +128,8 @@ export class scenePreFase4 extends Phaser.Scene {
     }).setScrollFactor(0).setDepth(1002).setVisible(false);
 
     // ----------------------------------------------------------------------
- 
-    // -------------------------- DEFINIÇÃO DO QUE CADA TECLA VAI FAZER DURANTE O JOGO -------------------------
-    this.cursors = this.input.keyboard.createCursorKeys();
-    this.keys = this.input.keyboard.addKeys({
-      W: Phaser.Input.Keyboard.KeyCodes.W,
-      A: Phaser.Input.Keyboard.KeyCodes.A,
-      S: Phaser.Input.Keyboard.KeyCodes.S,
-      D: Phaser.Input.Keyboard.KeyCodes.D
-    });
-    this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
-    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    this.pulando = false;
-    //-----------------------------------------------------------------------------------------------------------
+
+    registrarControles(this);
 
     this.cameras.main.startFollow(this.Principal).setZoom(2);
 
@@ -190,59 +175,8 @@ export class scenePreFase4 extends Phaser.Scene {
       return;
     }
 
-    this.Principal.setVelocity(0);
-    let velocidade = 150;
-    let movimentacao = false;
-
-    //----------------------------- CONFIGURAÇÃO DA COLISÃO DE ACORDO O SENTIDO E A POSIÇÃO DA SOPHIA NO MAPA --------------------------
-    let posXSophia = this.Principal.x;
-    let posYSophia = this.Principal.y;
-
-    const margem = 16; //distancia minima entre a personagem e a colisão
-    const offsetPes = 28; // quantidade de pixels que a personagem pode passar no eixo vertical superior para dentro da colisão para dar o sentimento d eprofundidade
-
-    if (this.cursors.left.isDown || this.keys.A.isDown) { //colisão para a esquerda
-      if (!this.colidiuComVerde(posXSophia - margem, posYSophia + offsetPes)) {
-        this.Principal.setVelocityX(-velocidade);
-      }
-      this.Principal.anims.play("left", true);
-      movimentacao = true;
-    } else if (this.cursors.right.isDown || this.keys.D.isDown) { //colisão para a direita
-      if (!this.colidiuComVerde(posXSophia + margem, posYSophia + offsetPes)) {
-        this.Principal.setVelocityX(+velocidade);
-      }
-      this.Principal.anims.play("right", true);
-      movimentacao = true;
-    }
-
-    if (this.cursors.up.isDown || this.keys.W.isDown) { //colisão para cima
-      if (!this.colidiuComVerde(posXSophia, posYSophia + offsetPes - margem)) {
-        this.Principal.setVelocityY(-velocidade);
-      }
-      if (!movimentacao) this.Principal.anims.play("back", true);
-      movimentacao = true;
-    } else if (this.cursors.down.isDown || this.keys.S.isDown) { //colisão para baixo
-      if (!this.colidiuComVerde(posXSophia, posYSophia + offsetPes + margem)) {
-        this.Principal.setVelocityY(+velocidade);
-      }
-      if (!movimentacao) this.Principal.anims.play("front", true);
-      movimentacao = true;
-    }
-
-    if (!movimentacao) this.Principal.anims.stop();
-    if (movimentacao) this.Principal.body.velocity.normalize().scale(velocidade);
-    // -----------------------------------^^-------------------------------------------------------------^^---------------------------------
-
-    //Caso o jogador aperte SPACE é possível pular com o personagem
-    if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
-      this.pulando = true;
-      let yInicial = this.Principal.y;
-      this.tweens.add({ //possibilita a animação de pulo com uma movimentação levemente vertical durante o tempo
-        targets: this.Principal, y: yInicial - 40, duration: 300,
-        yoyo: true, ease: "Sine.easeOut",
-        onComplete: () => { this.Principal.y = yInicial; this.pulando = false; }
-      });
-    }
+    movimentacaoSophia(this, this.Principal,{ left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" }, (x, y) => this.colidiuComVerde(x, y));
+    puloSophia(this, this.Principal);
 
     this.Principal.setDepth(this.Principal.y); //define qual é a camada da Sophia igual a sua posição y. Ficando acima de objetos caso seu Y seja maior
     this.asimov.setDepth(this.asimov.y); //define qual é a camada do asimov igual a sua posição y. Ficando acima de objetos caso seu Y seja maior

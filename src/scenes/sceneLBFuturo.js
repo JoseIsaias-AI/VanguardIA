@@ -1,4 +1,5 @@
 import { registrarTeclaMenu } from '../menu.js';
+import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles, criarAnimacaoAsimov } from './movimentacao.js';
 
 export class sceneLBFuturo extends Phaser.Scene {
   constructor() {
@@ -7,14 +8,8 @@ export class sceneLBFuturo extends Phaser.Scene {
 
   preload() {
     this.load.image("CFuturo", "assets/fases/sceneLBPassado/labDestruido.png");
-    this.load.spritesheet("sophia", "assets/personagens/sophia.png", {
-      frameWidth: 64,
-      frameHeight: 64,
-    });
-    this.load.spritesheet("asimov", "assets/personagens/asimov.png", {
-      frameWidth: 32,
-      frameHeight: 32,
-    });
+    this.load.spritesheet("sophia", "assets/personagens/sophia.png", {frameWidth: 64, frameHeight: 64,});
+    this.load.spritesheet("asimov", "assets/personagens/asimov.png", {frameWidth: 32, frameHeight: 32,});
 
     this.load.video(
       "cutscene2",
@@ -183,28 +178,9 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.physics.add.collider(this.Principal, this.asimov);
 
     // animacoes do Asimov NPC
-    if (!this.anims.exists("asimov_front")) {
-      this.anims.create({
-        key: "asimov_front",
-        frames: this.anims.generateFrameNumbers("asimov", { start: 0, end: 1 }),
-        frameRate: 4,
-        repeat: -1,
-      });
-      this.anims.create({
-        key: "asimov_back",
-        frames: this.anims.generateFrameNumbers("asimov", { start: 7, end: 9 }),
-        frameRate: 4,
-        repeat: -1,
-      });
-      this.anims.create({
-        key: "asimov_side",
-        frames: this.anims.generateFrameNumbers("asimov", { start: 14, end: 16 }),
-        frameRate: 4,
-        repeat: -1,
-      });
-    }
+    criarAnimacaoAsimov(this);
 
-    this.asimov.play("asimov_front");
+    this.asimov.play("asimov_frente");
 
     // variaveis de interacao
     this.podeInteragirAsimov = false;
@@ -282,43 +258,8 @@ export class sceneLBFuturo extends Phaser.Scene {
       .setDepth(1002)
       .setVisible(false);
 
-    if (!this.anims.exists("left")) {
-      this.anims.create({
-        key: "left",
-        frames: this.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }),
-        frameRate: 10,
-        repeat: -1,
-      });
-      this.anims.create({
-        key: "right",
-        frames: this.anims.generateFrameNumbers("sophia", { start: 16, end: 21 }),
-        frameRate: 10,
-        repeat: -1,
-      });
-      this.anims.create({
-        key: "front",
-        frames: this.anims.generateFrameNumbers("sophia", { start: 0, end: 7 }),
-        frameRate: 10,
-        repeat: -1,
-      });
-      this.anims.create({
-        key: "back",
-        frames: this.anims.generateFrameNumbers("sophia", { start: 8, end: 15 }),
-        frameRate: 10,
-        repeat: -1,
-      });
-    }
-
-    this.cursors = this.input.keyboard.createCursorKeys();
-    this.keys = this.input.keyboard.addKeys({
-      W: Phaser.Input.Keyboard.KeyCodes.W,
-      A: Phaser.Input.Keyboard.KeyCodes.A,
-      S: Phaser.Input.Keyboard.KeyCodes.S,
-      D: Phaser.Input.Keyboard.KeyCodes.D
-    });
-    this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
-    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    this.pulando = false;
+    criarAnimacaoSophia(this);
+    registrarControles(this);
 
     this.cameras.main.startFollow(this.Principal);
     this.cameras.main.fadeIn(1000);
@@ -336,55 +277,12 @@ export class sceneLBFuturo extends Phaser.Scene {
       return;
     }
 
-    // Aplicando a movimentação do personagem
-    this.Principal.setVelocity(0);
+    movimentacaoSophia(this, this.Principal, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" });
+    puloSophia(this, this.Principal);
 
-    let velocidade = 150;
-    let movimentacao = false;
-
-    if (this.cursors.left.isDown || this.keys.A.isDown) {
-      this.Principal.setVelocityX(-velocidade);
-      this.Principal.anims.play("left", true);
-      movimentacao = true;
-    } else if (this.cursors.right.isDown || this.keys.D.isDown) {
-      this.Principal.setVelocityX(+velocidade);
-      this.Principal.anims.play("right", true);
-      movimentacao = true;
-    }
-
-    if (this.cursors.up.isDown || this.keys.W.isDown) {
-      this.Principal.setVelocityY(-velocidade);
-      if (!movimentacao) this.Principal.anims.play("back", true);
-      movimentacao = true;
-    } else if (this.cursors.down.isDown || this.keys.S.isDown) {
-      this.Principal.setVelocityY(+velocidade);
-      if (!movimentacao) this.Principal.anims.play("front", true);
-      movimentacao = true;
-    }
-
-    if (!movimentacao) this.Principal.anims.stop();
-
-    // Aqui,corrigimos a velocidade diagonal do personagem (Para ela não andar mais rápido na diagonal)
-    this.Principal.body.velocity.normalize().scale(velocidade);
-
-    // Aplicando o pulo
-    if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
-      this.pulando = true;
-      let yInicial = this.Principal.y;
-
-      this.tweens.add({
-        targets: this.Principal,
-        y: yInicial - 40,
-        duration: 300,
-        yoyo: true,
-        ease: "Sine.easeOut",
-
-        onComplete: () => {
-          this.Principal.y = yInicial;
-          this.pulando = false;
-        }
-      });
-    }
+    // corrige velocidade diagonal
+    /*if (this.Principal.body.velocity.x !== 0 || this.Principal.body.velocity.y !== 0)
+      this.Principal.body.velocity.normalize().scale(150);*/
 
     this.Principal.setDepth(this.Principal.y);
     this.asimov.setDepth(this.asimov.y);
@@ -500,7 +398,7 @@ export class sceneLBFuturo extends Phaser.Scene {
 
   animacaoFinalAsimov() {
     // toca a animação de andar para baixo
-    this.asimov.play("asimov_front", true);
+    this.asimov.play("asimov_frente", true);
 
     // move o Asimov para baixo
     this.asimov.setVelocityY(50);
