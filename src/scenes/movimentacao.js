@@ -58,6 +58,13 @@ export function movimentacaoSophia(cena, sprite, animacoes, colisaoFn = null) {
     sprite.body.velocity.x = Phaser.Math.Clamp(sprite.body.velocity.x, -velocidadeMax, velocidadeMax);
     sprite.body.velocity.y = Phaser.Math.Clamp(sprite.body.velocity.y, -velocidadeMax, velocidadeMax);
 
+    // normaliza a velocidade na diagonal para não ultrapassar velocidadeMax
+    const mag = Math.sqrt(sprite.body.velocity.x ** 2 + sprite.body.velocity.y ** 2);
+    if (mag > velocidadeMax) {
+        sprite.body.velocity.x = (sprite.body.velocity.x / mag) * velocidadeMax;
+        sprite.body.velocity.y = (sprite.body.velocity.y / mag) * velocidadeMax;
+    }
+
     // se o jogador não estiver apertando nenhum botão e a velocidade estiver bem baixa, o personagem para
     if (!movimentacao && Math.abs(sprite.body.velocity.x) < 5 && Math.abs(sprite.body.velocity.y) < 5) {
         sprite.body.velocity.x = 0;

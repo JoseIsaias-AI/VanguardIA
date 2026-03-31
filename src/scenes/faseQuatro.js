@@ -18,6 +18,7 @@ export class faseQuatro extends Phaser.Scene {
         this.load.image('esponja', 'assets/Fases/FaseQuatro/esponja.png');
         this.load.image('textoExplicacao', 'assets/Fases/FaseQuatro/textoExplicação.png');
         this.load.image('textoPerda', 'assets/Fases/FaseQuatro/textoPerda.png');
+        this.load.image('textoSucesso', 'assets/Fases/FaseQuatro/sucesso.png');
         this.load.spritesheet('barraCarregamento', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
     }
 
@@ -78,20 +79,21 @@ export class faseQuatro extends Phaser.Scene {
         this.jogoParado = false;
 
         const estilo = {
-            fontSize: '32px',
+            fontSize: '54px',
             fontFamily: "'Georgia', serif",
             fill: '#f0e6c8',
             stroke: '#1a1a1a',
-            strokeThickness: 5,
-            padding: { x: 10, y: 6 }
+            strokeThickness: 6,
+            padding: { x: 14, y: 8 }
         };
 
-        this.fundoHUD = this.add.rectangle(14, height - 110, 260, 90, 0x000000, 0.55).setOrigin(0).setDepth(10);
-        this.textoTempo = this.add.text(24, height - 105, 'Tempo: 2:00', estilo).setDepth(11);
-        this.textoNitidez = this.add.text(24, height - 65, 'Nitidez: 0%', estilo).setDepth(11);
+        //this.fundoHUD = this.add.rectangle(14, height - 140, 360, 120, 0x000000, 0.55).setOrigin(0).setDepth(10);
+        this.textoTempo = this.add.text(28, height - 135, 'Tempo: 2:00', estilo).setDepth(11);
+        this.textoNitidez = this.add.text(28, height - 80, 'Nitidez: 0%', estilo).setDepth(11);
 
         this.desenhoAtiva = null; // renderTexture da camada que será apagada nessa sessão
         this.mapaAtivo = null; // mapa correspondente
+        this.posMouseAtual = { x: 0, y: 0 }; // posição atual do mouse para o timer de camada
 
         // Exibe texto explicativo no início
         this.mostrandoExplicacao = true;
@@ -113,6 +115,18 @@ export class faseQuatro extends Phaser.Scene {
 
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
+        // timer que avança camada a cada 1 segundo enquanto o mouse estiver pressionado
+        this.time.addEvent({
+            delay: 1000,
+            loop: true,
+            callback: () => {
+                if (this.limpando && !this.jogoParado) {
+                    this.detectarCamada(this.posMouseAtual.x, this.posMouseAtual.y);
+                    this.apagar(borracha, this.posMouseAtual.x, this.posMouseAtual.y, tamBorracha);
+                }
+            }
+        });
+
         this.input.on('pointerdown', (pointer) => { //quando o jogador clicar com o botão esquerdo do mouse
             if (this.mostrandoExplicacao) {
                 this.fecharExplicacao();
@@ -123,6 +137,7 @@ export class faseQuatro extends Phaser.Scene {
                 return;
             }
             this.limpando = true;
+            this.posMouseAtual = { x: pointer.x, y: pointer.y };
             if (!this.cronometroIniciado) {
                 this.cronometroIniciado = true;
                 this.time.addEvent({ //cria um evento para o cronometro
@@ -139,34 +154,8 @@ export class faseQuatro extends Phaser.Scene {
                     }
                 });
             }
-            // determina qual camada apagar baseado no que JÁ foi apagado nesse ponto
-            const x = Math.floor(pointer.x); // acessa a posição x atual do cursor
-            const y = Math.floor(pointer.y); // acessa a posição y atual do cursor
 
-            // retorna um valor booleano true caso o dado x e y do pixel de transparência não seja transparente. Se for retorna falso.
-            /*  R - [0]
-                G - [1]
-                B - [2]
-                A - [3]*/
-
-            const apagado4 = this.mapa4.getImageData(x, y, 1, 1).data[3] > 0;
-            const apagado3 = this.mapa3.getImageData(x, y, 1, 1).data[3] > 0;
-            const apagado2 = this.mapa2.getImageData(x, y, 1, 1).data[3] > 0;
-
-            if (!apagado4) { //se a camada de cima estiver falsa, ou seja, não foi apagada ainda, então o desenhoAtiva recebe o desenho de cima. 
-                this.desenhoAtiva = this.desenho4; //camada 4 se torna o alvo visual da borracha
-                this.mapaAtivo = this.mapa4; //mapa 4 recebe a marcação lógica de pixels de limpeza no canvas invisível
-            } else if (!apagado3) { //os comentários acima servem para o resto dos elses
-                this.desenhoAtiva = this.desenho3;
-                this.mapaAtivo = this.mapa3;
-            } else if (!apagado2) {
-                this.desenhoAtiva = this.desenho2;
-                this.mapaAtivo = this.mapa2;
-            } else {
-                this.desenhoAtiva = null;
-                this.mapaAtivo = null;
-            }
-
+            this.detectarCamada(pointer.x, pointer.y);
             this.apagar(borracha, pointer.x, pointer.y, tamBorracha);
         });
 
@@ -180,6 +169,8 @@ export class faseQuatro extends Phaser.Scene {
             if (this.mostrandoExplicacao) return; // bloqueia movimento durante explicação
             this.esponja.setPosition(pointer.x, pointer.y);
             if (pointer.isDown) {
+                this.posMouseAtual = { x: pointer.x, y: pointer.y };
+                this.detectarCamada(pointer.x, pointer.y);
                 this.apagar(borracha, pointer.x, pointer.y, tamBorracha);
             }
         });
@@ -230,7 +221,7 @@ export class faseQuatro extends Phaser.Scene {
         const pct = Math.floor((apagados / this.totalPixels) * 100); //pega o número da porcentagem
         this.textoNitidez.setText(`Nitidez: ${pct}%`);
 
-        if (pct >= 50 && !this.jogoParado) {
+        if (pct >= 70 && !this.jogoParado) {
             this.ganharFase();
         }
     }
@@ -287,14 +278,54 @@ export class faseQuatro extends Phaser.Scene {
         });
     }
 
-    // ------------Função para quando o jogador for apagar, tomando como parâmetro o item que vai apagar, o tamanho e sua posição x,y -----------------
-    apagar(borracha, x, y, tamBorracha) { //método para apagar os pixels da imagem
-        if (!this.desenhoAtiva) return; //caso chegar na ultima imagem que não tem uma renderTexture
-        const metade = tamBorracha / 2;
-        this.desenhoAtiva.erase(borracha, x, y); //pega o molde do objeto apagador e faz com que apague com aquele molde nos pontos x e y
-        this.mapaAtivo.beginPath(); //melhora no desempenho do navegador, mas estou testando ainda para ver se realmente é necessário
-        this.mapaAtivo.arc(x, y, metade, 0, Math.PI * 2); //Cria um círculo perfeito na posição do mouse, sem isso ele não apaga a camada de baixo
-        this.mapaAtivo.fill(); //anota a parte que ja esta limpa
+    detectarCamada(x, y) {} // mantido para compatibilidade com o timer
+
+    // ------------ Para cada pixel dentro do círculo da esponja, apaga na camada mais elevada que ainda existe naquele pixel ------------
+    apagar(borracha, cx, cy, tamBorracha) {
+        const raio = tamBorracha / 2;
+        const step = 4; // amostra a cada 4 pixels para performance
+        const w4 = this.mapa4.canvas.width, h4 = this.mapa4.canvas.height;
+
+        // lê os dados de todas as camadas de uma vez na área do círculo (bounding box)
+        const x0 = Math.max(0, Math.floor(cx - raio));
+        const y0 = Math.max(0, Math.floor(cy - raio));
+        const x1 = Math.min(w4 - 1, Math.ceil(cx + raio));
+        const y1 = Math.min(h4 - 1, Math.ceil(cy + raio));
+        const bw = x1 - x0 + 1;
+        const bh = y1 - y0 + 1;
+        if (bw <= 0 || bh <= 0) return;
+
+        const d4 = this.mapa4.getImageData(x0, y0, bw, bh).data;
+        const d3 = this.mapa3.getImageData(x0, y0, bw, bh).data;
+        const d2 = this.mapa2.getImageData(x0, y0, bw, bh).data;
+
+        let afetou4 = false, afetou3 = false, afetou2 = false;
+
+        for (let py = y0; py <= y1; py += step) {
+            for (let px = x0; px <= x1; px += step) {
+                // verifica se o pixel está dentro do círculo
+                const dx = px - cx, dy = py - cy;
+                if (dx * dx + dy * dy > raio * raio) continue;
+
+                const idx = ((py - y0) * bw + (px - x0)) * 4 + 3; // canal alpha
+
+                if (d4[idx] === 0) { // camada 4 ainda não apagada neste pixel
+                    this.mapa4.fillRect(px, py, step, step);
+                    afetou4 = true;
+                } else if (d3[idx] === 0) {
+                    this.mapa3.fillRect(px, py, step, step);
+                    afetou3 = true;
+                } else if (d2[idx] === 0) {
+                    this.mapa2.fillRect(px, py, step, step);
+                    afetou2 = true;
+                }
+            }
+        }
+
+        // apaga visualmente nas camadas afetadas usando o molde da esponja
+        if (afetou4) this.desenho4.erase(borracha, cx, cy);
+        if (afetou3) this.desenho3.erase(borracha, cx, cy);
+        if (afetou2) this.desenho2.erase(borracha, cx, cy);
     }
 
     //--------------------------- Função para quando o jogador limpa 50% da nitidez da tela ------------------------------
@@ -304,13 +335,16 @@ export class faseQuatro extends Phaser.Scene {
 
         const { width, height } = this.sys.game.config;
 
-        // Adicione uma mensagem de vitória ou mude de cena
-        this.add.text(width / 2, height / 2, 'LIMPEZA REALIZADA!\nO Cristal foi coletado\nClique para avançar', {
-            fontSize: '40px',
-            fill: '#ffffff',
-            align: 'center',
-            backgroundColor: '#000000'
-        }).setOrigin(0.5).setDepth(100);
+        const imagemSucesso = this.add.image(width / 2 + 50, height / 2, 'textoSucesso').setDepth(100).setScale(0.85);
+        this.tweens.add({
+            targets: imagemSucesso,
+            scaleX: 0.9,
+            scaleY: 0.9,
+            duration: 1000,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
 
         // ao clicar
         this.input.once('pointerdown', () => {

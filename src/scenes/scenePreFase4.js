@@ -73,7 +73,8 @@ export class scenePreFase4 extends Phaser.Scene {
     // ------------------ASIMOV (NPC)------------------
     this.asimov = this.physics.add.sprite(900, 250, "asimov").setScale(2);
     this.asimov.body.setAllowGravity(false);
-    this.asimov.setOffset(8, 16);
+    this.asimov.body.setSize(16, 12);
+    this.asimov.setOffset(8, 20);
     this.asimov.setImmovable(true);
     this.physics.add.collider(this.Principal, this.asimov);
     // Animações Asimov
@@ -284,6 +285,8 @@ export class scenePreFase4 extends Phaser.Scene {
 
   //------------------------ Função para exibição dos documentos do jogador ----------------------
   exibirCutscenes() {
+    this.Principal.setVelocity(0, 0);
+    this.Principal.anims.stop();
     const sequencia = ["cutscene_1", "cutscene_2", "cutscene_3", "cutscene_4", "cutscene_5"]; //sequencia das imagens do documento do preload
     this.cutsceneIndex = 0;
     this.emCutscene = true;

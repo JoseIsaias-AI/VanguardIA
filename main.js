@@ -40,11 +40,11 @@ const config = {
   //scene: [transicao1para2, FaseDois],
   //scene: [sceneRestauracao,faseCinco, menu, BgMusic],
   //scene: [transicao1para2],
-  //scene: [ sceneRestauracao],
+  scene: [ scenePreFase4],
   //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
 
 
-  scene: [
+  /*scene: [
     welcomeScene,
     sceneInicial,
     sceneLBPassado,
@@ -62,7 +62,7 @@ const config = {
     faseCinco,
     menu,
     BgMusic,
-  ],
+  ],*/
 
 };
 
