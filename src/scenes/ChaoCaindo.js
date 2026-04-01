@@ -10,7 +10,7 @@ export class FaseDoischao extends Phaser.Scene {
   preload() {
     this.load.image("portas", "assets/Fases/FaseDois/salaPortas.png");
 
-    this.load.spritesheet("sophiaCaindo", "assets/Cutscene/animaçãoCaindo.png", {
+    this.load.spritesheet("sophiaCaindo", "assets/Cutscene/animaçãoCaindo.jpeg", {
       frameWidth: 128,
       frameHeight: 128,
     });
@@ -109,7 +109,7 @@ export class FaseDoischao extends Phaser.Scene {
     if (!this.anims.exists("sophiaCaindo")) {
       this.anims.create({
         key: "sophiaCaindo",
-        frames: this.anims.generateFrameNumbers("sophiaCaindo", { start: 0, end: 35 }),
+        frames: this.anims.generateFrameNumbers("sophiaCaindo", { start: 0, end: 34 }),
         frameRate: 10,
         repeat: 0,
       })

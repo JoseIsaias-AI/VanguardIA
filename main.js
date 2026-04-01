@@ -37,7 +37,7 @@ const config = {
   audio: {
     disableWebAudio: false,
   },
-  // scene: [FaseDois, FaseDoischao, faseTres],
+  // scene: [FaseDoischao, faseTres],
   //scene: [sceneRestauracao,faseCinco, menu, BgMusic],
   //scene: [transicao1para2],
   //scene: [ sceneRestauracao],

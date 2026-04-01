@@ -799,13 +799,28 @@ export class FaseDois extends Phaser.Scene {
   // ═══════════════════════════════════════════════════════════════════════════
   //  FASE 2 — Clicar nos 12 neurônios
   // ═══════════════════════════════════════════════════════════════════════════
+  _mg_framePorNeuronioDenso(indice) {
+    const framesPorNeuronio = [4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16];
+    return framesPorNeuronio[indice] ?? 16;
+  }
+
+  _mg_limparInteracoesDensa() {
+    if (!this.mgBtnsDensa) return;
+
+    this.mgBtnsDensa.forEach((botao) => {
+      if (botao.g) botao.g.destroy();
+      if (botao.zona) botao.zona.destroy();
+    });
+
+    this.mgBtnsDensa = [];
+  }
+
   _mg_fase2_interativo() {
     // Etapa 2: ativar manualmente os 12 neuronios das camadas centrais.
     const cameraWidth = this.cameras.main.width;
     const cameraHeight = this.cameras.main.height;
 
     this.mgRede.setFrame(3);
-    this.mgFrameAtual    = 3;
     this.mgDensaAtivados = 0;
 
     const escala = this._escalaRede(cameraWidth, cameraHeight);
@@ -824,10 +839,29 @@ export class FaseDois extends Phaser.Scene {
 
     const raio = 14 * escala;
     this.mgBtnsDensa = [];
+    this.mgIndiceDensoAtual = 0;
+    let indiceNeuronio = 0;
+
+    const atualizarOrdemDensa = () => {
+      this.mgBtnsDensa.forEach((botao, indice) => {
+        if (botao.zona.ativado) return;
+
+        botao.g.clear();
+        if (indice === this.mgIndiceDensoAtual) {
+          botao.g.lineStyle(3, 0xffff66, 0.95);
+          botao.zona.setInteractive();
+        } else {
+          botao.g.lineStyle(2, 0x00ffff, 0.25);
+          botao.zona.disableInteractive();
+        }
+        botao.g.strokeCircle(botao.xPos, botao.dy, raio);
+      });
+    };
 
     // Helper que cria uma coluna de 6 neuronios clicaveis.
     const criarNeuronios = (xPos) => {
       densaYs.forEach((dy) => {
+        const indiceAtual = indiceNeuronio;
         const g = this.add.graphics().setDepth(2015);
         g.lineStyle(2, 0x00ffff, 0.45);
         g.strokeCircle(xPos, dy, raio);
@@ -836,12 +870,14 @@ export class FaseDois extends Phaser.Scene {
         const zona = this.add.zone(xPos, dy, raio * 2.6, raio * 2.6)
           .setDepth(2016).setInteractive();
         this.cameras.main.ignore(zona);
+        if (indiceAtual !== 0) zona.disableInteractive();
 
         zona.once("pointerdown", () => {
           // once() garante que cada neuronio so conte uma unica vez.
-          if (zona.ativado) return;
+          if (zona.ativado || indiceAtual !== this.mgIndiceDensoAtual) return;
           zona.ativado = true;
           this.mgDensaAtivados++;
+          this.mgRede.setFrame(this._mg_framePorNeuronioDenso(indiceAtual));
 
           g.clear();
           g.fillStyle(0x00ffff, 0.3);
@@ -849,10 +885,9 @@ export class FaseDois extends Phaser.Scene {
           g.fillCircle(xPos, dy, raio);
           g.strokeCircle(xPos, dy, raio);
           this.tweens.add({ targets: g, alpha: 0.35, duration: 180, yoyo: true, repeat: 2 });
-
-          // Cada clique energiza um pouco mais a rede na animacao.
-          this.mgFrameAtual = Math.min(this.mgFrameAtual + 1, 16);
-          this.mgRede.setFrame(this.mgFrameAtual);
+          zona.disableInteractive();
+          this.mgIndiceDensoAtual++;
+          atualizarOrdemDensa();
 
           if (this.mgDensaAtivados >= neuroniosPorColuna * 2) {
             this.mgBtnsDensa.forEach(b => b.zona.disableInteractive());
@@ -861,15 +896,18 @@ export class FaseDois extends Phaser.Scene {
         });
 
         this.mgBtnsDensa.push({ g, zona, xPos, dy });
+        indiceNeuronio++;
       });
     };
 
     criarNeuronios(densaX1);
     criarNeuronios(densaX2);
+    atualizarOrdemDensa();
   }
 
   _mg_fase2_concluida() {
     // Encerrada a parte manual, o Asimov explica a ideia de treinamento.
+    this._mg_limparInteracoesDensa();
     this.mgRede.setFrame(16);
 
     this._mgDialogo(
@@ -884,7 +922,7 @@ export class FaseDois extends Phaser.Scene {
   // ═══════════════════════════════════════════════════════════════════════════
   _mg_fase3_epocas() {
     // Etapa 3: a rede "treina sozinha" em varias epocas consecutivas.
-    this.mgBtnsDensa.forEach(b => { b.g.destroy(); b.zona.destroy(); });
+    this._mg_limparInteracoesDensa();
 
     const cameraWidth = this.cameras.main.width;
     const cameraHeight = this.cameras.main.height;
@@ -1036,6 +1074,8 @@ export class FaseDois extends Phaser.Scene {
       this.teclaE.off("down", this.mgListenerE);
       this.mgListenerE = null;
     }
+
+    this._mg_limparInteracoesDensa();
 
     // Limpa a interface criada exclusivamente para o mini game.
     this.mgOverlay.destroy();
