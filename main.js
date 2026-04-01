@@ -40,7 +40,7 @@ const config = {
   // scene: [FaseDoischao, faseTres],
   //scene: [sceneRestauracao,faseCinco, menu, BgMusic],
   //scene: [transicao1para2],
-  //scene: [ sceneRestauracao],
+  //scene: [ scenePreFase4],
   //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
 
 
