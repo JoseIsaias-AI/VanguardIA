@@ -75,7 +75,7 @@ export class faseQuatro extends Phaser.Scene {
         this.limpando = false;
         this.totalPixels = width * height; //resolução da tela
         this.cronometroIniciado = false;
-        this.tempoRestante = 120; //2 minutos de contador
+        this.tempoRestante = 60; //1 minuto de contador
         this.jogoParado = false;
 
         const estilo = {
@@ -88,7 +88,7 @@ export class faseQuatro extends Phaser.Scene {
         };
 
         //this.fundoHUD = this.add.rectangle(14, height - 140, 360, 120, 0x000000, 0.55).setOrigin(0).setDepth(10);
-        this.textoTempo = this.add.text(28, height - 135, 'Tempo: 2:00', estilo).setDepth(11);
+        this.textoTempo = this.add.text(28, height - 135, 'Tempo: 1:00', estilo).setDepth(11);
         this.textoNitidez = this.add.text(28, height - 80, 'Nitidez: 0%', estilo).setDepth(11);
 
         this.desenhoAtiva = null; // renderTexture da camada que será apagada nessa sessão
@@ -141,8 +141,8 @@ export class faseQuatro extends Phaser.Scene {
             if (!this.cronometroIniciado) {
                 this.cronometroIniciado = true;
                 this.time.addEvent({ //cria um evento para o cronometro
-                    delay: 1000,//de um em um segundo acontece repetindo 119 vezes que da um minuto
-                    repeat: 119,
+                    delay: 1000,//de um em um segundo acontece repetindo 59 vezes que da um minuto
+                    repeat: 59,
                     callback: () => { //chamada a cada segundo
                         this.tempoRestante--;
                         const min = Math.floor(this.tempoRestante / 60); //arredonda pro numero inteiro inferior achando o número dos minutos. 100 / 60 = 1,66 -> 1
@@ -221,7 +221,7 @@ export class faseQuatro extends Phaser.Scene {
         const pct = Math.floor((apagados / this.totalPixels) * 100); //pega o número da porcentagem
         this.textoNitidez.setText(`Nitidez: ${pct}%`);
 
-        if (pct >= 70 && !this.jogoParado) {
+        if (pct >= 90 && !this.jogoParado) {
             this.ganharFase();
         }
     }

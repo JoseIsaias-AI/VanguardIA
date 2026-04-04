@@ -1,4 +1,5 @@
 import { registrarTeclaMenu } from '../menu.js';
+import { SnowEffect } from './efeitoNeve.js';
 import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles, criarAnimacaoAsimov } from './movimentacao.js';
 
 export class sceneLBFuturo extends Phaser.Scene {
@@ -79,6 +80,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     // Adiciona a imagem de fundo principal da cena.
     // MAPA FUTURO
     this.mapa = this.add.image(600, 400, "CFuturo").setScale(this.scaleMapa).setDepth(-1);
+    new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
 
     // Cria limites invisíveis para a área jogável.
     // paredes

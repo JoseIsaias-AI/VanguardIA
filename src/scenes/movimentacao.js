@@ -73,18 +73,23 @@ export function movimentacaoSophia(cena, sprite, animacoes, colisaoFn = null) {
     }
 }
 
-export function puloSophia(cena, sprite) {
+export function puloSophia(cena, sprite, colisaoFn = null) {
     if (Phaser.Input.Keyboard.JustDown(cena.keySpace) && !cena.pulando) {
         cena.pulando = true;
-        let yInicial = sprite.y;
-        cena.tweens.add({
-            targets: sprite,
-            y: yInicial - 40,
-            duration: 300,
-            yoyo: true,
-            ease: "Sine.easeOut",
-            onComplete: () => { cena.pulando = false; }
-        });
+        cena.puloVelocidade = -6;
+        cena.puloYInicial = sprite.y;
+    }
+
+    if (cena.pulando) {
+        const novoY = sprite.y + cena.puloVelocidade;
+        if (!colisaoFn || !colisaoFn(sprite.x, novoY)) {
+            sprite.y = novoY;
+        }
+        cena.puloVelocidade += 0.4;
+        if (sprite.y >= cena.puloYInicial) {
+            sprite.y = cena.puloYInicial;
+            cena.pulando = false;
+        }
     }
 }
 

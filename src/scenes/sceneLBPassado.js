@@ -1,4 +1,5 @@
 import { registrarTeclaMenu } from '../menu.js';
+import { SnowEffect } from './efeitoNeve.js';
 
 import {
   registrarControles,
@@ -84,11 +85,12 @@ export class sceneLBPassado extends Phaser.Scene {
 }
 
  createMapa() {
-  //Nessa função, criamos o mapa de fundo 
   this.mapa = this.add.image(600, 400, "labB")
     .setScale(this.scaleMapa)
-    //Aqui, definimos que o mapa ficará por trás de tudo
     .setDepth(-1);
+
+  // Neve fixa na câmera, acima do background mas sem seguir o mundo
+  this.snow = new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
 }
 
  paredesDeColisao() {

@@ -13,6 +13,7 @@ import { faseTres } from "./src/scenes/faseTres.js";
 import { FaseDoischao } from "../src/scenes/chaoCaindo.js";
 import { faseQuatro } from "./src/scenes/faseQuatro.js";
 import { faseCinco } from "./src/scenes/faseCinco.js";
+import { CreditsScene } from "./src/scenes/sceneCreditos.js";
 import { menu } from "./src/menu.js";
 import { BgMusic } from "./src/scenes/BgMusic.js";
 
@@ -60,6 +61,7 @@ const config = {
     faseQuatro,
     sceneRestauracao,
     faseCinco,
+    CreditsScene,
     menu,
     BgMusic,
   ],

@@ -8,6 +8,7 @@
 // =============================================================================
 import { registrarTeclaMenu } from '../menu.js';
 import { movimentacaoSophia } from './movimentacao.js';
+import { SnowEffect } from './efeitoNeve.js';
 
 export class transicao1para2 extends Phaser.Scene {
     constructor() {
@@ -60,6 +61,7 @@ export class transicao1para2 extends Phaser.Scene {
 
         // --- Mapa de fundo ----------------------------------------------------
         this.mapa = this.add.image(w / 2, h / 2, "labDestruido").setScale(3);
+        new SnowEffect(this, { depth: -2 });
 
         // --- Decoração do cenário (puramente visual, sem física) --------------
         this.criarDecoracao();

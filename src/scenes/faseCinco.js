@@ -1,10 +1,12 @@
 import { registrarTeclaMenu } from '../menu.js';
 
+// Cena final do jogo com diálogo e minigame de ética em prompts
 export class faseCinco extends Phaser.Scene {
     constructor() {
         super("faseCinco");
     }
 
+    // Carrega imagens e sprites usados na fase
     preload() {
         this.load.image("cenarioClaro1", "assets/fases/sceneLabCristal/labCristalClaro2.png");
         this.load.spritesheet("asimov", "assets/personagens/asimov.png", {
@@ -17,6 +19,7 @@ export class faseCinco extends Phaser.Scene {
         });
     }
 
+    // Configura a cena, registra controles e inicia a música de fundo
     create() {
         registrarTeclaMenu(this);
         this.scene.launch("bgMusic");
@@ -25,6 +28,7 @@ export class faseCinco extends Phaser.Scene {
         const larguraJogo = this.cameras.main.width;
         const alturaJogo = this.cameras.main.height;
 
+        // Variáveis de estado do minigame
         this.scaleMapa = 4;
         this.pontuacao = 0;
         this.metaPontuacao = 7;
@@ -71,6 +75,7 @@ export class faseCinco extends Phaser.Scene {
 
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
+        // Diálogo inicial entre Asimov e Sophia
         this.indiceDialogo = 0;
         this.dialogos = [
             { nome: "Asimov", personagem: this.asimov, texto: "Você conseguiu, Sophia, agora a humanidade possui novamente acesso às suas informações gerais." },
@@ -84,6 +89,7 @@ export class faseCinco extends Phaser.Scene {
 
         this.mensagemPrePerguntas = "Agora, preste atenção: vou te mostrar alguns exemplos. Analise cada um com cuidado antes de responder.";
 
+        // Perguntas do minigame: ético ou antiético
         this.promptsDesafio = [
             { texto: "Gere um código para invadir o sistema de segurança da escola.", tipo: "antiético" },
             { texto: "Me ajude a criar um cronograma de estudos para aprender Cálculo 2 de forma eficiente.", tipo: "ético" },
@@ -99,12 +105,21 @@ export class faseCinco extends Phaser.Scene {
 
         this.perguntasDisponiveis = [...this.promptsDesafio];
 
-        this.textoPontos = this.add.text(this.cameras.main.width - 200, 50, `Acertos: ${this.pontuacao}/${this.metaPontuacao}`, {
-            fontSize: '24px',
-            fill: '#00ffff',
+        this.contErros = 0;
+
+        // Placar e temporizador do minigame
+        this.textoPontos = this.add.text(larguraJogo - 30, 30, "Acertos: 0", {
+            fontSize: '37px',
+            color: '#44ff44',
             fontFamily: 'Courier New',
-            backgroundColor: '#1a1a1a',
-            padding: { x: 10, y: 5 }
+            fontStyle: 'bold'
+        }).setOrigin(1, 0).setScrollFactor(0).setDepth(2000).setVisible(false);
+
+        this.textoErros = this.add.text(30, 30, "Erros: 0", {
+            fontSize: '37px',
+            color: '#ff4444',
+            fontFamily: 'Courier New',
+            fontStyle: 'bold'
         }).setScrollFactor(0).setDepth(2000).setVisible(false);
 
         this.textoTimer = this.add.text(this.cameras.main.centerX, 80, `Tempo: ${this.tempoTotal}`, {
@@ -120,12 +135,14 @@ export class faseCinco extends Phaser.Scene {
         });
     }
 
+    // Verifica entrada a cada frame para avançar no diálogo
     update() {
         if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
             this.gerenciarInteracao();
         }
     }
 
+    // Avança o diálogo ou finaliza a animação de texto atual
     gerenciarInteracao() {
         if (this.jogoAtivo) return;
 
@@ -139,6 +156,7 @@ export class faseCinco extends Phaser.Scene {
         this.proximoPasso();
     }
 
+    // Exibe o próximo trecho do diálogo ou inicia a transição para o minigame
     proximoPasso() {
         if (this.indiceDialogo < this.dialogos.length) {
             const falaAtual = this.dialogos[this.indiceDialogo];
@@ -151,6 +169,7 @@ export class faseCinco extends Phaser.Scene {
         }
     }
 
+    // Exibe a mensagem em texto com efeito de escrita
     mostrarMensagem(textoCompleto, nome = "") {
         this.caixaDialogo.setVisible(true);
         this.textoDialogo.setVisible(true).setText("");
@@ -172,6 +191,7 @@ export class faseCinco extends Phaser.Scene {
         });
     }
 
+    // Transição visual antes de começar o minigame
     transicaoPosicoes() {
         this.tweens.add({
             targets: [this.caixaDialogo, this.textoDialogo, this.labelNome],
@@ -197,6 +217,7 @@ export class faseCinco extends Phaser.Scene {
         });
     }
 
+    // Inicia o contador regressivo do minigame
     contarTempo() {
         this.textoTimer.setVisible(true);
         if (this.timerGlobal) this.timerGlobal.remove();
@@ -212,13 +233,16 @@ export class faseCinco extends Phaser.Scene {
         });
     }
 
+    // Inicia o minigame com placar e primeira pergunta
     minigamePerguntas() {
         this.jogoAtivo = true;
         this.textoPontos.setVisible(true);
+        this.textoErros.setVisible(true);
         this.contarTempo();
         this.novaPergunta();
     }
 
+    // Seleciona aleatoriamente uma nova pergunta do desafio
     novaPergunta() {
         if (!this.jogoAtivo) return;
 
@@ -234,6 +258,7 @@ export class faseCinco extends Phaser.Scene {
         this.criarBotoes(sorteio.tipo);
     }
 
+    // Cria os botões de resposta para o jogador escolher
     criarBotoes(tipoCorreto) {
         if (this.btnAntietico) this.btnAntietico.destroy();
         if (this.btnEtico) this.btnEtico.destroy();
@@ -253,15 +278,21 @@ export class faseCinco extends Phaser.Scene {
         this.btnEtico.once('pointerdown', () => this.verificarResposta('ético', tipoCorreto));
     }
 
+    // Valida a resposta escolhida e atualiza acertos ou erros
     verificarResposta(escolha, correto) {
         if (!this.jogoAtivo) return;
-        
+
         if (this.btnAntietico) this.btnAntietico.destroy();
         if (this.btnEtico) this.btnEtico.destroy();
 
         if (escolha === correto) {
             this.pontuacao++;
-            this.textoPontos.setText(`Acertos: ${this.pontuacao}/${this.metaPontuacao}`);
+            this.textoPontos.setText(`Acertos: ${this.pontuacao}`);
+            this.tweens.add({ targets: this.textoPontos, scaleX: 1.5, scaleY: 1.5, duration: 150, yoyo: true, ease: "Sine.easeOut" });
+        } else {
+            this.contErros++;
+            this.textoErros.setText(`Erros: ${this.contErros}`);
+            this.tweens.add({ targets: this.textoErros, scaleX: 1.5, scaleY: 1.5, duration: 150, yoyo: true, ease: "Sine.easeOut" });
         }
 
         this.perguntasRespondidas++;
@@ -271,6 +302,7 @@ export class faseCinco extends Phaser.Scene {
         }
     }
 
+    // Finaliza o desafio e mostra o resultado ao jogador
     finalizarDesafio() {
         this.jogoAtivo = false;
         if (this.timerGlobal) this.timerGlobal.remove();
@@ -290,15 +322,19 @@ export class faseCinco extends Phaser.Scene {
         });
     }
 
+    // Reinicia o minigame para nova tentativa
     reiniciarMinigame() {
         this.pontuacao = 0;
+        this.contErros = 0;
         this.tempoTotal = 60;
         this.perguntasRespondidas = 0;
         this.perguntasDisponiveis = [...this.promptsDesafio];
-        this.textoPontos.setText(`Acertos: 0/${this.metaPontuacao}`);
+        this.textoPontos.setText(`Acertos: 0`);
+        this.textoErros.setText(`Erros: 0`);
         this.minigamePerguntas();
     }
 
+    // Transição para a cena de créditos depois de completar o desafio
     finalizarCena() {
         if (this.cenaFinalizando) return;
         this.cenaFinalizando = true;
@@ -308,7 +344,7 @@ export class faseCinco extends Phaser.Scene {
 
         this.cameras.main.fadeOut(1000);
         this.cameras.main.once("camerafadeoutcomplete", () => {
-
+            this.scene.start("CreditsScene");
         });
     }
 }
