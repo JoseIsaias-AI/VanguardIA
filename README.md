@@ -8,7 +8,7 @@
 
 # Vanguardia
 
-## Grupo 03
+## Grupo Vanguardia
 
 ## 👨‍🎓 Integrantes: 
 - <a href="https://www.linkedin.com/in/ana-carvalho-27268634b">Ana Luiza Lima de Carvalho</a>
@@ -32,9 +32,13 @@
 
 ## 📜 Descrição
 
-*Descreva seu projeto (até 600 palavras)*
+O projeto Vanguardia é um jogo educacional que cria uma experiência imersiva utilizando elementos narrativos para promover a exploração e uso do raciocínio lógico com o objetivo de ensinar sobre os conceitos de inteligência artificial, sendo desenvolvido para diminuir as taxas de evasão e aumentar o engajamento de jovens universitários com cursos online que abordam esses conceitos. 
 
-*Inclua o link para o jogo aqui*
+No Vanguardia, o jogador assume o papel de Sophia, uma cientista que é congelada para auxiliar a humanidade caso haja problemas extremos envolvendo aplicações tecnológicas no futuro; ao ser necessário, ela tem ajuda de Asimov, um robô criado por uma equipe para auxiliar a cientista, em sua missão de amparar a humanidade após o mal uso da Inteligência Articial. Assim, Sophia tem que aprender sobre os conceitos de IA a partir de ensinamentos do Asimov e atividade práticas sobre diferentes tópicos.
+
+Durante o jogo, o jogador aprende e trabalha conceitos de Aprendizagem de Máquina, funcionamento de Redes Neurais Artificias, coleta, separação e limpeza de dados e aplicações éticas da IA a partir de mini-games  para que o usuário aplique os conceitos observados durante o projeto. O projeto auxilia para que o aprendizado e fixação dos conteúdos de Inteligência Artificial se torne um processo dinâmico, facilitando e tornando o aprendizado mais participativo e envolvente.
+
+Link de acesso:
 
 
 ## 📁 Estrutura de pastas
@@ -103,15 +107,15 @@ Caso necessário, utilize a seguinte opção:
 ## 🗃 Histórico de lançamentos
 
 * 0.5.0 - 10/04/2026
-    * 
+    * Versão final do MVP do jogo, com mecânicas e cenas narrativas totalmente implementadas.
 * 0.4.0 - 27/03/2026
-    * 
+    * Finalização de todas as fases do jogo, aprimoramento visual e implementação de trilha sonora.
 * 0.3.0 - 13/03/2026
-    * 
+    * Criação de uma fase e implementação de caixas de diálogo mais complexas e uma cutscene.
 * 0.2.0 - 27/02/2026
-    * 
+    *Desenvolvimento de uma cena e da parte visual do jogo.
 * 0.1.0 - 13/02/2026
-    * 
+    * Primeira versão do jogo, com duas cenas interativas implementadas.
 
 ## 📋 Licença/License
 
