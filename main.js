@@ -37,7 +37,7 @@ const config = {
     disableWebAudio: false,
   },
   //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
-
+  //scene: [faseCinco, CreditsScene, ],
 
   scene: [
     welcomeScene,
