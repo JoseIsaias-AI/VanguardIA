@@ -207,6 +207,7 @@ A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimi
 
 <img src="../assets/gdd/matrizDeRiscos.png " width="100%">
 
+
 As escalas utilizadas consideram, para probabilidade, os valores 10 como muito improvável, 30 como baixa, 50 como média, 70 como alta e 90 como muito alta. Para impacto, a classificação varia entre muito baixo, quando o impacto é irrelevante, baixo, quando afeta aspectos pontuais, moderado, quando prejudica a experiência, alto, quando prejudica significativamente o projeto, e muito alto, quando compromete o objetivo central.
 
 No grupo de riscos muito altos, o R1 – Riscos Pedagógicos apresenta probabilidade 90 e impacto muito alto. Trata-se de um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público, com excesso de abstração ou simplificação, falta de progressão lógica ou ausência de reforço prático. Isso pode resultar em baixa retenção, dificuldade de aplicação prática e sensação de não aprendizado, comprometendo a função central do projeto e gerando abandono e descrédito. Como plano de ação, propõem-se testes com usuários iniciantes e ajuste de ritmo e profundidade. Os indicadores incluem retenção de conhecimento e taxa de conclusão. Como oportunidade atrelada ao risco, há o desenvolvimento de um modelo pedagógico original baseado em aprendizagem ativa e simulação, integrando prática imediata, feedback contínuo, gamificação e storytelling.
@@ -233,87 +234,14 @@ Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 3
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
-**Objetivos Estratégicos**
 
-1. Aumentar o engajamento de jovens com pouco conhecimento em IA
- Criar uma experiência interativa que seja mais interessante do que cursos tradicionais, incentivando o usuário a continuar.
+Os objetivos estratégicos do projeto concentram-se em ampliar o engajamento de jovens com pouco conhecimento em Inteligência Artificial, por meio da criação de uma experiência interativa mais atraente do que cursos tradicionais, incentivando a continuidade de uso. Paralelamente, busca-se aprimorar a aprendizagem de conceitos básicos de IA, garantindo que o usuário compreenda temas como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning. Outro objetivo central é despertar o interesse pela área, fazendo com que o usuário perceba a IA como algo acessível e estimulante para estudos futuros, além de incentivar a conclusão do jogo por meio de elementos narrativos e mecânicas capazes de sustentar o engajamento até o final da experiência.
 
-2. Melhorar a aprendizagem de conceitos básicos de IA
- Garantir que o usuário entenda ideias como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning.
+No que se refere às metas estabelecidas, a M1 propõe alcançar, em até quatro semanas após o lançamento, uma taxa de conclusão de pelo menos setenta por cento entre os usuários que iniciarem o jogo. A M2 busca reduzir a evasão nas fases iniciais, estabelecendo como limite máximo trinta por cento de abandono antes da terceira fase, de modo a garantir o engajamento efetivo dos jogadores já nas duas primeiras semanas após o lançamento. A M3 está relacionada à satisfação do usuário, com o objetivo de que ao menos cinquenta por cento dos jogadores que concluírem o jogo o compartilhem e incentivem novos usuários a jogá-lo, no prazo de até duas semanas após a conclusão. Por fim, a M4 visa assegurar a continuidade do aprendizado, garantindo que ao menos trinta por cento dos usuários que finalizarem o jogo acessem outros conteúdos educacionais do IBM SkillsBuild.
 
-3. Despertar interesse pela área de Inteligência Artificial
- Fazer com que o usuário perceba que IA é acessível e se interesse em continuar aprendendo.
+Para acompanhar o desempenho e o alcance dessas metas, foram definidos indicadores-chave. O KPI 1 mede a taxa de conclusão, isto é, a proporção de usuários que finalizam o jogo em relação aos que o iniciaram, com meta de pelo menos setenta por cento, sendo avaliado após duas semanas e com foco em engajamento. O KPI 2 avalia a taxa de abandono, mensurando quantos usuários desistem antes de concluir o jogo, com meta de no máximo trinta por cento, sendo analisado por fase e de forma acumulada, também com foco em engajamento.
 
-4. Incentivar o usuário a concluir o jogo
- Usar elementos de jogo e narrativa para manter o usuário até o final da experiência.
-
-**Metas (SMART)**
-
-M1 - Conclusão do jogo
- Alcançar uma taxa de conclusão de pelo menos setenta por cento dos usuários que iniciarem o jogo, em até oito semanas após o lançamento.
-
-M2 - Redução da evasão
- Diminuir o abandono entre o início e o final do jogo em pelo menos trinta por cento, em comparação com cursos online tradicionais, até o fim do piloto.
-
-M3 - Aprendizagem
- Alcançar uma média de acertos de pelo menos sessenta e cinco por cento nos testes após cada módulo, durante o piloto.
-
-M4 - Satisfação do usuário
- Alcançar um nível de satisfação de pelo menos cinquenta pontos no NPS, medido ao final do uso do jogo.
-
-M5 - Continuidade do aprendizado
- Garantir que pelo menos quarenta por cento dos usuários que terminarem o jogo acessem outros conteúdos de aprendizagem em até trinta dias.
-
-**KPIs (Indicadores)**
-
-KPI 1 - Taxa de conclusão
-Mede quantos usuários terminam o jogo em relação aos que começaram
-Meta: pelo menos setenta por cento
-Frequência: ao final do piloto
-Foco: engajamento
-
-KPI 2 - Taxa de abandono
-Mede quantos usuários desistem antes de terminar o jogo
-Meta: no máximo trinta por cento, comparado ao padrão
-Frequência: por fase e acumulado
-Foco: engajamento
-
-KPI 3 - Desempenho nos testes
-Mede o número de respostas corretas nos testes após cada fase
-Meta: pelo menos sessenta e cinco por cento de acerto
-Frequência: ao final de cada módulo
-Foco: aprendizagem
-
-KPI 4 - Evolução do aprendizado
-Compara o desempenho antes e depois do jogo
-Meta: aumento mínimo de vinte e cinco pontos percentuais
-Frequência: ao final do piloto
-Foco: aprendizagem real
-
-KPI 5 - Tempo médio de uso
-Mede quanto tempo o usuário passa no jogo em cada sessão
-Meta: pelo menos quinze minutos por sessão
-Frequência: semanal
-Foco: engajamento
-
-KPI 6 - Retorno ao jogo
-Mede quantos usuários voltam a jogar depois da primeira vez
-Meta: pelo menos sessenta por cento retornam
-Frequência: sete dias após o primeiro acesso
-Foco: engajamento
-
-KPI 7 - Satisfação (NPS)
-Mede o quanto os usuários recomendariam o jogo
-Meta: pelo menos cinquenta pontos
-Frequência: após a conclusão
-Foco: experiência
-
-KPI 8 - Continuidade do aprendizado
-Mede quantos usuários buscam aprender mais depois do jogo
-Meta: pelo menos quarenta por cento
-Frequência: até trinta dias após o término
-Foco: impacto educacional
-
+Além disso, o KPI 3 analisa o tempo médio de uso, mensurando quanto tempo o usuário leva para concluir o jogo, com meta de pelo menos vinte minutos, a fim de garantir que o jogador de fato interaja com a experiência e se engaje. O KPI 4 mede o alcance dos compartilhamentos do jogo, identificando quantos usuários iniciaram a experiência a partir da recomendação de outros, com meta de pelo menos cinquenta por cento de novos usuários provenientes de divulgação orgânica em até um mês, com foco em satisfação e alcance. O KPI 5 avalia a satisfação do usuário, mensurando o quanto os jogadores recomendariam o jogo, com meta de pelo menos sessenta por cento de recomendações, sendo coletado após a conclusão e focado na experiência do usuário. Por fim, o KPI 6 mede a continuidade do aprendizado, verificando quantos usuários acessam o IBM SkillsBuild após finalizar o jogo, com meta de pelo menos trinta por cento em até trinta dias, refletindo o impacto educacional da solução.
 
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
