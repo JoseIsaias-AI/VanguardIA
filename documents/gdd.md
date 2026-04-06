@@ -207,7 +207,6 @@ A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimi
 
 <img src="../assets/gdd/matrizDeRiscos.png " width="100%">
 
-
 As escalas utilizadas consideram, para probabilidade, os valores 10 como muito improvável, 30 como baixa, 50 como média, 70 como alta e 90 como muito alta. Para impacto, a classificação varia entre muito baixo, quando o impacto é irrelevante, baixo, quando afeta aspectos pontuais, moderado, quando prejudica a experiência, alto, quando prejudica significativamente o projeto, e muito alto, quando compromete o objetivo central.
 
 No grupo de riscos muito altos, o R1 – Riscos Pedagógicos apresenta probabilidade 90 e impacto muito alto. Trata-se de um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público, com excesso de abstração ou simplificação, falta de progressão lógica ou ausência de reforço prático. Isso pode resultar em baixa retenção, dificuldade de aplicação prática e sensação de não aprendizado, comprometendo a função central do projeto e gerando abandono e descrédito. Como plano de ação, propõem-se testes com usuários iniciantes e ajuste de ritmo e profundidade. Os indicadores incluem retenção de conhecimento e taxa de conclusão. Como oportunidade atrelada ao risco, há o desenvolvimento de um modelo pedagógico original baseado em aprendizagem ativa e simulação, integrando prática imediata, feedback contínuo, gamificação e storytelling.
@@ -867,245 +866,6 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
 
-# **Desenvolvimento Final do MVP**
-
-## **Visão Geral do MVP**
-
-O MVP reúne todas as cenas e fases que formam a jornada de Sophia e Asimov, desde o laboratório de 2022 até a restauração final em 2098\. O jogador passa pelo prólogo com Watson, pela cutscene do despertar, pelas cinco fases de minigames e chega até a cena final onde o cristal é depositado no núcleo energético.
-
-Do ponto de vista do aprendizado, o MVP cobre os cinco conceitos de IA previstos no projeto: Aprendizagem de padroes (Fase 1), redes neurais e função Softmax (Fase 2), classificação de dados (Fase 3), extração de características (Fase 4\) e IA generativa (Fase 5). Cada conceito aparece dentro da mecânica da fase, sem precisar de texto explicativo separado.
-
-##  **Funcionalidades Entregues**
-
-### **Concluídas**
-
-* Sistema de diálogos com Watson, Asimov e Sophia 
-
-* Cutscene do despertar de Sophia
-
-* Exploração livre do laboratório inicial 
-
-* Transição temporal pela câmara criogênica 
-
-* Fase 1 – Desviar dos obstáculos do corredor, com controle de Asimov 
-
-* Baú com pistas sobre o cristal 
-
-* Fase 2 – Treinamento da rede neural e Softmax
-
-* Fase 3 – Classificação de cristais,certos (azuis) e errados (vermelhos).
-
-* Fase 4 – Forja generativa com limpeza de ruídos
-
-* Fase 5 –  Aprendizado sobre Prompt
-
-* Restauração do laboratório na cena final
-
-* Barra de progresso de conhecimento 
-
-* Asimov acompanhou Sophia na movimentação 
-
-* Trilha sonora e efeitos de áudio
-
-
-### **Parcialmente Concluídas**
-
-* Luz que acompanha o personagem  – implementada parcialmente, ainda com ajustes visuais pendentes
-
-* Sistema de conquistas por fase 
-
-
-## **Fases e Cenas Implementadas**
-
-A seguir estão descritas todas as fases e cenas entregues no MVP, com suas mecânicas e o conceito de IA abordado em cada uma.
-
-### **Prólogo — Laboratório Inicial (2022)**
-
-**Mecânicas**
-
-* Exploração livre do laboratório
-
-* Interação com NPCs cientistas
-
-* Diálogo obrigatório com Watson antes de liberar a câmara criogênica
-
-* Interação com a câmara para ativar a cutscene
-
-**Conceito de IA**
-
-Não há conteúdo técnico de IA nessa cena. O objetivo é apresentar o contexto da história e introduzir os personagens.
-
-### **Transição Temporal — Cutscene do Despertar**
-
-**Mecânicas**
-
-* Animação 2D automática, sem controle do jogador
-
-* Ativada ao interagir com a câmara criogênica
-
-**Conceito de IA**
-
-Cena narrativa que conecta o passado e o futuro. Não há mecânica de IA, mas reforça o contexto de um mundo afetado pelo uso indevido da tecnologia.
-
-### **Laboratório em Ruínas (2098)**
-
-**Mecânicas**
-
-* Exploração do laboratório destruído
-
-* Diálogos com Asimov que explicam a situação e orientam o jogador
-
-**Conceito de IA**
-
-Apresenta os danos causados pelo uso irresponsável de IAs e introduz Asimov como sistema com memória fragmentada, criando a motivação para as fases seguintes.
-
-### **Fase 1 — Corredor com obstáculos.**
-
-**Mecânicas**
-
-* Controle de Asimov (setas para trocar de faixa, espaço para pular)
-
-* Percurso linear com obstáculos
-
-* Colisão reinicia a fase do início
-
-* Baú no final ativa diálogo e libera as pistas do cristal
-
-**Conceito de IA**
-
-Aprendizado de padrões, jogador treina Asimov para navegar evitando obstáculos, simulando como um agente aprende por tentativa e erro.
-
-### **Fase 2 — Treinamento da Rede Neural**
-
-**Mecânicas**
-
-* Clicar nos neurônios para alimentar a rede com os dados coletados
-
-* Localizar e ativar a Válvula Softmax para converter saída bruta em probabilidades
-
-* Arrastar o slider do limiar de confiança até o valor correto
-
-* O sistema só identifica a porta quando o limiar exato é definido
-
-**Conceito de IA**
-
-Fundamentos de redes neurais densas e função de ativação Softmax, o jogador entende como uma rede transforma dados em probabilidades e como definir um limiar de decisão.
-
-### **Fase 3 — Classificação de Cristais**
-
-**Mecânicas**
-
-* Examinar imagens de cristais no baú da sala de arquivos
-
-* Sair do buraco e pegar os cristais certos.
-
-* Pegar um cristal falso gera penalidade imediata
-
-* É necessário pegar todos os cristais certos para avançar
-
-**Conceito de IA**
-
-O jogador aprende a separar dados corretos de dados corrompidos com base em características visuais, simulando um modelo de classificação binária.
-
-### **Fase 4 — Forja Generativa**
-
-**Mecânicas**
-
-* Asimov gera o cristal com imperfeições (ruídos)
-
-* O jogador usa o esfregão (clique e arraste) para limpar as manchas
-
-* A barra de Overthinking não deve chegar a 100% 
-
-* Se o tempo acabar antes, a forja reinicia
-
-**Conceito de IA**
-
-IA generativa e redução de ruídos, o jogador entende como modelos generativos produzem resultados com falhas e como o processo de refinamento melhora a saída até chegar ao resultado ideal.
-
-**Fase 5 — Prompt**
-
-**Mecânicas**
-
-* Vão aparecer Prompts aleatoriamente na tela, Alguns Prompts bons e éticos e outros ruins.  
-* O jogador deve avaliar se é um bom prompt ou não.  
-* Ao final, o jogador deve ter acertado no mínimo 7/10 avaliações.
-
-**Conceitos de IA**
-
-O jogador aprenderá a montar um bom prompt para mandar para a IA e também aprender a usar a ética nela.
-
-### **Restauração Final**
-
-**Mecânicas**
-
-* Sophia transporta o cristal até a sala de controle
-
-* Pressionar E no núcleo energético deposita o cristal e aciona o evento final
-
-**Conceito de IA**
-
-Cena de desfecho: a restauração do laboratório representa a conclusão do ciclo de aprendizado e abre espaço para reflexão sobre o uso ético da IA.
-
-##  **Elementos Narrativos e Audiovisuais**
-
-### **Diálogos e NPCs**
-
-O sistema de diálogos cobre todas as interações do prólogo com Watson, do laboratório em ruínas com Asimov e das cenas de transição entre fases. Os balões de fala foram centralizados na tela para não atrapalhar a navegação, ajuste feito na Sprint 2\. No laboratório de 2022, foram adicionados NPCs cientistas para deixar o ambiente mais movimentado.
-
-### **Cutscene**
-
-A cutscene do despertar de Sophia foi feita em animação 2D quadro a quadro. Foi usada a técnica de onion skinning, que permite ver os frames anteriores e posteriores durante a criação, garantindo movimentos mais fluidos. A animação é ativada automaticamente ao final do prólogo.
-
-### **Assets Visuais**
-
-Todos os assets principais estão finalizados para o MVP:
-
-* Sprites de Sophia, Asimov e Watson
-
-* Background do laboratório de 2022, laboratório em ruínas de 2098, Fase 1, Fase 2, Fase 3, Fase 4, Fase 5 e Sala de controle.
-
-* Objetos dos laboratórios, Obstáculos da Fase 1,Baú, envelope e pergaminho (objetos de inventário), objetos fase 2, fase 3, fase 4, fase 5 e da sala de controle.
-
-Todos os assets foram criados em pixel art no software Piskel.
-
-### **Trilha Sonora e Efeitos**
-
-## Nós temos duas músicas de fundo, A primeira é uma mais calma e animada para os momentos comuns, de interação e exploração. A segunda música é uma mais forte e fria, para dar um ar de tensão para o jogador nos momentos das fases e desafios.
-
-## 
-
-## **Dificuldades Encontradas**
-
-Durante o desenvolvimento do MVP, a equipe enfrentou algumas dificuldades que precisaram de atenção:
-
-- Falta de comunicação e atualização do que foi feito.  
-- Discussões que não levavam a lugar nenhum.  
-- Distribuição incorreta das tarefas.  
-- Confusão na hora de dar os commits.  
-- 
-
-## **O que Ficou de Fora do MVP**
-
-As funcionalidades abaixo foram planejadas no GDD, mas não entraram no MVP por falta de tempo ou por depender de outras partes ainda em desenvolvimento:
-
-### **Luz que acompanha o personagem (Req. 4\)**
-
-Nós fizemos apenas a camera seguir o jogador, não implementamos a luz envolta dele.
-
-### **Sistema de conquistas por fase** 
-
-Os emblemas que o jogador ganha ao concluir cada fase, e o requisito de ter todos para desbloquear a fase final, não foram implementados no MVP.
-
-**Desfecho do Jogo**
-
-No MVP nós paramos no momento em que a Fase 5 termina, ainda falta desenvolver o resto.
-
-##  **Planos para a Sprint 5**
-
-- Correção de Bugs  
-- Fazer teste com usuários   
-- Aprimoramento de possíveis designs e falas
 
 ## 4.5. Revisão do MVP (sprint 5)
 
@@ -1131,18 +891,102 @@ No MVP nós paramos no momento em que a Fase 5 termina, ainda falta desenvolver 
 
 ### 5.2.1 Registros de testes
 
-*Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores. Registre cada teste conforme o template a seguir.*
 
-Nome | João Jonas (use nomes fictícios)
+Nome | Felipe 
 --- | ---
-Já possuía experiência prévia com games? | sim, é um jogador casual
-Conseguiu iniciar o jogo? | sim
-Entendeu as regras e mecânicas do jogo? | entendeu as regras, mas sobre as mecânicas, apenas as essenciais, não explorou os comandos complexos
-Conseguiu progredir no jogo? | sim, sem dificuldades  
-Apresentou dificuldades? | Não, conseguiu jogar com facilidade e afirmou ser fácil
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Não
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.0
+O que gostou no jogo? | Os mini games
+O que poderia melhorar no jogo? | O personagem poderia se mover mais rápido. Bug da sala do cristal. Limpar o cristal com cliques não sobe a barra. Na questão das perguntas ele respondeu uma errado e deu certo
+
+
+Nome | Luis 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
 Que nota deu ao jogo? | 9.0
-O que gostou no jogo? | Gostou  de como o jogo vai ficando mais difícil ao longo do tempo sem deixar de ser divertido
-O que poderia melhorar no jogo? | A responsividade do personagem aos controles, disse que havia um pouco de atraso desde o momento do comando até a resposta do personagem
+O que gostou no jogo? | Design e animações
+O que poderia melhorar no jogo? | Colocar indicadores para orientar o jogador sobre o que deve fazer, reduzindo a necessidade de explicações longas. Diminuir principalmente os textos dos documentos, já que fogem da proposta do jogo, que deve ser mais lúdica. Se o conteúdo dos papéis não tiver função prática na jogabilidade, não há necessidade de mantê-los. Além disso, melhorar o áudio: conforme o diálogo avança, inserir sons adequados, como efeitos de pulo e interação, para enriquecer a experiência
+
+
+Nome | João 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 8.0
+O que gostou no jogo? | Gostou do Asimov e da dinâmica de explicação com o mesmo. Gostou da história, da ideia de que você está no laboratório e você precisa salvar o mundo
+O que poderia melhorar no jogo? | Substituir assets que parecem não combinar com o jogo. Correção de bug entre a parede e o baú. Melhorar a explicação das mecânicas (especialmente algumas serem com o mouse e outras com o E). Explicar melhor sobre os prompts e selecionar eles com a setinha e não com o mouse. Criar uma tela de finalização do jogo. Diminuir textos muito longos e monótonos
+
+
+Nome | Manuela 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Não
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 8.0
+O que gostou no jogo? | A historia ficou muito boa
+O que poderia melhorar no jogo? | Mecânicas e teclas. O ultimo baú ela interagiu e não apareceu nada, Sophia por cima do papel e muito texto
+
+
+Nome | Augusto 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.0
+O que gostou no jogo? | O aprendizado está bem desenvolvido, com um bom equilíbrio entre design e informações. Os minigames são bem feitos e divertidos, especialmente nas partes como o cérebro do robô, contribuindo positivamente para a experiência geral de aprendizado no jogo. A movimentação do personagem também está muito boa — o pulo e a velocidade estão bem ajustados, tornando a jogabilidade fluida e agradável. Além disso, o cenário é interessante e interativo, com diversos objetos que enriquecem a exploração
+O que poderia melhorar no jogo? | Há excesso de texto nas conversas, e não está claro qual personagem está falando. Uma solução é diferenciar as falas usando cores distintas nas caixas de diálogo, facilitando a identificação. Os arquivos da copiadora também estão muito grandes, o que acaba prejudicando a imersão do jogador. Além disso, os prompts não estão claros e acabam gerando confusão. No parkour, é importante deixar explícito que, ao pegar o item falso, o jogo deve ser reiniciado. Seria interessante adicionar uma cutscene de transição após o parkour, mostrando o personagem escalando até chegar à parte do baú. As transições, de modo geral, estão confusas e com informação demais em texto, o que quebra o ritmo do jogo — é importante reduzir e distribuir melhor essas informações. O cenário também pode ser mais conectado e exploratório, pois atualmente as áreas parecem soltas e pouco intuitivas. Tornar a progressão das fases mais linear pode ajudar na compreensão do jogador. Por fim, ajustar a contagem de acertos da fase 5 para 10 e, no geral, reduzir a quantidade de informação apresentada ao jogador para melhorar a experiência
+
+
+Nome | Rafael 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.5
+O que gostou no jogo? | Gostou da história do jogo (o que mais prendeu ele). Gostou da variedade de minigames
+O que poderia melhorar no jogo? | Não entendia o que devia ser feito em alguns momentos do jogo (instruções vagas). Sofreu com lag. Diminuir a quantidade de texto dos diálogos
+
+
+Nome | Ana 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 9.0
+O que gostou no jogo? | Os minigames foram muito bem elogiados, destacando-se como um dos pontos fortes do jogo
+O que poderia melhorar no jogo? | Algumas partes apresentam excesso de texto, o que pode prejudicar o ritmo do jogo. É recomendável resumir as informações e torná-las mais objetivas, especialmente no início, para não sobrecarregar o jogador logo nos primeiros momentos
+
+
+Nome | Raissa 
+--- | ---
+Já possuía experiência prévia com games? | Não
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.0
+O que gostou no jogo? | O jogo realmente ensina os conceitos de IA, apresentando um bom nível de aprofundamento nos diálogos. Por isso, eles acabam sendo um pouco mais longos. Além disso, o jogo possui uma certa complexidade e consegue engajar o jogador, já que as fases são variadas entre si. Isso é um ponto positivo, pois evita que a experiência se torne monótona
+O que poderia melhorar no jogo? | Em relação a melhorias, acredito que o jogo poderia incluir instruções mais claras sobre como navegar e sobre as regras. Por exemplo, na parte em que o personagem precisa pular, inicialmente não fica evidente essa ação — pode-se pensar que ele atravessaria o portal automaticamente. Também há um bug em que o personagem atravessa o robô, o que prejudica a experiência. Outro ponto é em relação aos diálogos geradas por IA, sendo interessante revisá-los e reduzir um pouco o tamanho dos textos, pois a leitura pode se tornar cansativa
+
 
 ### 5.2.2 Melhorias
 
