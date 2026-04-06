@@ -40,7 +40,6 @@ Durante o jogo, o jogador aprende e trabalha conceitos de Aprendizagem de Máqui
 
 Link de acesso:
 
-
 ## 📁 Estrutura de pastas
 
 Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
@@ -113,7 +112,7 @@ Caso necessário, utilize a seguinte opção:
 * 0.3.0 - 13/03/2026
     * Criação de uma fase e implementação de caixas de diálogo mais complexas e uma cutscene.
 * 0.2.0 - 27/02/2026
-    *Desenvolvimento de uma cena e da parte visual do jogo.
+    * Desenvolvimento de uma cena e da parte visual do jogo.
 * 0.1.0 - 13/02/2026
     * Primeira versão do jogo, com duas cenas interativas implementadas.
 
