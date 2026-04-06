@@ -8,6 +8,7 @@ export class sceneLBPassado extends Phaser.Scene {
     super("sceneLBPassado");
   } 
 
+  //aqui são carregados as imagens e sprites de dentro da cena
   preload() {
     this.load.image("labB", "assets/fases/sceneLBPassado/labBranco.png");
     this.load.image("camara", "assets/objetos/sceneLBPassado/partOne/camara.png");
@@ -29,6 +30,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.load.image("npc4", "assets/Personagens/npc4.png");
   }
 
+  //neste método do Phaser, organizamos a criação de cada objeto que ja foi carregado e como eles irão se comportar na cena
   create() {
     // Instanciando corretamente
     this.sistemaDialogo = new caixasDialogo(this);
@@ -41,6 +43,7 @@ export class sceneLBPassado extends Phaser.Scene {
 
     this.scene.launch("bgMusic");
 
+    //chama todos o métodos adicionados na parte inferior do código
     this.estadosDaCena();
     this.createMapa();
     this.paredesDeColisao();
@@ -62,6 +65,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.configurarCameraUI();
   }
 
+  //Aqui, iniciamos e organizamos os estados de cena, importante para o controle lógico da cena
   estadosDaCena() {
     this.entrarNaCamara = false;
     this.lendoMensagem = false;
@@ -70,11 +74,13 @@ export class sceneLBPassado extends Phaser.Scene {
     this.scaleMapa = 3;
   }
 
+  //criação do mapa e o efeito de neve que fica atras do background
   createMapa() {
     this.mapa = this.add.image(600, 400, "labB").setScale(this.scaleMapa).setDepth(-1);
     this.snow = new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
   }
 
+  //Aqui, criamos o grupo de colisão para as paredes
   paredesDeColisao() {
     this.paredes = this.physics.add.staticGroup();
     
@@ -90,15 +96,17 @@ export class sceneLBPassado extends Phaser.Scene {
       this.paredes.add(p);
     };
 
+    //Aqui, criamos as 4 paredes que delimitam o mapa
     criarParede(centroX, centroY - alturaParede / 2 + espessura / 2, larguraParede, espessura);
     criarParede(centroX, centroY + alturaParede / 2 - espessura / 2, larguraParede, espessura);
     criarParede(centroX - larguraParede / 2 + espessura / 2, centroY, espessura, alturaParede);
     criarParede(centroX + larguraParede / 2 - espessura / 2, centroY, espessura, alturaParede);
   }
 
+  //Aqui, adicionamos cada objeto do cenário em seu devido lugar
   createObjetos() {
     this.objetosColisao = this.physics.add.staticGroup();
-
+    // objetos — depth definido após criarColisao
     this.armario = this.add.image(220, 10, "armario").setScale(3.25);
     this.armario2 = this.add.image(980, 10, "armario").setScale(3.25);
     this.alvo = this.add.image(215, 275, "alvo").setScale(3);
@@ -120,6 +128,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.comutador4prt2 = this.add.image(812, 450, "comptBaixo").setScale(3);
     this.camara = this.physics.add.staticImage(600, 20, "camara").setScale(0.25).refreshBody();
     
+    // depth sorting: Y puro para todos os objetos estáticos
     [
       this.armario, this.armario2,
       this.alvo, this.alvo2,
@@ -137,6 +146,9 @@ export class sceneLBPassado extends Phaser.Scene {
     });
   }
 
+// Aqui, iniciamos todas as funções, que estão separadas para melhor organização 
+
+  //Aqui, criamos a personagem principal na fase
   createPlayer() {
     this.Principal = this.physics.add.sprite(400, 300, "sophia").setScale(2).setCollideWorldBounds(true);
     this.Principal.body.setAllowGravity(false);
@@ -147,6 +159,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.physics.add.collider(this.Principal, this.objetosColisao);
   }
 
+  // NPCs decorativos
   createNPC(x, y, sprite, animKey) {
     const npc = this.physics.add.sprite(x, y, sprite).setScale(2).setDepth(1000);
     npc.body.setAllowGravity(false);
@@ -156,6 +169,7 @@ export class sceneLBPassado extends Phaser.Scene {
     return npc;
   }
 
+  //Aqui, fazemos uma função criadora para gerar NPC's com animação, física e colisão
   createNPCs() {
     this.anims.create({ key: "npc1_idle", frames: this.anims.generateFrameNumbers("npc1", { start: 0, end: 8 }), frameRate: 6, repeat: -1 });
     this.anims.create({ key: "npc2_idle", frames: this.anims.generateFrameNumbers("npc2", { start: 0, end: 16 }), frameRate: 6, repeat: -1 });
@@ -183,6 +197,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.watson.play("watson_front");
   }
 
+  //Aqui, criamos o HUD da tecla E para a câmara
   createHUD(){
     this.containerTecla = this.add.container(0, 0).setDepth(500);
     let largura = 140;
@@ -218,8 +233,7 @@ export class sceneLBPassado extends Phaser.Scene {
     }).setOrigin(0.5).setScrollFactor(0).setDepth(2001).setVisible(false);
   }
 
-  // ------------------- CONFIGURAÇÃO DA CÂMERA DE UI -------------------
-  // ------------------- CONFIGURAÇÃO DA CÂMERA DE UI -------------------
+  //camera de UI para corrigir o problema de zoom no texto, ignorando os objetos do mundo e da UI conforme necessário
   configurarCameraUI() {
     this.uiCamera = this.cameras.add(0, 0, this.scale.width, this.scale.height);
     
@@ -243,89 +257,155 @@ export class sceneLBPassado extends Phaser.Scene {
         this.sistemaDialogo.caixaDialogo,
         this.sistemaDialogo.labelNome,
         this.sistemaDialogo.textoDialogo,
+        this.sistemaDialogo.indicadorTeclaE.container,
         this.retanguloAviso,
         this.textoAviso
     ];
     this.cameras.main.ignore(objetosUI);
   }
 
+  //método do Phaser que é chamado a cada frame para atualizar diversas funções, dentre elas colisão e interação com teclas de entrada
   update() {
-    // Trava a movimentação durante o diálogo e permite avançar com a tecla E
-    if (this.lendoMensagem) {
-      this.Principal.setVelocity(0, 0);
-      this.Principal.anims.stop();
-      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-        this.sistemaDialogo.interagir();
-      }
-      return;
-    }
+  if (this.estaEmDialogo()) return;
 
-    movimentacaoSophia(this, this.Principal, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" });
-    puloSophia(this, this.Principal);
+  this.atualizarMovimento();
+  this.atualizarDepth();
+  this.atualizarInteracoes();
+}
+  
+  //Aqui, fazemos o controle de diálogo da fase
+   estaEmDialogo() {
+    if (!this.lendoMensagem) return false;
 
-    this.Principal.setDepth(this.Principal.y);
-    this.watson.setDepth(this.watson.y);
-    this.npc1.setDepth(this.npc1.y);
-    this.npc2.setDepth(this.npc2.y);
-    this.npc3.setDepth(this.npc3.y);
-    this.npc4.setDepth(this.npc4.y);
+    this.Principal.setVelocity(0, 0);
+    this.Principal.anims.stop();
 
-    let targetX = this.camara.x;
-    let targetY = this.camara.y;
+    if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+     this.sistemaDialogo.interagir();
+   }
 
-    let distancia = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, targetX, targetY);
-    let distanciaWatson = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, this.watson.x, this.watson.y);
+  return true;
+}
+  
+  atualizarMovimento() {
+   movimentacaoSophia(this, this.Principal, {
+    left: "sophia_esquerda",
+    right: "sophia_direita",
+    front: "sophia_frente",
+    back: "sophia_tras"
+   });
 
-    if (distancia < 140 && this.entrarNaCamara) {
-      this.podeInteragir = true;
-      this.containerTecla.setVisible(true);
-      this.containerTecla.setPosition(targetX, targetY - 50);
-    } else {
-      this.podeInteragir = false;
-      this.containerTecla.setVisible(false);
-    }
+  puloSophia(this, this.Principal);
+}
+//Aqui, atualizamos a organização visual do nosso código
+atualizarDepth() {
+  const objetos = [
+    this.Principal,
+    this.watson,
+    this.npc1,
+    this.npc2,
+    this.npc3,
+    this.npc4
+  ];
 
-    if (distanciaWatson < 120 && !this.entrarNaCamara) {
-      this.podeInteragirWatson = true;
-      this.containerTeclaWatson.setVisible(true);
-      this.containerTeclaWatson.setPosition(this.watson.x, this.watson.y - 80);
-    } else {
-      this.podeInteragirWatson = false;
-      this.containerTeclaWatson.setVisible(false);
-    }
+  objetos.forEach(obj => obj.setDepth(obj.y));
+}
 
-    // INTERAÇÃO CÂMARA
-    if (this.podeInteragir && this.entrarNaCamara && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      this.containerTecla.setVisible(false);
-      this.lendoMensagem = true;
-      
-      const falaCamara = [
-          { nome: "SISTEMA", personagem: null, texto: "Iniciando criogenia..." }
-      ];
+//Aqui, atualizamos as interações
+atualizarInteracoes() {
+  this.verificarInteracaoCamara();
+  this.verificarInteracaoWatson();
+  this.executarInteracoes();
+}
 
-      this.sistemaDialogo.iniciarDialogo(falaCamara, () => {
-          this.lendoMensagem = false;
-          this.cameras.main.fadeOut(1000);
-          this.cameras.main.once("camerafadeoutcomplete", () => {
-              this.scene.start("sceneLBFuturo");
-          });
-      });
-    }
+//Aqui, verificamos a interação com a câmara
+verificarInteracaoCamara() {
+  const distancia = Phaser.Math.Distance.Between(
+    this.Principal.x,
+    this.Principal.y,
+    this.camara.x,
+    this.camara.y
+  );
 
-    // INTERAÇÃO WATSON 
-    if (this.podeInteragirWatson && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      this.containerTeclaWatson.setVisible(false);
-      this.lendoMensagem = true;
-      
-      const falasWatson = [ { nome: "Watson", personagem: this.watson, texto: "Sophia, boa sorte, estaremos torcendo para que você fique sempre bem." } ];
+  if (distancia < 140 && this.entrarNaCamara) {
+    this.podeInteragir = true;
+    this.containerTecla.setVisible(true);
+    this.containerTecla.setPosition(this.camara.x, this.camara.y - 50);
+  } else {
+    this.podeInteragir = false;
+    this.containerTecla.setVisible(false);
+  }
+}
 
-      this.sistemaDialogo.iniciarDialogo(falasWatson, () => {
-        this.lendoMensagem = false;
-        this.entrarNaCamara = true; // Liberou a câmara!
-      });
-    }
+//Aqui, verificamos a interação com o Watson
+verificarInteracaoWatson() {
+  const distancia = Phaser.Math.Distance.Between(
+    this.Principal.x,
+    this.Principal.y,
+    this.watson.x,
+    this.watson.y
+  );
+
+  if (distancia < 120 && !this.entrarNaCamara) {
+    this.podeInteragirWatson = true;
+    this.containerTeclaWatson.setVisible(true);
+    this.containerTeclaWatson.setPosition(this.watson.x, this.watson.y - 80);
+  } else {
+    this.podeInteragirWatson = false;
+    this.containerTeclaWatson.setVisible(false);
+  }
+}
+
+//Aqui, executamos as interações
+executarInteracoes() {
+  if (!Phaser.Input.Keyboard.JustDown(this.teclaE)) return;
+
+  if (this.podeInteragir && this.entrarNaCamara) {
+    this.interagirCamara();
   }
 
+  if (this.podeInteragirWatson) {
+    this.interagirWatson();
+  }
+}
+
+interagirCamara() {
+  this.containerTecla.setVisible(false);
+  this.lendoMensagem = true;
+
+  const falaCamara = [
+    { nome: "SISTEMA", personagem: null, texto: "Iniciando criogenia..." }
+  ];
+
+  this.sistemaDialogo.iniciarDialogo(falaCamara, () => {
+    this.lendoMensagem = false;
+    this.cameras.main.fadeOut(1000);
+
+    this.cameras.main.once("camerafadeoutcomplete", () => {
+      this.scene.start("sceneLBFuturo");
+    });
+  });
+}
+
+interagirWatson() {
+  this.containerTeclaWatson.setVisible(false);
+  this.lendoMensagem = true;
+
+  const falasWatson = [
+    {
+      nome: "Watson",
+      personagem: this.watson,
+      texto: "Sophia, boa sorte, estaremos torcendo para que você fique sempre bem."
+    }
+  ];
+
+  this.sistemaDialogo.iniciarDialogo(falasWatson, () => {
+    this.lendoMensagem = false;
+    this.entrarNaCamara = true;
+  });
+}
+  
+  //Aqui, criamos a caixa de aviso para o menu
   exibirAviso(frase) {
     this.textoAviso.setText(frase);
     this.retanguloAviso.setVisible(true);
@@ -337,6 +417,7 @@ export class sceneLBPassado extends Phaser.Scene {
     });
   }
 
+  //método para colisão de objetos na cena
   criarColisao(objeto, reduzirAltura = 1) {
     this.physics.add.existing(objeto, true);
     let alturaOriginal = objeto.displayHeight;

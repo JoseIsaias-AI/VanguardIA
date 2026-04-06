@@ -1,3 +1,5 @@
+import { HudTeclaE } from "./hudTeclaE.js";
+
 export default class CaixaDialogo {
     constructor(scene) {
         this.scene = scene;
@@ -35,6 +37,12 @@ export default class CaixaDialogo {
             padding: { left: 8, right: 8, top: 3, bottom: 3 },
         }).setScrollFactor(0).setDepth(1002).setVisible(false);
 
+        this.indicadorTeclaE = new HudTeclaE(scene, {
+            x: xCaixa + larguraCaixa - 70,
+            y: yCaixa + alturaCaixa - 32,
+            depth: 1003,
+        });
+
         // --- ESTADOS DO GERENCIADOR ---
         this.falas = [];
         this.indiceDialogo = 0;
@@ -56,6 +64,7 @@ export default class CaixaDialogo {
         this.caixaDialogo.setVisible(true);
         this.textoDialogo.setVisible(true);
         this.labelNome.setVisible(true);
+        this.indicadorTeclaE.mostrar();
 
         // Se quiser que pule falas clicando com o mouse também, descomente a linha abaixo:
         // this.scene.input.on('pointerdown', this.interagir);
@@ -135,6 +144,7 @@ export default class CaixaDialogo {
         this.caixaDialogo.setVisible(false);
         this.textoDialogo.setVisible(false);
         this.labelNome.setVisible(false);
+        this.indicadorTeclaE.esconder();
 
         this.falas.forEach(fala => {
             if (fala.personagem) fala.personagem.clearTint();
