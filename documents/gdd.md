@@ -891,6 +891,7 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 
 ### 5.2.1 Registros de testes
 
+*Teste de Guerrilha*
 
 Nome | Felipe 
 --- | ---
@@ -986,6 +987,31 @@ Apresentou dificuldades? | Sim
 Que nota deu ao jogo? | 7.0
 O que gostou no jogo? | O jogo realmente ensina os conceitos de IA, apresentando um bom nível de aprofundamento nos diálogos. Por isso, eles acabam sendo um pouco mais longos. Além disso, o jogo possui uma certa complexidade e consegue engajar o jogador, já que as fases são variadas entre si. Isso é um ponto positivo, pois evita que a experiência se torne monótona
 O que poderia melhorar no jogo? | Em relação a melhorias, acredito que o jogo poderia incluir instruções mais claras sobre como navegar e sobre as regras. Por exemplo, na parte em que o personagem precisa pular, inicialmente não fica evidente essa ação — pode-se pensar que ele atravessaria o portal automaticamente. Também há um bug em que o personagem atravessa o robô, o que prejudica a experiência. Outro ponto é em relação aos diálogos geradas por IA, sendo interessante revisá-los e reduzir um pouco o tamanho dos textos, pois a leitura pode se tornar cansativa
+
+
+*Formulário de teste de feedback de usuários - Vanguard.IA*
+
+Número formulário | 1 
+--- | ---
+Qual a faixa sua etária? | 19 a 20 anos
+Com qual gênero você se identifica? | Homem
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo casualmente, algumas vezes na semana
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual sua nota para nosso jogo? (1 a 10) | 7
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+Qual foi o melhor momento do jogo? | O minigames de limpar as informações
+Qual foi o pior momento do jogo? | A parte final onde não houve instrução do que fazer
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Sim, porque não ficou claro o que fazer na parte do baú no final
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | Adicionar algo no baú final e aumentar a velocidade do jogador
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+O que você achou do processo de aprendizado do jogo? | Legal
 
 
 ### 5.2.2 Melhorias
