@@ -295,6 +295,7 @@ export class faseTres extends Phaser.Scene {
       this.sistemaDialogo.caixaDialogo,
       this.sistemaDialogo.labelNome,
       this.sistemaDialogo.textoDialogo,
+      this.sistemaDialogo.indicadorTeclaE.container,
       this.textoCristais,
     ].filter(Boolean);
 
