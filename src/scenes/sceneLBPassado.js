@@ -257,6 +257,7 @@ export class sceneLBPassado extends Phaser.Scene {
         this.sistemaDialogo.caixaDialogo,
         this.sistemaDialogo.labelNome,
         this.sistemaDialogo.textoDialogo,
+        this.sistemaDialogo.indicadorTeclaE.container,
         this.retanguloAviso,
         this.textoAviso
     ];
