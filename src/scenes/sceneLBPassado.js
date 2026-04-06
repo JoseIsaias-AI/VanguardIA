@@ -32,18 +32,19 @@ export class sceneLBPassado extends Phaser.Scene {
 
   //neste método do Phaser, organizamos a criação de cada objeto que ja foi carregado e como eles irão se comportar na cena
   create() {
-    // Instanciando corretamente
     this.sistemaDialogo = new caixasDialogo(this);
     
     // Registrando a tecla E para interação geral da cena
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
     
     console.log("Cena criada");
+    //Aqui, registramos o menu na fase
     registrarTeclaMenu(this);
 
+    //Aqui, fazemos a música tocar na cena
     this.scene.launch("bgMusic");
 
-    //chama todos o métodos adicionados na parte inferior do código
+    //Aqui, chamamos todos os métodos que criam a cena do mapa
     this.estadosDaCena();
     this.createMapa();
     this.paredesDeColisao();
@@ -53,9 +54,11 @@ export class sceneLBPassado extends Phaser.Scene {
     this.createWatson();
     this.createHUD();
 
+    //Aqui, registramos os controles e as animações
     registrarControles(this);
     criarAnimacaoSophia(this);
 
+    //Aqui, configuramos a câmera, para seguir o personagem
     this.cameras.main.startFollow(this.Principal);
     this.cameras.main.setZoom(1.2);
 
@@ -74,7 +77,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.scaleMapa = 3;
   }
 
-  //criação do mapa e o efeito de neve que fica atras do background
+  //Aqui, criamos o mapa e o efeito de neve que fica atrás do fundo
   createMapa() {
     this.mapa = this.add.image(600, 400, "labB").setScale(this.scaleMapa).setDepth(-1);
     this.snow = new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
@@ -128,7 +131,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.comutador4prt2 = this.add.image(812, 450, "comptBaixo").setScale(3);
     this.camara = this.physics.add.staticImage(600, 20, "camara").setScale(0.25).refreshBody();
     
-    // depth sorting: Y puro para todos os objetos estáticos
+    //Aqui, usamos a posição Y para definir quem fica na frente ou atrás, para todos os objetos da cena.”
     [
       this.armario, this.armario2,
       this.alvo, this.alvo2,
@@ -154,20 +157,31 @@ export class sceneLBPassado extends Phaser.Scene {
     this.Principal.body.setAllowGravity(false);
     this.Principal.setSize(30, 25);
     this.Principal.setOffset(15, 30);
+    //Aqui, criamos a colisão dos itens com o personagem principal
     this.physics.add.collider(this.Principal, this.camara);
     this.physics.add.collider(this.Principal, this.paredes);
     this.physics.add.collider(this.Principal, this.objetosColisao);
   }
 
-  // NPCs decorativos
-  createNPC(x, y, sprite, animKey) {
-    const npc = this.physics.add.sprite(x, y, sprite).setScale(2).setDepth(1000);
-    npc.body.setAllowGravity(false);
-    npc.setImmovable(true);
+  // Aqui, criamos os NPCs decorativos
+  createNPC(x, y, sprite, animKey = null) {
+  let npc;
+
+  if (animKey) {
+    npc = this.physics.add.sprite(x, y, sprite);
     npc.play(animKey);
-    this.physics.add.collider(this.Principal, npc);
-    return npc;
+  } else {
+    npc = this.physics.add.image(x, y, sprite);
   }
+
+  npc.setScale(2);
+  npc.body.setAllowGravity(false);
+  npc.setImmovable(true);
+
+  this.physics.add.collider(this.Principal, npc);
+
+  return npc;
+}
 
   //Aqui, fazemos uma função criadora para gerar NPC's com animação, física e colisão
   createNPCs() {
@@ -178,40 +192,45 @@ export class sceneLBPassado extends Phaser.Scene {
     this.npc1 = this.createNPC(290, 330, "npc1", "npc1_idle");
     this.npc2 = this.createNPC(350, 50, "npc2", "npc2_idle");
     this.npc3 = this.createNPC(820, 270, "npc3", "npc3_idle");
-    this.npc4 = this.createNPC(800, 455, "npc4", "npc4_idle"); 
+    this.npc4 = this.createNPC(800, 455, "npc4");
   }
 
-  createWatson(){
-    this.watson = this.physics.add.sprite(830, 80, "watson").setScale(2.3);
-    this.watson.body.setAllowGravity(false);
-    this.watson.setSize(30, 25);
-    this.watson.setOffset(15, 30);
-    this.watson.setImmovable(true);
-    this.physics.add.collider(this.Principal, this.watson);
-
-    if (!this.anims.exists("watson_front")) {
-      this.anims.create({ key: "watson_front", frames: this.anims.generateFrameNumbers("watson", { start: 0, end: 1 }), frameRate: 4, repeat: -1 });
-      this.anims.create({ key: "watson_back", frames: this.anims.generateFrameNumbers("watson", { start: 7, end: 9 }), frameRate: 4, repeat: -1 });
-      this.anims.create({ key: "watson_side", frames: this.anims.generateFrameNumbers("watson", { start: 14, end: 16 }), frameRate: 4, repeat: -1 });
-    }
-    this.watson.play("watson_front");
-  }
+  //Aqui, criamos as configurações de Watson, o NPC principal
+  createWatson() {
+  this.watson = this.physics.add.sprite(830, 80, "watson")
+    .setScale(2.3)
+    .setImmovable(true);
+  this.watson.body.setAllowGravity(false);
+  this.watson.setSize(30, 25);
+  this.watson.setOffset(15, 30);
+  this.physics.add.collider(this.Principal, this.watson);
+  //Aqui, criamos a animação do Watson
+  this.watson.play("watson_front");
+}
 
   //Aqui, criamos o HUD da tecla E para a câmara
   createHUD(){
+    //Aqui, criamos o contâiner da tecla E
     this.containerTecla = this.add.container(0, 0).setDepth(500);
     let largura = 140;
     let altura = 40;
+    //Aqui, criamos as características do ícone da tecla E
     let iconeTecla = this.add.graphics();
     iconeTecla.fillStyle(0xffffff, 1);
     iconeTecla.lineStyle(2, 0x000000, 1);
+    //Aqui, deixamos o retângulo arredondado e centralizamos o texto 
     iconeTecla.fillRoundedRect(-largura / 2, -altura / 2, largura, altura, 10);
     iconeTecla.strokeRoundedRect(-largura / 2, -altura / 2, largura, altura, 10);
+    //Aqui, criamos o texto
     let letra = this.add.text(0, 0, "Aperte E", { fontSize: "20px", color: "#000000", fontStyle: "bold" }).setOrigin(0.5);
+    //Aqui, adicionamos tudo que fizemos no contêiner
     this.containerTecla.add([iconeTecla, letra]);
+    //Aqui, fazemos o contêiner só aparecer quando o jogador poder interagir
     this.containerTecla.setVisible(false);
+    //Aqui, fazemos o contêiner flutuar
     this.tweens.add({ targets: this.containerTecla, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
+    //Aqui, fazemos a mesma coisa do HUD da câmara, mas para o Watson
     this.containerTeclaWatson = this.add.container(0, 0).setDepth(500);
     let iconeTeclaWatson = this.add.graphics();
     iconeTeclaWatson.fillStyle(0xffffff, 1);
@@ -223,6 +242,8 @@ export class sceneLBPassado extends Phaser.Scene {
     this.containerTeclaWatson.setVisible(false);
     this.tweens.add({ targets: this.containerTeclaWatson, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
+    
+    //Aqui, criamos as caixas de aviso
     this.retanguloAviso = this.add.graphics();
     this.retanguloAviso.fillStyle(0x000000, 0.8);
     this.retanguloAviso.fillRect(700, 900, 500, 30, 15); 
@@ -266,8 +287,8 @@ export class sceneLBPassado extends Phaser.Scene {
 
   //método do Phaser que é chamado a cada frame para atualizar diversas funções, dentre elas colisão e interação com teclas de entrada
   update() {
-  if (this.estaEmDialogo()) return;
-
+  //Aqui, chamamos as funções que serão atualizadas a cada frame
+    if (this.estaEmDialogo()) return;
   this.atualizarMovimento();
   this.atualizarDepth();
   this.atualizarInteracoes();
@@ -287,6 +308,7 @@ export class sceneLBPassado extends Phaser.Scene {
   return true;
 }
   
+  //Aqui, configuramos o movimento do personagem
   atualizarMovimento() {
    movimentacaoSophia(this, this.Principal, {
     left: "sophia_esquerda",
@@ -369,6 +391,7 @@ executarInteracoes() {
   }
 }
 
+//Aqui, executamos as interações com a câmara
 interagirCamara() {
   this.containerTecla.setVisible(false);
   this.lendoMensagem = true;
@@ -387,6 +410,7 @@ interagirCamara() {
   });
 }
 
+//Aqui, executamos as interações com o Watson
 interagirWatson() {
   this.containerTeclaWatson.setVisible(false);
   this.lendoMensagem = true;

@@ -892,18 +892,128 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 
 ### 5.2.1 Registros de testes
 
-*Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores. Registre cada teste conforme o template a seguir.*
+*Teste de Guerrilha*
 
-Nome | João Jonas (use nomes fictícios)
+Nome | Felipe 
 --- | ---
-Já possuía experiência prévia com games? | sim, é um jogador casual
-Conseguiu iniciar o jogo? | sim
-Entendeu as regras e mecânicas do jogo? | entendeu as regras, mas sobre as mecânicas, apenas as essenciais, não explorou os comandos complexos
-Conseguiu progredir no jogo? | sim, sem dificuldades  
-Apresentou dificuldades? | Não, conseguiu jogar com facilidade e afirmou ser fácil
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Não
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.0
+O que gostou no jogo? | Os mini games
+O que poderia melhorar no jogo? | O personagem poderia se mover mais rápido. Bug da sala do cristal. Limpar o cristal com cliques não sobe a barra. Na questão das perguntas ele respondeu uma errado e deu certo
+
+
+Nome | Luis 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
 Que nota deu ao jogo? | 9.0
-O que gostou no jogo? | Gostou  de como o jogo vai ficando mais difícil ao longo do tempo sem deixar de ser divertido
-O que poderia melhorar no jogo? | A responsividade do personagem aos controles, disse que havia um pouco de atraso desde o momento do comando até a resposta do personagem
+O que gostou no jogo? | Design e animações
+O que poderia melhorar no jogo? | Colocar indicadores para orientar o jogador sobre o que deve fazer, reduzindo a necessidade de explicações longas. Diminuir principalmente os textos dos documentos, já que fogem da proposta do jogo, que deve ser mais lúdica. Se o conteúdo dos papéis não tiver função prática na jogabilidade, não há necessidade de mantê-los. Além disso, melhorar o áudio: conforme o diálogo avança, inserir sons adequados, como efeitos de pulo e interação, para enriquecer a experiência
+
+
+Nome | João 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 8.0
+O que gostou no jogo? | Gostou do Asimov e da dinâmica de explicação com o mesmo. Gostou da história, da ideia de que você está no laboratório e você precisa salvar o mundo
+O que poderia melhorar no jogo? | Substituir assets que parecem não combinar com o jogo. Correção de bug entre a parede e o baú. Melhorar a explicação das mecânicas (especialmente algumas serem com o mouse e outras com o E). Explicar melhor sobre os prompts e selecionar eles com a setinha e não com o mouse. Criar uma tela de finalização do jogo. Diminuir textos muito longos e monótonos
+
+
+Nome | Manuela 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Não
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 8.0
+O que gostou no jogo? | A historia ficou muito boa
+O que poderia melhorar no jogo? | Mecânicas e teclas. O ultimo baú ela interagiu e não apareceu nada, Sophia por cima do papel e muito texto
+
+
+Nome | Augusto 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.0
+O que gostou no jogo? | O aprendizado está bem desenvolvido, com um bom equilíbrio entre design e informações. Os minigames são bem feitos e divertidos, especialmente nas partes como o cérebro do robô, contribuindo positivamente para a experiência geral de aprendizado no jogo. A movimentação do personagem também está muito boa — o pulo e a velocidade estão bem ajustados, tornando a jogabilidade fluida e agradável. Além disso, o cenário é interessante e interativo, com diversos objetos que enriquecem a exploração
+O que poderia melhorar no jogo? | Há excesso de texto nas conversas, e não está claro qual personagem está falando. Uma solução é diferenciar as falas usando cores distintas nas caixas de diálogo, facilitando a identificação. Os arquivos da copiadora também estão muito grandes, o que acaba prejudicando a imersão do jogador. Além disso, os prompts não estão claros e acabam gerando confusão. No parkour, é importante deixar explícito que, ao pegar o item falso, o jogo deve ser reiniciado. Seria interessante adicionar uma cutscene de transição após o parkour, mostrando o personagem escalando até chegar à parte do baú. As transições, de modo geral, estão confusas e com informação demais em texto, o que quebra o ritmo do jogo — é importante reduzir e distribuir melhor essas informações. O cenário também pode ser mais conectado e exploratório, pois atualmente as áreas parecem soltas e pouco intuitivas. Tornar a progressão das fases mais linear pode ajudar na compreensão do jogador. Por fim, ajustar a contagem de acertos da fase 5 para 10 e, no geral, reduzir a quantidade de informação apresentada ao jogador para melhorar a experiência
+
+
+Nome | Rafael 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.5
+O que gostou no jogo? | Gostou da história do jogo (o que mais prendeu ele). Gostou da variedade de minigames
+O que poderia melhorar no jogo? | Não entendia o que devia ser feito em alguns momentos do jogo (instruções vagas). Sofreu com lag. Diminuir a quantidade de texto dos diálogos
+
+
+Nome | Ana 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 9.0
+O que gostou no jogo? | Os minigames foram muito bem elogiados, destacando-se como um dos pontos fortes do jogo
+O que poderia melhorar no jogo? | Algumas partes apresentam excesso de texto, o que pode prejudicar o ritmo do jogo. É recomendável resumir as informações e torná-las mais objetivas, especialmente no início, para não sobrecarregar o jogador logo nos primeiros momentos
+
+
+Nome | Raissa 
+--- | ---
+Já possuía experiência prévia com games? | Não
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.0
+O que gostou no jogo? | O jogo realmente ensina os conceitos de IA, apresentando um bom nível de aprofundamento nos diálogos. Por isso, eles acabam sendo um pouco mais longos. Além disso, o jogo possui uma certa complexidade e consegue engajar o jogador, já que as fases são variadas entre si. Isso é um ponto positivo, pois evita que a experiência se torne monótona
+O que poderia melhorar no jogo? | Em relação a melhorias, acredito que o jogo poderia incluir instruções mais claras sobre como navegar e sobre as regras. Por exemplo, na parte em que o personagem precisa pular, inicialmente não fica evidente essa ação — pode-se pensar que ele atravessaria o portal automaticamente. Também há um bug em que o personagem atravessa o robô, o que prejudica a experiência. Outro ponto é em relação aos diálogos geradas por IA, sendo interessante revisá-los e reduzir um pouco o tamanho dos textos, pois a leitura pode se tornar cansativa
+
+
+*Formulário de teste de feedback de usuários - Vanguard.IA*
+
+Número formulário | 1 
+--- | ---
+Qual a faixa sua etária? | 19 a 20 anos
+Com qual gênero você se identifica? | Homem
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo casualmente, algumas vezes na semana
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual sua nota para nosso jogo? (1 a 10) | 7
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+Qual foi o melhor momento do jogo? | O minigames de limpar as informações
+Qual foi o pior momento do jogo? | A parte final onde não houve instrução do que fazer
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Sim, porque não ficou claro o que fazer na parte do baú no final
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | Adicionar algo no baú final e aumentar a velocidade do jogador
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+O que você achou do processo de aprendizado do jogo? | Legal
+
 
 ### 5.2.2 Melhorias
 
