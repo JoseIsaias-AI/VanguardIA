@@ -566,23 +566,7 @@ O jogador pode se movimentar livremente dentro do mapa inicial para explorar o l
 
 Controles de Exploração Livre (Sophia):
 
-Tecla W / Seta para Cima: Move para cima (Eixo Y+).
-
-Tecla S / Seta para Baixo: Move para baixo (Eixo Y-).
-
-Tecla D / Seta para a Direita: Move para a direita (Eixo X+).
-
-Tecla A / Seta para a Esquerda: Move para a esquerda (Eixo X-).
-
-Barra de Espaço: Pular.
-
-Controles na Sucata (Asimov):
-
-Tecla W / Seta para Cima: Move para a faixa de cima.
-
-Tecla S / Seta para Baixo: Move para a faixa de baixo.
-
-Barra de Espaço: Saltar obstáculos.
+Tecla W / Seta para Cima: Move para cima (Eixo Y+). Tecla S / Seta para Baixo: Move para baixo (Eixo Y-). Tecla D / Seta para a Direita: Move para a direita (Eixo X+).Tecla A / Seta para a Esquerda: Move para a esquerda (Eixo X-).Barra de Espaço: Pular. Controles na Sucata (Asimov):Tecla W / Seta para Cima: Move para a faixa de cima. Tecla S / Seta para Baixo: Move para a faixa de baixo.Barra de Espaço: Saltar obstáculos.
 
 2. Interação com objetos e sistemas
 Utilizando a tecla de interação, o jogador pode acessar baús, arquivos, máquinas e terminais do laboratório, além de conversar com o cientista Watson e com Asimov. Esses elementos liberam informações da narrativa ou ativam desafios necessários para continuar a fase.
