@@ -1,6 +1,7 @@
 import { registrarTeclaMenu } from '../menu.js';
 import { SnowEffect } from './efeitoNeve.js';
 import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles, criarAnimacaoAsimov } from './movimentacao.js';
+import caixasDialogo from './caixasDialogo.js';
 
 export class sceneLBFuturo extends Phaser.Scene {
   constructor() {
@@ -36,6 +37,9 @@ export class sceneLBFuturo extends Phaser.Scene {
   // Prepara a cena e inicia a cutscene de abertura.
   create() {
     registrarTeclaMenu(this);
+    
+    // Instanciamos o nosso gerenciador de diálogos aqui!
+    this.sistemaDialogo = new caixasDialogo(this);
 
     // Silencia o bgMusic nesta cena, mas não para permanentemente para não quebrar o retorno.
     const bgMusic = this.sound.get('bgMusic');
@@ -200,7 +204,6 @@ export class sceneLBFuturo extends Phaser.Scene {
     // variaveis de interacao
     this.podeInteragirAsimov = false;
     this.dialogoAsimovJaIniciado = false;
-    this.falandoAsimov = false;
 
     // Monta o indicador visual de interação com a tecla E.
     // icone da tecla E (asimov)
@@ -234,48 +237,7 @@ export class sceneLBFuturo extends Phaser.Scene {
       repeat: -1,
     });
 
-    // Caixa de diálogo
-    // Cria a interface usada para exibir as falas.
-    const larguraJogo = this.cameras.main.width;
-    const alturaJogo = this.cameras.main.height;
-    const larguraCaixa = 1300;
-    const alturaCaixa = 220;
-    const xCaixa = (larguraJogo - larguraCaixa) / 2;
-    const yCaixa = alturaJogo - alturaCaixa - 50;
-
-    this.caixaDialogo = this.add.graphics();
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
-    this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
-
-    this.textoDialogo = this.add
-      .text(xCaixa + 40, yCaixa + 30, "", {
-        fontSize: "32px",
-        fontFamily: "'Courier New', Courier, monospace",
-        color: "#ccffff",
-        wordWrap: { width: larguraCaixa - 80 },
-        lineSpacing: 10,
-      })
-      .setScrollFactor(0)
-      .setDepth(1001)
-      .setVisible(false);
-
-    // Label do nome do falante — aparece acima da borda esquerda da caixa
-    // Exibe o nome do personagem que está falando.
-    this.labelNome = this.add
-      .text(xCaixa + 16, yCaixa - 28, "", {
-        fontSize: "32px",
-        fontFamily: "'Courier New', Courier, monospace",
-        color: "#00ffff",
-        fontStyle: "bold",
-        backgroundColor: "#1a1a1a",
-        padding: { left: 8, right: 8, top: 3, bottom: 3 },
-      })
-      .setScrollFactor(0)
-      .setDepth(1002)
-      .setVisible(false);
+    // NOTA: O bloco inteiro de criação da "Caixa de Diálogo" foi removido daqui!
 
     // Ativa animações, controles e câmera principal.
     criarAnimacaoSophia(this);
@@ -293,8 +255,10 @@ export class sceneLBFuturo extends Phaser.Scene {
     if (this.lendoMensagem) {
       this.sophia.setVelocity(0, 0);
       this.sophia.anims.stop();
+      
+      // Permite que o jogador avance as falas tanto clicando quanto apertando 'E'
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-        this.fecharMensagem();
+        this.sistemaDialogo.interagir();
       }
       return;
     }
@@ -310,15 +274,10 @@ export class sceneLBFuturo extends Phaser.Scene {
     movimentacaoSophia(this, this.sophia, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" });
     puloSophia(this, this.sophia);
 
-    // corrige velocidade diagonal
-    /*if (this.sophia.body.velocity.x !== 0 || this.sophia.body.velocity.y !== 0)
-      this.sophia.body.velocity.normalize().scale(150);*/
-
     this.sophia.setDepth(this.sophia.y);
     this.asimov.setDepth(this.asimov.y);
 
     // Mede a distância até o Asimov para decidir se mostra a interação.
-    // distancia ate o asimov
     let distanciaAsimov = Phaser.Math.Distance.Between(
       this.sophia.x,
       this.sophia.y,
@@ -327,7 +286,6 @@ export class sceneLBFuturo extends Phaser.Scene {
     );
 
     // Mostra ou esconde o aviso de interação.
-    // MOSTRAR ICONE E - ASIMOV
     if (!this.dialogoAsimovJaIniciado && distanciaAsimov < 120) {
       this.podeInteragirAsimov = true;
       this.containerTeclaAsimov.setVisible(true);
@@ -337,17 +295,16 @@ export class sceneLBFuturo extends Phaser.Scene {
       this.containerTeclaAsimov.setVisible(false);
     }
 
-    // Inicia o diálogo quando o jogador confirma a interação.
+    // Inicia o diálogo quando o jogador confirma a interação (Aperta E perto do Asimov).
     if (this.podeInteragirAsimov && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      this.containerTeclaAsimov.setVisible(true); // Oculta o ícone "Aperte E"
       this.dialogoAsimovJaIniciado = true;
       this.containerTeclaAsimov.setVisible(false);
       this.tweens.killTweensOf(this.containerTeclaAsimov);
-      this.falandoAsimov = true;
-      this.dialogoAsimovIndex = 0;
+      
+      this.lendoMensagem = true; // Congela a movimentação
 
       // array com as falas
-      this.dialogosFase = [
+      const dialogosFase = [
         { nome: "Sophia", personagem: this.sophia, texto: "Olá? Quem é você?" },
         { nome: "Asimov", personagem: this.asimov, texto: "Olá, Sophia. Tenho satisfação em lhe conhecer." },
         { nome: "Asimov", personagem: this.asimov, texto: "Me chamo Asimov, fui criado por Watson e nossa equipe para abrir a câmara e lhe ajudar quando fosse necessário." },
@@ -362,87 +319,25 @@ export class sceneLBFuturo extends Phaser.Scene {
         { nome: "Sophia", personagem: this.sophia, texto: "Então, vamos!" },
         { nome: "Asimov", personagem: this.asimov, texto: "Ah, Sophia, antes de tudo, meu sistema de movimentação está com falhas. Sendo uma máquina, tenho uma habilidade chamada Aprendizagem de Máquina." },
         { nome: "Asimov", personagem: this.asimov, texto: "Utilizo algoritmos (instruções sequenciais) para aprender. Para eu te acompanhar, precisarei de ajuda para reaprender alguns movimentos." },
-        { nome: "Sophia", personagem: this.asimov, texto: "Claro que posso, mas como farei isso?"},
+        { nome: "Sophia", personagem: this.sophia, texto: "Claro que posso, mas como farei isso?"},
         { nome: "Asimov", personagem: this.asimov, texto: "Você pode me guiar através de um corredor para que eu possa exercitar diferentes ações."},
         { nome: "Sophia", personagem: this.sophia, texto: "Ok, vamos lá. Não há tempo a perder."}
       ];
       
-      this.proximaFala();
-    }
-  }
-
-  // Avança para a próxima fala ou encerra o diálogo.
-  proximaFala() {
-    if (this.dialogoAsimovIndex < this.dialogosFase.length) {
-      const fala = this.dialogosFase[this.dialogoAsimovIndex];
-      this.mostrarMensagem(fala.texto, fala.nome);
-    } 
-    else {
-      // Quando os diálogos acabarem
-      this.lendoMensagem = false;
-      this.caixaDialogo.setVisible(false);
-      this.textoDialogo.setVisible(false);
-      this.labelNome.setVisible(false);
-      this.falandoAsimov = false;
-      this.iniciarAnimacaoFinal();
-    }
-  }
-
-  // Exibe uma fala com efeito de digitação.
-  mostrarMensagem(textoCompleto, nome = "") {
-    this.lendoMensagem = true;
-    this.caixaDialogo.setVisible(true);
-    this.textoDialogo.setVisible(true);
-    this.textoDialogo.setText("");
-    this.textoAtualArmazenado = textoCompleto;
-
-    // Atualiza o nome mostrado acima da caixa de diálogo.
-    if (nome && nome.trim() !== "") {
-      this.labelNome.setText(nome);
-      this.labelNome.setVisible(true);
-    } else {
-      this.labelNome.setVisible(false);
-    }
-
-    // Escreve o texto gradualmente.
-    let letraAtual = 0;
-    if (this.timerEscrever) this.timerEscrever.remove();
-
-    this.timerEscrever = this.time.addEvent({
-      delay: 30,
-      callback: () => {
-        this.textoDialogo.text += textoCompleto[letraAtual];
-        letraAtual++;
-      },
-      repeat: textoCompleto.length - 1,
-    });
-  }
-
-  // Fecha a mensagem atual ou avança para a próxima fala.
-  fecharMensagem() {
-    if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
-      // Se o texto ainda está sendo digitado, revela tudo de uma vez.
-      this.timerEscrever.remove();
-      this.textoDialogo.setText(this.textoAtualArmazenado);
-      return;
-    }
-
-    if (this.falandoAsimov) {
-      this.dialogoAsimovIndex++;
-      this.proximaFala();
+      // 2. Chama o seu Gerenciador!
+      this.sistemaDialogo.iniciarDialogo(dialogosFase, () => {
+         // O que acontece quando o diálogo acaba:
+         this.lendoMensagem = false;
+         this.iniciarAnimacaoFinal();
+      });
     }
   }
 
   // Método antigo que move apenas o Asimov ao fim da cena.
   animacaoFinalAsimov() {
-      // toca a animação de andar para baixo
       this.asimov.play("asimov_frente", true);
-
-      // move o Asimov e Sophia para baixo juntos
       this.asimov.setVelocityY(50);
 
-
-      // depois de 5 segundos para e muda de fase
       this.time.delayedCall(5000, () => {
         this.asimov.setVelocity(0);
         this.scene.start("faseUm");
@@ -451,14 +346,9 @@ export class sceneLBFuturo extends Phaser.Scene {
 
   // Método antigo que move apenas a Sophia ao fim da cena.
   animacaoFinalSophia() {
-      // toca a animação de andar para baixo
       this.sophia.play("sophia_frente", true);
-
-      // move o Asimov e Sophia para baixo juntos
       this.sophia.setVelocityY(50);
 
-
-      // depois de 5 segundos para e muda de fase
       this.time.delayedCall(5000, () => {
         this.sophia.setVelocity(0);
         this.scene.start("faseUm");
@@ -485,7 +375,6 @@ export class sceneLBFuturo extends Phaser.Scene {
   criarColisao(objeto, reduzirAltura = 1) {
     this.physics.add.existing(objeto, true);
 
-    // Permite reduzir a altura útil da colisão sem alterar o sprite.
     let alturaOriginal = objeto.displayHeight;
 
     objeto.body.setSize(

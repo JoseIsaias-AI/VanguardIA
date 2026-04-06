@@ -3,11 +3,9 @@ import { welcomeScene } from "./src/scenes/Welcome.js";
 import { sceneInicial } from "./src/scenes/sceneInicial.js";
 import { sceneLBPassado } from "./src/scenes/sceneLBPassado.js";
 import { sceneLBFuturo } from "./src/scenes/sceneLBFuturo.js";
-import { SceneRetornoLab } from "./src/scenes/SceneRetornoLab.js";
 import { sceneRestauracao } from "./src/scenes/sceneRestauracao.js";
 import { faseUm } from "./src/scenes/FaseUm.js";
 import { FaseDois } from "./src/scenes/FaseDois.js";
-import { minigame1Fase2 } from "./src/scenes/minigame1Fase2.js";
 import { transicao1para2 } from "./src/scenes/transicao1para2.js";
 import { faseTres } from "./src/scenes/faseTres.js";
 import { FaseDoischao } from "../src/scenes/chaoCaindo.js";
@@ -38,10 +36,6 @@ const config = {
   audio: {
     disableWebAudio: false,
   },
-  // scene: [FaseDoischao, faseTres],
-  //scene: [sceneRestauracao,faseCinco, menu, BgMusic],
-  //scene: [transicao1para2],
-  //scene: [ scenePreFase4],
   //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
 
 
@@ -55,8 +49,6 @@ const config = {
     FaseDois,
     FaseDoischao,
     faseTres,
-    SceneRetornoLab,
-    minigame1Fase2,
     scenePreFase4,
     faseQuatro,
     sceneRestauracao,

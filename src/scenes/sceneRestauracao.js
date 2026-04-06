@@ -1,6 +1,7 @@
 import { registrarTeclaMenu } from '../menu.js';
 import { SnowEffect } from './efeitoNeve.js';
 import { movimentacaoSophia, criarAnimacaoSophia, criarAnimacaoAsimov, puloSophia, registrarControles } from './movimentacao.js';
+import caixasDialogo from './caixasDialogo.js'; // Importação do componente de diálogo
 
 export class sceneRestauracao extends Phaser.Scene {
   constructor() {
@@ -23,6 +24,9 @@ export class sceneRestauracao extends Phaser.Scene {
     this.scene.launch("bgMusic");
     this.cameras.main.fadeIn(800, 0, 0, 0);
 
+    // Instancia o sistema de diálogos
+    this.sistemaDialogo = new caixasDialogo(this);
+
     this.lendoMensagem = false;
     this.podeInteragir = false;
     this.interagiu = false;
@@ -35,15 +39,15 @@ export class sceneRestauracao extends Phaser.Scene {
     const centroX = this.cameras.main.centerX;
     const centroY = this.cameras.main.centerY;
     const zoom = 1.8;
-    const larguraVista = larguraJogo / zoom;
-    const alturaVista = alturaJogo / zoom;
+    //const larguraVista = larguraJogo / zoom;
+    //const alturaVista = alturaJogo / zoom;
 
     this.pontoRestauracaoX = centroX;
     this.pontoRestauracaoY = centroY;
 
     this.background = this.add.image(centroX, centroY, "cenarioNoite").setScale(this.scaleMapa);
     this.objetos = this.add.image(centroX, centroY, "objetosLabEsc").setScale(this.scaleMapa);
-    new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
+    this.efeitoNeve = new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
 
     // DEBUG: visualização do mapa de colisão — remova quando terminar os ajustes
     //this.debugColisao = this.add.image(centroX, centroY, "colisao").setScale(this.scaleMapa).setAlpha(0.5).setDepth(9999);
@@ -90,32 +94,25 @@ export class sceneRestauracao extends Phaser.Scene {
     this.containerTecla.setVisible(false);
     this.tweens.add({ targets: this.containerTecla, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
-    // Caixa de diálogo — mesmo modelo da scenePreFase4
-    const larguraCaixa = 800, alturaCaixa = 100;
-    const posXCaixa = (larguraJogo - larguraCaixa) / 2, posYCaixa = alturaJogo - alturaCaixa - 300;
-
-    this.caixaDialogo = this.add.graphics();
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
-    this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(posXCaixa, posYCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.strokeRoundedRect(posXCaixa, posYCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
-
-    this.textoDialogo = this.add.text(posXCaixa + 40, posYCaixa + 35, "", {
-      fontSize: "18px", fontFamily: "'Courier New', Courier, monospace",
-      color: "#ccffff", wordWrap: { width: larguraCaixa - 80 }, lineSpacing: 10
-    }).setScrollFactor(0).setDepth(1001).setVisible(false);
-
-    this.labelNome = this.add.text(posXCaixa + 16, posYCaixa - 28, "", {
-      fontSize: "16px", fontFamily: "'Courier New', Courier, monospace",
-      color: "#00ffff", fontStyle: "bold", backgroundColor: "#1a1a1a",
-      padding: { left: 8, right: 8, top: 3, bottom: 3 }
-    }).setScrollFactor(0).setDepth(1002).setVisible(false);
-
     registrarControles(this);
 
     criarAnimacaoSophia(this);
     criarAnimacaoAsimov(this);
+
+    // ------------------- CONFIGURAÇÃO DA CÂMERA DE UI (SEM ZOOM) -------------------
+    this.uiCamera = this.cameras.add(0, 0, this.cameras.main.width, this.cameras.main.height);
+    
+    // O que a câmera de Interface (UI) DEVE IGNORAR (Cenário e personagens)
+    let ignoreNaUI = [this.background, this.objetos, this.Principal, this.asimov, this.containerTecla];
+    if (this.efeitoNeve && this.efeitoNeve.graphics) ignoreNaUI.push(this.efeitoNeve.graphics);
+    this.uiCamera.ignore(ignoreNaUI);
+
+    // O que a câmera Principal (com Zoom) DEVE IGNORAR (Textos e caixas)
+    this.cameras.main.ignore([
+        this.sistemaDialogo.caixaDialogo, 
+        this.sistemaDialogo.textoDialogo, 
+        this.sistemaDialogo.labelNome
+    ]);
   }
 
   colidiuComVerde(xMundo, yMundo) {
@@ -138,7 +135,9 @@ export class sceneRestauracao extends Phaser.Scene {
     if (this.lendoMensagem) {
       this.Principal.setVelocity(0, 0);
       this.Principal.anims.stop();
-      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
+      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+          this.sistemaDialogo.interagir();
+      }
       return;
     }
 
@@ -173,11 +172,15 @@ export class sceneRestauracao extends Phaser.Scene {
         this.interagiu = true;
         this.temCristal = true;
         this.containerTecla.setVisible(false);
-        this.mostrarMensagem(
-          "Voce acaba de coletar o cristal capaz de restaurar a energia do laboratorio. " +
-          "Va ate o centro do mapa e deposite ele.",
-          "Asimov"
-        );
+        this.lendoMensagem = true; // Trava a Sophia
+
+        const falasRestauracao = [
+            { nome: "Asimov", personagem: this.asimov, texto: "Voce acaba de coletar o cristal capaz de restaurar a energia do laboratorio. Va ate o centro do mapa e deposite ele." }
+        ];
+
+        this.sistemaDialogo.iniciarDialogo(falasRestauracao, () => {
+            this.lendoMensagem = false; // Libera a Sophia após o texto acabar
+        });
       } else if (this.podeInteragir === "centro") {
         this.restaurarMundo();
       }
@@ -197,36 +200,5 @@ export class sceneRestauracao extends Phaser.Scene {
         this.scene.start("faseCinco");
       });
     });
-  }
-
-  mostrarMensagem(texto, nome = "") {
-    this.lendoMensagem = true;
-    this.caixaDialogo.setVisible(true);
-    this.textoDialogo.setVisible(true).setText("");
-    this.textoAtualArmazenado = texto;
-    if (nome && nome.trim() !== "") {
-      this.labelNome.setText(nome).setVisible(true);
-    } else {
-      this.labelNome.setVisible(false);
-    }
-    let letraAtual = 0;
-    if (this.timerEscrever) this.timerEscrever.remove();
-    this.timerEscrever = this.time.addEvent({
-      delay: 30,
-      callback: () => { this.textoDialogo.text += texto[letraAtual]; letraAtual++; },
-      repeat: texto.length - 1
-    });
-  }
-
-  fecharMensagem() {
-    if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
-      this.timerEscrever.remove();
-      this.textoDialogo.setText(this.textoAtualArmazenado);
-      return;
-    }
-    this.lendoMensagem = false;
-    this.caixaDialogo.setVisible(false);
-    this.textoDialogo.setVisible(false).setText("");
-    this.labelNome.setVisible(false);
   }
 }

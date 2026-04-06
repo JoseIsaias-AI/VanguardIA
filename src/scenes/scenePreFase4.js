@@ -5,6 +5,7 @@ minigame consiste na limpeza dos ruídos*/
 import { registrarTeclaMenu } from '../menu.js';
 import { SnowEffect } from './efeitoNeve.js';
 import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles, criarAnimacaoAsimov } from './movimentacao.js';
+import caixasDialogo from './caixasDialogo.js'; // Importação do sistema de diálogos
 
 export class scenePreFase4 extends Phaser.Scene {
   constructor() {
@@ -37,7 +38,7 @@ export class scenePreFase4 extends Phaser.Scene {
     this.scaleMapa = 2.8; //define a escala de zoom do mapa, essa variável é importante, porque é usada para aplicar o mesmo valor, nos objetos, no fundo, entre outros
 
     this.mapa = this.add.image(centroX, centroY, "labEscuro2").setScale(this.scaleMapa);
-    new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
+    this.efeitoNeve = new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
 
     // Objeto do lab — fica parado no frame 0 ate a interacao com o Asimov
     this.objetosLab1 = this.add.sprite(centroX, centroY, "objetosLab1", 0).setScale(this.scaleMapa).setDepth(1);
@@ -104,41 +105,24 @@ export class scenePreFase4 extends Phaser.Scene {
     this.containerTeclaAsimov.setVisible(false);
     this.tweens.add({ targets: this.containerTeclaAsimov, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
     //-----------------------------------------------------
-
-    //------------------------- Caixa de diálogo -----------------------------
-    //definição de tamanhos dessa caixa de diálogo e de posição
-    const larguraJogo = this.cameras.main.width;
-    const alturaJogo = this.cameras.main.height;
-    const larguraCaixa = 800, alturaCaixa = 100;
-    const posXCaixa = (larguraJogo - larguraCaixa) / 2, posYCaixa = alturaJogo - alturaCaixa - 300;
-
-    //estilização de fundo e borda dessa caixa de diálogo
-    this.caixaDialogo = this.add.graphics();
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
-    this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(posXCaixa, posYCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.strokeRoundedRect(posXCaixa, posYCaixa, larguraCaixa, alturaCaixa, 15);
-    this.caixaDialogo.setScrollFactor(0).setDepth(1000).setVisible(false);
-
-    //definição de configuração para o texto presente nos diálogos
-    this.textoDialogo = this.add.text(posXCaixa + 40, posYCaixa + 35, "", {
-      fontSize: "18px", fontFamily: "'Courier New', Courier, monospace",
-      color: "#ccffff", wordWrap: { width: larguraCaixa - 80 }, lineSpacing: 10
-    }).setScrollFactor(0).setDepth(1001).setVisible(false);
-
-    //definição de configuração para o nome do personagem que está falando dentro do game
-    this.labelNome = this.add.text(posXCaixa + 16, posYCaixa - 28, "", {
-      fontSize: "16px", fontFamily: "'Courier New', Courier, monospace",
-      color: "#00ffff", fontStyle: "bold", backgroundColor: "#1a1a1a",
-      padding: { left: 8, right: 8, top: 3, bottom: 3 }
-    }).setScrollFactor(0).setDepth(1002).setVisible(false);
-
-    // ----------------------------------------------------------------------
-
+    
+    this.sistemaDialogo = new caixasDialogo(this);
     registrarControles(this);
 
-    //this.uiCamera = this.cameras.add(0, 0, this.cameras.main.width, this.cameras.main.height);
-    //this.uiCamera.ignore([this.mapa, this.objetosLab1, this.Principal, this.asimov, this.caixaDialogo, this.textoDialogo, this.labelNome, this.containerTeclaAsimov, this.snow.graphics]);
+    // ------------------- CONFIGURAÇÃO DA CÂMERA DE UI (SEM ZOOM) -------------------
+    this.uiCamera = this.cameras.add(0, 0, this.cameras.main.width, this.cameras.main.height);
+    
+    // O que a câmera de Interface DEVE IGNORAR (Cenário e personagens)
+    let ignoreNaUI = [this.mapa, this.objetosLab1, this.Principal, this.asimov, this.containerTeclaAsimov];
+    if (this.efeitoNeve && this.efeitoNeve.graphics) ignoreNaUI.push(this.efeitoNeve.graphics);
+    this.uiCamera.ignore(ignoreNaUI);
+
+    // O que a câmera Principal (com Zoom) DEVE IGNORAR (Textos e caixas)
+    this.cameras.main.ignore([
+        this.sistemaDialogo.caixaDialogo, 
+        this.sistemaDialogo.textoDialogo, 
+        this.sistemaDialogo.labelNome
+    ]);
   }
   
   // ----------------aqui é atualizado a todo o momento a física, o sistema de colisão, a interação, o movimento do personagem --------------------------------
@@ -149,7 +133,9 @@ export class scenePreFase4 extends Phaser.Scene {
     if (this.lendoMensagem) {
       this.Principal.setVelocity(0, 0);
       this.Principal.anims.stop();
-      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
+      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+          this.sistemaDialogo.interagir();
+      }
       return;
     }
 
@@ -207,87 +193,45 @@ export class scenePreFase4 extends Phaser.Scene {
       this.tweens.killTweensOf(this.containerTeclaAsimov); //remove o balão de interação
       this.podeInteragirAsimov = false;
       this.interagiu = true;
-      this.falando_asimov = true;
-      this.dialogoIndex = 0;
-
-      this.dialogos = [
-        { nome: "Asimov", texto: "Sophia, preciso iniciar a fabricação do cristal. Mas há um erro crítico." },
-        { nome: "Sophia", texto: "O que houve, Asimov?" },
-        { nome: "Asimov", texto: "Você precisa limpar os dados ruidosos do meu sistema antes." },
-        { nome: "Sophia", texto: "Por que isso afeta o cristal?" },
-        { nome: "Asimov", texto: "Leia os documentos sobre IA Generativa naquela bancada. Você vai entender." },
+      this.lendoMensagem = true; // Trava a Sophia
+      
+      const dialogos = [
+        { nome: "Asimov", personagem: this.asimov, texto: "Sophia, preciso iniciar a fabricação do cristal. Mas há um erro crítico." },
+        { nome: "Sophia", personagem: this.Principal, texto: "O que houve, Asimov?" },
+        { nome: "Asimov", personagem: this.asimov, texto: "Você precisa limpar os dados ruidosos do meu sistema antes." },
+        { nome: "Sophia", personagem: this.Principal, texto: "Por que isso afeta o cristal?" },
+        { nome: "Asimov", personagem: this.asimov, texto: "Leia os documentos sobre IA Generativa naquela bancada. Você vai entender." },
       ];
-      this.mostrarMensagem(this.dialogos[0].texto, this.dialogos[0].nome);
-    }
-  }
-  //------------------------------------^^-------------------------------^^----------------------------------------------
 
-  // ---------------------- função para mostrar mensagens de diálogos ---------------------------
-  mostrarMensagem(textoCompleto, nome = "") {
-    this.lendoMensagem = true;
-    this.caixaDialogo.setVisible(true); //torna a caixa de dialogo visivel
-    this.textoDialogo.setVisible(true).setText(""); //torna o texto visivel
-    this.textoAtualArmazenado = textoCompleto;
-    //torna vísivel os indicadores de nome
-    if (nome && nome.trim() !== "") {
-      this.labelNome.setText(nome).setVisible(true);
-    } else {
-      this.labelNome.setVisible(false);
-    }
-    let letraAtual = 0;
-    //definição de delay para o aparecimento das palavras
-    if (this.timerEscrever) this.timerEscrever.remove();
-    this.timerEscrever = this.time.addEvent({
-      delay: 30,
-      callback: () => { this.textoDialogo.text += textoCompleto[letraAtual]; letraAtual++; },
-      repeat: textoCompleto.length - 1
-    });
-  }
-  // -------------------------------------------------------------------------------------------
+      this.sistemaDialogo.iniciarDialogo(dialogos, () => {
+         this.lendoMensagem = false;
 
-  // ---------------------------- Função para fechar a mensagem ---------------------------------
-  fecharMensagem() {
-    // Pula a animação de texto se o jogador apertar para fechar enquanto o texto ainda está "digitando", mostra a frase inteira de uma vez
-    if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
-      this.timerEscrever.remove();
-      this.textoDialogo.setText(this.textoAtualArmazenado);
-      return;
-    }
-    //Oculta a interface de diálogo e reseta as variáveis
-    this.lendoMensagem = false;
-    this.caixaDialogo.setVisible(false);
-    this.textoDialogo.setVisible(false).setText("");
-    this.labelNome.setVisible(false);
-    //Sistema de progressão de falas (exclusivo do Asimov neste caso)
-    if (this.falando_asimov) {
-      this.dialogoIndex++;
+         //Quando acabam as falas, encerra a conversa e toca a animação dos objetos no laboratório
+         this.objetosLab1.play("objetosLab1_anim");
 
-      // Se ainda houver falas na fila, exibe a próxima e para a execução por aqui
-      if (this.dialogoIndex < this.dialogos.length) {
-        this.mostrarMensagem(this.dialogos[this.dialogoIndex].texto, this.dialogos[this.dialogoIndex].nome);
-        return;
-      }
-
-      //Quando acabam as falas, encerra a conversa e toca a animação dos objetos no laboratório
-      this.falando_asimov = false;
-      this.objetosLab1.play("objetosLab1_anim");
-
-      //Prepara a próxima interação: Assim que a animação da bancada termina, mostra o aviso na tela para o jogador
-      this.objetosLab1.once("animationcomplete", () => {
-        const larguraJogo = this.cameras.main.width;
-        const alturaJogo = this.cameras.main.height;
-        this.notificacaoLeitura = this.add.text(
-          larguraJogo / 2, alturaJogo - 250,
-          "Aperte E para acessar os documentos",
-          { fontSize: "16px", fontFamily: "'Courier New', Courier, monospace", color: "#ffffff",
-            backgroundColor: "#000000", padding: { left: 10, right: 10, top: 6, bottom: 6 } }
-        ).setScrollFactor(0).setDepth(9999).setOrigin(0.5, 1);
-        this.tweens.add({ targets: this.notificacaoLeitura, alpha: 0, duration: 600, yoyo: true, repeat: -1 });
-        this.aguardandoLeitura = true;
+         //Prepara a próxima interação: Assim que a animação da bancada termina, mostra o aviso na tela para o jogador
+         this.objetosLab1.once("animationcomplete", () => {
+           const larguraJogo = this.cameras.main.width;
+           const alturaJogo = this.cameras.main.height;
+           
+           this.notificacaoLeitura = this.add.text(
+             larguraJogo / 2, alturaJogo - 250,
+             "Aperte E para acessar os documentos",
+             { fontSize: "16px", fontFamily: "'Courier New', Courier, monospace", color: "#ffffff",
+               backgroundColor: "#000000", padding: { left: 10, right: 10, top: 6, bottom: 6 } }
+           ).setScrollFactor(0).setDepth(9999).setOrigin(0.5, 1);
+           
+           this.tweens.add({ targets: this.notificacaoLeitura, alpha: 0, duration: 600, yoyo: true, repeat: -1 });
+           
+           // A câmera principal deve ignorar a notificação para que o texto não sofra zoom
+           this.cameras.main.ignore(this.notificacaoLeitura);
+           
+           this.aguardandoLeitura = true;
+         });
       });
     }
   }
-  //---------------------------------------------------------------------------------------------
+  //------------------------------------^^-------------------------------^^----------------------------------------------
 
   //------------------------ Função para exibição dos documentos do jogador ----------------------
   exibirCutscenes() {
@@ -301,12 +245,15 @@ export class scenePreFase4 extends Phaser.Scene {
     const alturaJogo = this.cameras.main.height;
     const posX = larguraJogo / 2;
     const posY = alturaJogo / 2 +20;
-    const escala = 0.34;
+    const escala = 0.6;
 
     this.filtroEscuro = this.add.rectangle(posX, posY, larguraJogo, alturaJogo, 0x000000, 0.6).setDepth(495).setScrollFactor(0);
 
     this.imgCutscene = this.add.image(posX, posY, sequencia[0]).setScrollFactor(0).setDepth(2000).setScale(escala);
     this.sequenciaCutscene = sequencia;
+
+    // A câmera principal deve ignorar os documentos da cutscene para exibição nítida
+    this.cameras.main.ignore([this.filtroEscuro, this.imgCutscene]);
   }
   //---------------^^--------------------------------^^-------------------------^^------------------------
 

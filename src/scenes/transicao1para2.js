@@ -4,22 +4,18 @@
 //            o jogador para a cena "FaseDois".
 // - O mapa e toda a decoração permanecem visíveis (sem interação nem colisão).
 // - Não há exploração livre: o jogador apenas assiste à cutscene.
-// - A tecla E (ou clique na tela) avança o diálogo.
+// - A tecla E avança o diálogo.
 // =============================================================================
 import { registrarTeclaMenu } from '../menu.js';
 import { movimentacaoSophia } from './movimentacao.js';
 import { SnowEffect } from './efeitoNeve.js';
+import caixasDialogo from './caixasDialogo.js';
 
 export class transicao1para2 extends Phaser.Scene {
     constructor() {
-        // Registra a cena com o identificador usado em this.scene.start(...)
         super("transicao1para2");
     }
 
-    // -------------------------------------------------------------------------
-    // PRELOAD: carrega todos os assets visuais do mapa + personagens
-    // Os objetos são apenas decorativos aqui (sem física nem interação)
-    // -------------------------------------------------------------------------
     preload() {
         // Mapa de fundo
         this.load.image("labDestruido", "assets/fases/sceneLBPassado/labDestruido.png");
@@ -28,7 +24,7 @@ export class transicao1para2 extends Phaser.Scene {
         this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
 
-        // Objetos decorativos do cenário (mesmos do original, mas sem física/interação)
+        // Objetos decorativos do cenário
         this.load.image("armarioD",      "assets/objetos/sceneLBPassado/partTwo/armarioDestruido.png");
         this.load.image("alvoD",         "assets/objetos/sceneLBPassado/partTwo/alvoDestruido.png");
         this.load.image("mesa1D",        "assets/objetos/sceneLBPassado/partTwo/mesa1Destruida.png");
@@ -42,31 +38,25 @@ export class transicao1para2 extends Phaser.Scene {
         this.load.image("camara",        "assets/objetos/sceneLBPassado/partOne/camara.png");
     }
 
-    // -------------------------------------------------------------------------
-    // CREATE: monta o cenário visual completo e inicia a cutscene
-    // -------------------------------------------------------------------------
     create() {
         registrarTeclaMenu(this);
+        
+        // Instancia o Gerenciador de Diálogos
+        this.sistemaDialogo = new caixasDialogo(this);
 
-        // Inicia a cena de música de fundo (bgMusic) para manter a trilha sonora ativa durante a transição.
         this.scene.launch("bgMusic");
 
         const w = this.scale.width;
         const h = this.scale.height;
 
-        // --- Estado da cena ---------------------------------------------------
         this.gamePhase      = "cutscene";
         this.isDialogueOpen = false;
-        this.awaitingChoice = false;
 
-        // --- Mapa de fundo ----------------------------------------------------
         this.mapa = this.add.image(w / 2, h / 2, "labDestruido").setScale(3);
         new SnowEffect(this, { depth: -2 });
 
-        // --- Decoração do cenário (puramente visual, sem física) --------------
         this.criarDecoracao();
 
-        // --- Personagens ------------------------------------------------------
         this.sophia = this.physics.add.sprite(this.mapa.x, this.mapa.y - 300, "sophia")
             .setScale(2)
             .setDepth(12);
@@ -75,7 +65,6 @@ export class transicao1para2 extends Phaser.Scene {
         this.sophia.setSize(30, 25);
         this.sophia.setOffset(15, 30);
 
-        // Asimov começa abaixo e caminha até Sophia via Tween na cutscene
         this.asimov = this.physics.add.sprite(this.mapa.x, this.mapa.y + 200, "asimov")
             .setScale(3)
             .setDepth(12);
@@ -84,34 +73,22 @@ export class transicao1para2 extends Phaser.Scene {
         this.asimov.setSize(15, 12);
         this.asimov.setOffset(8, 16);
 
-        // Cria todas as animações de walk/idle para ambos os personagens
         this.createCharacterAnimations();
 
-        // Poses iniciais: Sophia olhando para baixo, Asimov para a direita
         this.sophia.play("sophia-idle-down");
         this.asimov.play("asimov-idle-right");
 
-        // --- Câmera ----------------------------------------------------------
         this.cameras.main.setBounds(0, 0, w, h);
         this.cameras.main.startFollow(this.sophia);
         this.cameras.main.fadeIn(1000);
 
-        // --- Interface de diálogo --------------------------------------------
-        this.createDialogueUI();
-
-        // --- Controles: apenas a tecla E para avançar diálogo ----------------
         this.keys = this.input.keyboard.addKeys({
             E: Phaser.Input.Keyboard.KeyCodes.E
         });
 
-        // --- Dispara a cutscene automaticamente ------------------------------
         this.startIntroCutscene();
     }
 
-    // -------------------------------------------------------------------------
-    // DECORAÇÃO: adiciona todos os objetos visuais do mapa sem física
-    // Posições idênticas às do cenário original (relativas ao centro do mapa)
-    // -------------------------------------------------------------------------
     criarDecoracao() {
         const decoracao = [
             { key: "mesa3D",        x: -410, y: -260, scale: 3.0  },
@@ -138,54 +115,41 @@ export class transicao1para2 extends Phaser.Scene {
 
             this.add.image(absX, absY, obj.key)
                 .setScale(obj.scale)
-                .setDepth(11)       // abaixo dos personagens (depth ~300-500 deles)
-                .setTint(0xaec0d1); // tom azulado pós-apocalíptico
+                .setDepth(11)       
+                .setTint(0xaec0d1); 
         });
     }
 
-    // =========================================================================
-    // UPDATE: executado a cada frame
-    // =========================================================================
     update() {
-        // Depth dinâmico por Y — personagem mais baixo na tela fica "na frente"
         if (this.sophia) this.sophia.setDepth(this.sophia.y);
         if (this.asimov) this.asimov.setDepth(this.asimov.y);
 
-        // Durante cutscene: mantém Sophia parada
         if (this.gamePhase === "cutscene") {
             this.sophia.setVelocity(0, 0);
         }
 
-        // Tecla E avança o diálogo
-        if (this.isDialogueOpen && !this.awaitingChoice) {
-            if (Phaser.Input.Keyboard.JustDown(this.keys.E)) {
-                this.advanceDialogue();
-            }
+        // Interação com o novo gerenciador usando a tecla E
+        if (this.isDialogueOpen && Phaser.Input.Keyboard.JustDown(this.keys.E)) {
+            this.sistemaDialogo.interagir();
         }
     }
 
-    // =========================================================================
-    // CUTSCENE PRINCIPAL
-    // =========================================================================
     startIntroCutscene() {
-        this.cutsceneDialogue = [
-            { speaker: "Sophia", text: "Então, Asimov, como foi a missão?" },
-            { speaker: "Asimov", text: "Obrigada pela ajuda, Sophia! Agora aprendi através da repetição de padrões e posso me movimentar sozinho." },
-            { speaker: "Asimov", text: "Analisei os padrões do ambiente e agora consigo desviar de todos os obstáculos à minha frente." },
-            {speaker: "Asimov", text: "Sophia, durante minha jornada de aprendizado, encontrei informações que podem nos ajudar à restaurar a energia do laboratório."},
-            { speaker: "Sophia", text: "O que você encontrou?" },
-            { speaker: "Asimov", text: "Encontrei um conjunto de números binários que nos ajudarão a localizar uma porta específica e nessa porta poderemos encontrar mais informações sobre o cristal!"},
-            { speaker: "Sophia", text: "Perfeito. Obrigada pelas informações, Asimov.\nVamos continuar nossa missão." },
-            { speaker: "Asimov", text: "Objetivo atualizado: encontrar a porta correta do laboratório." },
-            {
-                speaker: "Sistema",
-                text:    "Asimov conduziu Sophia até a Sala das Portas.\nA próxima etapa começa agora...",
-                autoMs:  4000
-            }
+        // Nova formatação das falas
+        const cutsceneDialogue = [
+            { nome: "Sophia", personagem: this.sophia, texto: "Então, Asimov, como foi a missão?" },
+            { nome: "Asimov", personagem: this.asimov, texto: "Obrigada pela ajuda, Sophia! Agora aprendi através da repetição de padrões e posso me movimentar sozinho." },
+            { nome: "Asimov", personagem: this.asimov, texto: "Analisei os padrões do ambiente e agora consigo desviar de todos os obstáculos à minha frente." },
+            { nome: "Asimov", personagem: this.asimov, texto: "Sophia, durante minha jornada de aprendizado, encontrei informações que podem nos ajudar à restaurar a energia do laboratório."},
+            { nome: "Sophia", personagem: this.sophia, texto: "O que você encontrou?" },
+            { nome: "Asimov", personagem: this.asimov, texto: "Encontrei um conjunto de números binários que nos ajudarão a localizar uma porta específica e nessa porta poderemos encontrar mais informações sobre o cristal!"},
+            { nome: "Sophia", personagem: this.sophia, texto: "Perfeito. Obrigada pelas informações, Asimov.\nVamos continuar nossa missão." },
+            { nome: "Asimov", personagem: this.asimov, texto: "Objetivo atualizado: encontrar a porta correta do laboratório." },
+            { nome: "SISTEMA", personagem: null, texto: "Asimov conduziu Sophia até a Sala das Portas.\nA próxima etapa começa agora..." }
         ];
 
-        // Asimov caminha até Sophia via Tween
         this.playAnimIfNeeded(this.asimov, "asimov-walk-up");
+        
         this.tweens.add({
             targets:  this.asimov,
             y:        this.sophia.y + 60,
@@ -194,7 +158,13 @@ export class transicao1para2 extends Phaser.Scene {
             ease:     "Sine.inOut",
             onComplete: () => {
                 this.updateAsimovAnimation(0, 0);
-                this.startDialogue(this.cutsceneDialogue, () => {
+                
+                // Abre o diálogo após o Tween do Asimov andar
+                this.isDialogueOpen = true;
+                this.sistemaDialogo.iniciarDialogo(cutsceneDialogue, () => {
+                    this.isDialogueOpen = false; // Bloqueia a tecla E
+                    
+                    // Transição final para a Fase Dois
                     this.time.delayedCall(600, () => {
                         this.cameras.main.fadeOut(1200, 0, 0, 0);
                         this.cameras.main.once("camerafadeoutcomplete", () => {
@@ -206,153 +176,6 @@ export class transicao1para2 extends Phaser.Scene {
         });
     }
 
-    // =========================================================================
-    // SISTEMA DE DIÁLOGO
-    // =========================================================================
-    createDialogueUI() {
-        const larguraJogo  = this.cameras.main.width;
-        const alturaJogo   = this.cameras.main.height;
-        const larguraCaixa = 1300;
-        const alturaCaixa  = 220;
-        const xCaixa = (larguraJogo - larguraCaixa) / 2;
-        const yCaixa = alturaJogo - alturaCaixa - 50;
-
-        // -----------------------------------------------------------------------
-        // HIERARQUIA DE DEPTH DA UI DE DIÁLOGO:
-        //   900 → fundo da caixa (caixaDialogo)        ← atrás de tudo da UI
-        //   901 → nameText (nome do falante)           ← na frente da caixa
-        //   902 → dialogueText (texto da fala)         ← na frente da caixa
-        //   950 → advanceBtnBg (clique na tela)        ← acima do texto
-        //   951 → advanceBtnLabel (label oculto)
-        // Todos usam setScrollFactor(0) para ficarem fixos na tela.
-        // -----------------------------------------------------------------------
-
-        // Fundo escuro com borda ciano — depth 900
-        this.caixaDialogo = this.add.graphics();
-        this.caixaDialogo.fillStyle(0x1a1a1a, 0.9);
-        this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-        this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-        this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 15);
-        this.caixaDialogo.setScrollFactor(0).setDepth(900).setVisible(false);
-        // ↑ CORREÇÃO: antes estava 1000, causando a caixa cobrir o texto (depth 101)
-
-        this.dialogueBox     = this.caixaDialogo;
-        this.dialogueBoxRect = { x: xCaixa, y: yCaixa, width: larguraCaixa, height: alturaCaixa };
-
-        // Nome do falante — depth 901 (na frente da caixa)
-        this.nameText = this.add.text(xCaixa + 16, yCaixa - 28, "", {
-            fontSize:  "32px",
-            fontFamily: "'Courier New', Courier, monospace",
-            color:     "#00ffff",
-            fontStyle: "bold",
-            backgroundColor: "#1a1a1a",
-            padding: { left: 8, right: 8, top: 3, bottom: 3 }
-        }).setScrollFactor(0).setDepth(901).setVisible(false);
-        // ↑ CORREÇÃO: antes estava 101 (atrás da caixa que era 1000)
-
-        // Texto da fala — depth 902 (na frente da caixa)
-        this.textoDialogo = this.add.text(xCaixa + 40, yCaixa + 30, "", {
-            fontSize:    "32px",
-            fontFamily:  "'Courier New', Courier, monospace",
-            color:       "#ccffff",
-            wordWrap:    { width: larguraCaixa - 80 },
-            lineSpacing: 10,
-        }).setScrollFactor(0).setDepth(902).setVisible(false);
-        // ↑ CORREÇÃO: antes estava 101 (atrás da caixa que era 1000)
-
-        this.dialogueText = this.textoDialogo;
-
-        // Retângulo invisível que captura cliques para avançar — depth 950
-        const camW = this.cameras.main.width;
-        const camH = this.cameras.main.height;
-        this.advanceBtnBg = this.add.rectangle(camW / 2, camH / 2, camW, camH, 0x000000, 0)
-            .setScrollFactor(0)
-            .setDepth(950)
-            .setVisible(false)
-            .setInteractive({ useHandCursor: true });
-
-        // Label oculto — mantido por compatibilidade estrutural — depth 951
-        this.advanceBtnLabel = this.add.text(0, 0, "Avançar", {
-            fontSize: "16px",
-            color:    "#e8f4ff"
-        }).setOrigin(0.5).setScrollFactor(0).setDepth(951).setVisible(false);
-
-        // Clique na tela avança o diálogo
-        this.advanceBtnBg.on("pointerdown", () => {
-            if (this.isDialogueOpen && !this.awaitingChoice) {
-                this.advanceDialogue();
-            }
-        });
-
-        this.choiceButtons = [];
-    }
-
-    startDialogue(queue, onFinish) {
-        this.dialogueQueue  = queue;
-        this.dialogueCursor = -1;
-        this.onDialogueEnd  = onFinish || null;
-        this.isDialogueOpen = true;
-
-        this.dialogueBox.setVisible(true);
-        this.nameText.setVisible(true);
-        this.dialogueText.setVisible(true);
-        this.advanceBtnBg.setVisible(true);
-        this.advanceBtnLabel.setVisible(true);
-
-        this.advanceDialogue();
-    }
-
-    advanceDialogue() {
-        if (!this.isDialogueOpen || this.awaitingChoice) return;
-
-        this.clearChoiceButtons();
-
-        if (this.autoTimer) {
-            this.autoTimer.remove(false);
-            this.autoTimer = null;
-        }
-
-        this.dialogueCursor += 1;
-
-        if (this.dialogueCursor >= this.dialogueQueue.length) {
-            this.closeDialogue();
-            if (this.onDialogueEnd) this.onDialogueEnd();
-            return;
-        }
-
-        const entry = this.dialogueQueue[this.dialogueCursor];
-        this.nameText.setText(entry.speaker || "...");
-        this.dialogueText.setText(entry.text || "");
-
-        // autoMs: avança sozinho após N milissegundos
-        if (entry.autoMs) {
-            this.autoTimer = this.time.delayedCall(entry.autoMs, () => {
-                if (this.isDialogueOpen && !this.awaitingChoice) {
-                    this.advanceDialogue();
-                }
-            });
-        }
-    }
-
-    clearChoiceButtons() {
-        this.choiceButtons.forEach((obj) => obj.destroy());
-        this.choiceButtons.length = 0;
-    }
-
-    closeDialogue() {
-        this.isDialogueOpen  = false;
-        this.awaitingChoice  = false;
-        this.dialogueBox.setVisible(false);
-        this.nameText.setVisible(false);
-        this.dialogueText.setVisible(false);
-        this.advanceBtnBg.setVisible(false);
-        this.advanceBtnLabel.setVisible(false);
-        this.clearChoiceButtons();
-    }
-
-    // =========================================================================
-    // ANIMAÇÕES DOS PERSONAGENS
-    // =========================================================================
     createCharacterAnimations() {
         if (!this.anims.exists("sophia-walk-down")) {
             this.anims.create({ key: "sophia-walk-down",  frames: this.anims.generateFrameNumbers("sophia", { start: 0,  end: 7  }), frameRate: 10, repeat: -1 });
