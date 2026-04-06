@@ -265,82 +265,145 @@ export class sceneLBPassado extends Phaser.Scene {
 
   //método do Phaser que é chamado a cada frame para atualizar diversas funções, dentre elas colisão e interação com teclas de entrada
   update() {
-    // Trava a movimentação durante o diálogo e permite avançar com a tecla E
-    if (this.lendoMensagem) {
-      this.Principal.setVelocity(0, 0);
-      this.Principal.anims.stop();
-      if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-        this.sistemaDialogo.interagir();
-      }
-      return;
-    }
+  if (this.estaEmDialogo()) return;
 
-    movimentacaoSophia(this, this.Principal, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" });
-    puloSophia(this, this.Principal);
+  this.atualizarMovimento();
+  this.atualizarDepth();
+  this.atualizarInteracoes();
+}
+  
+  //Aqui, fazemos o controle de diálogo da fase
+   estaEmDialogo() {
+    if (!this.lendoMensagem) return false;
 
-    this.Principal.setDepth(this.Principal.y);
-    this.watson.setDepth(this.watson.y);
-    this.npc1.setDepth(this.npc1.y);
-    this.npc2.setDepth(this.npc2.y);
-    this.npc3.setDepth(this.npc3.y);
-    this.npc4.setDepth(this.npc4.y);
+    this.Principal.setVelocity(0, 0);
+    this.Principal.anims.stop();
 
-    let targetX = this.camara.x;
-    let targetY = this.camara.y;
+    if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+     this.sistemaDialogo.interagir();
+   }
 
-    let distancia = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, targetX, targetY);
-    let distanciaWatson = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, this.watson.x, this.watson.y);
+  return true;
+}
+  
+  atualizarMovimento() {
+   movimentacaoSophia(this, this.Principal, {
+    left: "sophia_esquerda",
+    right: "sophia_direita",
+    front: "sophia_frente",
+    back: "sophia_tras"
+   });
 
-    if (distancia < 140 && this.entrarNaCamara) {
-      this.podeInteragir = true;
-      this.containerTecla.setVisible(true);
-      this.containerTecla.setPosition(targetX, targetY - 50);
-    } else {
-      this.podeInteragir = false;
-      this.containerTecla.setVisible(false);
-    }
+  puloSophia(this, this.Principal);
+}
+//Aqui, atualizamos a organização visual do nosso código
+atualizarDepth() {
+  const objetos = [
+    this.Principal,
+    this.watson,
+    this.npc1,
+    this.npc2,
+    this.npc3,
+    this.npc4
+  ];
 
-    if (distanciaWatson < 120 && !this.entrarNaCamara) {
-      this.podeInteragirWatson = true;
-      this.containerTeclaWatson.setVisible(true);
-      this.containerTeclaWatson.setPosition(this.watson.x, this.watson.y - 80);
-    } else {
-      this.podeInteragirWatson = false;
-      this.containerTeclaWatson.setVisible(false);
-    }
+  objetos.forEach(obj => obj.setDepth(obj.y));
+}
 
-    // INTERAÇÃO CÂMARA
-    if (this.podeInteragir && this.entrarNaCamara && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      this.containerTecla.setVisible(false);
-      this.lendoMensagem = true;
-      
-      const falaCamara = [
-          { nome: "SISTEMA", personagem: null, texto: "Iniciando criogenia..." }
-      ];
+//Aqui, atualizamos as interações
+atualizarInteracoes() {
+  this.verificarInteracaoCamara();
+  this.verificarInteracaoWatson();
+  this.executarInteracoes();
+}
 
-      this.sistemaDialogo.iniciarDialogo(falaCamara, () => {
-          this.lendoMensagem = false;
-          this.cameras.main.fadeOut(1000);
-          this.cameras.main.once("camerafadeoutcomplete", () => {
-              this.scene.start("sceneLBFuturo");
-          });
-      });
-    }
+//Aqui, verificamos a interação com a câmara
+verificarInteracaoCamara() {
+  const distancia = Phaser.Math.Distance.Between(
+    this.Principal.x,
+    this.Principal.y,
+    this.camara.x,
+    this.camara.y
+  );
 
-    // INTERAÇÃO WATSON 
-    if (this.podeInteragirWatson && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-      this.containerTeclaWatson.setVisible(false);
-      this.lendoMensagem = true;
-      
-      const falasWatson = [ { nome: "Watson", personagem: this.watson, texto: "Sophia, boa sorte, estaremos torcendo para que você fique sempre bem." } ];
+  if (distancia < 140 && this.entrarNaCamara) {
+    this.podeInteragir = true;
+    this.containerTecla.setVisible(true);
+    this.containerTecla.setPosition(this.camara.x, this.camara.y - 50);
+  } else {
+    this.podeInteragir = false;
+    this.containerTecla.setVisible(false);
+  }
+}
 
-      this.sistemaDialogo.iniciarDialogo(falasWatson, () => {
-        this.lendoMensagem = false;
-        this.entrarNaCamara = true; // Liberou a câmara!
-      });
-    }
+//Aqui, verificamos a interação com o Watson
+verificarInteracaoWatson() {
+  const distancia = Phaser.Math.Distance.Between(
+    this.Principal.x,
+    this.Principal.y,
+    this.watson.x,
+    this.watson.y
+  );
+
+  if (distancia < 120 && !this.entrarNaCamara) {
+    this.podeInteragirWatson = true;
+    this.containerTeclaWatson.setVisible(true);
+    this.containerTeclaWatson.setPosition(this.watson.x, this.watson.y - 80);
+  } else {
+    this.podeInteragirWatson = false;
+    this.containerTeclaWatson.setVisible(false);
+  }
+}
+
+//Aqui, executamos as interações
+executarInteracoes() {
+  if (!Phaser.Input.Keyboard.JustDown(this.teclaE)) return;
+
+  if (this.podeInteragir && this.entrarNaCamara) {
+    this.interagirCamara();
   }
 
+  if (this.podeInteragirWatson) {
+    this.interagirWatson();
+  }
+}
+
+interagirCamara() {
+  this.containerTecla.setVisible(false);
+  this.lendoMensagem = true;
+
+  const falaCamara = [
+    { nome: "SISTEMA", personagem: null, texto: "Iniciando criogenia..." }
+  ];
+
+  this.sistemaDialogo.iniciarDialogo(falaCamara, () => {
+    this.lendoMensagem = false;
+    this.cameras.main.fadeOut(1000);
+
+    this.cameras.main.once("camerafadeoutcomplete", () => {
+      this.scene.start("sceneLBFuturo");
+    });
+  });
+}
+
+interagirWatson() {
+  this.containerTeclaWatson.setVisible(false);
+  this.lendoMensagem = true;
+
+  const falasWatson = [
+    {
+      nome: "Watson",
+      personagem: this.watson,
+      texto: "Sophia, boa sorte, estaremos torcendo para que você fique sempre bem."
+    }
+  ];
+
+  this.sistemaDialogo.iniciarDialogo(falasWatson, () => {
+    this.lendoMensagem = false;
+    this.entrarNaCamara = true;
+  });
+}
+  
   //Aqui, criamos a caixa de aviso para o menu
   exibirAviso(frase) {
     this.textoAviso.setText(frase);
