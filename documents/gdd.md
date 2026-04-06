@@ -207,230 +207,29 @@ A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimi
 
 <img src="../assets/gdd/matrizDeRiscos.png " width="100%">
 
-## Escalas Utilizadas
+As escalas utilizadas consideram, para probabilidade, os valores 10 como muito improvável, 30 como baixa, 50 como média, 70 como alta e 90 como muito alta. Para impacto, a classificação varia entre muito baixo, quando o impacto é irrelevante, baixo, quando afeta aspectos pontuais, moderado, quando prejudica a experiência, alto, quando prejudica significativamente o projeto, e muito alto, quando compromete o objetivo central.
 
-## Probabilidade
-- 10: Muito improvável  
-- 30: Baixa  
-- 50: Média  
-- 70: Alta  
-- 90: Muito alta  
+No grupo de riscos muito altos, o R1 – Riscos Pedagógicos apresenta probabilidade 90 e impacto muito alto. Trata-se de um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público, com excesso de abstração ou simplificação, falta de progressão lógica ou ausência de reforço prático. Isso pode resultar em baixa retenção, dificuldade de aplicação prática e sensação de não aprendizado, comprometendo a função central do projeto e gerando abandono e descrédito. Como plano de ação, propõem-se testes com usuários iniciantes e ajuste de ritmo e profundidade. Os indicadores incluem retenção de conhecimento e taxa de conclusão. Como oportunidade atrelada ao risco, há o desenvolvimento de um modelo pedagógico original baseado em aprendizagem ativa e simulação, integrando prática imediata, feedback contínuo, gamificação e storytelling.
 
-## Impacto
-- Muito Baixo: Impacto irrelevante  
-- Baixo: Afeta aspectos pontuais  
-- Moderado: Prejudica a experiência  
-- Alto: Prejudica significativamente o projeto  
-- Muito Alto: Compromete o objetivo central  
+Entre os riscos altos, o R2 - Complexidade na Simulação de IA apresenta probabilidade 50 e impacto muito alto. Há o risco de que a simulação de conceitos de IA se torne tecnicamente complexa a ponto de comprometer a clareza com que os usuários compreendem o conteúdo ou a própria viabilidade de transpor esses conceitos para o jogo, gerando abstrações confusas, simplificações incorretas ou dificuldades de implementação, o que pode resultar em experiências inconsistentes ou erros conceituais. O plano de ação envolve prototipagem iterativa e validação com especialistas, com indicadores voltados tanto à compreensão dos usuários quanto ao feedback técnico. Como oportunidade, destaca-se a criação de uma base simplificada e reutilizável para simulações educacionais de IA.
 
+O R3 – Riscos Estratégicos para a IBM apresenta probabilidade 50 e impacto muito alto. Há a possibilidade de o projeto não gerar valor estratégico claro, seja por desalinhamento com os objetivos institucionais, baixa diferenciação ou limitada aplicabilidade prática, o que pode resultar na perda de apoio ou até na descontinuidade — um problema crítico, considerando a dependência direta do projeto em relação à IBM e à sua validação. Como plano de ação, propõe-se a definição clara da proposta de valor e a realização de benchmark, com indicadores voltados à percepção de valor e à comparação com alternativas, permitindo validar e demonstrar continuamente a relevância do projeto para a IBM. Como oportunidade, destaca-se o potencial de posicionar o projeto como referência em educação em IA para públicos iniciantes.
 
-## Matriz de Riscos 
+O R4 – Desalinhamento com o SkillsBuild possui probabilidade 30 e impacto muito alto. Mesmo com alinhamento inicial, pode haver divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos da plataforma, gerando retrabalho ou necessidade de reestruturação. O plano de ação envolve revisões por sprint e mapeamento com o currículo, com indicadores de aderência ao conteúdo e aprovação da IBM. A oportunidade está em explorar liberdade criativa para inovar dentro da plataforma.
 
-## 1. Riscos Muito Altos
+Entre os riscos moderados, o R5 – Engajamento e Entretenimento apresenta probabilidade 70 e impacto moderado. Há o risco de o produto não se mostrar suficientemente envolvente, seja por mecânicas repetitivas ou pela ausência de recompensas claras, o que pode levar ao abandono precoce por parte dos usuários. Como plano de ação, propõem-se testes de gameplay e a iteração contínua das mecânicas, utilizando indicadores como tempo de sessão e taxa de abandono, sempre com participantes alinhados ao público-alvo do projeto — jovens universitários. Por outro lado, há uma oportunidade relevante em desenvolver um sistema de engajamento baseado em progressão e feedback imediato, capaz de aumentar a retenção e a experiência do usuário.
 
-## R1 – Riscos Pedagógicos
-- **Probabilidade:** 90  
-- **Impacto:** Muito Alto  
+O R6 – Curva de Aprendizado Inadequada apresenta probabilidade 70 e impacto moderado. Há o risco de a dificuldade escalar de maneira desbalanceada, gerando frustração ou tédio e comprometendo tanto o fluxo de aprendizagem quanto o engajamento do usuário. Como plano de ação, propõe-se o ajuste contínuo da dificuldade do jogo com base em indicadores como tempo por fase e taxa de desistência, considerando testes com jogadores alinhados ao público-alvo. Como oportunidade, destaca-se a implementação de um sistema adaptativo capaz de personalizar a experiência de aprendizado conforme o desempenho do usuário.
 
-**Descrição:**  
-Existe um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público (excesso de abstração ou simplificação), falta de progressão lógica ou ausência de reforço prático. Isso pode se manifestar em baixa retenção, dificuldade de aplicação prática e sensação de “aprendi nada”. Como consequência, o projeto perde sua função central de ensinar IA, gerando abandono e descrédito.
+O R7 – Experiência do Usuário, UX e UI apresenta probabilidade 50 e impacto moderado. Interfaces confusas ou pouco intuitivas podem dificultar a navegação e o entendimento, gerando fricção e erros. O plano de ação envolve testes de usabilidade, com indicadores como erros de navegação e tempo de aprendizado. A oportunidade é desenvolver uma experiência altamente orientada à aprendizagem, reduzindo a carga cognitiva desnecessária.
 
-**Plano de ação:**
-- Testes com usuários iniciantes  
-- Ajuste de ritmo e profundidade  
+O R8 – Obsolescência do Conteúdo tem probabilidade 50 e impacto moderado. A rápida evolução da IA pode tornar o conteúdo desatualizado, reduzindo relevância e credibilidade. O plano de ação consiste em atualizações periódicas, com indicador de atualidade. A oportunidade é criar uma arquitetura modular e atualizável.
 
-**Indicadores:**
-- Retenção de conhecimento  
-- Taxa de conclusão  
+O R9 – Storytelling Desconectado apresenta probabilidade 50 e impacto moderado. A narrativa pode não se integrar bem aos objetivos educacionais, reduzindo imersão e retenção. O plano de ação é a integração narrativa, com indicadores de clareza percebida e índice de conclusão. A oportunidade está em usar storytelling como suporte direto ao aprendizado.
 
-**Oportunidade:**
-Desenvolver um modelo pedagógico original baseado em aprendizagem ativa + simulação, que supere métodos tradicionais ao integrar prática imediata, feedback contínuo, gamificação e storytelling.
+O R10 – Falta de Valor para o Usuário possui probabilidade 50 e impacto moderado. Os usuários podem não perceber valor claro no produto, impactando adoção e engajamento. O plano de ação envolve testes de percepção, com indicadores como NPS (adicionar footnote) e satisfação. A oportunidade é entregar valor tangível em forma de habilidades e compreensão real de IA.
 
-## 2. Riscos Altos
-
-## R2 – Complexidade na Simulação de IA
-- **Probabilidade:** 50  
-- **Impacto:** Muito Alto  
-
-**Descrição:**  
-A simulação de conceitos de IA pode se tornar tecnicamente complexa a ponto de comprometer clareza ou viabilidade. Há risco de criar abstrações confusas, simplificações incorretas ou sistemas difíceis de implementar. Isso pode gerar experiências inconsistentes, erros conceituais (tanto do jogo quanto jogador) ou até inviabilizar partes do produto.
-
-**Plano de ação:**
-- Prototipagem iterativa  
-- Validação com especialistas  
-
-**Indicadores:**
-- Compreensão dos usuários  
-- Feedback técnico  
-
-**Oportunidade:**
-Criar um uma base simplificada de simulação de IA educacional, reutilizável, que transforme conceitos complexos em interações intuitivas, tendo potencial de virar diferencial técnico e até ativo replicável.
-
-## R3 – Riscos Estratégicos para a IBM
-- **Probabilidade:** 50  
-- **Impacto:** Muito Alto  
-
-**Descrição:**  
-Existe o risco de o projeto não gerar valor estratégico claro para a IBM, seja por desalinhamento com objetivos institucionais, baixa diferenciação frente a concorrentes ou falta de aplicabilidade prática. Isso pode resultar em baixa priorização interna, perda de apoio ou descontinuidade.
-
-**Plano de ação:**
-- Definição de proposta de valor  
-- Benchmark  
-
-**Indicadores:**
-- Percepção de valor  
-- Comparação com alternativas  
-
-**Oportunidade:**
-Posicionar o projeto como referência de educação em IA da IBM, para um público alvo que não tem contato com essas tecnologias, fortalecendo a presença da empresa como líder em capacitação tecnológica.
-
-
-## R4 – Desalinhamento com o SkillsBuild
-- **Probabilidade:** 30  
-- **Impacto:** Muito Alto  
-
-**Descrição:**  
-Mesmo com alinhamento inicial, há risco de divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos do SkillsBuild (conteúdo, linguagem, profundidade). Isso pode gerar revisões excessivas, reprovação de entregas ou necessidade de reestruturação.
-
-**Plano de ação:**
-- Revisões por sprint  
-- Mapeamento com currículo  
-
-**Indicadores:**
-- Aderência ao conteúdo  
-- Aprovação da IBM  
-
-**Oportunidade:**
-Explorar a liberdade criativa dada para criar um formato inovador dentro do SkillsBuild, ampliando o escopo tradicional da plataforma com abordagens interativas e experimentais.
-
-
-## 3. Riscos Moderados
-
-## R5 – Engajamento e Entretenimento
-- **Probabilidade:** 70  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-Há risco de o produto não ser suficientemente envolvente, com mecânicas repetitivas, pouco estímulo ou ausência de recompensa clara. Isso pode levar a sessões curtas, abandono precoce e baixa retenção, mesmo com bom conteúdo.
-
-**Plano de ação:**
-- Testes de gameplay  
-- Iteração de mecânicas  
-
-**Indicadores:**
-- Tempo de sessão  
-- Taxa de abandono  
-
-**Oportunidade:**
-Criar um sistema de engajamento baseado em progressão, desafios e feedback imediato, aumentando retenção e transformando aprendizado em hábito.
-
-
-## R6 – Curva de Aprendizado Inadequada
-- **Probabilidade:** 70  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-A dificuldade pode escalar rápido demais (gerando frustração) ou devagar demais (gerando tédio). Isso impacta diretamente o fluxo de aprendizagem, causando desistência ou desengajamento.
-
-**Plano de ação:**
-- Ajuste dinâmico de dificuldade  
-
-**Indicadores:**
-- Tempo por fase  
-- Desistência  
-
-**Oportunidade:**
-Implementar um sistema adaptativo de dificuldade, que ajuste o conteúdo com base no desempenho do usuário, personalizando a experiência.
-
-
-## R7 – Experiência do Usuário (UX/UI)
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-Interfaces confusas, fluxos pouco intuitivos ou excesso de complexidade visual podem dificultar a navegação e o entendimento do produto. Isso gera fricção, erros de uso e aumento do tempo necessário para aprender a usar a plataforma e de conclusão do jogo.
-
-**Plano de ação:**
-- Testes de usabilidade  
-
-**Indicadores:**
-- Erros de navegação  
-- Tempo de aprendizado  
-
-**Oportunidade:**
-Desenvolver uma UX altamente orientada à aprendizagem, onde a interface reduz carga cognitiva e acelera a compreensão, concentrando o máximo de atenção do usuário no conteúdo e maximizando seu aprendizado.
-
-
-## R8 – Obsolescência do Conteúdo
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-O campo de IA evolui rapidamente, tornando conteúdos desatualizados em curto prazo. Isso pode reduzir a relevância do produto e comprometer sua credibilidade.
-
-**Plano de ação:**
-- Atualizações periódicas  
-
-**Indicadores:**
-- Atualidade  
-
-**Oportunidade:**
-Criar uma arquitetura modular e atualizável, permitindo atualização contínua sem necessidade de reconstrução total.
-
-
-## R9 – Storytelling Desconectado
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-A narrativa pode não se integrar bem com os objetivos educacionais, tornando-se superficial ou irrelevante. Isso reduz imersão e prejudica a retenção de conteúdo.
-
-**Plano de ação:**
-- Integração narrativa  
-
-**Indicadores:**
-- Clareza percebida  
-- Índice de conclusão  
-
-**Oportunidade:**
-Usar storytelling como suporte ao aprendizado do usuário, conectando narrativa e conceitos para aumentar retenção e significado.
-
-
-#### R10 – Falta de Valor para o Usuário
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-Os usuários podem não perceber valor claro no produto, seja por falta de aplicabilidade prática, diferenciação ou clareza de benefícios. Isso impacta adoção, engajamento e recomendação.
-
-**Plano de ação:**
-- Testes de percepção  
-
-**Indicadores:**
-- NPS / satisfação  
-
-**Oportunidade:**
-Refinar a proposta para entregar valor tangível (habilidade + usabilidade + compreensão real de IA), aumentando percepção e adesão dos jogadores.
-
-
-## 4. Riscos Baixos
-
-## R11 – Riscos de Design
-- **Probabilidade:** 30  
-- **Impacto:** Baixo  
-
-**Descrição:**  
-Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando percepção de profissionalismo e identidade do produto, mas sem comprometer sua funcionalidade.
-
-**Plano de ação:**
-- Iteração visual  
-
-**Indicadores:**
-- Feedback qualitativo  
-
-**Oportunidade:**
-Construir uma identidade visual marcante e coerente, reforçando branding e reconhecimento do produto.
-
+Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 30 e impacto baixo. Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando a percepção de profissionalismo, mas sem comprometer a funcionalidade. O plano de ação é a iteração visual, com indicador de feedback qualitativo. A oportunidade está na construção de uma identidade visual marcante e coerente.
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
