@@ -8,6 +8,7 @@ export class sceneLBPassado extends Phaser.Scene {
     super("sceneLBPassado");
   } 
 
+  //aqui são carregados as imagens e sprites de dentro da cena
   preload() {
     this.load.image("labB", "assets/fases/sceneLBPassado/labBranco.png");
     this.load.image("camara", "assets/objetos/sceneLBPassado/partOne/camara.png");
@@ -29,6 +30,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.load.image("npc4", "assets/Personagens/npc4.png");
   }
 
+  //neste método do Phaser, organizamos a criação de cada objeto que ja foi carregado e como eles irão se comportar na cena
   create() {
     // Instanciando corretamente
     this.sistemaDialogo = new caixasDialogo(this);
@@ -41,6 +43,7 @@ export class sceneLBPassado extends Phaser.Scene {
 
     this.scene.launch("bgMusic");
 
+    //chama todos o métodos adicionados na parte inferior do código
     this.estadosDaCena();
     this.createMapa();
     this.paredesDeColisao();
@@ -62,6 +65,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.configurarCameraUI();
   }
 
+  //Aqui, iniciamos e organizamos os estados de cena, importante para o controle lógico da cena
   estadosDaCena() {
     this.entrarNaCamara = false;
     this.lendoMensagem = false;
@@ -70,11 +74,13 @@ export class sceneLBPassado extends Phaser.Scene {
     this.scaleMapa = 3;
   }
 
+  //criação do mapa e o efeito de neve que fica atras do background
   createMapa() {
     this.mapa = this.add.image(600, 400, "labB").setScale(this.scaleMapa).setDepth(-1);
     this.snow = new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
   }
 
+  //Aqui, criamos o grupo de colisão para as paredes
   paredesDeColisao() {
     this.paredes = this.physics.add.staticGroup();
     
@@ -90,15 +96,17 @@ export class sceneLBPassado extends Phaser.Scene {
       this.paredes.add(p);
     };
 
+    //Aqui, criamos as 4 paredes que delimitam o mapa
     criarParede(centroX, centroY - alturaParede / 2 + espessura / 2, larguraParede, espessura);
     criarParede(centroX, centroY + alturaParede / 2 - espessura / 2, larguraParede, espessura);
     criarParede(centroX - larguraParede / 2 + espessura / 2, centroY, espessura, alturaParede);
     criarParede(centroX + larguraParede / 2 - espessura / 2, centroY, espessura, alturaParede);
   }
 
+  //Aqui, adicionamos cada objeto do cenário em seu devido lugar
   createObjetos() {
     this.objetosColisao = this.physics.add.staticGroup();
-
+    // objetos — depth definido após criarColisao
     this.armario = this.add.image(220, 10, "armario").setScale(3.25);
     this.armario2 = this.add.image(980, 10, "armario").setScale(3.25);
     this.alvo = this.add.image(215, 275, "alvo").setScale(3);
@@ -120,6 +128,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.comutador4prt2 = this.add.image(812, 450, "comptBaixo").setScale(3);
     this.camara = this.physics.add.staticImage(600, 20, "camara").setScale(0.25).refreshBody();
     
+    // depth sorting: Y puro para todos os objetos estáticos
     [
       this.armario, this.armario2,
       this.alvo, this.alvo2,
@@ -137,6 +146,9 @@ export class sceneLBPassado extends Phaser.Scene {
     });
   }
 
+// Aqui, iniciamos todas as funções, que estão separadas para melhor organização 
+
+  //Aqui, criamos a personagem principal na fase
   createPlayer() {
     this.Principal = this.physics.add.sprite(400, 300, "sophia").setScale(2).setCollideWorldBounds(true);
     this.Principal.body.setAllowGravity(false);
@@ -147,6 +159,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.physics.add.collider(this.Principal, this.objetosColisao);
   }
 
+  // NPCs decorativos
   createNPC(x, y, sprite, animKey) {
     const npc = this.physics.add.sprite(x, y, sprite).setScale(2).setDepth(1000);
     npc.body.setAllowGravity(false);
@@ -156,6 +169,7 @@ export class sceneLBPassado extends Phaser.Scene {
     return npc;
   }
 
+  //Aqui, fazemos uma função criadora para gerar NPC's com animação, física e colisão
   createNPCs() {
     this.anims.create({ key: "npc1_idle", frames: this.anims.generateFrameNumbers("npc1", { start: 0, end: 8 }), frameRate: 6, repeat: -1 });
     this.anims.create({ key: "npc2_idle", frames: this.anims.generateFrameNumbers("npc2", { start: 0, end: 16 }), frameRate: 6, repeat: -1 });
@@ -183,6 +197,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.watson.play("watson_front");
   }
 
+  //Aqui, criamos o HUD da tecla E para a câmara
   createHUD(){
     this.containerTecla = this.add.container(0, 0).setDepth(500);
     let largura = 140;
@@ -218,8 +233,7 @@ export class sceneLBPassado extends Phaser.Scene {
     }).setOrigin(0.5).setScrollFactor(0).setDepth(2001).setVisible(false);
   }
 
-  // ------------------- CONFIGURAÇÃO DA CÂMERA DE UI -------------------
-  // ------------------- CONFIGURAÇÃO DA CÂMERA DE UI -------------------
+  //camera de UI para corrigir o problema de zoom no texto, ignorando os objetos do mundo e da UI conforme necessário
   configurarCameraUI() {
     this.uiCamera = this.cameras.add(0, 0, this.scale.width, this.scale.height);
     
@@ -249,6 +263,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.cameras.main.ignore(objetosUI);
   }
 
+  //método do Phaser que é chamado a cada frame para atualizar diversas funções, dentre elas colisão e interação com teclas de entrada
   update() {
     // Trava a movimentação durante o diálogo e permite avançar com a tecla E
     if (this.lendoMensagem) {
@@ -326,6 +341,7 @@ export class sceneLBPassado extends Phaser.Scene {
     }
   }
 
+  //Aqui, criamos a caixa de aviso para o menu
   exibirAviso(frase) {
     this.textoAviso.setText(frase);
     this.retanguloAviso.setVisible(true);
@@ -337,6 +353,7 @@ export class sceneLBPassado extends Phaser.Scene {
     });
   }
 
+  //método para colisão de objetos na cena
   criarColisao(objeto, reduzirAltura = 1) {
     this.physics.add.existing(objeto, true);
     let alturaOriginal = objeto.displayHeight;
