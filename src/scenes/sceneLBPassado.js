@@ -164,14 +164,24 @@ export class sceneLBPassado extends Phaser.Scene {
   }
 
   // Aqui, criamos os NPCs decorativos
-  createNPC(x, y, sprite, animKey) {
-    const npc = this.physics.add.sprite(x, y, sprite).setScale(2).setDepth(1000);
-    npc.body.setAllowGravity(false);
-    npc.setImmovable(true);
+  createNPC(x, y, sprite, animKey = null) {
+  let npc;
+
+  if (animKey) {
+    npc = this.physics.add.sprite(x, y, sprite);
     npc.play(animKey);
-    this.physics.add.collider(this.Principal, npc);
-    return npc;
+  } else {
+    npc = this.physics.add.image(x, y, sprite);
   }
+
+  npc.setScale(2);
+  npc.body.setAllowGravity(false);
+  npc.setImmovable(true);
+
+  this.physics.add.collider(this.Principal, npc);
+
+  return npc;
+}
 
   //Aqui, fazemos uma função criadora para gerar NPC's com animação, física e colisão
   createNPCs() {
@@ -182,7 +192,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.npc1 = this.createNPC(290, 330, "npc1", "npc1_idle");
     this.npc2 = this.createNPC(350, 50, "npc2", "npc2_idle");
     this.npc3 = this.createNPC(820, 270, "npc3", "npc3_idle");
-    this.npc4 = this.createNPC(800, 455, "npc4", "npc4_idle"); 
+    this.npc4 = this.createNPC(800, 455, "npc4");
   }
 
   //Aqui, criamos as configurações de Watson, o NPC principal
@@ -195,7 +205,6 @@ export class sceneLBPassado extends Phaser.Scene {
   this.watson.setOffset(15, 30);
   this.physics.add.collider(this.Principal, this.watson);
   //Aqui, criamos a animação do Watson
-  this.criarAnimacaoWatson();
   this.watson.play("watson_front");
 }
 
