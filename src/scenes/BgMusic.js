@@ -1,7 +1,7 @@
 // Classe que representa a cena de música de fundo do jogo.
 // Esta cena é responsável por carregar e reproduzir a música em loop,
 // persistindo entre todas as cenas do jogo.
-export class BgMusic extends Phaser.Scene {
+export class bgMusic extends Phaser.Scene {
 
   // Construtor da cena: define o identificador único da cena.
   constructor() {
