@@ -207,314 +207,41 @@ A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimi
 
 <img src="../assets/gdd/matrizDeRiscos.png " width="100%">
 
-## Escalas Utilizadas
 
-## Probabilidade
-- 10: Muito improvável  
-- 30: Baixa  
-- 50: Média  
-- 70: Alta  
-- 90: Muito alta  
+As escalas utilizadas consideram, para probabilidade, os valores 10 como muito improvável, 30 como baixa, 50 como média, 70 como alta e 90 como muito alta. Para impacto, a classificação varia entre muito baixo, quando o impacto é irrelevante, baixo, quando afeta aspectos pontuais, moderado, quando prejudica a experiência, alto, quando prejudica significativamente o projeto, e muito alto, quando compromete o objetivo central.
 
-## Impacto
-- Muito Baixo: Impacto irrelevante  
-- Baixo: Afeta aspectos pontuais  
-- Moderado: Prejudica a experiência  
-- Alto: Prejudica significativamente o projeto  
-- Muito Alto: Compromete o objetivo central  
+No grupo de riscos muito altos, o R1 – Riscos Pedagógicos apresenta probabilidade 90 e impacto muito alto. Trata-se de um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público, com excesso de abstração ou simplificação, falta de progressão lógica ou ausência de reforço prático. Isso pode resultar em baixa retenção, dificuldade de aplicação prática e sensação de não aprendizado, comprometendo a função central do projeto e gerando abandono e descrédito. Como plano de ação, propõem-se testes com usuários iniciantes e ajuste de ritmo e profundidade. Os indicadores incluem retenção de conhecimento e taxa de conclusão. Como oportunidade atrelada ao risco, há o desenvolvimento de um modelo pedagógico original baseado em aprendizagem ativa e simulação, integrando prática imediata, feedback contínuo, gamificação e storytelling.
 
+Entre os riscos altos, o R2 - Complexidade na Simulação de IA apresenta probabilidade 50 e impacto muito alto. Há o risco de que a simulação de conceitos de IA se torne tecnicamente complexa a ponto de comprometer a clareza com que os usuários compreendem o conteúdo ou a própria viabilidade de transpor esses conceitos para o jogo, gerando abstrações confusas, simplificações incorretas ou dificuldades de implementação, o que pode resultar em experiências inconsistentes ou erros conceituais. O plano de ação envolve prototipagem iterativa e validação com especialistas, com indicadores voltados tanto à compreensão dos usuários quanto ao feedback técnico. Como oportunidade, destaca-se a criação de uma base simplificada e reutilizável para simulações educacionais de IA.
 
-## Matriz de Riscos 
+O R3 – Riscos Estratégicos para a IBM apresenta probabilidade 50 e impacto muito alto. Há a possibilidade de o projeto não gerar valor estratégico claro, seja por desalinhamento com os objetivos institucionais, baixa diferenciação ou limitada aplicabilidade prática, o que pode resultar na perda de apoio ou até na descontinuidade — um problema crítico, considerando a dependência direta do projeto em relação à IBM e à sua validação. Como plano de ação, propõe-se a definição clara da proposta de valor e a realização de benchmark, com indicadores voltados à percepção de valor e à comparação com alternativas, permitindo validar e demonstrar continuamente a relevância do projeto para a IBM. Como oportunidade, destaca-se o potencial de posicionar o projeto como referência em educação em IA para públicos iniciantes.
 
-## 1. Riscos Muito Altos
+O R4 – Desalinhamento com o SkillsBuild possui probabilidade 30 e impacto muito alto. Mesmo com alinhamento inicial, pode haver divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos da plataforma, gerando retrabalho ou necessidade de reestruturação. O plano de ação envolve revisões por sprint e mapeamento com o currículo, com indicadores de aderência ao conteúdo e aprovação da IBM. A oportunidade está em explorar liberdade criativa para inovar dentro da plataforma.
 
-## R1 – Riscos Pedagógicos
-- **Probabilidade:** 90  
-- **Impacto:** Muito Alto  
+Entre os riscos moderados, o R5 – Engajamento e Entretenimento apresenta probabilidade 70 e impacto moderado. Há o risco de o produto não se mostrar suficientemente envolvente, seja por mecânicas repetitivas ou pela ausência de recompensas claras, o que pode levar ao abandono precoce por parte dos usuários. Como plano de ação, propõem-se testes de gameplay e a iteração contínua das mecânicas, utilizando indicadores como tempo de sessão e taxa de abandono, sempre com participantes alinhados ao público-alvo do projeto — jovens universitários. Por outro lado, há uma oportunidade relevante em desenvolver um sistema de engajamento baseado em progressão e feedback imediato, capaz de aumentar a retenção e a experiência do usuário.
 
-**Descrição:**  
-Existe um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público (excesso de abstração ou simplificação), falta de progressão lógica ou ausência de reforço prático. Isso pode se manifestar em baixa retenção, dificuldade de aplicação prática e sensação de “aprendi nada”. Como consequência, o projeto perde sua função central de ensinar IA, gerando abandono e descrédito.
+O R6 – Curva de Aprendizado Inadequada apresenta probabilidade 70 e impacto moderado. Há o risco de a dificuldade escalar de maneira desbalanceada, gerando frustração ou tédio e comprometendo tanto o fluxo de aprendizagem quanto o engajamento do usuário. Como plano de ação, propõe-se o ajuste contínuo da dificuldade do jogo com base em indicadores como tempo por fase e taxa de desistência, considerando testes com jogadores alinhados ao público-alvo. Como oportunidade, destaca-se a implementação de um sistema adaptativo capaz de personalizar a experiência de aprendizado conforme o desempenho do usuário.
 
-**Plano de ação:**
-- Testes com usuários iniciantes  
-- Ajuste de ritmo e profundidade  
+O R7 – Experiência do Usuário, UX e UI apresenta probabilidade 50 e impacto moderado. Interfaces confusas ou pouco intuitivas podem dificultar a navegação e o entendimento, gerando fricção e erros. O plano de ação envolve testes de usabilidade, com indicadores como erros de navegação e tempo de aprendizado. A oportunidade é desenvolver uma experiência altamente orientada à aprendizagem, reduzindo a carga cognitiva desnecessária.
 
-**Indicadores:**
-- Retenção de conhecimento  
-- Taxa de conclusão  
+O R8 – Obsolescência do Conteúdo tem probabilidade 50 e impacto moderado. A rápida evolução da IA pode tornar o conteúdo desatualizado, reduzindo relevância e credibilidade. O plano de ação consiste em atualizações periódicas, com indicador de atualidade. A oportunidade é criar uma arquitetura modular e atualizável.
 
-**Oportunidade:**
-Desenvolver um modelo pedagógico original baseado em aprendizagem ativa + simulação, que supere métodos tradicionais ao integrar prática imediata, feedback contínuo, gamificação e storytelling.
+O R9 – Storytelling Desconectado apresenta probabilidade 50 e impacto moderado. A narrativa pode não se integrar bem aos objetivos educacionais, reduzindo imersão e retenção. O plano de ação é a integração narrativa, com indicadores de clareza percebida e índice de conclusão. A oportunidade está em usar storytelling como suporte direto ao aprendizado.
 
-## 2. Riscos Altos
+O R10 – Falta de Valor para o Usuário possui probabilidade 50 e impacto moderado. Os usuários podem não perceber valor claro no produto, impactando adoção e engajamento. O plano de ação envolve testes de percepção, com indicadores como NPS¹⁷ e satisfação. A oportunidade é entregar valor tangível em forma de habilidades e compreensão real de IA.
 
-## R2 – Complexidade na Simulação de IA
-- **Probabilidade:** 50  
-- **Impacto:** Muito Alto  
-
-**Descrição:**  
-A simulação de conceitos de IA pode se tornar tecnicamente complexa a ponto de comprometer clareza ou viabilidade. Há risco de criar abstrações confusas, simplificações incorretas ou sistemas difíceis de implementar. Isso pode gerar experiências inconsistentes, erros conceituais (tanto do jogo quanto jogador) ou até inviabilizar partes do produto.
-
-**Plano de ação:**
-- Prototipagem iterativa  
-- Validação com especialistas  
-
-**Indicadores:**
-- Compreensão dos usuários  
-- Feedback técnico  
-
-**Oportunidade:**
-Criar um uma base simplificada de simulação de IA educacional, reutilizável, que transforme conceitos complexos em interações intuitivas, tendo potencial de virar diferencial técnico e até ativo replicável.
-
-## R3 – Riscos Estratégicos para a IBM
-- **Probabilidade:** 50  
-- **Impacto:** Muito Alto  
-
-**Descrição:**  
-Existe o risco de o projeto não gerar valor estratégico claro para a IBM, seja por desalinhamento com objetivos institucionais, baixa diferenciação frente a concorrentes ou falta de aplicabilidade prática. Isso pode resultar em baixa priorização interna, perda de apoio ou descontinuidade.
-
-**Plano de ação:**
-- Definição de proposta de valor  
-- Benchmark  
-
-**Indicadores:**
-- Percepção de valor  
-- Comparação com alternativas  
-
-**Oportunidade:**
-Posicionar o projeto como referência de educação em IA da IBM, para um público alvo que não tem contato com essas tecnologias, fortalecendo a presença da empresa como líder em capacitação tecnológica.
-
-
-## R4 – Desalinhamento com o SkillsBuild
-- **Probabilidade:** 30  
-- **Impacto:** Muito Alto  
-
-**Descrição:**  
-Mesmo com alinhamento inicial, há risco de divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos do SkillsBuild (conteúdo, linguagem, profundidade). Isso pode gerar revisões excessivas, reprovação de entregas ou necessidade de reestruturação.
-
-**Plano de ação:**
-- Revisões por sprint  
-- Mapeamento com currículo  
-
-**Indicadores:**
-- Aderência ao conteúdo  
-- Aprovação da IBM  
-
-**Oportunidade:**
-Explorar a liberdade criativa dada para criar um formato inovador dentro do SkillsBuild, ampliando o escopo tradicional da plataforma com abordagens interativas e experimentais.
-
-
-## 3. Riscos Moderados
-
-## R5 – Engajamento e Entretenimento
-- **Probabilidade:** 70  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-Há risco de o produto não ser suficientemente envolvente, com mecânicas repetitivas, pouco estímulo ou ausência de recompensa clara. Isso pode levar a sessões curtas, abandono precoce e baixa retenção, mesmo com bom conteúdo.
-
-**Plano de ação:**
-- Testes de gameplay  
-- Iteração de mecânicas  
-
-**Indicadores:**
-- Tempo de sessão  
-- Taxa de abandono  
-
-**Oportunidade:**
-Criar um sistema de engajamento baseado em progressão, desafios e feedback imediato, aumentando retenção e transformando aprendizado em hábito.
-
-
-## R6 – Curva de Aprendizado Inadequada
-- **Probabilidade:** 70  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-A dificuldade pode escalar rápido demais (gerando frustração) ou devagar demais (gerando tédio). Isso impacta diretamente o fluxo de aprendizagem, causando desistência ou desengajamento.
-
-**Plano de ação:**
-- Ajuste dinâmico de dificuldade  
-
-**Indicadores:**
-- Tempo por fase  
-- Desistência  
-
-**Oportunidade:**
-Implementar um sistema adaptativo de dificuldade, que ajuste o conteúdo com base no desempenho do usuário, personalizando a experiência.
-
-
-## R7 – Experiência do Usuário (UX/UI)
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-Interfaces confusas, fluxos pouco intuitivos ou excesso de complexidade visual podem dificultar a navegação e o entendimento do produto. Isso gera fricção, erros de uso e aumento do tempo necessário para aprender a usar a plataforma e de conclusão do jogo.
-
-**Plano de ação:**
-- Testes de usabilidade  
-
-**Indicadores:**
-- Erros de navegação  
-- Tempo de aprendizado  
-
-**Oportunidade:**
-Desenvolver uma UX altamente orientada à aprendizagem, onde a interface reduz carga cognitiva e acelera a compreensão, concentrando o máximo de atenção do usuário no conteúdo e maximizando seu aprendizado.
-
-
-## R8 – Obsolescência do Conteúdo
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-O campo de IA evolui rapidamente, tornando conteúdos desatualizados em curto prazo. Isso pode reduzir a relevância do produto e comprometer sua credibilidade.
-
-**Plano de ação:**
-- Atualizações periódicas  
-
-**Indicadores:**
-- Atualidade  
-
-**Oportunidade:**
-Criar uma arquitetura modular e atualizável, permitindo atualização contínua sem necessidade de reconstrução total.
-
-
-## R9 – Storytelling Desconectado
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-A narrativa pode não se integrar bem com os objetivos educacionais, tornando-se superficial ou irrelevante. Isso reduz imersão e prejudica a retenção de conteúdo.
-
-**Plano de ação:**
-- Integração narrativa  
-
-**Indicadores:**
-- Clareza percebida  
-- Índice de conclusão  
-
-**Oportunidade:**
-Usar storytelling como suporte ao aprendizado do usuário, conectando narrativa e conceitos para aumentar retenção e significado.
-
-
-#### R10 – Falta de Valor para o Usuário
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-Os usuários podem não perceber valor claro no produto, seja por falta de aplicabilidade prática, diferenciação ou clareza de benefícios. Isso impacta adoção, engajamento e recomendação.
-
-**Plano de ação:**
-- Testes de percepção  
-
-**Indicadores:**
-- NPS / satisfação  
-
-**Oportunidade:**
-Refinar a proposta para entregar valor tangível (habilidade + usabilidade + compreensão real de IA), aumentando percepção e adesão dos jogadores.
-
-
-## 4. Riscos Baixos
-
-## R11 – Riscos de Design
-- **Probabilidade:** 30  
-- **Impacto:** Baixo  
-
-**Descrição:**  
-Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando percepção de profissionalismo e identidade do produto, mas sem comprometer sua funcionalidade.
-
-**Plano de ação:**
-- Iteração visual  
-
-**Indicadores:**
-- Feedback qualitativo  
-
-**Oportunidade:**
-Construir uma identidade visual marcante e coerente, reforçando branding e reconhecimento do produto.
-
+Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 30 e impacto baixo. Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando a percepção de profissionalismo, mas sem comprometer a funcionalidade. O plano de ação é a iteração visual, com indicador de feedback qualitativo. A oportunidade está na construção de uma identidade visual marcante e coerente.
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
-**Objetivos Estratégicos**
 
-1. Aumentar o engajamento de jovens com pouco conhecimento em IA
- Criar uma experiência interativa que seja mais interessante do que cursos tradicionais, incentivando o usuário a continuar.
+Os objetivos estratégicos do projeto concentram-se em ampliar o engajamento de jovens com pouco conhecimento em Inteligência Artificial, por meio da criação de uma experiência interativa mais atraente do que cursos tradicionais, incentivando a continuidade de uso. Paralelamente, busca-se aprimorar a aprendizagem de conceitos básicos de IA, garantindo que o usuário compreenda temas como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning. Outro objetivo central é despertar o interesse pela área, fazendo com que o usuário perceba a IA como algo acessível e estimulante para estudos futuros, além de incentivar a conclusão do jogo por meio de elementos narrativos e mecânicas capazes de sustentar o engajamento até o final da experiência.
 
-2. Melhorar a aprendizagem de conceitos básicos de IA
- Garantir que o usuário entenda ideias como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning.
+No que se refere às metas estabelecidas, a M1 propõe alcançar, em até quatro semanas após o lançamento, uma taxa de conclusão de pelo menos setenta por cento entre os usuários que iniciarem o jogo. A M2 busca reduzir a evasão nas fases iniciais, estabelecendo como limite máximo trinta por cento de abandono antes da terceira fase, de modo a garantir o engajamento efetivo dos jogadores já nas duas primeiras semanas após o lançamento. A M3 está relacionada à satisfação do usuário, com o objetivo de que ao menos cinquenta por cento dos jogadores que concluírem o jogo o compartilhem e incentivem novos usuários a jogá-lo, no prazo de até duas semanas após a conclusão. Por fim, a M4 visa assegurar a continuidade do aprendizado, garantindo que ao menos trinta por cento dos usuários que finalizarem o jogo acessem outros conteúdos educacionais do IBM SkillsBuild.
 
-3. Despertar interesse pela área de Inteligência Artificial
- Fazer com que o usuário perceba que IA é acessível e se interesse em continuar aprendendo.
+Para acompanhar o desempenho e o alcance dessas metas, foram definidos indicadores-chave. O KPI 1 mede a taxa de conclusão, isto é, a proporção de usuários que finalizam o jogo em relação aos que o iniciaram, com meta de pelo menos setenta por cento, sendo avaliado após duas semanas e com foco em engajamento. O KPI 2 avalia a taxa de abandono, mensurando quantos usuários desistem antes de concluir o jogo, com meta de no máximo trinta por cento, sendo analisado por fase e de forma acumulada, também com foco em engajamento.
 
-4. Incentivar o usuário a concluir o jogo
- Usar elementos de jogo e narrativa para manter o usuário até o final da experiência.
-
-**Metas (SMART)**
-
-M1 - Conclusão do jogo
- Alcançar uma taxa de conclusão de pelo menos setenta por cento dos usuários que iniciarem o jogo, em até oito semanas após o lançamento.
-
-M2 - Redução da evasão
- Diminuir o abandono entre o início e o final do jogo em pelo menos trinta por cento, em comparação com cursos online tradicionais, até o fim do piloto.
-
-M3 - Aprendizagem
- Alcançar uma média de acertos de pelo menos sessenta e cinco por cento nos testes após cada módulo, durante o piloto.
-
-M4 - Satisfação do usuário
- Alcançar um nível de satisfação de pelo menos cinquenta pontos no NPS, medido ao final do uso do jogo.
-
-M5 - Continuidade do aprendizado
- Garantir que pelo menos quarenta por cento dos usuários que terminarem o jogo acessem outros conteúdos de aprendizagem em até trinta dias.
-
-**KPIs (Indicadores)**
-
-KPI 1 - Taxa de conclusão
-Mede quantos usuários terminam o jogo em relação aos que começaram
-Meta: pelo menos setenta por cento
-Frequência: ao final do piloto
-Foco: engajamento
-
-KPI 2 - Taxa de abandono
-Mede quantos usuários desistem antes de terminar o jogo
-Meta: no máximo trinta por cento, comparado ao padrão
-Frequência: por fase e acumulado
-Foco: engajamento
-
-KPI 3 - Desempenho nos testes
-Mede o número de respostas corretas nos testes após cada fase
-Meta: pelo menos sessenta e cinco por cento de acerto
-Frequência: ao final de cada módulo
-Foco: aprendizagem
-
-KPI 4 - Evolução do aprendizado
-Compara o desempenho antes e depois do jogo
-Meta: aumento mínimo de vinte e cinco pontos percentuais
-Frequência: ao final do piloto
-Foco: aprendizagem real
-
-KPI 5 - Tempo médio de uso
-Mede quanto tempo o usuário passa no jogo em cada sessão
-Meta: pelo menos quinze minutos por sessão
-Frequência: semanal
-Foco: engajamento
-
-KPI 6 - Retorno ao jogo
-Mede quantos usuários voltam a jogar depois da primeira vez
-Meta: pelo menos sessenta por cento retornam
-Frequência: sete dias após o primeiro acesso
-Foco: engajamento
-
-KPI 7 - Satisfação (NPS)
-Mede o quanto os usuários recomendariam o jogo
-Meta: pelo menos cinquenta pontos
-Frequência: após a conclusão
-Foco: experiência
-
-KPI 8 - Continuidade do aprendizado
-Mede quantos usuários buscam aprender mais depois do jogo
-Meta: pelo menos quarenta por cento
-Frequência: até trinta dias após o término
-Foco: impacto educacional
-
+Além disso, o KPI 3 analisa o tempo médio de uso, mensurando quanto tempo o usuário leva para concluir o jogo, com meta de pelo menos vinte minutos, a fim de garantir que o jogador de fato interaja com a experiência e se engaje. O KPI 4 mede o alcance dos compartilhamentos do jogo, identificando quantos usuários iniciaram a experiência a partir da recomendação de outros, com meta de pelo menos cinquenta por cento de novos usuários provenientes de divulgação orgânica em até um mês, com foco em satisfação e alcance. O KPI 5 avalia a satisfação do usuário, mensurando o quanto os jogadores recomendariam o jogo, com meta de pelo menos sessenta por cento de recomendações, sendo coletado após a conclusão e focado na experiência do usuário. Por fim, o KPI 6 mede a continuidade do aprendizado, verificando quantos usuários acessam o IBM SkillsBuild após finalizar o jogo, com meta de pelo menos trinta por cento em até trinta dias, refletindo o impacto educacional da solução.
 
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
@@ -822,52 +549,11 @@ A existência de inimigos não foi uma possibilidade acordada dentro do enredo d
 
 ## 3.6. Regras do jogo (sprint 3)
 
-Objetivo Geral da Sprint: O jogador deve investigar o laboratório em ruínas no ano de 2098 e forjar um novo núcleo de energia para reativar o banco de dados do robô Asimov.
+O objetivo geral do jogo é investigar um laboratório em ruínas no ano de 2098 e forjar um novo núcleo de energia capaz de reativar o banco de dados do robô Asimov. No prólogo, ocorre um salto temporal em que o jogador viaja para o futuro e estabelece o primeiro contato com a máquina. Nesse momento inicial, a câmara criogênica permanece bloqueada, exigindo que o jogador interaja com o cientista Watson e esgote todas as opções de diálogo disponíveis para liberar a transição temporal. Ao chegar em 2098, a progressão só é habilitada após o jogador ouvir integralmente as instruções iniciais de Asimov, garantindo a compreensão do contexto e das mecânicas básicas.
 
-1. O Salto Temporal (Prólogo)
+Na sequência, a segunda etapa se desenrola em um corredor do laboratório, onde o jogador deve encontrar pistas sobre o cristal de energia. Para isso percorre um trajeto linear repleto de detritos, no qual a precisão é essencial, pois qualquer colisão com obstáculos resulta em falha imediata e reinício do percurso. Apenas ao completar a travessia sem erros o jogador desbloqueia um baú contendo as informações necessárias para avançar. Em seguida a progressão conduz a uma fase centrada no treinamento de uma rede neural, na qual o jogador precisa treinar Asimov para identificar a porta correta em meio à escuridão, interpretando a saída do sistema. As pistas coletadas anteriormente são utilizadas para alimentar os neurônios da rede densa de Asimov, mas os dados iniciais são apresentados de forma bruta e ilegível. Para torná los compreensíveis é necessário interagir diretamente com os neurônios de Asimov para ativá los um a um, além de encontrar e ativar manualmente a válvula softmax responsável por converter os valores em probabilidades entre 0 e 100. Com essa leitura clara o jogador deve então ajustar corretamente o limiar de confiança, valores inadequados impedem o reconhecimento da porta correta enquanto o ajuste preciso filtra as probabilidades irrelevantes e permite a progressão.
 
-Objetivo: Viajar para o futuro e estabelecer o primeiro contato com Asimov.
-
-Regras/Meios: A câmara criogênica inicia bloqueada. O jogador deve obrigatoriamente conversar com o cientista Watson e esgotar todas as opções de diálogo para que a transição temporal seja liberada. Ao chegar em 2098, a progressão do nível só é habilitada após o jogador ouvir completamente as instruções iniciais de Asimov.
-
-2. A Área de Sucata
-
-Objetivo: Encontrar pistas sobre o cristal de energia.
-
-Regras/Meios: O jogador deve atravessar um percurso linear repleto de detritos do início ao fim. O desafio exige precisão: não é permitido colidir com nenhum obstáculo. Se houver colisão, o jogador falha na travessia e é forçado a recomeçar do início do percurso. Chegar ao final intacto garante a abertura de um baú contendo as pistas necessárias para a próxima fase.
-
-3. Treinamento da Rede Neural e a Válvula Softmax
-
-Objetivo: Descobrir qual é a porta correta na escuridão do laboratório interpretando a saída da rede neural.
-
-Regras/Meios: O jogador deve usar as pistas encontradas na sucata para alimentar os neurônios da rede densa de Asimov. No entanto, a saída inicial de dados será bruta e ilegível. Mecânica Obrigatória: O jogador precisará encontrar e ativar manualmente a Válvula Softmax (que atua como a camada de ativação do sistema). Sem abrir essa válvula, é impossível obter a leitura correta da saída da rede neural densa.
-
-Uma vez ativada, a válvula converte os dados brutos em probabilidades de 0 a 100%. Com a leitura clara, o jogador enfrenta o desafio final da etapa: definir o "limiar de confiança" correto. Se tentar avançar com um limiar muito baixo ou errado, o sistema não reconhecerá a porta. Ao ajustar o limiar exato, as probabilidades baixas são descartadas, e Asimov consegue indicar a porta correta com sucesso.
-
-4. A Sala de Arquivamento
-
-Objetivo: Coletar informações precisas sobre os cristais.
-
-Regras/Meios: O jogador é desafiado a classificar uma sequência de fotos de cristais. A regra é eliminatória e binária: deve-se aprovar apenas os cristais azuis reluzentes (dados verdadeiros) e descartar/incinerar os cristais vermelhos opacos (dados corrompidos). O jogador precisa alcançar uma cota específica de acertos na classificação. Aprovar um cristal vermelho resulta em penalidade imediata ou falha do minigame.
-
-5. O Extrator de Características
-
-Objetivo: Mapear as propriedades das imagens dos cristais verdadeiros para treinar Asimov.
-
-Regras/Meios: Com as imagens corretas em mãos, o jogador deve interagir com a máquina "Extrator de Características". A regra exige que as imagens validadas sejam processadas nesta máquina para extrair seus dados essenciais (features). Apenas após a conclusão e coleta deste "mapa de características", o jogador consegue treinar Asimov, habilitando sua capacidade generativa para a etapa seguinte.
-
-6. Forja Generativa
-
-Objetivo: Sintetizar um cristal de energia puro e 100% funcional.
-
-Regras/Meios: Durante a geração do novo cristal, Asimov usando sua capacidade generativa inevitavelmente gerará "ruídos" (imperfeições visuais e falhas na estrutura do cristal). O jogador deve agir ativamente para eliminar essas falhas progressivamente antes que comprometam o processo. A condição de vitória deste desafio é preencher a "barra de pureza" até 100%. Se o jogador não conseguir limpar os ruídos dentro do limite de tempo, a forja falha e o processo de síntese reinicia.
-
-7. Restauração Final
-
-Objetivo: Reativar a energia total do laboratório.
-
-Regras/Meios: Esta é a condição de vitória e conclusão da Sprint. De posse do cristal 100% purificado, o jogador deve transportá-lo até o núcleo central. O ato de depositar o cristal verdadeiro no núcleo aciona o evento de final de fase: a energia é restaurada, Asimov evolui seu sistema, e a narrativa é desbloqueada para os próximos níveis.
-
+Na terceira fase, o jogador enfrenta um desafio de classificação de cristais após cair em um buraco, devendo escalá-lo enquanto coleta apenas os cristais verdadeiros, identificados pela cor azul, e evita os falsos, representados em vermelho. A coleta de um cristal incorreto implica penalização e reinício da fase, sendo necessário reunir todos os cristais corretos para prosseguir. Na quarta etapa, o foco recai sobre a limpeza de um cristal imperfeito gerado por Asimov, utilizando um mecanismo de arrasto com o mouse para remover manchas e irregularidades. Durante esse processo, o jogador deve controlar a barra de overfitting, impedindo que atinja 100%, pois isso resulta no reinício da fase; da mesma forma, uma limpeza incompleta impede a conclusão do objetivo. Por fim, na quinta e última fase, o jogador deve avaliar diferentes prompts sob critérios de adequação e ética, classificando-os como apropriados ou não. Para concluir o jogo, é necessário acertar pelo menos sete das dez avaliações apresentadas, consolidando o aprendizado adquirido ao longo da experiência.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
@@ -1505,6 +1191,7 @@ O que poderia melhorar no jogo? | A responsividade do personagem aos controles, 
 
 ¹⁶ AMAZON WEB SERVICES. O que é visão computacional? Disponível em: https://aws.amazon.com/pt/what-is/computer-vision/. Acesso em: 27 mar. 2026.
 
+¹⁷ Fundação Instituto de Administração. Net Promoter Score (NPS): o que é, como calcular e exemplos. Disponível em: https://fia.com.br/blog/net-promoter-score-nps/. Acesso em: 6 abr. 2026.
 
 # <a name="c8"></a>Anexos
 
