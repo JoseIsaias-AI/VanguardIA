@@ -12,7 +12,7 @@ export class FaseDoischao extends Phaser.Scene {
   preload() {
     this.load.image("portas", "assets/Fases/FaseDois/salaPortas.png");
 
-    this.load.spritesheet("sophiaCaindo", "assets/Cutscene/animaçãoCaindo.jpeg", {
+    this.load.spritesheet("sophiaCaindo", "assets/Cutscene/animaçãoCaindo.png", {
       frameWidth: 128,
       frameHeight: 128,
     });
