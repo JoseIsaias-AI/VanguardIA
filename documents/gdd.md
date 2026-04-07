@@ -3,6 +3,7 @@
 # GDD - Game Design Document - Módulo 1 - Inteli
 
 ## Nome do Grupo
+Vanguardia
 
 #### Nomes dos integrantes do grupo
 
