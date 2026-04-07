@@ -1173,7 +1173,13 @@ O que você achou do processo de aprendizado do jogo? | Achei bem legal e com ap
 
 ### 5.2.2 Melhorias
 
-*Descreva nesta seção um plano de melhorias sobre o jogo, com base nos resultados dos testes de jogabilidade*
+Com base nos testes de jogabilidade realizados, foi possível validar a utilidade e a usabilidade dos minigames, bem como a eficácia do storytelling. De modo geral, a combinação desses elementos mostrou-se positiva para a experiência do usuário e para o processo de aprendizagem, sendo, inclusive, os minigames um dos aspectos mais elogiados pelos participantes.
+
+No entanto, os testes também evidenciaram problemas relevantes, especialmente relacionados à experiência do usuário, como o excesso de texto, a falta de clareza nas instruções, inconsistências e ausência de elementos de HUD, além de bugs técnicos que impactaram a jogabilidade. Esses pontos foram recorrentes entre os feedbacks, indicando a necessidade de melhorias estruturais na comunicação com o jogador.
+
+Diante desse cenário, torna-se necessário aprimorar a UX do jogo, com foco na redução da carga cognitiva, por meio da diminuição e simplificação dos diálogos, sem comprometer a profundidade do conteúdo e sua proposta educacional. Paralelamente, é fundamental refinar o sistema de HUD e de orientação ao jogador (player guidance), tornando mais claros os objetivos e as ações esperadas em cada fase, tanto naquelas que já possuem indicadores — mas ainda pouco eficazes — quanto nas que ainda não contam com esse suporte.
+
+Além disso, é imprescindível realizar a correção dos bugs identificados durante os testes. Considerando que as avaliações foram conduzidas sobre uma versão MVP do jogo, a ocorrência desses problemas já era esperada. Dessa forma, o processo de refatoração do código, deve visar tanto a resolução de erros previamente conhecidos quanto a correção dos novos problemas identificados a partir dos testes realizados.
 
 # <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
 
