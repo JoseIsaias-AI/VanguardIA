@@ -178,6 +178,7 @@ export class transicao1Para2 extends Phaser.Scene {
             duration: 6800,
             ease:     "Sine.inOut",
             onComplete: () => {
+                this.asimovFacing = "up";
                 this.updateAsimovAnimation(0, 0);
                 
                 // Abre o diálogo após o Tween do Asimov andar

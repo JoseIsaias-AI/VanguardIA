@@ -181,6 +181,7 @@ export class faseDois extends Phaser.Scene {
     this.miniGameAtivo         = false;
     this.bauLiberadoParaSophia = false;
     this.falandoAsimov         = false;
+    this.sophiaFacing          = "front";
 
     // Garante que o diálogo do Asimov só dispare UMA vez
     this.dialogoAsimovJaIniciado = false;
@@ -282,7 +283,15 @@ export class faseDois extends Phaser.Scene {
       this.anims.create({ key: "sophia-right", frames: this.anims.generateFrameNumbers("sophia", { start: 16, end: 21 }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "sophia-front", frames: this.anims.generateFrameNumbers("sophia", { start: 0,  end: 7  }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "sophia-back",  frames: this.anims.generateFrameNumbers("sophia", { start: 8,  end: 15 }), frameRate: 10, repeat: -1 });
+      this.anims.create({ key: "sophia-idle-left",  frames: [{ key: "sophia", frame: 24 }], frameRate: 1 });
+      this.anims.create({ key: "sophia-idle-right", frames: [{ key: "sophia", frame: 16 }], frameRate: 1 });
+      this.anims.create({ key: "sophia-idle-front", frames: [{ key: "sophia", frame: 0 }], frameRate: 1 });
+      this.anims.create({ key: "sophia-idle-back",  frames: [{ key: "sophia", frame: 8 }], frameRate: 1 });
     }
+  }
+
+  atualizarIdleSophia() {
+    this.sophia.anims.play(`sophia-idle-${this.sophiaFacing}`, true);
   }
 
   ajustarTextoDialogo(textoCompleto) {
@@ -295,10 +304,12 @@ export class faseDois extends Phaser.Scene {
   atualizarAnimacaoSophiaDuranteMovimento(dx, dy) {
     // Escolhe a direcao com base no eixo dominante do deslocamento.
     if (Math.abs(dx) >= Math.abs(dy)) {
+      this.sophiaFacing = dx < 0 ? "left" : "right";
       this.sophia.anims.play(dx < 0 ? "sophia-left" : "sophia-right", true);
       return;
     }
 
+    this.sophiaFacing = dy < 0 ? "back" : "front";
     this.sophia.anims.play(dy < 0 ? "sophia-back" : "sophia-front", true);
   }
 
@@ -359,7 +370,7 @@ export class faseDois extends Phaser.Scene {
         }
 
         if (sprite === this.sophia) {
-          this.sophia.setFrame(0);
+          this.atualizarIdleSophia();
         }
 
         if (aoConcluir) aoConcluir();
@@ -374,28 +385,30 @@ export class faseDois extends Phaser.Scene {
     // 3. So depois disso processamos movimento e interacoes do mapa.
     if (this.lendoMensagem) {
       this.sophia.setVelocity(0, 0);
-      this.sophia.anims.stop();
+      this.atualizarIdleSophia();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) this.fecharMensagem();
       return;
     }
 
     if (this.miniGameAtivo) {
       this.sophia.setVelocity(0, 0);
-      this.sophia.anims.stop();
+      this.atualizarIdleSophia();
       return;
     }
 
     // ── Movimento de Sophia ───────────────────────────────────────────────────
     // Movimento livre da Sophia durante a exploracao.
     let vx = 0, vy = 0;
-    if      (this.cursors.left.isDown  || this.keys.A.isDown) { vx = -this.speed; this.sophia.anims.play("sophia-left",  true); }
-    else if (this.cursors.right.isDown || this.keys.D.isDown) { vx =  this.speed; this.sophia.anims.play("sophia-right", true); }
-    if      (this.cursors.up.isDown    || this.keys.W.isDown) { vy = -this.speed; if (vx === 0) this.sophia.anims.play("sophia-back",  true); }
-    else if (this.cursors.down.isDown  || this.keys.S.isDown) { vy =  this.speed; if (vx === 0) this.sophia.anims.play("sophia-front", true); }
+    if      (this.cursors.left.isDown  || this.keys.A.isDown) { vx = -this.speed; this.sophiaFacing = "left";  this.sophia.anims.play("sophia-left",  true); }
+    else if (this.cursors.right.isDown || this.keys.D.isDown) { vx =  this.speed; this.sophiaFacing = "right"; this.sophia.anims.play("sophia-right", true); }
+    if      (this.cursors.up.isDown    || this.keys.W.isDown) { vy = -this.speed; if (vx === 0) { this.sophiaFacing = "back";  this.sophia.anims.play("sophia-back",  true); } }
+    else if (this.cursors.down.isDown  || this.keys.S.isDown) { vy =  this.speed; if (vx === 0) { this.sophiaFacing = "front"; this.sophia.anims.play("sophia-front", true); } }
 
     this.sophia.setVelocity(vx, vy);
     this.sophia.body.velocity.normalize().scale(this.speed);
-    if (vx === 0 && vy === 0) { this.sophia.anims.stop(); this.sophia.setFrame(0); }
+    if (vx === 0 && vy === 0) {
+      this.atualizarIdleSophia();
+    }
 
     // O pulo e apenas visual: um tween curto no eixo Y.
     if (Phaser.Input.Keyboard.JustDown(this.keySpace) && !this.pulando) {
@@ -793,10 +806,24 @@ export class faseDois extends Phaser.Scene {
       this.mgBtnsDensa.forEach((botao, indice) => {
         if (botao.zona.ativado) return;
 
+        if (botao.pulseTween) {
+          botao.pulseTween.stop();
+          botao.pulseTween = null;
+        }
+
         botao.g.clear();
+        botao.g.setAlpha(1);
         if (indice === this.mgIndiceDensoAtual) {
-          botao.g.lineStyle(3, 0xffff66, 0.95);
+          botao.g.lineStyle(4, 0xff3333, 1);
           botao.zona.setInteractive();
+          botao.pulseTween = this.tweens.add({
+            targets: botao.g,
+            alpha: 0.2,
+            duration: 320,
+            yoyo: true,
+            repeat: -1,
+            ease: "Sine.easeInOut",
+          });
         } else {
           botao.g.lineStyle(2, 0x00ffff, 0.25);
           botao.zona.disableInteractive();
@@ -826,9 +853,16 @@ export class faseDois extends Phaser.Scene {
           this.mgDensaAtivados++;
           this.mgRede.setFrame(this.mgFramePorNeuronioDenso(indiceAtual));
 
+          const botaoAtual = this.mgBtnsDensa[indiceAtual];
+          if (botaoAtual && botaoAtual.pulseTween) {
+            botaoAtual.pulseTween.stop();
+            botaoAtual.pulseTween = null;
+          }
+
           g.clear();
           g.fillStyle(0x00ffff, 0.3);
           g.lineStyle(3, 0x00ffff, 1);
+          g.setAlpha(1);
           g.fillCircle(xPos, dy, raio);
           g.strokeCircle(xPos, dy, raio);
           this.tweens.add({ targets: g, alpha: 0.35, duration: 180, yoyo: true, repeat: 2 });
@@ -1102,7 +1136,7 @@ export class faseDois extends Phaser.Scene {
         this.asimov.setPosition(asimovDestinoFinalX, asimovDestinoFinalY);
         this.sophia.setPosition(sophiaDestinoFinalX, sophiaDestinoFinalY);
         this.asimov.setFrame(0).setFlipX(false);
-        this.sophia.setFrame(0);
+        this.atualizarIdleSophia();
 
         this.cameras.main.centerOn(bauX, bauY);
 
@@ -1194,8 +1228,7 @@ export class faseDois extends Phaser.Scene {
         targets: this.sophia, x: sophiaDestX, y: sophiaDestY,
         duration: durS, ease: "Linear",
         onComplete: () => {
-          this.sophia.anims.stop();
-          this.sophia.setFrame(0);
+          this.atualizarIdleSophia();
           this.time.delayedCall(300, () => this.cutsceneDialogoAsimov());
         },
       });
