@@ -106,8 +106,8 @@ export class faseCinco extends Phaser.Scene {
 
         const dialogosIniciais = [
             { nome: "Asimov", personagem: this.asimov, texto: "Você conseguiu, Sophia, agora a humanidade possui novamente acesso às suas informações gerais." },
-            { nome: "Sophia", personagem: this.sophia, texto: "Que bom que conseguimos, entretanto, tenho uma preocupação: a sociedade atual continuará utilizando a IA de modo indevido, não como a ferramenta que ela deveria ser. Tem algo que possamos fazer para ajudar a sociedade em relação a isso?" },
-            { nome: "Asimov", personagem: this.asimov, texto: "Para evitar que essa ferramenta continue sendo utilizada indevidamente, podemos abordar a Ética na criação de prompts com as pessoas da atualidade." },
+            { nome: "Sophia", personagem: this.sophia, texto: "Que bom que conseguimos, mas, tenho uma preocupação: a sociedade atual continuará utilizando a IA de modo indevido, não como a ferramenta que ela deveria ser. Tem algo que possamos fazer para ajudar a sociedade em relação a isso?" },
+            { nome: "Asimov", personagem: this.asimov, texto: "Para evitar que essa ferramenta continue sendo utilizada indevidamente, podemos abordar a ética na criação de prompts com as pessoas da atualidade." },
             { nome: "Sophia", personagem: this.sophia, texto: "Asimov, mas o que são prompts?" },
             { nome: "Asimov", personagem: this.asimov, texto: "Prompts são instruções, perguntas ou comandos dados para IA gerar respostas, que também podem demonstrar intenções do usuário." },
             { nome: "Asimov", personagem: this.asimov, texto: "Na época atual, a humanidade costuma utilizar a IA para substituir o pensamento crítico, entretanto, a partir da criação de prompts éticos, a IA pode ser utilizada para amplificar a inteligência humana, não substituí-la." },

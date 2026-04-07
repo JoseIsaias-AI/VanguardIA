@@ -504,7 +504,7 @@ export class FaseDois extends Phaser.Scene {
       { texto: "Entendi, Sophia. Eu consigo enxergar no escuro… mas meus sensores de reconhecimento de padrões foram corrompidos.", falante: "Asimov" },
       { texto: "Mas existe uma solução! Você precisa entrar na minha cabeça e religar os neurônios que foram desligados.", falante: "Asimov" },
       { texto: "Espera… você tem um cérebro de verdade aí dentro?", falante: "Sophia" },
-      { texto: "Uma versão artificial, sim! Funciona igual ao seu — com neurônios que se conectam e aprendem. Só que os meus estão apagados. Você me ajuda a religar?", falante: "Asimov" },
+      { texto: "Uma versão artificial, sim! Funciona igual ao seu com neurônios que se conectam e aprendem. Só que os meus estão apagados. Você me ajuda a religar?", falante: "Asimov" },
     ];
     this.dialogoAsimovIndex = 0;
     this.falandoAsimov = true;

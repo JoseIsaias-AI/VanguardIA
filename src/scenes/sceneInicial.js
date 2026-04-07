@@ -44,11 +44,11 @@ export class sceneInicial extends Phaser.Scene {
 
         // diálogos
         this.dialogos = [
-            { nome: "Watson", personagem: this.watson, texto: "Sophia, os resultados finais das simulações foram liberados para toda equipe." },
-            { nome: "Watson", personagem: this.watson, texto: "Minha preocupação em relação ao uso da tecnologia no futuro apenas aumenta e os testes expuseram a probabilidade crescente de grande uso indevido de tecnologias atuais e emergentes." },
+            { nome: "Watson", personagem: this.watson, texto: "Sophia, acabo de receber os resultados finais das simulações sobre o futuro do mundo" },
+            { nome: "Watson", personagem: this.watson, texto: "Minha preocupação em relação ao uso indeviduo das tecnologias no futuro apenas aumenta e os testes expuseram uma grande probabilidade do pior acontecer" },
             { nome: "Watson", personagem: this.watson, texto: "Temo que no futuro os humanos possam ficar dependentes de algo maior ou até pior que isso…" },
-            { nome: "Watson", personagem: this.watson, texto: "Assim, preciso lhe pedir algo, eu e uma equipe montamos um projeto para que, caso haja uma crise tecnológica no futuro, teremos alguém preparado para consertar o problema." },
-            { nome: "Watson", personagem: this.watson, texto: "Deixaremos alguém congelado em uma câmara e, quando e se for necessário, essa pessoa será liberada para ajudar no que for necessário." },
+            { nome: "Watson", personagem: this.watson, texto: "Eu e a equipe de pesquisa montamos um projeto para que, caso haja uma crise tecnológica no futuro, teremos alguém preparado para consertar o problema." },
+            { nome: "Watson", personagem: this.watson, texto: "Deixaremos alguém congelado em uma câmara e, quando for necessário, essa pessoa será despertada." },
             { nome: "Watson", personagem: this.watson, texto: "Nós pensamos que para esse projeto ninguém seria melhor do que você, mas claro, apenas se você aceitar nossa proposta…" },
             { nome: "Sophia", personagem: this.sophia, texto: "Não sabemos o que pode acontecer no futuro… Mas estarei preparada e aceito fazer parte dessa missão." },
             { nome: "Watson", personagem: this.watson, texto: "Ótimo, então vamos nos reunir com o resto da equipe, ainda temos muitas coisas para planejar." }
