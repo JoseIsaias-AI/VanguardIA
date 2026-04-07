@@ -957,7 +957,7 @@ Por fim, também houve alteração na tela inicial do jogo para que estivesse ma
 
 ### 5.2.1 Registros de testes
 
-Teste de guerrilha
+**Teste de guerrilha**
 
 Nome | Felipe 
 --- | ---
@@ -1055,7 +1055,7 @@ O que gostou no jogo? | O jogo realmente ensina os conceitos de IA, apresentando
 O que poderia melhorar no jogo? | Em relação a melhorias, acredito que o jogo poderia incluir instruções mais claras sobre como navegar e sobre as regras. Por exemplo, na parte em que o personagem precisa pular, inicialmente não fica evidente essa ação — pode-se pensar que ele atravessaria o portal automaticamente. Também há um bug em que o personagem atravessa o robô, o que prejudica a experiência. Outro ponto é em relação aos diálogos geradas por IA, sendo interessante revisá-los e reduzir um pouco o tamanho dos textos, pois a leitura pode se tornar cansativa
 
 
-Formulário de teste de feedback de usuários
+**Formulário de teste de feedback de usuários**
 
 Número formulário | 1 
 --- | ---
@@ -1079,6 +1079,97 @@ Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Perg
 Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
 O que você achou do processo de aprendizado do jogo? | Legal
 
+
+Número formulário | 2 
+--- | ---
+Qual a faixa sua etária? | 17 a 18 anos
+Com qual gênero você se identifica? | Homem
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo casualmente, algumas vezes na semana
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+Qual sua nota para nosso jogo? (1 a 10) | 8
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Qual foi o melhor momento do jogo? | Gostei das dinâmicas de explicação e depois algum mini game com mecânicas aplicando essas informações. Além disso, gostei da relação com o Robô Asimov
+Qual foi o pior momento do jogo? | Quando o jogo travou e tive que reiniciá-lo duas vezes, além de ter que ler um documento de textos grande
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Não
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | 
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+O que você achou do processo de aprendizado do jogo? | Gostei muito do processo e é divertido e engajante, com uma história muito boa e bem pensada
+
+
+Número formulário | 3 
+--- | ---
+Qual a faixa sua etária? | 17 a 18 anos
+Com qual gênero você se identifica? | Mulher
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo casualmente, algumas vezes na semana
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual sua nota para nosso jogo? (1 a 10) | 8
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual foi o melhor momento do jogo? | Não consegui pensar em um momento de destaque
+Qual foi o pior momento do jogo? | Não teve um momento que me desagradou
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Sim, porque os comandos não estavam intuitivos com base na minha experiência com outros jogos
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | Alterar os comandos de diálogo: passar o diálogo no E não é comum, é usual isso ocorrer no Enter ou espaço. Além disso, o minigame é meio confuso e não retoma os comandos, perdendo a intuitividade. A única forma, no jogo inteiro, de saber os comandos é por meio da aba opções no menu inicial
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+O que você achou do processo de aprendizado do jogo? | Sinto que não houve um aprendizado ativo no jogo
+
+
+Número formulário | 4 
+--- | ---
+Qual a faixa sua etária? | 17 a 18 anos
+Com qual gênero você se identifica? | Homem
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo casualmente, algumas vezes na semana
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual sua nota para nosso jogo? (1 a 10) | 7
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Qual foi o melhor momento do jogo? | Quando eu entrei na sala e teve a cutscene do robô
+Qual foi o pior momento do jogo? | Na fase dos codigos que eu tenho que colocar a bola no circulo
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Não
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | 
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+O que você achou do processo de aprendizado do jogo? | Achei o jogo bem legal no sentido de jogar porém admito que quando estava jogando não reparei muito no aprendizado e foquei muito mais no jogo e nos minigames deixando um pouco de lado esse fator didático
+
+
+Número formulário | 5 
+--- | ---
+Qual a faixa sua etária? | 19 a 20 anos
+Com qual gênero você se identifica? | Homem
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo raramente
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual sua nota para nosso jogo? (1 a 10) | 7
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Qual foi o melhor momento do jogo? | O mais legal que achei foi a parte de pular e pegar os cristais azuis
+Qual foi o pior momento do jogo? | A parte do jogo em que você limpa a tela, achei a menos intuitiva
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Sim, por falta de alguns detalhes no HUD que ainda não foram implementados mas estão no planejamento
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | Eu diminuiria o tamanho dos jornais que aparecem em uma parte do jogo, os textos são grandes
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+O que você achou do processo de aprendizado do jogo? | Achei bem legal e com aprofundamento para as pessoas realmente adquirirem conhecimento
 
 ### 5.2.2 Melhorias
 
