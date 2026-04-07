@@ -3,9 +3,9 @@ portas e vem para o HUB do cristal e agora precisa fabricar o cristal, mas para 
 minigame consiste na limpeza dos ruídos*/
 
 import { registrarTeclaMenu } from '../menu.js';
-import { SnowEffect } from './efeitoNeve.js';
+import { snowEffect } from './efeitoNeve.js';
 import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles, criarAnimacaoAsimov } from './movimentacao.js';
-import caixasDialogo from './caixasDialogo.js'; // Importação do sistema de diálogos
+import caixaDialogo from './caixasDialogo.js'; // Importação do sistema de diálogos
 
 export class scenePreFase4 extends Phaser.Scene {
   constructor() {
@@ -14,14 +14,14 @@ export class scenePreFase4 extends Phaser.Scene {
 
   // -------------------------------- aqui são carregadas as imagens dessa cena do jogo --------------------------------
   preload() {
-    this.load.image("labEscuro2", "assets/Fases/sceneLabCristal/labCristalEscuro.png");
-    this.load.spritesheet("objetosLab1", "assets/Fases/preFase4/objetosLabCristal1.png", {frameWidth: 320, frameHeight: 213});
-    this.load.image("mascaraPrefase4", "assets/Fases/preFase4/mascaraPrefase4.png");
+    this.load.image("labEscuro2", "assets/fases/sceneLabCristal/labCristalEscuro.png");
+    this.load.spritesheet("objetosLab1", "assets/fases/preFase4/objetosLabCristal1.png", {frameWidth: 320, frameHeight: 213});
+    this.load.image("mascaraPrefase4", "assets/fases/preFase4/mascaraPrefase4.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
-    this.load.image("doc1", "assets/Fases/preFase4/doc1.png");
-    this.load.image("doc2", "assets/Fases/preFase4/doc2.png");
-    this.load.image("doc3", "assets/Fases/preFase4/doc3.png");
+    this.load.image("doc1", "assets/fases/preFase4/doc1.png");
+    this.load.image("doc2", "assets/fases/preFase4/doc2.png");
+    this.load.image("doc3", "assets/fases/preFase4/doc3.png");
   }
 
     // -------------------------------- aqui são criadas as imagens carregadas, as animações, variáveis de uso --------------------------------
@@ -31,7 +31,7 @@ export class scenePreFase4 extends Phaser.Scene {
     this.cameras.main.fadeIn(800, 0, 0, 0);
 
     let gifElemento6 = document.createElement('img');
-        gifElemento6.src = 'assets/TextosCenas/hubCristal.gif';
+        gifElemento6.src = 'assets/textosCenas/hubCristal.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento6.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -59,7 +59,7 @@ export class scenePreFase4 extends Phaser.Scene {
     this.scaleMapa = 2.8; //define a escala de zoom do mapa, essa variável é importante, porque é usada para aplicar o mesmo valor, nos objetos, no fundo, entre outros
 
     this.mapa = this.add.image(centroX, centroY, "labEscuro2").setScale(this.scaleMapa);
-    this.efeitoNeve = new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
+    this.efeitoNeve = new snowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
 
     // Objeto do lab — fica parado no frame 0 ate a interacao com o Asimov
     this.objetosLab1 = this.add.sprite(centroX, centroY, "objetosLab1", 0).setScale(this.scaleMapa).setDepth(1);
@@ -91,12 +91,12 @@ export class scenePreFase4 extends Phaser.Scene {
     //-------------------------------------------------------------------------------------------------------------
 
     // ---------------SOPHIA (jogável)---------------
-    this.Principal = this.physics.add.sprite(centroX, centroY, "sophia").setScale(2).setCollideWorldBounds(true);
-    this.Principal.body.setAllowGravity(false);
-    this.Principal.setSize(30, 20);
-    this.Principal.setOffset(17, 100);
-    this.cameras.main.startFollow(this.Principal).setZoom(zoom);
-    //this.Principal.setOffset(15, 30);
+    this.principal = this.physics.add.sprite(centroX, centroY, "sophia").setScale(2).setCollideWorldBounds(true);
+    this.principal.body.setAllowGravity(false);
+    this.principal.setSize(30, 20);
+    this.principal.setOffset(17, 100);
+    this.cameras.main.startFollow(this.principal).setZoom(zoom);
+    //this.principal.setOffset(15, 30);
     // Animações Sophia
     criarAnimacaoSophia(this);
     //----------------------------------------------
@@ -107,7 +107,7 @@ export class scenePreFase4 extends Phaser.Scene {
     this.asimov.body.setSize(16, 6);
     //this.asimov.setOffset(8, 15);
     this.asimov.setImmovable(true);
-    this.physics.add.collider(this.Principal, this.asimov);
+    this.physics.add.collider(this.principal, this.asimov);
     // Animações Asimov
     criarAnimacaoAsimov(this);
     this.asimov.play("asimov_front");
@@ -127,18 +127,18 @@ export class scenePreFase4 extends Phaser.Scene {
     this.tweens.add({ targets: this.containerTeclaAsimov, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
     //-----------------------------------------------------
     
-    this.sistemaDialogo = new caixasDialogo(this);
+    this.sistemaDialogo = new caixaDialogo(this);
     registrarControles(this);
 
     // ------------------- CONFIGURAÇÃO DA CÂMERA DE UI (SEM ZOOM) -------------------
     this.uiCamera = this.cameras.add(0, 0, this.cameras.main.width, this.cameras.main.height);
     
     // O que a câmera de Interface DEVE IGNORAR (Cenário e personagens)
-    let ignoreNaUI = [this.mapa, this.objetosLab1, this.Principal, this.asimov, this.containerTeclaAsimov];
+    let ignoreNaUI = [this.mapa, this.objetosLab1, this.principal, this.asimov, this.containerTeclaAsimov];
     if (this.efeitoNeve && this.efeitoNeve.graphics) ignoreNaUI.push(this.efeitoNeve.graphics);
     this.uiCamera.ignore(ignoreNaUI);
 
-    // O que a câmera Principal (com Zoom) DEVE IGNORAR (Textos e caixas)
+    // O que a câmera principal (com Zoom) DEVE IGNORAR (Textos e caixas)
     this.cameras.main.ignore([
         this.sistemaDialogo.caixaDialogo, 
         this.sistemaDialogo.textoDialogo, 
@@ -149,12 +149,12 @@ export class scenePreFase4 extends Phaser.Scene {
   
   // ----------------aqui é atualizado a todo o momento a física, o sistema de colisão, a interação, o movimento do personagem --------------------------------
   update() {
-    if (!this.Principal) return;
+    if (!this.principal) return;
 
     //IF para quando o jogador estiver lendo uma caixa de diálogo
     if (this.lendoMensagem) {
-      this.Principal.setVelocity(0, 0);
-      this.Principal.anims.stop();
+      this.principal.setVelocity(0, 0);
+      this.principal.anims.stop();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
           this.sistemaDialogo.interagir();
       }
@@ -191,15 +191,15 @@ export class scenePreFase4 extends Phaser.Scene {
       return dist < 40;
     };
 
-    movimentacaoSophia(this, this.Principal,{ left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" }, colisaoFn);
-    puloSophia(this, this.Principal, colisaoFn);
+    movimentacaoSophia(this, this.principal,{ left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" }, colisaoFn);
+    puloSophia(this, this.principal, colisaoFn);
 
-    this.Principal.setDepth(this.Principal.y); //define qual é a camada da Sophia igual a sua posição y. Ficando acima de objetos caso seu Y seja maior
+    this.principal.setDepth(this.principal.y); //define qual é a camada da Sophia igual a sua posição y. Ficando acima de objetos caso seu Y seja maior
     this.asimov.setDepth(this.asimov.y); //define qual é a camada do asimov igual a sua posição y. Ficando acima de objetos caso seu Y seja maior
 
     //----------------- Definição de quando a Sophia pode interagir com Asimov de acordo a sua distância --------------
 
-    let distAsimov = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, this.asimov.x, this.asimov.y);
+    let distAsimov = Phaser.Math.Distance.Between(this.principal.x, this.principal.y, this.asimov.x, this.asimov.y);
     // Verifica se a Sophia ainda NÃO interagiu com o Asimov E se ela está a menos de 120px
     if (!this.interagiu && distAsimov < 120) {
       this.podeInteragirAsimov = true; //torna o balão de interação visivel
@@ -219,9 +219,9 @@ export class scenePreFase4 extends Phaser.Scene {
       
       const dialogos = [
         { nome: "Asimov", personagem: this.asimov, texto: "Sophia, preciso iniciar a fabricação do cristal. Mas há um erro crítico." },
-        { nome: "Sophia", personagem: this.Principal, texto: "O que houve, Asimov?" },
+        { nome: "Sophia", personagem: this.principal, texto: "O que houve, Asimov?" },
         { nome: "Asimov", personagem: this.asimov, texto: "Você precisa limpar os dados ruidosos do meu sistema antes." },
-        { nome: "Sophia", personagem: this.Principal, texto: "Por que isso afeta o cristal?" },
+        { nome: "Sophia", personagem: this.principal, texto: "Por que isso afeta o cristal?" },
         { nome: "Asimov", personagem: this.asimov, texto: "Leia os documentos sobre IA Generativa naquela bancada. Você vai entender." },
       ];
 
@@ -257,8 +257,8 @@ export class scenePreFase4 extends Phaser.Scene {
 
   //------------------------ Função para exibição dos documentos do jogador ----------------------
   exibirCutscenes() {
-    this.Principal.setVelocity(0, 0);
-    this.Principal.anims.stop();
+    this.principal.setVelocity(0, 0);
+    this.principal.anims.stop();
     const sequencia = ["doc3", "doc1", "doc2"];
     this.cutsceneIndex = 0;
     this.emCutscene = true;
@@ -281,8 +281,8 @@ export class scenePreFase4 extends Phaser.Scene {
 
   // ------------------- função para transição entre cenas -------------------
   transicaoParaFase4() {
-    this.Principal.setVelocity(0);
-    this.Principal.anims.stop();
+    this.principal.setVelocity(0);
+    this.principal.anims.stop();
     this.cameras.main.stopFollow();
 
     // Para de seguir a Sophia e move a câmera lentamente até a cabeça do Asimov com zoom

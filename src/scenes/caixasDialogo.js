@@ -1,6 +1,6 @@
-import { HudTeclaE } from "./hudTeclaE.js";
+import { hudTeclaE } from "./hudTeclaE.js";
 
-export default class CaixaDialogo {
+export default class caixaDialogo {
     constructor(scene, config = {}) {
         this.scene = scene;
 
@@ -49,7 +49,7 @@ export default class CaixaDialogo {
             padding: { left: 8, right: 8, top: 3, bottom: 3 },
         }).setScrollFactor(scrollFactor).setDepth(profundidadeBase + 2).setVisible(false);
 
-        this.indicadorTeclaE = new HudTeclaE(scene, {
+        this.indicadorTeclaE = new hudTeclaE(scene, {
             x: xCaixa + larguraCaixa - 70,
             y: yCaixa + alturaCaixa - 32,
             depth: profundidadeBase + 3,
@@ -106,7 +106,7 @@ export default class CaixaDialogo {
         this.falas = [];
         this.indiceDialogo = 0;
         this.callbackFimDialogo = null;
-        this._mostrarConteudo(textoCompleto, nome);
+        this.mostrarConteudo(textoCompleto, nome);
     }
 
     mostrarProximaFala() {
@@ -116,14 +116,14 @@ export default class CaixaDialogo {
             return;
         }
 
-        this._mostrarConteudo(
+        this.mostrarConteudo(
             falaAtual.texto ?? "",
             falaAtual.nome ?? "",
             falaAtual.personagem ?? null
         );
     }
 
-    _mostrarConteudo(textoCompleto, nome = "", personagemFalando = null) {
+    mostrarConteudo(textoCompleto, nome = "", personagemFalando = null) {
         this.caixaDialogo.setVisible(true);
         this.textoDialogo.setVisible(true).setText("");
         this.indicadorTeclaE.mostrar();

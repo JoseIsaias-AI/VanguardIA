@@ -15,17 +15,17 @@ export class welcomeScene extends Phaser.Scene {
     // Tudo que será usado na cena deve ser carregado aqui antes do create()
 
     // Imagem de fundo do menu
-    this.load.image("cenario", "assets/Menu/fundo_menu.png");
+    this.load.image("cenario", "assets/menu/fundoMenu.png");
 
     // Botões
-    this.load.image("play", "assets/Menu/start_button.png");
-    this.load.image("options", "assets/Menu/options_button.png");
+    this.load.image("play", "assets/menu/startButton.png");
+    this.load.image("options", "assets/menu/optionsButton.png");
 
     // Logo
-    this.load.image("logo", "assets/Menu/logo.png");
+    this.load.image("logo", "assets/menu/logo.png");
 
     // Spritesheet do personagem
-    this.load.spritesheet("asimov", "assets/Personagens/asimov.png", {
+    this.load.spritesheet("asimov", "assets/personagens/asimov.png", {
       frameWidth: 32,   // largura de cada frame
       frameHeight: 32,  // altura de cada frame
     });

@@ -1,7 +1,7 @@
 import { registrarTeclaMenu } from '../menu.js';
-import { SnowEffect } from './efeitoNeve.js';
+import { snowEffect } from './efeitoNeve.js';
 import { movimentacaoSophia, criarAnimacaoSophia, criarAnimacaoAsimov, puloSophia, registrarControles } from './movimentacao.js';
-import caixasDialogo from './caixasDialogo.js'; // Importação do componente de diálogo
+import caixaDialogo from './caixasDialogo.js'; // Importação do componente de diálogo
 
 export class sceneRestauracao extends Phaser.Scene {
   constructor() {
@@ -9,12 +9,12 @@ export class sceneRestauracao extends Phaser.Scene {
   }
 
   preload() {
-    this.load.video("cutscene2", "assets/Cutscene/CutScene2.mp4");
+    this.load.video("cutscene2", "assets/cutscene/cutScene2.mp4");
     this.load.image("cenarioNoite", "assets/fases/sceneLabCristal/labCristalEscuro.png");
     this.load.image("objetosLabEsc", "assets/objetos/sceneLabCristal/objetosLabCristal1.png");
     this.load.image("cenarioClaro", "assets/fases/sceneLabCristal/labCristalClaro.png");
     this.load.image("objLabClaro", "assets/objetos/sceneLabCristal/objetosLabCristal2.png");
-    this.load.image("colisao", "assets/Fases/preFase4/mascaraPrefase4.png");
+    this.load.image("colisao", "assets/fases/preFase4/mascaraPrefase4.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
   }
@@ -25,7 +25,7 @@ export class sceneRestauracao extends Phaser.Scene {
     this.cameras.main.fadeIn(800, 0, 0, 0);
 
     let gifElemento7 = document.createElement('img');
-        gifElemento7.src = 'assets/TextosCenas/retornoHUB.gif';
+        gifElemento7.src = 'assets/textosCenas/retornoHub.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento7.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -46,7 +46,7 @@ export class sceneRestauracao extends Phaser.Scene {
         });
 
     // Instancia o sistema de diálogos
-    this.sistemaDialogo = new caixasDialogo(this);
+    this.sistemaDialogo = new caixaDialogo(this);
 
     this.lendoMensagem = false;
     this.podeInteragir = false;
@@ -68,7 +68,7 @@ export class sceneRestauracao extends Phaser.Scene {
 
     this.background = this.add.image(centroX, centroY, "cenarioNoite").setScale(this.scaleMapa);
     this.objetos = this.add.image(centroX, centroY, "objetosLabEsc").setScale(this.scaleMapa);
-    this.efeitoNeve = new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
+    this.efeitoNeve = new snowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
 
     // DEBUG: visualização do mapa de colisão — remova quando terminar os ajustes
     //this.debugColisao = this.add.image(centroX, centroY, "colisao").setScale(this.scaleMapa).setAlpha(0.5).setDepth(9999);
@@ -87,9 +87,9 @@ export class sceneRestauracao extends Phaser.Scene {
     const surgirX = this.background.x - 100;
     const surgirY = this.background.y + 50;
 
-    this.Principal = this.physics.add.sprite(surgirX, surgirY, "sophia").setScale(2);
-    this.Principal.body.setAllowGravity(false);
-    this.cameras.main.startFollow(this.Principal).setZoom(zoom);
+    this.principal = this.physics.add.sprite(surgirX, surgirY, "sophia").setScale(2);
+    this.principal.body.setAllowGravity(false);
+    this.cameras.main.startFollow(this.principal).setZoom(zoom);
 
     // Asimov fixo
     this.asimov = this.physics.add.sprite(1200, 380, "asimov").setScale(2);
@@ -97,7 +97,7 @@ export class sceneRestauracao extends Phaser.Scene {
     this.asimov.body.setImmovable(true);
     this.asimov.body.setSize(16, 6);
     this.asimov.setOffset(8, 15);
-    this.physics.add.collider(this.Principal, this.asimov);
+    this.physics.add.collider(this.principal, this.asimov);
     if (!this.anims.exists("asimov_front")) {
       this.anims.create({ key: "asimov_front", frames: this.anims.generateFrameNumbers("asimov", { start: 0, end: 1 }), frameRate: 4, repeat: -1 });
     }
@@ -124,11 +124,11 @@ export class sceneRestauracao extends Phaser.Scene {
     this.uiCamera = this.cameras.add(0, 0, this.cameras.main.width, this.cameras.main.height);
     
     // O que a câmera de Interface (UI) DEVE IGNORAR (Cenário e personagens)
-    let ignoreNaUI = [this.background, this.objetos, this.Principal, this.asimov, this.containerTecla];
+    let ignoreNaUI = [this.background, this.objetos, this.principal, this.asimov, this.containerTecla];
     if (this.efeitoNeve && this.efeitoNeve.graphics) ignoreNaUI.push(this.efeitoNeve.graphics);
     this.uiCamera.ignore(ignoreNaUI);
 
-    // O que a câmera Principal (com Zoom) DEVE IGNORAR (Textos e caixas)
+    // O que a câmera principal (com Zoom) DEVE IGNORAR (Textos e caixas)
     this.cameras.main.ignore([
         this.sistemaDialogo.caixaDialogo, 
         this.sistemaDialogo.textoDialogo, 
@@ -155,8 +155,8 @@ export class sceneRestauracao extends Phaser.Scene {
 
   update() {
     if (this.lendoMensagem) {
-      this.Principal.setVelocity(0, 0);
-      this.Principal.anims.stop();
+      this.principal.setVelocity(0, 0);
+      this.principal.anims.stop();
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
           this.sistemaDialogo.interagir();
       }
@@ -169,14 +169,14 @@ export class sceneRestauracao extends Phaser.Scene {
       return dist < 20;
     };
 
-    movimentacaoSophia(this, this.Principal, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" }, colisaoFn);
-    puloSophia(this, this.Principal, colisaoFn);
+    movimentacaoSophia(this, this.principal, { left: "sophia_esquerda", right: "sophia_direita", front: "sophia_frente", back: "sophia_tras" }, colisaoFn);
+    puloSophia(this, this.principal, colisaoFn);
 
-    this.Principal.setDepth(this.Principal.y);
+    this.principal.setDepth(this.principal.y);
     this.asimov.setDepth(this.asimov.y);
 
-    let distAsimov = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, this.asimov.x, this.asimov.y);
-    let distCentro = Phaser.Math.Distance.Between(this.Principal.x, this.Principal.y, this.pontoRestauracaoX, this.pontoRestauracaoY);
+    let distAsimov = Phaser.Math.Distance.Between(this.principal.x, this.principal.y, this.asimov.x, this.asimov.y);
+    let distCentro = Phaser.Math.Distance.Between(this.principal.x, this.principal.y, this.pontoRestauracaoX, this.pontoRestauracaoY);
 
     if (!this.interagiu && distAsimov < 120) {
       this.podeInteragir = true;

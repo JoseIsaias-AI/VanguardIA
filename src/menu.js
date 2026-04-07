@@ -17,13 +17,13 @@ export class menu extends Phaser.Scene {
 
   //aqui são carregados todas as imagens e sprites do menu, antes de serem criadas, é ficado na memória do computador ou nuvem
   preload() {
-    this.load.spritesheet("objetosMenu", "assets/Menu/infoMenu.png", {
+    this.load.spritesheet("objetosMenu", "assets/menu/infoMenu.png", {
       frameWidth: 320,
       frameHeight: 320,
     });
-    this.load.image("controleBtn", "assets/Menu/controle.png");
-    this.load.image("voltarBtn", "assets/Menu/voltar.png");
-    this.load.image("sairBotao", "assets/Menu/sair.png");
+    this.load.image("controleBtn", "assets/menu/controle.png");
+    this.load.image("voltarBtn", "assets/menu/voltar.png");
+    this.load.image("sairBotao", "assets/menu/sair.png");
   }
 
   //aqui são criadas todas as imagens que vão aparecer na tela e todas as suas configurações
