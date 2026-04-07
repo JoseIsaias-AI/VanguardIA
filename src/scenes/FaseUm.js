@@ -36,6 +36,10 @@ export class faseUm extends Phaser.Scene {
       frameHeight: 438,
     });
     this.load.video("videofaseUm", "../assets/Fases/faseUm/videofaseUm.mp4");
+    this.load.image(
+      "caixaDeTextoInicial",
+      "../assets/Fases/faseUm/caixaDeTextoInicial.png",
+    );
     this.load.audio("colisao", "assets/colision_sound.wav");
 
     // Carrega a música específica dessa fase
@@ -57,6 +61,7 @@ export class faseUm extends Phaser.Scene {
     this.frameEnvelope = 0;
     this.pergaminhoAberto = false;
     this.pergaminhoEsperandoE = false;
+    this.faseIniciada = false;
 
     const { width, height } = this.sys.game.config;
     this.velocidade = 5;
@@ -258,6 +263,31 @@ export class faseUm extends Phaser.Scene {
     }
     this.asimov.play("asimov_right"); //o jogador não precisa mover o robô para frente, ele ja faz isso naturalmente
 
+    const caixaIntro = this.add
+      .image(width / 2, height / 2, "caixaDeTextoInicial")
+      .setScrollFactor(0)
+      .setDepth(2000)
+      .setScale(0.9);
+    this.caixaIntro = caixaIntro;
+
+    //animação de leve aumento e diminuição da caixa de texto para chamar atenção
+    this.tweens.add({
+      targets: this.caixaIntro,
+      scaleX: 0.95,
+      scaleY: 0.95,
+      duration: 900,
+      yoyo: true,
+      repeat: -1,
+      ease: "Sine.easeInOut",
+    });
+
+    this.input.once("pointerdown", () => {
+      if (!this.faseIniciada) {
+        this.faseIniciada = true;
+        this.caixaIntro.destroy();
+      }
+    });
+
     // Aviso fixo na tela
     this.retanguloAviso = this.add.graphics();
     this.retanguloAviso.fillStyle(0x000000, 0.8);
@@ -279,6 +309,10 @@ export class faseUm extends Phaser.Scene {
   }
 
   update() {
+    if (!this.faseIniciada) {
+      return;
+    }
+
     if (this.pergaminhoEsperandoE) {
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
         this.pergaminhoEsperandoE = false;
@@ -289,6 +323,26 @@ export class faseUm extends Phaser.Scene {
           .setScrollFactor(0)
           .setDepth(103);
         video.play();
+        let gifElemento8 = document.createElement('img');
+        gifElemento8.src = 'assets/TextosCenas/aprendizado.gif';
+    
+        // Forçando estilos CSS para garantir que ele apareça
+        gifElemento8.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
+        gifElemento8.style.height = '1080px';
+        //gifElement.style.display = 'block';
+        //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML está funcionando, mas o caminho do arquivo pode estar errado.
+    
+        let domElemento8 = this.add.dom( 1550, 0 , gifElemento8).setOrigin(0.8).setScrollFactor(0);
+        const duracaoDoGif = 5000; 
+        // O Phaser espera esse tempo passar e executa a função interna
+        this.time.delayedCall(duracaoDoGif, () => {
+            // Verifica se o elemento ainda existe na cena
+            if (domElemento8 && domElemento8.active) {
+                // Esconde o GIF para ele não aparecer rodando de novo
+                domElemento8.setVisible(false); 
+                domElemento8.destroy(); 
+            }
+        });
         video.on("complete", () => {
           this.scene.start("transicao1para2");
         });

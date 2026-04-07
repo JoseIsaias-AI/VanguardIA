@@ -95,6 +95,27 @@ export class faseTres extends Phaser.Scene {
   create() {
     // Instanciando o sistema de diálogos
     this.sistemaDialogo = new caixasDialogo(this);
+
+    let gifElemento5 = document.createElement('img');
+        gifElemento5.src = 'assets/TextosCenas/subsoloLab.gif';
+        // Forçando estilos CSS para garantir que ele apareça
+        gifElemento5.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
+        gifElemento5.style.height = '1080px';
+        //gifElement.style.display = 'block';
+        //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML está funcionando, mas o caminho do arquivo pode estar errado.
+    
+        let domElemento5 = this.add.dom( 1550, 0 , gifElemento5).setOrigin(0.8).setScrollFactor(0);
+        const duracaoDoGif = 5000; 
+        // O Phaser espera esse tempo passar e executa a função interna
+        this.time.delayedCall(duracaoDoGif, () => {
+            // Verifica se o elemento ainda existe na cena
+            if (domElemento5 && domElemento5.active) {
+                // Esconde o GIF para ele não aparecer rodando de novo
+                domElemento5.setVisible(false); 
+                domElemento5.destroy(); 
+            }
+        });
+
     this.lendoMensagem = false; // Controle de interação do player
 
     //Aqui, criamos o mapa de fundo

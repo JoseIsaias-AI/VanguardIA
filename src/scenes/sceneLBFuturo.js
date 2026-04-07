@@ -81,6 +81,27 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.lendoMensagem = false;
     this.animacaoSaidaAtiva = false;
 
+    let gifElemento2 = document.createElement('img');
+    gifElemento2.src = 'assets/TextosCenas/Laboratorio2098.gif';
+
+    // Forçando estilos CSS para garantir que ele apareça
+    gifElemento2.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
+    gifElemento2.style.height = '1080px';
+    //gifElement.style.display = 'block';
+    //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML está funcionando, mas o caminho do arquivo pode estar errado.
+
+    let domElemento2 = this.add.dom( 1550, 0 , gifElemento2).setOrigin(0.8).setScrollFactor(0);
+    const duracaoDoGif = 5000; 
+    // O Phaser espera esse tempo passar e executa a função interna
+    this.time.delayedCall(duracaoDoGif, () => {
+        // Verifica se o elemento ainda existe na cena
+        if (domElemento2 && domElemento2.active) {
+            // Esconde o GIF para ele não aparecer rodando de novo
+            domElemento2.setVisible(false); 
+            domElemento2.destroy(); 
+        }
+    });
+
     // Adiciona a imagem de fundo principal da cena.
     // MAPA FUTURO
     this.mapa = this.add.image(600, 400, "CFuturo").setScale(this.scaleMapa).setDepth(-1);

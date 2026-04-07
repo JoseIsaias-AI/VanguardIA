@@ -60,6 +60,18 @@ export class faseQuatro extends Phaser.Scene {
         this.mapa3 = criarMapa(width, height);
         this.mapa2 = criarMapa(width, height);
 
+        // Create crystal mask to count only crystal pixels
+        this.cristalMascara = criarMapa(width, height);
+        const baseTexture = this.textures.get('cristais');
+        const baseImg = baseTexture.getSourceImage();
+        this.cristalMascara.drawImage(baseImg, 0, 0, width, height);
+        const mascaraDados = this.cristalMascara.getImageData(0, 0, width, height).data;
+        this.mascaraDados = mascaraDados;
+        this.totalCristalPixels = 0;
+        for (let i = 3; i < mascaraDados.length; i += 4) {
+            if (mascaraDados[i] > 0) this.totalCristalPixels++;
+        }
+
         const tamBorracha = 220; //tamanho borracha
         const borracha = this.make.image({ key: 'esponja' }, false).setDisplaySize(tamBorracha, tamBorracha); //cria o objeto da borracha mas não mostra na tela, esse aqui é somente para realizar a funç
         this.esponja = this.add.image(-100, -100, 'esponja').setDisplaySize(tamBorracha, tamBorracha).setDepth(10); //mostra a imagem na tela
@@ -73,7 +85,6 @@ export class faseQuatro extends Phaser.Scene {
         });
         this.barraCarregamentoFrame = 0; //começa com o primeiro frame
         this.limpando = false;
-        this.totalPixels = width * height; //resolução da tela
         this.cronometroIniciado = false;
         this.tempoRestante = 60; //1 minuto de contador
         this.jogoParado = false;
@@ -212,16 +223,16 @@ export class faseQuatro extends Phaser.Scene {
             this.mostrarMenuPerda();
         }
 
-        // conta pixels apagados no mapa2 (última camada)
-        const dados = this.mapa2.getImageData(0, 0, this.mapa2.canvas.width, this.mapa2.canvas.height).data; //consegue puxar os dados de toda a tela retirada do penultima imagem e isso corresponde ao que aparece da imagem do fundo
+        // conta pixels apagados no mapa2 (última camada) apenas na área do cristal
+        const dados = this.mapa2.getImageData(0, 0, this.mapa2.canvas.width, this.mapa2.canvas.height).data;
         let apagados = 0;
-        for (let i = 3; i < dados.length; i += 4) { // a constante de dados acima retorna 4 dados: RGB e alpha, de 4 em 4 para pegar somente o alpha e aumenta o valor da variável apagados
-            if (dados[i] > 0) apagados++;
+        for (let i = 0; i < dados.length; i += 4) {
+            if (this.mascaraDados[i + 3] > 0 && dados[i + 3] > 0) apagados++;
         }
-        const pct = Math.floor((apagados / this.totalPixels) * 100); //pega o número da porcentagem
+        const pct = Math.floor((apagados / this.totalCristalPixels) * 100) + 2;
         this.textoNitidez.setText(`Nitidez: ${pct}%`);
 
-        if (pct >= 90 && !this.jogoParado) {
+        if (pct >= 100 && !this.jogoParado) {
             this.ganharFase();
         }
     }
