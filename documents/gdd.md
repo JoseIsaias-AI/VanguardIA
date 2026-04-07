@@ -441,8 +441,6 @@ Mais tarde, o jogador retorna ao mesmo laboratório, mas no futuro, encontrando 
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
-_**Movimentação dos Personagens**_
-
 **Controles de Movimento**
 
 | Tecla | Ação |
@@ -471,7 +469,7 @@ A tecla **E** é utilizada para interagir com:
 
 ---
 
-_**Estrutura e Funcionamento**_
+**Estrutura e Funcionamento**
 
 | Elemento | Funcionamento |
 | :--- | :--- |
@@ -959,7 +957,7 @@ Por fim, também houve alteração na tela inicial do jogo para que estivesse ma
 
 ### 5.2.1 Registros de testes
 
-*Teste de Guerrilha*
+Teste de guerrilha
 
 Nome | Felipe 
 --- | ---
@@ -1057,7 +1055,7 @@ O que gostou no jogo? | O jogo realmente ensina os conceitos de IA, apresentando
 O que poderia melhorar no jogo? | Em relação a melhorias, acredito que o jogo poderia incluir instruções mais claras sobre como navegar e sobre as regras. Por exemplo, na parte em que o personagem precisa pular, inicialmente não fica evidente essa ação — pode-se pensar que ele atravessaria o portal automaticamente. Também há um bug em que o personagem atravessa o robô, o que prejudica a experiência. Outro ponto é em relação aos diálogos geradas por IA, sendo interessante revisá-los e reduzir um pouco o tamanho dos textos, pois a leitura pode se tornar cansativa
 
 
-*Formulário de teste de feedback de usuários - Vanguard.IA*
+Formulário de teste de feedback de usuários
 
 Número formulário | 1 
 --- | ---
