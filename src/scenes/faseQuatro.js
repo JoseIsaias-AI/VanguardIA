@@ -11,7 +11,7 @@ export class faseQuatro extends Phaser.Scene {
 
     //----------------------------carrega todas as imagens e sprites------------------------------
     preload() {
-        this.load.image('cristais', 'assets/fases/faseQuatro/cabeca1.png');
+        this.load.image('cristais', 'assets/fases/faseQuatro/cabecaDoRobo.png');
         this.load.image('cristais2', 'assets/fases/faseQuatro/cabeca2.png');
         this.load.image('cristais3', 'assets/fases/faseQuatro/cabeca3.png');
         this.load.image('cristais4', 'assets/fases/faseQuatro/cabeca4.png');
