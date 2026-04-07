@@ -72,7 +72,6 @@ O público-alvo abrange desde estudantes do ensino médio e universitários até
 
 O mercado de ensino gamificado de IA tem olhado cada vez mais para um público maior e sem o conhecimento, porque não sabe manusear as plataformas. Isso limita avanços para conseguir vender suas próprias IAs e como todo negócio esse é um ramo muito lucrativo que tem rivalidade forte para conseguir a maior fatia. Entre os concorrentes destacam-se o AWS DeepRacer ², que utiliza um simulador 3D gamificado focado estritamente em Aprendizado por Reforço, e o Google Cloud Skills Boost ³, que utiliza laboratórios práticos e um sistema de badges (conquistas) para o ensino de IA na nuvem. Embora essas grandes empresas dominem nichos segmentados, suas ferramentas costumam ter limitações de uso atreladas a custos de infraestrutura (versões pagas após testes) ou focam exclusivamente em seus próprios ecossistemas corporativos.
 
-
 ### 1.1.2. Análise SWOT (sprint 2)
 
 <div align = "center">
@@ -850,7 +849,37 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
+Durante a quarta sprint, foram desenvolvidas quatro fases e algumas cenas de transição que implementam elementos narrativos ao jogo, além de terem sido implementadas funções matemáticas, sistemas de diálogo mais definidos e trilha sonora das cenas e fases. As atividades desenvolvidas foram divididas entre os integrantes do grupo para melhor desenvolvimento e foram posteriormente integradas.
 
+Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálogo e  as dinâmicas voltadas ao funcionamento das fases. Foram desenvolvidos mais sistemas de diálogos para as fases e cenas pré-fase para melhor imersão do jogador na narrativa do jogo e para apresentação dos conceitos de IA de forma mais dinâmica.
+
+**2 imagens de balão de fala
+
+Paralelamente, foram desenvolvidos as mecânicas das fases e os fundamentos teóricos trabalhados em cada uma. A segunda fase do jogo trabalha o funcionamento de Redes Neurais Artificiais, iniciando com analogias com o trabalho cerebral e utilizando recursos visuais para ilustrar a captação, processamento e aprendizagem no Deep Learning com redes neurais.
+
+**imagens da fase 02
+
+A terceira fase  tem como objetivo ilustrar a necessidade de uma separação e coleta de dados bem realizada, nela foi desenvolvido um mini game de plataforma no qual o jogador tem que coletar os cristais corretos, com características previamente informadas e quantidade predefinida de quantos cristais devem ser coletados. Já a quarta fase foi criada com o intuito de ensinar sobre limpeza de dados, utilizando recursos visuais de limpeza de imagens e conceitos teóricos.
+
+**imagens da fase 03
+
+**imagens da fase 04
+
+Por fim, a quinta fase foi desenvolvida para finalizar o jogo para que, após a apresentação dos fundamentos da Inteligência Artificial, ensinar a definição de um prompt e a importância da ética na criação dele e treinar o conhecimento do usuário em relação ao assunto. Nessa parte do jogo, o usuário recebe exemplos de prompts reais submetidos às IAs e classificá-los entre corretos e incorretos, sendo necessário um mínimo de acertos para aferir o conhecimento do jogador.
+
+**imagens da fase 05
+
+Também foram desenvolvidas cenas inseridas entre as fases com o intuito de realizar a imersão do jogador na narrativa do jogo. Na primeira cena, é desenvolvido um diálogo entre Sophia e Watson contextualizando o projeto desenvolvido entre eles e os cientistas.
+
+**imagem do diálogo
+
+Já na segunda cena há um diálogo entre Sophia e Asimov, onde o robô explica o contexto em que se encontra a humanidade após a viagem de Sophia. Além disso, também foram desenvolvidas as cenas da queda de Sophia antes da fase três, cenas de conversas entre Sophia e Asimov onde ele explica alguns conceitos importantes e a cena de restauração da energia do laboratório do jogo.
+
+**imagens das cenas
+
+Por fim, também houve alteração na tela inicial do jogo para que estivesse mais alinhada à paleta de cores do projeto e a adição de um menu para mostrar os controles que o usuário deve utilizar para movimentação e ações.
+
+**cena da tela inicial e do menu
 
 ## 4.5. Revisão do MVP (sprint 5)
 
