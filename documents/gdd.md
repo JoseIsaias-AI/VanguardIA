@@ -240,14 +240,30 @@ Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 3
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
+**Objetivos**
 
-Os objetivos estratégicos do projeto concentram-se em ampliar o engajamento de jovens com pouco conhecimento em Inteligência Artificial, por meio da criação de uma experiência interativa mais atraente do que cursos tradicionais, incentivando a continuidade de uso. Paralelamente, busca-se aprimorar a aprendizagem de conceitos básicos de IA, garantindo que o usuário compreenda temas como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning. Outro objetivo central é despertar o interesse pela área, fazendo com que o usuário perceba a IA como algo acessível e estimulante para estudos futuros, além de incentivar a conclusão do jogo por meio de elementos narrativos e mecânicas capazes de sustentar o engajamento até o final da experiência.
+| Nº | Objetivo Estratégico                                      | Descrição                                                                 |
+|----|----------------------------------------------------------|---------------------------------------------------------------------------|
+| 1  | Aumentar o engajamento de jovens com pouco conhecimento em IA | Criar uma experiência interativa mais interessante do que cursos tradicionais, incentivando a continuidade do uso. |
+| 2  | Melhorar a aprendizagem de conceitos básicos de IA        | Garantir que o usuário compreenda ideias como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning. |
+| 3  | Despertar interesse pela área de Inteligência Artificial  | Fazer com que o usuário perceba que IA é acessível e se interesse em continuar aprendendo. |
+| 4  | Incentivar o usuário a concluir o jogo                    | Utilizar elementos de jogo e narrativa para manter o usuário até o final da experiência. |
 
-No que se refere às metas estabelecidas, a M1 propõe alcançar, em até quatro semanas após o lançamento, uma taxa de conclusão de pelo menos setenta por cento entre os usuários que iniciarem o jogo. A M2 busca reduzir a evasão nas fases iniciais, estabelecendo como limite máximo trinta por cento de abandono antes da terceira fase, de modo a garantir o engajamento efetivo dos jogadores já nas duas primeiras semanas após o lançamento. A M3 está relacionada à satisfação do usuário, com o objetivo de que ao menos cinquenta por cento dos jogadores que concluírem o jogo o compartilhem e incentivem novos usuários a jogá-lo, no prazo de até duas semanas após a conclusão. Por fim, a M4 visa assegurar a continuidade do aprendizado, garantindo que ao menos trinta por cento dos usuários que finalizarem o jogo acessem outros conteúdos educacionais do IBM SkillsBuild.
+**Metas e Indicadores**
 
-Para acompanhar o desempenho e o alcance dessas metas, foram definidos indicadores-chave. O KPI 1 mede a taxa de conclusão, isto é, a proporção de usuários que finalizam o jogo em relação aos que o iniciaram, com meta de pelo menos setenta por cento, sendo avaliado após duas semanas e com foco em engajamento. O KPI 2 avalia a taxa de abandono, mensurando quantos usuários desistem antes de concluir o jogo, com meta de no máximo trinta por cento, sendo analisado por fase e de forma acumulada, também com foco em engajamento.
+| Código | Tipo | Descrição | Meta | Prazo | Foco |
+|--------|------|----------|------|------|------|
+| M1 | Meta | Taxa de conclusão do jogo entre usuários que iniciaram | ≥ 70% | 4 semanas após lançamento | Engajamento |
+| M2 | Meta | Taxa de evasão antes da terceira fase | ≤ 30% | 2 semanas após lançamento | Engajamento |
+| M3 | Meta | Usuários que compartilham o jogo após concluir | ≥ 50% | Até 2 semanas após conclusão | Satisfação |
+| M4 | Meta | Usuários que acessam conteúdos educacionais do SkillsBuild após concluirem o jogo | ≥ 30% | Após conclusão | Aprendizado |
+| KPI 1 | KPI | Taxa de conclusão (usuários que finalizam / iniciam) | ≥ 70% | Avaliado após 2 semanas | Engajamento |
+| KPI 2 | KPI | Taxa de abandono por fase e acumulada | ≤ 30% | Contínuo | Engajamento |
+| KPI 3 | KPI | Tempo médio de uso para conclusão | ≥ 20 minutos | Contínuo | Engajamento |
+| KPI 4 | KPI | Novos usuários via recomendação (alcance orgânico) | ≥ 50% | Até 1 mês | Alcance / Satisfação |
+| KPI 5 | KPI | Taxa de recomendação do jogo (satisfação) | ≥ 60% | Pós-conclusão | Experiência do usuário |
+| KPI 6 | KPI | Acesso ao IBM SkillsBuild após o jogo | ≥ 30% | Até 30 dias | Impacto educacional |
 
-Além disso, o KPI 3 analisa o tempo médio de uso, mensurando quanto tempo o usuário leva para concluir o jogo, com meta de pelo menos vinte minutos, a fim de garantir que o jogador de fato interaja com a experiência e se engaje. O KPI 4 mede o alcance dos compartilhamentos do jogo, identificando quantos usuários iniciaram a experiência a partir da recomendação de outros, com meta de pelo menos cinquenta por cento de novos usuários provenientes de divulgação orgânica em até um mês, com foco em satisfação e alcance. O KPI 5 avalia a satisfação do usuário, mensurando o quanto os jogadores recomendariam o jogo, com meta de pelo menos sessenta por cento de recomendações, sendo coletado após a conclusão e focado na experiência do usuário. Por fim, o KPI 6 mede a continuidade do aprendizado, verificando quantos usuários acessam o IBM SkillsBuild após finalizar o jogo, com meta de pelo menos trinta por cento em até trinta dias, refletindo o impacto educacional da solução.
 </div>
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
