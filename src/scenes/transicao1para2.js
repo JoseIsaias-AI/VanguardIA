@@ -44,6 +44,27 @@ export class transicao1para2 extends Phaser.Scene {
         // Instancia o Gerenciador de Diálogos
         this.sistemaDialogo = new caixasDialogo(this);
 
+        let gifElemento3 = document.createElement('img');
+            gifElemento3.src = 'assets/TextosCenas/RetornoLab.gif';
+        
+            // Forçando estilos CSS para garantir que ele apareça
+            gifElemento3.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
+            gifElemento3.style.height = '1080px';
+            //gifElement.style.display = 'block';
+            //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML está funcionando, mas o caminho do arquivo pode estar errado.
+        
+            let domElemento3 = this.add.dom( 1550, 0 , gifElemento3).setOrigin(0.8).setScrollFactor(0);
+            const duracaoDoGif = 5000; 
+            // O Phaser espera esse tempo passar e executa a função interna
+            this.time.delayedCall(duracaoDoGif, () => {
+                // Verifica se o elemento ainda existe na cena
+                if (domElemento3 && domElemento3.active) {
+                    // Esconde o GIF para ele não aparecer rodando de novo
+                    domElemento3.setVisible(false); 
+                    domElemento3.destroy(); 
+                }
+            });
+
         this.scene.launch("bgMusic");
 
         const w = this.scale.width;

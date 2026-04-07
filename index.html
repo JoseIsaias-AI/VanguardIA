@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <!--Definindo a codificação de caracteres-->
     <meta charset="UTF-8">
-    <!--Configurando a exibição da página como largura e escala-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/IBMicon.png" />
     <title>IBM</title>
@@ -16,11 +14,21 @@
         width: 100%;
         height: 100%;
        }
+       /* Estilo para centralizar o jogo na tela */
+       #game-container {
+        width: 100%;
+        height: 100%;
+        /*display: flex;
+        justify-content: center;
+        align-items: center;*/
+       }
     </style>
-<script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
 </head>
 
 <body>
+    <div id="game-container"></div>
+
     <script type="module" src="main.js"></script>
 </body>
 </html>

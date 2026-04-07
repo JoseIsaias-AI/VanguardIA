@@ -42,6 +42,27 @@ export class FaseDois extends Phaser.Scene {
     // A camera de UI ignora tudo aqui para manter HUD e dialogos fixos na tela.
     this.worldObjects = [];
 
+    let gifElemento4 = document.createElement('img');
+        gifElemento4.src = 'assets/TextosCenas/salaDasPortas.gif';
+    
+        // Forçando estilos CSS para garantir que ele apareça
+        gifElemento4.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
+        gifElemento4.style.height = '1080px';
+        //gifElement.style.display = 'block';
+        //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML está funcionando, mas o caminho do arquivo pode estar errado.
+    
+        let domElemento4 = this.add.dom( 1550, 0 , gifElemento4).setOrigin(0.8).setScrollFactor(0);
+        const duracaoDoGif = 5000; 
+        // O Phaser espera esse tempo passar e executa a função interna
+        this.time.delayedCall(duracaoDoGif, () => {
+            // Verifica se o elemento ainda existe na cena
+            if (domElemento4 && domElemento4.active) {
+                // Esconde o GIF para ele não aparecer rodando de novo
+                domElemento4.setVisible(false); 
+                domElemento4.destroy(); 
+            }
+        });
+
     // ── Mapa ─────────────────────────────────────────────────────────────────
     // O fundo e quase invisivel para reforcar que a sala esta escura para Sophia.
     this.portas = this.add.image(0, 0, "portas").setOrigin(0, 0).setScale(3).setAlpha(0.1);

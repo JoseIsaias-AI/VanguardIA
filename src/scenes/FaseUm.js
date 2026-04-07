@@ -289,6 +289,26 @@ export class faseUm extends Phaser.Scene {
           .setScrollFactor(0)
           .setDepth(103);
         video.play();
+        let gifElemento8 = document.createElement('img');
+        gifElemento8.src = 'assets/TextosCenas/aprendizado.gif';
+    
+        // Forçando estilos CSS para garantir que ele apareça
+        gifElemento8.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
+        gifElemento8.style.height = '1080px';
+        //gifElement.style.display = 'block';
+        //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML está funcionando, mas o caminho do arquivo pode estar errado.
+    
+        let domElemento8 = this.add.dom( 1550, 0 , gifElemento8).setOrigin(0.8).setScrollFactor(0);
+        const duracaoDoGif = 5000; 
+        // O Phaser espera esse tempo passar e executa a função interna
+        this.time.delayedCall(duracaoDoGif, () => {
+            // Verifica se o elemento ainda existe na cena
+            if (domElemento8 && domElemento8.active) {
+                // Esconde o GIF para ele não aparecer rodando de novo
+                domElemento8.setVisible(false); 
+                domElemento8.destroy(); 
+            }
+        });
         video.on("complete", () => {
           this.scene.start("transicao1para2");
         });

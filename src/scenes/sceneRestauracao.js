@@ -24,6 +24,27 @@ export class sceneRestauracao extends Phaser.Scene {
     this.scene.launch("bgMusic");
     this.cameras.main.fadeIn(800, 0, 0, 0);
 
+    let gifElemento7 = document.createElement('img');
+        gifElemento7.src = 'assets/TextosCenas/retornoHUB.gif';
+    
+        // Forçando estilos CSS para garantir que ele apareça
+        gifElemento7.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
+        gifElemento7.style.height = '1080px';
+        //gifElement.style.display = 'block';
+        //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML está funcionando, mas o caminho do arquivo pode estar errado.
+    
+        let domElemento7 = this.add.dom( 1550, 0 , gifElemento7).setOrigin(0.8).setScrollFactor(0);
+        const duracaoDoGif = 5000; 
+        // O Phaser espera esse tempo passar e executa a função interna
+        this.time.delayedCall(duracaoDoGif, () => {
+            // Verifica se o elemento ainda existe na cena
+            if (domElemento7 && domElemento7.active) {
+                // Esconde o GIF para ele não aparecer rodando de novo
+                domElemento7.setVisible(false); 
+                domElemento7.destroy(); 
+            }
+        });
+
     // Instancia o sistema de diálogos
     this.sistemaDialogo = new caixasDialogo(this);
 

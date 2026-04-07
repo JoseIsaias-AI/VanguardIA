@@ -28,12 +28,34 @@ export class sceneLBPassado extends Phaser.Scene {
     this.load.spritesheet("npc2", "assets/Personagens/npc2.png", { frameWidth: 25, frameHeight: 48 });
     this.load.spritesheet("npc3", "assets/Personagens/npc3.png", { frameWidth: 29, frameHeight: 49 });
     this.load.image("npc4", "assets/Personagens/npc4.png");
+    this.load.image("npc4", "assets/Personagens/npc4.png");
+
   }
 
   //neste método do Phaser, organizamos a criação de cada objeto que ja foi carregado e como eles irão se comportar na cena
   create() {
     // Instanciando corretamente
     this.sistemaDialogo = new caixasDialogo(this);
+    let gifElemento = document.createElement('img');
+    gifElemento.src = 'assets/TextosCenas/Laboratorio202.gif';
+
+    // Forçando estilos CSS para garantir que ele apareça
+    gifElemento.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
+    gifElemento.style.height = '1080px';
+    //gifElement.style.display = 'block';
+    //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML está funcionando, mas o caminho do arquivo pode estar errado.
+
+    let domElemento = this.add.dom( 1550, 0 , gifElemento).setOrigin(0.8).setScrollFactor(0);
+    const duracaoDoGif = 5000; 
+    // O Phaser espera esse tempo passar e executa a função interna
+    this.time.delayedCall(duracaoDoGif, () => {
+        // Verifica se o elemento ainda existe na cena
+        if (domElemento && domElemento.active) {
+            // Esconde o GIF para ele não aparecer rodando de novo
+            domElemento.setVisible(false); 
+            domElemento.destroy(); 
+        }
+    });
     
     // Registrando a tecla E para interação geral da cena
     this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
@@ -63,6 +85,14 @@ export class sceneLBPassado extends Phaser.Scene {
     
     // Configura a câmera de UI para corrigir o problema de zoom no texto
     this.configurarCameraUI();
+
+    let gifElement = document.createElement('img');
+    gifElement.src = 'assets/TextosCenas/textoLaboratorio2022.gif';
+    // Adiciona esse elemento ao Phaser na posição x: 400, y: 300
+    let domElement = this.add.dom(400, 300, gifElement);
+    // Opcional: ajustar a origem e outras propriedades visuais
+    domElement.setOrigin(0.5);
+    domElement.setScrollFactor(0);
   }
 
   //Aqui, iniciamos e organizamos os estados de cena, importante para o controle lógico da cena

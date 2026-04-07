@@ -36,6 +36,10 @@ const config = {
   audio: {
     disableWebAudio: false,
   },
+  parent: 'game-container',
+  dom: {
+    createContainer: true // Isso é obrigatório para usar elementos DOM
+  },
   //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
 
 
