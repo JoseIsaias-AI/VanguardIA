@@ -251,18 +251,25 @@ Além disso, o KPI 3 analisa o tempo médio de uso, mensurando quanto tempo o us
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
-
+Os requisitos do projeto estabelecem as diretrizes essenciais para seu desenvolvimento, definindo o que deve ser entregue, como e sob quais condições. Eles servem como base para orientar a equipe em relação ao planejamento, implementação e validação, assegurando uma boa execução do projeto.
 
 \# | Requisito  
 --- | ---
-1 | O jogo é iniciado com um toque em qualquer local da tela inicial.
+1 | O jogo terá, em sua tela inicial, um botão de início e um informativo.
 2 | O controle do personagem será realizado usando as teclas direcionais (→ ↑ ↓ ←) para navegação e a  interação com itens presentes no jogo será realizada com a tecla E.
 3 | A ação de pular é realizada utilizando a tecla SPACE.
-4 | A tela do mapa ficará com brilho baixo a não ser perto do personagem, onde haverá uma luz que o acompanha para que o jogador tenha a sensação de estar explorando o ambiente. 
-5 | O robô acompanhará o jogador durante a movimentação após a primeira fase do jogo.
-6 | Haverá uma barra de progresso na tela para que o jogador saiba o nível do conhecimento adquirido.
-7 | No decorrer do jogo o jogador desbloqueará conquistas a cada fase, que simbolizarão o conhecimento adquirido e apenas com todas elas ele poderá desbloquear a fase final.
-8 | Na cena inicial, o jogador só poderá interagir com a camâra de criogênia após interagir com o NPC Watson.
+4 | Na cena inicial, o jogador só poderá interagir com a camâra de criogênia após interagir com o NPC Watson.
+5 | O jogo trará um robô como guia que acompanhará ao jogador durante a progressão das fases
+6 | O jogo contará com cinco fases jogáveis e outras cenas, divididas entre cenas de transição entre fases e cenas explicativas.
+7 | O jogo deve ser desenvolvido de modo que o jogador poderá explorar os cenários e objetos inseridos.
+8 | O jogo deve incluir minigames e desafios dentro das fases inseridas.
+9 | Cada fase deve ser desenvolvida dentro de um fundamento da Inteligência Artificial.
+10 | Caso o jogador não alcance o requisito mínimo de vitória de uma fase, a fase em que ele se encontra deve ser reiniciada.
+11 | A fase um deve ser reiniciada caso o jogador colida com qualquer objeto, a não ser o baú no fim do mapa.
+12 | Na fase três, o jogador não pode coletar a imagem errada, que será citada anteriormente.
+13 | O jogador deve limpar 90% da imagem apresentada na fase quatro para que ele seja direcionado para a fase seguinte.
+14 | A fase cinco deve ser reiniciada caso o jogador classifique corretamente menos de 70% das afirmações.
+15 | As informações necessárias para executar uma fase corretamente devem ser apresentadas em cenas ou fases anteriores.
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
