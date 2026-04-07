@@ -1,5 +1,5 @@
 import { registrarTeclaMenu } from "../menu.js";
-import { HudTeclaE } from "./hudTeclaE.js";
+import CaixaDialogo from "./caixasDialogo.js";
 
 // Esta cena organiza toda a progressao da fase 2:
 // exploracao do mapa, dialogos com Asimov, mini game da rede neural,
@@ -239,43 +239,13 @@ export class FaseDois extends Phaser.Scene {
     this.uiCamera.ignore(this.worldObjects);
 
     // ── Caixa de diálogo ──────────────────────────────────────────────────────
-    const margem       = 20;
-    const larguraCaixa = uiWidth - margem * 2;
-    const alturaCaixa  = 140;
-    const xCaixa       = margem;
-    const yCaixa       = uiHeight - alturaCaixa - margem;
-    this.dialogoLarguraTexto = larguraCaixa - 32;
-    this.dialogoAlturaTexto = alturaCaixa - 24;
-
-    // Caixa de dialogo compartilhada por exploracao, mini game e cutscenes.
-    this.caixaDialogo = this.add.graphics().setDepth(3000).setVisible(false);
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
-    this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
-    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
-
-    this.textoDialogo = this.add.text(xCaixa + 16, yCaixa + 22, "", {
-      fontSize:    "32px",
-      fontFamily:  "'Courier New', Courier, monospace",
-      color:       "#ccffff",
-      wordWrap:    { width: larguraCaixa - 32 },
-      lineSpacing: 6,
-    }).setDepth(3001).setVisible(false);
-
-    this.labelNome = this.add.text(xCaixa + 12, yCaixa - 18, "", {
-      fontSize:        "32px",
-      fontFamily:      "'Courier New', Courier, monospace",
-      color:           "#00ffff",
-      fontStyle:       "bold",
-      backgroundColor: "#1a1a1a",
-      padding: { left: 6, right: 6, top: 2, bottom: 2 },
-    }).setDepth(3002).setVisible(false);
-
-    this.indicadorDialogoE = new HudTeclaE(this, {
-      x: xCaixa + larguraCaixa - 70,
-      y: yCaixa + alturaCaixa - 32,
-      depth: 3003,
+    this.sistemaDialogo = new CaixaDialogo(this, {
+      profundidadeBase: 3000,
     });
+    this.caixaDialogo = this.sistemaDialogo.caixaDialogo;
+    this.textoDialogo = this.sistemaDialogo.textoDialogo;
+    this.labelNome = this.sistemaDialogo.labelNome;
+    this.indicadorDialogoE = this.sistemaDialogo.indicadorTeclaE;
 
     this.cameras.main.ignore([
       this.caixaDialogo,
@@ -316,36 +286,7 @@ export class FaseDois extends Phaser.Scene {
   }
 
   _ajustarTextoDialogo(textoCompleto) {
-    // Tenta encaixar a fala dentro da caixa reduzindo a fonte aos poucos.
-    // Isso evita overflow quando o texto e grande.
-    const tamanhos = [32, 30, 28, 26, 24, 22, 20];
-
-    for (const tamanho of tamanhos) {
-      const lineSpacing = tamanho >= 30 ? 6 : tamanho >= 26 ? 4 : 2;
-
-      this.textoDialogo.setStyle({
-        fontSize: `${tamanho}px`,
-        fontFamily: "'Courier New', Courier, monospace",
-        color: "#ccffff",
-        wordWrap: { width: this.dialogoLarguraTexto },
-        lineSpacing,
-      });
-
-      this.textoDialogo.setText(textoCompleto);
-      if (this.textoDialogo.height <= this.dialogoAlturaTexto) {
-        this.textoDialogo.setText("");
-        return;
-      }
-    }
-
-    this.textoDialogo.setStyle({
-      fontSize: "20px",
-      fontFamily: "'Courier New', Courier, monospace",
-      color: "#ccffff",
-      wordWrap: { width: this.dialogoLarguraTexto },
-      lineSpacing: 2,
-    });
-    this.textoDialogo.setText("");
+    this.sistemaDialogo.ajustarTextoDialogo(textoCompleto);
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -525,7 +466,7 @@ export class FaseDois extends Phaser.Scene {
       { texto: "Entendi, Sophia. Eu consigo enxergar no escuro… mas meus sensores de reconhecimento de padrões foram corrompidos.", falante: "Asimov" },
       { texto: "Mas existe uma solução! Você precisa entrar na minha cabeça e religar os neurônios que foram desligados.", falante: "Asimov" },
       { texto: "Espera… você tem um cérebro de verdade aí dentro?", falante: "Sophia" },
-      { texto: "Uma versão artificial, sim! Funciona igual ao seu — com neurônios que se conectam e aprendem. Só que os meus estão apagados. Você me ajuda a religar?", falante: "Asimov" },
+      { texto: "Uma versão artificial, sim! Funciona igual ao seu com neurônios que se conectam e aprendem. Só que os meus estão apagados. Você me ajuda a religar?", falante: "Asimov" },
     ];
     this.dialogoAsimovIndex = 0;
     this.falandoAsimov = true;
@@ -539,21 +480,7 @@ export class FaseDois extends Phaser.Scene {
     // Sistema padrao de dialogo da exploracao:
     // abre a caixa, mostra o nome do falante e escreve o texto aos poucos.
     this.lendoMensagem = true;
-    this.caixaDialogo.setVisible(true);
-    this.indicadorDialogoE.mostrar();
-    this._ajustarTextoDialogo(textoCompleto);
-    this.textoDialogo.setVisible(true).setText("");
-    this.textoAtualArmazenado = textoCompleto;
-    this.labelNome.setVisible(nome.trim() !== "");
-    if (nome.trim() !== "") this.labelNome.setText(nome);
-
-    let i = 0;
-    if (this.timerEscrever) this.timerEscrever.remove();
-    this.timerEscrever = this.time.addEvent({
-      delay: 30,
-      callback: () => { this.textoDialogo.text += textoCompleto[i++]; },
-      repeat: textoCompleto.length - 1,
-    });
+    this.sistemaDialogo.mostrarMensagem(textoCompleto, nome);
   }
 
   fecharMensagem() {
@@ -565,17 +492,12 @@ export class FaseDois extends Phaser.Scene {
     }
 
     // Primeiro aperto termina o efeito de digitacao, sem fechar a mensagem.
-    if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
-      this.timerEscrever.remove();
-      this.textoDialogo.setText(this.textoAtualArmazenado);
+    if (this.sistemaDialogo.pularDigitacao()) {
       return;
     }
 
     this.lendoMensagem = false;
-    this.caixaDialogo.setVisible(false);
-    this.textoDialogo.setVisible(false).setText("");
-    this.labelNome.setVisible(false);
-    this.indicadorDialogoE.esconder();
+    this.sistemaDialogo.ocultarMensagem();
 
     // Quando a conversa inicial acaba, a cena muda para o mini game.
     if (this.falandoAsimov) {
@@ -596,20 +518,7 @@ export class FaseDois extends Phaser.Scene {
   _mgDialogo(texto, falante, callback) {
     // Versao do dialogo usada dentro do mini game.
     // Ela nao depende do update e gerencia seu proprio listener da tecla E.
-    this.caixaDialogo.setVisible(true);
-    this.indicadorDialogoE.mostrar();
-    this._ajustarTextoDialogo(texto);
-    this.textoDialogo.setVisible(true).setText("");
-    this.textoAtualArmazenado = texto;
-    this.labelNome.setVisible(true).setText(falante);
-
-    let i = 0;
-    if (this.timerEscrever) this.timerEscrever.remove();
-    this.timerEscrever = this.time.addEvent({
-      delay: 30,
-      callback: () => { this.textoDialogo.text += texto[i++]; },
-      repeat: texto.length - 1,
-    });
+    this.sistemaDialogo.mostrarMensagem(texto, falante);
 
     if (this.tweenTextoE) this.tweenTextoE.stop();
     this.mgTextoE.setAlpha(0);
@@ -622,17 +531,12 @@ export class FaseDois extends Phaser.Scene {
     }
 
     const onE = () => {
-      if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
-        this.timerEscrever.remove();
-        this.textoDialogo.setText(texto);
+      if (this.sistemaDialogo.pularDigitacao()) {
         return;
       }
       this.teclaE.off("down", onE);
       this.mgListenerE = null;
-      this.caixaDialogo.setVisible(false);
-      this.textoDialogo.setVisible(false).setText("");
-      this.labelNome.setVisible(false);
-      this.indicadorDialogoE.esconder();
+      this.sistemaDialogo.ocultarMensagem();
       this.mgTextoE.setAlpha(0);
       callback();
     };
@@ -1317,18 +1221,13 @@ export class FaseDois extends Phaser.Scene {
       this.mostrarMensagem("Achei imagens de cristais...", "Sophia");
 
       this.fecharMensagemOverride = () => {
-        if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
-          this.timerEscrever.remove();
-          this.textoDialogo.setText(this.textoAtualArmazenado);
+        if (this.sistemaDialogo.pularDigitacao()) {
           return;
         }
 
         this.fecharMensagemOverride = null;
         this.lendoMensagem = false;
-        this.caixaDialogo.setVisible(false);
-        this.textoDialogo.setVisible(false).setText("");
-        this.labelNome.setVisible(false);
-        this.indicadorDialogoE.esconder();
+        this.sistemaDialogo.ocultarMensagem();
         this._transicao_para_chaocaindo();
       };
     });

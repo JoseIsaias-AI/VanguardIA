@@ -1,6 +1,8 @@
 // Cena de transição após a abertura do baú:
 // enquadra o local, toca a animação da queda da Sophia
 // e depois encaminha o jogador para a próxima fase.
+import CaixaDialogo from "./caixasDialogo.js";
+
 export class FaseDoischao extends Phaser.Scene {
   constructor() {
     super("FaseDoischao");
@@ -10,7 +12,7 @@ export class FaseDoischao extends Phaser.Scene {
   preload() {
     this.load.image("portas", "assets/Fases/FaseDois/salaPortas.png");
 
-    this.load.spritesheet("sophiaCaindo", "assets/Cutscene/animaçãoCaindo.jpeg", {
+    this.load.spritesheet("sophiaCaindo", "assets/Cutscene/animaçãoCaindo.png", {
       frameWidth: 128,
       frameHeight: 128,
     });
@@ -22,8 +24,6 @@ export class FaseDoischao extends Phaser.Scene {
     // CONTROLE DE DIÁLOGO
     // =========================
     this.lendoMensagem = false;
-    this.textoAtualArmazenado = "";
-    this.timerEscrever = null;
     this._fecharMensagemOverride = null;
 
     // =========================
@@ -172,109 +172,22 @@ export class FaseDoischao extends Phaser.Scene {
 
   // Monta a caixa de diálogo fixa na tela.
   criarUI() {
-    const larguraTela = this.cameras.main.width;
-    const alturaTela = this.cameras.main.height;
-
-    const margem = 20;
-    const larguraCaixa = larguraTela - margem * 2;
-    const alturaCaixa = 140;
-
-    const xCaixa = margem;
-    const yCaixa = alturaTela - alturaCaixa - margem;
-    this.dialogoLarguraTexto = larguraCaixa - 32;
-    this.dialogoAlturaTexto = alturaCaixa - 24;
-
-    this.caixaDialogo = this.add.graphics()
-      .setDepth(5000)
-      .setVisible(false)
-      .setScrollFactor(0);
-
-    this.caixaDialogo.fillStyle(0x1a1a1a, 0.92);
-    this.caixaDialogo.lineStyle(2, 0x00ffff, 1);
-    this.caixaDialogo.fillRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
-    this.caixaDialogo.strokeRoundedRect(xCaixa, yCaixa, larguraCaixa, alturaCaixa, 10);
-
-    this.textoDialogo = this.add.text(xCaixa + 16, yCaixa + 22, "", {
-      fontSize: "32px",
-      fontFamily: "'Courier New', Courier, monospace",
-      color: "#ccffff",
-      wordWrap: { width: larguraCaixa - 32 },
-    })
-      .setDepth(5001)
-      .setVisible(false)
-      .setScrollFactor(0);
-
-    this.labelNome = this.add.text(xCaixa + 12, yCaixa - 18, "", {
-      fontSize: "32px",
-      fontFamily: "'Courier New', Courier, monospace",
-      color: "#00ffff",
-      fontStyle: "bold",
-      backgroundColor: "#1a1a1a",
-      padding: { left: 6, right: 6, top: 2, bottom: 2 },
-    })
-      .setDepth(5002)
-      .setVisible(false)
-      .setScrollFactor(0);
+    this.sistemaDialogo = new CaixaDialogo(this, {
+      profundidadeBase: 5000,
+    });
+    this.caixaDialogo = this.sistemaDialogo.caixaDialogo;
+    this.textoDialogo = this.sistemaDialogo.textoDialogo;
+    this.labelNome = this.sistemaDialogo.labelNome;
   }
 
   _ajustarTextoDialogo(textoCompleto) {
-    const tamanhos = [32, 30, 28, 26, 24, 22, 20];
-
-    for (const tamanho of tamanhos) {
-      const lineSpacing = tamanho >= 30 ? 6 : tamanho >= 26 ? 4 : 2;
-
-      this.textoDialogo.setStyle({
-        fontSize: `${tamanho}px`,
-        fontFamily: "'Courier New', Courier, monospace",
-        color: "#ccffff",
-        wordWrap: { width: this.dialogoLarguraTexto },
-        lineSpacing,
-      });
-
-      this.textoDialogo.setText(textoCompleto);
-      if (this.textoDialogo.height <= this.dialogoAlturaTexto) {
-        this.textoDialogo.setText("");
-        return;
-      }
-    }
-
-    this.textoDialogo.setStyle({
-      fontSize: "20px",
-      fontFamily: "'Courier New', Courier, monospace",
-      color: "#ccffff",
-      wordWrap: { width: this.dialogoLarguraTexto },
-      lineSpacing: 2,
-    });
-    this.textoDialogo.setText("");
+    this.sistemaDialogo.ajustarTextoDialogo(textoCompleto);
   }
 
   // Exibe um texto com efeito de digitação e nome do personagem.
   mostrarMensagem(textoCompleto, nome = "") {
     this.lendoMensagem = true;
-    this.textoAtualArmazenado = textoCompleto;
-
-    this.caixaDialogo.setVisible(true);
-    this._ajustarTextoDialogo(textoCompleto);
-    this.textoDialogo.setVisible(true).setText("");
-
-    this.labelNome.setVisible(nome.trim() !== "");
-    if (nome.trim() !== "") {
-      this.labelNome.setText(nome);
-    }
-
-    let indice = 0;
-
-    if (this.timerEscrever) {
-      this.timerEscrever.remove();
-    }
-
-    this.timerEscrever = this.time.addEvent({
-      delay: 30,
-      callback: () => {
-        this.textoDialogo.text += textoCompleto[indice++];
-      },
-      repeat: textoCompleto.length - 1,
-    });
+    this.sistemaDialogo.mostrarMensagem(textoCompleto, nome);
   }
 
   fecharMensagem() {
@@ -283,16 +196,12 @@ export class FaseDoischao extends Phaser.Scene {
       return;
     }
 
-    if (this.timerEscrever && this.timerEscrever.getProgress() < 1) {
-      this.timerEscrever.remove();
-      this.textoDialogo.setText(this.textoAtualArmazenado);
+    if (this.sistemaDialogo.pularDigitacao()) {
       return;
     }
 
     this.lendoMensagem = false;
-    this.caixaDialogo.setVisible(false);
-    this.textoDialogo.setVisible(false).setText("");
-    this.labelNome.setVisible(false);
+    this.sistemaDialogo.ocultarMensagem();
   }
 
   // Remove o fade inicial preto e dispara a animação imediatamente.

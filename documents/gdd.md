@@ -3,6 +3,7 @@
 # GDD - Game Design Document - Módulo 1 - Inteli
 
 ## Nome do Grupo
+Vanguardia
 
 #### Nomes dos integrantes do grupo
 
@@ -239,14 +240,30 @@ Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 3
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
+**Objetivos**
 
-Os objetivos estratégicos do projeto concentram-se em ampliar o engajamento de jovens com pouco conhecimento em Inteligência Artificial, por meio da criação de uma experiência interativa mais atraente do que cursos tradicionais, incentivando a continuidade de uso. Paralelamente, busca-se aprimorar a aprendizagem de conceitos básicos de IA, garantindo que o usuário compreenda temas como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning. Outro objetivo central é despertar o interesse pela área, fazendo com que o usuário perceba a IA como algo acessível e estimulante para estudos futuros, além de incentivar a conclusão do jogo por meio de elementos narrativos e mecânicas capazes de sustentar o engajamento até o final da experiência.
+| Nº | Objetivo Estratégico                                      | Descrição                                                                 |
+|----|----------------------------------------------------------|---------------------------------------------------------------------------|
+| 1  | Aumentar o engajamento de jovens com pouco conhecimento em IA | Criar uma experiência interativa mais interessante do que cursos tradicionais, incentivando a continuidade do uso. |
+| 2  | Melhorar a aprendizagem de conceitos básicos de IA        | Garantir que o usuário compreenda ideias como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning. |
+| 3  | Despertar interesse pela área de Inteligência Artificial  | Fazer com que o usuário perceba que IA é acessível e se interesse em continuar aprendendo. |
+| 4  | Incentivar o usuário a concluir o jogo                    | Utilizar elementos de jogo e narrativa para manter o usuário até o final da experiência. |
 
-No que se refere às metas estabelecidas, a M1 propõe alcançar, em até quatro semanas após o lançamento, uma taxa de conclusão de pelo menos setenta por cento entre os usuários que iniciarem o jogo. A M2 busca reduzir a evasão nas fases iniciais, estabelecendo como limite máximo trinta por cento de abandono antes da terceira fase, de modo a garantir o engajamento efetivo dos jogadores já nas duas primeiras semanas após o lançamento. A M3 está relacionada à satisfação do usuário, com o objetivo de que ao menos cinquenta por cento dos jogadores que concluírem o jogo o compartilhem e incentivem novos usuários a jogá-lo, no prazo de até duas semanas após a conclusão. Por fim, a M4 visa assegurar a continuidade do aprendizado, garantindo que ao menos trinta por cento dos usuários que finalizarem o jogo acessem outros conteúdos educacionais do IBM SkillsBuild.
+**Metas e Indicadores**
 
-Para acompanhar o desempenho e o alcance dessas metas, foram definidos indicadores-chave. O KPI 1 mede a taxa de conclusão, isto é, a proporção de usuários que finalizam o jogo em relação aos que o iniciaram, com meta de pelo menos setenta por cento, sendo avaliado após duas semanas e com foco em engajamento. O KPI 2 avalia a taxa de abandono, mensurando quantos usuários desistem antes de concluir o jogo, com meta de no máximo trinta por cento, sendo analisado por fase e de forma acumulada, também com foco em engajamento.
+| Código | Tipo | Descrição | Meta | Prazo | Foco |
+|--------|------|----------|------|------|------|
+| M1 | Meta | Taxa de conclusão do jogo entre usuários que iniciaram | ≥ 70% | 4 semanas após lançamento | Engajamento |
+| M2 | Meta | Taxa de evasão antes da terceira fase | ≤ 30% | 2 semanas após lançamento | Engajamento |
+| M3 | Meta | Usuários que compartilham o jogo após concluir | ≥ 50% | Até 2 semanas após conclusão | Satisfação |
+| M4 | Meta | Usuários que acessam conteúdos educacionais do SkillsBuild após concluirem o jogo | ≥ 30% | Após conclusão | Aprendizado |
+| KPI 1 | KPI | Taxa de conclusão (usuários que finalizam / iniciam) | ≥ 70% | Avaliado após 2 semanas | Engajamento |
+| KPI 2 | KPI | Taxa de abandono por fase e acumulada | ≤ 30% | Contínuo | Engajamento |
+| KPI 3 | KPI | Tempo médio de uso para conclusão | ≥ 20 minutos | Contínuo | Engajamento |
+| KPI 4 | KPI | Novos usuários via recomendação (alcance orgânico) | ≥ 50% | Até 1 mês | Alcance / Satisfação |
+| KPI 5 | KPI | Taxa de recomendação do jogo (satisfação) | ≥ 60% | Pós-conclusão | Experiência do usuário |
+| KPI 6 | KPI | Acesso ao IBM SkillsBuild após o jogo | ≥ 30% | Até 30 dias | Impacto educacional |
 
-Além disso, o KPI 3 analisa o tempo médio de uso, mensurando quanto tempo o usuário leva para concluir o jogo, com meta de pelo menos vinte minutos, a fim de garantir que o jogador de fato interaja com a experiência e se engaje. O KPI 4 mede o alcance dos compartilhamentos do jogo, identificando quantos usuários iniciaram a experiência a partir da recomendação de outros, com meta de pelo menos cinquenta por cento de novos usuários provenientes de divulgação orgânica em até um mês, com foco em satisfação e alcance. O KPI 5 avalia a satisfação do usuário, mensurando o quanto os jogadores recomendariam o jogo, com meta de pelo menos sessenta por cento de recomendações, sendo coletado após a conclusão e focado na experiência do usuário. Por fim, o KPI 6 mede a continuidade do aprendizado, verificando quantos usuários acessam o IBM SkillsBuild após finalizar o jogo, com meta de pelo menos trinta por cento em até trinta dias, refletindo o impacto educacional da solução.
 </div>
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
@@ -447,8 +464,6 @@ Mais tarde, o jogador retorna ao mesmo laboratório, mas no futuro, encontrando 
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
-_**Movimentação dos Personagens**_
-
 **Controles de Movimento**
 
 | Tecla | Ação |
@@ -477,7 +492,7 @@ A tecla **E** é utilizada para interagir com:
 
 ---
 
-_**Estrutura e Funcionamento**_
+**Estrutura e Funcionamento**
 
 | Elemento | Funcionamento |
 | :--- | :--- |
@@ -965,7 +980,7 @@ Por fim, também houve alteração na tela inicial do jogo para que estivesse ma
 
 ### 5.2.1 Registros de testes
 
-*Teste de Guerrilha*
+**Teste de guerrilha**
 
 Nome | Felipe 
 --- | ---
@@ -1063,7 +1078,7 @@ O que gostou no jogo? | O jogo realmente ensina os conceitos de IA, apresentando
 O que poderia melhorar no jogo? | Em relação a melhorias, acredito que o jogo poderia incluir instruções mais claras sobre como navegar e sobre as regras. Por exemplo, na parte em que o personagem precisa pular, inicialmente não fica evidente essa ação — pode-se pensar que ele atravessaria o portal automaticamente. Também há um bug em que o personagem atravessa o robô, o que prejudica a experiência. Outro ponto é em relação aos diálogos geradas por IA, sendo interessante revisá-los e reduzir um pouco o tamanho dos textos, pois a leitura pode se tornar cansativa
 
 
-*Formulário de teste de feedback de usuários - Vanguard.IA*
+**Formulário de teste de feedback de usuários**
 
 Número formulário | 1 
 --- | ---
@@ -1088,9 +1103,106 @@ Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concord
 O que você achou do processo de aprendizado do jogo? | Legal
 
 
+Número formulário | 2 
+--- | ---
+Qual a faixa sua etária? | 17 a 18 anos
+Com qual gênero você se identifica? | Homem
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo casualmente, algumas vezes na semana
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+Qual sua nota para nosso jogo? (1 a 10) | 8
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Qual foi o melhor momento do jogo? | Gostei das dinâmicas de explicação e depois algum mini game com mecânicas aplicando essas informações. Além disso, gostei da relação com o Robô Asimov
+Qual foi o pior momento do jogo? | Quando o jogo travou e tive que reiniciá-lo duas vezes, além de ter que ler um documento de textos grande
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Não
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | 
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+O que você achou do processo de aprendizado do jogo? | Gostei muito do processo e é divertido e engajante, com uma história muito boa e bem pensada
+
+
+Número formulário | 3 
+--- | ---
+Qual a faixa sua etária? | 17 a 18 anos
+Com qual gênero você se identifica? | Mulher
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo casualmente, algumas vezes na semana
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual sua nota para nosso jogo? (1 a 10) | 8
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual foi o melhor momento do jogo? | Não consegui pensar em um momento de destaque
+Qual foi o pior momento do jogo? | Não teve um momento que me desagradou
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Sim, porque os comandos não estavam intuitivos com base na minha experiência com outros jogos
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | Alterar os comandos de diálogo: passar o diálogo no E não é comum, é usual isso ocorrer no Enter ou espaço. Além disso, o minigame é meio confuso e não retoma os comandos, perdendo a intuitividade. A única forma, no jogo inteiro, de saber os comandos é por meio da aba opções no menu inicial
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+O que você achou do processo de aprendizado do jogo? | Sinto que não houve um aprendizado ativo no jogo
+
+
+Número formulário | 4 
+--- | ---
+Qual a faixa sua etária? | 17 a 18 anos
+Com qual gênero você se identifica? | Homem
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo casualmente, algumas vezes na semana
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual sua nota para nosso jogo? (1 a 10) | 7
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Qual foi o melhor momento do jogo? | Quando eu entrei na sala e teve a cutscene do robô
+Qual foi o pior momento do jogo? | Na fase dos codigos que eu tenho que colocar a bola no circulo
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Não
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | 
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+O que você achou do processo de aprendizado do jogo? | Achei o jogo bem legal no sentido de jogar porém admito que quando estava jogando não reparei muito no aprendizado e foquei muito mais no jogo e nos minigames deixando um pouco de lado esse fator didático
+
+
+Número formulário | 5 
+--- | ---
+Qual a faixa sua etária? | 19 a 20 anos
+Com qual gênero você se identifica? | Homem
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo raramente
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual sua nota para nosso jogo? (1 a 10) | 7
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Qual foi o melhor momento do jogo? | O mais legal que achei foi a parte de pular e pegar os cristais azuis
+Qual foi o pior momento do jogo? | A parte do jogo em que você limpa a tela, achei a menos intuitiva
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Sim, por falta de alguns detalhes no HUD que ainda não foram implementados mas estão no planejamento
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | Eu diminuiria o tamanho dos jornais que aparecem em uma parte do jogo, os textos são grandes
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+O que você achou do processo de aprendizado do jogo? | Achei bem legal e com aprofundamento para as pessoas realmente adquirirem conhecimento
+
 ### 5.2.2 Melhorias
 
-*Descreva nesta seção um plano de melhorias sobre o jogo, com base nos resultados dos testes de jogabilidade*
+Com base nos testes de jogabilidade realizados, foi possível validar a utilidade e a usabilidade dos minigames, bem como a eficácia do storytelling. De modo geral, a combinação desses elementos mostrou-se positiva para a experiência do usuário e para o processo de aprendizagem, sendo, inclusive, os minigames um dos aspectos mais elogiados pelos participantes.
+
+No entanto, os testes também evidenciaram problemas relevantes, especialmente relacionados à experiência do usuário, como o excesso de texto, a falta de clareza nas instruções, inconsistências e ausência de elementos de HUD, além de bugs técnicos que impactaram a jogabilidade. Esses pontos foram recorrentes entre os feedbacks, indicando a necessidade de melhorias estruturais na comunicação com o jogador.
+
+Diante desse cenário, torna-se necessário aprimorar a UX do jogo, com foco na redução da carga cognitiva, por meio da diminuição e simplificação dos diálogos, sem comprometer a profundidade do conteúdo e sua proposta educacional. Paralelamente, é fundamental refinar o sistema de HUD e de orientação ao jogador (player guidance), tornando mais claros os objetivos e as ações esperadas em cada fase, tanto naquelas que já possuem indicadores — mas ainda pouco eficazes — quanto nas que ainda não contam com esse suporte.
+
+Além disso, é imprescindível realizar a correção dos bugs identificados durante os testes. Considerando que as avaliações foram conduzidas sobre uma versão MVP do jogo, a ocorrência desses problemas já era esperada. Dessa forma, o processo de refatoração do código, deve visar tanto a resolução de erros previamente conhecidos quanto a correção dos novos problemas identificados a partir dos testes realizados.
 
 # <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
 

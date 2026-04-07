@@ -327,22 +327,20 @@ export class sceneLBFuturo extends Phaser.Scene {
       // array com as falas
       const dialogosFase = [
         { nome: "Sophia", personagem: this.sophia, texto: "Olá? Quem é você?" },
-        { nome: "Asimov", personagem: this.asimov, texto: "Olá, Sophia. Tenho satisfação em lhe conhecer." },
-        { nome: "Asimov", personagem: this.asimov, texto: "Me chamo Asimov, fui criado por Watson e nossa equipe para abrir a câmara e lhe ajudar quando fosse necessário." },
-        { nome: "Sophia", personagem: this.sophia, texto: "O que aconteceu com o mundo? Como posso ajudar?" },
-        { nome: "Asimov", personagem: this.asimov, texto: "Muitas coisas mudaram nos últimos tempos, estamos em 2098, muitas tecnologias foram criadas e desenvolvidas. \nEntretanto, o que Watson temia, aconteceu." },
-        { nome: "Asimov", personagem: this.asimov, texto: "Uma das tecnologias que mais se desenvolveram com a humanidade se chama Inteligência Artificial." },
-        { nome: "Asimov", personagem: this.asimov, texto: "A IA se refere à capacidade de uma máquina de aprender a partir de padrões e utilizá-los para prever comportamentos." },
-        { nome: "Asimov", personagem: this.asimov, texto: "Porém, ao invés de ser usada apenas como uma ferramenta para auxiliar tarefas, a humanidade se tornou dependente: criando assistentes robôs que realizam tudo, e o conhecimento está apenas nos bancos de dados dessas máquinas." },
-        { nome: "Sophia", personagem: this.sophia, texto: "Nossa, eu pensava que haveria problemas mas não que seria assim… Mas com o que precisa da minha ajuda?" },
-        { nome: "Asimov", personagem: this.asimov, texto: "Houve um problema geral nos bancos de dados e o conhecimento foi corrompido. Precisamos criar um cristal capaz de restaurar a energia e os arquivos. A humanidade atual tentou, mas não tem o conhecimento necessário." },
-        { nome: "Asimov", personagem: this.asimov, texto: "Eu perdi dados necessários, mas posso ajudar você a aprender mais sobre a IA para resolver esse problema." },
-        { nome: "Sophia", personagem: this.sophia, texto: "Então, vamos!" },
-        { nome: "Asimov", personagem: this.asimov, texto: "Ah, Sophia, antes de tudo, meu sistema de movimentação está com falhas. Sendo uma máquina, tenho uma habilidade chamada Aprendizagem de Máquina." },
-        { nome: "Asimov", personagem: this.asimov, texto: "Utilizo algoritmos (instruções sequenciais) para aprender. Para eu te acompanhar, precisarei de ajuda para reaprender alguns movimentos." },
-        { nome: "Sophia", personagem: this.sophia, texto: "Claro que posso, mas como farei isso?"},
-        { nome: "Asimov", personagem: this.asimov, texto: "Você pode me guiar através de um corredor para que eu possa exercitar diferentes ações."},
-        { nome: "Sophia", personagem: this.sophia, texto: "Ok, vamos lá. Não há tempo a perder."}
+        { nome: "Asimov", personagem: this.asimov, texto: "Olá, Sophia. É um prazer conhecer você." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Meu nome é Asimov. Fui criado por Watson e pela nossa equipe para despertar você no momento em que a humanidade precisasse." },
+        { nome: "Sophia", personagem: this.sophia, texto: "O que aconteceu com o mundo? Os cálculos de Watson estavam certos?" },
+        { nome: "Asimov", personagem: this.asimov, texto: "Muitas coisas mudaram com o passar do tempo. Estamos em 2098, e várias tecnologias foram criadas e desenvolvidas.\nMas o que Watson temia realmente aconteceu." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Uma das tecnologias que mais evoluiu com a humanidade foi a Inteligência Artificial." },
+        { nome: "Asimov", personagem: this.asimov, texto: "A IA se refere à capacidade de uma máquina de aprender a partir de padrões." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Só que, em vez de ser usada apenas como uma ferramenta para ajudar nas tarefas, a humanidade acabou ficando dependente demais dessas máquinas." },
+        { nome: "Sophia", personagem: this.sophia, texto: "Nossa... Eu imaginava que pudesse dar problema, mas não desse jeito. Como eu posso ajudar?" },
+        { nome: "Asimov", personagem: this.asimov, texto: "Houve um problema nos bancos de dados, e muito conhecimento foi corrompido. Precisamos criar um cristal capaz de restaurar a energia e os arquivos." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Meu banco de dados também foi corrompido, mas eu sei onde podemos encontrar uma pista sobre os cristais." },
+        { nome: "Sophia", personagem: this.sophia, texto: "Onde?" },
+        { nome: "Asimov", personagem: this.asimov, texto: "Existe um corredor cheio de sucatas antigas. Eu posso ir até lá e buscar as pistas, mas meu sistema de movimentação está com falhas." },
+        { nome: "Asimov", personagem: this.asimov, texto: "Preciso que você entre no meu painel de controle e desvie de todos os obstáculos. Depois de um tempo, eu vou aprender com os padrões e conseguirei seguir sozinho." },
+        { nome: "Sophia", personagem: this.sophia, texto: "Ok, vamos lá. Não temos tempo a perder."}
       ];
       
       // 2. Chama o seu Gerenciador!
