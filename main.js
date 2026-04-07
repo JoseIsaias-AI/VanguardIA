@@ -41,7 +41,7 @@ const config = {
     createContainer: true // Isso é obrigatório para usar elementos DOM
   },
   //scene: [sceneInicial, sceneLbPassado, sceneLbFuturo],
-  //scene: [faseCinco, sceneCreditos, ],
+  // scene: [faseDois],
 
   scene: [
     welcomeScene,

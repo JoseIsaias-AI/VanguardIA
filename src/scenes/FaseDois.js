@@ -661,9 +661,20 @@ export class faseDois extends Phaser.Scene {
     });
 
     // Enquanto o objeto nao foi encaixado, ele segue o cursor normalmente.
-    this.input.on("drag", (pointer, obj, dx, dy) => {
+    this.input.on("dragstart", (pointer, obj) => {
       const bin = this.mgBinarios.find(b => b.img === obj);
-      if (bin && !bin.encaixado) { obj.x = dx; obj.y = dy; }
+      if (bin && !bin.encaixado) {
+        obj._grabOffsetX = obj.x - pointer.x;
+        obj._grabOffsetY = obj.y - pointer.y;
+      }
+    });
+
+    this.input.on("drag", (pointer, obj) => {
+      const bin = this.mgBinarios.find(b => b.img === obj);
+      if (bin && !bin.encaixado) {
+        obj.x = pointer.x + obj._grabOffsetX;
+        obj.y = pointer.y + obj._grabOffsetY;
+      }
     });
 
     this.input.on("dragend", (pointer, obj) => {
