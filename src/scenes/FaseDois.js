@@ -1,4 +1,5 @@
 import { registrarTeclaMenu } from "../menu.js";
+import { HudTeclaE } from "./hudTeclaE.js";
 
 // Esta cena organiza toda a progressao da fase 2:
 // exploracao do mapa, dialogos com Asimov, mini game da rede neural,
@@ -270,7 +271,18 @@ export class FaseDois extends Phaser.Scene {
       padding: { left: 6, right: 6, top: 2, bottom: 2 },
     }).setDepth(3002).setVisible(false);
 
-    this.cameras.main.ignore([this.caixaDialogo, this.textoDialogo, this.labelNome]);
+    this.indicadorDialogoE = new HudTeclaE(this, {
+      x: xCaixa + larguraCaixa - 70,
+      y: yCaixa + alturaCaixa - 32,
+      depth: 3003,
+    });
+
+    this.cameras.main.ignore([
+      this.caixaDialogo,
+      this.textoDialogo,
+      this.labelNome,
+      this.indicadorDialogoE.container,
+    ]);
 
     // Alem da tecla E, o bau aceita clique quando estiver liberado.
     this.bauAnimado.on("pointerdown", () => {
@@ -528,6 +540,7 @@ export class FaseDois extends Phaser.Scene {
     // abre a caixa, mostra o nome do falante e escreve o texto aos poucos.
     this.lendoMensagem = true;
     this.caixaDialogo.setVisible(true);
+    this.indicadorDialogoE.mostrar();
     this._ajustarTextoDialogo(textoCompleto);
     this.textoDialogo.setVisible(true).setText("");
     this.textoAtualArmazenado = textoCompleto;
@@ -562,6 +575,7 @@ export class FaseDois extends Phaser.Scene {
     this.caixaDialogo.setVisible(false);
     this.textoDialogo.setVisible(false).setText("");
     this.labelNome.setVisible(false);
+    this.indicadorDialogoE.esconder();
 
     // Quando a conversa inicial acaba, a cena muda para o mini game.
     if (this.falandoAsimov) {
@@ -583,6 +597,7 @@ export class FaseDois extends Phaser.Scene {
     // Versao do dialogo usada dentro do mini game.
     // Ela nao depende do update e gerencia seu proprio listener da tecla E.
     this.caixaDialogo.setVisible(true);
+    this.indicadorDialogoE.mostrar();
     this._ajustarTextoDialogo(texto);
     this.textoDialogo.setVisible(true).setText("");
     this.textoAtualArmazenado = texto;
@@ -596,12 +611,8 @@ export class FaseDois extends Phaser.Scene {
       repeat: texto.length - 1,
     });
 
-    this.mgTextoE.setAlpha(1);
     if (this.tweenTextoE) this.tweenTextoE.stop();
-    this.tweenTextoE = this.tweens.add({
-      targets: this.mgTextoE, alpha: 0.1,
-      duration: 600, yoyo: true, repeat: -1,
-    });
+    this.mgTextoE.setAlpha(0);
 
     // Remove qualquer listener anterior antes de adicionar um novo
     // Evita empilhar varios callbacks na mesma tecla E.
@@ -621,7 +632,7 @@ export class FaseDois extends Phaser.Scene {
       this.caixaDialogo.setVisible(false);
       this.textoDialogo.setVisible(false).setText("");
       this.labelNome.setVisible(false);
-      if (this.tweenTextoE) this.tweenTextoE.stop();
+      this.indicadorDialogoE.esconder();
       this.mgTextoE.setAlpha(0);
       callback();
     };
@@ -1317,6 +1328,7 @@ export class FaseDois extends Phaser.Scene {
         this.caixaDialogo.setVisible(false);
         this.textoDialogo.setVisible(false).setText("");
         this.labelNome.setVisible(false);
+        this.indicadorDialogoE.esconder();
         this._transicao_para_chaocaindo();
       };
     });

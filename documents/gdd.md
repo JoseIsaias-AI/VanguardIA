@@ -42,8 +42,9 @@
 
 ### 1.1.1. Contexto da indústria (sprint 2)
 
+<div style="text-align: justify;">
 Impulsionada pela pandemia, a indústria de jogos educativos tornou-se um dos nichos mais produzidos no Brasil ¹. Enquanto players consolidados mantêm o foco no ensino passivo via texto e vídeo, a tendência do mercado exige metodologias dinâmicas para ensinar essas tecnologias amplamente usadas pelas grandes empresas de IA. Aproveitando essa lacuna de engajamento prático, o IBM SkillsBuild, plataforma de cursos online, posiciona-se estrategicamente como uma plataforma gratuita de capacitação. A iniciativa de encontrar jogos educativos democratiza o aprendizado tecnológico de ponta, preparando estudantes e profissionais para as reais demandas interativas do mercado de trabalho.
-
+</div>
 
 #### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
@@ -207,314 +208,40 @@ A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimi
 
 <img src="../assets/gdd/matrizDeRiscos.png " width="100%">
 
-## Escalas Utilizadas
+As escalas utilizadas consideram, para probabilidade, os valores 10 como muito improvável, 30 como baixa, 50 como média, 70 como alta e 90 como muito alta. Para impacto, a classificação varia entre muito baixo, quando o impacto é irrelevante, baixo, quando afeta aspectos pontuais, moderado, quando prejudica a experiência, alto, quando prejudica significativamente o projeto, e muito alto, quando compromete o objetivo central.
 
-## Probabilidade
-- 10: Muito improvável  
-- 30: Baixa  
-- 50: Média  
-- 70: Alta  
-- 90: Muito alta  
+No grupo de riscos muito altos, o R1 – Riscos Pedagógicos apresenta probabilidade 90 e impacto muito alto. Trata-se de um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público, com excesso de abstração ou simplificação, falta de progressão lógica ou ausência de reforço prático. Isso pode resultar em baixa retenção, dificuldade de aplicação prática e sensação de não aprendizado, comprometendo a função central do projeto e gerando abandono e descrédito. Como plano de ação, propõem-se testes com usuários iniciantes e ajuste de ritmo e profundidade. Os indicadores incluem retenção de conhecimento e taxa de conclusão. Como oportunidade atrelada ao risco, há o desenvolvimento de um modelo pedagógico original baseado em aprendizagem ativa e simulação, integrando prática imediata, feedback contínuo, gamificação e storytelling.
 
-## Impacto
-- Muito Baixo: Impacto irrelevante  
-- Baixo: Afeta aspectos pontuais  
-- Moderado: Prejudica a experiência  
-- Alto: Prejudica significativamente o projeto  
-- Muito Alto: Compromete o objetivo central  
+Entre os riscos altos, o R2 - Complexidade na Simulação de IA apresenta probabilidade 50 e impacto muito alto. Há o risco de que a simulação de conceitos de IA se torne tecnicamente complexa a ponto de comprometer a clareza com que os usuários compreendem o conteúdo ou a própria viabilidade de transpor esses conceitos para o jogo, gerando abstrações confusas, simplificações incorretas ou dificuldades de implementação, o que pode resultar em experiências inconsistentes ou erros conceituais. O plano de ação envolve prototipagem iterativa e validação com especialistas, com indicadores voltados tanto à compreensão dos usuários quanto ao feedback técnico. Como oportunidade, destaca-se a criação de uma base simplificada e reutilizável para simulações educacionais de IA.
 
+O R3 – Riscos Estratégicos para a IBM apresenta probabilidade 50 e impacto muito alto. Há a possibilidade de o projeto não gerar valor estratégico claro, seja por desalinhamento com os objetivos institucionais, baixa diferenciação ou limitada aplicabilidade prática, o que pode resultar na perda de apoio ou até na descontinuidade — um problema crítico, considerando a dependência direta do projeto em relação à IBM e à sua validação. Como plano de ação, propõe-se a definição clara da proposta de valor e a realização de benchmark, com indicadores voltados à percepção de valor e à comparação com alternativas, permitindo validar e demonstrar continuamente a relevância do projeto para a IBM. Como oportunidade, destaca-se o potencial de posicionar o projeto como referência em educação em IA para públicos iniciantes.
 
-## Matriz de Riscos 
+O R4 – Desalinhamento com o SkillsBuild possui probabilidade 30 e impacto muito alto. Mesmo com alinhamento inicial, pode haver divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos da plataforma, gerando retrabalho ou necessidade de reestruturação. O plano de ação envolve revisões por sprint e mapeamento com o currículo, com indicadores de aderência ao conteúdo e aprovação da IBM. A oportunidade está em explorar liberdade criativa para inovar dentro da plataforma.
 
-## 1. Riscos Muito Altos
+Entre os riscos moderados, o R5 – Engajamento e Entretenimento apresenta probabilidade 70 e impacto moderado. Há o risco de o produto não se mostrar suficientemente envolvente, seja por mecânicas repetitivas ou pela ausência de recompensas claras, o que pode levar ao abandono precoce por parte dos usuários. Como plano de ação, propõem-se testes de gameplay e a iteração contínua das mecânicas, utilizando indicadores como tempo de sessão e taxa de abandono, sempre com participantes alinhados ao público-alvo do projeto — jovens universitários. Por outro lado, há uma oportunidade relevante em desenvolver um sistema de engajamento baseado em progressão e feedback imediato, capaz de aumentar a retenção e a experiência do usuário.
 
-## R1 – Riscos Pedagógicos
-- **Probabilidade:** 90  
-- **Impacto:** Muito Alto  
+O R6 – Curva de Aprendizado Inadequada apresenta probabilidade 70 e impacto moderado. Há o risco de a dificuldade escalar de maneira desbalanceada, gerando frustração ou tédio e comprometendo tanto o fluxo de aprendizagem quanto o engajamento do usuário. Como plano de ação, propõe-se o ajuste contínuo da dificuldade do jogo com base em indicadores como tempo por fase e taxa de desistência, considerando testes com jogadores alinhados ao público-alvo. Como oportunidade, destaca-se a implementação de um sistema adaptativo capaz de personalizar a experiência de aprendizado conforme o desempenho do usuário.
 
-**Descrição:**  
-Existe um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público (excesso de abstração ou simplificação), falta de progressão lógica ou ausência de reforço prático. Isso pode se manifestar em baixa retenção, dificuldade de aplicação prática e sensação de “aprendi nada”. Como consequência, o projeto perde sua função central de ensinar IA, gerando abandono e descrédito.
+O R7 – Experiência do Usuário, UX e UI apresenta probabilidade 50 e impacto moderado. Interfaces confusas ou pouco intuitivas podem dificultar a navegação e o entendimento, gerando fricção e erros. O plano de ação envolve testes de usabilidade, com indicadores como erros de navegação e tempo de aprendizado. A oportunidade é desenvolver uma experiência altamente orientada à aprendizagem, reduzindo a carga cognitiva desnecessária.
 
-**Plano de ação:**
-- Testes com usuários iniciantes  
-- Ajuste de ritmo e profundidade  
+O R8 – Obsolescência do Conteúdo tem probabilidade 50 e impacto moderado. A rápida evolução da IA pode tornar o conteúdo desatualizado, reduzindo relevância e credibilidade. O plano de ação consiste em atualizações periódicas, com indicador de atualidade. A oportunidade é criar uma arquitetura modular e atualizável.
 
-**Indicadores:**
-- Retenção de conhecimento  
-- Taxa de conclusão  
+O R9 – Storytelling Desconectado apresenta probabilidade 50 e impacto moderado. A narrativa pode não se integrar bem aos objetivos educacionais, reduzindo imersão e retenção. O plano de ação é a integração narrativa, com indicadores de clareza percebida e índice de conclusão. A oportunidade está em usar storytelling como suporte direto ao aprendizado.
 
-**Oportunidade:**
-Desenvolver um modelo pedagógico original baseado em aprendizagem ativa + simulação, que supere métodos tradicionais ao integrar prática imediata, feedback contínuo, gamificação e storytelling.
+O R10 – Falta de Valor para o Usuário possui probabilidade 50 e impacto moderado. Os usuários podem não perceber valor claro no produto, impactando adoção e engajamento. O plano de ação envolve testes de percepção, com indicadores como NPS¹⁷ e satisfação. A oportunidade é entregar valor tangível em forma de habilidades e compreensão real de IA.
 
-## 2. Riscos Altos
-
-## R2 – Complexidade na Simulação de IA
-- **Probabilidade:** 50  
-- **Impacto:** Muito Alto  
-
-**Descrição:**  
-A simulação de conceitos de IA pode se tornar tecnicamente complexa a ponto de comprometer clareza ou viabilidade. Há risco de criar abstrações confusas, simplificações incorretas ou sistemas difíceis de implementar. Isso pode gerar experiências inconsistentes, erros conceituais (tanto do jogo quanto jogador) ou até inviabilizar partes do produto.
-
-**Plano de ação:**
-- Prototipagem iterativa  
-- Validação com especialistas  
-
-**Indicadores:**
-- Compreensão dos usuários  
-- Feedback técnico  
-
-**Oportunidade:**
-Criar um uma base simplificada de simulação de IA educacional, reutilizável, que transforme conceitos complexos em interações intuitivas, tendo potencial de virar diferencial técnico e até ativo replicável.
-
-## R3 – Riscos Estratégicos para a IBM
-- **Probabilidade:** 50  
-- **Impacto:** Muito Alto  
-
-**Descrição:**  
-Existe o risco de o projeto não gerar valor estratégico claro para a IBM, seja por desalinhamento com objetivos institucionais, baixa diferenciação frente a concorrentes ou falta de aplicabilidade prática. Isso pode resultar em baixa priorização interna, perda de apoio ou descontinuidade.
-
-**Plano de ação:**
-- Definição de proposta de valor  
-- Benchmark  
-
-**Indicadores:**
-- Percepção de valor  
-- Comparação com alternativas  
-
-**Oportunidade:**
-Posicionar o projeto como referência de educação em IA da IBM, para um público alvo que não tem contato com essas tecnologias, fortalecendo a presença da empresa como líder em capacitação tecnológica.
-
-
-## R4 – Desalinhamento com o SkillsBuild
-- **Probabilidade:** 30  
-- **Impacto:** Muito Alto  
-
-**Descrição:**  
-Mesmo com alinhamento inicial, há risco de divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos do SkillsBuild (conteúdo, linguagem, profundidade). Isso pode gerar revisões excessivas, reprovação de entregas ou necessidade de reestruturação.
-
-**Plano de ação:**
-- Revisões por sprint  
-- Mapeamento com currículo  
-
-**Indicadores:**
-- Aderência ao conteúdo  
-- Aprovação da IBM  
-
-**Oportunidade:**
-Explorar a liberdade criativa dada para criar um formato inovador dentro do SkillsBuild, ampliando o escopo tradicional da plataforma com abordagens interativas e experimentais.
-
-
-## 3. Riscos Moderados
-
-## R5 – Engajamento e Entretenimento
-- **Probabilidade:** 70  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-Há risco de o produto não ser suficientemente envolvente, com mecânicas repetitivas, pouco estímulo ou ausência de recompensa clara. Isso pode levar a sessões curtas, abandono precoce e baixa retenção, mesmo com bom conteúdo.
-
-**Plano de ação:**
-- Testes de gameplay  
-- Iteração de mecânicas  
-
-**Indicadores:**
-- Tempo de sessão  
-- Taxa de abandono  
-
-**Oportunidade:**
-Criar um sistema de engajamento baseado em progressão, desafios e feedback imediato, aumentando retenção e transformando aprendizado em hábito.
-
-
-## R6 – Curva de Aprendizado Inadequada
-- **Probabilidade:** 70  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-A dificuldade pode escalar rápido demais (gerando frustração) ou devagar demais (gerando tédio). Isso impacta diretamente o fluxo de aprendizagem, causando desistência ou desengajamento.
-
-**Plano de ação:**
-- Ajuste dinâmico de dificuldade  
-
-**Indicadores:**
-- Tempo por fase  
-- Desistência  
-
-**Oportunidade:**
-Implementar um sistema adaptativo de dificuldade, que ajuste o conteúdo com base no desempenho do usuário, personalizando a experiência.
-
-
-## R7 – Experiência do Usuário (UX/UI)
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-Interfaces confusas, fluxos pouco intuitivos ou excesso de complexidade visual podem dificultar a navegação e o entendimento do produto. Isso gera fricção, erros de uso e aumento do tempo necessário para aprender a usar a plataforma e de conclusão do jogo.
-
-**Plano de ação:**
-- Testes de usabilidade  
-
-**Indicadores:**
-- Erros de navegação  
-- Tempo de aprendizado  
-
-**Oportunidade:**
-Desenvolver uma UX altamente orientada à aprendizagem, onde a interface reduz carga cognitiva e acelera a compreensão, concentrando o máximo de atenção do usuário no conteúdo e maximizando seu aprendizado.
-
-
-## R8 – Obsolescência do Conteúdo
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-O campo de IA evolui rapidamente, tornando conteúdos desatualizados em curto prazo. Isso pode reduzir a relevância do produto e comprometer sua credibilidade.
-
-**Plano de ação:**
-- Atualizações periódicas  
-
-**Indicadores:**
-- Atualidade  
-
-**Oportunidade:**
-Criar uma arquitetura modular e atualizável, permitindo atualização contínua sem necessidade de reconstrução total.
-
-
-## R9 – Storytelling Desconectado
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-A narrativa pode não se integrar bem com os objetivos educacionais, tornando-se superficial ou irrelevante. Isso reduz imersão e prejudica a retenção de conteúdo.
-
-**Plano de ação:**
-- Integração narrativa  
-
-**Indicadores:**
-- Clareza percebida  
-- Índice de conclusão  
-
-**Oportunidade:**
-Usar storytelling como suporte ao aprendizado do usuário, conectando narrativa e conceitos para aumentar retenção e significado.
-
-
-#### R10 – Falta de Valor para o Usuário
-- **Probabilidade:** 50  
-- **Impacto:** Moderado  
-
-**Descrição:**  
-Os usuários podem não perceber valor claro no produto, seja por falta de aplicabilidade prática, diferenciação ou clareza de benefícios. Isso impacta adoção, engajamento e recomendação.
-
-**Plano de ação:**
-- Testes de percepção  
-
-**Indicadores:**
-- NPS / satisfação  
-
-**Oportunidade:**
-Refinar a proposta para entregar valor tangível (habilidade + usabilidade + compreensão real de IA), aumentando percepção e adesão dos jogadores.
-
-
-## 4. Riscos Baixos
-
-## R11 – Riscos de Design
-- **Probabilidade:** 30  
-- **Impacto:** Baixo  
-
-**Descrição:**  
-Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando percepção de profissionalismo e identidade do produto, mas sem comprometer sua funcionalidade.
-
-**Plano de ação:**
-- Iteração visual  
-
-**Indicadores:**
-- Feedback qualitativo  
-
-**Oportunidade:**
-Construir uma identidade visual marcante e coerente, reforçando branding e reconhecimento do produto.
-
+Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 30 e impacto baixo. Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando a percepção de profissionalismo, mas sem comprometer a funcionalidade. O plano de ação é a iteração visual, com indicador de feedback qualitativo. A oportunidade está na construção de uma identidade visual marcante e coerente.
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
-**Objetivos Estratégicos**
 
-1. Aumentar o engajamento de jovens com pouco conhecimento em IA
- Criar uma experiência interativa que seja mais interessante do que cursos tradicionais, incentivando o usuário a continuar.
+Os objetivos estratégicos do projeto concentram-se em ampliar o engajamento de jovens com pouco conhecimento em Inteligência Artificial, por meio da criação de uma experiência interativa mais atraente do que cursos tradicionais, incentivando a continuidade de uso. Paralelamente, busca-se aprimorar a aprendizagem de conceitos básicos de IA, garantindo que o usuário compreenda temas como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning. Outro objetivo central é despertar o interesse pela área, fazendo com que o usuário perceba a IA como algo acessível e estimulante para estudos futuros, além de incentivar a conclusão do jogo por meio de elementos narrativos e mecânicas capazes de sustentar o engajamento até o final da experiência.
 
-2. Melhorar a aprendizagem de conceitos básicos de IA
- Garantir que o usuário entenda ideias como reconhecimento de padrões, classificação de dados e noções iniciais de machine learning.
+No que se refere às metas estabelecidas, a M1 propõe alcançar, em até quatro semanas após o lançamento, uma taxa de conclusão de pelo menos setenta por cento entre os usuários que iniciarem o jogo. A M2 busca reduzir a evasão nas fases iniciais, estabelecendo como limite máximo trinta por cento de abandono antes da terceira fase, de modo a garantir o engajamento efetivo dos jogadores já nas duas primeiras semanas após o lançamento. A M3 está relacionada à satisfação do usuário, com o objetivo de que ao menos cinquenta por cento dos jogadores que concluírem o jogo o compartilhem e incentivem novos usuários a jogá-lo, no prazo de até duas semanas após a conclusão. Por fim, a M4 visa assegurar a continuidade do aprendizado, garantindo que ao menos trinta por cento dos usuários que finalizarem o jogo acessem outros conteúdos educacionais do IBM SkillsBuild.
 
-3. Despertar interesse pela área de Inteligência Artificial
- Fazer com que o usuário perceba que IA é acessível e se interesse em continuar aprendendo.
+Para acompanhar o desempenho e o alcance dessas metas, foram definidos indicadores-chave. O KPI 1 mede a taxa de conclusão, isto é, a proporção de usuários que finalizam o jogo em relação aos que o iniciaram, com meta de pelo menos setenta por cento, sendo avaliado após duas semanas e com foco em engajamento. O KPI 2 avalia a taxa de abandono, mensurando quantos usuários desistem antes de concluir o jogo, com meta de no máximo trinta por cento, sendo analisado por fase e de forma acumulada, também com foco em engajamento.
 
-4. Incentivar o usuário a concluir o jogo
- Usar elementos de jogo e narrativa para manter o usuário até o final da experiência.
-
-**Metas (SMART)**
-
-M1 - Conclusão do jogo
- Alcançar uma taxa de conclusão de pelo menos setenta por cento dos usuários que iniciarem o jogo, em até oito semanas após o lançamento.
-
-M2 - Redução da evasão
- Diminuir o abandono entre o início e o final do jogo em pelo menos trinta por cento, em comparação com cursos online tradicionais, até o fim do piloto.
-
-M3 - Aprendizagem
- Alcançar uma média de acertos de pelo menos sessenta e cinco por cento nos testes após cada módulo, durante o piloto.
-
-M4 - Satisfação do usuário
- Alcançar um nível de satisfação de pelo menos cinquenta pontos no NPS, medido ao final do uso do jogo.
-
-M5 - Continuidade do aprendizado
- Garantir que pelo menos quarenta por cento dos usuários que terminarem o jogo acessem outros conteúdos de aprendizagem em até trinta dias.
-
-**KPIs (Indicadores)**
-
-KPI 1 - Taxa de conclusão
-Mede quantos usuários terminam o jogo em relação aos que começaram
-Meta: pelo menos setenta por cento
-Frequência: ao final do piloto
-Foco: engajamento
-
-KPI 2 - Taxa de abandono
-Mede quantos usuários desistem antes de terminar o jogo
-Meta: no máximo trinta por cento, comparado ao padrão
-Frequência: por fase e acumulado
-Foco: engajamento
-
-KPI 3 - Desempenho nos testes
-Mede o número de respostas corretas nos testes após cada fase
-Meta: pelo menos sessenta e cinco por cento de acerto
-Frequência: ao final de cada módulo
-Foco: aprendizagem
-
-KPI 4 - Evolução do aprendizado
-Compara o desempenho antes e depois do jogo
-Meta: aumento mínimo de vinte e cinco pontos percentuais
-Frequência: ao final do piloto
-Foco: aprendizagem real
-
-KPI 5 - Tempo médio de uso
-Mede quanto tempo o usuário passa no jogo em cada sessão
-Meta: pelo menos quinze minutos por sessão
-Frequência: semanal
-Foco: engajamento
-
-KPI 6 - Retorno ao jogo
-Mede quantos usuários voltam a jogar depois da primeira vez
-Meta: pelo menos sessenta por cento retornam
-Frequência: sete dias após o primeiro acesso
-Foco: engajamento
-
-KPI 7 - Satisfação (NPS)
-Mede o quanto os usuários recomendariam o jogo
-Meta: pelo menos cinquenta pontos
-Frequência: após a conclusão
-Foco: experiência
-
-KPI 8 - Continuidade do aprendizado
-Mede quantos usuários buscam aprender mais depois do jogo
-Meta: pelo menos quarenta por cento
-Frequência: até trinta dias após o término
-Foco: impacto educacional
-
+Além disso, o KPI 3 analisa o tempo médio de uso, mensurando quanto tempo o usuário leva para concluir o jogo, com meta de pelo menos vinte minutos, a fim de garantir que o jogador de fato interaja com a experiência e se engaje. O KPI 4 mede o alcance dos compartilhamentos do jogo, identificando quantos usuários iniciaram a experiência a partir da recomendação de outros, com meta de pelo menos cinquenta por cento de novos usuários provenientes de divulgação orgânica em até um mês, com foco em satisfação e alcance. O KPI 5 avalia a satisfação do usuário, mensurando o quanto os jogadores recomendariam o jogo, com meta de pelo menos sessenta por cento de recomendações, sendo coletado após a conclusão e focado na experiência do usuário. Por fim, o KPI 6 mede a continuidade do aprendizado, verificando quantos usuários acessam o IBM SkillsBuild após finalizar o jogo, com meta de pelo menos trinta por cento em até trinta dias, refletindo o impacto educacional da solução.
 
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
@@ -839,23 +566,7 @@ O jogador pode se movimentar livremente dentro do mapa inicial para explorar o l
 
 Controles de Exploração Livre (Sophia):
 
-Tecla W / Seta para Cima: Move para cima (Eixo Y+).
-
-Tecla S / Seta para Baixo: Move para baixo (Eixo Y-).
-
-Tecla D / Seta para a Direita: Move para a direita (Eixo X+).
-
-Tecla A / Seta para a Esquerda: Move para a esquerda (Eixo X-).
-
-Barra de Espaço: Pular.
-
-Controles na Sucata (Asimov):
-
-Tecla W / Seta para Cima: Move para a faixa de cima.
-
-Tecla S / Seta para Baixo: Move para a faixa de baixo.
-
-Barra de Espaço: Saltar obstáculos.
+Tecla W / Seta para Cima: Move para cima (Eixo Y+). Tecla S / Seta para Baixo: Move para baixo (Eixo Y-). Tecla D / Seta para a Direita: Move para a direita (Eixo X+).Tecla A / Seta para a Esquerda: Move para a esquerda (Eixo X-).Barra de Espaço: Pular. Controles na Sucata (Asimov):Tecla W / Seta para Cima: Move para a faixa de cima. Tecla S / Seta para Baixo: Move para a faixa de baixo.Barra de Espaço: Saltar obstáculos.
 
 2. Interação com objetos e sistemas
 Utilizando a tecla de interação, o jogador pode acessar baús, arquivos, máquinas e terminais do laboratório, além de conversar com o cientista Watson e com Asimov. Esses elementos liberam informações da narrativa ou ativam desafios necessários para continuar a fase.
@@ -1140,245 +851,6 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
 
-# **Desenvolvimento Final do MVP**
-
-## **Visão Geral do MVP**
-
-O MVP reúne todas as cenas e fases que formam a jornada de Sophia e Asimov, desde o laboratório de 2022 até a restauração final em 2098\. O jogador passa pelo prólogo com Watson, pela cutscene do despertar, pelas cinco fases de minigames e chega até a cena final onde o cristal é depositado no núcleo energético.
-
-Do ponto de vista do aprendizado, o MVP cobre os cinco conceitos de IA previstos no projeto: Aprendizagem de padroes (Fase 1), redes neurais e função Softmax (Fase 2), classificação de dados (Fase 3), extração de características (Fase 4\) e IA generativa (Fase 5). Cada conceito aparece dentro da mecânica da fase, sem precisar de texto explicativo separado.
-
-##  **Funcionalidades Entregues**
-
-### **Concluídas**
-
-* Sistema de diálogos com Watson, Asimov e Sophia 
-
-* Cutscene do despertar de Sophia
-
-* Exploração livre do laboratório inicial 
-
-* Transição temporal pela câmara criogênica 
-
-* Fase 1 – Desviar dos obstáculos do corredor, com controle de Asimov 
-
-* Baú com pistas sobre o cristal 
-
-* Fase 2 – Treinamento da rede neural e Softmax
-
-* Fase 3 – Classificação de cristais,certos (azuis) e errados (vermelhos).
-
-* Fase 4 – Forja generativa com limpeza de ruídos
-
-* Fase 5 –  Aprendizado sobre Prompt
-
-* Restauração do laboratório na cena final
-
-* Barra de progresso de conhecimento 
-
-* Asimov acompanhou Sophia na movimentação 
-
-* Trilha sonora e efeitos de áudio
-
-
-### **Parcialmente Concluídas**
-
-* Luz que acompanha o personagem  – implementada parcialmente, ainda com ajustes visuais pendentes
-
-* Sistema de conquistas por fase 
-
-
-## **Fases e Cenas Implementadas**
-
-A seguir estão descritas todas as fases e cenas entregues no MVP, com suas mecânicas e o conceito de IA abordado em cada uma.
-
-### **Prólogo — Laboratório Inicial (2022)**
-
-**Mecânicas**
-
-* Exploração livre do laboratório
-
-* Interação com NPCs cientistas
-
-* Diálogo obrigatório com Watson antes de liberar a câmara criogênica
-
-* Interação com a câmara para ativar a cutscene
-
-**Conceito de IA**
-
-Não há conteúdo técnico de IA nessa cena. O objetivo é apresentar o contexto da história e introduzir os personagens.
-
-### **Transição Temporal — Cutscene do Despertar**
-
-**Mecânicas**
-
-* Animação 2D automática, sem controle do jogador
-
-* Ativada ao interagir com a câmara criogênica
-
-**Conceito de IA**
-
-Cena narrativa que conecta o passado e o futuro. Não há mecânica de IA, mas reforça o contexto de um mundo afetado pelo uso indevido da tecnologia.
-
-### **Laboratório em Ruínas (2098)**
-
-**Mecânicas**
-
-* Exploração do laboratório destruído
-
-* Diálogos com Asimov que explicam a situação e orientam o jogador
-
-**Conceito de IA**
-
-Apresenta os danos causados pelo uso irresponsável de IAs e introduz Asimov como sistema com memória fragmentada, criando a motivação para as fases seguintes.
-
-### **Fase 1 — Corredor com obstáculos.**
-
-**Mecânicas**
-
-* Controle de Asimov (setas para trocar de faixa, espaço para pular)
-
-* Percurso linear com obstáculos
-
-* Colisão reinicia a fase do início
-
-* Baú no final ativa diálogo e libera as pistas do cristal
-
-**Conceito de IA**
-
-Aprendizado de padrões, jogador treina Asimov para navegar evitando obstáculos, simulando como um agente aprende por tentativa e erro.
-
-### **Fase 2 — Treinamento da Rede Neural**
-
-**Mecânicas**
-
-* Clicar nos neurônios para alimentar a rede com os dados coletados
-
-* Localizar e ativar a Válvula Softmax para converter saída bruta em probabilidades
-
-* Arrastar o slider do limiar de confiança até o valor correto
-
-* O sistema só identifica a porta quando o limiar exato é definido
-
-**Conceito de IA**
-
-Fundamentos de redes neurais densas e função de ativação Softmax, o jogador entende como uma rede transforma dados em probabilidades e como definir um limiar de decisão.
-
-### **Fase 3 — Classificação de Cristais**
-
-**Mecânicas**
-
-* Examinar imagens de cristais no baú da sala de arquivos
-
-* Sair do buraco e pegar os cristais certos.
-
-* Pegar um cristal falso gera penalidade imediata
-
-* É necessário pegar todos os cristais certos para avançar
-
-**Conceito de IA**
-
-O jogador aprende a separar dados corretos de dados corrompidos com base em características visuais, simulando um modelo de classificação binária.
-
-### **Fase 4 — Forja Generativa**
-
-**Mecânicas**
-
-* Asimov gera o cristal com imperfeições (ruídos)
-
-* O jogador usa o esfregão (clique e arraste) para limpar as manchas
-
-* A barra de Overthinking não deve chegar a 100% 
-
-* Se o tempo acabar antes, a forja reinicia
-
-**Conceito de IA**
-
-IA generativa e redução de ruídos, o jogador entende como modelos generativos produzem resultados com falhas e como o processo de refinamento melhora a saída até chegar ao resultado ideal.
-
-**Fase 5 — Prompt**
-
-**Mecânicas**
-
-* Vão aparecer Prompts aleatoriamente na tela, Alguns Prompts bons e éticos e outros ruins.  
-* O jogador deve avaliar se é um bom prompt ou não.  
-* Ao final, o jogador deve ter acertado no mínimo 7/10 avaliações.
-
-**Conceitos de IA**
-
-O jogador aprenderá a montar um bom prompt para mandar para a IA e também aprender a usar a ética nela.
-
-### **Restauração Final**
-
-**Mecânicas**
-
-* Sophia transporta o cristal até a sala de controle
-
-* Pressionar E no núcleo energético deposita o cristal e aciona o evento final
-
-**Conceito de IA**
-
-Cena de desfecho: a restauração do laboratório representa a conclusão do ciclo de aprendizado e abre espaço para reflexão sobre o uso ético da IA.
-
-##  **Elementos Narrativos e Audiovisuais**
-
-### **Diálogos e NPCs**
-
-O sistema de diálogos cobre todas as interações do prólogo com Watson, do laboratório em ruínas com Asimov e das cenas de transição entre fases. Os balões de fala foram centralizados na tela para não atrapalhar a navegação, ajuste feito na Sprint 2\. No laboratório de 2022, foram adicionados NPCs cientistas para deixar o ambiente mais movimentado.
-
-### **Cutscene**
-
-A cutscene do despertar de Sophia foi feita em animação 2D quadro a quadro. Foi usada a técnica de onion skinning, que permite ver os frames anteriores e posteriores durante a criação, garantindo movimentos mais fluidos. A animação é ativada automaticamente ao final do prólogo.
-
-### **Assets Visuais**
-
-Todos os assets principais estão finalizados para o MVP:
-
-* Sprites de Sophia, Asimov e Watson
-
-* Background do laboratório de 2022, laboratório em ruínas de 2098, Fase 1, Fase 2, Fase 3, Fase 4, Fase 5 e Sala de controle.
-
-* Objetos dos laboratórios, Obstáculos da Fase 1,Baú, envelope e pergaminho (objetos de inventário), objetos fase 2, fase 3, fase 4, fase 5 e da sala de controle.
-
-Todos os assets foram criados em pixel art no software Piskel.
-
-### **Trilha Sonora e Efeitos**
-
-## Nós temos duas músicas de fundo, A primeira é uma mais calma e animada para os momentos comuns, de interação e exploração. A segunda música é uma mais forte e fria, para dar um ar de tensão para o jogador nos momentos das fases e desafios.
-
-## 
-
-## **Dificuldades Encontradas**
-
-Durante o desenvolvimento do MVP, a equipe enfrentou algumas dificuldades que precisaram de atenção:
-
-- Falta de comunicação e atualização do que foi feito.  
-- Discussões que não levavam a lugar nenhum.  
-- Distribuição incorreta das tarefas.  
-- Confusão na hora de dar os commits.  
-- 
-
-## **O que Ficou de Fora do MVP**
-
-As funcionalidades abaixo foram planejadas no GDD, mas não entraram no MVP por falta de tempo ou por depender de outras partes ainda em desenvolvimento:
-
-### **Luz que acompanha o personagem (Req. 4\)**
-
-Nós fizemos apenas a camera seguir o jogador, não implementamos a luz envolta dele.
-
-### **Sistema de conquistas por fase** 
-
-Os emblemas que o jogador ganha ao concluir cada fase, e o requisito de ter todos para desbloquear a fase final, não foram implementados no MVP.
-
-**Desfecho do Jogo**
-
-No MVP nós paramos no momento em que a Fase 5 termina, ainda falta desenvolver o resto.
-
-##  **Planos para a Sprint 5**
-
-- Correção de Bugs  
-- Fazer teste com usuários   
-- Aprimoramento de possíveis designs e falas
 
 ## 4.5. Revisão do MVP (sprint 5)
 
@@ -1404,18 +876,128 @@ No MVP nós paramos no momento em que a Fase 5 termina, ainda falta desenvolver 
 
 ### 5.2.1 Registros de testes
 
-*Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores. Registre cada teste conforme o template a seguir.*
+*Teste de Guerrilha*
 
-Nome | João Jonas (use nomes fictícios)
+Nome | Felipe 
 --- | ---
-Já possuía experiência prévia com games? | sim, é um jogador casual
-Conseguiu iniciar o jogo? | sim
-Entendeu as regras e mecânicas do jogo? | entendeu as regras, mas sobre as mecânicas, apenas as essenciais, não explorou os comandos complexos
-Conseguiu progredir no jogo? | sim, sem dificuldades  
-Apresentou dificuldades? | Não, conseguiu jogar com facilidade e afirmou ser fácil
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Não
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.0
+O que gostou no jogo? | Os mini games
+O que poderia melhorar no jogo? | O personagem poderia se mover mais rápido. Bug da sala do cristal. Limpar o cristal com cliques não sobe a barra. Na questão das perguntas ele respondeu uma errado e deu certo
+
+
+Nome | Luis 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
 Que nota deu ao jogo? | 9.0
-O que gostou no jogo? | Gostou  de como o jogo vai ficando mais difícil ao longo do tempo sem deixar de ser divertido
-O que poderia melhorar no jogo? | A responsividade do personagem aos controles, disse que havia um pouco de atraso desde o momento do comando até a resposta do personagem
+O que gostou no jogo? | Design e animações
+O que poderia melhorar no jogo? | Colocar indicadores para orientar o jogador sobre o que deve fazer, reduzindo a necessidade de explicações longas. Diminuir principalmente os textos dos documentos, já que fogem da proposta do jogo, que deve ser mais lúdica. Se o conteúdo dos papéis não tiver função prática na jogabilidade, não há necessidade de mantê-los. Além disso, melhorar o áudio: conforme o diálogo avança, inserir sons adequados, como efeitos de pulo e interação, para enriquecer a experiência
+
+
+Nome | João 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 8.0
+O que gostou no jogo? | Gostou do Asimov e da dinâmica de explicação com o mesmo. Gostou da história, da ideia de que você está no laboratório e você precisa salvar o mundo
+O que poderia melhorar no jogo? | Substituir assets que parecem não combinar com o jogo. Correção de bug entre a parede e o baú. Melhorar a explicação das mecânicas (especialmente algumas serem com o mouse e outras com o E). Explicar melhor sobre os prompts e selecionar eles com a setinha e não com o mouse. Criar uma tela de finalização do jogo. Diminuir textos muito longos e monótonos
+
+
+Nome | Manuela 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Não
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 8.0
+O que gostou no jogo? | A historia ficou muito boa
+O que poderia melhorar no jogo? | Mecânicas e teclas. O ultimo baú ela interagiu e não apareceu nada, Sophia por cima do papel e muito texto
+
+
+Nome | Augusto 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.0
+O que gostou no jogo? | O aprendizado está bem desenvolvido, com um bom equilíbrio entre design e informações. Os minigames são bem feitos e divertidos, especialmente nas partes como o cérebro do robô, contribuindo positivamente para a experiência geral de aprendizado no jogo. A movimentação do personagem também está muito boa — o pulo e a velocidade estão bem ajustados, tornando a jogabilidade fluida e agradável. Além disso, o cenário é interessante e interativo, com diversos objetos que enriquecem a exploração
+O que poderia melhorar no jogo? | Há excesso de texto nas conversas, e não está claro qual personagem está falando. Uma solução é diferenciar as falas usando cores distintas nas caixas de diálogo, facilitando a identificação. Os arquivos da copiadora também estão muito grandes, o que acaba prejudicando a imersão do jogador. Além disso, os prompts não estão claros e acabam gerando confusão. No parkour, é importante deixar explícito que, ao pegar o item falso, o jogo deve ser reiniciado. Seria interessante adicionar uma cutscene de transição após o parkour, mostrando o personagem escalando até chegar à parte do baú. As transições, de modo geral, estão confusas e com informação demais em texto, o que quebra o ritmo do jogo — é importante reduzir e distribuir melhor essas informações. O cenário também pode ser mais conectado e exploratório, pois atualmente as áreas parecem soltas e pouco intuitivas. Tornar a progressão das fases mais linear pode ajudar na compreensão do jogador. Por fim, ajustar a contagem de acertos da fase 5 para 10 e, no geral, reduzir a quantidade de informação apresentada ao jogador para melhorar a experiência
+
+
+Nome | Rafael 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.5
+O que gostou no jogo? | Gostou da história do jogo (o que mais prendeu ele). Gostou da variedade de minigames
+O que poderia melhorar no jogo? | Não entendia o que devia ser feito em alguns momentos do jogo (instruções vagas). Sofreu com lag. Diminuir a quantidade de texto dos diálogos
+
+
+Nome | Ana 
+--- | ---
+Já possuía experiência prévia com games? | Sim, é um jogador casual
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 9.0
+O que gostou no jogo? | Os minigames foram muito bem elogiados, destacando-se como um dos pontos fortes do jogo
+O que poderia melhorar no jogo? | Algumas partes apresentam excesso de texto, o que pode prejudicar o ritmo do jogo. É recomendável resumir as informações e torná-las mais objetivas, especialmente no início, para não sobrecarregar o jogador logo nos primeiros momentos
+
+
+Nome | Raissa 
+--- | ---
+Já possuía experiência prévia com games? | Não
+Conseguiu iniciar o jogo? | Sim
+Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
+Conseguiu progredir no jogo? | Sim  
+Apresentou dificuldades? | Sim
+Que nota deu ao jogo? | 7.0
+O que gostou no jogo? | O jogo realmente ensina os conceitos de IA, apresentando um bom nível de aprofundamento nos diálogos. Por isso, eles acabam sendo um pouco mais longos. Além disso, o jogo possui uma certa complexidade e consegue engajar o jogador, já que as fases são variadas entre si. Isso é um ponto positivo, pois evita que a experiência se torne monótona
+O que poderia melhorar no jogo? | Em relação a melhorias, acredito que o jogo poderia incluir instruções mais claras sobre como navegar e sobre as regras. Por exemplo, na parte em que o personagem precisa pular, inicialmente não fica evidente essa ação — pode-se pensar que ele atravessaria o portal automaticamente. Também há um bug em que o personagem atravessa o robô, o que prejudica a experiência. Outro ponto é em relação aos diálogos geradas por IA, sendo interessante revisá-los e reduzir um pouco o tamanho dos textos, pois a leitura pode se tornar cansativa
+
+
+*Formulário de teste de feedback de usuários - Vanguard.IA*
+
+Número formulário | 1 
+--- | ---
+Qual a faixa sua etária? | 19 a 20 anos
+Com qual gênero você se identifica? | Homem
+Em que ano da faculdade você se encontra? | 1º ano
+Qual a sua relação com jogo e vídeo games? | Jogo casualmente, algumas vezes na semana
+O jogo foi frustrante ou irritante? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+O jogo foi entediante ou cansativo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+O jogo foi confuso ou desconexo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Qual sua nota para nosso jogo? (1 a 10) | 7
+Achei o objetivo do jogo confuso? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 2
+Achei os comandos e interações confusos? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 3
+Os controles do jogo são desconfortáveis ou atrapalham a jogar? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 1
+O objetivo do jogo é claro e faz sentido? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 4
+Os minigames do jogo possuem comandos claros? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+Qual foi o melhor momento do jogo? | O minigames de limpar as informações
+Qual foi o pior momento do jogo? | A parte final onde não houve instrução do que fazer
+Você precisou de ajuda ou instrução e algum momento do jogo? Por quê? | Sim, porque não ficou claro o que fazer na parte do baú no final
+Se você pudesse alterar, adicionar ou retirar algo do jogo, o quê seria? (Pergunta opcional) | Adicionar algo no baú final e aumentar a velocidade do jogador
+Você conseguiu aprender com o jogo? (1 a 5) - 1 discordo totalmente e 5 concordo totalmente | 5
+O que você achou do processo de aprendizado do jogo? | Legal
+
 
 ### 5.2.2 Melhorias
 
@@ -1464,6 +1046,7 @@ O que poderia melhorar no jogo? | A responsividade do personagem aos controles, 
 
 ¹⁶ AMAZON WEB SERVICES. O que é visão computacional? Disponível em: https://aws.amazon.com/pt/what-is/computer-vision/. Acesso em: 27 mar. 2026.
 
+¹⁷ Fundação Instituto de Administração. Net Promoter Score (NPS): o que é, como calcular e exemplos. Disponível em: https://fia.com.br/blog/net-promoter-score-nps/. Acesso em: 6 abr. 2026.
 
 # <a name="c8"></a>Anexos
 

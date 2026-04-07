@@ -13,7 +13,7 @@ import { faseQuatro } from "./src/scenes/faseQuatro.js";
 import { faseCinco } from "./src/scenes/faseCinco.js";
 import { CreditsScene } from "./src/scenes/sceneCreditos.js";
 import { menu } from "./src/menu.js";
-import { BgMusic } from "./src/scenes/BgMusic.js";
+import { bgMusic } from "./src/scenes/bgMusic.js";
 
 const config = {
   type: Phaser.AUTO,
@@ -41,7 +41,7 @@ const config = {
     createContainer: true // Isso é obrigatório para usar elementos DOM
   },
   //scene: [sceneInicial, sceneLBPassado, sceneLBFuturo],
-
+  //scene: [faseCinco, CreditsScene, ],
 
   scene: [
     welcomeScene,
@@ -59,7 +59,7 @@ const config = {
     faseCinco,
     CreditsScene,
     menu,
-    BgMusic,
+    bgMusic,
   ],
 
 };

@@ -132,7 +132,8 @@ export class sceneRestauracao extends Phaser.Scene {
     this.cameras.main.ignore([
         this.sistemaDialogo.caixaDialogo, 
         this.sistemaDialogo.textoDialogo, 
-        this.sistemaDialogo.labelNome
+        this.sistemaDialogo.labelNome,
+        this.sistemaDialogo.indicadorTeclaE.container
     ]);
   }
 
