@@ -273,7 +273,7 @@ Os requisitos do projeto estabelecem as diretrizes essenciais para seu desenvolv
 \# | Requisito  
 --- | ---
 1 | O jogo terá, em sua tela inicial, um botão de início e um informativo.
-2 | O controle do personagem será realizado usando as teclas direcionais (→ ↑ ↓ ←) para navegação e a  interação com itens presentes no jogo será realizada com a tecla E.
+2 | O controle do personagem será realizado usando as teclas direcionais (→ ↑ ↓ ←) e as teclas WASD para navegação e a  interação com itens presentes no jogo será realizada com a tecla E.
 3 | A ação de pular é realizada utilizando a tecla SPACE.
 4 | Na cena inicial, o jogador só poderá interagir com a camâra de criogênia após interagir com o NPC Watson.
 5 | O jogo trará um robô como guia que acompanhará ao jogador durante a progressão das fases
