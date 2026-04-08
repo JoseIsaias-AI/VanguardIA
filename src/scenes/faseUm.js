@@ -37,7 +37,7 @@ export class faseUm extends Phaser.Scene {
       frameWidth: 437.5,
       frameHeight: 438,
     });
-    this.load.video("videofaseUm", "assets/fases/faseUm/videoFaseUm.webm");
+    this.load.video("videofaseUm", "assets/fases/faseUm/videoFaseUm.mp4");
     this.load.image(
       "caixaDeTextoInicial",
       "assets/fases/faseUm/caixaDeTextoInicial.png",
