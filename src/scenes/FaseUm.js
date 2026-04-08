@@ -42,7 +42,6 @@ export class faseUm extends Phaser.Scene {
       "caixaDeTextoInicial",
       "assets/fases/faseUm/caixaDeTextoInicial.png",
     );
-    this.load.audio("colisao", "assets/colisionSound.wav");
 
     // Carrega o som do robô batendo
     this.load.audio("roboBatendo", "assets/efeitosSonoros/roboBatendo.m4a");
@@ -328,7 +327,7 @@ export class faseUm extends Phaser.Scene {
       .setDepth(2001)
       .setVisible(false);
 
-    this.somColisao = this.sound.add("colisao");
+    //this.somColisao = this.sound.add("colisao");
   }
 
   update() {

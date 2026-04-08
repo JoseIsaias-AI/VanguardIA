@@ -14,7 +14,7 @@ export class scenePreFase4 extends Phaser.Scene {
 
   // -------------------------------- aqui são carregadas as imagens dessa cena do jogo --------------------------------
   preload() {
-    this.load.image("labEscuro2", "assets/fases/sceneLabCristal/labCristalEscuro.png");
+    this.load.image("labEscuro2", "assets/fases/sceneLabCristal/labCristalEscuro2.png");
     this.load.spritesheet("objetosLab1", "assets/fases/preFase4/objetosLabCristal1.png", {frameWidth: 320, frameHeight: 213});
     this.load.image("mascaraPrefase4", "assets/fases/preFase4/mascaraPrefase4.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });

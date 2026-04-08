@@ -10,7 +10,7 @@ export class sceneRestauracao extends Phaser.Scene {
 
   preload() {
     this.load.video("cutscene2", "assets/cutscene/cutScene2.mp4");
-    this.load.image("cenarioNoite", "assets/fases/sceneLabCristal/labCristalEscuro.png");
+    this.load.image("cenarioNoite", "assets/fases/sceneLabCristal/labCristalEscuro2.png");
     this.load.image("objetosLabEsc", "assets/objetos/sceneLabCristal/objetosLabCristal1.png");
     this.load.image("cenarioClaro", "assets/fases/sceneLabCristal/labCristalClaro.png");
     this.load.image("objLabClaro", "assets/objetos/sceneLabCristal/objetosLabCristal2.png");
