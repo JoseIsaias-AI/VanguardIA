@@ -8,8 +8,8 @@ export class faseUm extends Phaser.Scene {
   preload() {
     //carregamento das imagens e sprites usados durante a fase1
     this.load.audio('bauAbrindo', 'assets/efeitosSonoros/bauAbrindo.mp3');
-    this.load.image("fundo", "/assets/fases/faseUm/fundoFaseUm.png");
-    this.load.spritesheet("asimov", "/assets/personagens1/asimov.png", {
+    this.load.image("fundo", "assets/fases/faseUm/fundoFaseUm.png");
+    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", {
 
       frameWidth: 32,
       frameHeight: 32,
