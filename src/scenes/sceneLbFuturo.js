@@ -16,7 +16,7 @@ export class sceneLbFuturo extends Phaser.Scene {
 
     this.load.video(
       "cutscene2",
-      "assets/cutscene1/CutScene2.mp4",
+      "assets/cutscene1/CutScene2.webm",
       "loadeddata",
       false,
       true
