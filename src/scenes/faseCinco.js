@@ -1,5 +1,5 @@
 import { registrarTeclaMenu } from '../menu.js';
-import CaixaDialogo from './caixasDialogo.js';
+import caixaDialogo from './caixasDialogo.js';
 
 // Cena final do jogo: diálogo introdutório e minigame de ética em prompts
 export class faseCinco extends Phaser.Scene {
@@ -15,13 +15,18 @@ export class faseCinco extends Phaser.Scene {
         this.load.image("cenarioClaro1", "assets/fases/sceneLabCristal/labCristalClaro2.png");
 
         const sprites = [
-            { key: "asimov", path: "../assets/personagens/asimov.png", w: 32, h: 32 },
-            { key: "sophia", path: "../assets/personagens/sophia.png", w: 64, h: 64 }
+            { key: "asimov", path: "assets/personagens/asimov.png", w: 32, h: 32 },
+            { key: "sophia", path: "assets/personagens/sophia.png", w: 64, h: 64 }
         ];
 
         sprites.forEach(s =>
             this.load.spritesheet(s.key, s.path, { frameWidth: s.w, frameHeight: s.h })
         ); // Carrega spritesheets dos personagens com dimensões específicas
+
+        // Carrega os sons para acertos e erros
+        this.load.audio("correto", "assets/efeitosSonoros/correto.mp3");
+        this.load.audio("erro", "assets/efeitosSonoros/erro.mp3");
+        this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
     }
 
     // Inicializa a cena: configura menu, música, fade-in, diálogo e controles
@@ -33,8 +38,13 @@ export class faseCinco extends Phaser.Scene {
         this.cameras.main.fadeIn(400, 0, 0, 0); // Fade-in suave da câmera
         this.cameras.main.once("camerafadeincomplete", () => this.iniciarCutsceneInicial()); // Após fade, inicia cutscene
 
-        this.sistemaDialogo = new CaixaDialogo(this); // Instancia sistema de diálogos
+        this.sistemaDialogo = new caixaDialogo(this); // Instancia sistema de diálogos
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E); // Tecla para interagir com diálogos
+
+        // Cria os objetos de som
+        this.somCorreto = this.sound.add("correto", { volume: 0.8 });
+        this.somErro = this.sound.add("erro", { volume: 0.8 });
+        this.somVitoria = this.sound.add("vitoriaSom", { volume: 0.9 });
 
         this.initPerguntas(); // Define perguntas primeiro
         this.initEstado(); // Estado do jogo
@@ -298,10 +308,14 @@ export class faseCinco extends Phaser.Scene {
             this.pontuacao++; // Incrementa acertos
             this.textoPontos.setText(`Acertos: ${this.pontuacao}`);
             this.animarTexto(this.textoPontos); // Anima texto verde
+            // Toca o som correto
+            this.somCorreto.play();
         } else {
             this.contErros++; // Incrementa erros
             this.textoErros.setText(`Erros: ${this.contErros}`);
             this.animarTexto(this.textoErros); // Anima texto vermelho
+            // Toca o som erro
+            this.somErro.play();
         }
 
         this.perguntasRespondidas++; // Incrementa total
@@ -360,6 +374,8 @@ export class faseCinco extends Phaser.Scene {
     finalizarCena() {
         if (this.cenaFinalizando) return; // Previne múltiplas chamadas
 
+        if (this.somVitoria) this.somVitoria.play();
+
         this.cenaFinalizando = true; // Flag para evitar re-execução
 
         this.asimov.destroy(); // Remove sprites
@@ -367,7 +383,7 @@ export class faseCinco extends Phaser.Scene {
 
         this.cameras.main.fadeOut(1000); // Fade-out de 1s
         this.cameras.main.once("camerafadeoutcomplete", () => {
-            this.scene.start("CreditsScene"); // Vai para créditos
+            this.scene.start("sceneCreditos"); // Vai para créditos
         });
     }
 }

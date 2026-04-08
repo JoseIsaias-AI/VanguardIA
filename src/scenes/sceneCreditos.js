@@ -1,18 +1,18 @@
-export class CreditsScene extends Phaser.Scene {
-  constructor() { super({ key: 'CreditsScene' }); }
+export class sceneCreditos extends Phaser.Scene {
+  constructor() { super({ key: 'sceneCreditos' }); }
 
   preload() {
-    this.load.video('creditoFinal', 'assets/Cutscene/CreditoFinal.mp4');
+    this.load.video('creditoFinal', 'assets/cutscene/creditoFinal.mp4');
   }
 
   create() {
-    const W = this.scale.width;
-    const H = this.scale.height;
+    const larguraTela = this.scale.width;
+    const alturaTela = this.scale.height;
 
     this.cameras.main.setBackgroundColor(0x000000);
 
-    const video = this.add.video(W / 2, H / 2, 'creditoFinal');
-    video.setDisplaySize(W, H);
+    const video = this.add.video(larguraTela / 2, alturaTela / 2, 'creditoFinal');
+    video.setDisplaySize(larguraTela, alturaTela);
     video.play();
 
     video.once('complete', () => {
@@ -23,11 +23,11 @@ export class CreditsScene extends Phaser.Scene {
     });
 
     // Clique ou tecla pula o vídeo
-    this.input.keyboard.once('keydown', () => this._pular(video));
-    this.input.once('pointerdown', () => this._pular(video));
+    this.input.keyboard.once('keydown', () => this.pular(video));
+    this.input.once('pointerdown', () => this.pular(video));
   }
 
-  _pular(video) {
+  pular(video) {
     video.stop();
     this.cameras.main.fadeOut(800, 0, 0, 0);
     this.cameras.main.once('camerafadeoutcomplete', () => {

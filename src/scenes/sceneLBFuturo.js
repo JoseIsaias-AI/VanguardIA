@@ -1,37 +1,38 @@
 import { registrarTeclaMenu } from '../menu.js';
-import { SnowEffect } from './efeitoNeve.js';
+import { snowEffect } from './efeitoNeve.js';
 import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles, criarAnimacaoAsimov } from './movimentacao.js';
-import caixasDialogo from './caixasDialogo.js';
+import caixaDialogo from './caixasDialogo.js';
 
-export class sceneLBFuturo extends Phaser.Scene {
+export class sceneLbFuturo extends Phaser.Scene {
   constructor() {
-    super("sceneLBFuturo");
+    super("sceneLbFuturo");
   }
 
   // Carrega os assets usados na cutscene e no laboratório futuro.
   preload() {
-    this.load.image("CFuturo", "assets/fases/sceneLBPassado/labDestruido.png");
+    this.load.image("CFuturo", "assets/fases/sceneLbPassado/labDestruido.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", {frameWidth: 64, frameHeight: 64,});
     this.load.spritesheet("asimov", "assets/personagens/asimov.png", {frameWidth: 32, frameHeight: 32,});
 
     this.load.video(
       "cutscene2",
-      "assets/Cutscene/CutScene2.mp4",
+      "assets/cutscene/cutScene2.mp4",
       "loadeddata",
       false,
       true
     );
-    this.load.image("armarioD", "assets/objetos/sceneLBPassado/partTwo/armarioDestruido.png");
-    this.load.image("alvoD", "assets/objetos/sceneLBPassado/partTwo/alvoDestruido.png");
-    this.load.image("mesa1D", "assets/objetos/sceneLBPassado/partTwo/mesa1Destruida.png");
-    this.load.image("mesa2D", "assets/objetos/sceneLBPassado/partTwo/mesa2Destruida.png");
-    this.load.image("mesa3D", "assets/objetos/sceneLBPassado/partTwo/mesa3Destruida.png");
-    this.load.image("piaD", "assets/objetos/sceneLBPassado/partTwo/piaDestruida.png");
-    this.load.image("reservasCrioD", "assets/objetos/sceneLBPassado/partTwo/reservasCrioDestruidas.png");
-    this.load.image("comptCimaD", "assets/objetos/sceneLBPassado/partTwo/comptCimaDestruido.png");
-    this.load.image("comptBaixoD", "assets/objetos/sceneLBPassado/partTwo/comptBaixoDestruido.png");
-    this.load.image("criogeniaD", "assets/objetos/sceneLBPassado/partTwo/criogeniaDestruida.png");
-    this.load.image("camara", "assets/objetos/sceneLBPassado/partOne/camara.png");
+    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
+    this.load.image("armarioD", "assets/objetos/sceneLbPassado/partTwo/armarioDestruido.png");
+    this.load.image("alvoD", "assets/objetos/sceneLbPassado/partTwo/alvoDestruido.png");
+    this.load.image("mesa1D", "assets/objetos/sceneLbPassado/partTwo/mesa1Destruida.png");
+    this.load.image("mesa2D", "assets/objetos/sceneLbPassado/partTwo/mesa2Destruida.png");
+    this.load.image("mesa3D", "assets/objetos/sceneLbPassado/partTwo/mesa3Destruida.png");
+    this.load.image("piaD", "assets/objetos/sceneLbPassado/partTwo/piaDestruida.png");
+    this.load.image("reservasCrioD", "assets/objetos/sceneLbPassado/partTwo/reservasCrioDestruidas.png");
+    this.load.image("comptCimaD", "assets/objetos/sceneLbPassado/partTwo/comptCimaDestruido.png");
+    this.load.image("comptBaixoD", "assets/objetos/sceneLbPassado/partTwo/comptBaixoDestruido.png");
+    this.load.image("criogeniaD", "assets/objetos/sceneLbPassado/partTwo/criogeniaDestruida.png");
+    this.load.image("camara", "assets/objetos/sceneLbPassado/partOne/camara.png");
   }
 
   // Prepara a cena e inicia a cutscene de abertura.
@@ -39,7 +40,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     registrarTeclaMenu(this);
     
     // Instanciamos o nosso gerenciador de diálogos aqui!
-    this.sistemaDialogo = new caixasDialogo(this);
+    this.sistemaDialogo = new caixaDialogo(this);
 
     // Silencia o bgMusic nesta cena, mas não para permanentemente para não quebrar o retorno.
     const bgMusic = this.sound.get('bgMusic');
@@ -82,7 +83,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     this.animacaoSaidaAtiva = false;
 
     let gifElemento2 = document.createElement('img');
-    gifElemento2.src = 'assets/TextosCenas/Laboratorio2098.gif';
+    gifElemento2.src = 'assets/textosCenas/laboratorio2098.gif';
 
     // Forçando estilos CSS para garantir que ele apareça
     gifElemento2.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -105,7 +106,7 @@ export class sceneLBFuturo extends Phaser.Scene {
     // Adiciona a imagem de fundo principal da cena.
     // MAPA FUTURO
     this.mapa = this.add.image(600, 400, "CFuturo").setScale(this.scaleMapa).setDepth(-1);
-    new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
+    new snowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
 
     // Cria limites invisíveis para a área jogável.
     // paredes
@@ -258,6 +259,9 @@ export class sceneLBFuturo extends Phaser.Scene {
       repeat: -1,
     });
 
+    // Cria o som pop
+    this.somPop = this.sound.add("pop", { volume: 0.8 });
+
     // NOTA: O bloco inteiro de criação da "Caixa de Diálogo" foi removido daqui!
 
     // Ativa animações, controles e câmera principal.
@@ -318,6 +322,8 @@ export class sceneLBFuturo extends Phaser.Scene {
 
     // Inicia o diálogo quando o jogador confirma a interação (Aperta E perto do Asimov).
     if (this.podeInteragirAsimov && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+      // Toca o som pop quando interagir com o Asimov
+      this.somPop.play();
       this.dialogoAsimovJaIniciado = true;
       this.containerTeclaAsimov.setVisible(false);
       this.tweens.killTweensOf(this.containerTeclaAsimov);

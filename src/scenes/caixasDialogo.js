@@ -1,6 +1,6 @@
-import { HudTeclaE } from "./hudTeclaE.js";
+import { hudTeclaE } from "./hudTeclaE.js";
 
-export default class CaixaDialogo {
+export default class caixaDialogo {
     constructor(scene, config = {}) {
         this.scene = scene;
 
@@ -49,12 +49,18 @@ export default class CaixaDialogo {
             padding: { left: 8, right: 8, top: 3, bottom: 3 },
         }).setScrollFactor(scrollFactor).setDepth(profundidadeBase + 2).setVisible(false);
 
-        this.indicadorTeclaE = new HudTeclaE(scene, {
+        this.indicadorTeclaE = new hudTeclaE(scene, {
             x: xCaixa + larguraCaixa - 70,
             y: yCaixa + alturaCaixa - 32,
             depth: profundidadeBase + 3,
             scrollFactor,
         });
+
+        this.somDigitando = null;
+        this.audioPendente = false;
+        this._digitandoLoadStarted = false;
+
+        this._inicializarAudio();
 
         this.falas = [];
         this.indiceDialogo = 0;
@@ -106,7 +112,7 @@ export default class CaixaDialogo {
         this.falas = [];
         this.indiceDialogo = 0;
         this.callbackFimDialogo = null;
-        this._mostrarConteudo(textoCompleto, nome);
+        this.mostrarConteudo(textoCompleto, nome);
     }
 
     mostrarProximaFala() {
@@ -116,14 +122,14 @@ export default class CaixaDialogo {
             return;
         }
 
-        this._mostrarConteudo(
+        this.mostrarConteudo(
             falaAtual.texto ?? "",
             falaAtual.nome ?? "",
             falaAtual.personagem ?? null
         );
     }
 
-    _mostrarConteudo(textoCompleto, nome = "", personagemFalando = null) {
+    mostrarConteudo(textoCompleto, nome = "", personagemFalando = null) {
         this.caixaDialogo.setVisible(true);
         this.textoDialogo.setVisible(true).setText("");
         this.indicadorTeclaE.mostrar();
@@ -153,6 +159,8 @@ export default class CaixaDialogo {
             return;
         }
 
+        this._iniciarSonsDigitacao();
+
         let letraAtual = 0;
         this.timerEscrever = this.scene.time.addEvent({
             delay: this.delayDigitacao,
@@ -163,6 +171,7 @@ export default class CaixaDialogo {
                 if (letraAtual >= textoCompleto.length) {
                     this.estaEscrevendo = false;
                     this.timerEscrever = null;
+                    this._pararSonsDigitacao();
                 }
             },
             repeat: textoCompleto.length - 1,
@@ -181,6 +190,48 @@ export default class CaixaDialogo {
 
         if (personagemFalando) {
             personagemFalando.clearTint();
+        }
+    }
+
+    _inicializarAudio() {
+        if (this.scene.cache.audio.exists("digitando")) {
+            this._criarSomDigitando();
+            return;
+        }
+
+        if (this._digitandoLoadStarted) {
+            return;
+        }
+
+        this._digitandoLoadStarted = true;
+        this.scene.load.audio("digitando", "assets/efeitosSonoros/digitando.mp3");
+        this.scene.load.once("complete", () => {
+            this._criarSomDigitando();
+            if (this.audioPendente) {
+                this.audioPendente = false;
+                this._iniciarSonsDigitacao();
+            }
+        });
+        this.scene.load.start();
+    }
+
+    _criarSomDigitando() {
+        if (!this.somDigitando && this.scene.cache.audio.exists("digitando")) {
+            this.somDigitando = this.scene.sound.add("digitando", { loop: true, volume: 0.5 });
+        }
+    }
+
+    _iniciarSonsDigitacao() {
+        if (this.somDigitando && !this.somDigitando.isPlaying) {
+            this.somDigitando.play();
+        } else if (!this.somDigitando) {
+            this.audioPendente = true;
+        }
+    }
+
+    _pararSonsDigitacao() {
+        if (this.somDigitando && this.somDigitando.isPlaying) {
+            this.somDigitando.stop();
         }
     }
 
@@ -213,6 +264,7 @@ export default class CaixaDialogo {
             this.timerEscrever = null;
         }
 
+        this._pararSonsDigitacao();
         this.textoDialogo.setText(this.textoAtualArmazenado);
         this.estaEscrevendo = false;
         return true;
@@ -223,6 +275,8 @@ export default class CaixaDialogo {
             this.timerEscrever.remove();
             this.timerEscrever = null;
         }
+
+        this._pararSonsDigitacao();
 
         this.estaEscrevendo = false;
         this.textoAtualArmazenado = "";

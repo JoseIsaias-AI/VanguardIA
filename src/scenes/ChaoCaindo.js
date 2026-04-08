@@ -1,21 +1,24 @@
 // Cena de transição após a abertura do baú:
 // enquadra o local, toca a animação da queda da Sophia
 // e depois encaminha o jogador para a próxima fase.
-import CaixaDialogo from "./caixasDialogo.js";
+import caixaDialogo from "./caixasDialogo.js";
 
-export class FaseDoischao extends Phaser.Scene {
+export class chaoCaindo extends Phaser.Scene {
   constructor() {
-    super("FaseDoischao");
+    super("chaoCaindo");
   }
 
   // Carrega o fundo da sala e o spritesheet usado na queda.
   preload() {
-    this.load.image("portas", "assets/Fases/FaseDois/salaPortas.png");
+    this.load.image("portas", "assets/fases/faseDois/salaPortas.png");
 
-    this.load.spritesheet("sophiaCaindo", "assets/Cutscene/animaçãoCaindo.jpeg", {
+    this.load.spritesheet("sophiaCaindo", "assets/cutscene/animacaoCaindo.png", {
       frameWidth: 128,
       frameHeight: 128,
     });
+
+    // Carrega o som do chão quebrando
+    this.load.audio("chaoQuebrando", "assets/efeitosSonoros/chaoQuebrando.mp3");
   }
 
   // Configura câmera, UI, mapa e valores usados na cutscene.
@@ -24,7 +27,7 @@ export class FaseDoischao extends Phaser.Scene {
     // CONTROLE DE DIÁLOGO
     // =========================
     this.lendoMensagem = false;
-    this._fecharMensagemOverride = null;
+    this.fecharMensagemOverride = null;
 
     // =========================
     // PRÓXIMA CENA
@@ -164,6 +167,9 @@ export class FaseDoischao extends Phaser.Scene {
       .setScrollFactor(0);
 
     this.time.delayedCall(150, () => this.iniciarSequencia());
+
+    // Cria o som do chão quebrando
+    this.somChaoQuebrando = this.sound.add("chaoQuebrando", { volume: 0.8 });
   }
 
   update() {
@@ -172,7 +178,7 @@ export class FaseDoischao extends Phaser.Scene {
 
   // Monta a caixa de diálogo fixa na tela.
   criarUI() {
-    this.sistemaDialogo = new CaixaDialogo(this, {
+    this.sistemaDialogo = new caixaDialogo(this, {
       profundidadeBase: 5000,
     });
     this.caixaDialogo = this.sistemaDialogo.caixaDialogo;
@@ -180,7 +186,7 @@ export class FaseDoischao extends Phaser.Scene {
     this.labelNome = this.sistemaDialogo.labelNome;
   }
 
-  _ajustarTextoDialogo(textoCompleto) {
+  ajustarTextoDialogo(textoCompleto) {
     this.sistemaDialogo.ajustarTextoDialogo(textoCompleto);
   }
 
@@ -191,8 +197,8 @@ export class FaseDoischao extends Phaser.Scene {
   }
 
   fecharMensagem() {
-    if (this._fecharMensagemOverride) {
-      this._fecharMensagemOverride();
+    if (this.fecharMensagemOverride) {
+      this.fecharMensagemOverride();
       return;
     }
 
@@ -238,6 +244,9 @@ export class FaseDoischao extends Phaser.Scene {
 
   // Toca a animação da queda — o sprite já existe, só precisa dar play.
   tocarAnimacaoQueda() {
+    // Toca o som do chão quebrando com delay de 1 segundo
+    this.time.delayedCall(1000, () => this.somChaoQuebrando.play());
+
     // Sobe o alpha do sprite para ficar visível junto ao overlay escuro.
     this.tweens.add({
       targets: this.spriteQueda,

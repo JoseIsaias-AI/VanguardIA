@@ -1,4 +1,4 @@
-﻿import caixasDialogo from './caixasDialogo.js';
+﻿import caixaDialogo from './caixasDialogo.js';
 
 //Antes de tudo, criaremos uma função que cobre os requisitos do GDD de matemática, que envolve MU e MUV, e vamos fazer isso usando uma pedra no cenário do jogo
 
@@ -7,17 +7,17 @@
 function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
 
   // Aqui, definimos uma constante do tempo total do movimento, em segundos
-  const T = duration;
+  const tempoTotal = duration;
 
   // Aqui, definimos a aceleração no eixo Y
   const ay = 200;
 
   // Aqui, criamos a velocidade constante no eixo horizontal (MU)
-  const vx = (xf - xi) / T;
+  const vx = (xf - xi) / tempoTotal;
 
   // Aqui, criamos a velocidade variável no eixo vertical (MUV)
   // Aqui, calculamos a velocidade y inicial, usando a fórmula de "Sorvetão", para que a pedra chegue no final no ponto que esperamos
-  const vy0 = ((yf - yi) - 0.5 * ay * T * T) / T;
+  const vy0 = ((yf - yi) - 0.5 * ay * tempoTotal * tempoTotal) / tempoTotal;
 
   // Aqui, criamos uma variável que guarda quanto tempo passou desde o início do movimento
   let elapsed = 0;
@@ -29,7 +29,7 @@ function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
     elapsed += delta / 1000;
 
     // Aqui, garantimos que o tempo da animação nunca ultrapasse o tempo total da equação, ao chegar no tempo total, a animação para
-    const t = Math.min(elapsed, T);
+    const t = Math.min(elapsed, tempoTotal);
 
     //Aqui, calculamos a posição x da pedra, usando s= s0 + v.t
     const x = xi + vx * t;
@@ -51,7 +51,7 @@ function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
     stone.y = y;
 
     // Aqui, verificamos se o tempo de movimento já acabou
-    if (t >= T) {
+    if (t >= tempoTotal) {
 
       // Aqui, paramos a animação se o tempo de movimento estiver acabado
       scene.events.off('update', onUpdate);
@@ -67,7 +67,7 @@ function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
       }
 
       // Aqui, reiniciamos a animação
-      launchStoneProjectile(scene, novaPedra, xi, yi, xf, yf, T);
+      launchStoneProjectile(scene, novaPedra, xi, yi, xf, yf, tempoTotal);
     }
   }
 
@@ -83,21 +83,29 @@ export class faseTres extends Phaser.Scene {
 
   preload() {
     //Aqui, carregamos os arquivos que vamos usar nessa fase
-    this.load.image("parede", "assets/Fases/faseTres/backgroundFase3Escuro.png");
-    this.load.image("pedra", "assets/Objetos/FaseTres/pedrinha.png");
+    this.load.image("parede", "assets/fases/faseTres/backgroundFase3Escuro.png");
+    this.load.image("pedra", "assets/objetos/faseTres/pedrinha.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.image("plataforma", "assets/Objetos/faseTres/Cano 1, Fase 3.png");
-    this.load.image("plataformaMovel", "assets/Objetos/faseTres/Cano 2, Fase 3.png");
-    this.load.image("cristalVerdadeiro", "assets/Objetos/FaseTres/cristalVerdadeiro.png");
-    this.load.image("cristalFalso", "assets/Objetos/FaseTres/cristalFalso.png");
+    this.load.image("plataforma", "assets/objetos/faseTres/cano1Fase3.png");
+    this.load.image("plataformaMovel", "assets/objetos/faseTres/cano2Fase3.png");
+    this.load.image("cristalVerdadeiro", "assets/objetos/faseTres/cristalVerdadeiro.png");
+    this.load.image("cristalFalso", "assets/objetos/faseTres/cristalFalso.png");
 
+    // Carrega o som correto para coleta de cristais
+    this.load.audio("correto", "assets/efeitosSonoros/correto.mp3");
+
+    // Carrega o som errado para coleta de cristais falsos
+    this.load.audio("erro", "assets/efeitosSonoros/erro.mp3");
+
+    // Carrega o som do pulo da Sophia
+    this.load.audio("puloSophia", "assets/efeitosSonoros/puloSophia.mp3");
   }
   create() {
     // Instanciando o sistema de diálogos
-    this.sistemaDialogo = new caixasDialogo(this);
+    this.sistemaDialogo = new caixaDialogo(this);
 
     let gifElemento5 = document.createElement('img');
-        gifElemento5.src = 'assets/TextosCenas/subsoloLab.gif';
+        gifElemento5.src = 'assets/textosCenas/subsoloLab.gif';
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento5.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
         gifElemento5.style.height = '1080px';
@@ -294,6 +302,15 @@ export class faseTres extends Phaser.Scene {
     this.sistemaDialogo.iniciarDialogo(dialogoInicial, () => {
         this.lendoMensagem = false;
     });
+
+    // Cria o som correto para coleta de cristais
+    this.somCorreto = this.sound.add("correto", { volume: 0.8 });
+
+    // Cria o som errado para coleta de cristais falsos
+    this.somErro = this.sound.add("erro", { volume: 0.8 });
+
+    // Cria o som do pulo da Sophia
+    this.somPuloSophia = this.sound.add("puloSophia", { volume: 0.8 });
   }
 
   configurarCameraUI() {
@@ -392,12 +409,16 @@ coletarVerdadeiro(player, cristal) {
   cristal.destroy();
   this.contadorVerdadeiros++;
   this.contadorTotal++;
+  // Toca o som correto ao coletar cristal
+  this.somCorreto.play();
 }
 //Aqui, temos as funções para coletar os cristais falsos
 coletarFalso(player, cristal) {
   cristal.destroy();
   this.contadorFalsos++;
   this.contadorTotal++;
+  // Toca o som errado ao coletar cristal falso
+  this.somErro.play();
 }
 createAnimations() {
 
@@ -479,6 +500,8 @@ update() {
   // Aqui, adicionamos o pulo na fase
   if (Phaser.Input.Keyboard.JustDown(this.keySpace) && (this.player.body.blocked.down || this.player.body.touching.down)) {
     this.player.setVelocityY(-180);
+    // Toca o som do pulo da Sophia
+    this.somPuloSophia.play();
   }
 
   //Aqui, criamos o movimento das plataformas que se moverão na vertical

@@ -20,6 +20,7 @@ export class faseQuatro extends Phaser.Scene {
         this.load.image('textoPerda', 'assets/Fases/FaseQuatro/textoPerda.png');
         this.load.image('textoSucesso', 'assets/Fases/FaseQuatro/sucesso.png');
         this.load.spritesheet('barraCarregamento', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
+        this.load.audio('borracha', 'assets/efeitosSonoros/borracha.m4a');
     }
 
     //---------------------------------------carrega todas as imagens e sprites----------------------------------------
@@ -127,6 +128,9 @@ export class faseQuatro extends Phaser.Scene {
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
 
         // timer que avança camada a cada 1 segundo enquanto o mouse estiver pressionado
+        // Cria o objeto de som da borracha com loop
+        this.somBorracha = this.sound.add('borracha', { volume: 0.8, loop: true });
+
         this.time.addEvent({
             delay: 1000,
             loop: true,
@@ -148,6 +152,8 @@ export class faseQuatro extends Phaser.Scene {
                 return;
             }
             this.limpando = true;
+            // Toca o som da borracha ao começar a apagar
+            this.somBorracha.play();
             this.posMouseAtual = { x: pointer.x, y: pointer.y };
             if (!this.cronometroIniciado) {
                 this.cronometroIniciado = true;
@@ -174,6 +180,8 @@ export class faseQuatro extends Phaser.Scene {
             this.limpando = false;
             this.desenhoAtiva = null;
             this.mapaAtivo = null;
+            // Para o som da borracha ao soltar o clique
+            this.somBorracha.stop();
         });
 
         this.input.on('pointermove', (pointer) => { //a esponja move junto com o ponteiro do mouse

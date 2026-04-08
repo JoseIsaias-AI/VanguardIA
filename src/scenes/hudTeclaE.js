@@ -1,4 +1,4 @@
-export class HudTeclaE {
+export class hudTeclaE {
   constructor(scene, config = {}) {
     this.scene = scene;
 

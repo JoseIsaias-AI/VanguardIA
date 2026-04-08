@@ -7,51 +7,74 @@ export class faseUm extends Phaser.Scene {
 
   preload() {
     //carregamento das imagens e sprites usados durante a fase1
-    this.load.image("fundo", "../assets/fases/faseUm/fundofaseUm.png");
-    this.load.spritesheet("asimov", "../assets/personagens/asimov.png", {
+    this.load.audio('bauAbrindo', 'assets/efeitosSonoros/bauAbrindo.mp3');
+    this.load.image("fundo", "/assets/fases/faseUm/fundofaseUm.png");
+    this.load.spritesheet("asimov", "/assets/personagens/asimov.png", {
+
       frameWidth: 32,
       frameHeight: 32,
     });
-    //this.load.image('pedra', '../assets/objetos/faseUm/obstaculosPedra.png');
+    //this.load.image('pedra', 'assets/objetos/faseUm/obstaculosPedra.png');
     this.load.image(
       "obstaculos",
-      "../assets/Objetos/faseUm/obstaculosfaseUm.png",
+      "assets/objetos/faseUm/obstaculosFaseUm.png",
     );
     this.load.spritesheet(
       "barra",
-      "../assets/objetos/faseUm/barraProgresso.png",
+      "assets/objetos/faseUm/barraProgresso.png",
       { frameWidth: 256, frameHeight: 128 },
     );
-    this.load.spritesheet("bauAnimado", "../assets/objetos/faseUm/bau.png", {
+    this.load.spritesheet("bauAnimado", "assets/objetos/faseUm/bau.png", {
       frameWidth: 128,
       frameHeight: 128,
     });
     this.load.spritesheet(
       "envelope",
-      "../assets/objetos/faseUm/envelopes.png",
+      "assets/objetos/faseUm/envelopes.png",
       { frameWidth: 320, frameHeight: 320 },
     );
-    this.load.spritesheet("pergaminho", "../assets/objetos/faseUm/perga.png", {
+    this.load.spritesheet("pergaminho", "assets/objetos/faseUm/perga.png", {
       frameWidth: 437.5,
       frameHeight: 438,
     });
-    this.load.video("videofaseUm", "../assets/Fases/faseUm/videofaseUm.mp4");
+    this.load.video("videofaseUm", "assets/fases/faseUm/videoFaseUm.mp4");
     this.load.image(
       "caixaDeTextoInicial",
-      "../assets/Fases/faseUm/caixaDeTextoInicial.png",
+      "assets/fases/faseUm/caixaDeTextoInicial.png",
     );
-    this.load.audio("colisao", "assets/colision_sound.wav");
+    this.load.audio("colisao", "assets/colisionSound.wav");
 
+    // Carrega o som do robô batendo
+    this.load.audio("roboBatendo", "assets/efeitosSonoros/roboBatendo.m4a");
+    // Carrega o som do robô andando
+    this.load.audio("roboAndando", "assets/efeitosSonoros/roboAndando.m4a");
+    // Carrega o som do pulo do robô
+    this.load.audio("puloRobo", "assets/efeitosSonoros/puloRobo.m4a");
+    // Carrega o som da carta
+    this.load.audio("carta", "assets/efeitosSonoros/carta.mp3");
     // Carrega a música específica dessa fase
-    this.load.audio("bg-music-fases", "assets/bg-music-fases.mp3");
+    this.load.audio("bg-music-fases", "assets/bgMusicFases.mp3");
   }
 
   create() {
     registrarTeclaMenu(this);
+    this.somBau = this.sound.add('bauAbrindo');
+
+    // Cria o som do robô batendo
+    this.somRoboBatendo = this.sound.add('roboBatendo');
+
+    // Cria o som do robô andando
+    this.somRoboAndando = this.sound.add('roboAndando');
+
+    // Cria o som do pulo do robô
+    this.somPuloRobo = this.sound.add('puloRobo');
+
+    // Cria o som da carta
+    this.somCarta = this.sound.add('carta');
 
     // Inicia a música específica das fases
     this.musicFases = this.sound.add("bg-music-fases");
-    this.musicFases.play({ loop: true });
+    this.musicFases.play({ loop: true , volume: 0.3});
 
     //variáveis ao longo do código vão sendo explicados
     this.progressoHistoria = 0;
@@ -324,7 +347,7 @@ export class faseUm extends Phaser.Scene {
           .setDepth(103);
         video.play();
         let gifElemento8 = document.createElement('img');
-        gifElemento8.src = 'assets/TextosCenas/aprendizado.gif';
+        gifElemento8.src = 'assets/textosCenas/aprendizado.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento8.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -344,7 +367,7 @@ export class faseUm extends Phaser.Scene {
             }
         });
         video.on("complete", () => {
-          this.scene.start("transicao1para2");
+          this.scene.start("transicao1Para2");
         });
       }
       return;
@@ -389,6 +412,8 @@ export class faseUm extends Phaser.Scene {
       }
       this.asimov.setVelocityY(0); //velocidade Y é sempre 0
       if (Phaser.Input.Keyboard.JustDown(this.keySpace)) {
+        // Toca o som de ânimo do robô pulando (invertido)
+        this.somRoboAndando.play();
         //movimento de subida do pulo com o aperto do SPACE
         this.pulando = true;
         this.asimov.setVelocity(350, -280); //personagem movimenta 280px para frente e 280 para cima
@@ -412,6 +437,8 @@ export class faseUm extends Phaser.Scene {
       (Phaser.Input.Keyboard.JustDown(this.cursors.up) ||
         Phaser.Input.Keyboard.JustDown(this.keys.W))
     ) {
+      // Toca o som de pulo do robô (invertido)
+      this.somPuloRobo.play();
       //caso o jogador não esteja pulando e apertar seta para cima ou W
       if (this.faixaAtual === 2) {
         this.faixaAtual = 1;
@@ -428,6 +455,8 @@ export class faseUm extends Phaser.Scene {
       (Phaser.Input.Keyboard.JustDown(this.cursors.down) ||
         Phaser.Input.Keyboard.JustDown(this.keys.S))
     ) {
+      // Toca o som de pulo do robô (invertido)
+      this.somPuloRobo.play();
       //caso o jogador não esteja pulando e apertar seta para baixo ou S
       if (this.faixaAtual === 0) {
         this.faixaAtual = 1;
@@ -540,6 +569,9 @@ export class faseUm extends Phaser.Scene {
   baterObstaculos(asimov, obstacle) {
     if (this.finalizarJogo) return; //se estiver true, então sai dessa condição
 
+    // Toca o som do robô batendo
+    this.somRoboBatendo.play();
+
     this.finalizarJogo = true;
     const { width } = this.sys.game.config;
 
@@ -575,6 +607,10 @@ export class faseUm extends Phaser.Scene {
   //função para quando abrir o bau
   abrirBau() {
     const { width, height } = this.sys.game.config; //recebe altura e largura das configs
+    if (this.somBau) {
+      this.somBau.play(); //toca som de baú abrindo
+    }
+
     this.tweens.add({
       //animação do retangulo preto para escurecer a tela
       targets: this.overlay,
@@ -604,6 +640,8 @@ export class faseUm extends Phaser.Scene {
 
   //função para animação de quando abrie envelope
   clicarEnvelope() {
+    // Toca o som da carta a cada clique
+    this.somCarta.play();
     this.cliquesEnvelope++;
     const { width, height } = this.sys.game.config;
     const escalaAtual = this.envelope.scale;

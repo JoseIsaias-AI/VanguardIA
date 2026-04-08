@@ -15,20 +15,23 @@ export class welcomeScene extends Phaser.Scene {
     // Tudo que será usado na cena deve ser carregado aqui antes do create()
 
     // Imagem de fundo do menu
-    this.load.image("cenario", "assets/Menu/fundo_menu.png");
+    this.load.image("cenario", "assets/menu/fundoMenu.png");
 
     // Botões
-    this.load.image("play", "assets/Menu/start_button.png");
-    this.load.image("options", "assets/Menu/options_button.png");
+    this.load.image("play", "assets/menu/startButton.png");
+    this.load.image("options", "assets/menu/optionsButton.png");
 
     // Logo
-    this.load.image("logo", "assets/Menu/logo.png");
+    this.load.image("logo", "assets/menu/logo.png");
 
     // Spritesheet do personagem
-    this.load.spritesheet("asimov", "assets/Personagens/asimov.png", {
+    this.load.spritesheet("asimov", "assets/personagens/asimov.png", {
       frameWidth: 32,   // largura de cada frame
       frameHeight: 32,  // altura de cada frame
     });
+
+    // Carrega o som de início do jogo
+    this.load.audio("somInicio", "assets/efeitosSonoros/somIniciar.m4a");
   }
 
   create() {
@@ -121,12 +124,16 @@ export class welcomeScene extends Phaser.Scene {
     });
 
     this.play.on("pointerdown", () => {
+      // Toca o som de início do jogo
+      this.somInicio.play();
       // Troca para a cena inicial do jogo
       this.scene.start("sceneInicial");
     });
 
     // === EVENTOS DO BOTÃO OPTIONS ===
     this.options.on("pointerdown", () => {
+      // Toca o som de início do jogo
+      this.somInicio.play();
       // Abre menu de opções sem fechar a cena atual
       this.scene.launch("menu", { origem: this.scene.key });
     });
@@ -138,6 +145,9 @@ export class welcomeScene extends Phaser.Scene {
     this.options.on("pointerout", () => {
       this.input.setDefaultCursor("default");
     });
+
+    // Cria o som de início do jogo
+    this.somInicio = this.sound.add("somInicio");
 
     // Inicia cena separada responsável pela música de fundo
     this.scene.launch("bgMusic");

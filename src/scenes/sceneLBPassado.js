@@ -1,42 +1,42 @@
 import { registrarTeclaMenu } from '../menu.js';
-import { SnowEffect } from './efeitoNeve.js';
-import caixasDialogo from './caixasDialogo.js';
-import { registrarControles, movimentacaoSophia, puloSophia, criarAnimacaoSophia } from '../scenes/movimentacao.js';
+import { snowEffect } from './efeitoNeve.js';
+import caixaDialogo from './caixasDialogo.js';
+import { registrarControles, movimentacaoSophia, puloSophia, criarAnimacaoSophia } from './movimentacao.js';
 
-export class sceneLBPassado extends Phaser.Scene {
+export class sceneLbPassado extends Phaser.Scene {
   constructor() {
-    super("sceneLBPassado");
+    super("sceneLbPassado");
   } 
 
   //aqui são carregados as imagens e sprites de dentro da cena
   preload() {
-    this.load.image("labB", "assets/fases/sceneLBPassado/labBranco.png");
-    this.load.image("camara", "assets/objetos/sceneLBPassado/partOne/camara.png");
+    this.load.image("labB", "assets/fases/sceneLbPassado/labBranco.png");
+    this.load.image("camara", "assets/objetos/sceneLbPassado/partOne/camara.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.spritesheet("watson", "assets/personagens/watson.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.image("armario", "assets/objetos/sceneLBPassado/partOne/armario.png");
-    this.load.image("alvo", "assets/objetos/sceneLBPassado/partOne/alvo.png");
-    this.load.image("criogenia", "assets/objetos/sceneLBPassado/partOne/criogenia.png");
-    this.load.image("mesa1", "assets/objetos/sceneLBPassado/partOne/mesa1.png");
-    this.load.image("mesa2", "assets/objetos/sceneLBPassado/partOne/mesa2.png");
-    this.load.image("mesa3", "assets/objetos/sceneLBPassado/partOne/mesa3.png");
-    this.load.image("pia1", "assets/objetos/sceneLBPassado/partOne/pia1.png");
-    this.load.image("reservasCrio", "assets/objetos/sceneLBPassado/partOne/reservasCrio.png");
-    this.load.image("comptBaixo", "assets/objetos/sceneLBPassado/partOne/comptBaixo.png");
-    this.load.image("comptCima", "assets/objetos/sceneLBPassado/partOne/comptCima.png");
-    this.load.spritesheet("npc1", "assets/Personagens/npc1.png", { frameWidth: 30, frameHeight: 50 });
-    this.load.spritesheet("npc2", "assets/Personagens/npc2.png", { frameWidth: 25, frameHeight: 48 });
-    this.load.spritesheet("npc3", "assets/Personagens/npc3.png", { frameWidth: 29, frameHeight: 49 });
-    this.load.image("npc4", "assets/Personagens/npc4.png");
-    this.load.image("npc4", "assets/Personagens/npc4.png");
-
+    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
+    this.load.image("armario", "assets/objetos/sceneLbPassado/partOne/armario.png");
+    this.load.image("alvo", "assets/objetos/sceneLbPassado/partOne/alvo.png");
+    this.load.image("criogenia", "assets/objetos/sceneLbPassado/partOne/criogenia.png");
+    this.load.image("mesa1", "assets/objetos/sceneLbPassado/partOne/mesa1.png");
+    this.load.image("mesa2", "assets/objetos/sceneLbPassado/partOne/mesa2.png");
+    this.load.image("mesa3", "assets/objetos/sceneLbPassado/partOne/mesa3.png");
+    this.load.image("pia1", "assets/objetos/sceneLbPassado/partOne/pia1.png");
+    this.load.image("reservasCrio", "assets/objetos/sceneLbPassado/partOne/reservasCrio.png");
+    this.load.image("comptBaixo", "assets/objetos/sceneLbPassado/partOne/comptBaixo.png");
+    this.load.image("comptCima", "assets/objetos/sceneLbPassado/partOne/comptCima.png");
+    this.load.spritesheet("npc1", "assets/personagens/npc1.png", { frameWidth: 30, frameHeight: 50 });
+    this.load.spritesheet("npc2", "assets/personagens/npc2.png", { frameWidth: 25, frameHeight: 48 });
+    this.load.spritesheet("npc3", "assets/personagens/npc3.png", { frameWidth: 29, frameHeight: 49 });
+    this.load.image("npc4", "assets/personagens/npc4.png");
+    this.load.image("npc4", "assets/personagens/npc4.png");
   }
 
   //neste método do Phaser, organizamos a criação de cada objeto que ja foi carregado e como eles irão se comportar na cena
   create() {
-    this.sistemaDialogo = new caixasDialogo(this);
+    this.sistemaDialogo = new caixaDialogo(this);
     let gifElemento = document.createElement('img');
-    gifElemento.src = 'assets/TextosCenas/Laboratorio202.gif';
+    gifElemento.src = 'assets/textosCenas/laboratorio202.gif';
 
     // Forçando estilos CSS para garantir que ele apareça
     gifElemento.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -81,7 +81,7 @@ export class sceneLBPassado extends Phaser.Scene {
     criarAnimacaoSophia(this);
 
     //Aqui, configuramos a câmera, para seguir o personagem
-    this.cameras.main.startFollow(this.Principal);
+    this.cameras.main.startFollow(this.principal);
     this.cameras.main.setZoom(1.2);
 
     this.exibirAviso("Pressione a tecla M para acessar o menu.");
@@ -90,7 +90,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.configurarCameraUI();
 
     let gifElement = document.createElement('img');
-    gifElement.src = 'assets/TextosCenas/textoLaboratorio2022.gif';
+    gifElement.src = 'assets/textosCenas/textoLaboratorio2022.gif';
     // Adiciona esse elemento ao Phaser na posição x: 400, y: 300
     let domElement = this.add.dom(400, 300, gifElement);
     // Opcional: ajustar a origem e outras propriedades visuais
@@ -110,7 +110,7 @@ export class sceneLBPassado extends Phaser.Scene {
   //Aqui, criamos o mapa e o efeito de neve que fica atrás do fundo
   createMapa() {
     this.mapa = this.add.image(600, 400, "labB").setScale(this.scaleMapa).setDepth(-1);
-    this.snow = new SnowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
+    this.snow = new snowEffect(this, { count: 150, depth: -2, speed: 0.4, wind: 0.1 });
   }
 
   //Aqui, criamos o grupo de colisão para as paredes
@@ -183,14 +183,14 @@ export class sceneLBPassado extends Phaser.Scene {
 
   //Aqui, criamos a personagem principal na fase
   createPlayer() {
-    this.Principal = this.physics.add.sprite(400, 300, "sophia").setScale(2).setCollideWorldBounds(true);
-    this.Principal.body.setAllowGravity(false);
-    this.Principal.setSize(30, 25);
-    this.Principal.setOffset(15, 30);
+    this.principal = this.physics.add.sprite(400, 300, "sophia").setScale(2).setCollideWorldBounds(true);
+    this.principal.body.setAllowGravity(false);
+    this.principal.setSize(30, 25);
+    this.principal.setOffset(15, 30);
     //Aqui, criamos a colisão dos itens com o personagem principal
-    this.physics.add.collider(this.Principal, this.camara);
-    this.physics.add.collider(this.Principal, this.paredes);
-    this.physics.add.collider(this.Principal, this.objetosColisao);
+    this.physics.add.collider(this.principal, this.camara);
+    this.physics.add.collider(this.principal, this.paredes);
+    this.physics.add.collider(this.principal, this.objetosColisao);
   }
 
   // Aqui, criamos os NPCs decorativos
@@ -208,7 +208,7 @@ export class sceneLBPassado extends Phaser.Scene {
   npc.body.setAllowGravity(false);
   npc.setImmovable(true);
 
-  this.physics.add.collider(this.Principal, npc);
+  this.physics.add.collider(this.principal, npc);
 
   return npc;
 }
@@ -233,13 +233,14 @@ export class sceneLBPassado extends Phaser.Scene {
   this.watson.body.setAllowGravity(false);
   this.watson.setSize(30, 25);
   this.watson.setOffset(15, 30);
-  this.physics.add.collider(this.Principal, this.watson);
+  this.physics.add.collider(this.principal, this.watson);
   //Aqui, criamos a animação do Watson
   this.watson.play("watson_front");
 }
 
   //Aqui, criamos o HUD da tecla E para a câmara
   createHUD(){
+    
     //Aqui, criamos o contâiner da tecla E
     this.containerTecla = this.add.container(0, 0).setDepth(500);
     let largura = 140;
@@ -270,6 +271,8 @@ export class sceneLBPassado extends Phaser.Scene {
     let letraWatson = this.add.text(0, 0, "Aperte E", { fontSize: "20px", color: "#000000", fontStyle: "bold" }).setOrigin(0.5);
     this.containerTeclaWatson.add([iconeTeclaWatson, letraWatson]);
     this.containerTeclaWatson.setVisible(false);
+    //Aqui, criamos o som pop
+    this.somPop = this.sound.add("pop", { volume: 0.8 });
     this.tweens.add({ targets: this.containerTeclaWatson, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
     
@@ -291,7 +294,7 @@ export class sceneLBPassado extends Phaser.Scene {
     // Elementos que pertencem ao MUNDO (sofrem zoom) - A UI ignora isso
     let objetosDoMundo = [
         this.mapa,
-        this.Principal,
+        this.principal,
         this.watson,
         this.npc1, this.npc2, this.npc3, this.npc4,
         this.camara,
@@ -328,8 +331,8 @@ export class sceneLBPassado extends Phaser.Scene {
    estaEmDialogo() {
     if (!this.lendoMensagem) return false;
 
-    this.Principal.setVelocity(0, 0);
-    this.Principal.anims.stop();
+    this.principal.setVelocity(0, 0);
+    this.principal.anims.stop();
 
     if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
      this.sistemaDialogo.interagir();
@@ -340,19 +343,19 @@ export class sceneLBPassado extends Phaser.Scene {
   
   //Aqui, configuramos o movimento do personagem
   atualizarMovimento() {
-   movimentacaoSophia(this, this.Principal, {
+   movimentacaoSophia(this, this.principal, {
     left: "sophia_esquerda",
     right: "sophia_direita",
     front: "sophia_frente",
     back: "sophia_tras"
    });
 
-  puloSophia(this, this.Principal);
+  puloSophia(this, this.principal);
 }
 //Aqui, atualizamos a organização visual do nosso código
 atualizarDepth() {
   const objetos = [
-    this.Principal,
+    this.principal,
     this.watson,
     this.npc1,
     this.npc2,
@@ -373,8 +376,8 @@ atualizarInteracoes() {
 //Aqui, verificamos a interação com a câmara
 verificarInteracaoCamara() {
   const distancia = Phaser.Math.Distance.Between(
-    this.Principal.x,
-    this.Principal.y,
+    this.principal.x,
+    this.principal.y,
     this.camara.x,
     this.camara.y
   );
@@ -392,8 +395,8 @@ verificarInteracaoCamara() {
 //Aqui, verificamos a interação com o Watson
 verificarInteracaoWatson() {
   const distancia = Phaser.Math.Distance.Between(
-    this.Principal.x,
-    this.Principal.y,
+    this.principal.x,
+    this.principal.y,
     this.watson.x,
     this.watson.y
   );
@@ -423,6 +426,8 @@ executarInteracoes() {
 
 //Aqui, executamos as interações com a câmara
 interagirCamara() {
+  //Aqui, tocamos o som pop quando interagir com a câmera
+  this.somPop.play();
   this.containerTecla.setVisible(false);
   this.lendoMensagem = true;
 
@@ -435,13 +440,15 @@ interagirCamara() {
     this.cameras.main.fadeOut(1000);
 
     this.cameras.main.once("camerafadeoutcomplete", () => {
-      this.scene.start("sceneLBFuturo");
+      this.scene.start("sceneLbFuturo");
     });
   });
 }
 
 //Aqui, executamos as interações com o Watson
 interagirWatson() {
+  //Aqui, tocamos o som pop quando interagir com o Watson
+  this.somPop.play();
   this.containerTeclaWatson.setVisible(false);
   this.lendoMensagem = true;
 
