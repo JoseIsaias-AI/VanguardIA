@@ -606,7 +606,7 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 --- | --- | --- | --- | --- 
 1 | baú | <img src="../assets/Objetos/bau.png"> | estão em algumas fases do jogo | guardam recompensas e informações 
 2 | envelope | <img src="../assets/Objetos/faseUm/envelopes.png"> | estará no primeiro baú | dá informações que serão utiliazadas em uma fase futura
-3 | pergaminho | <img src = '../assets/Objetis/faseUm/pergaminho.png'> | estará no primeiro baú | dá informações sobre a história do jogo
+3 | pergaminho | <img src = "../assets/Objetos/faseUm/pergaminho3.png"> | estará no primeiro baú | dá informações sobre a história do jogo 
 
 ### 3.4.2. Bestiário
 
