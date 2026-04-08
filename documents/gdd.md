@@ -435,32 +435,32 @@ Dessa forma, o jogo promove representatividade de gênero, acadêmica e profissi
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
 <div align = "justify">
-O jogo se passa em um laboratório de pesquisa em Inteligência Artificial e robótica. No início da narrativa, em 2022, o ambiente é apresentado como um espaço moderno, organizado e equipado com tecnologias avançadas, transmitindo a sensação de progresso científico e inovação. Após o salto temporal para 2098, quando Sophia desperta da criogenia, o jogador encontra o mesmo laboratório em estado de abandono, com estruturas danificadas, equipamentos quebrados e um ambiente escuro e silencioso, reforçando as consequências do uso indevido da tecnologia ao longo das décadas.
 
-Entre os principais ambientes explorados está a área de sucatas, um setor do laboratório onde foram acumulados equipamentos danificados, peças de robôs e restos de experimentos antigos. Esse espaço funciona como uma área inicial de exploração, onde Sophia controla Asimov para navegar entre os destroços e encontrar pistas sobre a localização do cristal necessário para restaurar os sistemas do laboratório.
+O jogo tem cinco diferentes cenários e, entre eles, dois deles tem variações. A narrativa se inicia em um laboratório com diversos cientistas, prontos para iniciar o projeto que desenvolveram; esse ambiente é apresentado como um espaço moderno, organizado e com diversos equipamentos tecnológicos, transmitindo a sensação de progresso científico e inovação.
 
-Após essa etapa, Sophia e Asimov chegam à sala de arquivos, um ambiente onde estão armazenados registros e materiais de antigos experimentos científicos. Nesse local existe um baú contendo folhetos e imagens de diferentes tipos de cristais. Entre esses registros estão tanto imagens do cristal verdadeiro azul, brilhante e pontiagudo; quanto cristais falsos, vermelhos e com imperfeições estruturais.
+**imagem do lab normal
 
-Em seguida, o jogador acessa a sala da esteira, onde ocorre a fase de classificação. Nesse ambiente, as imagens dos cristais são analisadas e separadas utilizando os comandos de guardar ou incinerar. Após a seleção correta das amostras, os cristais verdadeiros são enviados para um extrator de características, que gera a matriz de dados utilizada para o treinamento do sistema de Asimov.
+O cenário seguinte muda após um salto temporal, quando Sophia desperta da criogenia, o jogador encontra o mesmo laboratório, entretanto, com suas estruturas danificadas, equipamentos quebrados e um ambiente escuro para transmitir ao jogador a ideia de que algo ruim ocorreu naquele ambiente.
 
-Por fim, o jogo apresenta a sala principal de controle do laboratório, onde se encontra o núcleo do mapa energético da instalação. Nesse local, Sophia deposita o cristal sintetizado no centro do sistema, restaurando a energia do laboratório e reativando seus principais sistemas, marcando um momento importante na reconstrução da tecnologia e no avanço da narrativa.
+**imagem do lab destruido
+
+O segundo cenário apresentado é um corredor onde há vários equipamentos danificados acumulados ao ponto de serem obstáculos ao jogador, esse ambiente foi construído para que o robô, Asimov, navegue entre os destroços para aprender sobre os padrões de movimentação que deve ter e coletar pistas sobre a localização do cristal necessário para restaurar os sistemas do laboratório.
+
+*imagem do corredor
+
+Em seguida, Asimov volta para o laboratório destruído e depois leva Sophia para a sala das portas, onde deve ser localizada a sala em que está o baú com imagens de diferentes tipos de cristais, esse cenário é uma sala escura para instigar a exploração e como recurso para o fundamento apresentado nesta fase.
+
+**imagem da sala das portas
+
+Após essa etapa, o jogador é levado à uma sala com diversos equipamentos ao fundo e plataformas pra que ele possa subir até outro mapa e coletar as imagens dos cristais corretos.
+
+**imagem da sala horizontal
+
+Por fim, é apresentada no jogo a sala principal de controle do laboratório, onde se encontra o núcleo energético que o jogador deve inserir o cristal para reativar os sistemas, marcando um momento importante na reconstrução da tecnologia e no avanço da narrativa.
+
+**imagens da sala do cristal
 </div>
 
-<div align = "center">
-<sup>Figura 5: Mapa do laboratório inicial.</sup><br>
-<img src="../assets/Fases/sceneTwo/labCristalClaro2.png"><br>
-<sub>Fonte: Autoria própria (2026). </sub><br>
-</div>
-
-<div align = "justify">
-Mais tarde, o jogador retorna ao mesmo laboratório, mas no futuro, encontrando o lugar abandonado, escuro e deteriorado, com máquinas quebradas e um clima mais pesado e silencioso, criando uma sensação de estranheza e suspense ao mostrar como tudo mudou com o tempo. 
-</div>
-
-<div align = "center">
-<sup>Figura 6: Mapa do laboratório no futuro.</sup><br>
-<img src="../assets/Fases/sceneTwo/labCristalEscuro2.png"><br>
-<sub>Fonte: Autoria própria (2026). </sub><br>
-</div>
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
@@ -541,6 +541,15 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 </div>
 
 ### 3.3.5. Trilha sonora (sprint 4)
+
+
+*Descreva a trilha sonora do jogo, indicando quais músicas serão utilizadas no mundo e nas fases. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.*
+
+\# | Título | Ocorrência | Autoria
+--- | --- | --- | ---
+1 | 
+
+
 
 Trilha sonora 1
 
