@@ -859,11 +859,11 @@ No decorrer do desenvolvimento da segunda sprint, ocorreram alterações estéti
 <div align = "center">
 
 <sup>Figura 18: Imagem do Laboratório de Cristal ao começo do jogo.</sup><br>
-<img src="../assets/Fases/sceneTwo/labCristalEscuro2.png" width = '70%' ><br>
+<img src="../assets/Fases/sceneLabCristal/labCristal1.jpeg" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 <sup>Figura 19: Imagem do Laboratório de Cristal ao fim do jogo.</sup><br>
-<img src="../assets/Fases/sceneTwo/labCristalClaro2.png" width = '70%' ><br>
+<img src="../assets/Fases/sceneLabCristal/labCristal2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div>
