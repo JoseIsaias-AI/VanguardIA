@@ -29,6 +29,7 @@ export class sceneLBPassado extends Phaser.Scene {
     this.load.spritesheet("npc3", "assets/Personagens/npc3.png", { frameWidth: 29, frameHeight: 49 });
     this.load.image("npc4", "assets/Personagens/npc4.png");
     this.load.image("npc4", "assets/Personagens/npc4.png");
+    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
 
   }
 
@@ -240,6 +241,7 @@ export class sceneLBPassado extends Phaser.Scene {
 
   //Aqui, criamos o HUD da tecla E para a câmara
   createHUD(){
+    
     //Aqui, criamos o contâiner da tecla E
     this.containerTecla = this.add.container(0, 0).setDepth(500);
     let largura = 140;
@@ -270,6 +272,8 @@ export class sceneLBPassado extends Phaser.Scene {
     let letraWatson = this.add.text(0, 0, "Aperte E", { fontSize: "20px", color: "#000000", fontStyle: "bold" }).setOrigin(0.5);
     this.containerTeclaWatson.add([iconeTeclaWatson, letraWatson]);
     this.containerTeclaWatson.setVisible(false);
+    //Aqui, criamos o som pop
+    this.somPop = this.sound.add("pop", { volume: 0.8 });
     this.tweens.add({ targets: this.containerTeclaWatson, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
     
@@ -423,6 +427,8 @@ executarInteracoes() {
 
 //Aqui, executamos as interações com a câmara
 interagirCamara() {
+  //Aqui, tocamos o som pop quando interagir com a câmera
+  this.somPop.play();
   this.containerTecla.setVisible(false);
   this.lendoMensagem = true;
 
@@ -442,6 +448,8 @@ interagirCamara() {
 
 //Aqui, executamos as interações com o Watson
 interagirWatson() {
+  //Aqui, tocamos o som pop quando interagir com o Watson
+  this.somPop.play();
   this.containerTeclaWatson.setVisible(false);
   this.lendoMensagem = true;
 

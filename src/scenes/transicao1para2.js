@@ -36,10 +36,17 @@ export class transicao1para2 extends Phaser.Scene {
         this.load.image("comptBaixoD",   "assets/objetos/sceneLBPassado/partTwo/comptBaixoDestruido.png");
         this.load.image("criogeniaD",    "assets/objetos/sceneLBPassado/partTwo/criogeniaDestruida.png");
         this.load.image("camara",        "assets/objetos/sceneLBPassado/partOne/camara.png");
+
+        // Som de vitoria
+        this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
     }
 
     create() {
         registrarTeclaMenu(this);
+
+        this.somVitoria = this.sound.add("vitoriaSom", { volume: 0.9 });
+        this.somVitoria.play();
+
         
         // Instancia o Gerenciador de Diálogos
         this.sistemaDialogo = new caixasDialogo(this);
@@ -241,3 +248,4 @@ export class transicao1para2 extends Phaser.Scene {
         this.playAnimIfNeeded(this.asimov, `asimov-walk-${this.asimovFacing}`);
     }
 }
+

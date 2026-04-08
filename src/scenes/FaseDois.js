@@ -36,6 +36,18 @@ export class FaseDois extends Phaser.Scene {
       frameHeight: 128,
     });
     this.load.audio('bg-music-fases', 'assets/bg-music-fases.mp3');
+
+    // Carrega o som pop
+    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
+
+    // Carrega o som popNos
+    this.load.audio("popNos", "assets/efeitosSonoros/popNos.mp3");
+
+    // Carrega o som alavanca
+    this.load.audio("alavanca", "assets/efeitosSonoros/alavanca.mp3");
+
+    // Carrega o som de vitoria
+    this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
   }
 
   create() {
@@ -283,6 +295,18 @@ export class FaseDois extends Phaser.Scene {
       this.anims.create({ key: "sophia-front", frames: this.anims.generateFrameNumbers("sophia", { start: 0,  end: 7  }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "sophia-back",  frames: this.anims.generateFrameNumbers("sophia", { start: 8,  end: 15 }), frameRate: 10, repeat: -1 });
     }
+
+    // Cria o som pop
+    this.somPop = this.sound.add("pop", { volume: 0.8 });
+
+    // Cria o som popNos
+    this.somPopNos = this.sound.add("popNos", { volume: 0.8 });
+
+    // Cria o som alavanca
+    this.somAlavanca = this.sound.add("alavanca", { volume: 0.8 });
+
+    // Cria o som de vitoria
+    this.somVitoria = this.sound.add("vitoriaSom", { volume: 0.9 });
   }
 
   _ajustarTextoDialogo(textoCompleto) {
@@ -426,6 +450,8 @@ export class FaseDois extends Phaser.Scene {
       }
 
       if (this.podeInteragirAsimov && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+        // Toca o som pop ao interagir com o Asimov
+        this.somPop.play();
         this.dialogoAsimovJaIniciado = true;
         this.containerTeclaAsimov.setVisible(false);
         this._iniciarDialogoAsimov();
@@ -557,7 +583,7 @@ export class FaseDois extends Phaser.Scene {
       this.game.sound.get('bgMusic').stop();
     }
     this.musicFases = this.sound.add('bg-music-fases');
-    this.musicFases.play({ loop: true });
+    this.musicFases.play({ loop: true, volume: 0.3 });
 
     const cameraWidth = this.cameras.main.width;
     const cameraHeight = this.cameras.main.height;
@@ -676,6 +702,8 @@ export class FaseDois extends Phaser.Scene {
       // A folga extra no raio deixa o encaixe mais amigavel para o jogador.
       if (!zona.ativo && dist <= zona.raio + 26) {
         bin.encaixado = true;
+        // Toca o som popNos ao encaixar o binário
+        this.somPopNos.play();
         zona.ativo    = true;
         this.mgEntradaAtivadas++;
 
@@ -811,6 +839,8 @@ export class FaseDois extends Phaser.Scene {
         zona.once("pointerdown", () => {
           // once() garante que cada neuronio so conte uma unica vez.
           if (zona.ativado || indiceAtual !== this.mgIndiceDensoAtual) return;
+          // Toca o som popNos ao clicar no neurônio
+          this.somPopNos.play();
           zona.ativado = true;
           this.mgDensaAtivados++;
           this.mgRede.setFrame(this._mg_framePorNeuronioDenso(indiceAtual));
@@ -952,6 +982,9 @@ export class FaseDois extends Phaser.Scene {
 
     // O clique dispara a animacao da valvula frame a frame.
     this.mgValvula.once("pointerdown", () => {
+      // Toca o som da alavanca
+      this.somAlavanca.play();
+
       if (this.tweenValvulaTexto) this.tweenValvulaTexto.stop();
       this.mgTextoValvula.setAlpha(0.6).setText("Girando…");
 
@@ -1235,6 +1268,7 @@ export class FaseDois extends Phaser.Scene {
 
   _transicao_para_chaocaindo() {
     // Faz o fechamento cinematografico da fase antes de trocar de cena.
+    if (this.somVitoria) this.somVitoria.play();
     const overlay = this.add.rectangle(0, 0, 1920, 1080, 0x000000, 0)
       .setOrigin(0, 0)
       .setDepth(5000)
@@ -1269,3 +1303,4 @@ export class FaseDois extends Phaser.Scene {
     });
   }
 }
+

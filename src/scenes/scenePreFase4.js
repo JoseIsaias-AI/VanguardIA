@@ -22,6 +22,12 @@ export class scenePreFase4 extends Phaser.Scene {
     this.load.image("doc1", "assets/Fases/preFase4/doc1.png");
     this.load.image("doc2", "assets/Fases/preFase4/doc2.png");
     this.load.image("doc3", "assets/Fases/preFase4/doc3.png");
+
+    // Carrega os sons para interações
+    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
+    this.load.audio("impressora", "assets/efeitosSonoros/impressora.m4a");
+    this.load.audio("carta", "assets/efeitosSonoros/carta.mp3");
+    this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
   }
 
     // -------------------------------- aqui são criadas as imagens carregadas, as animações, variáveis de uso --------------------------------
@@ -29,6 +35,9 @@ export class scenePreFase4 extends Phaser.Scene {
     registrarTeclaMenu(this);
     this.scene.launch("bgMusic");
     this.cameras.main.fadeIn(800, 0, 0, 0);
+
+    this.somVitoria = this.sound.add("vitoriaSom", { volume: 0.9 });
+    this.somVitoria.play();
 
     let gifElemento6 = document.createElement('img');
         gifElemento6.src = 'assets/TextosCenas/hubCristal.gif';
@@ -145,6 +154,11 @@ export class scenePreFase4 extends Phaser.Scene {
         this.sistemaDialogo.labelNome,
         this.sistemaDialogo.indicadorTeclaE.container
     ]);
+
+    // Cria os objetos de som
+    this.somPop = this.sound.add("pop", { volume: 0.8 });
+    this.somImpressora = this.sound.add("impressora", { volume: 0.8 });
+    this.somCarta = this.sound.add("carta", { volume: 0.8 });
   }
   
   // ----------------aqui é atualizado a todo o momento a física, o sistema de colisão, a interação, o movimento do personagem --------------------------------
@@ -172,6 +186,9 @@ export class scenePreFase4 extends Phaser.Scene {
     //quando estiver lendo o documento sobre IA generativa, este IF vai se encaminhar de resolver seu desencadeamento 
     if (this.emCutscene) {
       if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+        // Toca o som carta ao passar os documentos
+        this.somCarta.play();
+
         this.cutsceneIndex++;
         if (this.cutsceneIndex < this.sequenciaCutscene.length) {
           this.imgCutscene.setTexture(this.sequenciaCutscene[this.cutsceneIndex]);
@@ -211,6 +228,9 @@ export class scenePreFase4 extends Phaser.Scene {
 
     //quando o jogador está perto do Asimov e aperto a tecla E - DEFINIÇÃO DE ESTADO DAS VARIÁVEIS
     if (this.podeInteragirAsimov && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+      // Toca o som pop ao interagir com Asimov
+      this.somPop.play();
+
       this.containerTeclaAsimov.setVisible(false);
       this.tweens.killTweensOf(this.containerTeclaAsimov); //remove o balão de interação
       this.podeInteragirAsimov = false;
@@ -229,6 +249,8 @@ export class scenePreFase4 extends Phaser.Scene {
          this.lendoMensagem = false;
 
          //Quando acabam as falas, encerra a conversa e toca a animação dos objetos no laboratório
+         // Toca o som da impressora durante a animação
+         this.somImpressora.play();
          this.objetosLab1.play("objetosLab1_anim");
 
          //Prepara a próxima interação: Assim que a animação da bancada termina, mostra o aviso na tela para o jogador
@@ -321,3 +343,4 @@ export class scenePreFase4 extends Phaser.Scene {
   }
 }
 //---------------------------------------------------------------------------------------------------------
+

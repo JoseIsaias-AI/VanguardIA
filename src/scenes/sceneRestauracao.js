@@ -17,12 +17,20 @@ export class sceneRestauracao extends Phaser.Scene {
     this.load.image("colisao", "assets/Fases/preFase4/mascaraPrefase4.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
+
+    // Carrega os sons para interações
+    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
+    this.load.audio("luzSom", "assets/efeitosSonoros/luzSom.mp3");
+    this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
   }
 
   create() {
     registrarTeclaMenu(this);
     this.scene.launch("bgMusic");
     this.cameras.main.fadeIn(800, 0, 0, 0);
+
+    this.somVitoria = this.sound.add("vitoriaSom", { volume: 0.9 });
+    this.somVitoria.play();
 
     let gifElemento7 = document.createElement('img');
         gifElemento7.src = 'assets/TextosCenas/retornoHUB.gif';
@@ -135,6 +143,10 @@ export class sceneRestauracao extends Phaser.Scene {
         this.sistemaDialogo.labelNome,
         this.sistemaDialogo.indicadorTeclaE.container
     ]);
+
+    // Cria os objetos de som
+    this.somPop = this.sound.add("pop", { volume: 0.8 });
+    this.somLuzSom = this.sound.add("luzSom", { volume: 0.8 });
   }
 
   colidiuComVerde(xMundo, yMundo) {
@@ -190,6 +202,9 @@ export class sceneRestauracao extends Phaser.Scene {
     }
 
     if (this.podeInteragir && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+      // Toca o som pop ao interagir com Asimov
+      this.somPop.play();
+
       if (!this.interagiu) {
         this.interagiu = true;
         this.temCristal = true;
@@ -211,6 +226,9 @@ export class sceneRestauracao extends Phaser.Scene {
 
   restaurarMundo() {
     this.mapaRestaurado = true;
+    // Toca o som da luz ao restaurar o mundo
+    this.somLuzSom.play();
+
     this.cameras.main.flash(1000, 255, 255, 255);
 
     this.background.setTexture("cenarioClaro").setScale(1.85);
@@ -224,3 +242,4 @@ export class sceneRestauracao extends Phaser.Scene {
     });
   }
 }
+

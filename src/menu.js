@@ -24,6 +24,9 @@ export class menu extends Phaser.Scene {
     this.load.image("controleBtn", "assets/Menu/controle.png");
     this.load.image("voltarBtn", "assets/Menu/voltar.png");
     this.load.image("sairBotao", "assets/Menu/sair.png");
+
+    // Carrega o som de iniciar menu
+    this.load.audio("somIniciar", "assets/efeitosSonoros/somIniciar.m4a");
   }
 
   //aqui são criadas todas as imagens que vão aparecer na tela e todas as suas configurações
@@ -70,6 +73,8 @@ export class menu extends Phaser.Scene {
       .setInteractive();
 
     this.controle.on("pointerdown", () => {
+      // Toca o som ao clicar no botão controle
+      this.somIniciar.play();
       //quando apertar em controle com o botão esquerdo do mouse
       this.fundoMenu.setVisible(false);
       this.controle.setVisible(false);
@@ -77,9 +82,23 @@ export class menu extends Phaser.Scene {
       this.instrucao.setVisible(true);
     });
 
-    this.voltar.on("pointerdown", () => this.fecharMenu(true)); //quando apertar em botão com o botão esquerdo do mouse
-    this.sair.on("pointerdown", () => this.fecharMenu(false)); //quando apertar em sair com o botão esquerdo do mouse
+    this.voltar.on("pointerdown", () => {
+      // Toca o som ao clicar no botão voltar
+      this.somIniciar.play();
+      this.fecharMenu(true);
+    }); //quando apertar em botão com o botão esquerdo do mouse
+
+    this.sair.on("pointerdown", () => {
+      // Toca o som ao clicar no botão sair
+      this.somIniciar.play();
+      this.fecharMenu(false);
+    }); //quando apertar em sair com o botão esquerdo do mouse
     this.input.keyboard.once("keydown-M", () => this.fecharMenu(false)); //quando apertar M, fecha tudo
+
+    // Cria o som de iniciar menu
+    this.somIniciar = this.sound.add("somIniciar");
+    // Toca o som quando o menu é aberto
+    this.somIniciar.play();
   }
 
   fecharMenu(irParaWelcome) {

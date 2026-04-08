@@ -16,6 +16,9 @@ export class FaseDoischao extends Phaser.Scene {
       frameWidth: 128,
       frameHeight: 128,
     });
+
+    // Carrega o som do chão quebrando
+    this.load.audio("chaoQuebrando", "assets/efeitosSonoros/chaoQuebrando.mp3");
   }
 
   // Configura câmera, UI, mapa e valores usados na cutscene.
@@ -164,6 +167,9 @@ export class FaseDoischao extends Phaser.Scene {
       .setScrollFactor(0);
 
     this.time.delayedCall(150, () => this.iniciarSequencia());
+
+    // Cria o som do chão quebrando
+    this.somChaoQuebrando = this.sound.add("chaoQuebrando", { volume: 0.8 });
   }
 
   update() {
@@ -238,6 +244,9 @@ export class FaseDoischao extends Phaser.Scene {
 
   // Toca a animação da queda — o sprite já existe, só precisa dar play.
   tocarAnimacaoQueda() {
+    // Toca o som do chão quebrando com delay de 1 segundo
+    this.time.delayedCall(1000, () => this.somChaoQuebrando.play());
+
     // Sobe o alpha do sprite para ficar visível junto ao overlay escuro.
     this.tweens.add({
       targets: this.spriteQueda,
