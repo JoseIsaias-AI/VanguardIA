@@ -435,32 +435,60 @@ Dessa forma, o jogo promove representatividade de gênero, acadêmica e profissi
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
 <div align = "justify">
-
 O jogo tem cinco diferentes cenários e, entre eles, dois deles tem variações. A narrativa se inicia em um laboratório com diversos cientistas, prontos para iniciar o projeto que desenvolveram; esse ambiente é apresentado como um espaço moderno, organizado e com diversos equipamentos tecnológicos, transmitindo a sensação de progresso científico e inovação.
 
-**imagem do lab normal
+<div align = "center">
+<sup>Figura 5: Laboratório Inicial antes da viagem no tempo.</sup><br>
+<img src="documents/assets/labBrancoN.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+</div>
 
 O cenário seguinte muda após um salto temporal, quando Sophia desperta da criogenia, o jogador encontra o mesmo laboratório, entretanto, com suas estruturas danificadas, equipamentos quebrados e um ambiente escuro para transmitir ao jogador a ideia de que algo ruim ocorreu naquele ambiente.
 
-**imagem do lab destruido
+<div align = "center">
+<sup>Figura 6: Laboratório Inicial depois da viagem no tempo.</sup><br>
+<img src="documents/assets/labBrancoD.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+</div>
 
 O segundo cenário apresentado é um corredor onde há vários equipamentos danificados acumulados ao ponto de serem obstáculos ao jogador, esse ambiente foi construído para que o robô, Asimov, navegue entre os destroços para aprender sobre os padrões de movimentação que deve ter e coletar pistas sobre a localização do cristal necessário para restaurar os sistemas do laboratório.
 
-*imagem do corredor
+<div align = "center">
+<sup>Figura 7: Cenário da Fase 01.</sup><br>
+<img src="documents/assets/faseCorredor.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+</div>
 
 Em seguida, Asimov volta para o laboratório destruído e depois leva Sophia para a sala das portas, onde deve ser localizada a sala em que está o baú com imagens de diferentes tipos de cristais, esse cenário é uma sala escura para instigar a exploração e como recurso para o fundamento apresentado nesta fase.
 
-**imagem da sala das portas
+<div align = "center">
+<sup>Figura 8: Cenário da Fase 02, sala das portas.</sup><br>
+<img src="documents/assets/salaPortas.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+</div>
 
 Após essa etapa, o jogador é levado à uma sala com diversos equipamentos ao fundo e plataformas pra que ele possa subir até outro mapa e coletar as imagens dos cristais corretos.
 
-**imagem da sala horizontal
+<div align = "center">
+<sup>Figura 9: Cenário da Fase 03.</sup><br>
+<img src="documents/assets/labFaseTres.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+</div>
 
 Por fim, é apresentada no jogo a sala principal de controle do laboratório, onde se encontra o núcleo energético que o jogador deve inserir o cristal para reativar os sistemas, marcando um momento importante na reconstrução da tecnologia e no avanço da narrativa.
 
-**imagens da sala do cristal
+
+<div align = "center">
+<sup>Figura 10: Laboratório Final antes da restauração.</sup><br>
+<img src="documents/assets/labCristal1.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 11: Laboratório Final depois da restauração.</sup><br>
+<img src="documents/assets/labCristal2.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
+</div>
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
