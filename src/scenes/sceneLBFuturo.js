@@ -21,6 +21,7 @@ export class sceneLbFuturo extends Phaser.Scene {
       false,
       true
     );
+    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
     this.load.image("armarioD", "assets/objetos/sceneLbPassado/partTwo/armarioDestruido.png");
     this.load.image("alvoD", "assets/objetos/sceneLbPassado/partTwo/alvoDestruido.png");
     this.load.image("mesa1D", "assets/objetos/sceneLbPassado/partTwo/mesa1Destruida.png");
@@ -258,6 +259,9 @@ export class sceneLbFuturo extends Phaser.Scene {
       repeat: -1,
     });
 
+    // Cria o som pop
+    this.somPop = this.sound.add("pop", { volume: 0.8 });
+
     // NOTA: O bloco inteiro de criação da "Caixa de Diálogo" foi removido daqui!
 
     // Ativa animações, controles e câmera principal.
@@ -318,6 +322,8 @@ export class sceneLbFuturo extends Phaser.Scene {
 
     // Inicia o diálogo quando o jogador confirma a interação (Aperta E perto do Asimov).
     if (this.podeInteragirAsimov && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
+      // Toca o som pop quando interagir com o Asimov
+      this.somPop.play();
       this.dialogoAsimovJaIniciado = true;
       this.containerTeclaAsimov.setVisible(false);
       this.tweens.killTweensOf(this.containerTeclaAsimov);

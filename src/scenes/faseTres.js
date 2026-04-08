@@ -91,6 +91,14 @@ export class faseTres extends Phaser.Scene {
     this.load.image("cristalVerdadeiro", "assets/objetos/faseTres/cristalVerdadeiro.png");
     this.load.image("cristalFalso", "assets/objetos/faseTres/cristalFalso.png");
 
+    // Carrega o som correto para coleta de cristais
+    this.load.audio("correto", "assets/efeitosSonoros/correto.mp3");
+
+    // Carrega o som errado para coleta de cristais falsos
+    this.load.audio("erro", "assets/efeitosSonoros/erro.mp3");
+
+    // Carrega o som do pulo da Sophia
+    this.load.audio("puloSophia", "assets/efeitosSonoros/puloSophia.mp3");
   }
   create() {
     // Instanciando o sistema de diálogos
@@ -294,6 +302,15 @@ export class faseTres extends Phaser.Scene {
     this.sistemaDialogo.iniciarDialogo(dialogoInicial, () => {
         this.lendoMensagem = false;
     });
+
+    // Cria o som correto para coleta de cristais
+    this.somCorreto = this.sound.add("correto", { volume: 0.8 });
+
+    // Cria o som errado para coleta de cristais falsos
+    this.somErro = this.sound.add("erro", { volume: 0.8 });
+
+    // Cria o som do pulo da Sophia
+    this.somPuloSophia = this.sound.add("puloSophia", { volume: 0.8 });
   }
 
   configurarCameraUI() {
@@ -392,12 +409,16 @@ coletarVerdadeiro(player, cristal) {
   cristal.destroy();
   this.contadorVerdadeiros++;
   this.contadorTotal++;
+  // Toca o som correto ao coletar cristal
+  this.somCorreto.play();
 }
 //Aqui, temos as funções para coletar os cristais falsos
 coletarFalso(player, cristal) {
   cristal.destroy();
   this.contadorFalsos++;
   this.contadorTotal++;
+  // Toca o som errado ao coletar cristal falso
+  this.somErro.play();
 }
 createAnimations() {
 
@@ -479,6 +500,8 @@ update() {
   // Aqui, adicionamos o pulo na fase
   if (Phaser.Input.Keyboard.JustDown(this.keySpace) && (this.player.body.blocked.down || this.player.body.touching.down)) {
     this.player.setVelocityY(-180);
+    // Toca o som do pulo da Sophia
+    this.somPuloSophia.play();
   }
 
   //Aqui, criamos o movimento das plataformas que se moverão na vertical
