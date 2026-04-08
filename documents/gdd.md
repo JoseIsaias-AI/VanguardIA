@@ -437,66 +437,66 @@ Dessa forma, o jogo promove representatividade de gênero, acadêmica e profissi
 <div align = "justify">
 O jogo tem cinco diferentes cenários e, entre eles, dois deles tem variações. A narrativa se inicia em um laboratório com diversos cientistas, prontos para iniciar o projeto que desenvolveram; esse ambiente é apresentado como um espaço moderno, organizado e com diversos equipamentos tecnológicos, transmitindo a sensação de progresso científico e inovação.
 
-
 <div align = "center">
+
 <sup>Figura 5: Laboratório Inicial antes da viagem no tempo.</sup><br>
 <img src="documents/assets/labBrancoN.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
-</div>
 
+</div>
 
 O cenário seguinte muda após um salto temporal, quando Sophia desperta da criogenia, o jogador encontra o mesmo laboratório, entretanto, com suas estruturas danificadas, equipamentos quebrados e um ambiente escuro para transmitir ao jogador a ideia de que algo ruim ocorreu naquele ambiente.
 
-
 <div align = "center">
+
 <sup>Figura 6: Laboratório Inicial depois da viagem no tempo.</sup><br>
 <img src="documents/assets/labBrancoD.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
-</div>
 
+</div>
 
 O segundo cenário apresentado é um corredor onde há vários equipamentos danificados acumulados ao ponto de serem obstáculos ao jogador, esse ambiente foi construído para que o robô, Asimov, navegue entre os destroços para aprender sobre os padrões de movimentação que deve ter e coletar pistas sobre a localização do cristal necessário para restaurar os sistemas do laboratório.
 
-
 <div align = "center">
+
 <sup>Figura 7: Cenário da Fase 01.</sup><br>
 <img src="documents/assets/faseCorredor.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
-</div>
 
+</div>
 
 Em seguida, Asimov volta para o laboratório destruído e depois leva Sophia para a sala das portas, onde deve ser localizada a sala em que está o baú com imagens de diferentes tipos de cristais, esse cenário é uma sala escura para instigar a exploração e como recurso para o fundamento apresentado nesta fase.
 
-
 <div align = "center">
+
 <sup>Figura 8: Cenário da Fase 02, sala das portas.</sup><br>
 <img src="documents/assets/salaPortas.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
-</div>
 
+</div>
 
 Após essa etapa, o jogador é levado à uma sala com diversos equipamentos ao fundo e plataformas pra que ele possa subir até outro mapa e coletar as imagens dos cristais corretos.
 
-
 <div align = "center">
+
 <sup>Figura 9: Cenário da Fase 03.</sup><br>
 <img src="documents/assets/labFaseTres.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
-</div>
 
+</div>
 
 Por fim, é apresentada no jogo a sala principal de controle do laboratório, onde se encontra o núcleo energético que o jogador deve inserir o cristal para reativar os sistemas, marcando um momento importante na reconstrução da tecnologia e no avanço da narrativa.
 
-
 <div align = "center">
+
 <sup>Figura 10: Laboratório Final antes da restauração.</sup><br>
 <img src="documents/assets/labCristal1.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-
 <sup>Figura 11: Laboratório Final depois da restauração.</sup><br>
 <img src="documents/assets/labCristal2.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
+
 </div>
 
 </div>
@@ -581,44 +581,19 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
-
-*Descreva a trilha sonora do jogo, indicando quais músicas serão utilizadas no mundo e nas fases. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.*
-
-\# | Título | Ocorrência | Autoria
+\# | Título | Ocorrência | Autoria | Arquivo
 --- | --- | --- | ---
-1 | 
-
-
-
-Trilha sonora 1
-
-Título                    Autoria               Ocorrência              Duração
-
-Batida, tensa             Própria              Durante todas          32 segundos,
-Futurista                                        as fases               em loop
-
-
-
-
-DESCRIÇÃO 
-
-A trilha sonora do jogo é um elemento de ambiente futurista, construída para colocar o jogador dentro de um universo tecnológico sombrio e instável. Ela não conta uma história, mas condiciona o estado emocional de quem joga, através de batidas metálicas que remetem a maquinário pesado e estruturas industriais, glitches e estáticos que lembram televisões analógicas falhando. Tudo isso junto passa a sensação de um futuro que existe, mas está quebrado. A tecnologia funciona, porém à beira do colapso, e o mundo ao redor respira de forma robotizada e fria.
-
-
-
-Trilha sonora 2
-
-Título                    Autoria               Ocorrência              Duração
-
-Frequência Estável        Própria           durante os momentos          32 segundos, 
-                                            que não tem desafios.          em loop
-
-
-
-DESCRIÇÃO
-
-É a música que toca enquanto Sophia ainda está descobrindo o que aconteceu e o que precisa fazer.O som continua sendo eletrônico e futurista, porque o mundo do jogo é assim, mas sem aquela sensação de perigo. As batidas são mais espaçadas, o ritmo é mais tranquilo. Dá pra sentir que as coisas ainda estão se encaixando, que existe uma chance de consertar tudo. É o som de um mundo quebrado que ainda tem esperança.
-
+1 | Trilha principal | Durante todas as cenas do jogo, a não ser fases e minigames | Própria | `assets/bgMusic.wav`
+2 | Trilha secundária | Durante as fases e minigames | Própria | `assets/bgMusicFases.mp3`
+3 | Som de colisão | Sempre que o personagem colide com um objeto | ? | `assets/colisionSound.wav`
+4 | Som do baú abrindo | Sempre que o jogador abrir um baú | ? | `assets/efeitosSonoros/bauAbrindo.mp3`
+5 | Som de papel | Sempre que uma carta ou pergaminho for aberto | ? | `assets/efeitosSonoros/carta.mp3`
+6 | Som de algo quebrando | Quando o chão desmoronar | ? | `assets/efeitosSonoros/chaoQuebrando.mp3`
+7 | Som de digitação | Sempre que estiver sendo exibido um diálogo | ? | `assets/efeitosSonoros/digitacao.mp3`
+8 | Som de acerto | Sempre que o jogador fizer algo corretamente nas fases | ? | `assets/efeitosSonoros/correto.mp3`
+9 | Som de erro | Sempre que o jogador errar algo nas fases ou tiver que reiniciar uma fase | ? | `assets/efeitosSonoros/erro.mp3`
+10 | Som de 'estalo' | Quando o jogador clicar nos nós da rede na Fase Dois | ? | `assets/efeitosSonoros/popNos.mp3`
+11 | Som de vitória | Quando o jogador finalizar corretamente uma fase | ? | `assets/efeitosSonoros/vitoriaSom.mp3`
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
