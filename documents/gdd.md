@@ -582,7 +582,7 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 ### 3.3.5. Trilha sonora (sprint 4)
 
 \# | Título | Ocorrência | Autoria | Arquivo
---- | --- | --- | ---
+--- | --- | --- | --- | ---
 1 | Trilha principal | Durante todas as cenas do jogo, a não ser fases e minigames | Própria | `assets/bgMusic.wav`
 2 | Trilha secundária | Durante as fases e minigames | Própria | `assets/bgMusicFases.mp3`
 3 | Som de colisão | Sempre que o personagem colide com um objeto | ? | `assets/colisionSound.wav`
