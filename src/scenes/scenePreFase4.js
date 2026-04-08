@@ -17,8 +17,8 @@ export class scenePreFase4 extends Phaser.Scene {
     this.load.image("labEscuro2", "assets/fases/sceneLabCristal/labCristalEscuro2.png");
     this.load.spritesheet("objetosLab1", "assets/fases/preFase4/objetosLabCristal1.png", {frameWidth: 320, frameHeight: 213});
     this.load.image("mascaraPrefase4", "assets/fases/preFase4/mascaraPrefase4.png");
-    this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", { frameWidth: 32, frameHeight: 32 });
     this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
     this.load.audio("impressora", "assets/efeitosSonoros/impressora.m4a");
     this.load.audio("carta", "assets/efeitosSonoros/carta.mp3");
@@ -38,7 +38,7 @@ export class scenePreFase4 extends Phaser.Scene {
     this.somVitoria.play();
 
     let gifElemento6 = document.createElement('img');
-        gifElemento6.src = 'assets/textosCenas/hubCristal.gif';
+        gifElemento6.src = 'assets/textosCenas1/hubCristal.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento6.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -341,4 +341,7 @@ export class scenePreFase4 extends Phaser.Scene {
   }
 }
 //---------------------------------------------------------------------------------------------------------
+
+
+
 

@@ -1,43 +1,43 @@
-Ôªøimport caixaDialogo from './caixasDialogo.js';
+import caixaDialogo from './caixasDialogo.js';
 
-//Antes de tudo, criaremos uma fun√ß√£o que cobre os requisitos do GDD de matem√°tica, que envolve MU e MUV, e vamos fazer isso usando uma pedra no cen√°rio do jogo
+//Antes de tudo, criaremos uma funÁ„o que cobre os requisitos do GDD de matem·tica, que envolve MU e MUV, e vamos fazer isso usando uma pedra no cen·rio do jogo
 
-// Aqui, fazemos uma fun√ß√£o respons√°vel por simular o lan√ßamento obl√≠quo da pedra
-// Obs: N√£o usamos a f√≠sica do Phaser, apenas equa√ß√µes de movimento (MU e MUV)
+// Aqui, fazemos uma funÁ„o respons·vel por simular o lanÁamento oblÌquo da pedra
+// Obs: N„o usamos a fÌsica do Phaser, apenas equaÁıes de movimento (MU e MUV)
 function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
 
   // Aqui, definimos uma constante do tempo total do movimento, em segundos
   const tempoTotal = duration;
 
-  // Aqui, definimos a acelera√ß√£o no eixo Y
+  // Aqui, definimos a aceleraÁ„o no eixo Y
   const ay = 200;
 
   // Aqui, criamos a velocidade constante no eixo horizontal (MU)
   const vx = (xf - xi) / tempoTotal;
 
-  // Aqui, criamos a velocidade vari√°vel no eixo vertical (MUV)
-  // Aqui, calculamos a velocidade y inicial, usando a f√≥rmula de "Sorvet√£o", para que a pedra chegue no final no ponto que esperamos
+  // Aqui, criamos a velocidade vari·vel no eixo vertical (MUV)
+  // Aqui, calculamos a velocidade y inicial, usando a fÛrmula de "Sorvet„o", para que a pedra chegue no final no ponto que esperamos
   const vy0 = ((yf - yi) - 0.5 * ay * tempoTotal * tempoTotal) / tempoTotal;
 
-  // Aqui, criamos uma vari√°vel que guarda quanto tempo passou desde o in√≠cio do movimento
+  // Aqui, criamos uma vari·vel que guarda quanto tempo passou desde o inÌcio do movimento
   let elapsed = 0;
 
-  // Aqui, fazemos essa fun√ß√£o ser chamada a cada frame, para criar a anima√ß√£o da pedra
+  // Aqui, fazemos essa funÁ„o ser chamada a cada frame, para criar a animaÁ„o da pedra
   function onUpdate(time, delta) {
 
     // Aqui, convertemos o delta de milissegundos para segundos, para calcularmos o tempo a partir dos segundos
     elapsed += delta / 1000;
 
-    // Aqui, garantimos que o tempo da anima√ß√£o nunca ultrapasse o tempo total da equa√ß√£o, ao chegar no tempo total, a anima√ß√£o para
+    // Aqui, garantimos que o tempo da animaÁ„o nunca ultrapasse o tempo total da equaÁ„o, ao chegar no tempo total, a animaÁ„o para
     const t = Math.min(elapsed, tempoTotal);
 
-    //Aqui, calculamos a posi√ß√£o x da pedra, usando s= s0 + v.t
+    //Aqui, calculamos a posiÁ„o x da pedra, usando s= s0 + v.t
     const x = xi + vx * t;
 
     //Aqui, calculamos a velocidade y da pedra, usando v = v0 + a.t
     const vy = vy0 + ay * t;
 
-    //Aqui, calculamos a posi√ß√£o y da pedra, a partir da equa√ß√£o de "sorvet√£o"
+    //Aqui, calculamos a posiÁ„o y da pedra, a partir da equaÁ„o de "sorvet„o"
     const y = yi + vy0 * t + 0.5 * ay * t * t;
     console.log(
       `[MU - eixo X] t=${t.toFixed(2)}s | posicao x=${x.toFixed(2)} | velocidade vx=${vx.toFixed(2)}`
@@ -46,32 +46,32 @@ function launchStoneProjectile(scene, stone, xi, yi, xf, yf, duration) {
       `[MUV - eixo Y] t=${t.toFixed(2)}s | posicao y=${y.toFixed(2)} | velocidade vy=${vy.toFixed(2)} | aceleracao ay=${ay}`
     );
 
-    // Aqui, atualizamos a posi√ß√£o da pedra na tela
+    // Aqui, atualizamos a posiÁ„o da pedra na tela
     stone.x = x;
     stone.y = y;
 
-    // Aqui, verificamos se o tempo de movimento j√° acabou
+    // Aqui, verificamos se o tempo de movimento j· acabou
     if (t >= tempoTotal) {
 
-      // Aqui, paramos a anima√ß√£o se o tempo de movimento estiver acabado
+      // Aqui, paramos a animaÁ„o se o tempo de movimento estiver acabado
       scene.events.off('update', onUpdate);
 
-      // Aqui, removemos a pedra quando ela chegar na sua posi√ß√£o final
+      // Aqui, removemos a pedra quando ela chegar na sua posiÁ„o final
       stone.destroy(); 
 
-      // Aqui, criamos uma nova pedra na posi√ß√£o inicial, para anima√ß√£o se repetir, e o movimento ser percebido pelo jogador
+      // Aqui, criamos uma nova pedra na posiÁ„o inicial, para animaÁ„o se repetir, e o movimento ser percebido pelo jogador
       const novaPedra = scene.add.image(xi, yi, "pedra");
       scene.pedraFundo = novaPedra;
       if (scene.uiCamera) {
         scene.uiCamera.ignore(novaPedra);
       }
 
-      // Aqui, reiniciamos a anima√ß√£o
+      // Aqui, reiniciamos a animaÁ„o
       launchStoneProjectile(scene, novaPedra, xi, yi, xf, yf, tempoTotal);
     }
   }
 
-  // Aqui, fazemos a fun√ß√£o n√£o s√≥ ser chamada a cada frame, mas seja executada a cada frame
+  // Aqui, fazemos a funÁ„o n„o sÛ ser chamada a cada frame, mas seja executada a cada frame
   scene.events.on('update', onUpdate);
 }
 
@@ -85,7 +85,7 @@ export class faseTres extends Phaser.Scene {
     //Aqui, carregamos os arquivos que vamos usar nessa fase
     this.load.image("parede", "assets/fases/faseTres/backgroundFase3Escuro.png");
     this.load.image("pedra", "assets/objetos/faseTres/pedrinha.png");
-    this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.image("plataforma", "assets/objetos/faseTres/cano1Fase3.png");
     this.load.image("plataformaMovel", "assets/objetos/faseTres/cano2Fase3.png");
     this.load.image("cristalVerdadeiro", "assets/objetos/faseTres/cristalVerdadeiro.png");
@@ -101,30 +101,30 @@ export class faseTres extends Phaser.Scene {
     this.load.audio("puloSophia", "assets/efeitosSonoros/puloSophia.mp3");
   }
   create() {
-    // Instanciando o sistema de di√°logos
+    // Instanciando o sistema de di·logos
     this.sistemaDialogo = new caixaDialogo(this);
 
     let gifElemento5 = document.createElement('img');
-        gifElemento5.src = 'assets/textosCenas/subsoloLab.gif';
-        // For√ßando estilos CSS para garantir que ele apare√ßa
+        gifElemento5.src = 'assets/textosCenas1/subsoloLab.gif';
+        // ForÁando estilos CSS para garantir que ele apareÁa
         gifElemento5.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
         gifElemento5.style.height = '1080px';
         //gifElement.style.display = 'block';
-        //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML est√° funcionando, mas o caminho do arquivo pode estar errado.
+        //gifElement.style.border = '2px solid red'; // Descomente para debugar: se a borda vermelha aparecer, o HTML est· funcionando, mas o caminho do arquivo pode estar errado.
     
         let domElemento5 = this.add.dom( 1550, 0 , gifElemento5).setOrigin(0.8).setScrollFactor(0);
         const duracaoDoGif = 5000; 
-        // O Phaser espera esse tempo passar e executa a fun√ß√£o interna
+        // O Phaser espera esse tempo passar e executa a funÁ„o interna
         this.time.delayedCall(duracaoDoGif, () => {
             // Verifica se o elemento ainda existe na cena
             if (domElemento5 && domElemento5.active) {
-                // Esconde o GIF para ele n√£o aparecer rodando de novo
+                // Esconde o GIF para ele n„o aparecer rodando de novo
                 domElemento5.setVisible(false); 
                 domElemento5.destroy(); 
             }
         });
 
-    this.lendoMensagem = false; // Controle de intera√ß√£o do player
+    this.lendoMensagem = false; // Controle de interaÁ„o do player
 
     //Aqui, criamos o mapa de fundo
     this.fundo = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "parede");
@@ -135,7 +135,7 @@ export class faseTres extends Phaser.Scene {
     this.player.setCollideWorldBounds(true);
     this.player.body.setSize(30, 45, true);
 
-    //Aqui, definimos a velocidade e criamos uma vari√°vel para o pulo
+    //Aqui, definimos a velocidade e criamos uma vari·vel para o pulo
     this.speed = 150;
     this.pulando = false;
 
@@ -171,7 +171,7 @@ export class faseTres extends Phaser.Scene {
     criarPlataforma(1090, 200, "plataforma");
     criarPlataforma(880, 280, "plataforma");
 
-    //Aqui, criamos as plataformas que se mover√£o na vertical
+    //Aqui, criamos as plataformas que se mover„o na vertical
     this.plataformasMoveis = this.physics.add.group({ allowGravity: false, immovable: true });
 
     this.plataformaMovel = this.plataformasMoveis.create(1075, 730, "plataformaMovel");
@@ -188,7 +188,7 @@ export class faseTres extends Phaser.Scene {
     this.plataformaMovel2.setSize(160, 60);
     this.plataformaMovel2.setOffset(10, 98);
 
-    //Aqui, criamos a plataforma que se mover√£o na horizontal
+    //Aqui, criamos a plataforma que se mover„o na horizontal
     this.plataformaHorizontal = this.plataformasMoveis.create(900, 480, "plataformaMovel");
     this.plataformaHorizontal.setScale(0.4);
     this.plataformaHorizontal.body.setAllowGravity(false);
@@ -196,10 +196,10 @@ export class faseTres extends Phaser.Scene {
     this.plataformaHorizontal.setSize(160, 60);
     this.plataformaHorizontal.setOffset(10, 98);
 
-    //Aqui, criamos uma vari√°vel para criar o loop de movimento da plataforma
+    //Aqui, criamos uma vari·vel para criar o loop de movimento da plataforma
     this.tempoMovimento = 0;
 
-    //Aqui, criamos a vari√°vel para as paredes de colis√£o
+    //Aqui, criamos a vari·vel para as paredes de colis„o
     this.walls = this.physics.add.staticGroup();
 
     // Aqui, criamos no jogo as paredes inferior, da direita, da esquerda e de cima, limitando o mapa
@@ -210,16 +210,16 @@ export class faseTres extends Phaser.Scene {
 
 
 
-    //Aqui, adicionamos a colis√£o entre o personagem e as paredes
+    //Aqui, adicionamos a colis„o entre o personagem e as paredes
     this.physics.add.collider(this.player, this.walls);
     this.physics.add.collider(this.player, this.plataformas);
     this.physics.add.collider(this.player, this.plataformasMoveis);
 
-    // Aqui, criamos a pedra do fundo na tela, em sua posi√ß√£o inicial
+    // Aqui, criamos a pedra do fundo na tela, em sua posiÁ„o inicial
     this.pedraFundo = this.add.image(1065, 235, "pedra");
-      //Aqui, iniciamos o movimento da pedra usando cinem√°tica manual, definindo a posi√ß√£o inicial e final
-       // Posi√ß√£o inicial (1065, 235)
-       // Posi√ß√£o final (861, 235)
+      //Aqui, iniciamos o movimento da pedra usando cinem·tica manual, definindo a posiÁ„o inicial e final
+       // PosiÁ„o inicial (1065, 235)
+       // PosiÁ„o final (861, 235)
     launchStoneProjectile(this, this.pedraFundo, 1065, 235, 861, 235, 2);
 
 
@@ -229,7 +229,7 @@ export class faseTres extends Phaser.Scene {
     this.cristaisVerdadeiros = this.physics.add.group();
     this.cristaisFalsos = this.physics.add.group();
 
-    //Aqui, criamos uma fun√ß√£o para colocar os cristais no jogo e n√£o repetir c√≥digo
+    //Aqui, criamos uma funÁ„o para colocar os cristais no jogo e n„o repetir cÛdigo
     const criarCristal = (grupo, x, y, sprite) => {
       let c = grupo.create(x, y, sprite);
       c.setScale(0.05);
@@ -280,23 +280,23 @@ export class faseTres extends Phaser.Scene {
     this.cameras.main.setZoom(5);
 
 
-    //Aqui, criamos a intera√ß√£o com a corda
+    //Aqui, criamos a interaÁ„o com a corda
     this.corda = this.add.rectangle(993, 140, 1, 70,);
     this.physics.add.existing(this.corda, true);
     this.subindoCorda = false;
     this.physics.add.overlap(this.player, this.corda, this.ativarCorda, null, this);
 
-   //Aqui, criamos vari√°veis que vamos usar no di√°logo final
+   //Aqui, criamos vari·veis que vamos usar no di·logo final
    this.resultadoFaseAtivo = false;
    this.tipoResultado = null; 
    
    
-    //Aqui, criamos o di√°logo inicial
+    //Aqui, criamos o di·logo inicial
     this.configurarCameraUI();
     
     this.lendoMensagem = true;
     const dialogoInicial = [
-        { nome: "Asimov", personagem: null, texto: "Sophia, o ch√£o estava muito velho e voc√™ acabou caindo. Preciso que voc√™ suba e colete apenas as imagens dos cristais azuis." }
+        { nome: "Asimov", personagem: null, texto: "Sophia, o ch„o estava muito velho e vocÍ acabou caindo. Preciso que vocÍ suba e colete apenas as imagens dos cristais azuis." }
     ];
 
     this.sistemaDialogo.iniciarDialogo(dialogoInicial, () => {
@@ -328,7 +328,7 @@ export class faseTres extends Phaser.Scene {
       ...this.cristaisFalsos.getChildren(),
     ].filter(Boolean);
 
-    // Passamos os componentes da caixa de dialogo para a c√¢mera de UI
+    // Passamos os componentes da caixa de dialogo para a c‚mera de UI
     const objetosUI = [
       this.sistemaDialogo.caixaDialogo,
       this.sistemaDialogo.labelNome,
@@ -341,7 +341,7 @@ export class faseTres extends Phaser.Scene {
     this.cameras.main.ignore(objetosUI);
   }
 
-  //Aqui, criamos uma fun√ß√£o que ativa a anima√ß√£o da corda
+  //Aqui, criamos uma funÁ„o que ativa a animaÁ„o da corda
   ativarCorda() {
     if (this.subindoCorda) return;
 
@@ -378,9 +378,9 @@ export class faseTres extends Phaser.Scene {
            this.tipoResultado = "erro";
            this.lendoMensagem = true;
            this.sistemaDialogo.iniciarDialogo([
-               { nome: "Asimov", personagem: null, texto: "Voc√™ coletou imagens de cristais falsos, assim, meu sistema treinar√° com informa√ß√µes falsas e n√£o conseguiremos fabricar o cristal verdadeiro." }
+               { nome: "Asimov", personagem: null, texto: "VocÍ coletou imagens de cristais falsos, assim, meu sistema treinar· com informaÁıes falsas e n„o conseguiremos fabricar o cristal verdadeiro." }
            ], () => {
-               // Aqui, adicionamos os dois poss√≠veis finais da fase
+               // Aqui, adicionamos os dois possÌveis finais da fase
                this.scene.restart(); //Aqui, reiniciamos a fase
            });
           }
@@ -388,10 +388,10 @@ export class faseTres extends Phaser.Scene {
            this.tipoResultado = "sucesso";
            this.lendoMensagem = true;
            this.sistemaDialogo.iniciarDialogo([
-               { nome: "Asimov", personagem: null, texto: "Boa, voc√™ coletou apenas imagens de cristais verdadeiros, isso √© muito importante para evitar que meu sistema seja treinado com informa√ß√µes falsas!" }
+               { nome: "Asimov", personagem: null, texto: "Boa, vocÍ coletou apenas imagens de cristais verdadeiros, isso È muito importante para evitar que meu sistema seja treinado com informaÁıes falsas!" }
            ], () => {
-               // Aqui, adicionamos os dois poss√≠veis finais da fase
-               this.scene.start("scenePreFase4"); // Aqui, avan√ßamos para a pr√≥xima fase
+               // Aqui, adicionamos os dois possÌveis finais da fase
+               this.scene.start("scenePreFase4"); // Aqui, avanÁamos para a prÛxima fase
            });
           }
           this.resultadoFaseAtivo = true;
@@ -404,7 +404,7 @@ export class faseTres extends Phaser.Scene {
 
 
 
-//Aqui, temos as fun√ß√µes para coletar os cristais verdadeiros
+//Aqui, temos as funÁıes para coletar os cristais verdadeiros
 coletarVerdadeiro(player, cristal) {
   cristal.destroy();
   this.contadorVerdadeiros++;
@@ -412,7 +412,7 @@ coletarVerdadeiro(player, cristal) {
   // Toca o som correto ao coletar cristal
   this.somCorreto.play();
 }
-//Aqui, temos as fun√ß√µes para coletar os cristais falsos
+//Aqui, temos as funÁıes para coletar os cristais falsos
 coletarFalso(player, cristal) {
   cristal.destroy();
   this.contadorFalsos++;
@@ -448,7 +448,7 @@ createAnimations() {
 
 update() {
 
-  //Aqui, adicionamos as intera√ß√µes aos di√°logos inicial e final
+  //Aqui, adicionamos as interaÁıes aos di·logos inicial e final
   if (this.lendoMensagem) {
     this.player.setVelocity(0);
     this.player.anims.stop();
@@ -472,10 +472,10 @@ update() {
     "\nTotal: " + this.contadorTotal
   );
 
-  //Aqui, travamos o eixo X da c√¢mera no centro da tela
+  //Aqui, travamos o eixo X da c‚mera no centro da tela
   this.cameras.main.scrollX = 960 - this.cameras.main.width / 2;
 
-  //Aqui, resetamos a velocidade sempre que n√£o estiver nada sendo apertado
+  //Aqui, resetamos a velocidade sempre que n„o estiver nada sendo apertado
   let velocityX = 0;
 
   // Aqui, fazemos o movimento horizontal do personagem
@@ -487,7 +487,7 @@ update() {
     velocityX = this.speed;
     this.player.anims.play("sophia-right", true);
   }
-  // Aqui, fazemos a anima√ß√£o parar quando o personagem estiver parado
+  // Aqui, fazemos a animaÁ„o parar quando o personagem estiver parado
   if (velocityX === 0) {
     this.player.anims.stop();
     this.player.setFrame(0);
@@ -504,7 +504,7 @@ update() {
     this.somPuloSophia.play();
   }
 
-  //Aqui, criamos o movimento das plataformas que se mover√£o na vertical
+  //Aqui, criamos o movimento das plataformas que se mover„o na vertical
   this.tempoMovimento += 0.01;
   let meio = 730;
   let meio2 = 590
@@ -514,9 +514,12 @@ update() {
   this.plataformaMovel2.y = meio2 + amplitude * Math.sin(this.tempoMovimento);
   this.plataformaMovel2.body.updateFromGameObject();
 
-  //Aqui, criamos o movimento da plataforma que se mover√° na horizontal
+  //Aqui, criamos o movimento da plataforma que se mover· na horizontal
   let centroX = 900;
   let amplitudeX = 50;
   this.plataformaHorizontal.x = centroX + amplitudeX * Math.sin(this.tempoMovimento);
   this.plataformaHorizontal.body.updateFromGameObject();
 } };
+
+
+

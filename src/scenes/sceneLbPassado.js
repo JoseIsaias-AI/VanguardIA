@@ -12,8 +12,8 @@ export class sceneLbPassado extends Phaser.Scene {
   preload() {
     this.load.image("labB", "assets/fases/sceneLbPassado/labBranco.png");
     this.load.image("camara", "assets/objetos/sceneLbPassado/partOne/camara.png");
-    this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet("watson", "assets/personagens/watson.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet("watson", "assets/personagens1/watson.png", { frameWidth: 64, frameHeight: 64 });
     this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
     this.load.image("armario", "assets/objetos/sceneLbPassado/partOne/armario.png");
     this.load.image("alvo", "assets/objetos/sceneLbPassado/partOne/alvo.png");
@@ -25,18 +25,18 @@ export class sceneLbPassado extends Phaser.Scene {
     this.load.image("reservasCrio", "assets/objetos/sceneLbPassado/partOne/reservasCrio.png");
     this.load.image("comptBaixo", "assets/objetos/sceneLbPassado/partOne/comptBaixo.png");
     this.load.image("comptCima", "assets/objetos/sceneLbPassado/partOne/comptCima.png");
-    this.load.spritesheet("npc1", "assets/personagens/npc1.png", { frameWidth: 30, frameHeight: 50 });
-    this.load.spritesheet("npc2", "assets/personagens/npc2.png", { frameWidth: 25, frameHeight: 48 });
-    this.load.spritesheet("npc3", "assets/personagens/npc3.png", { frameWidth: 29, frameHeight: 49 });
-    this.load.image("npc4", "assets/personagens/npc4.png");
-    this.load.image("npc4", "assets/personagens/npc4.png");
+    this.load.spritesheet("npc1", "assets/personagens1/npc1.png", { frameWidth: 30, frameHeight: 50 });
+    this.load.spritesheet("npc2", "assets/personagens1/npc2.png", { frameWidth: 25, frameHeight: 48 });
+    this.load.spritesheet("npc3", "assets/personagens1/npc3.png", { frameWidth: 29, frameHeight: 49 });
+    this.load.image("npc4", "assets/personagens1/npc4.png");
+    this.load.image("npc4", "assets/personagens1/npc4.png");
   }
 
   //neste método do Phaser, organizamos a criação de cada objeto que ja foi carregado e como eles irão se comportar na cena
   create() {
     this.sistemaDialogo = new caixaDialogo(this);
     let gifElemento = document.createElement('img');
-    gifElemento.src = 'assets/textosCenas/laboratorio202.gif';
+    gifElemento.src = 'assets/textosCenas1/Laboratorio202.gif';
 
     // Forçando estilos CSS para garantir que ele apareça
     gifElemento.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -90,7 +90,7 @@ export class sceneLbPassado extends Phaser.Scene {
     this.configurarCameraUI();
 
     let gifElement = document.createElement('img');
-    gifElement.src = 'assets/textosCenas/textoLaboratorio2022.gif';
+    gifElement.src = 'assets/textosCenas1/textoLaboratorio2022.gif';
     // Adiciona esse elemento ao Phaser na posição x: 400, y: 300
     let domElement = this.add.dom(400, 300, gifElement);
     // Opcional: ajustar a origem e outras propriedades visuais
@@ -487,3 +487,6 @@ interagirWatson() {
     this.objetosColisao.add(objeto);
   }
 }
+
+
+

@@ -8,8 +8,8 @@ export class faseUm extends Phaser.Scene {
   preload() {
     //carregamento das imagens e sprites usados durante a fase1
     this.load.audio('bauAbrindo', 'assets/efeitosSonoros/bauAbrindo.mp3');
-    this.load.image("fundo", "/assets/fases/faseUm/fundofaseUm.png");
-    this.load.spritesheet("asimov", "/assets/personagens/asimov.png", {
+    this.load.image("fundo", "/assets/fases/faseUm/fundoFaseUm.png");
+    this.load.spritesheet("asimov", "/assets/personagens1/asimov.png", {
 
       frameWidth: 32,
       frameHeight: 32,
@@ -346,7 +346,7 @@ export class faseUm extends Phaser.Scene {
           .setDepth(103);
         video.play();
         let gifElemento8 = document.createElement('img');
-        gifElemento8.src = 'assets/textosCenas/aprendizado.gif';
+        gifElemento8.src = 'assets/textosCenas1/aprendizado.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento8.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -709,3 +709,6 @@ export class faseUm extends Phaser.Scene {
     });
   }
 }
+
+
+

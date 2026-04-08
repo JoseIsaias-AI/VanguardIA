@@ -11,12 +11,12 @@ export class sceneLbFuturo extends Phaser.Scene {
   // Carrega os assets usados na cutscene e no laboratório futuro.
   preload() {
     this.load.image("CFuturo", "assets/fases/sceneLbPassado/labDestruido.png");
-    this.load.spritesheet("sophia", "assets/personagens/sophia.png", {frameWidth: 64, frameHeight: 64,});
-    this.load.spritesheet("asimov", "assets/personagens/asimov.png", {frameWidth: 32, frameHeight: 32,});
+    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", {frameWidth: 64, frameHeight: 64,});
+    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", {frameWidth: 32, frameHeight: 32,});
 
     this.load.video(
       "cutscene2",
-      "assets/cutscene/cutScene2.mp4",
+      "assets/cutscene1/CutScene2.mp4",
       "loadeddata",
       false,
       true
@@ -83,7 +83,7 @@ export class sceneLbFuturo extends Phaser.Scene {
     this.animacaoSaidaAtiva = false;
 
     let gifElemento2 = document.createElement('img');
-    gifElemento2.src = 'assets/textosCenas/laboratorio2098.gif';
+    gifElemento2.src = 'assets/textosCenas1/Laboratorio2098.gif';
 
     // Forçando estilos CSS para garantir que ele apareça
     gifElemento2.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -415,3 +415,6 @@ export class sceneLbFuturo extends Phaser.Scene {
     this.objetosColisao.add(objeto);
   }
 }
+
+
+

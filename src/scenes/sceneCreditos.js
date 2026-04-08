@@ -2,7 +2,7 @@ export class sceneCreditos extends Phaser.Scene {
   constructor() { super({ key: 'sceneCreditos' }); }
 
   preload() {
-    this.load.video('creditoFinal', 'assets/cutscene/creditoFinal.mp4');
+    this.load.video('creditoFinal', 'assets/cutscene1/CreditoFinal.mp4');
   }
 
   create() {
@@ -35,3 +35,6 @@ export class sceneCreditos extends Phaser.Scene {
     });
   }
 }
+
+
+

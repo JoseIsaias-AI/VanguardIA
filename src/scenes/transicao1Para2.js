@@ -21,8 +21,8 @@ export class transicao1Para2 extends Phaser.Scene {
         this.load.image("labDestruido", "assets/fases/sceneLbPassado/labDestruido.png");
 
         // Spritesheets dos personagens
-        this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet("sophia", "assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet("asimov", "assets/personagens1/asimov.png", { frameWidth: 32, frameHeight: 32 });
 
         // Objetos decorativos do cenário
         this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
@@ -50,7 +50,7 @@ export class transicao1Para2 extends Phaser.Scene {
         this.sistemaDialogo = new caixaDialogo(this);
 
         let gifElemento3 = document.createElement('img');
-            gifElemento3.src = 'assets/textosCenas/retornoLab.gif';
+            gifElemento3.src = 'assets/textosCenas1/RetornoLab.gif';
         
             // Forçando estilos CSS para garantir que ele apareça
             gifElemento3.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -247,4 +247,7 @@ export class transicao1Para2 extends Phaser.Scene {
         this.playAnimIfNeeded(this.asimov, `asimov-walk-${this.asimovFacing}`);
     }
 }
+
+
+
 

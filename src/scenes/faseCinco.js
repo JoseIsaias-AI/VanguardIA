@@ -15,8 +15,8 @@ export class faseCinco extends Phaser.Scene {
         this.load.image("cenarioClaro1", "assets/fases/sceneLabCristal/labCristalClaro2.png");
 
         const sprites = [
-            { key: "asimov", path: "assets/personagens/asimov.png", w: 32, h: 32 },
-            { key: "sophia", path: "assets/personagens/sophia.png", w: 64, h: 64 }
+            { key: "asimov", path: "assets/personagens1/asimov.png", w: 32, h: 32 },
+            { key: "sophia", path: "assets/personagens1/sophia.png", w: 64, h: 64 }
         ];
 
         sprites.forEach(s =>
@@ -387,3 +387,6 @@ export class faseCinco extends Phaser.Scene {
         });
     }
 }
+
+
+

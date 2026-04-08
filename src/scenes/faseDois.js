@@ -15,15 +15,15 @@ export class faseDois extends Phaser.Scene {
     this.load.image("B1", "assets/fases/faseDois/binario1.png");
     this.load.image("B2", "assets/fases/faseDois/binario2.png");
     this.load.image("B3", "assets/fases/faseDois/binario3.png");
-    this.load.spritesheet("sophia", "assets/personagens/sophia.png", {
+    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", {
       frameWidth:  64,
       frameHeight: 64,
     });
-    this.load.spritesheet("asimov", "assets/personagens/asimov.png", {
+    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", {
       frameWidth:  32,
       frameHeight: 32,
     });
-    this.load.spritesheet("valvula", "assets/fases/faseDois/valvulaSprite.png", {
+    this.load.spritesheet("valvula", "assets/fases/faseDois/ValvulaSprite.png", {
       frameWidth:  320,
       frameHeight: 320,
     });
@@ -57,7 +57,7 @@ export class faseDois extends Phaser.Scene {
     this.worldObjects = [];
 
     let gifElemento4 = document.createElement('img');
-        gifElemento4.src = 'assets/textosCenas/salaDasPortas.gif';
+        gifElemento4.src = 'assets/textosCenas1/salaDasPortas.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento4.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -1331,4 +1331,7 @@ export class faseDois extends Phaser.Scene {
     });
   }
 }
+
+
+
 

@@ -17,14 +17,14 @@ export class menu extends Phaser.Scene {
 
   //aqui são carregados todas as imagens e sprites do menu, antes de serem criadas, é ficado na memória do computador ou nuvem
   preload() {
-    this.load.image("objetosMenu", "assets/Menu/fundo.png");
-    this.load.image("controles", "assets/Menu/controles.png");
+    this.load.image("objetosMenu", "assets/menu1/fundo.png");
+    this.load.image("controles", "assets/menu1/controles.png");
     // Carrega o som de iniciar menu
     this.load.audio("somIniciar", "assets/efeitosSonoros/somIniciar.m4a");
-    this.load.image("controleBtn", "assets/Menu/controle.png");
-    this.load.image("voltarBtn", "assets/Menu/voltar.png");
-    this.load.image("sairBotao", "assets/Menu/sair.png");
-    this.load.image("muteBtn", "assets/Menu/mutar.png");
+    this.load.image("controleBtn", "assets/menu1/controle.png");
+    this.load.image("voltarBtn", "assets/menu1/voltar.png");
+    this.load.image("sairBotao", "assets/menu1/sair.png");
+    this.load.image("muteBtn", "assets/menu1/mutar.png");
 
   }
 
@@ -136,3 +136,6 @@ export class menu extends Phaser.Scene {
     }
   }
 }
+
+
+

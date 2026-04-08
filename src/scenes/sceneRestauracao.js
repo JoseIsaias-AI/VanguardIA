@@ -9,14 +9,14 @@ export class sceneRestauracao extends Phaser.Scene {
   }
 
   preload() {
-    this.load.video("cutscene2", "assets/cutscene/cutScene2.mp4");
+    this.load.video("cutscene2", "assets/cutscene1/CutScene2.mp4");
     this.load.image("cenarioNoite", "assets/fases/sceneLabCristal/labCristalEscuro2.png");
     this.load.image("objetosLabEsc", "assets/objetos/sceneLabCristal/objetosLabCristal1.png");
     this.load.image("cenarioClaro", "assets/fases/sceneLabCristal/labCristalClaro.png");
     this.load.image("objLabClaro", "assets/objetos/sceneLabCristal/objetosLabCristal2.png");
     this.load.image("colisao", "assets/fases/preFase4/mascaraPrefase4.png");
-    this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", { frameWidth: 32, frameHeight: 32 });
 
     // Carrega os sons para interações
     this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
@@ -33,7 +33,7 @@ export class sceneRestauracao extends Phaser.Scene {
     this.somVitoria.play();
 
     let gifElemento7 = document.createElement('img');
-        gifElemento7.src = 'assets/textosCenas/retornoHub.gif';
+        gifElemento7.src = 'assets/textosCenas1/retornoHUB.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento7.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -242,4 +242,7 @@ export class sceneRestauracao extends Phaser.Scene {
     });
   }
 }
+
+
+
 

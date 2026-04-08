@@ -12,7 +12,7 @@ export class chaoCaindo extends Phaser.Scene {
   preload() {
     this.load.image("portas", "assets/fases/faseDois/salaPortas.png");
 
-    this.load.spritesheet("sophiaCaindo", "assets/cutscene/animacaoCaindo.png", {
+    this.load.spritesheet("sophiaCaindo", "assets/cutscene1/animacaoCaindo.png", {
       frameWidth: 128,
       frameHeight: 128,
     });
@@ -276,3 +276,6 @@ export class chaoCaindo extends Phaser.Scene {
     });
   }
 }
+
+
+
