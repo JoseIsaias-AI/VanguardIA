@@ -331,9 +331,8 @@ Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensi
 
 ### 2.2.5. Tempo estimado de jogo (sprint 5)
 
-*Ex. O jogo pode ser concluído em 3 horas passando por todas as fases.*
+O tempo estimado do nosso jogo é de 13 minutos.
 
-*Ex. cada partida dura até 15 minutos*
 </div>
 
 # <a name="c3"></a>3. Game Design (sprints 2 e 3)
