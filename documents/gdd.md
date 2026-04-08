@@ -343,15 +343,15 @@ Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensi
 <div align = "justify">
 Em um mundo onde a Inteligência Artificial ainda está em fase de desenvolvimento, surge a constante indagação sobre como essa tecnologia afetará o futuro da sociedade. A narrativa tem início em 2022, em um laboratório de pesquisa focado em aprendizado de máquina e robótica, repleto de profissionais renomados. Entre eles destaca-se Sophia, uma cientista brilhante reconhecida por sua curiosidade inata, mente analítica e criatividade na resolução de problemas. À frente do laboratório está Watson, cientista-chefe e orientador de Sophia, responsável por coordenar os projetos mais ambiciosos da equipe.
 
-À medida que os sistemas evoluem, Watson começa a perceber um risco crescente: a tecnologia criada para auxiliar a humanidade poderia ser facilmente redirecionada para fins de controle e destruição. Ele identifica movimentações externas interessadas em assumir o comando dos projetos e teme que, no futuro, as IAs desenvolvidas no laboratório sejam treinadas para atender interesses de dominação. Sem conseguir interromper o avanço inevitável das pesquisas nem garantir que permaneceriam sob controle ético, Watson elabora um plano extremo.
+À medida que os sistemas evoluem, Watson começa a perceber um risco crescente: a tecnologia criada para auxiliar a humanidade poderia ser facilmente redirecionada para fins de controle e destruição. Ele identifica movimentações externas interessadas em assumir o comando dos projetos e teme que, no futuro, as tecnologias desenvolvidas no laboratório sejam utilizadas para atender interesses negativos. Sem conseguir interromper o avanço inevitável das pesquisas nem garantir que permaneceriam sob controle ético, Watson elabora um plano.
 
-Ele convoca Sophia para uma conversa reservada e apresenta projeções alarmantes baseadas em simulações internas do próprio laboratório. O diálogo gira em torno do perigo iminente que as criações dos agentes robóticos autônomos projetados para automatizar tarefas humanas, do laboratório, podem representar no futuro. Com a idade avançada, Watson tem um mau pressentimento: ele teme que a liderança do projeto caia em mãos erradas e que a tecnologia seja utilizada para ganho de poder e dominação.
+Ele convoca Sophia para uma conversa reservada e apresenta projeções baseadas em simulações internas do próprio laboratório. O diálogo gira em torno do perigo iminente no uso indevido de tecnologias emergentes no futuro. Para evitar esse cenário trágico, o líder pede que Sophia faça parte do projeto como a cientista que será congelada para despertar em um futuro, caso necessário. Embora receosa, a cientista aceita, pois dedicou toda a sua vida à ciência. 
 
-Para evitar esse cenário trágico, o líder convence Sophia a passar por um processo de criogenia. Seu corpo seria totalmente congelado para despertar apenas em 2098, tornando-se a esperança de um final promissor para o destino das máquinas inteligentes. Embora receosa, a cientista aceita, pois dedicou toda a sua vida à ciência. Assim que o procedimento é iniciado, Watson ativa um protocolo secreto: caso um cenário de calamidade fosse detectado, um agente específico deveria despertar Sophia.
+Assim que o procedimento é iniciado, Watson ativa um protocolo secreto: caso um cenário de calamidade fosse detectado, um agente específico deveria despertar Sophia.
 
 Esse agente é Asimov, um robô criado como experimento científico avançado para testes de aprendizagem autônoma e suporte operacional ao laboratório. Projetado para auxiliar equipes humanas de forma independente, Asimov possui arquitetura adaptativa e capacidade de evolução contínua por meio de dados.
 
-Muitas décadas depois, a câmara criogênica se abre. Sophia desperta em 2098, em um mundo devastado pelo uso indevido de Inteligências Artificiais treinadas para obter poder e dominação. O antigo laboratório está em ruínas, tomado por sucatas e falhas estruturais. Asimov foi o responsável por ativar o protocolo de despertar sophia ao detectar a calamidade global, cumprindo a última ordem direta de Watson. No entanto, ele também sofreu danos: parte de sua memória foi fragmentada e seu banco de dados encontra-se inacessível devido à falha no núcleo energético do mapa central do laboratório.
+Muitas décadas depois, a câmara criogênica se abre. Sophia desperta em 2098, em um mundo devastado pelo uso indevido de Inteligências Artificiais treinadas para obter poder e dominação. O antigo laboratório está em ruínas, tomado por sucatas e falhas estruturais. Asimov foi o responsável por ativar o protocolo de despertar Sophia ao detectar a calamidade global, cumprindo a última ordem direta de Watson. No entanto, ele também sofreu danos: parte de sua memória foi fragmentada e seu banco de dados encontra-se inacessível devido à falha no núcleo energético do mapa central do laboratório.
 
 Ao analisar os sistemas restantes, Asimov explica que a única maneira de restaurar a infraestrutura e recuperar integralmente seu banco de dados é reativar o núcleo do mapa energético do laboratório. Para isso, é necessário um cristal específico, capaz de armazenar e redistribuir grandes cargas de energia para toda a estrutura. Sem essa fonte, o laboratório permanecerá inoperante e seu conhecimento perdido.
 
@@ -359,11 +359,15 @@ A busca começa na área de sucatas, onde podem existir registros antigos sobre 
 
 Entre os escombros, encontram um baú contendo a imagem de uma porta específica e seus padrões codificados em binário. A próxima fase consiste em localizar essa porta em uma sala com múltiplos caminhos e entradas visualmente semelhantes. O ambiente é escuro demais para Sophia distinguir os detalhes, mas Asimov consegue enxergar na ausência de luz. No entanto, ele não consegue diferenciar os padrões corretos. Sophia então o treina por meio de um sistema de reconhecimento de padrões, ensinando-o a classificar corretamente as características visuais até que ele consiga identificar a porta certa de forma independente.
 
-Ao atravessarem a entrada certa, encontram um novo conjunto de dados: imagens e registros de cristais raros, divididos entre exemplares verdadeiros e falsos. Os cristais adequados são azuis, pontiagudos e altamente brilhantes, capazes de armazenar grandes cargas de energia; os inadequados apresentam colorações avermelhadas, rachaduras e irregularidades estruturais. Sophia precisa organizar esse banco de dados, separando corretamente as amostras e levando-as a um extrator de características. A partir disso, é criado um mapa de atributos que será inserido no sistema de Asimov.
+Ao atravessarem a entrada certa, encontram um novo conjunto de dados: imagens e registros de cristais raros, divididos entre exemplares verdadeiros e falsos. Os cristais adequados são azuis, capazes de armazenar grandes cargas de energia; os inadequados apresentam colorações avermelhadas. Entretanto, antes que pudesse ver detalhadamente as imagens, o chão da sala de quebra e Sophia cai em outro laboratório, onde ela precisa coletar as imagens dos cristais corretos enquanto escala para a sala das portas para continuar sua missão.
 
-Essas informações são inseridas em Asimov, que passa por um novo processo de aprendizado, simulando o comportamento de uma rede neural generativa. Ele começa a produzir múltiplas variações com ruídos e interferências. Cabe a Sophia ajustar os parâmetros, reduzir os níveis de erro e limpar as distorções até que o sistema gere um cristal idêntico ao modelo verdadeiro. Com o padrão final validado, o cristal é forjado e colocado no núcleo do mapa energético do laboratório. A energia da instalação é restaurada, reativando sistemas essenciais e recuperando integralmente o banco de dados de Asimov. Com sua capacidade de processamento ampliada e acesso total às informações originais, ele se torna novamente um agente autônomo avançado, pronto para auxiliar Sophia na reconstrução do conhecimento perdido.
+Após esse processo, Sophia precisa levas as características para Asimov e insere-as em seu sistema, onde passa por um novo processo de aprendizado, simulando o comportamento de uma rede neural generativa. Ele começa a produzir múltiplas variações com ruídos e interferências. Cabe a Sophia ajustar os parâmetros: reduzir os níveis de erro e limpar as distorções até que o sistema gere um cristal idêntico ao modelo verdadeiro. 
 
-O jogo encerra-se com um desfecho aberto. A restauração do laboratório representa apenas o primeiro passo. Sophia compreende que o problema nunca foi a tecnologia em si, mas a forma como ela é direcionada. Agora, ao lado de Asimov, ela inicia uma nova etapa: reconstruir sistemas inteligentes com responsabilidade, refletindo sobre o uso ético da Inteligência Artificial e deixando ao jogador a sensação de que o verdadeiro desafio começa a partir dali.
+Com o padrão final validado, o cristal é forjado e colocado no núcleo do mapa energético do laboratório. A energia da instalação é restaurada, reativando sistemas essenciais e recuperando integralmente o banco de dados de Asimov. Com sua capacidade de processamento ampliada e acesso total às informações originais, ele se torna novamente um agente autônomo avançado, pronto para auxiliar Sophia na reconstrução do conhecimento perdido.
+
+Por fim, Asimov ensina para Sophia sobre a criação de prompts e a importância da ética no uso da Inteligência Artificial, exibindo exemplos de prompts aos quais a cientista tem que classificar entre aplicações corretas e incorretas para que consiga prosseguir com a missão. Sophia compreende que o problema nunca foi a tecnologia em si, mas a forma como ela é direcionada. 
+
+Desse modo, mostrando Sophia ao lado de Asimov com o objetivo de ensinar sobre os fundamentos e a utilização ética da IA para a humanidade, o jogo encerra-se com um desfecho aberto, deixando ao jogador a sensação de que o verdadeiro desafio começa a partir dali.
 </div>
 
 ## 3.2. Personagens (sprints 2 e 3)
@@ -435,31 +439,70 @@ Dessa forma, o jogo promove representatividade de gênero, acadêmica e profissi
 ### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
 
 <div align = "justify">
-O jogo se passa em um laboratório de pesquisa em Inteligência Artificial e robótica. No início da narrativa, em 2022, o ambiente é apresentado como um espaço moderno, organizado e equipado com tecnologias avançadas, transmitindo a sensação de progresso científico e inovação. Após o salto temporal para 2098, quando Sophia desperta da criogenia, o jogador encontra o mesmo laboratório em estado de abandono, com estruturas danificadas, equipamentos quebrados e um ambiente escuro e silencioso, reforçando as consequências do uso indevido da tecnologia ao longo das décadas.
-
-Entre os principais ambientes explorados está a área de sucatas, um setor do laboratório onde foram acumulados equipamentos danificados, peças de robôs e restos de experimentos antigos. Esse espaço funciona como uma área inicial de exploração, onde Sophia controla Asimov para navegar entre os destroços e encontrar pistas sobre a localização do cristal necessário para restaurar os sistemas do laboratório.
-
-Após essa etapa, Sophia e Asimov chegam à sala de arquivos, um ambiente onde estão armazenados registros e materiais de antigos experimentos científicos. Nesse local existe um baú contendo folhetos e imagens de diferentes tipos de cristais. Entre esses registros estão tanto imagens do cristal verdadeiro azul, brilhante e pontiagudo; quanto cristais falsos, vermelhos e com imperfeições estruturais.
-
-Em seguida, o jogador acessa a sala da esteira, onde ocorre a fase de classificação. Nesse ambiente, as imagens dos cristais são analisadas e separadas utilizando os comandos de guardar ou incinerar. Após a seleção correta das amostras, os cristais verdadeiros são enviados para um extrator de características, que gera a matriz de dados utilizada para o treinamento do sistema de Asimov.
-
-Por fim, o jogo apresenta a sala principal de controle do laboratório, onde se encontra o núcleo do mapa energético da instalação. Nesse local, Sophia deposita o cristal sintetizado no centro do sistema, restaurando a energia do laboratório e reativando seus principais sistemas, marcando um momento importante na reconstrução da tecnologia e no avanço da narrativa.
-</div>
+O jogo tem cinco diferentes cenários e, entre eles, dois deles tem variações. A narrativa se inicia em um laboratório com diversos cientistas, prontos para iniciar o projeto que desenvolveram; esse ambiente é apresentado como um espaço moderno, organizado e com diversos equipamentos tecnológicos, transmitindo a sensação de progresso científico e inovação.
 
 <div align = "center">
-<sup>Figura 5: Mapa do laboratório inicial.</sup><br>
-<img src="../assets/Fases/sceneTwo/labCristalClaro2.png"><br>
+
+<sup>Figura 5: Laboratório Inicial antes da viagem no tempo.</sup><br>
+<img src="documents/assets/labBrancoN.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
+
 </div>
 
-<div align = "justify">
-Mais tarde, o jogador retorna ao mesmo laboratório, mas no futuro, encontrando o lugar abandonado, escuro e deteriorado, com máquinas quebradas e um clima mais pesado e silencioso, criando uma sensação de estranheza e suspense ao mostrar como tudo mudou com o tempo. 
-</div>
+O cenário seguinte muda após um salto temporal, quando Sophia desperta da criogenia, o jogador encontra o mesmo laboratório, entretanto, com suas estruturas danificadas, equipamentos quebrados e um ambiente escuro para transmitir ao jogador a ideia de que algo ruim ocorreu naquele ambiente.
 
 <div align = "center">
-<sup>Figura 6: Mapa do laboratório no futuro.</sup><br>
-<img src="../assets/Fases/sceneTwo/labCristalEscuro2.png"><br>
+
+<sup>Figura 6: Laboratório Inicial depois da viagem no tempo.</sup><br>
+<img src="documents/assets/labBrancoD.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div>
+
+O segundo cenário apresentado é um corredor onde há vários equipamentos danificados acumulados ao ponto de serem obstáculos ao jogador, esse ambiente foi construído para que o robô, Asimov, navegue entre os destroços para aprender sobre os padrões de movimentação que deve ter e coletar pistas sobre a localização do cristal necessário para restaurar os sistemas do laboratório.
+
+<div align = "center">
+
+<sup>Figura 7: Cenário da Fase 01.</sup><br>
+<img src="documents/assets/faseCorredor.png" width = '70%'><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div>
+
+Em seguida, Asimov volta para o laboratório destruído e depois leva Sophia para a sala das portas, onde deve ser localizada a sala em que está o baú com imagens de diferentes tipos de cristais, esse cenário é uma sala escura para instigar a exploração e como recurso para o fundamento apresentado nesta fase.
+
+<div align = "center">
+
+<sup>Figura 8: Cenário da Fase 02, sala das portas.</sup><br>
+<img src="documents/assets/salaPortas.png" width = '70%'><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div>
+
+Após essa etapa, o jogador é levado à uma sala com diversos equipamentos ao fundo e plataformas pra que ele possa subir até outro mapa e coletar as imagens dos cristais corretos.
+
+<div align = "center">
+
+<sup>Figura 9: Cenário da Fase 03.</sup><br>
+<img src="documents/assets/labFaseTres.png" width = '70%'><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div>
+
+Por fim, é apresentada no jogo a sala principal de controle do laboratório, onde se encontra o núcleo energético que o jogador deve inserir o cristal para reativar os sistemas, marcando um momento importante na reconstrução da tecnologia e no avanço da narrativa.
+
+<div align = "center">
+
+<sup>Figura 10: Laboratório Final antes da restauração.</sup><br>
+<img src="documents/assets/labCristal1.png" width = '70%'><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 11: Laboratório Final depois da restauração.</sup><br>
+<img src="documents/assets/labCristal2.png" width = '70%'><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+</div>
+
 </div>
 
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
@@ -542,35 +585,19 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
-Trilha sonora 1
-
-Título                    Autoria               Ocorrência              Duração
-
-Batida, tensa             Própria              Durante todas          32 segundos,
-Futurista                                        as fases               em loop
-
-
-
-
-DESCRIÇÃO 
-
-A trilha sonora do jogo é um elemento de ambiente futurista, construída para colocar o jogador dentro de um universo tecnológico sombrio e instável. Ela não conta uma história, mas condiciona o estado emocional de quem joga, através de batidas metálicas que remetem a maquinário pesado e estruturas industriais, glitches e estáticos que lembram televisões analógicas falhando. Tudo isso junto passa a sensação de um futuro que existe, mas está quebrado. A tecnologia funciona, porém à beira do colapso, e o mundo ao redor respira de forma robotizada e fria.
-
-
-
-Trilha sonora 2
-
-Título                    Autoria               Ocorrência              Duração
-
-Frequência Estável        Própria           durante os momentos          32 segundos, 
-                                            que não tem desafios.          em loop
-
-
-
-DESCRIÇÃO
-
-É a música que toca enquanto Sophia ainda está descobrindo o que aconteceu e o que precisa fazer.O som continua sendo eletrônico e futurista, porque o mundo do jogo é assim, mas sem aquela sensação de perigo. As batidas são mais espaçadas, o ritmo é mais tranquilo. Dá pra sentir que as coisas ainda estão se encaixando, que existe uma chance de consertar tudo. É o som de um mundo quebrado que ainda tem esperança.
-
+\# | Título | Ocorrência | Autoria | Arquivo
+--- | --- | --- | --- | ---
+1 | Trilha principal | Durante todas as cenas do jogo, a não ser fases e minigames | Própria | `assets/bgMusic.wav`
+2 | Trilha secundária | Durante as fases e minigames | Própria | `assets/bgMusicFases.mp3`
+3 | Som de colisão | Sempre que o personagem colide com um objeto | ? | `assets/colisionSound.wav`
+4 | Som do baú abrindo | Sempre que o jogador abrir um baú | ? | `assets/efeitosSonoros/bauAbrindo.mp3`
+5 | Som de papel | Sempre que uma carta ou pergaminho for aberto | ? | `assets/efeitosSonoros/carta.mp3`
+6 | Som de algo quebrando | Quando o chão desmoronar | ? | `assets/efeitosSonoros/chaoQuebrando.mp3`
+7 | Som de digitação | Sempre que estiver sendo exibido um diálogo | ? | `assets/efeitosSonoros/digitacao.mp3`
+8 | Som de acerto | Sempre que o jogador fizer algo corretamente nas fases | ? | `assets/efeitosSonoros/correto.mp3`
+9 | Som de erro | Sempre que o jogador errar algo nas fases ou tiver que reiniciar uma fase | ? | `assets/efeitosSonoros/erro.mp3`
+10 | Som de 'estalo' | Quando o jogador clicar nos nós da rede na Fase Dois | ? | `assets/efeitosSonoros/popNos.mp3`
+11 | Som de vitória | Quando o jogador finalizar corretamente uma fase | ? | `assets/efeitosSonoros/vitoriaSom.mp3`
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
@@ -964,17 +991,29 @@ Por fim, também houve alteração na tela inicial do jogo para que estivesse ma
 
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
-| pré-condição                          | descrição do teste                              | pós-condição                                              |
+| pré-condição | descrição do teste | pós-condição |
 |----------------------------------------|--------------------------------------------------|-----------------------------------------------------------|
-| jogo iniciado                     | pressionar setas                 | personagem se move corretamente nas direções designadas |
-| personagem próximo a obstáculo/colisão| movimentar personagem contra a parede/objeto   | personagem não atravessa a parede ou o objeto            |
+| estar na tela de início | pressionar botão 'Options' | abrir menu do jogo |
+| jogo iniciado | pressionar setas ou WASD | personagem se move corretamente nas direções designadas |
+| personagem próximo a obstáculo/colisão | movimentar personagem contra a parede/objeto   | personagem não atravessa a parede ou o objeto |
 | estar perto do personagem Watson | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
 | função de diálogo ativada | pressionar tecla E | mudança do texto exibido na caixa de diálogo |
 | explicação por personagem finalizada | pressionar tecla E | caixa de diálogo para de ser exibida |
-| ter interagido com o personagem Watson e estar próximo da câmara criogência | pressionar tecla E | aparece vídeo de transição e ser transportado para o laboratório no futuro |
+| ter interagido com o personagem Watson e estar próximo da câmara criogência | pressionar tecla E | vídeo de transição é executado corretamento dentro do espaço designado e transferência para cena seguinte |
 | estar próximo de personagem Asimov | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
+| ter dialogado com Asimov | finalizar diálogo antes da Fase 01 | sprite de Sophia não se sobrepõe à animação de Asimov andando automaticamente |
 | estar na fase 01 | apertar tecla SPACE | personagem deve pular corretamente |
-| estar na fase 01 | colidir com obstáculo | reiniciar fase 01 |
+| estar na fase 01 | colidir com um obstáculo | reiniciar fase 01 |
+| estar perto de um baú | pressionar tecla E | baú abrir e dar as informações necessárias |
+| ter coletado a carta vermelha | pressioná-la 9 vezes | carta abrir e mostrar texto corretamente |
+| estar na fase 02 | apertar nos neurônios de Asimov | os neurônios devem acender suas luzes na ordem certa com o clique em cima delas |
+| finalizar fase 02 | pressionar tecla E para abrir o baú | executar corretamente animação de chão quebrando e Sophia caindo |
+| estar na fase 03 | apertar tecla SPACE e direcionar personagem na direção de plataforma | personagem deve colidir corretamente com a plataforma |
+| chegar ao topo do cenário da fase 03 |  coletar todos os cristais corretos e pular em direção à corda | seguir para a próxima cena |
+| dialogar com Asimov | pressionar tecla E para ler documentos | abrir corretamente documnetação e ser direcionado à fase 04 |
+| estar na fase 04 | pressionar botão direito do mouse e arrastar na imagem | nitidez crescente nos pontos selecionados da imagem |
+| realizar limpeza da imagem | possuir nitidez de 99% | ser direcionado à cena seguinte |
+| estar na fase cinco | classificar afirmação como correta ou incorreta | crescimento da contagem de acertos e erros |
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
@@ -1196,13 +1235,14 @@ O que você achou do processo de aprendizado do jogo? | Achei bem legal e com ap
 
 ### 5.2.2 Melhorias
 
-Com base nos testes de jogabilidade realizados, foi possível validar a utilidade e a usabilidade dos minigames, bem como a eficácia do storytelling. De modo geral, a combinação desses elementos mostrou-se positiva para a experiência do usuário e para o processo de aprendizagem, sendo, inclusive, os minigames um dos aspectos mais elogiados pelos participantes.
+Com base nos testes de jogabilidade realizados, foi possível perceber de forma clara a utilidade e a usabilidade dos minigames, assim como a força do storytelling na construção da experiência. Os minigames se destacaram como o ponto mais positivo do jogo, sendo frequentemente elogiados pelos participantes, especialmente pela variedade de mecânicas e diversão, que tornou a experiência mais dinâmica e leve durante todo o jogo. Já a história do jogo também foi muito bem avaliada, sendo uma história bem construída e envolvente. Além disso, os participantes gostaram muito dos personagens e dos elementos visuais, com destaque para os designs e as cutscenes que foram feitas 100% à mão, trazendo um senso autêntico e esteticamente positivo.
 
-No entanto, os testes também evidenciaram problemas relevantes, especialmente relacionados à experiência do usuário, como o excesso de texto, a falta de clareza nas instruções, inconsistências e ausência de elementos de HUD, além de bugs técnicos que impactaram a jogabilidade. Esses pontos foram recorrentes entre os feedbacks, indicando a necessidade de melhorias estruturais na comunicação com o jogador.
+No entanto, os testes também evidenciaram problemas relevantes, especialmente relacionados à experiência do usuário, como o excesso de texto, onde em momentos como conversas entre os personagens e documentos presentes no jogo exigiam muito tempo de leitura do usuário. Outro ponto também foi a falta de clareza nas instruções, que alguns dos participantes ficaram levemente perdidos e sem saber exatamente o que fazer. Problemas como inconsistência e ausência de elementos de HUD, além de bugs técnicos que impactaram a jogabilidade também foram vistos. Esses pontos foram recorrentes entre os feedbacks, indicando a necessidade de melhorias estruturais na comunicação com o jogador.
 
-Diante desse cenário, torna-se necessário aprimorar a UX do jogo, com foco na redução da carga cognitiva, por meio da diminuição e simplificação dos diálogos, sem comprometer a profundidade do conteúdo e sua proposta educacional. Paralelamente, é fundamental refinar o sistema de HUD e de orientação ao jogador (player guidance), tornando mais claros os objetivos e as ações esperadas em cada fase, tanto naquelas que já possuem indicadores — mas ainda pouco eficazes — quanto nas que ainda não contam com esse suporte.
+Diante desse cenário, torna-se necessário aprimorar a UX do jogo, com foco na redução da carga cognitiva do jogador. Isso pode ser alcançado por meio da diminuição e simplificação dos diálogos e textos apresentados, especialmente em momentos que exigem maior atenção, buscando equilibrar melhor a quantidade de informação sem comprometer a profundidade do conteúdo e sua proposta educacional. Também é fundamental refinar o sistema de HUD e de orientação ao jogador (player guidance), de modo a tornar mais claros os objetivos e as ações esperadas em cada fase. Isso envolve tanto a melhoria dos indicadores já existentes, que se mostraram pouco eficazes durante os testes, quanto a implementação de novos elementos de apoio nas fases que ainda não contam com esse suporte. Dessa forma, busca-se reduzir momentos de incerteza e proporcionar uma navegação mais intuitiva ao longo da experiência.
 
 Além disso, é imprescindível realizar a correção dos bugs identificados durante os testes. Considerando que as avaliações foram conduzidas sobre uma versão MVP do jogo, a ocorrência desses problemas já era esperada. Dessa forma, o processo de refatoração do código, deve visar tanto a resolução de erros previamente conhecidos quanto a correção dos novos problemas identificados a partir dos testes realizados.
+
 
 # <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
 

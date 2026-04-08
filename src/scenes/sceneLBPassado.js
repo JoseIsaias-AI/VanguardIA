@@ -14,6 +14,7 @@ export class sceneLbPassado extends Phaser.Scene {
     this.load.image("camara", "assets/objetos/sceneLbPassado/partOne/camara.png");
     this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
     this.load.spritesheet("watson", "assets/personagens/watson.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
     this.load.image("armario", "assets/objetos/sceneLbPassado/partOne/armario.png");
     this.load.image("alvo", "assets/objetos/sceneLbPassado/partOne/alvo.png");
     this.load.image("criogenia", "assets/objetos/sceneLbPassado/partOne/criogenia.png");
@@ -29,7 +30,6 @@ export class sceneLbPassado extends Phaser.Scene {
     this.load.spritesheet("npc3", "assets/personagens/npc3.png", { frameWidth: 29, frameHeight: 49 });
     this.load.image("npc4", "assets/personagens/npc4.png");
     this.load.image("npc4", "assets/personagens/npc4.png");
-
   }
 
   //neste método do Phaser, organizamos a criação de cada objeto que ja foi carregado e como eles irão se comportar na cena
@@ -240,6 +240,7 @@ export class sceneLbPassado extends Phaser.Scene {
 
   //Aqui, criamos o HUD da tecla E para a câmara
   createHUD(){
+    
     //Aqui, criamos o contâiner da tecla E
     this.containerTecla = this.add.container(0, 0).setDepth(500);
     let largura = 140;
@@ -270,6 +271,8 @@ export class sceneLbPassado extends Phaser.Scene {
     let letraWatson = this.add.text(0, 0, "Aperte E", { fontSize: "20px", color: "#000000", fontStyle: "bold" }).setOrigin(0.5);
     this.containerTeclaWatson.add([iconeTeclaWatson, letraWatson]);
     this.containerTeclaWatson.setVisible(false);
+    //Aqui, criamos o som pop
+    this.somPop = this.sound.add("pop", { volume: 0.8 });
     this.tweens.add({ targets: this.containerTeclaWatson, y: "+=5", duration: 800, yoyo: true, repeat: -1 });
 
     
@@ -423,6 +426,8 @@ executarInteracoes() {
 
 //Aqui, executamos as interações com a câmara
 interagirCamara() {
+  //Aqui, tocamos o som pop quando interagir com a câmera
+  this.somPop.play();
   this.containerTecla.setVisible(false);
   this.lendoMensagem = true;
 
@@ -442,6 +447,8 @@ interagirCamara() {
 
 //Aqui, executamos as interações com o Watson
 interagirWatson() {
+  //Aqui, tocamos o som pop quando interagir com o Watson
+  this.somPop.play();
   this.containerTeclaWatson.setVisible(false);
   this.lendoMensagem = true;
 

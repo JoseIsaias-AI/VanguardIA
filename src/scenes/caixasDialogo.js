@@ -56,6 +56,12 @@ export default class caixaDialogo {
             scrollFactor,
         });
 
+        this.somDigitando = null;
+        this.audioPendente = false;
+        this._digitandoLoadStarted = false;
+
+        this._inicializarAudio();
+
         this.falas = [];
         this.indiceDialogo = 0;
         this.textoAtualArmazenado = "";
@@ -153,6 +159,8 @@ export default class caixaDialogo {
             return;
         }
 
+        this._iniciarSonsDigitacao();
+
         let letraAtual = 0;
         this.timerEscrever = this.scene.time.addEvent({
             delay: this.delayDigitacao,
@@ -163,6 +171,7 @@ export default class caixaDialogo {
                 if (letraAtual >= textoCompleto.length) {
                     this.estaEscrevendo = false;
                     this.timerEscrever = null;
+                    this._pararSonsDigitacao();
                 }
             },
             repeat: textoCompleto.length - 1,
@@ -181,6 +190,48 @@ export default class caixaDialogo {
 
         if (personagemFalando) {
             personagemFalando.clearTint();
+        }
+    }
+
+    _inicializarAudio() {
+        if (this.scene.cache.audio.exists("digitando")) {
+            this._criarSomDigitando();
+            return;
+        }
+
+        if (this._digitandoLoadStarted) {
+            return;
+        }
+
+        this._digitandoLoadStarted = true;
+        this.scene.load.audio("digitando", "assets/efeitosSonoros/digitando.mp3");
+        this.scene.load.once("complete", () => {
+            this._criarSomDigitando();
+            if (this.audioPendente) {
+                this.audioPendente = false;
+                this._iniciarSonsDigitacao();
+            }
+        });
+        this.scene.load.start();
+    }
+
+    _criarSomDigitando() {
+        if (!this.somDigitando && this.scene.cache.audio.exists("digitando")) {
+            this.somDigitando = this.scene.sound.add("digitando", { loop: true, volume: 0.5 });
+        }
+    }
+
+    _iniciarSonsDigitacao() {
+        if (this.somDigitando && !this.somDigitando.isPlaying) {
+            this.somDigitando.play();
+        } else if (!this.somDigitando) {
+            this.audioPendente = true;
+        }
+    }
+
+    _pararSonsDigitacao() {
+        if (this.somDigitando && this.somDigitando.isPlaying) {
+            this.somDigitando.stop();
         }
     }
 
@@ -213,6 +264,7 @@ export default class caixaDialogo {
             this.timerEscrever = null;
         }
 
+        this._pararSonsDigitacao();
         this.textoDialogo.setText(this.textoAtualArmazenado);
         this.estaEscrevendo = false;
         return true;
@@ -223,6 +275,8 @@ export default class caixaDialogo {
             this.timerEscrever.remove();
             this.timerEscrever = null;
         }
+
+        this._pararSonsDigitacao();
 
         this.estaEscrevendo = false;
         this.textoAtualArmazenado = "";

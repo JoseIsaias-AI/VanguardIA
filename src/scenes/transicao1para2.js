@@ -25,6 +25,7 @@ export class transicao1Para2 extends Phaser.Scene {
         this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
 
         // Objetos decorativos do cenário
+        this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
         this.load.image("armarioD",      "assets/objetos/sceneLbPassado/partTwo/armarioDestruido.png");
         this.load.image("alvoD",         "assets/objetos/sceneLbPassado/partTwo/alvoDestruido.png");
         this.load.image("mesa1D",        "assets/objetos/sceneLbPassado/partTwo/mesa1Destruida.png");
@@ -40,6 +41,10 @@ export class transicao1Para2 extends Phaser.Scene {
 
     create() {
         registrarTeclaMenu(this);
+
+        this.somVitoria = this.sound.add("vitoriaSom", { volume: 0.9 });
+        this.somVitoria.play();
+
         
         // Instancia o Gerenciador de Diálogos
         this.sistemaDialogo = new caixaDialogo(this);
@@ -242,3 +247,4 @@ export class transicao1Para2 extends Phaser.Scene {
         this.playAnimIfNeeded(this.asimov, `asimov-walk-${this.asimovFacing}`);
     }
 }
+

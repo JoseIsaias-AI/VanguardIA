@@ -17,13 +17,15 @@ export class menu extends Phaser.Scene {
 
   //aqui são carregados todas as imagens e sprites do menu, antes de serem criadas, é ficado na memória do computador ou nuvem
   preload() {
-    this.load.spritesheet("objetosMenu", "assets/menu/infoMenu.png", {
-      frameWidth: 320,
-      frameHeight: 320,
-    });
-    this.load.image("controleBtn", "assets/menu/controle.png");
-    this.load.image("voltarBtn", "assets/menu/voltar.png");
-    this.load.image("sairBotao", "assets/menu/sair.png");
+    this.load.image("objetosMenu", "assets/Menu/fundo.png");
+    this.load.image("controles", "assets/Menu/controles.png");
+    // Carrega o som de iniciar menu
+    this.load.audio("somIniciar", "assets/efeitosSonoros/somIniciar.m4a");
+    this.load.image("controleBtn", "assets/Menu/controle.png");
+    this.load.image("voltarBtn", "assets/Menu/voltar.png");
+    this.load.image("sairBotao", "assets/Menu/sair.png");
+    this.load.image("muteBtn", "assets/Menu/mutar.png");
+
   }
 
   //aqui são criadas todas as imagens que vão aparecer na tela e todas as suas configurações
@@ -33,6 +35,8 @@ export class menu extends Phaser.Scene {
     // Inicia a cena de música de fundo (bgMusic): áudio em loop ao abrir o menu.
     this.scene.launch("bgMusic");
 
+    this.musicMuted = false; // Estado inicial do mute da música
+
     this.add
       .rectangle(width / 2, height / 2, width, height, 0x000000, 0)
       .setDepth(9)
@@ -40,46 +44,79 @@ export class menu extends Phaser.Scene {
 
     //criação da imagem que esta dentro de um sprite de todas as imagens do menu. Frame 0, porque é o primeiro frame
     this.fundoMenu = this.add
-      .sprite(width / 2, height / 2, "objetosMenu")
-      .setFrame(0)
-      .setScale(5.0)
+      .image(width / 2, height / 2, "objetosMenu")
+      .setScale(4.0)
       .setDepth(10);
+      
     //este é o último frame do sprite que é representado quando o usuário deseja acessar as instruções
     this.instrucao = this.add
-      .sprite(width / 2, height / 2, "objetosMenu")
-      .setFrame(6)
-      .setScale(5.0)
+      .image(width / 2, height / 2, "controles")
+      .setScale(4.0)
       .setDepth(11)
       .setVisible(false);
 
     //estas 3 imagens eram sprites, mas tive que transformar em imagens, pois a parte transparente do sprite estava fazendo com que quando clicava em um botão fazia outra função, pois se sobresaia em relação ao outro frame
     this.controle = this.add
       .image(width / 2, height / 2 - 180, "controleBtn")
-      .setScale(5.0)
+      .setScale(3.5)
       .setDepth(12)
       .setInteractive();
     this.voltar = this.add
       .image(width / 2, height / 2 + 180, "voltarBtn")
-      .setScale(5.0)
+      .setScale(3.5)
       .setDepth(12)
       .setInteractive();
     this.sair = this.add
-      .image(width / 2 + 300, height / 2 - 320, "sairBotao")
-      .setScale(4.0)
+      .image(width / 2 + 360, height / 2 - 320, "sairBotao")
+      .setScale(3.5)
+      .setDepth(12)
+      .setInteractive();
+
+    this.mute = this.add
+      .image(width / 2, height / 2, "muteBtn")
+      .setScale(3.5)
       .setDepth(12)
       .setInteractive();
 
     this.controle.on("pointerdown", () => {
+      // Toca o som ao clicar no botão controle
+      this.somIniciar.play();
       //quando apertar em controle com o botão esquerdo do mouse
       this.fundoMenu.setVisible(false);
       this.controle.setVisible(false);
       this.voltar.setVisible(false);
+      this.mute.setVisible(false);
       this.instrucao.setVisible(true);
     });
 
-    this.voltar.on("pointerdown", () => this.fecharMenu(true)); //quando apertar em botão com o botão esquerdo do mouse
-    this.sair.on("pointerdown", () => this.fecharMenu(false)); //quando apertar em sair com o botão esquerdo do mouse
+    this.voltar.on("pointerdown", () => {
+      // Toca o som ao clicar no botão voltar
+      this.somIniciar.play();
+      this.fecharMenu(true);
+    }); //quando apertar em botão com o botão esquerdo do mouse
+
+    this.sair.on("pointerdown", () => {
+      // Toca o som ao clicar no botão sair
+      this.somIniciar.play();
+      this.fecharMenu(false);
+    }); //quando apertar em sair com o botão esquerdo do mouse
     this.input.keyboard.once("keydown-M", () => this.fecharMenu(false)); //quando apertar M, fecha tudo
+
+    this.mute.on("pointerdown", () => {
+      // Toca o som ao clicar no botão mute
+      this.somIniciar.play();
+      // Toggle mute da música
+      this.musicMuted = !this.musicMuted;
+      const bgMusic = this.game.sound.get('bgMusic');
+      if (bgMusic) {
+        bgMusic.mute = this.musicMuted;
+      }
+    });
+
+    // Cria o som de iniciar menu
+    this.somIniciar = this.sound.add("somIniciar");
+    // Toca o som quando o menu é aberto
+    this.somIniciar.play();
   }
 
   fecharMenu(irParaWelcome) {
