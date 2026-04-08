@@ -19,7 +19,7 @@ export class bgMusic extends Phaser.Scene {
       // Adiciona o som ao gerenciador global de som com configurações de loop e volume.
       this.music = this.game.sound.add('bgMusic', {
         loop: true,    // Faz o áudio repetir indefinidamente.
-        volume: 0.3  // Define o volume em 70%
+        volume: 0.2  // Define o volume em 70%
       });
       this.music.play();// Inicia a reprodução da música.
     } else {

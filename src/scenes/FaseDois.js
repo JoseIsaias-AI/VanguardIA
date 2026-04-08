@@ -597,7 +597,7 @@ export class faseDois extends Phaser.Scene {
       this.game.sound.get('bgMusic').stop();
     }
     this.musicFases = this.sound.add('bg-music-fases');
-    this.musicFases.play({ loop: true, volume: 0.3 });
+    this.musicFases.play({ loop: true, volume: 0.2 });
 
     const cameraWidth = this.cameras.main.width;
     const cameraHeight = this.cameras.main.height;

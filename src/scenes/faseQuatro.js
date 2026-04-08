@@ -11,15 +11,15 @@ export class faseQuatro extends Phaser.Scene {
 
     //----------------------------carrega todas as imagens e sprites------------------------------
     preload() {
-        this.load.image('cristais', 'assets/Fases/FaseQuatro/cabeça1.png');
-        this.load.image('cristais2', 'assets/Fases/FaseQuatro/cabeça2.png');
-        this.load.image('cristais3', 'assets/Fases/FaseQuatro/cabeça3.png');
-        this.load.image('cristais4', 'assets/Fases/FaseQuatro/cabeça4.png');
-        this.load.image('esponja', 'assets/Fases/FaseQuatro/esponja.png');
-        this.load.image('textoExplicacao', 'assets/Fases/FaseQuatro/textoExplicação.png');
-        this.load.image('textoPerda', 'assets/Fases/FaseQuatro/textoPerda.png');
-        this.load.image('textoSucesso', 'assets/Fases/FaseQuatro/sucesso.png');
-        this.load.spritesheet('barraCarregamento', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
+        this.load.image('cristais', 'assets/Fases/faseQuatro/cabeca1.png');
+        this.load.image('cristais2', 'assets/Fases/faseQuatro/cabeca2.png');
+        this.load.image('cristais3', 'assets/Fases/faseQuatro/cabeca3.png');
+        this.load.image('cristais4', 'assets/Fases/faseQuatro/cabeca4.png');
+        this.load.image('esponja', 'assets/Fases/faseQuatro/esponja.png');
+        this.load.image('textoExplicacao', 'assets/Fases/faseQuatro/textoExplicacao.png');
+        this.load.image('textoPerda', 'assets/Fases/faseQuatro/textoPerda.png');
+        this.load.image('textoSucesso', 'assets/Fases/faseQuatro/sucesso.png');
+        this.load.spritesheet('barraCarregamento', 'assets/Fases/faseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
         this.load.audio('borracha', 'assets/efeitosSonoros/borracha.m4a');
     }
 

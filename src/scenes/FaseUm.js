@@ -74,7 +74,7 @@ export class faseUm extends Phaser.Scene {
 
     // Inicia a música específica das fases
     this.musicFases = this.sound.add("bg-music-fases");
-    this.musicFases.play({ loop: true , volume: 0.3});
+    this.musicFases.play({ loop: true , volume: 0.2});
 
     //variáveis ao longo do código vão sendo explicados
     this.progressoHistoria = 0;
