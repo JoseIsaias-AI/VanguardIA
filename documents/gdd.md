@@ -616,7 +616,7 @@ A existência de inimigos não foi uma possibilidade acordada dentro do enredo d
 
 <div align="center">
 <sub>Figura 13: Storyboard de programação</sub><br>
-<img src="../assets/gdd/diagramaDeCenas.jpg" width="85%"><br>
+<img src="../assets/gdd/diagramaDeCenas.jpg.png" width="85%"><br>
 <sup>Fonte: Autoria própria (2026).</sup><br>
 </div>
 
