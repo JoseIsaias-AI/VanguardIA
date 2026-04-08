@@ -20,8 +20,6 @@ export class faseQuatro extends Phaser.Scene {
         this.load.image('textoPerda', 'assets/Fases/FaseQuatro/textoPerda.png');
         this.load.image('textoSucesso', 'assets/Fases/FaseQuatro/sucesso.png');
         this.load.spritesheet('barraCarregamento', 'assets/Fases/FaseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
-
-        // Carrega o som da borracha
         this.load.audio('borracha', 'assets/efeitosSonoros/borracha.m4a');
     }
 

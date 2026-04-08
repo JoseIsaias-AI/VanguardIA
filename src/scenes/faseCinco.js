@@ -1,5 +1,5 @@
 import { registrarTeclaMenu } from '../menu.js';
-import CaixaDialogo from './caixasDialogo.js';
+import caixaDialogo from './caixasDialogo.js';
 
 // Cena final do jogo: diálogo introdutório e minigame de ética em prompts
 export class faseCinco extends Phaser.Scene {
@@ -15,8 +15,8 @@ export class faseCinco extends Phaser.Scene {
         this.load.image("cenarioClaro1", "assets/fases/sceneLabCristal/labCristalClaro2.png");
 
         const sprites = [
-            { key: "asimov", path: "../assets/personagens/asimov.png", w: 32, h: 32 },
-            { key: "sophia", path: "../assets/personagens/sophia.png", w: 64, h: 64 }
+            { key: "asimov", path: "assets/personagens/asimov.png", w: 32, h: 32 },
+            { key: "sophia", path: "assets/personagens/sophia.png", w: 64, h: 64 }
         ];
 
         sprites.forEach(s =>
@@ -38,7 +38,7 @@ export class faseCinco extends Phaser.Scene {
         this.cameras.main.fadeIn(400, 0, 0, 0); // Fade-in suave da câmera
         this.cameras.main.once("camerafadeincomplete", () => this.iniciarCutsceneInicial()); // Após fade, inicia cutscene
 
-        this.sistemaDialogo = new CaixaDialogo(this); // Instancia sistema de diálogos
+        this.sistemaDialogo = new caixaDialogo(this); // Instancia sistema de diálogos
         this.teclaE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E); // Tecla para interagir com diálogos
 
         // Cria os objetos de som
@@ -383,7 +383,7 @@ export class faseCinco extends Phaser.Scene {
 
         this.cameras.main.fadeOut(1000); // Fade-out de 1s
         this.cameras.main.once("camerafadeoutcomplete", () => {
-            this.scene.start("CreditsScene"); // Vai para créditos
+            this.scene.start("sceneCreditos"); // Vai para créditos
         });
     }
 }

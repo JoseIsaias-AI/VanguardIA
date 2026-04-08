@@ -1,44 +1,42 @@
 // =============================================================================
-// CENA DE TRANSIÇÃO: transicao1para2
+// CENA DE TRANSIÇÃO: transicao1Para2
 // Propósito: Exibir a cutscene final do laboratório destruído e redirecionar
-//            o jogador para a cena "FaseDois".
+//            o jogador para a cena "faseDois".
 // - O mapa e toda a decoração permanecem visíveis (sem interação nem colisão).
 // - Não há exploração livre: o jogador apenas assiste à cutscene.
 // - A tecla E avança o diálogo.
 // =============================================================================
 import { registrarTeclaMenu } from '../menu.js';
 import { movimentacaoSophia } from './movimentacao.js';
-import { SnowEffect } from './efeitoNeve.js';
-import caixasDialogo from './caixasDialogo.js';
+import { snowEffect } from './efeitoNeve.js';
+import caixaDialogo from './caixasDialogo.js';
 
-export class transicao1para2 extends Phaser.Scene {
+export class transicao1Para2 extends Phaser.Scene {
     constructor() {
-        super("transicao1para2");
+        super("transicao1Para2");
     }
 
     preload() {
         // Mapa de fundo
-        this.load.image("labDestruido", "assets/fases/sceneLBPassado/labDestruido.png");
+        this.load.image("labDestruido", "assets/fases/sceneLbPassado/labDestruido.png");
 
         // Spritesheets dos personagens
         this.load.spritesheet("sophia", "assets/personagens/sophia.png", { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet("asimov", "assets/personagens/asimov.png", { frameWidth: 32, frameHeight: 32 });
 
         // Objetos decorativos do cenário
-        this.load.image("armarioD",      "assets/objetos/sceneLBPassado/partTwo/armarioDestruido.png");
-        this.load.image("alvoD",         "assets/objetos/sceneLBPassado/partTwo/alvoDestruido.png");
-        this.load.image("mesa1D",        "assets/objetos/sceneLBPassado/partTwo/mesa1Destruida.png");
-        this.load.image("mesa2D",        "assets/objetos/sceneLBPassado/partTwo/mesa2Destruida.png");
-        this.load.image("mesa3D",        "assets/objetos/sceneLBPassado/partTwo/mesa3Destruida.png");
-        this.load.image("piaD",          "assets/objetos/sceneLBPassado/partTwo/piaDestruida.png");
-        this.load.image("reservasCrioD", "assets/objetos/sceneLBPassado/partTwo/reservasCrioDestruidas.png");
-        this.load.image("comptCimaD",    "assets/objetos/sceneLBPassado/partTwo/comptCimaDestruido.png");
-        this.load.image("comptBaixoD",   "assets/objetos/sceneLBPassado/partTwo/comptBaixoDestruido.png");
-        this.load.image("criogeniaD",    "assets/objetos/sceneLBPassado/partTwo/criogeniaDestruida.png");
-        this.load.image("camara",        "assets/objetos/sceneLBPassado/partOne/camara.png");
-
-        // Som de vitoria
         this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
+        this.load.image("armarioD",      "assets/objetos/sceneLbPassado/partTwo/armarioDestruido.png");
+        this.load.image("alvoD",         "assets/objetos/sceneLbPassado/partTwo/alvoDestruido.png");
+        this.load.image("mesa1D",        "assets/objetos/sceneLbPassado/partTwo/mesa1Destruida.png");
+        this.load.image("mesa2D",        "assets/objetos/sceneLbPassado/partTwo/mesa2Destruida.png");
+        this.load.image("mesa3D",        "assets/objetos/sceneLbPassado/partTwo/mesa3Destruida.png");
+        this.load.image("piaD",          "assets/objetos/sceneLbPassado/partTwo/piaDestruida.png");
+        this.load.image("reservasCrioD", "assets/objetos/sceneLbPassado/partTwo/reservasCrioDestruidas.png");
+        this.load.image("comptCimaD",    "assets/objetos/sceneLbPassado/partTwo/comptCimaDestruido.png");
+        this.load.image("comptBaixoD",   "assets/objetos/sceneLbPassado/partTwo/comptBaixoDestruido.png");
+        this.load.image("criogeniaD",    "assets/objetos/sceneLbPassado/partTwo/criogeniaDestruida.png");
+        this.load.image("camara",        "assets/objetos/sceneLbPassado/partOne/camara.png");
     }
 
     create() {
@@ -49,10 +47,10 @@ export class transicao1para2 extends Phaser.Scene {
 
         
         // Instancia o Gerenciador de Diálogos
-        this.sistemaDialogo = new caixasDialogo(this);
+        this.sistemaDialogo = new caixaDialogo(this);
 
         let gifElemento3 = document.createElement('img');
-            gifElemento3.src = 'assets/TextosCenas/RetornoLab.gif';
+            gifElemento3.src = 'assets/textosCenas/retornoLab.gif';
         
             // Forçando estilos CSS para garantir que ele apareça
             gifElemento3.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -81,7 +79,7 @@ export class transicao1para2 extends Phaser.Scene {
         this.isDialogueOpen = false;
 
         this.mapa = this.add.image(w / 2, h / 2, "labDestruido").setScale(3);
-        new SnowEffect(this, { depth: -2 });
+        new snowEffect(this, { depth: -2 });
 
         this.criarDecoracao();
 
@@ -185,6 +183,7 @@ export class transicao1para2 extends Phaser.Scene {
             duration: 6800,
             ease:     "Sine.inOut",
             onComplete: () => {
+                this.asimovFacing = "up";
                 this.updateAsimovAnimation(0, 0);
                 
                 // Abre o diálogo após o Tween do Asimov andar
@@ -196,7 +195,7 @@ export class transicao1para2 extends Phaser.Scene {
                     this.time.delayedCall(600, () => {
                         this.cameras.main.fadeOut(1200, 0, 0, 0);
                         this.cameras.main.once("camerafadeoutcomplete", () => {
-                            this.scene.start("FaseDois");
+                            this.scene.start("faseDois");
                         });
                     });
                 });

@@ -1,4 +1,4 @@
-import caixasDialogo from './caixasDialogo.js';
+import caixaDialogo from './caixasDialogo.js';
 
 export class sceneInicial extends Phaser.Scene {
     constructor() {
@@ -6,8 +6,8 @@ export class sceneInicial extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image("labBranco", "assets/Fases/sceneLBPassado/labBranco.png");
-        this.load.image("objetosLab", "assets/Objetos/sceneLBPassado/partOne/objetosLabBNorm.png");
+        this.load.image("labBranco", "assets/fases/sceneLbPassado/labBranco.png");
+        this.load.image("objetosLab", "assets/objetos/sceneLbPassado/partOne/objetosLabBNorm.png");
         this.load.spritesheet("watson", "assets/personagens/watson.png", {
             frameWidth: 64,
             frameHeight: 64,
@@ -20,7 +20,7 @@ export class sceneInicial extends Phaser.Scene {
 
     create() {
         // Instanciado corretamente com um nome padrão para evitar confusões
-        this.sistemaDialogo = new caixasDialogo(this);
+        this.sistemaDialogo = new caixaDialogo(this);
         this.lendoMensagem = false;
 
         this.cameras.main.fadeIn(400, 0, 0, 0);
@@ -87,7 +87,7 @@ export class sceneInicial extends Phaser.Scene {
 
         this.cameras.main.fadeOut(1000);
         this.cameras.main.once("camerafadeoutcomplete", () => {
-            this.scene.start("sceneLBPassado");
+            this.scene.start("sceneLbPassado");
         });
     }
 }

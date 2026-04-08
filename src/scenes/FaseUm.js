@@ -8,40 +8,41 @@ export class faseUm extends Phaser.Scene {
   preload() {
     //carregamento das imagens e sprites usados durante a fase1
     this.load.audio('bauAbrindo', 'assets/efeitosSonoros/bauAbrindo.mp3');
-    this.load.image("fundo", "../assets/fases/faseUm/fundofaseUm.png");
-    this.load.spritesheet("asimov", "../assets/personagens/asimov.png", {
+    this.load.image("fundo", "/assets/fases/faseUm/fundofaseUm.png");
+    this.load.spritesheet("asimov", "/assets/personagens/asimov.png", {
+
       frameWidth: 32,
       frameHeight: 32,
     });
-    //this.load.image('pedra', '../assets/objetos/faseUm/obstaculosPedra.png');
+    //this.load.image('pedra', 'assets/objetos/faseUm/obstaculosPedra.png');
     this.load.image(
       "obstaculos",
-      "../assets/Objetos/faseUm/obstaculosfaseUm.png",
+      "assets/objetos/faseUm/obstaculosFaseUm.png",
     );
     this.load.spritesheet(
       "barra",
-      "../assets/objetos/faseUm/barraProgresso.png",
+      "assets/objetos/faseUm/barraProgresso.png",
       { frameWidth: 256, frameHeight: 128 },
     );
-    this.load.spritesheet("bauAnimado", "../assets/objetos/faseUm/bau.png", {
+    this.load.spritesheet("bauAnimado", "assets/objetos/faseUm/bau.png", {
       frameWidth: 128,
       frameHeight: 128,
     });
     this.load.spritesheet(
       "envelope",
-      "../assets/objetos/faseUm/envelopes.png",
+      "assets/objetos/faseUm/envelopes.png",
       { frameWidth: 320, frameHeight: 320 },
     );
-    this.load.spritesheet("pergaminho", "../assets/objetos/faseUm/perga.png", {
+    this.load.spritesheet("pergaminho", "assets/objetos/faseUm/perga.png", {
       frameWidth: 437.5,
       frameHeight: 438,
     });
-    this.load.video("videofaseUm", "../assets/Fases/faseUm/videofaseUm.mp4");
+    this.load.video("videofaseUm", "assets/fases/faseUm/videoFaseUm.mp4");
     this.load.image(
       "caixaDeTextoInicial",
-      "../assets/Fases/faseUm/caixaDeTextoInicial.png",
+      "assets/fases/faseUm/caixaDeTextoInicial.png",
     );
-    this.load.audio("colisao", "assets/colision_sound.wav");
+    this.load.audio("colisao", "assets/colisionSound.wav");
 
     // Carrega o som do robô batendo
     this.load.audio("roboBatendo", "assets/efeitosSonoros/roboBatendo.m4a");
@@ -52,7 +53,7 @@ export class faseUm extends Phaser.Scene {
     // Carrega o som da carta
     this.load.audio("carta", "assets/efeitosSonoros/carta.mp3");
     // Carrega a música específica dessa fase
-    this.load.audio("bg-music-fases", "assets/bg-music-fases.mp3");
+    this.load.audio("bg-music-fases", "assets/bgMusicFases.mp3");
   }
 
   create() {
@@ -346,7 +347,7 @@ export class faseUm extends Phaser.Scene {
           .setDepth(103);
         video.play();
         let gifElemento8 = document.createElement('img');
-        gifElemento8.src = 'assets/TextosCenas/aprendizado.gif';
+        gifElemento8.src = 'assets/textosCenas/aprendizado.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento8.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -366,7 +367,7 @@ export class faseUm extends Phaser.Scene {
             }
         });
         video.on("complete", () => {
-          this.scene.start("transicao1para2");
+          this.scene.start("transicao1Para2");
         });
       }
       return;
