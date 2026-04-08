@@ -204,7 +204,7 @@ export class faseDois extends Phaser.Scene {
     // ALTERE AQUI: duracao do fade de entrada/saida da tela preta.
     this.cutsceneBauDuracaoFade = 350;
     // ALTERE AQUI: tempo em que a tela fica totalmente preta antes de revelar.
-    this.cutsceneBauTempoTelaPreta = 220;
+    this.cutsceneBauTempoTelaPreta = 500;
     this.cutsceneBauVelocidade = 120;
     this.cutsceneBauSophiaDelay = 200;
 
@@ -1099,7 +1099,6 @@ export class faseDois extends Phaser.Scene {
   //  CUTSCENE — Asimov para 100px acima do baú; Sophia segue ao lado
   // ═══════════════════════════════════════════════════════════════════════════
   cutsceneBauFade() {
-    // Versao usada hoje: escurece a tela, reposiciona personagens e revela o bau.
     const bauX = this.bauAnimado.x;
     const bauY = this.bauAnimado.y;
 
@@ -1110,54 +1109,38 @@ export class faseDois extends Phaser.Scene {
     const sophiaDestinoFinalX = asimovDestinoFinalX + this.cutsceneBauSophiaOffsetX;
     const sophiaDestinoFinalY = asimovDestinoFinalY + this.cutsceneBauSophiaOffsetY;
 
-    // Overlay preto fixo na camera para a troca de enquadramento da cutscene.
-    const fadePreto = this.add.rectangle(
-      0,
-      0,
-      this.cameras.main.width,
-      this.cameras.main.height,
-      0x000000,
-      0
-    )
-      .setOrigin(0, 0)
-      .setScrollFactor(0)
-      .setDepth(4500);
-
     this.sophia.setVelocity(0, 0);
     this.sophia.anims.stop();
     this.asimov.anims.stop();
 
-    this.tweens.add({
-      targets: fadePreto,
-      alpha: 1,
-      duration: this.cutsceneBauDuracaoFade,
-      onComplete: () => {
-        // Reposiciona tudo enquanto a tela esta completamente preta.
-        this.asimov.setPosition(asimovDestinoFinalX, asimovDestinoFinalY);
-        this.sophia.setPosition(sophiaDestinoFinalX, sophiaDestinoFinalY);
-        this.asimov.setFrame(0).setFlipX(false);
-        this.atualizarIdleSophia();
+    // ── Etapa 1: fade OUT (tela escurece) ─────────────────────────────────────
+    this.cameras.main.fadeOut(this.cutsceneBauDuracaoFade, 0, 0, 0);
 
-        this.cameras.main.centerOn(bauX, bauY);
+    this.cameras.main.once("camerafadeoutcomplete", () => {
 
-        this.time.delayedCall(this.cutsceneBauTempoTelaPreta, () => {
-          this.tweens.add({
-            targets: fadePreto,
-            alpha: 0,
-            duration: this.cutsceneBauDuracaoFade,
-            onComplete: () => {
-              fadePreto.destroy();
-              if (this.tweenBauBrilho) {
-                this.tweenBauBrilho.stop();
-                this.tweenBauBrilho = null;
-              }
-              this.bauAnimado.setAlpha(1).clearTint();
-              this.miniGameAtivo = false;
-              this.bauLiberadoParaSophia = true;
-            },
-          });
+      // Enquanto tela está PRETA: reposiciona tudo sem o jogador ver
+      this.asimov.setPosition(asimovDestinoFinalX, asimovDestinoFinalY);
+      this.sophia.setPosition(sophiaDestinoFinalX, sophiaDestinoFinalY);
+      this.asimov.setFrame(0).setFlipX(false);
+      this.atualizarIdleSophia();
+      this.cameras.main.centerOn(bauX, bauY);
+
+      // ── Etapa 2: tela preta parada por um instante ─────────────────────────
+      this.time.delayedCall(this.cutsceneBauTempoTelaPreta, () => {
+
+        // ── Etapa 3: fade IN (tela acende revelando nova posição) ─────────────
+        this.cameras.main.fadeIn(this.cutsceneBauDuracaoFade, 0, 0, 0);
+
+        this.cameras.main.once("camerafadeincomplete", () => {
+          if (this.tweenBauBrilho) {
+            this.tweenBauBrilho.stop();
+            this.tweenBauBrilho = null;
+          }
+          this.bauAnimado.setAlpha(1).clearTint();
+          this.miniGameAtivo = false;
+          this.bauLiberadoParaSophia = true;
         });
-      },
+      });
     });
   }
 
