@@ -949,41 +949,59 @@ Durante a quarta sprint, foram desenvolvidas quatro fases e algumas cenas de tra
 Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálogo e  as dinâmicas voltadas ao funcionamento das fases. Foram desenvolvidos mais sistemas de diálogos para as fases e cenas pré-fase para melhor imersão do jogador na narrativa do jogo e para apresentação dos conceitos de IA de forma mais dinâmica. </div>
 
 <sup>Figura ?:Caixa de texto.</sup><br>
-<img src="../assets/Fases/FaseUm/caixaDeTextoInicial.png" width = '70%' ><br>
+<img src="../assets/FotosFases/BalaoDeFala.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 
 <div align = "justify">
 Paralelamente, foram desenvolvidos as mecânicas das fases e os fundamentos teóricos trabalhados em cada uma. A segunda fase do jogo trabalha o funcionamento de Redes Neurais Artificiais, iniciando com analogias com o trabalho cerebral e utilizando recursos visuais para ilustrar a captação, processamento e aprendizagem no Deep Learning com redes neurais. </div>
 
-**imagens da fase 02
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/FotoFase2.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
 
 <div align = "justify">
 A terceira fase  tem como objetivo ilustrar a necessidade de uma separação e coleta de dados bem realizada, nela foi desenvolvido um mini game de plataforma no qual o jogador tem que coletar os cristais corretos, com características previamente informadas e quantidade predefinida de quantos cristais devem ser coletados. Já a quarta fase foi criada com o intuito de ensinar sobre limpeza de dados, utilizando recursos visuais de limpeza de imagens e conceitos teóricos. </div>
 
-**imagens da fase 03
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/FotoFase3.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
-**imagens da fase 04
+
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/FotoFase4.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
 
 <div align = "justify">
 Por fim, a quinta fase foi desenvolvida para finalizar o jogo para que, após a apresentação dos fundamentos da Inteligência Artificial, ensinar a definição de um prompt e a importância da ética na criação dele e treinar o conhecimento do usuário em relação ao assunto. Nessa parte do jogo, o usuário recebe exemplos de prompts reais submetidos às IAs e classificá-los entre corretos e incorretos, sendo necessário um mínimo de acertos para aferir o conhecimento do jogador. </div>
 
-**imagens da fase 05
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/FotoFase5.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 <div align = "justify">
 Também foram desenvolvidas cenas inseridas entre as fases com o intuito de realizar a imersão do jogador na narrativa do jogo. Na primeira cena, é desenvolvido um diálogo entre Sophia e Watson contextualizando o projeto desenvolvido entre eles e os cientistas. </div>
  
-**imagem do diálogo
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/DialogoSophiaWatson.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 <div align = "justify">
 Já na segunda cena há um diálogo entre Sophia e Asimov, onde o robô explica o contexto em que se encontra a humanidade após a viagem de Sophia. Além disso, também foram desenvolvidas as cenas da queda de Sophia antes da fase três, cenas de conversas entre Sophia e Asimov onde ele explica alguns conceitos importantes e a cena de restauração da energia do laboratório do jogo. </div>
 
-**imagens das cenas
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/DialogoSophiaAsimov.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
 
 <div align = "justify">
 Por fim, também houve alteração na tela inicial do jogo para que estivesse mais alinhada à paleta de cores do projeto e a adição de um menu para mostrar os controles que o usuário deve utilizar para movimentação e ações. </div>
 
-**cena da tela inicial e do menu
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/TelaDeInicio.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 ## 4.5. Revisão do MVP (sprint 5)
 
@@ -1021,7 +1039,9 @@ Por fim, também houve alteração na tela inicial do jogo para que estivesse ma
 
 ### 5.2.1 Registros de testes
 
-**Teste de guerrilha**
+**Testes de guerrilha**
+
+Os testes foram conduzidos em ambiente de sala de aula, durante o horário da disciplina de UX Design. A amostra foi composta por alunos do primeiro ano de diferentes cursos do Inteli, com idades entre 17 e 20 anos, apresentando nível de conhecimento básico ou superficial em Inteligência Artificial. As sessões ocorreram em computadores equipados com sistema operacional Windows 11, utilizando o navegador Google Chrome como plataforma de execução.
 
 Nome | Felipe 
 --- | ---
@@ -1119,7 +1139,9 @@ O que gostou no jogo? | O jogo realmente ensina os conceitos de IA, apresentando
 O que poderia melhorar no jogo? | Em relação a melhorias, acredito que o jogo poderia incluir instruções mais claras sobre como navegar e sobre as regras. Por exemplo, na parte em que o personagem precisa pular, inicialmente não fica evidente essa ação — pode-se pensar que ele atravessaria o portal automaticamente. Também há um bug em que o personagem atravessa o robô, o que prejudica a experiência. Outro ponto é em relação aos diálogos geradas por IA, sendo interessante revisá-los e reduzir um pouco o tamanho dos textos, pois a leitura pode se tornar cansativa
 
 
-**Formulário de teste de feedback de usuários**
+**Testes com público-alvo**
+
+Os testes foram conduzidos em ambiente de sala de aula, durante o horário da disciplina de UX Design. A amostra foi composta por alunos do primeiro ano de diferentes cursos do Inteli, com idades entre 17 e 20 anos, apresentando nível de conhecimento básico ou superficial em Inteligência Artificial. As sessões ocorreram em computadores equipados com sistema operacional Windows 11, utilizando o navegador Google Chrome como plataforma de execução.
 
 Número formulário | 1 
 --- | ---
@@ -1248,11 +1270,21 @@ Além disso, é imprescindível realizar a correção dos bugs identificados dur
 
 # <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
 
-*Escreva de que formas a solução do jogo atingiu os objetivos descritos na seção 1 deste documento. Indique pontos fortes e pontos a melhorar de maneira geral.*
+O projeto cumpriu integralmente os objetivos estabelecidos na Seção 1, que eram aumentar o engajamento de jovens com pouco conhecimento em IA, melhorar a aprendizagem de conceitos básicos de Inteligência Artificial, despertar interesse pela área e incentivar o jogador a concluir o jogo.
 
-*Relacione os pontos de melhorias evidenciados nos testes com plano de ações para serem implementadas no jogo. O grupo não precisa implementá-las, pode deixar registrado aqui o plano para futuros desenvolvimentos.*
+Esses objetivos foram alcançados por meio de uma experiência que combina storytelling envolvente e minigames educativos, criando uma dinâmica de aprendizado mais eficaz do que a oferecida por cursos tradicionais. Os minigames são objetivos e acessíveis, sem abrir mão do conteúdo essencial, enquanto o storytelling, além de cativante e coeso, integra organicamente conceitos de IA à narrativa. Essa combinação permite que o público-alvo — jovens universitários — vá além do uso superficial de ferramentas como chats de LLMs, assimilando os fundamentos de IA de forma engajante e gamificada, com motivação genuína para concluir o jogo e aprofundar seus conhecimentos na área.
 
-*Relacione também quaisquer ideias que o grupo tenha para melhorias futuras*
+Um aspecto fundamental para o alcance desses objetivos é o fato de o jogo ser executado diretamente no navegador, sem necessidade de instalação ou hardware específico. Essa decisão técnica está diretamente alinhada com a missão do projeto, definida na seção 1.1.3, de democratizar o acesso ao conhecimento sobre IA para jovens de todas as classes sociais. Ao rodar em qualquer navegador, o jogo elimina barreiras de entrada e garante que estudantes com acesso a dispositivos modestos possam vivenciar a mesma experiência que qualquer outro jogador, colocando em prática os valores de democratização da IA e educação lúdica que norteiam o projeto.
+
+Os testes de guerrilha e com o público-alvo confirmaram que os principais pontos fortes do jogo são justamente os minigames e o storytelling. A sinergia entre esses dois elementos ficou evidente nas respostas coletadas nos formulários de teste. Ao ser perguntado sobre o melhor momento do jogo, um participante respondeu: "Gostei das dinâmicas de explicação e depois algum minigame com mecânicas aplicando essas informações. Além disso, gostei da relação com o Robô Asimov." A qualidade individual dos minigames também foi destacada, com outro participante citando como melhor momento "o minigame de limpar as informações".
+
+Os testes também revelaram pontos de melhoria importantes: excesso de texto nos diálogos e problemas no HUD, especialmente sua ausência em algumas fases, o que dificultava a compreensão dos jogadores sobre o que deveriam fazer. Ambos os problemas foram endereçados na versão seguinte do jogo, com a criação de HUDs nas fases que não os possuíam, o aprimoramento dos HUDs existentes e a redução do volume de texto nos diálogos. O resultado foi uma experiência mais dinâmica, menos cansativa e com orientações mais claras ao jogador.
+
+Um feedback recorrente apontou que o jogo, em alguns momentos, prioriza a jogabilidade em detrimento do aprendizado, ilustrado pelo seguinte comentário de um participante: "Achei o jogo bem legal no sentido de jogar, porém admito que quando estava jogando não reparei muito no aprendizado e foquei muito mais no jogo e nos minigames, deixando um pouco de lado esse fator didático." Para endereçar esse ponto, propõe-se o desenvolvimento de um sistema de revisão contínua dos conteúdos dentro do próprio jogo. Isso incluiria um inventário de conquistas que registre os conceitos aprendidos, permitindo ao jogador revisitá-los a qualquer momento, bem como a retomada periódica de conteúdos de fases anteriores por meio de alertas ou interações no jogo. Adicionalmente, também correlacionar mais explicitamente os temas entre as fases, reforçando a percepção do aprendizado como um processo contínuo e progressivo. Essas melhorias poderiam ser implementadas em uma próxima versão em até duas semanas, sendo a primeira dedicada ao desenvolvimento das funcionalidades e a segunda à validação com o público-alvo, permitindo ajustes imediatos antes da publicação da versão atualizada.
+
+No horizonte de longo prazo, o jogo pode evoluir em duas frentes principais. A primeira é o aprofundamento do conteúdo educacional, com o aumento no número de fases e na densidade dos conceitos abordados, tornando a experiência mais completa e abrangente no ensino de Inteligência Artificial. A segunda envolve tornar a narrativa mais interativa e imprevisível, com decisões do jogador que impactem diretamente o enredo, modelo adotado por jogos como Detroit: Become Human. Essa abordagem ampliaria as possibilidades de interação e fortaleceria tanto o storytelling quanto o aprendizado, já que um maior nível de engajamento ativo tende a favorecer a fixação do conteúdo.
+
+Em sua forma atual, o projeto demonstra que é possível ensinar Inteligência Artificial de maneira acessível, envolvente e inclusiva. A combinação entre uma plataforma web de fácil acesso, minigames bem executados e um storytelling cativante forma uma base sólida que já entrega valor real ao seu público-alvo. Mais do que um jogo, o projeto representa um passo concreto em direção à visão estabelecida na seção 1.1.3: ser um modelo nacional na implementação da gamificação para a educação de IA de maneira inclusiva. Com as melhorias planejadas e o potencial de expansão identificado, o jogo está posicionado para crescer tanto em profundidade pedagógica quanto em alcance, consolidando-se como uma ferramenta relevante na democratização do conhecimento em IA para jovens brasileiros.
 
 # <a name="c7"></a>7. Referências (sprint 5)
 
