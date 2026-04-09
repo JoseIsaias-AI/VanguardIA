@@ -475,28 +475,25 @@ Por fim, é apresentada no jogo a sala principal de controle do laboratório, on
 | **A** | Move o personagem para a direita (-X) |
 | **SPACE** | Personagem salta (+Y) depois cai (-Y) |
 
----
+
 
 **Interações**
-A tecla **E** é utilizada para interagir com:
-* **Itens do cenário**
-* **NPCs**
 
-O **clique do mouse** é utilizado para interagir com:
-* **Tela inicial**
-* **Menu**
-* **Carta encontrada no baú**
-* **Redes neurais**
-* **Esponja**
-* **Perguntas do Asimov**
+| Entrada         | Elementos Interagíveis                                                                 |
+|-----------------|----------------------------------------------------------------------------------------|
+| Tecla **E**     | Itens do cenário; NPCs                                                                 |
+| Clique do mouse | Tela inicial; Menu; Carta encontrada no baú; Redes neurais; Esponja; Perguntas do Asimov |
 
----
+
 
 **Tipo de Movimentação**
-* **Perspectiva:** Terceira pessoa
-* **Exploração:** Livre dentro do mapa da fase atual
 
----
+| Categoria    | Descrição                          |
+|-------------|------------------------------------|
+| Perspectiva | Terceira pessoa                    |
+| Exploração  | Livre dentro do mapa da fase atual |
+
+
 
 **Estrutura e Funcionamento**
 
