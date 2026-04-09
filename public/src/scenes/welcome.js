@@ -15,23 +15,23 @@ export class welcomeScene extends Phaser.Scene {
     // Tudo que será usado na cena deve ser carregado aqui antes do create()
 
     // Imagem de fundo do menu
-    this.load.image("cenario", "assets/menu1/fundoMenu.png");
+    this.load.image("cenario", "public/assets/menu1/fundoMenu.png");
 
     // Botões
-    this.load.image("play", "assets/menu1/startButton.png");
-    this.load.image("options", "assets/menu1/optionsButton.png");
+    this.load.image("play", "public/assets/menu1/startButton.png");
+    this.load.image("options", "public/assets/menu1/optionsButton.png");
 
     // Logo
-    this.load.image("logo", "assets/menu1/logo.png");
+    this.load.image("logo", "public/assets/menu1/logo.png");
 
     // Spritesheet do personagem
-    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", {
+    this.load.spritesheet("asimov", "public/assets/personagens1/asimov.png", {
       frameWidth: 32,   // largura de cada frame
       frameHeight: 32,  // altura de cada frame
     });
 
     // Carrega o som de início do jogo
-    this.load.audio("somInicio", "assets/efeitosSonoros/somIniciar.m4a");
+    this.load.audio("somInicio", "public/assets/efeitosSonoros/somIniciar.m4a");
   }
 
   create() {

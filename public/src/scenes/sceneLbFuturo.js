@@ -10,29 +10,29 @@ export class sceneLbFuturo extends Phaser.Scene {
 
   // Carrega os assets usados na cutscene e no laboratório futuro.
   preload() {
-    this.load.image("CFuturo", "assets/fases/sceneLbPassado/labDestruido.png");
-    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", {frameWidth: 64, frameHeight: 64,});
-    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", {frameWidth: 32, frameHeight: 32,});
+    this.load.image("CFuturo", "public/assets/fases/sceneLbPassado/labDestruido.png");
+    this.load.spritesheet("sophia", "public/assets/personagens1/sophia.png", {frameWidth: 64, frameHeight: 64,});
+    this.load.spritesheet("asimov", "public/assets/personagens1/asimov.png", {frameWidth: 32, frameHeight: 32,});
 
     this.load.video(
       "cutscene2",
-      "assets/cutscene1/CutScene2.webm",
+      "public/assets/cutscene1/CutScene2.webm",
       "loadeddata",
       false,
       true
     );
-    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
-    this.load.image("armarioD", "assets/objetos/sceneLbPassado/partTwo/armarioDestruido.png");
-    this.load.image("alvoD", "assets/objetos/sceneLbPassado/partTwo/alvoDestruido.png");
-    this.load.image("mesa1D", "assets/objetos/sceneLbPassado/partTwo/mesa1Destruida.png");
-    this.load.image("mesa2D", "assets/objetos/sceneLbPassado/partTwo/mesa2Destruida.png");
-    this.load.image("mesa3D", "assets/objetos/sceneLbPassado/partTwo/mesa3Destruida.png");
-    this.load.image("piaD", "assets/objetos/sceneLbPassado/partTwo/piaDestruida.png");
-    this.load.image("reservasCrioD", "assets/objetos/sceneLbPassado/partTwo/reservasCrioDestruidas.png");
-    this.load.image("comptCimaD", "assets/objetos/sceneLbPassado/partTwo/comptCimaDestruido.png");
-    this.load.image("comptBaixoD", "assets/objetos/sceneLbPassado/partTwo/comptBaixoDestruido.png");
-    this.load.image("criogeniaD", "assets/objetos/sceneLbPassado/partTwo/criogeniaDestruida.png");
-    this.load.image("camara", "assets/objetos/sceneLbPassado/partOne/camara.png");
+    this.load.audio("pop", "public/assets/efeitosSonoros/pop.mp3");
+    this.load.image("armarioD", "public/assets/objetos/sceneLbPassado/partTwo/armarioDestruido.png");
+    this.load.image("alvoD", "public/assets/objetos/sceneLbPassado/partTwo/alvoDestruido.png");
+    this.load.image("mesa1D", "public/assets/objetos/sceneLbPassado/partTwo/mesa1Destruida.png");
+    this.load.image("mesa2D", "public/assets/objetos/sceneLbPassado/partTwo/mesa2Destruida.png");
+    this.load.image("mesa3D", "public/assets/objetos/sceneLbPassado/partTwo/mesa3Destruida.png");
+    this.load.image("piaD", "public/assets/objetos/sceneLbPassado/partTwo/piaDestruida.png");
+    this.load.image("reservasCrioD", "public/assets/objetos/sceneLbPassado/partTwo/reservasCrioDestruidas.png");
+    this.load.image("comptCimaD", "public/assets/objetos/sceneLbPassado/partTwo/comptCimaDestruido.png");
+    this.load.image("comptBaixoD", "public/assets/objetos/sceneLbPassado/partTwo/comptBaixoDestruido.png");
+    this.load.image("criogeniaD", "public/assets/objetos/sceneLbPassado/partTwo/criogeniaDestruida.png");
+    this.load.image("camara", "public/assets/objetos/sceneLbPassado/partOne/camara.png");
   }
 
   // Prepara a cena e inicia a cutscene de abertura.
@@ -83,7 +83,7 @@ export class sceneLbFuturo extends Phaser.Scene {
     this.animacaoSaidaAtiva = false;
 
     let gifElemento2 = document.createElement('img');
-    gifElemento2.src = 'assets/textosCenas1/Laboratorio2098.gif';
+    gifElemento2.src = 'public/assets/textosCenas1/Laboratorio2098.gif';
 
     // Forçando estilos CSS para garantir que ele apareça
     gifElemento2.style.width = '1920px'; // Coloque a largura aproximada do seu GIF

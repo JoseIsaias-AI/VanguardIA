@@ -11,16 +11,16 @@ export class faseQuatro extends Phaser.Scene {
 
     //----------------------------carrega todas as imagens e sprites------------------------------
     preload() {
-        this.load.image('cristais', 'assets/fases/faseQuatro/cabeca1.png');
-        this.load.image('cristais2', 'assets/fases/faseQuatro/cabeca2.png');
-        this.load.image('cristais3', 'assets/fases/faseQuatro/cabeca3.png');
-        this.load.image('cristais4', 'assets/fases/faseQuatro/cabeca4.png');
-        this.load.image('esponja', 'assets/fases/faseQuatro/esponja.png');
-        this.load.image('textoExplicacao', 'assets/fases/faseQuatro/textoExplicacao.png');
-        this.load.image('textoPerda', 'assets/fases/faseQuatro/textoPerda.png');
-        this.load.image('textoSucesso', 'assets/fases/faseQuatro/sucesso.png');
-        this.load.spritesheet('barraCarregamento', 'assets/fases/faseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
-        this.load.audio('borracha', 'assets/efeitosSonoros/borracha.m4a');
+        this.load.image('cristais', 'public/assets/fases/faseQuatro/cabeca1.png');
+        this.load.image('cristais2', 'public/assets/fases/faseQuatro/cabeca2.png');
+        this.load.image('cristais3', 'public/assets/fases/faseQuatro/cabeca3.png');
+        this.load.image('cristais4', 'public/assets/fases/faseQuatro/cabeca4.png');
+        this.load.image('esponja', 'public/assets/fases/faseQuatro/esponja.png');
+        this.load.image('textoExplicacao', 'public/assets/fases/faseQuatro/textoExplicacao.png');
+        this.load.image('textoPerda', 'public/assets/fases/faseQuatro/textoPerda.png');
+        this.load.image('textoSucesso', 'public/assets/fases/faseQuatro/sucesso.png');
+        this.load.spritesheet('barraCarregamento', 'public/assets/fases/faseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
+        this.load.audio('borracha', 'public/assets/efeitosSonoros/borracha.m4a');
     }
 
     //---------------------------------------carrega todas as imagens e sprites----------------------------------------

@@ -14,18 +14,18 @@ export class scenePreFase4 extends Phaser.Scene {
 
   // -------------------------------- aqui são carregadas as imagens dessa cena do jogo --------------------------------
   preload() {
-    this.load.image("labEscuro2", "assets/fases/sceneLabCristal/labCristalEscuro2.png");
-    this.load.spritesheet("objetosLab1", "assets/fases/preFase4/objetosLabCristal1.png", {frameWidth: 320, frameHeight: 213});
-    this.load.image("mascaraPrefase4", "assets/fases/preFase4/mascaraPrefase4.png");
-    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", { frameWidth: 32, frameHeight: 32 });
-    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
-    this.load.audio("impressora", "assets/efeitosSonoros/impressora.m4a");
-    this.load.audio("carta", "assets/efeitosSonoros/carta.mp3");
-    this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
-    this.load.image("doc1", "assets/fases/preFase4/doc1.png");
-    this.load.image("doc2", "assets/fases/preFase4/doc2.png");
-    this.load.image("doc3", "assets/fases/preFase4/doc3.png");
+    this.load.image("labEscuro2", "public/assets/fases/sceneLabCristal/labCristalEscuro2.png");
+    this.load.spritesheet("objetosLab1", "public/assets/fases/preFase4/objetosLabCristal1.png", {frameWidth: 320, frameHeight: 213});
+    this.load.image("mascaraPrefase4", "public/assets/fases/preFase4/mascaraPrefase4.png");
+    this.load.spritesheet("sophia", "public/assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet("asimov", "public/assets/personagens1/asimov.png", { frameWidth: 32, frameHeight: 32 });
+    this.load.audio("pop", "public/assets/efeitosSonoros/pop.mp3");
+    this.load.audio("impressora", "public/assets/efeitosSonoros/impressora.m4a");
+    this.load.audio("carta", "public/assets/efeitosSonoros/carta.mp3");
+    this.load.audio("vitoriaSom", "public/assets/efeitosSonoros/vitoriaSom.mp3");
+    this.load.image("doc1", "public/assets/fases/preFase4/doc1.png");
+    this.load.image("doc2", "public/assets/fases/preFase4/doc2.png");
+    this.load.image("doc3", "public/assets/fases/preFase4/doc3.png");
   }
 
     // -------------------------------- aqui são criadas as imagens carregadas, as animações, variáveis de uso --------------------------------
@@ -38,7 +38,7 @@ export class scenePreFase4 extends Phaser.Scene {
     this.somVitoria.play();
 
     let gifElemento6 = document.createElement('img');
-        gifElemento6.src = 'assets/textosCenas1/hubCristal.gif';
+        gifElemento6.src = 'public/assets/textosCenas1/hubCristal.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento6.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
