@@ -97,7 +97,7 @@ O crescimento acelerado do mercado de IA, aliado à lacuna de conhecimento no Br
 
 **Ameaças**
 
-A principal ameaça é a concorrência. Uma busca simples por "curso introdutório de IA" no Google retorna diversas opções gratuitas — como o curso do Centro Paula Souza —, e o próprio Skills Build original pode ser percebido como alternativa mais direta e tradicional. O fato de o jogo adotar uma abordagem pedagógica diferenciada é ao mesmo tempo um diferencial e um risco, já que parte do público pode preferir métodos de ensino convencionais, especialmente num primeiro contato com o tema. Outra ameaça relevante é a velocidade de obsolescência dos conteúdos. Em uma área em que avanços disruptivos ocorrem em questão de meses, manter o jogo atualizado exigirá um processo contínuo de revisão, o que representa um custo operacional significativo ⁶.
+A principal ameaça é a concorrência. Uma busca simples por "curso introdutório de IA" no Google retorna diversas opções gratuitas — como o curso do Centro Paula Souza —, e o próprio Skills Build original pode ser percebido como alternativa mais direta e tradicional. O fato de o jogo adotar uma abordagem pedagógica diferenciada é ao mesmo tempo um diferencial e um risco, já que parte do público pode preferir métodos de ensino convencionais, especialmente em um primeiro contato com o tema. Outra ameaça relevante é a velocidade de obsolescência dos conteúdos. Em uma área em que avanços disruptivos ocorrem em questão de meses, manter o jogo atualizado exigirá um processo contínuo de revisão, o que representa um custo operacional significativo ⁶.
 </div>
 
 ### 1.1.3. Missão / Visão / Valores 
@@ -180,7 +180,7 @@ O R5 – Engajamento e Entretenimento apresenta probabilidade 70 e impacto alto.
 
 O R6 – Curva de Aprendizado Inadequada apresenta probabilidade 70 e impacto alto. Há o risco de a dificuldade escalar de maneira desbalanceada, gerando frustração ou tédio e comprometendo tanto o fluxo de aprendizagem quanto o engajamento do usuário. Uma curva desbalanceada leva ao abandono, consequência próxima ao comprometimento do objetivo central do projeto. Como plano de ação, propõe-se o ajuste contínuo da dificuldade do jogo com base em indicadores como tempo por fase e taxa de desistência, considerando testes com jogadores alinhados ao público-alvo. Como oportunidade, destaca-se a implementação de um sistema adaptativo capaz de personalizar a experiência de aprendizado conforme o desempenho do usuário.
 
-O R7 – Storytelling Desconectado apresenta probabilidade 50 e impacto alto. Sendo o storytelling um pilar central do produto, sua desconexão dos objetivos pedagógicos prejudica significativamente a proposta, reduzindo imersão e retenção. O plano de ação é a integração narrativa, com indicadores de clareza percebida e índice de conclusão. A oportunidade está em usar storytelling como suporte direto ao aprendizado.
+O R7 – Storytelling Desconectado apresenta probabilidade 50 e impacto alto. Sendo o storytelling um pilar central do produto, sua desconexão dos objetivos pedagógicos prejudica significativamente a proposta, reduzindo a imersão e a retenção. O plano de ação é a integração narrativa, com indicadores de clareza percebida e índice de conclusão. A oportunidade está em usar storytelling como suporte direto ao aprendizado.
 
 O R8 – Falta de Valor para o Usuário possui probabilidade 50 e impacto alto. Usuários que não percebem valor claro no produto tendem a abandoná-lo, afetando a adoção e a validação pela IBM. O plano de ação envolve testes de percepção, com indicadores como NPS e satisfação. A oportunidade é entregar valor tangível em forma de habilidades e compreensão real de IA.
 
@@ -583,7 +583,7 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 ### 3.4.2. Bestiário
 
-A existência de inimigos não foi uma possibilidade acordada dentro do enredo do jogo devido ao grau de importância que o grupo concluiu para esse fator, pois o projeto trabalhado será mais focado na resolução de problemas lógicos.
+A existência de inimigos não foi uma possibilidade considerada dentro do enredo do jogo devido ao grau de importância que o grupo concluiu para esse fator, pois o projeto trabalhado será mais focado na resolução de problemas lógicos.
 
 ## 3.5. Gameflow (Diagrama de cenas) 
 
@@ -838,7 +838,7 @@ No decorrer do desenvolvimento da segunda sprint, ocorreram alterações estéti
 </div>
 
 <div align = "justify">
-Além disso, foram refatorados: os sistemas de colisão para que, ao invés de utilizar um sistema baseado na detecção de diferentes cores, fosse utilizado funções de colisão do Phaser; e a mensagem de texto, para sugerir interação, e as caixas de diálogo, para que ficassem centralizadas e não atrapalhassem a jogabilidade.
+Além disso, foram refatorados: os sistemas de colisão para que, em vez de utilizar um sistema baseado na detecção de diferentes cores, fosse utilizado funções de colisão do Phaser; e a mensagem de texto, para sugerir interação, e as caixas de diálogo, para que ficassem centralizadas e não atrapalhassem a jogabilidade.
 </div>
 
 <div align = "center">
@@ -955,7 +955,7 @@ A terceira fase  tem como objetivo ilustrar a necessidade de uma separação e c
 </div>
 
 <div align = "justify">
-Por fim, a quinta fase foi desenvolvida para finalizar o jogo para que, após a apresentação dos fundamentos da Inteligência Artificial, ensinar a definição de um prompt e a importância da ética na criação dele e treinar o conhecimento do usuário em relação ao assunto. Nessa parte do jogo, o usuário recebe exemplos de prompts reais submetidos às IAs e classificá-los entre corretos e incorretos, sendo necessário um mínimo de acertos para aferir o conhecimento do jogador. </div>
+Por fim, a quinta fase foi desenvolvida para finalizar o jogo para que, após a apresentação dos fundamentos da Inteligência Artificial, ensinar a definição de um prompt e a importância da ética na criação dele e treinar o conhecimento do usuário em relação ao assunto. Nessa parte do jogo, o usuário recebe exemplos de prompts reais submetidos às IAs e classificá-los entre corretos e incorretos, sendo necessário um mínimo de acertos para verificar o conhecimento do jogador. </div>
 
 <div align = "center">
 
