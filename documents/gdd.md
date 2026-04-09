@@ -612,7 +612,7 @@ Na terceira fase, o jogador enfrenta um desafio de classificação de cristais a
 | Exploração Livre  | Movimento livre pelo laboratório                                 |
 | Fase de Sucata    | Percurso linear com necessidade de desviar de detritos           |
 
-#####Controles – Sophia
+**Controles – Sophia**
 
 | Tecla   | Ação                    |
 |---------|-------------------------|
@@ -622,7 +622,7 @@ Na terceira fase, o jogador enfrenta um desafio de classificação de cristais a
 | A / ←   | Mover para esquerda (X-)|
 | Espaço  | Pular                   |
 
-#####Controles – Asimov (Sucata)
+**Controles – Asimov (desviar de objetos)**
 
 | Tecla   | Ação                |
 |---------|---------------------|
@@ -641,7 +641,7 @@ Na terceira fase, o jogador enfrenta um desafio de classificação de cristais a
 | NPCs     | Watson e Asimov                                        |
 | Função   | Liberar narrativa e ativar desafios                    |
 
-##### Controles
+**Controles**
 
 | Tecla | Ação                                           |
 |-------|------------------------------------------------|
@@ -657,7 +657,7 @@ Na terceira fase, o jogador enfrenta um desafio de classificação de cristais a
 | Objetivo       | Converter dados em probabilidades           |
 | Sistema-chave  | Válvula Softmax                             |
 
-##### Controles
+**Controles**
 
 | Entrada                  | Ação                                         |
 |--------------------------|----------------------------------------------|
@@ -674,7 +674,7 @@ Na terceira fase, o jogador enfrenta um desafio de classificação de cristais a
 | Objetivo        | Subir plataformas e coletar documentos corretos         |
 | Mudança visual  | Perspectiva muda de top-down para frontal               |
 
-##### Controles
+**Controles**
 
 | Tecla | Ação                                |
 |-------|-------------------------------------|
@@ -691,7 +691,7 @@ Na terceira fase, o jogador enfrenta um desafio de classificação de cristais a
 | Processo   | Extração de características e forja generativa          |
 | Objetivo   | Limpar imperfeições até 100% de nitidez                 |
 
-##### Controles
+**Controles**
 
 | Entrada                    | Ação                                   |
 |----------------------------|----------------------------------------|
@@ -708,7 +708,7 @@ Na terceira fase, o jogador enfrenta um desafio de classificação de cristais a
 | Objetivo      | Depositar cristal no HUB                       |
 | Consequência  | Avanço da narrativa e decisões éticas          |
 
-##### Controles (Interface)
+**Controles (Interface)**
 
 | Botão                     | Ação                                |
 |----------------------------|-------------------------------------|
