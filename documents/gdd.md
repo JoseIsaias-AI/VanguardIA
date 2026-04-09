@@ -470,6 +470,7 @@ Por fim, é apresentada no jogo a sala principal de controle do laboratório, on
 | **D** | Move o personagem para a direita (+X) |
 | **S** | Move o personagem para trás (−Y) |
 | **A** | Move o personagem para a direita (-X) |
+| **SPACE** | Personagem salta (+Y) depois cai (-Y) |
 
 ---
 
@@ -477,6 +478,14 @@ Por fim, é apresentada no jogo a sala principal de controle do laboratório, on
 A tecla **E** é utilizada para interagir com:
 * **Itens do cenário**
 * **NPCs**
+
+O **clique do mouse** é utilizado para interagir com:
+**Tela inicial**
+**Menu**
+**Carta encontrada no baú**
+**Redes neurais**
+**Esponja**
+**Perguntas do Asimov**
 
 ---
 
@@ -566,6 +575,11 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 1 | baú | <img src="../assets/Objetos/bau.png"> | estão em algumas fases do jogo | guardam recompensas e informações 
 2 | envelope | <img src="../assets/Objetos/faseUm/envelopes.png"> | estará no primeiro baú | dá informações que serão utiliazadas em uma fase futura
 3 | pergaminho | <img src = "../assets/Objetos/faseUm/pergaminho3.png"> | estará no primeiro baú | dá informações sobre a história do jogo 
+4 | Imagens do cristal verdadeiro | <img src = "../public/assets/objetos/faseTres/cristalverdadeiro.png"> | Estará no parkour da fase 3 | Faz o Asimov entender como são os cristais verdadeiros
+5 | Imagens de cristais falsos | <img src = "../public/assets/objetos/faseTres/cristalFalso.png"> | Estará no parkour da fase 3 | Faz o Asimov não entender como são os cristais verdadeiros, e o jogador repetir a fase
+6 | Documentos | <img src = "../public/assets/fases/preFase4/doc1.png"> | Estarão na máquina deescrever da pré fase 4 | Ensinará o jogador sobre o funcionamento de IA e como ela aprende 
+7 | Esponja | <img src = "../public/assets/fases/faseQuatro/esponja.png"> | Estará na cabeça de Asimov na fase 4 | Servirá para limpar os dados dos cristais para asimov 
+8 | Cristal | <img src = "../public/assets/fases/faseTres/cristalAzul.png"> | Será fabricado e coletado quando o personagem terminar a fase 4 | Será usado para acender o laboratório do cristal na fase 5
 
 ### 3.4.2. Bestiário
 
