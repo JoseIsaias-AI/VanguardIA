@@ -86,8 +86,8 @@ export class faseTres extends Phaser.Scene {
     this.load.image("parede", "public/assets/fases/faseTres/backgroundFase3Escuro.png");
     this.load.image("pedra", "public/assets/objetos/faseTres/pedrinha.png");
     this.load.spritesheet("sophia", "public/assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.image("plataforma", "public/assets/objetos/faseTres/cano1Fase3.png");
-    this.load.image("plataformaMovel", "public/assets/objetos/faseTres/cano2Fase3.png");
+    this.load.image("plataforma", "public/assets/objetos/faseTres/Plataforma Quebrada, Fase 3.png");
+    this.load.spritesheet("plataformaMovel", "public/assets/objetos/faseTres/Plataforma, Fase 3.png", { frameWidth: 240, frameHeight: 240}); 
     this.load.image("cristalVerdadeiro", "public/assets/objetos/faseTres/cristalVerdadeiro.png");
     this.load.image("cristalFalso", "public/assets/objetos/faseTres/cristalFalso.png");
 
@@ -155,8 +155,8 @@ export class faseTres extends Phaser.Scene {
       let p = this.plataformas.create(x, y, "plataforma");
       p.setScale(0.4);
       p.refreshBody();
-      p.body.setSize(65, 23);
-      p.body.setOffset(5, 38);
+      p.body.setSize(75, 15);
+      p.body.setOffset(10, 35);
     };
 
     //Aqui, criamos essas plataformas na fase
@@ -180,23 +180,23 @@ export class faseTres extends Phaser.Scene {
     this.plataformaMovel.setScale(0.4);
     this.plataformaMovel.body.setAllowGravity(false);
     this.plataformaMovel.body.setImmovable(true);
-    this.plataformaMovel.setSize(160, 60);
-    this.plataformaMovel.setOffset(10, 98);
+    this.plataformaMovel.setSize(180, 35);
+    this.plataformaMovel.setOffset(30, 85);
 
     this.plataformaMovel2 = this.plataformasMoveis.create(1075, 590, "plataformaMovel");
     this.plataformaMovel2.setScale(0.4);
     this.plataformaMovel2.body.setAllowGravity(false);
     this.plataformaMovel2.body.setImmovable(true);
-    this.plataformaMovel2.setSize(160, 60);
-    this.plataformaMovel2.setOffset(10, 98);
+    this.plataformaMovel2.setSize(180, 35);
+    this.plataformaMovel2.setOffset(30, 85);
 
-    //Aqui, criamos a plataforma que se moverão na horizontal
+    //Aqui, criamos a plataforma que se moverá na horizontal
     this.plataformaHorizontal = this.plataformasMoveis.create(900, 480, "plataformaMovel");
     this.plataformaHorizontal.setScale(0.4);
     this.plataformaHorizontal.body.setAllowGravity(false);
     this.plataformaHorizontal.body.setImmovable(true);
-    this.plataformaHorizontal.setSize(160, 60);
-    this.plataformaHorizontal.setOffset(10, 98);
+    this.plataformaHorizontal.setSize(180,35);
+    this.plataformaHorizontal.setOffset(30, 85);
 
     //Aqui, criamos uma variável para criar o loop de movimento da plataforma
     this.tempoMovimento = 0;
@@ -306,6 +306,7 @@ export class faseTres extends Phaser.Scene {
     // Cria o som do pulo da Sophia
     this.somPuloSophia = this.sound.add("puloSophia", { volume: 0.8 });
 
+     
     // Para a música padrão se ela estiver tocando e inicia a música específica das fases
     const bgMusic = this.game.sound.get('bgMusic');
     if (bgMusic && bgMusic.isPlaying) {
@@ -314,7 +315,23 @@ export class faseTres extends Phaser.Scene {
 
     this.musicFases = this.sound.add("bg-music-fases");
     this.musicFases.play({ loop: true, volume: 0.2 });
-  }
+  
+  //Aqui, fazemos o sprite da plataforma estar animado
+   this.anims.create({
+  key: "plataformaCarregando",
+  frames: this.anims.generateFrameNumbers("plataformaMovel", {
+    start: 0,
+    end: 16
+  }),
+  frameRate: 10,
+  repeat: -1
+});
+
+  this.plataformaMovel.anims.play("plataformaCarregando", true);
+  this.plataformaMovel2.anims.play("plataformaCarregando", true);
+  this.plataformaHorizontal.anims.play("plataformaCarregando", true);
+}
+
 
   configurarCameraUI() {
     this.uiCamera = this.cameras.add(0, 0, this.scale.width, this.scale.height);
