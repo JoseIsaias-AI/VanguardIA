@@ -1080,10 +1080,38 @@ No desenvolvimento da quinta sprint, o foco esteve direcionado exclusivamente pa
 Na área de programação, foram realizados diversos ajustes e implementações com o objetivo de aprimorar a jogabilidade, a clareza das informações e a consistência geral do jogo, incluindo o refinamento visual e detalhamento da fase 2, implementação de efeitos sonoros, e a implementação técnica do novo menu de opções. Também foram feitas alterações estruturais, como a troca do design da plataforma da fase 3, a correção da caixa de diálogo e a revisão de diálogos específicos, como o que ocorre após a abertura do baú, além de melhorias na movimentação das redes neurais. Foram realizados ajustes no HUD, como a alteração da nitidez/tempo e a inserção de uma imagem de sucesso na fase 4, juntamente com a otimização da camada de ruído dessa fase. A progressão do jogo também foi aprimorada com a melhoria da transição entre a fase 4 e a fase 5 e o ajuste de contexto entre elas. Na fase 5, foram implementados indicadores visuais de acertos e erros, além da remoção de ambiguidades nas alternativas corretas. Por fim, foram desenvolvidas funcionalidades importantes, como o encerramento completo do jogo com créditos, a implementação de imports e caixas de texto nas cenas, a criação de um sistema padronizado para caixas de texto e a lógica de reinício da fase 3, contribuindo para uma experiência mais coesa, funcional e intuitiva.
 
 <sup>Figura 42: Novo menu.</sup><br>
-<img src="./documents/assets/Creditos.png" width = '70%' ><br>  
+<img src="./assets/Creditos.png" width = '70%' ><br>  
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 
+<sup>Figura 43: Novo menu.</sup><br>
+<img src="./assets/Dialogo.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+
+<sup>Figura 44: Novo menu.</sup><br>
+<img src="./assets/Dica.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+
+<sup>Figura 45: Novo menu.</sup><br>
+<img src="./assets/EeA.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+
+<sup>Figura 46: Novo menu.</sup><br>
+<img src="./assets/Hud.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+
+<sup>Figura 47: Novo menu.</sup><br>
+<img src="./assets/Instrucao.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+
+<sup>Figura 48: Novo menu.</sup><br>
+<img src="./assets/Parabens.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 
 Em relação ao design desenvolvido na sprint 5, foram realizadas diversas melhorias e refinamentos com o objetivo de aprimorar a qualidade visual, a consistência estética e a experiência geral do jogador, incluindo o refinamento do menu de opções, o ajuste do documento auxiliar preSceneFase4, alterações no topo da fase 3, ajustes nas animações do chão caindo e a otimização das plataformas dessa mesma fase. Também foram adicionados elementos ao ambiente, como portas no laboratório inicial e no laboratório do futuro, além da criação e texturização de folhas envelhecidas, contribuindo para uma ambientação mais rica e coerente. Por fim, foram feitos ajustes no design da personagem Sophia durante a animação de queda, tornando essa ação mais natural e alinhada com o restante das animações, o que reforça a consistência visual e a fluidez da experiência ao longo do jogo.
