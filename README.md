@@ -38,7 +38,7 @@ No Vanguardia, o jogador assume o papel de Sophia, uma cientista que é congelad
 
 Durante o jogo, o jogador aprende e trabalha conceitos de Aprendizagem de Máquina, funcionamento de Redes Neurais Artificias, coleta, separação e limpeza de dados e aplicações éticas da IA a partir de mini-games  para que o usuário aplique os conceitos observados durante o projeto. O projeto auxilia para que o aprendizado e fixação dos conteúdos de Inteligência Artificial se torne um processo dinâmico, facilitando e tornando o aprendizado mais participativo e envolvente.
 
-Link de acesso:
+Link de acesso: https://graduacao.pages.git.inteli.edu.br/2026-1a/t29/g03/
 
 ## 📁 Estrutura de pastas
 
