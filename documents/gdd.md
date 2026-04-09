@@ -211,7 +211,7 @@ Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 3
 | M4 | Meta | Usuários que acessam conteúdos educacionais do SkillsBuild após concluirem o jogo | ≥ 30% | Após conclusão | Aprendizado |
 | KPI 1 | KPI | Taxa de conclusão (usuários que finalizam / iniciam) | ≥ 70% | Avaliado após 2 semanas | Engajamento |
 | KPI 2 | KPI | Taxa de abandono por fase e acumulada | ≤ 30% | Contínuo | Engajamento |
-| KPI 3 | KPI | Tempo médio de uso para conclusão | ≥ 20 minutos | Contínuo | Engajamento |
+| KPI 3 | KPI | Tempo médio de uso para conclusão | ≥ 16 minutos | Contínuo | Engajamento |
 | KPI 4 | KPI | Novos usuários via recomendação (alcance orgânico) | ≥ 50% | Até 1 mês | Alcance / Satisfação |
 | KPI 5 | KPI | Taxa de recomendação do jogo (satisfação) | ≥ 60% | Pós-conclusão | Experiência do usuário |
 | KPI 6 | KPI | Acesso ao IBM SkillsBuild após o jogo | ≥ 30% | Até 30 dias | Impacto educacional |
@@ -286,7 +286,7 @@ Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensi
 
 ### 2.2.5. Tempo estimado de jogo 
 
-O tempo estimado do nosso jogo é de 13 minutos.
+O tempo estimado do nosso jogo é de 16 minutos.
 
 </div>
 
