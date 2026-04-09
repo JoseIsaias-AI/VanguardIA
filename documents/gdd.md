@@ -1073,7 +1073,7 @@ No desenvolvimento da quinta sprint, o foco esteve direcionado exclusivamente pa
 Na área de programação, foram realizados diversos ajustes e implementações com o objetivo de aprimorar a jogabilidade, a clareza das informações e a consistência geral do jogo, incluindo o refinamento visual e detalhamento da fase 2, implementação de efeitos sonoros, e a implementação técnica do novo menu de opções. Também foram feitas alterações estruturais, como a troca do design da plataforma da fase 3, a correção da caixa de diálogo e a revisão de diálogos específicos, como o que ocorre após a abertura do baú, além de melhorias na movimentação das redes neurais. Foram realizados ajustes no HUD, como a alteração da nitidez/tempo e a inserção de uma imagem de sucesso na fase 4, juntamente com a otimização da camada de ruído dessa fase. A progressão do jogo também foi aprimorada com a melhoria da transição entre a fase 4 e a fase 5 e o ajuste de contexto entre elas. Na fase 5, foram implementados indicadores visuais de acertos e erros, além da remoção de ambiguidades nas alternativas corretas. Por fim, foram desenvolvidas funcionalidades importantes, como o encerramento completo do jogo com créditos, a implementação de imports e caixas de texto nas cenas, a criação de um sistema padronizado para caixas de texto e a lógica de reinício da fase 3, contribuindo para uma experiência mais coesa, funcional e intuitiva.
 
 <sup>Figura 42: Novo menu.</sup><br>
-<img src="./documents/assets/Creditos.png" width = '70%' ><br>  
+<img src="./assets/Creditos.png" width = '70%' ><br>  
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 
