@@ -984,17 +984,24 @@ Por fim, a quinta fase foi desenvolvida para finalizar o jogo para que, após a 
 <div align = "justify">
 Também foram desenvolvidas cenas inseridas entre as fases com o intuito de realizar a imersão do jogador na narrativa do jogo. Na primeira cena, é desenvolvido um diálogo entre Sophia e Watson contextualizando o projeto desenvolvido entre eles e os cientistas. </div>
  
-**imagem do diálogo
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/DialogoSophiaWatson.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 <div align = "justify">
 Já na segunda cena há um diálogo entre Sophia e Asimov, onde o robô explica o contexto em que se encontra a humanidade após a viagem de Sophia. Além disso, também foram desenvolvidas as cenas da queda de Sophia antes da fase três, cenas de conversas entre Sophia e Asimov onde ele explica alguns conceitos importantes e a cena de restauração da energia do laboratório do jogo. </div>
 
-**imagens das cenas
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/DialogoSophiaAsimov.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
 
 <div align = "justify">
 Por fim, também houve alteração na tela inicial do jogo para que estivesse mais alinhada à paleta de cores do projeto e a adição de um menu para mostrar os controles que o usuário deve utilizar para movimentação e ações. </div>
 
-**cena da tela inicial e do menu
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/TelaDeInicio.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 ## 4.5. Revisão do MVP (sprint 5)
 
