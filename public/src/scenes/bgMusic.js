@@ -10,7 +10,7 @@ export class bgMusic extends Phaser.Scene {
 
   preload() { 
     // Carrega o arquivo de áudio 'bg-music.mp3' com a chave 'bgMusic' para uso posterior.
-    this.load.audio("bgMusic", "assets/bgMusic.mp3");
+    this.load.audio("bgMusic", "public/assets/bgMusic.mp3");
   }
 
   create() {
