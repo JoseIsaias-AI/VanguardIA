@@ -63,7 +63,7 @@ Esses substitutos são altamente relevantes, possuem um vasto leque de didática
 
 **3. Poder de Barganha dos Fornecedores (Poder Alto)** 
 
-Em projetos de tecnologia e desenvolvimento de software, a principal "matéria-prima" é o capital intelectual. O desenvolvimento de um jogo educativo de IA exige especialistas de nicho: engenheiros de IA, desenvolvedores de jogos experientes e Game Designers/roteiristas capazes de criar engajamento contínuo. O poder de barganha desses profissionais é altíssimo, pois são escassos e disputados por diversas indústrias globais. A gamificação deixou de ser apenas uma dinâmica isolada e tornou-se uma decisão estratégica de produto. Consequentemente, o valor de mercado desses especialistas é muito elevado — como evidenciado na matéria do site Exame ‘’A carreira de IA que ninguém te contou e pode pagar até R$ 1,5 milhão por ano”, no qual cargos como Engenheiro de Prompt podem atingir salários excepcionais devido à alta demanda ⁷.
+Em projetos de tecnologia e desenvolvimento de software, a principal "matéria-prima" é o capital intelectual. O desenvolvimento de um jogo educativo de IA exige especialistas de nicho: engenheiros de IA, desenvolvedores de jogos experientes e Game Designers/roteiristas capazes de criar engajamento contínuo. O poder de barganha desses profissionais é altíssimo, pois são escassos e disputados por diversas indústrias globais. A gamificação deixou de ser apenas uma dinâmica isolada e tornou-se uma decisão estratégica de produto. Consequentemente, o valor de mercado desses especialistas é muito elevado — como evidenciado na matéria do site Exame ‘’A carreira de IA que ninguém te contou e pode pagar até R$ 1,5 milhão por ano”, no qual cargos como Engenheiro de Prompt podem atingir salários excepcionais devido à alta demanda ².
 
 **4. Poder de Barganha dos Clientes (Poder Médio)**
 
@@ -71,7 +71,7 @@ O público-alvo abrange desde estudantes do ensino médio e universitários até
 
 **5. Rivalidade entre Concorrentes (Rivalidade Alta)** 
 
-O mercado de ensino gamificado de IA tem olhado cada vez mais para um público maior e sem o conhecimento, porque não sabe manusear as plataformas. Isso limita avanços para conseguir vender suas próprias IAs e como todo negócio esse é um ramo muito lucrativo que tem rivalidade forte para conseguir a maior fatia. Entre os concorrentes destacam-se o AWS DeepRacer ², que utiliza um simulador 3D gamificado focado estritamente em Aprendizado por Reforço, e o Google Cloud Skills Boost ³, que utiliza laboratórios práticos e um sistema de badges (conquistas) para o ensino de IA na nuvem. Embora essas grandes empresas dominem nichos segmentados, suas ferramentas costumam ter limitações de uso atreladas a custos de infraestrutura (versões pagas após testes) ou focam exclusivamente em seus próprios ecossistemas corporativos.
+O mercado de ensino gamificado de IA tem olhado cada vez mais para um público maior e sem o conhecimento, porque não sabe manusear as plataformas. Isso limita avanços para conseguir vender suas próprias IAs e como todo negócio esse é um ramo muito lucrativo que tem rivalidade forte para conseguir a maior fatia. Entre os concorrentes destacam-se o AWS DeepRacer ³, que utiliza um simulador 3D gamificado focado estritamente em Aprendizado por Reforço, e o Google Cloud Skills Boost ⁴ , que utiliza laboratórios práticos e um sistema de badges (conquistas) para o ensino de IA na nuvem. Embora essas grandes empresas dominem nichos segmentados, suas ferramentas costumam ter limitações de uso atreladas a custos de infraestrutura (versões pagas após testes) ou focam exclusivamente em seus próprios ecossistemas corporativos.
 </div>
 
 ### 1.1.2. Análise SWOT 
@@ -93,11 +93,11 @@ As fraquezas são, em boa medida, o reverso das forças. A vinculação a uma bi
 
 **Oportunidades**
 
-O crescimento acelerado do mercado de IA, aliado à lacuna de conhecimento no Brasil, representa uma grande oportunidade. Embora a maioria da população já tenha ouvido falar em IA e 75% afirmem utilizá-la no cotidiano, poucos sabem defini-la corretamente, revelando um amplo público potencial — especialmente entre jovens das classes C, D e E. Paralelamente, o mercado de gamificação educacional está em forte expansão, com projeções bilionárias e alto crescimento anual. Nesse cenário, um jogo educativo sobre IA nos posiciona como early adopters e contribui para democratizar o acesso ao conhecimento, alinhando-se ao ODS 4 da ONU ⁴.
+O crescimento acelerado do mercado de IA, aliado à lacuna de conhecimento no Brasil, representa uma grande oportunidade. Embora a maioria da população já tenha ouvido falar em IA e 75% afirmem utilizá-la no cotidiano, poucos sabem defini-la corretamente, revelando um amplo público potencial — especialmente entre jovens das classes C, D e E. Paralelamente, o mercado de gamificação educacional está em forte expansão, com projeções bilionárias e alto crescimento anual. Nesse cenário, um jogo educativo sobre IA nos posiciona como early adopters e contribui para democratizar o acesso ao conhecimento, alinhando-se ao ODS 4 da ONU ⁵.
 
 **Ameaças**
 
-A principal ameaça é a concorrência. Uma busca simples por "curso introdutório de IA" no Google retorna diversas opções gratuitas — como o curso do Centro Paula Souza —, e o próprio Skills Build original pode ser percebido como alternativa mais direta e tradicional. O fato de o jogo adotar uma abordagem pedagógica diferenciada é ao mesmo tempo um diferencial e um risco, já que parte do público pode preferir métodos de ensino convencionais, especialmente num primeiro contato com o tema. Outra ameaça relevante é a velocidade de obsolescência dos conteúdos. Em uma área em que avanços disruptivos ocorrem em questão de meses, manter o jogo atualizado exigirá um processo contínuo de revisão, o que representa um custo operacional significativo ⁴.
+A principal ameaça é a concorrência. Uma busca simples por "curso introdutório de IA" no Google retorna diversas opções gratuitas — como o curso do Centro Paula Souza —, e o próprio Skills Build original pode ser percebido como alternativa mais direta e tradicional. O fato de o jogo adotar uma abordagem pedagógica diferenciada é ao mesmo tempo um diferencial e um risco, já que parte do público pode preferir métodos de ensino convencionais, especialmente num primeiro contato com o tema. Outra ameaça relevante é a velocidade de obsolescência dos conteúdos. Em uma área em que avanços disruptivos ocorrem em questão de meses, manter o jogo atualizado exigirá um processo contínuo de revisão, o que representa um custo operacional significativo ⁶.
 </div>
 
 ### 1.1.3. Missão / Visão / Valores 
@@ -105,7 +105,7 @@ A principal ameaça é a concorrência. Uma busca simples por "curso introdutór
 <div align = "justify">
 **Missão:**
 
-Democratizar o acesso a conhecimentos sobre de IA para jovens de todas as classes sociais através da gamificação com um jogo web de fácil acesso ⁸.
+Democratizar o acesso a conhecimentos sobre de IA para jovens de todas as classes sociais através da gamificação com um jogo web de fácil acesso ⁷.
 
 **Visão:**
 
@@ -128,11 +128,11 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 |------------------------|------------------------|------------------------------------------------------------------------|
 | Perfil do Cliente      | Público-alvo principal | Estudantes universitários e jovens com interesse em aprender sobre IA  |
 | Perfil do Cliente      | Tarefas do cliente     | Aprender conceitos de IA (machine learning, redes neurais, IA generativa)<br>Aplicar conhecimento na prática<br>Aprender sobre ética em IA<br>Adquirir letramento básico sem base teórica avançada<br>|
-| Perfil do Cliente      | Dores                  | Baixo engajamento em cursos assíncronos¹¹<br>Excesso de conteúdo teórico e dificuldade de aplicação prática<br>Evasão em cursos online<br>Desorientação em relação à IA<br>Pouco conhecimento dos termos<br>Não saber exatamente o que é IA<br>Falta de motivação sem progressão visível |
+| Perfil do Cliente      | Dores                  | Baixo engajamento em cursos assíncronos ⁸<br>Excesso de conteúdo teórico e dificuldade de aplicação prática<br>Evasão em cursos online<br>Desorientação em relação à IA<br>Pouco conhecimento dos termos<br>Não saber exatamente o que é IA<br>Falta de motivação sem progressão visível |
 | Perfil do Cliente      | Ganhos                 | Aprendizado interativo e aplicado<br>Experiência imersiva<br>Maior retenção de conhecimento<br>Facilidade na compreensão<br>Entendimento geral sobre IA<br>Capacidade de produtividade com IA<br>Analogia entre história e aprendizado<br>Maior foco e motivação |
 | Mapa de Valor          | Produtos e Serviços    | Jogo digital educacional com narrativa<br>Módulos gamificados (níveis, desafios, simulações)<br>Experiências inspiradas no IBM SkillsBuild<br>Sistema de progressão gradual<br>Puzzles interativos<br>Conteúdos simplificados e condensados |
 | Mapa de Valor          | Aliviadores de Dores   | Substituição de conteúdo passivo por interação<br>Simulação prática<br>Feedback imediato<br>Transformação de conceitos abstratos em interações concretas<br>Uso de microdesafios para aumentar o engajamento<br>Visualização de processos de IA|
-| Mapa de Valor          | Criadores de Ganho     | Narrativa imersiva<br>Progressão por níveis¹⁰<br>Aplicação prática dos conceitos<br>Puzzles sobre IA |
+| Mapa de Valor          | Criadores de Ganho     | Narrativa imersiva<br>Progressão por níveis ⁹<br>Aplicação prática dos conceitos<br>Puzzles sobre IA |
 
 ### 1.1.5. Descrição da Solução Desenvolvida 
 
@@ -144,13 +144,13 @@ A resposta a esse cenário é uma experiência narrativa e interativa protagoniz
 
 A primeira fase introduz ao jogador o conceito fundamental de reconhecimento de padrões em máquinas. O jogador assume o controle de Asimov e o guia por um percurso repleto de obstáculos, utilizando as teclas direcionais para mover o robô para cima e para baixo entre as faixas do cenário e a barra de espaço para realizar saltos. O intuito pedagógico é explícito, no qual ao executar esses desvios repetidamente, o jogador vivencia, na perspectiva do robô, o processo pelo qual uma máquina identifica e responde a padrões no ambiente, fundamento sobre o qual toda a Inteligência Artificial moderna se apoia.
 
-Ao concluir esse percurso, Asimov encontra um baú com pistas sobre o cristal de energia necessário para restaurar o laboratório. No entanto, as informações que levam até ele estão escondidas atrás de uma das portas do laboratório, e nem Sophia nem Asimov sabem qual é a correta. Para resolver esse problema, o jogador acessa o processamento interno de Asimov e alimenta sua rede neural com três valores binários que representam, respectivamente, a cor da porta, sua identificação e o padrão de sua maçaneta. Esses valores são inseridos nos neurônios de entrada da rede, e o jogador clica nos nós da camada oculta para ativar o processamento. A partir disso, o próprio jogo exibe uma animação que representa o aprendizado da rede ao longo das épocas de treinamento, tornando visível um processo que normalmente permanece opaco. Em seguida, o jogador precisa acionar a Válvula Softmax, que representa a camada de ativação responsável por converter as saídas brutas da rede em probabilidades interpretáveis, e regular o valor de saída até que Asimov consiga identificar a porta correta com confiança suficiente¹⁴.
+Ao concluir esse percurso, Asimov encontra um baú com pistas sobre o cristal de energia necessário para restaurar o laboratório. No entanto, as informações que levam até ele estão escondidas atrás de uma das portas do laboratório, e nem Sophia nem Asimov sabem qual é a correta. Para resolver esse problema, o jogador acessa o processamento interno de Asimov e alimenta sua rede neural com três valores binários que representam, respectivamente, a cor da porta, sua identificação e o padrão de sua maçaneta. Esses valores são inseridos nos neurônios de entrada da rede, e o jogador clica nos nós da camada oculta para ativar o processamento. A partir disso, o próprio jogo exibe uma animação que representa o aprendizado da rede ao longo das épocas de treinamento, tornando visível um processo que normalmente permanece opaco. Em seguida, o jogador precisa acionar a Válvula Softmax, que representa a camada de ativação responsável por converter as saídas brutas da rede em probabilidades interpretáveis, e regular o valor de saída até que Asimov consiga identificar a porta correta com confiança suficiente ¹⁰.
 
-Ao abrir a porta, o chão cede e Sophia cai em um ambiente inferior. Para retornar, o jogador precisa subir por plataformas saltando entre elas, e ao longo desse percurso coleta documentos com imagens de cristais verdadeiros. Essa fase introduz a visão computacional e a lógica do seu treinamento, ou seja,  quanto mais imagens corretas Sophia recolhe, mais preciso será o sistema que guiará Asimov na etapa seguinte. A mecânica de coleta transmite de forma intuitiva o princípio de que a qualidade e a quantidade de dados de treino determinam a capacidade de um modelo de reconhecer corretamente o que lhe é apresentado ¹⁶ .
+Ao abrir a porta, o chão cede e Sophia cai em um ambiente inferior. Para retornar, o jogador precisa subir por plataformas saltando entre elas, e ao longo desse percurso coleta documentos com imagens de cristais verdadeiros. Essa fase introduz a visão computacional e a lógica do seu treinamento, ou seja,  quanto mais imagens corretas Sophia recolhe, mais preciso será o sistema que guiará Asimov na etapa seguinte. A mecânica de coleta transmite de forma intuitiva o princípio de que a qualidade e a quantidade de dados de treino determinam a capacidade de um modelo de reconhecer corretamente o que lhe é apresentado ¹¹.
 
 Na quarta fase, Asimov já possui as informações coletadas e inicia a geração interna de uma projeção do cristal. Contudo, o processo produz ruídos, imperfeições visuais que distorcem a imagem gerada. O jogador utiliza o cursor do mouse como se fosse uma esponja e arrasta-o sobre as manchas e distorções que aparecem na projeção, eliminando progressivamente as falhas até que a imagem atinja nitidez suficiente. Essa mecânica materializa dois conceitos centrais da IA moderna: o funcionamento de modelos generativos, que produzem saídas a partir de padrões aprendidos, e o problema do overfitting, em que ruídos e interferências nos dados de treinamento comprometem a qualidade do resultado gerado. O jogador não lê sobre esses conceitos ele usa-os com o mouse como se fosse a própria IA.
 
-Com o cristal sintetizado, Sophia o transporta até o centro do laboratório para realizar a restauração final. Nesse momento, antes de depositar o cristal no núcleo energético, o jogador é confrontado com uma série de perguntas éticas sobre o uso da Inteligência Artificial, precisando clicar nas respostas corretas para concluir o jogo. Essa etapa posiciona a ética não como fator primordial e como condição de desfecho, pois o laboratório só é restaurado quando o jogador demonstra compreender que a tecnologia, por si só, não determina seus impactos. Quem a direciona, e com quais valores, é o que define se ela reconstrói ou destrói¹⁵.
+Com o cristal sintetizado, Sophia o transporta até o centro do laboratório para realizar a restauração final. Nesse momento, antes de depositar o cristal no núcleo energético, o jogador é confrontado com uma série de perguntas éticas sobre o uso da Inteligência Artificial, precisando clicar nas respostas corretas para concluir o jogo. Essa etapa posiciona a ética não como fator primordial e como condição de desfecho, pois o laboratório só é restaurado quando o jogador demonstra compreender que a tecnologia, por si só, não determina seus impactos. Quem a direciona, e com quais valores, é o que define se ela reconstrói ou destrói ¹².
 
 A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimina a necessidade de instalação e garante acesso imediato via navegador, reduzindo uma barreira relevante para o perfil socioeconômico do público-alvo. A progressão linear e sequencial entre as fases, na qual cada etapa só é desbloqueada após a conclusão da anterior, garante que o jogador construa gradualmente os conceitos antes de avançar, evitando que a experiência se torne superficial. A criação de valor do produto está em converter conceitos como reconhecimento de padrões, redes neurais, softmax, visão computacional, modelos generativos e ética em IA em ações concretas que o jogador executa e compreende pelo fazer, ampliando o alcance do IBM SkillsBuild a um público que dificilmente seria atingido por plataformas textuais tradicionais e contribuindo para a democratização do letramento em Inteligência Artificial.
 </div>
@@ -246,9 +246,9 @@ Os requisitos do projeto estabelecem as diretrizes essenciais para seu desenvolv
 ## 1.3. Público-alvo do Projeto 
 
 <div align = "justify">
-O público-alvo do jogo são jovens universitários com pouco ou nenhum contato aprofundado com tecnologia — especialmente com Inteligência Artificial. A maioria dessas pessoas limita sua experiência de AI ao uso casual de chatbots como ChatGPT, Gemini ou Claude, o que reflete bem a realidade, em que pesquisas, por exemplo, indicam que menos de 30% das empresas nos EUA de fato adotaram IA em seus processos, evidenciando que a expertise do grande público nessa área é frequentemente superestimada. Por ser um jogo introdutório, ele se encaixa tanto para estudantes de cursos que demandam apenas um uso superficial de IA quanto para calouros de cursos como Ciência da Computação, Engenharia de Software ou Engenharia da Computação que ainda não tiveram uma base sólida no tema, funcionando de forma análoga ao pré-cálculo adotado por diversas universidades para nivelar estudantes com lacunas matemáticas, mas para o uso de AI e sendo muito mais divertido e engajante ⁵.
+O público-alvo do jogo são jovens universitários com pouco ou nenhum contato aprofundado com tecnologia — especialmente com Inteligência Artificial. A maioria dessas pessoas limita sua experiência de AI ao uso casual de chatbots como ChatGPT, Gemini ou Claude, o que reflete bem a realidade, em que pesquisas, por exemplo, indicam que menos de 30% das empresas nos EUA de fato adotaram IA em seus processos, evidenciando que a expertise do grande público nessa área é frequentemente superestimada. Por ser um jogo introdutório, ele se encaixa tanto para estudantes de cursos que demandam apenas um uso superficial de IA quanto para calouros de cursos como Ciência da Computação, Engenharia de Software ou Engenharia da Computação que ainda não tiveram uma base sólida no tema, funcionando de forma análoga ao pré-cálculo adotado por diversas universidades para nivelar estudantes com lacunas matemáticas, mas para o uso de AI e sendo muito mais divertido e engajante ¹³.
 
-O perfil mais representativo do nosso usuário é o de um jovem de renda média-baixa, criado fora dos grandes centros urbanos e egresso de escola pública, levando em conta que mais de 80% dos estudantes do ensino médio brasileiro vem de escolas públicas, o público potencial do jogo seria bem grande. Esse usuário potencial do jogo tem afinidade e desenvoltura com tecnologias acessíveis do cotidiano, como celulares e videogames, mas nunca teve a oportunidade de se aprofundar tecnicamente. Agora, ao ingressar na universidade, enfrenta pela primeira vez a necessidade de desenvolver uma compreensão mais sólida da área, e é exatamente para esse primeiro passo que o jogo foi pensado ⁶.
+O perfil mais representativo do nosso usuário é o de um jovem de renda média-baixa, criado fora dos grandes centros urbanos e egresso de escola pública, levando em conta que mais de 80% dos estudantes do ensino médio brasileiro vem de escolas públicas, o público potencial do jogo seria bem grande. Esse usuário potencial do jogo tem afinidade e desenvoltura com tecnologias acessíveis do cotidiano, como celulares e videogames, mas nunca teve a oportunidade de se aprofundar tecnicamente. Agora, ao ingressar na universidade, enfrenta pela primeira vez a necessidade de desenvolver uma compreensão mais sólida da área, e é exatamente para esse primeiro passo que o jogo foi pensado ¹⁴.
 </div>
 
 # <a name="c2"></a>2. Visão Geral do Jogo 
@@ -778,7 +778,7 @@ Para acesso ao código direto para a linha do inicio da função de matemática/
 > Em **t = 2 s**: $x = 861$ px e $y = 235$ px confirmam o retorno às coordenadas finais. ✓
 
 
-Para garantir que a movimentação e a gravidade no jogo funcionem de maneira fluida e precisa, a lógica de programação foi estruturada com rigor científico. A modelagem matemática das equações de Movimento Uniforme (MU) e Movimento Uniformemente Variado (MUV) aplicadas ao motor gráfico foi baseada na obra Fundamentos de Física: Mecânica (HALLIDAY; RESNICK; WALKER, 2016)¹². Além disso, o suporte conceitual para a mecânica bidimensional e o cálculo exato de trajetórias parabólicas, como o tempo de voo e o impulso dos pulos, fundamentou-se no Curso de Física Básica: Mecânica (NUSSENZVEIG, 2013)¹³.
+Para garantir que a movimentação e a gravidade no jogo funcionem de maneira fluida e precisa, a lógica de programação foi estruturada com rigor científico. A modelagem matemática das equações de Movimento Uniforme (MU) e Movimento Uniformemente Variado (MUV) aplicadas ao motor gráfico foi baseada na obra Fundamentos de Física: Mecânica (HALLIDAY; RESNICK; WALKER, 2016) ¹⁵. Além disso, o suporte conceitual para a mecânica bidimensional e o cálculo exato de trajetórias parabólicas, como o tempo de voo e o impulso dos pulos, fundamentou-se no Curso de Física Básica: Mecânica (NUSSENZVEIG, 2013) ¹⁶.
 
 
 # <a name="c4"></a>4. Desenvolvimento do Jogo
@@ -1306,37 +1306,38 @@ Em sua forma atual, o projeto demonstra que é possível ensinar Inteligência A
 
 ¹ ABRA. A indústria de games BR e o nicho de jogos educativos. Disponível em: https://abra.com.br/artigos/a-industria-de-games-br-e-o-nicho-de-jogos-educativos. Acesso em: 27 fev. 2026.
 
-² AMAZON WEB SERVICES. AWS DeepRacer. Disponível em: https://aws.amazon.com/pt/deepracer/. Acesso em: 27 fev. 2026.
+² EXAME. A carreira de IA que ninguém te contou e pode pagar até R$ 1,5 milhão por ano. Exame, 2025. Disponível em: https://exame.com/carreira/a-carreira-de-ia-que-ninguem-te-contou-e-pode-pagar-ate-rs-150-mil-por-ano/. Acesso em: 27 fev. 2026.
 
-³ GOOGLE CLOUD. Google Cloud Skills Boost. Disponível em: https://www.cloudskillsboost.google/. Acesso em: 27 fev. 2026.
+³ AMAZON WEB SERVICES. AWS DeepRacer. Disponível em: https://aws.amazon.com/pt/deepracer/. Acesso em: 27 fev. 2026.
 
-⁴ CENTRO PAULA SOUZA. CPS lança curso livre online gratuito sobre inteligência artificial. Disponível em: https://www.cps.sp.gov.br/cps-lanca-curso-livre-online-gratuito-sobre-inteligencia-artificial/. Acesso em: 27 fev. 2026.
+⁴ GOOGLE CLOUD. Google Cloud Skills Boost. Disponível em: https://www.cloudskillsboost.google/. Acesso em: 27 fev. 2026.
 
-⁵ ZAKI, Adam. Less than a third of companies follow AI adoption best practices. CFO.com, 2025. Disponível em: https://www.cfo.com/news/less-than-third-of-companies-following-all-of-mckinseys-ai-best-practices-/742279/. Acesso em: 27 fev. 2026.
+⁵ MARKET DATA FORECAST. Gamification education market. Disponível em: https://www.marketdataforecast.com/market-reports/gamification-education-market. Acesso em: 27 fev. 2026.
 
-⁶ NORONHA, Heloísa. Rede pública x rede privada: onde estudam os brasileiros, conforme o IBGE. CNN Brasil, 2025. Disponível em: https://www.cnnbrasil.com.br/educacao/rede-publica-x-rede-privada-onde-estudam-os-brasileiros-conforme-o-ibge/. Acesso em: 27 fev. 2026.
+⁶ CENTRO PAULA SOUZA. CPS lança curso livre online gratuito sobre inteligência artificial. Disponível em: https://www.cps.sp.gov.br/cps-lanca-curso-livre-online-gratuito-sobre-inteligencia-artificial/. Acesso em: 27 fev. 2026.
 
-⁷ EXAME. A carreira de IA que ninguém te contou e pode pagar até R$ 1,5 milhão por ano. Exame, 2025. Disponível em: https://exame.com/carreira/a-carreira-de-ia-que-ninguem-te-contou-e-pode-pagar-ate-rs-150-mil-por-ano/. Acesso em: 27 fev. 2026.
+⁷ MARKET DATA FORECAST. Gamification education market. Disponível em: https://www.marketdataforecast.com/market-reports/gamification-education-market. Acesso em: 27 fev. 2026.
 
-⁸ MARKET DATA FORECAST. Gamification education market. Disponível em: https://www.marketdataforecast.com/market-reports/gamification-education-market. Acesso em: 27 fev. 2026.
+⁸ MENDONÇA, A. P. B.; ALVES, L. R. G. Cursos Online Abertos e Massivos (MOOC) em contextos corporativos: uma revisão da literatura. Texto Livre, 2024. Disponível em: https://www.scielo.br/j/tl/a/RFbMyKKQGVfWxcTNFy8FLpn/?lang=pt. Acesso em: 27 mar. 2026.
 
-⁹ SILVA, R. F. da; RODRIGUES, N. A. P.; TOMAZINI, S. M. Um Jogo para Apoiar o Ensino de Conceitos de IA e Visão Computacional na Educação Básica. RENOTE, 2026. Disponível em: https://seer.ufrgs.br/index.php/renote/article/view/153558. Acesso em: 27 mar. 2026.
+⁹ MICROSOFT. Teaching AI Development Through Gamification. Microsoft Tech Community, 2026. Disponível em: https://techcommunity.microsoft.com/blog/azuredevcommunityblog/teaching-ai-development-through-gamification/4490755. Acesso em: 27 mar. 2026.
 
-¹⁰ MICROSOFT. Teaching AI Development Through Gamification. Microsoft Tech Community, 2026. Disponível em: https://techcommunity.microsoft.com/blog/azuredevcommunityblog/teaching-ai-development-through-gamification/4490755. Acesso em: 27 mar. 2026.
+¹⁰ GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. Deep Learning. Cambridge: MIT Press, 2016. Disponível em: https://www.deeplearningbook.org. Acesso em: 27 mar. 2026.
 
-¹¹ MENDONÇA, A. P. B.; ALVES, L. R. G. Cursos Online Abertos e Massivos (MOOC) em contextos corporativos: uma revisão da literatura. Texto Livre, 2024. Disponível em: https://www.scielo.br/j/tl/a/RFbMyKKQGVfWxcTNFy8FLpn/?lang=pt. Acesso em: 27 mar. 2026.
+¹¹ AMAZON WEB SERVICES. O que é visão computacional? Disponível em: https://aws.amazon.com/pt/what-is/computer-vision/. Acesso em: 27 mar. 2026.
 
-¹² HALLIDAY, D.; RESNICK, R.; WALKER, J. Fundamentos de Física — Mecânica. Vol. 1, cap. 4. 10ª ed. LTC, 2016.
+¹² UNESCO. Recomendação sobre a ética da inteligência artificial. Paris: UNESCO, 2022. Disponível em: https://unesdoc.unesco.org/ark:/48223/pf0000381137_por. Acesso em: 27 mar. 2026.
 
-¹³ NUSSENZVEIG, H. M. Curso de Física Básica — Mecânica. Vol. 1, cap. 3. 5ª ed. Blucher, 2013.
+¹³ ZAKI, Adam. Less than a third of companies follow AI adoption best practices. CFO.com, 2025. Disponível em: https://www.cfo.com/news/less-than-third-of-companies-following-all-of-mckinseys-ai-best-practices-/742279/. Acesso em: 27 fev. 2026.
 
-¹⁴ GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. Deep Learning. Cambridge: MIT Press, 2016. Disponível em: https://www.deeplearningbook.org. Acesso em: 27 mar. 2026.
+¹⁴ NORONHA, Heloísa. Rede pública x rede privada: onde estudam os brasileiros, conforme o IBGE. CNN Brasil, 2025. Disponível em: https://www.cnnbrasil.com.br/educacao/rede-publica-x-rede-privada-onde-estudam-os-brasileiros-conforme-o-ibge/. Acesso em: 27 fev. 2026.
 
-¹⁵ UNESCO. Recomendação sobre a ética da inteligência artificial. Paris: UNESCO, 2022. Disponível em: https://unesdoc.unesco.org/ark:/48223/pf0000381137_por. Acesso em: 27 mar. 2026.
+¹⁵ HALLIDAY, D.; RESNICK, R.; WALKER, J. Fundamentos de Física — Mecânica. Vol. 1, cap. 4. 10ª ed. LTC, 2016.
 
-¹⁶ AMAZON WEB SERVICES. O que é visão computacional? Disponível em: https://aws.amazon.com/pt/what-is/computer-vision/. Acesso em: 27 mar. 2026.
+¹⁶ NUSSENZVEIG, H. M. Curso de Física Básica — Mecânica. Vol. 1, cap. 3. 5ª ed. Blucher, 2013.
 
 ¹⁷ Fundação Instituto de Administração. Net Promoter Score (NPS): o que é, como calcular e exemplos. Disponível em: https://fia.com.br/blog/net-promoter-score-nps/. Acesso em: 6 abr. 2026.
+
 
 # <a name="c8"></a>Anexos
 
