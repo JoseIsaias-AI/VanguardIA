@@ -1116,6 +1116,37 @@ Na área de programação, foram realizados diversos ajustes e implementações 
 
 Em relação ao design desenvolvido na sprint 5, foram realizadas diversas melhorias e refinamentos com o objetivo de aprimorar a qualidade visual, a consistência estética e a experiência geral do jogador, incluindo o refinamento do menu de opções, o ajuste do documento auxiliar preSceneFase4, alterações no topo da fase 3, ajustes nas animações do chão caindo e a otimização das plataformas dessa mesma fase. Também foram adicionados elementos ao ambiente, como portas no laboratório inicial e no laboratório do futuro, além da criação e texturização de folhas envelhecidas, contribuindo para uma ambientação mais rica e coerente. Por fim, foram feitos ajustes no design da personagem Sophia durante a animação de queda, tornando essa ação mais natural e alinhada com o restante das animações, o que reforça a consistência visual e a fluidez da experiência ao longo do jogo.
 
+<sup>Figura 49: Novo menu.</sup><br>
+<img src="./assets/Menu.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 50: Novo menu.</sup><br>
+<img src="./assets/Porta1.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 51: Novo menu.</sup><br>
+<img src="./assets/Porta2.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 52: Novo menu.</sup><br>
+<img src="./assets/Plataformas.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 53: Novo menu.</sup><br>
+<img src="./assets/Papel.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 54: Novo menu.</sup><br>
+<img src="./assets/Topo.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+<sup>Figura 55: Novo menu.</sup><br>
+<img src="./public\assets\cutscene1\animacaoCaindo.png" width = '70%' ><br>  
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
+
+
+
 
 
 
