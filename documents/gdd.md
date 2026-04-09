@@ -992,29 +992,29 @@ Por fim, também houve ajustes na tela inicial do jogo para que ficasse mais ali
 
 ## 5.1. Casos de Teste 
 
-| pré-condição | descrição do teste | pós-condição |
-|----------------------------------------|--------------------------------------------------|-----------------------------------------------------------|
-| estar na tela de início | pressionar botão 'Options' | abrir menu do jogo |
-| jogo iniciado | pressionar setas ou WASD | personagem se move corretamente nas direções designadas |
-| personagem próximo a obstáculo/colisão | movimentar personagem contra a parede/objeto   | personagem não atravessa a parede ou o objeto |
-| estar perto do personagem Watson | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
-| função de diálogo ativada | pressionar tecla E | mudança do texto exibido na caixa de diálogo |
-| explicação por personagem finalizada | pressionar tecla E | caixa de diálogo para de ser exibida |
-| ter interagido com o personagem Watson e estar próximo da câmara criogência | pressionar tecla E | vídeo de transição é executado corretamento dentro do espaço designado e transferência para cena seguinte |
-| estar próximo de personagem Asimov | pressionar tecla E | caixa de diálogo e textos são exibidos na tela |
-| ter dialogado com Asimov | finalizar diálogo antes da Fase 01 | sprite de Sophia não se sobrepõe à animação de Asimov andando automaticamente |
-| estar na fase 01 | apertar tecla SPACE | personagem deve pular corretamente |
-| estar na fase 01 | colidir com um obstáculo | reiniciar fase 01 |
-| estar perto de um baú | pressionar tecla E | baú abrir e dar as informações necessárias |
-| ter coletado a carta vermelha | pressioná-la 9 vezes | carta abrir e mostrar texto corretamente |
-| estar na fase 02 | apertar nos neurônios de Asimov | os neurônios devem acender suas luzes na ordem certa com o clique em cima delas |
-| finalizar fase 02 | pressionar tecla E para abrir o baú | executar corretamente animação de chão quebrando e Sophia caindo |
-| estar na fase 03 | apertar tecla SPACE e direcionar personagem na direção de plataforma | personagem deve colidir corretamente com a plataforma |
-| chegar ao topo do cenário da fase 03 |  coletar todos os cristais corretos e pular em direção à corda | seguir para a próxima cena |
-| dialogar com Asimov | pressionar tecla E para ler documentos | abrir corretamente documnetação e ser direcionado à fase 04 |
-| estar na fase 04 | pressionar botão direito do mouse e arrastar na imagem | nitidez crescente nos pontos selecionados da imagem |
-| realizar limpeza da imagem | possuir nitidez de 99% | ser direcionado à cena seguinte |
-| estar na fase cinco | classificar afirmação como correta ou incorreta | crescimento da contagem de acertos e erros |
+| Pré-condição                                                                | Descrição do teste                                                   | Pós-condição                                                                                              |
+|-----------------------------------------------------------------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| Estar na tela de início                                                     | Pressionar botão 'Options'                                           | Abrir menu do jogo                                                                                        |
+| Jogo iniciado                                                               | Pressionar setas ou WASD                                             | Personagem se move corretamente nas direções designadas                                                   |
+| Personagem próximo a obstáculo/colisão                                      | Movimentar personagem contra a parede/objeto                         | Personagem não atravessa a parede ou o objeto                                                             |
+| Estar perto do personagem Watson                                            | Pressionar tecla E                                                   | Caixa de diálogo e textos são exibidos na tela                                                            |
+| Função de diálogo ativada                                                   | pressionar tecla E                                                   | mudança do texto exibido na caixa de diálogo                                                              |
+| Explicação por personagem finalizada                                        | pressionar tecla E                                                   | caixa de diálogo para de ser exibida                                                                      |
+| Ter interagido com o personagem Watson e estar próximo da câmara criogência | pressionar tecla E                                                   | vídeo de transição é executado corretamento dentro do espaço designado e transferência para cena seguinte |
+| Estar próximo de personagem Asimov                                          | pressionar tecla E                                                   | caixa de diálogo e textos são exibidos na tela                                                            |
+| Ter dialogado com Asimov                                                    | finalizar diálogo antes da Fase 01                                   | sprite de Sophia não se sobrepõe à animação de Asimov andando automaticamente                             |
+| Estar na fase 01                                                            | apertar tecla SPACE                                                  | personagem deve pular corretamente                                                                        |
+| Estar na fase 01                                                            | colidir com um obstáculo                                             | reiniciar fase 01                                                                                         |
+| Estar perto de um baú                                                       | pressionar tecla E                                                   | baú abrir e dar as informações necessárias                                                                |
+| Ter coletado a carta vermelha                                               | pressioná-la 9 vezes                                                 | carta abrir e mostrar texto corretamente                                                                  |
+| Estar na fase 02                                                            | apertar nos neurônios de Asimov                                      | os neurônios devem acender suas luzes na ordem certa com o clique em cima delas                           |
+| Finalizar fase 02                                                           | pressionar tecla E para abrir o baú                                  | executar corretamente animação de chão quebrando e Sophia caindo                                          |
+| Estar na fase 03                                                            | apertar tecla SPACE e direcionar personagem na direção de plataforma | personagem deve colidir corretamente com a plataforma                                                     |
+| Chegar ao topo do cenário da fase 03                                        | coletar todos os cristais corretos e pular em direção à corda        | seguir para a próxima cena                                                                                |
+| Dialogar com Asimov                                                         | pressionar tecla E para ler documentos                               | abrir corretamente documnetação e ser direcionado à fase 04                                               |
+| Estar na fase 04                                                            | pressionar botão direito do mouse e arrastar na imagem               | nitidez crescente nos pontos selecionados da imagem                                                       |
+| Realizar limpeza da imagem                                                  | possuir nitidez de 99%                                               | ser direcionado à cena seguinte                                                                           |
+| Estar na fase cinco                                                         | classificar afirmação como correta ou incorreta                      | crescimento da contagem de acertos e erros                                                                |
 
 ## 5.2. Testes de jogabilidade (playtests) 
 
