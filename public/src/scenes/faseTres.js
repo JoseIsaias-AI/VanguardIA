@@ -86,8 +86,8 @@ export class faseTres extends Phaser.Scene {
     this.load.image("parede", "public/assets/fases/faseTres/backgroundFase3Escuro.png");
     this.load.image("pedra", "public/assets/objetos/faseTres/pedrinha.png");
     this.load.spritesheet("sophia", "public/assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.image("plataforma", "public/assets/objetos/faseTres/Plataforma Quebrada, Fase 3.png");
-    this.load.spritesheet("plataformaMovel", "public/assets/objetos/faseTres/Plataforma, Fase 3.png", { frameWidth: 240, frameHeight: 240}); 
+    this.load.image("plataforma", "public/assets/objetos/faseTres/plataformaQuebrada.png");
+    this.load.spritesheet("plataformaMovel", "public/assets/objetos/faseTres/plataformaMovel.png", { frameWidth: 240, frameHeight: 240}); 
     this.load.image("cristalVerdadeiro", "public/assets/objetos/faseTres/cristalVerdadeiro.png");
     this.load.image("cristalFalso", "public/assets/objetos/faseTres/cristalFalso.png");
 
