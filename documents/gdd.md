@@ -468,11 +468,11 @@ Por fim, é apresentada no jogo a sala principal de controle do laboratório, on
 | **↑** | Move o personagem para frente (+Y) |
 | **→** | Move o personagem para a direita (+X) |
 | **↓** | Move o personagem para trás (−Y) |
-| **←** | Move o personagem para a direita (-X) |
+| **←** | Move o personagem para a esquerda (-X) |
 | **W** | Move o personagem para frente (+Y) |
 | **D** | Move o personagem para a direita (+X) |
 | **S** | Move o personagem para trás (−Y) |
-| **A** | Move o personagem para a direita (-X) |
+| **A** | Move o personagem para a esquerda (-X) |
 | **SPACE** | Personagem salta (+Y) depois cai (-Y) |
 
 
