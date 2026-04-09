@@ -118,15 +118,15 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 
 ### 1.1.4. Proposta de Valor
 
-| Seção | Categoria | Itens |
-|------|----------|------|
-| Perfil do Cliente | Público-alvo principal | Estudantes universitários e jovens com interesse em aprender sobre IA  |
-| Perfil do Cliente | Tarefas do cliente | Aprender conceitos de IA (machine learning, redes neurais, IA generativa)<br>Aplicar conhecimento na prática<br>Aprender sobre ética em IA<br>Adquirir letramento básico sem base teórica avançada<br>|
-| Perfil do Cliente | Dores | Baixo engajamento em cursos assíncronos¹¹<br>Excesso de conteúdo teórico e dificuldade de aplicação prática<br>Evasão em cursos online<br>Desorientação em relação à IA<br>Pouco conhecimento dos termos<br>Não saber exatamente o que é IA<br>Falta de motivação sem progressão visível |
-| Perfil do Cliente | Ganhos | Aprendizado interativo e aplicado<br>Experiência imersiva<br>Maior retenção de conhecimento<br>Facilidade na compreensão<br>Entendimento geral sobre IA<br>Capacidade de produtividade com IA<br>Analogia entre história e aprendizado<br>Maior foco e motivação |
-| Mapa de Valor | Produtos e Serviços | Jogo digital educacional com narrativa<br>Módulos gamificados (níveis, desafios, simulações)<br>Experiências inspiradas no IBM SkillsBuild<br>Sistema de progressão gradual<br>Puzzles interativos<br>Conteúdos simplificados e condensados |
-| Mapa de Valor | Aliviadores de Dores | Substituição de conteúdo passivo por interação<br>Simulação prática<br>Feedback imediato<br>Transformação de conceitos abstratos em interações concretas<br>Uso de microdesafios para aumentar o engajamento<br>Visualização de processos de IA|
-| Mapa de Valor | Criadores de Ganho | Narrativa imersiva<br>Progressão por níveis¹⁰<br>Aplicação prática dos conceitos<br>Puzzles sobre IA |
+| Seção                  | Categoria              | Itens                                                                  |
+|------------------------|------------------------|------------------------------------------------------------------------|
+| Perfil do Cliente      | Público-alvo principal | Estudantes universitários e jovens com interesse em aprender sobre IA  |
+| Perfil do Cliente      | Tarefas do cliente     | Aprender conceitos de IA (machine learning, redes neurais, IA generativa)<br>Aplicar conhecimento na prática<br>Aprender sobre ética em IA<br>Adquirir letramento básico sem base teórica avançada<br>|
+| Perfil do Cliente      | Dores                  | Baixo engajamento em cursos assíncronos¹¹<br>Excesso de conteúdo teórico e dificuldade de aplicação prática<br>Evasão em cursos online<br>Desorientação em relação à IA<br>Pouco conhecimento dos termos<br>Não saber exatamente o que é IA<br>Falta de motivação sem progressão visível |
+| Perfil do Cliente      | Ganhos                 | Aprendizado interativo e aplicado<br>Experiência imersiva<br>Maior retenção de conhecimento<br>Facilidade na compreensão<br>Entendimento geral sobre IA<br>Capacidade de produtividade com IA<br>Analogia entre história e aprendizado<br>Maior foco e motivação |
+| Mapa de Valor          | Produtos e Serviços    | Jogo digital educacional com narrativa<br>Módulos gamificados (níveis, desafios, simulações)<br>Experiências inspiradas no IBM SkillsBuild<br>Sistema de progressão gradual<br>Puzzles interativos<br>Conteúdos simplificados e condensados |
+| Mapa de Valor          | Aliviadores de Dores   | Substituição de conteúdo passivo por interação<br>Simulação prática<br>Feedback imediato<br>Transformação de conceitos abstratos em interações concretas<br>Uso de microdesafios para aumentar o engajamento<br>Visualização de processos de IA|
+| Mapa de Valor          | Criadores de Ganho     | Narrativa imersiva<br>Progressão por níveis¹⁰<br>Aplicação prática dos conceitos<br>Puzzles sobre IA |
 
 ### 1.1.5. Descrição da Solução Desenvolvida 
 
