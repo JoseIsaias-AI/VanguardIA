@@ -82,18 +82,14 @@ export class transicao1Para2 extends Phaser.Scene {
         new snowEffect(this, { depth: -2 });
 
         this.criarDecoracao();
-
-        this.sophia = this.physics.add.sprite(this.mapa.x, this.mapa.y - 300, "sophia")
-            .setScale(2)
-            .setDepth(12);
+        // Personagens posicionados
+        this.sophia = this.physics.add.sprite(this.mapa.x, this.mapa.y - 300, "sophia").setScale(2).setDepth(12);
         this.sophia.body.setAllowGravity(false);
         this.sophia.setCollideWorldBounds(true);
         this.sophia.setSize(30, 25);
         this.sophia.setOffset(15, 30);
 
-        this.asimov = this.physics.add.sprite(this.mapa.x, this.mapa.y + 200, "asimov")
-            .setScale(3)
-            .setDepth(12);
+        this.asimov = this.physics.add.sprite(this.mapa.x, this.mapa.y + 200, "asimov").setScale(3).setDepth(12);
         this.asimov.body.setAllowGravity(false);
         this.asimov.setCollideWorldBounds(true);
         this.asimov.setSize(15, 12);
@@ -115,6 +111,8 @@ export class transicao1Para2 extends Phaser.Scene {
         this.startIntroCutscene();
     }
 
+    // Função para criar a decoração do cenário, que é chamada durante a criação da cena, e que posiciona os objetos 
+    // decorativos de acordo com as coordenadas pré-definidas, aplicando uma escala e um tint para dar um aspecto mais uniforme ao cenário destruído
     criarDecoracao() {
         const decoracao = [
             { key: "mesa3D",        x: -410, y: -260, scale: 3.0  },
@@ -146,6 +144,7 @@ export class transicao1Para2 extends Phaser.Scene {
         });
     }
 
+    // Atualiza a profundidade dos personagens para criar um efeito de sobreposição
     update() {
         if (this.sophia) this.sophia.setDepth(this.sophia.y);
         if (this.asimov) this.asimov.setDepth(this.asimov.y);
@@ -176,6 +175,7 @@ export class transicao1Para2 extends Phaser.Scene {
 
         this.playAnimIfNeeded(this.asimov, "asimov-walk-up");
         
+        // O Asimov caminha até a posição da Sophia, e quando chegar lá, inicia o diálogo
         this.tweens.add({
             targets:  this.asimov,
             y:        this.sophia.y + 60,
@@ -203,6 +203,7 @@ export class transicao1Para2 extends Phaser.Scene {
         });
     }
 
+    // Função para criar as animações dos personagens, que é chamada durante a criação da cena, e que define as animações de caminhada e idle para a Sophia e o Asimov, utilizando os frames dos spritesheets carregados
     createCharacterAnimations() {
         if (!this.anims.exists("sophia-walk-down")) {
             this.anims.create({ key: "sophia-walk-down",  frames: this.anims.generateFrameNumbers("sophia", { start: 0,  end: 7  }), frameRate: 10, repeat: -1 });
@@ -233,6 +234,8 @@ export class transicao1Para2 extends Phaser.Scene {
         }
     }
 
+    // Função para atualizar a animação do Asimov com base na direção do movimento, que é chamada durante a cutscene para garantir que o Asimov exiba 
+    // a animação correta de acordo com a direção em que está se movendo, e que também define uma animação de idle quando o Asimov para de se mover
     updateAsimovAnimation(vx, vy) {
         if (Math.abs(vx) < 0.01 && Math.abs(vy) < 0.01) {
             const facing = this.asimovFacing || "right";

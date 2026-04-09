@@ -1,10 +1,12 @@
 import caixaDialogo from './caixasDialogo.js';
 
+// Esta cena é a introdução do jogo, onde o Watson apresenta a missão para a Sophia. 
 export class sceneInicial extends Phaser.Scene {
     constructor() {
         super("sceneInicial");
     }
 
+    // aqui são carregados os arquivos necessários para a cena, como as imagens do cenário e os sprites dos personagens
     preload() {
         this.load.image("labBranco", "public/assets/fases/sceneLbPassado/labBranco.png");
         this.load.image("objetosLab", "public/assets/objetos/sceneLbPassado/partOne/objetosLabBNorm.png");
@@ -18,18 +20,16 @@ export class sceneInicial extends Phaser.Scene {
         });
     }
 
+    // aqui é onde a cena é criada, os elementos visuais são posicionados e configurados,
     create() {
         // Instanciado corretamente com um nome padrão para evitar confusões
         this.sistemaDialogo = new caixaDialogo(this);
         this.lendoMensagem = false;
-
         this.cameras.main.fadeIn(400, 0, 0, 0);
-
         const larguraJogo = this.cameras.main.width;
         const alturaJogo = this.cameras.main.height;
 
         this.scaleMapa = 4;
-
         this.mapa = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "labBranco").setScale(this.scaleMapa).setDepth(-1);
         this.objetos = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, "objetosLab").setScale(this.scaleMapa).setDepth(-1);
 
@@ -71,6 +71,7 @@ export class sceneInicial extends Phaser.Scene {
         });
     }
 
+    // No update, a tecla E serve APENAS para interagir (avançar), não para iniciar
     update() {
         // No update, a tecla E serve APENAS para interagir (avançar), não para iniciar
         if (this.lendoMensagem && Phaser.Input.Keyboard.JustDown(this.teclaE)) {
@@ -78,6 +79,7 @@ export class sceneInicial extends Phaser.Scene {
         }
     }
 
+    // Função para finalizar a cena, que destrói os personagens e inicia a transição para a próxima cena
     finalizarCena() {
         if (this.cenaFinalizando) return;
         this.cenaFinalizando = true;

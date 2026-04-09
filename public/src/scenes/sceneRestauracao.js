@@ -3,6 +3,7 @@ import { snowEffect } from './efeitoNeve.js';
 import { movimentacaoSophia, criarAnimacaoSophia, criarAnimacaoAsimov, puloSophia, registrarControles } from './movimentacao.js';
 import caixaDialogo from './caixasDialogo.js'; // Importação do componente de diálogo
 
+// Esta cena é uma transição da fase 4 para a fase 5
 export class sceneRestauracao extends Phaser.Scene {
   constructor() {
     super("sceneRestauracao");
@@ -24,7 +25,7 @@ export class sceneRestauracao extends Phaser.Scene {
     this.load.audio("vitoriaSom", "public/assets/efeitosSonoros/vitoriaSom.mp3");
   }
 
-  create() {
+  create() { // Configurações iniciais da cena
     registrarTeclaMenu(this);
     this.scene.launch("bgMusic");
     this.cameras.main.fadeIn(800, 0, 0, 0);
@@ -149,6 +150,8 @@ export class sceneRestauracao extends Phaser.Scene {
     this.somLuzSom = this.sound.add("luzSom", { volume: 0.8 });
   }
 
+  // Função para verificar colisão com áreas verdes, que é usada para impedir que a Sophia atravesse essas áreas, e que utiliza
+  // a imagem de colisão carregada para determinar se um ponto específico do cenário é uma área verde ou não
   colidiuComVerde(xMundo, yMundo) {
     if (!this.collisionCtx) return false;
 
@@ -175,6 +178,7 @@ export class sceneRestauracao extends Phaser.Scene {
       return;
     }
 
+    // Função de colisão personalizada que verifica tanto a colisão com o cenário (áreas verdes) quanto a proximidade do Asimov para impedir que a Sophia atravesse o Asimov
     const colisaoFn = (x, y) => {
       if (this.colidiuComVerde(x, y + 40)) return true;
       const dist = Phaser.Math.Distance.Between(x, y, this.asimov.x, this.asimov.y);
@@ -190,6 +194,7 @@ export class sceneRestauracao extends Phaser.Scene {
     let distAsimov = Phaser.Math.Distance.Between(this.principal.x, this.principal.y, this.asimov.x, this.asimov.y);
     let distCentro = Phaser.Math.Distance.Between(this.principal.x, this.principal.y, this.pontoRestauracaoX, this.pontoRestauracaoY);
 
+    // Lógica de interação: se estiver perto do Asimov e ainda não interagiu, ou se tiver o cristal e estiver perto do centro para restaurar o mundo, mostra o indicador de interação
     if (!this.interagiu && distAsimov < 120) {
       this.podeInteragir = true;
       this.containerTecla.setVisible(true).setPosition(this.asimov.x, this.asimov.y - 80);
@@ -223,7 +228,9 @@ export class sceneRestauracao extends Phaser.Scene {
       }
     }
   }
-
+  
+  // Função para restaurar o mundo, que é ativada quando o jogador interage com o centro do mapa após coletar o cristal, 
+  // e que toca um som, faz um flash na tela e depois inicia a transição para a próxima fase
   restaurarMundo() {
     this.mapaRestaurado = true;
     // Toca o som da luz ao restaurar o mundo

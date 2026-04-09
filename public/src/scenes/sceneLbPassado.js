@@ -3,6 +3,8 @@ import { snowEffect } from './efeitoNeve.js';
 import caixaDialogo from './caixasDialogo.js';
 import { registrarControles, movimentacaoSophia, puloSophia, criarAnimacaoSophia } from './movimentacao.js';
 
+// Esta cena é o principal laboratório do passado, onde a Sophia tem a sua primeira interação com o Watson e recebe a 
+// missão de ser congelada para salvar o futuro da humanidade.
 export class sceneLbPassado extends Phaser.Scene {
   constructor() {
     super("sceneLbPassado");

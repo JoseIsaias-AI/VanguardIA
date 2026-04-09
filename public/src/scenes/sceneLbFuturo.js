@@ -3,6 +3,8 @@ import { snowEffect } from './efeitoNeve.js';
 import { movimentacaoSophia, criarAnimacaoSophia, puloSophia, registrarControles, criarAnimacaoAsimov } from './movimentacao.js';
 import caixaDialogo from './caixasDialogo.js';
 
+// Esta cena é a continuação da história, onde a Sophia acorda no laboratório do futuro e encontra o Asimov, um NPC 
+// que explica a situação atual do mundo e o que aconteceu com a humanidade.
 export class sceneLbFuturo extends Phaser.Scene {
   constructor() {
     super("sceneLbFuturo");

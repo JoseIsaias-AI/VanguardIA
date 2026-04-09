@@ -5,7 +5,7 @@
 
 export function registrarControles(cena) {
     cena.cursors  = cena.input.keyboard.createCursorKeys();
-    cena.keys     = cena.input.keyboard.addKeys({
+    cena.keys     = cena.input.keyboard.addKeys({ // recebe as teclas de interação
         W: Phaser.Input.Keyboard.KeyCodes.W,
         A: Phaser.Input.Keyboard.KeyCodes.A,
         S: Phaser.Input.Keyboard.KeyCodes.S,
@@ -26,27 +26,26 @@ export function movimentacaoSophia(cena, sprite, animacoes, colisaoFn = null) {
     sprite.body.velocity.x *= atrito;
     sprite.body.velocity.y *= atrito;
 
-    if (cena.cursors.left.isDown || cena.keys.A.isDown) {
+    if (cena.cursors.left.isDown || cena.keys.A.isDown) { // para o movimento para a esquerda
         if (!colisaoFn || !colisaoFn(sprite.x - velocidadeImpulso, sprite.y)) {
             sprite.body.velocity.x -= velocidadeImpulso;
         }
         sprite.anims.play(animacoes.left, true);
         movimentacao = true;
-    } else if (cena.cursors.right.isDown || cena.keys.D.isDown) {
+    } else if (cena.cursors.right.isDown || cena.keys.D.isDown) { // para o movimento para direita
         if (!colisaoFn || !colisaoFn(sprite.x + velocidadeImpulso, sprite.y)) {
             sprite.body.velocity.x += velocidadeImpulso;
         }
         sprite.anims.play(animacoes.right, true);
         movimentacao = true;
     }
-
-    if (cena.cursors.up.isDown || cena.keys.W.isDown) {
+    if (cena.cursors.up.isDown || cena.keys.W.isDown) { // para o movimento para cima
         if (!colisaoFn || !colisaoFn(sprite.x, sprite.y - velocidadeImpulso)) {
             sprite.body.velocity.y -= velocidadeImpulso;
         }
         if (!movimentacao) sprite.anims.play(animacoes.back, true);
         movimentacao = true;
-    } else if (cena.cursors.down.isDown || cena.keys.S.isDown) {
+    } else if (cena.cursors.down.isDown || cena.keys.S.isDown) { // para o movemento para baixo
         if (!colisaoFn || !colisaoFn(sprite.x, sprite.y + velocidadeImpulso)) {
             sprite.body.velocity.y += velocidadeImpulso;
         }
@@ -73,6 +72,7 @@ export function movimentacaoSophia(cena, sprite, animacoes, colisaoFn = null) {
     }
 }
 
+// função para o pulo da Sophia, que é ativado quando o jogador aperta a barra de espaço
 export function puloSophia(cena, sprite, colisaoFn = null) {
     if (Phaser.Input.Keyboard.JustDown(cena.keySpace) && !cena.pulando) {
         cena.pulando = true;
@@ -93,6 +93,7 @@ export function puloSophia(cena, sprite, colisaoFn = null) {
     }
 }
 
+// função para movimentação do Asimov, que é ativada quando o jogador se aproxima dele, e que pode ser configurada para verificar colisões utilizando a função fornecida como argumento
 export function movimentacaoAsimov(cena, asimov, alvo, colisaoFn = null) {
     let distMin = 60;
     let velAsimov = 2.4;
@@ -111,6 +112,7 @@ export function movimentacaoAsimov(cena, asimov, alvo, colisaoFn = null) {
         asimov.x += vx;
         asimov.y += vy;
 
+        // animação do Asimov de acordo com a direção do movimento
         if (Math.abs(vx) > Math.abs(vy)) {
             if (vx > 0) asimov.anims.play("asimov_direita", true);
             else asimov.anims.play("asimov_esquerda", true);
@@ -123,6 +125,7 @@ export function movimentacaoAsimov(cena, asimov, alvo, colisaoFn = null) {
     }
 }
 
+// funções para criar as animações da Sophia, 
 export function criarAnimacaoSophia(cena) {
     if (cena.anims.exists("sophia_esquerda")) return;
     cena.anims.create({ key: "sophia_esquerda", frames: cena.anims.generateFrameNumbers("sophia", { start: 22, end: 27 }), frameRate: 10, repeat: -1 });
@@ -131,6 +134,7 @@ export function criarAnimacaoSophia(cena) {
     cena.anims.create({ key: "sophia_tras",     frames: cena.anims.generateFrameNumbers("sophia", { start: 8,  end: 15 }), frameRate: 10, repeat: -1 });
 }
 
+// funções para criar as animações do Asimov, 
 export function criarAnimacaoAsimov(cena) {
     if (cena.anims.exists("asimov_esquerda")) return;
     cena.anims.create({ key: "asimov_esquerda", frames: cena.anims.generateFrameNumbers("asimov", { start: 21, end: 27 }), frameRate: 10, repeat: -1 });
