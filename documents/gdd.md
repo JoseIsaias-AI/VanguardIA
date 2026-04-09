@@ -918,11 +918,11 @@ Por fim, foram desenvolvidos os designs do background utilizado na Fase 01 e dos
 <div align = "center">
 
 <sup>Figura 28: Background utilizado na Fase 01.</sup><br>
-<img src="../assets/fases/faseUm/fundoFaseUm.png" width = '70%' ><br>
+<img src="../public/assets/fases/faseUm/fundoFaseUm.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 <sup>Figura 29: Objetos utilizados na Fase 01.</sup><br>
-<img src="../assets/objetos/faseUm/obstaculosFaseUm.png" width = '70%' ><br>
+<img src="../public/assets/objetos/faseUm/obstaculosFaseUm.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 </div> 
