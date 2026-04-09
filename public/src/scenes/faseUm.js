@@ -10,7 +10,6 @@ export class faseUm extends Phaser.Scene {
     this.load.audio('bauAbrindo', 'public/assets/efeitosSonoros/bauAbrindo.mp3');
     this.load.image("fundo", "public/assets/fases/faseUm/fundoFaseUm.png");
     this.load.spritesheet("asimov", "public/assets/personagens1/asimov.png", {
-
       frameWidth: 32,
       frameHeight: 32,
     });

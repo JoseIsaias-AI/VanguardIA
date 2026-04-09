@@ -223,7 +223,7 @@ export default class caixaDialogo {
 
         // Inicia o carregamento do som de digitação, garantindo que ele seja carregado apenas uma vez, e configurando 
         this._digitandoLoadStarted = true;
-        this.scene.load.audio("digitando", "assets/efeitosSonoros/digitando.mp3");
+        this.scene.load.audio("digitando", "public/assets/efeitosSonoros/digitando.mp3");
         this.scene.load.once("complete", () => {
             this._criarSomDigitando();
             if (this.audioPendente) {
