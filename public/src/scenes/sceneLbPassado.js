@@ -440,7 +440,7 @@ interagirCamara() {
     this.cameras.main.fadeOut(1000);
 
     this.cameras.main.once("camerafadeoutcomplete", () => {
-      this.scene.start("faseTres");
+      this.scene.start("sceneLbFuturo");
     });
   });
 }

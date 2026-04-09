@@ -129,7 +129,7 @@ export class faseDois extends Phaser.Scene {
     // Sophia e o personagem controlado pelo jogador.
     this.sophia = this.physics.add.sprite(100, 500, "sophia").setScale(2);
     this.sophia.setCollideWorldBounds(true);
-    this.sophia.body.setSize(22, 10, true);
+    this.sophia.body.setSize(38, 30, true);
     this.sophia.body.setAllowGravity(false);
     this.worldObjects.push(this.sophia);
 
@@ -164,8 +164,11 @@ export class faseDois extends Phaser.Scene {
       [208*s, 194*s, 1,     89*s],
       [223*s, 150*s, 10*s,  1*s ],
       [295*s, 150*s, 20*s,  1*s ],
+      [257*s, 151*s, 20*s,  1   ],
+      [257*s, 62*s,  20*s,  1*s ],
+      [65*s, 62*s,  20*s,  1*s  ],
     ].forEach(([x, y, w, h]) => {
-      const r = this.add.rectangle(x, y, w, h);
+      const r = this.add.rectangle(x, y, w, h,);
       this.walls.add(r);
       this.worldObjects.push(r);
     });
