@@ -117,7 +117,7 @@ Ser um modelo nacional na implementação da gamificação para educação de IA
 Educação lúdica, democratização da IA, inovação pedagógica, aprendizado por descoberta, lisura e ética em IA.
 </div>
 
-### Proposta de Valor
+### 1.1.4. Proposta de Valor
 
 | Seção | Categoria | Itens |
 |------|----------|------|
