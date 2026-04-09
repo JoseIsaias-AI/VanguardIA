@@ -117,76 +117,17 @@ Ser um modelo nacional na implementação da gamificação para educação de IA
 Educação lúdica, democratização da IA, inovação pedagógica, aprendizado por descoberta, lisura e ética em IA.
 </div>
 
-### 1.1.4. Proposta de Valor (sprint 4)
+### Proposta de Valor
 
-<img src="../assets/gdd/canvasPropostadeValor.png " width="100%">
-
-## A. Perfil do Cliente
-
-## Público-alvo principal
-Estudantes universitários e jovens com baixo letramento em IA.
-
-## a) Tarefas do cliente (Customer Jobs)
-
-- Aprender conceitos de IA (machine learning, redes neurais, IA generativa)
-- Aplicar conhecimento na prática
-- Aprender sobre ética em IA
-- Adquirir letramento básico em IA sem precisar de base teórica avançada
-- Acompanhar tendências tecnológicas
-
-## b) Dores (Pains)
-
-- Baixo engajamento em cursos assíncronos ¹¹
-- Excesso de conteúdo teórico
-- Dificuldade de aplicação prática
-- Evasão em cursos online
-- Falta de conhecimento sobre os principais motivos da evasão
-- Desorientação em relação à IA
-- Pouco conhecimento dos termos relacionados à IA
-- Não saber exatamente o que é IA
-- Medo em relação ao futuro da IA
-- Falta de motivação devido à ausência de progressão visível
-
-## c) Ganhos (Gains)
-
-- Aprendizado interativo e aplicado
-- Experiência imersiva
-- Maior retenção de conhecimento
-- Facilidade de compreensão de conceitos complexos
-- Entendimento geral sobre IA
-- AI literacy
-- Capacidade de aproveitar ganhos de produtividade com IA
-- Analogia entre a progressão da história e os aprendizados
-- Maior foco e motivação
-
-
-## B. Mapa de Valor
-
-## a) Produtos e Serviços
-
-- Jogo digital educacional baseado em IA com narrativa engajante
-- Módulos gamificados (níveis, desafios e simulações)
-- Experiências inspiradas no IBM SkillsBuild
-- Sistema de progressão gradual
-- Puzzles interativos que permitem ao jogador visualizar e interagir com o que está aprendendo
-- Conteúdos complexos atuais condensados e simplificados para favorecer aprendizagem e engajamento
-
-## b) Aliviadores de Dores ⁹
-
-- Substituição de conteúdo passivo por interação ativa
-- Simulação prática de conceitos
-- Feedback imediato
-- Transformação de conceitos abstratos em interações concretas
-- Uso de microdesafios para aumentar o engajamento
-- Visualização de processos relacionados à IA
-- Criação de um índice que identifique os critérios de evasão, permitindo monitoramento e ajustes contínuos
-
-## c) Criadores de Ganho
-
-- Narrativa imersiva
-- Progressão por níveis ¹⁰
-- Aplicação prática dos conceitos
-- Puzzles sobre IA
+| Seção | Categoria | Itens |
+|------|----------|------|
+| Perfil do Cliente | Público-alvo principal | Estudantes universitários e jovens com interesse em aprender sobre IA  |
+| Perfil do Cliente | Tarefas do cliente | Aprender conceitos de IA (machine learning, redes neurais, IA generativa)<br>Aplicar conhecimento na prática<br>Aprender sobre ética em IA<br>Adquirir letramento básico sem base teórica avançada<br>|
+| Perfil do Cliente | Dores | Baixo engajamento em cursos assíncronos¹¹<br>Excesso de conteúdo teórico e dificuldade de aplicação prática<br>Evasão em cursos online<br>Desorientação em relação à IA<br>Pouco conhecimento dos termos<br>Não saber exatamente o que é IA<br>Falta de motivação sem progressão visível |
+| Perfil do Cliente | Ganhos | Aprendizado interativo e aplicado<br>Experiência imersiva<br>Maior retenção de conhecimento<br>Facilidade na compreensão<br>Entendimento geral sobre IA<br>Capacidade de produtividade com IA<br>Analogia entre história e aprendizado<br>Maior foco e motivação |
+| Mapa de Valor | Produtos e Serviços | Jogo digital educacional com narrativa<br>Módulos gamificados (níveis, desafios, simulações)<br>Experiências inspiradas no IBM SkillsBuild<br>Sistema de progressão gradual<br>Puzzles interativos<br>Conteúdos simplificados e condensados |
+| Mapa de Valor | Aliviadores de Dores | Substituição de conteúdo passivo por interação<br>Simulação prática<br>Feedback imediato<br>Transformação de conceitos abstratos em interações concretas<br>Uso de microdesafios para aumentar o engajamento<br>Visualização de processos de IA|
+| Mapa de Valor | Criadores de Ganho | Narrativa imersiva<br>Progressão por níveis¹⁰<br>Aplicação prática dos conceitos<br>Puzzles sobre IA |
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
