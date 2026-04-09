@@ -216,6 +216,9 @@ Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 3
 | KPI 5 | KPI | Taxa de recomendação do jogo (satisfação) | ≥ 60% | Pós-conclusão | Experiência do usuário |
 | KPI 6 | KPI | Acesso ao IBM SkillsBuild após o jogo | ≥ 30% | Até 30 dias | Impacto educacional |
 
+**Correlação entre objetivos, metas e KPIs**:
+Existe uma correlação clara entre os objetivos estratégicos, as metas e os KPIs, os quais possuem uma relação hierárquica e mensurável, o que garante coerência entre a intenção, a execução e a avaliação do projeto como um todo. Os objetivos definidos apresentam diretrizes qualitativas amplas, como o aumento do engajamento, a melhoria da aprendizagem e o estímulo ao interesse por inteligência artificial. Já as metas traduzem essas diretrizes em resultados quantitativos esperados, como taxa de conclusão, evasão e compartilhamento. Por sua vez, os KPIs permitem a mensuração dos resultados por meio de indicadores concretos do comportamento do usuário, como tempo de uso, taxa de recomendação e acesso a conteúdos educacionais. Dessa forma, cada KPI funciona como uma evidência empírica do atingimento das metas e, por sua vez, representa diretamente o progresso em relação aos objetivos estratégicos, formando um sistema integrado de avaliação baseado em dados, que permite validar o impacto e a efetividade da experiência proposta.
+
 </div>
 
 ## 1.2. Requisitos do Projeto 
