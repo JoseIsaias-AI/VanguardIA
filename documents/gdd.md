@@ -1010,6 +1010,16 @@ Por fim, também houve ajustes na tela inicial do jogo para que ficasse mais ali
 
 ## 4.5. Revisão do MVP 
 
+
+No desenvolvimento da quinta sprint, foram realizadas apenas correções e algumas melhorias no nosso jogo, sem a adição de mais nada. As alterações feitas na área de sound design foram muito importantes para a interatividade, ambientação, imersão, emoção, orientação e atmosfera do jogo. A área de documentação realizou muitas melhorias, se baseando nos feedbacks das avaliações das sprints passadas e melhorias vistas como necessárias após a revisão do gdd por completo. A programação corrigiu alguns bugs, facilitando a jogabilidade, informando melhor as teclas que devem ser clicadas e as mecânicas necessárias, melhorando o entendimento dos diálogos e do jogo ao seu decorrer.
+   
+   Em relação ao design feito na sprint 5, temos: refinamento do menu de opções, refinamento do documento auxiliar preSceneFase4, design do topo da fase 3, ajustes das animações do chão caindo, otimização das plataformas da fase 3, adição das postas no lab inicial e no lab futuro, criação e texturização de folhas envelhecidas, ajuste de design da Sophia caindo;
+   
+    
+   Na área de programação, refinamento visual e detalhamento fase 2;  curadoria e implementação de efeitos sonoros; implementação técnica do novo menu de opções; troca de design da plataforma fase 3; correção da caixa de diálogo; revisão do diálogo após abertura do baú; revisão da movimentação das redes neurais; mudança do HUD nitidez/tempo e inserção de imagem de sucesso da Fase 4; otimização da camada de ruído na Fase 4; transição da fase 4 para a fase 5 e ajuste do contexto; inserção de acertos verde e erros vermelho na fase 5; remoção da ambiguidade de alternativas acertadas na fase 5; implementação do encerramento total e créditos; implementação de imports e caixas de texto nas cenas;
+criação de código para caixas de texto padronizadas; lógica de reiniciar fase (fase 3);
+
+
 *Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar.*
 
 # <a name="c5"></a>5. Testes
