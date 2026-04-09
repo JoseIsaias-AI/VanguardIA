@@ -6,13 +6,13 @@ export class sceneInicial extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image("labBranco", "assets/fases/sceneLbPassado/labBranco.png");
-        this.load.image("objetosLab", "assets/objetos/sceneLbPassado/partOne/objetosLabBNorm.png");
-        this.load.spritesheet("watson", "assets/personagens1/watson.png", {
+        this.load.image("labBranco", "public/assets/fases/sceneLbPassado/labBranco.png");
+        this.load.image("objetosLab", "public/assets/objetos/sceneLbPassado/partOne/objetosLabBNorm.png");
+        this.load.spritesheet("watson", "public/assets/personagens1/watson.png", {
             frameWidth: 64,
             frameHeight: 64,
         });
-        this.load.spritesheet("sophia", "assets/personagens1/sophia.png", {
+        this.load.spritesheet("sophia", "public/assets/personagens1/sophia.png", {
             frameWidth: 64,
             frameHeight: 64,
         });

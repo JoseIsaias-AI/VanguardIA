@@ -18,25 +18,25 @@ export class transicao1Para2 extends Phaser.Scene {
 
     preload() {
         // Mapa de fundo
-        this.load.image("labDestruido", "assets/fases/sceneLbPassado/labDestruido.png");
+        this.load.image("labDestruido", "public/assets/fases/sceneLbPassado/labDestruido.png");
 
         // Spritesheets dos personagens
-        this.load.spritesheet("sophia", "assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet("asimov", "assets/personagens1/asimov.png", { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet("sophia", "public/assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet("asimov", "public/assets/personagens1/asimov.png", { frameWidth: 32, frameHeight: 32 });
 
         // Objetos decorativos do cenário
-        this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
-        this.load.image("armarioD",      "assets/objetos/sceneLbPassado/partTwo/armarioDestruido.png");
-        this.load.image("alvoD",         "assets/objetos/sceneLbPassado/partTwo/alvoDestruido.png");
-        this.load.image("mesa1D",        "assets/objetos/sceneLbPassado/partTwo/mesa1Destruida.png");
-        this.load.image("mesa2D",        "assets/objetos/sceneLbPassado/partTwo/mesa2Destruida.png");
-        this.load.image("mesa3D",        "assets/objetos/sceneLbPassado/partTwo/mesa3Destruida.png");
-        this.load.image("piaD",          "assets/objetos/sceneLbPassado/partTwo/piaDestruida.png");
-        this.load.image("reservasCrioD", "assets/objetos/sceneLbPassado/partTwo/reservasCrioDestruidas.png");
-        this.load.image("comptCimaD",    "assets/objetos/sceneLbPassado/partTwo/comptCimaDestruido.png");
-        this.load.image("comptBaixoD",   "assets/objetos/sceneLbPassado/partTwo/comptBaixoDestruido.png");
-        this.load.image("criogeniaD",    "assets/objetos/sceneLbPassado/partTwo/criogeniaDestruida.png");
-        this.load.image("camara",        "assets/objetos/sceneLbPassado/partOne/camara.png");
+        this.load.audio("vitoriaSom", "public/assets/efeitosSonoros/vitoriaSom.mp3");
+        this.load.image("armarioD",      "public/assets/objetos/sceneLbPassado/partTwo/armarioDestruido.png");
+        this.load.image("alvoD",         "public/assets/objetos/sceneLbPassado/partTwo/alvoDestruido.png");
+        this.load.image("mesa1D",        "public/assets/objetos/sceneLbPassado/partTwo/mesa1Destruida.png");
+        this.load.image("mesa2D",        "public/assets/objetos/sceneLbPassado/partTwo/mesa2Destruida.png");
+        this.load.image("mesa3D",        "public/assets/objetos/sceneLbPassado/partTwo/mesa3Destruida.png");
+        this.load.image("piaD",          "public/assets/objetos/sceneLbPassado/partTwo/piaDestruida.png");
+        this.load.image("reservasCrioD", "public/assets/objetos/sceneLbPassado/partTwo/reservasCrioDestruidas.png");
+        this.load.image("comptCimaD",    "public/assets/objetos/sceneLbPassado/partTwo/comptCimaDestruido.png");
+        this.load.image("comptBaixoD",   "public/assets/objetos/sceneLbPassado/partTwo/comptBaixoDestruido.png");
+        this.load.image("criogeniaD",    "public/assets/objetos/sceneLbPassado/partTwo/criogeniaDestruida.png");
+        this.load.image("camara",        "public/assets/objetos/sceneLbPassado/partOne/camara.png");
     }
 
     create() {
@@ -50,7 +50,7 @@ export class transicao1Para2 extends Phaser.Scene {
         this.sistemaDialogo = new caixaDialogo(this);
 
         let gifElemento3 = document.createElement('img');
-            gifElemento3.src = 'assets/textosCenas1/RetornoLab.gif';
+            gifElemento3.src = 'public/assets/textosCenas1/RetornoLab.gif';
         
             // Forçando estilos CSS para garantir que ele apareça
             gifElemento3.style.width = '1920px'; // Coloque a largura aproximada do seu GIF

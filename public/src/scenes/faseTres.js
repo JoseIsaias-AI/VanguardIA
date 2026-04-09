@@ -83,22 +83,22 @@ export class faseTres extends Phaser.Scene {
 
   preload() {
     //Aqui, carregamos os arquivos que vamos usar nessa fase
-    this.load.image("parede", "assets/fases/faseTres/backgroundFase3Escuro.png");
-    this.load.image("pedra", "assets/objetos/faseTres/pedrinha.png");
-    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.image("plataforma", "assets/objetos/faseTres/cano1Fase3.png");
-    this.load.image("plataformaMovel", "assets/objetos/faseTres/cano2Fase3.png");
-    this.load.image("cristalVerdadeiro", "assets/objetos/faseTres/cristalVerdadeiro.png");
-    this.load.image("cristalFalso", "assets/objetos/faseTres/cristalFalso.png");
+    this.load.image("parede", "public/assets/fases/faseTres/backgroundFase3Escuro.png");
+    this.load.image("pedra", "public/assets/objetos/faseTres/pedrinha.png");
+    this.load.spritesheet("sophia", "public/assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.image("plataforma", "public/assets/objetos/faseTres/cano1Fase3.png");
+    this.load.image("plataformaMovel", "public/assets/objetos/faseTres/cano2Fase3.png");
+    this.load.image("cristalVerdadeiro", "public/assets/objetos/faseTres/cristalVerdadeiro.png");
+    this.load.image("cristalFalso", "public/assets/objetos/faseTres/cristalFalso.png");
 
     // Carrega o som correto para coleta de cristais
-    this.load.audio("correto", "assets/efeitosSonoros/correto.mp3");
+    this.load.audio("correto", "public/assets/efeitosSonoros/correto.mp3");
 
     // Carrega o som errado para coleta de cristais falsos
-    this.load.audio("erro", "assets/efeitosSonoros/erro.mp3");
+    this.load.audio("erro", "public/assets/efeitosSonoros/erro.mp3");
 
     // Carrega o som do pulo da Sophia
-    this.load.audio("puloSophia", "assets/efeitosSonoros/puloSophia.mp3");
+    this.load.audio("puloSophia", "public/assets/efeitosSonoros/puloSophia.mp3");
   }
 
   create() {
@@ -106,7 +106,7 @@ export class faseTres extends Phaser.Scene {
     this.sistemaDialogo = new caixaDialogo(this);
 
     let gifElemento5 = document.createElement('img');
-        gifElemento5.src = 'assets/textosCenas1/subsoloLab.gif';
+        gifElemento5.src = 'public/assets/textosCenas1/subsoloLab.gif';
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento5.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
         gifElemento5.style.height = '1080px';

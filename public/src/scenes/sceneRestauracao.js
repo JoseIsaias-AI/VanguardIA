@@ -9,19 +9,19 @@ export class sceneRestauracao extends Phaser.Scene {
   }
 
   preload() {
-    this.load.video("cutscene2", "assets/cutscene1/CutScene2.mp4");
-    this.load.image("cenarioNoite", "assets/fases/sceneLabCristal/labCristalEscuro2.png");
-    this.load.image("objetosLabEsc", "assets/objetos/sceneLabCristal/objetosLabCristal1.png");
-    this.load.image("cenarioClaro", "assets/fases/sceneLabCristal/labCristalClaro.png");
-    this.load.image("objLabClaro", "assets/objetos/sceneLabCristal/objetosLabCristal2.png");
-    this.load.image("colisao", "assets/fases/preFase4/mascaraPrefase4.png");
-    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
-    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", { frameWidth: 32, frameHeight: 32 });
+    this.load.video("cutscene2", "public/assets/cutscene1/CutScene2.mp4");
+    this.load.image("cenarioNoite", "public/assets/fases/sceneLabCristal/labCristalEscuro2.png");
+    this.load.image("objetosLabEsc", "public/assets/objetos/sceneLabCristal/objetosLabCristal1.png");
+    this.load.image("cenarioClaro", "public/assets/fases/sceneLabCristal/labCristalClaro.png");
+    this.load.image("objLabClaro", "public/assets/objetos/sceneLabCristal/objetosLabCristal2.png");
+    this.load.image("colisao", "public/assets/fases/preFase4/mascaraPrefase4.png");
+    this.load.spritesheet("sophia", "public/assets/personagens1/sophia.png", { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet("asimov", "public/assets/personagens1/asimov.png", { frameWidth: 32, frameHeight: 32 });
 
     // Carrega os sons para interações
-    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
-    this.load.audio("luzSom", "assets/efeitosSonoros/luzSom.mp3");
-    this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
+    this.load.audio("pop", "public/assets/efeitosSonoros/pop.mp3");
+    this.load.audio("luzSom", "public/assets/efeitosSonoros/luzSom.mp3");
+    this.load.audio("vitoriaSom", "public/assets/efeitosSonoros/vitoriaSom.mp3");
   }
 
   create() {
@@ -33,7 +33,7 @@ export class sceneRestauracao extends Phaser.Scene {
     this.somVitoria.play();
 
     let gifElemento7 = document.createElement('img');
-        gifElemento7.src = 'assets/textosCenas1/retornoHUB.gif';
+        gifElemento7.src = 'public/assets/textosCenas1/retornoHUB.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento7.style.width = '1920px'; // Coloque a largura aproximada do seu GIF

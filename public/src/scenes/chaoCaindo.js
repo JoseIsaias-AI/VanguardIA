@@ -10,15 +10,15 @@ export class chaoCaindo extends Phaser.Scene {
 
   // Carrega o fundo da sala e o spritesheet usado na queda.
   preload() {
-    this.load.image("portas", "assets/fases/faseDois/salaPortas.png");
+    this.load.image("portas", "public/assets/fases/faseDois/salaPortas.png");
 
-    this.load.spritesheet("sophiaCaindo", "assets/cutscene1/animacaoCaindo.png", {
+    this.load.spritesheet("sophiaCaindo", "public/assets/cutscene1/animacaoCaindo.png", {
       frameWidth: 128,
       frameHeight: 128,
     });
 
     // Carrega o som do chão quebrando
-    this.load.audio("chaoQuebrando", "assets/efeitosSonoros/chaoQuebrando.mp3");
+    this.load.audio("chaoQuebrando", "public/assets/efeitosSonoros/chaoQuebrando.mp3");
   }
 
   // Configura câmera, UI, mapa e valores usados na cutscene.

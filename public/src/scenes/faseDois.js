@@ -11,43 +11,43 @@ export class faseDois extends Phaser.Scene {
 
   preload() {
     // Carrega os assets visuais e sonoros usados em todos os momentos da fase.
-    this.load.image("portas", "assets/fases/faseDois/salaPortas.png");
-    this.load.image("B1", "assets/fases/faseDois/binario1.png");
-    this.load.image("B2", "assets/fases/faseDois/binario2.png");
-    this.load.image("B3", "assets/fases/faseDois/binario3.png");
-    this.load.spritesheet("sophia", "assets/personagens1/sophia.png", {
+    this.load.image("portas", "public/assets/fases/faseDois/salaPortas.png");
+    this.load.image("B1", "public/assets/fases/faseDois/binario1.png");
+    this.load.image("B2", "public/assets/fases/faseDois/binario2.png");
+    this.load.image("B3", "public/assets/fases/faseDois/binario3.png");
+    this.load.spritesheet("sophia", "public/assets/personagens1/sophia.png", {
       frameWidth:  64,
       frameHeight: 64,
     });
-    this.load.spritesheet("asimov", "assets/personagens1/asimov.png", {
+    this.load.spritesheet("asimov", "public/assets/personagens1/asimov.png", {
       frameWidth:  32,
       frameHeight: 32,
     });
-    this.load.spritesheet("valvula", "assets/fases/faseDois/ValvulaSprite.png", {
+    this.load.spritesheet("valvula", "public/assets/fases/faseDois/ValvulaSprite.png", {
       frameWidth:  320,
       frameHeight: 320,
     });
-    this.load.spritesheet("redeNeural", "assets/fases/faseDois/redesNeurais1.png", {
+    this.load.spritesheet("redeNeural", "public/assets/fases/faseDois/redesNeurais1.png", {
       frameWidth:  320,
       frameHeight: 320,
     });
-    this.load.spritesheet("bauAnimado", "assets/objetos/faseUm/bau.png", {
+    this.load.spritesheet("bauAnimado", "public/assets/objetos/faseUm/bau.png", {
       frameWidth:  128,
       frameHeight: 128,
     });
     // Carrega o som pop
-    this.load.audio("pop", "assets/efeitosSonoros/pop.mp3");
+    this.load.audio("pop", "public/assets/efeitosSonoros/pop.mp3");
 
     // Carrega o som popNos
-    this.load.audio("popNos", "assets/efeitosSonoros/popNos.mp3");
+    this.load.audio("popNos", "public/assets/efeitosSonoros/popNos.mp3");
 
     // Carrega o som alavanca
-    this.load.audio("alavanca", "assets/efeitosSonoros/alavanca.mp3");
+    this.load.audio("alavanca", "public/assets/efeitosSonoros/alavanca.mp3");
 
     // Carrega o som de vitoria
-    this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
+    this.load.audio("vitoriaSom", "public/assets/efeitosSonoros/vitoriaSom.mp3");
 
-    this.load.audio('bg-music-fases', 'assets/bgMusicFases.mp3');
+    this.load.audio('bg-music-fases', 'public/assets/bgMusicFases.mp3');
 
   }
 
@@ -57,7 +57,7 @@ export class faseDois extends Phaser.Scene {
     this.worldObjects = [];
 
     let gifElemento4 = document.createElement('img');
-        gifElemento4.src = 'assets/textosCenas1/salaDasPortas.gif';
+        gifElemento4.src = 'public/assets/textosCenas1/salaDasPortas.gif';
     
         // Forçando estilos CSS para garantir que ele apareça
         gifElemento4.style.width = '1920px'; // Coloque a largura aproximada do seu GIF
@@ -129,7 +129,7 @@ export class faseDois extends Phaser.Scene {
     // Sophia e o personagem controlado pelo jogador.
     this.sophia = this.physics.add.sprite(100, 500, "sophia").setScale(2);
     this.sophia.setCollideWorldBounds(true);
-    this.sophia.body.setSize(22, 10, true);
+    this.sophia.body.setSize(38, 30, true);
     this.sophia.body.setAllowGravity(false);
     this.worldObjects.push(this.sophia);
 
@@ -164,8 +164,11 @@ export class faseDois extends Phaser.Scene {
       [208*s, 194*s, 1,     89*s],
       [223*s, 150*s, 10*s,  1*s ],
       [295*s, 150*s, 20*s,  1*s ],
+      [257*s, 151*s, 20*s,  1   ],
+      [257*s, 62*s,  20*s,  1*s ],
+      [65*s, 62*s,  20*s,  1*s  ],
     ].forEach(([x, y, w, h]) => {
-      const r = this.add.rectangle(x, y, w, h);
+      const r = this.add.rectangle(x, y, w, h,);
       this.walls.add(r);
       this.worldObjects.push(r);
     });

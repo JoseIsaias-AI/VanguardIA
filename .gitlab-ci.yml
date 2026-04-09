@@ -2,20 +2,24 @@ pages:
   stage: deploy
   image: alpine:latest
   script:
-    # 1. Cria a pasta que o GitLab exige
-    - mkdir public
+    # 1. Cria uma pasta temporária (invisível) para organizar os arquivos
+    - mkdir .site_temp
     
-    # 2. Copia apenas os arquivos soltos essenciais
-    - cp index.html public/
-    - cp main.js public/
+    # 2. Copia o seu index.html da raiz para dentro dessa pasta temporária
+    - cp index.html .site_temp/
     
-    # 3. Copia apenas as pastas essenciais do jogo (ignorando 'documents' e outras)
-    - cp -r assets public/
-    - cp -r src public/
+    # 3. Copia a sua pasta public (com os códigos e imagens) para a temporária
+    - cp -r public .site_temp/
+    
+    # 4. Apaga a public original do GitLab para evitar conflitos
+    - rm -rf public
+    
+    # 5. Renomeia a nossa pasta temporária para ser a pasta "public" oficial que o servidor exige
+    - mv .site_temp public
     
   artifacts:
     paths:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    
+  

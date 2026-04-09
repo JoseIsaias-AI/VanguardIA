@@ -116,76 +116,17 @@ Ser um modelo nacional na implementação da gamificação para educação de IA
 Educação lúdica, democratização da IA, inovação pedagógica, aprendizado por descoberta, lisura e ética em IA.
 </div>
 
-### 1.1.4. Proposta de Valor (sprint 4)
+### 1.1.4. Proposta de Valor
 
-<img src="./assets/canvasPropostadeValor.png" width="100%">
-
-## A. Perfil do Cliente
-
-## Público-alvo principal
-Estudantes universitários e jovens com baixo letramento em IA.
-
-## a) Tarefas do cliente (Customer Jobs)
-
-- Aprender conceitos de IA (machine learning, redes neurais, IA generativa)
-- Aplicar conhecimento na prática
-- Aprender sobre ética em IA
-- Adquirir letramento básico em IA sem precisar de base teórica avançada
-- Acompanhar tendências tecnológicas
-
-## b) Dores (Pains)
-
-- Baixo engajamento em cursos assíncronos ¹¹
-- Excesso de conteúdo teórico
-- Dificuldade de aplicação prática
-- Evasão em cursos online
-- Falta de conhecimento sobre os principais motivos da evasão
-- Desorientação em relação à IA
-- Pouco conhecimento dos termos relacionados à IA
-- Não saber exatamente o que é IA
-- Medo em relação ao futuro da IA
-- Falta de motivação devido à ausência de progressão visível
-
-## c) Ganhos (Gains)
-
-- Aprendizado interativo e aplicado
-- Experiência imersiva
-- Maior retenção de conhecimento
-- Facilidade de compreensão de conceitos complexos
-- Entendimento geral sobre IA
-- AI literacy
-- Capacidade de aproveitar ganhos de produtividade com IA
-- Analogia entre a progressão da história e os aprendizados
-- Maior foco e motivação
-
-
-## B. Mapa de Valor
-
-## a) Produtos e Serviços
-
-- Jogo digital educacional baseado em IA com narrativa engajante
-- Módulos gamificados (níveis, desafios e simulações)
-- Experiências inspiradas no IBM SkillsBuild
-- Sistema de progressão gradual
-- Puzzles interativos que permitem ao jogador visualizar e interagir com o que está aprendendo
-- Conteúdos complexos atuais condensados e simplificados para favorecer aprendizagem e engajamento
-
-## b) Aliviadores de Dores ⁹
-
-- Substituição de conteúdo passivo por interação ativa
-- Simulação prática de conceitos
-- Feedback imediato
-- Transformação de conceitos abstratos em interações concretas
-- Uso de microdesafios para aumentar o engajamento
-- Visualização de processos relacionados à IA
-- Criação de um índice que identifique os critérios de evasão, permitindo monitoramento e ajustes contínuos
-
-## c) Criadores de Ganho
-
-- Narrativa imersiva
-- Progressão por níveis ¹⁰
-- Aplicação prática dos conceitos
-- Puzzles sobre IA
+| Seção | Categoria | Itens |
+|------|----------|------|
+| Perfil do Cliente | Público-alvo principal | Estudantes universitários e jovens com interesse em aprender sobre IA  |
+| Perfil do Cliente | Tarefas do cliente | Aprender conceitos de IA (machine learning, redes neurais, IA generativa)<br>Aplicar conhecimento na prática<br>Aprender sobre ética em IA<br>Adquirir letramento básico sem base teórica avançada<br>|
+| Perfil do Cliente | Dores | Baixo engajamento em cursos assíncronos¹¹<br>Excesso de conteúdo teórico e dificuldade de aplicação prática<br>Evasão em cursos online<br>Desorientação em relação à IA<br>Pouco conhecimento dos termos<br>Não saber exatamente o que é IA<br>Falta de motivação sem progressão visível |
+| Perfil do Cliente | Ganhos | Aprendizado interativo e aplicado<br>Experiência imersiva<br>Maior retenção de conhecimento<br>Facilidade na compreensão<br>Entendimento geral sobre IA<br>Capacidade de produtividade com IA<br>Analogia entre história e aprendizado<br>Maior foco e motivação |
+| Mapa de Valor | Produtos e Serviços | Jogo digital educacional com narrativa<br>Módulos gamificados (níveis, desafios, simulações)<br>Experiências inspiradas no IBM SkillsBuild<br>Sistema de progressão gradual<br>Puzzles interativos<br>Conteúdos simplificados e condensados |
+| Mapa de Valor | Aliviadores de Dores | Substituição de conteúdo passivo por interação<br>Simulação prática<br>Feedback imediato<br>Transformação de conceitos abstratos em interações concretas<br>Uso de microdesafios para aumentar o engajamento<br>Visualização de processos de IA|
+| Mapa de Valor | Criadores de Ganho | Narrativa imersiva<br>Progressão por níveis¹⁰<br>Aplicação prática dos conceitos<br>Puzzles sobre IA |
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
@@ -213,27 +154,28 @@ A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimi
 <img src="./assets/matrizDeRiscos.png" width="100%">
 
 <div align = "justify">
+
 As escalas utilizadas consideram, para probabilidade, os valores 10 como muito improvável, 30 como baixa, 50 como média, 70 como alta e 90 como muito alta. Para impacto, a classificação varia entre muito baixo, quando o impacto é irrelevante, baixo, quando afeta aspectos pontuais, moderado, quando prejudica a experiência, alto, quando prejudica significativamente o projeto, e muito alto, quando compromete o objetivo central.
 
 No grupo de riscos muito altos, o R1 – Riscos Pedagógicos apresenta probabilidade 90 e impacto muito alto. Trata-se de um risco crítico de que o conteúdo educacional não gere aprendizado real, seja por inadequação ao nível do público, com excesso de abstração ou simplificação, falta de progressão lógica ou ausência de reforço prático. Isso pode resultar em baixa retenção, dificuldade de aplicação prática e sensação de não aprendizado, comprometendo a função central do projeto e gerando abandono e descrédito. Como plano de ação, propõem-se testes com usuários iniciantes e ajuste de ritmo e profundidade. Os indicadores incluem retenção de conhecimento e taxa de conclusão. Como oportunidade atrelada ao risco, há o desenvolvimento de um modelo pedagógico original baseado em aprendizagem ativa e simulação, integrando prática imediata, feedback contínuo, gamificação e storytelling.
 
-Entre os riscos altos, o R2 - Complexidade na Simulação de IA apresenta probabilidade 50 e impacto muito alto. Há o risco de que a simulação de conceitos de IA se torne tecnicamente complexa a ponto de comprometer a clareza com que os usuários compreendem o conteúdo ou a própria viabilidade de transpor esses conceitos para o jogo, gerando abstrações confusas, simplificações incorretas ou dificuldades de implementação, o que pode resultar em experiências inconsistentes ou erros conceituais. O plano de ação envolve prototipagem iterativa e validação com especialistas, com indicadores voltados tanto à compreensão dos usuários quanto ao feedback técnico. Como oportunidade, destaca-se a criação de uma base simplificada e reutilizável para simulações educacionais de IA.
+Entre os riscos altos, o R2 – Complexidade na Simulação de IA apresenta probabilidade 50 e impacto muito alto. Há o risco de que a simulação de conceitos de IA se torne tecnicamente complexa a ponto de comprometer a clareza com que os usuários compreendem o conteúdo ou a própria viabilidade de transpor esses conceitos para o jogo, gerando abstrações confusas, simplificações incorretas ou dificuldades de implementação, o que pode resultar em experiências inconsistentes ou erros conceituais. O plano de ação envolve prototipagem iterativa e validação com especialistas, com indicadores voltados tanto à compreensão dos usuários quanto ao feedback técnico. Como oportunidade, destaca-se a criação de uma base simplificada e reutilizável para simulações educacionais de IA.
 
-O R3 – Riscos Estratégicos para a IBM apresenta probabilidade 50 e impacto muito alto. Há a possibilidade de o projeto não gerar valor estratégico claro, seja por desalinhamento com os objetivos institucionais, baixa diferenciação ou limitada aplicabilidade prática, o que pode resultar na perda de apoio ou até na descontinuidade — um problema crítico, considerando a dependência direta do projeto em relação à IBM e à sua validação. Como plano de ação, propõe-se a definição clara da proposta de valor e a realização de benchmark, com indicadores voltados à percepção de valor e à comparação com alternativas, permitindo validar e demonstrar continuamente a relevância do projeto para a IBM. Como oportunidade, destaca-se o potencial de posicionar o projeto como referência em educação em IA para públicos iniciantes.
+O R3 – Riscos Estratégicos para a IBM apresenta probabilidade 50 e impacto muito alto. Há a possibilidade de o projeto não gerar valor estratégico claro, seja por desalinhamento com os objetivos institucionais, baixa diferenciação ou limitada aplicabilidade prática, o que pode resultar na perda de apoio ou até na descontinuidade, um problema crítico, considerando a dependência direta do projeto em relação à IBM e à sua validação. Como plano de ação, propõe-se a definição clara da proposta de valor e a realização de benchmark, com indicadores voltados à percepção de valor e à comparação com alternativas, permitindo validar e demonstrar continuamente a relevância do projeto para a IBM. Como oportunidade, destaca-se o potencial de posicionar o projeto como referência em educação em IA para públicos iniciantes.
 
-O R4 – Desalinhamento com o SkillsBuild possui probabilidade 30 e impacto muito alto. Mesmo com alinhamento inicial, pode haver divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos da plataforma, gerando retrabalho ou necessidade de reestruturação. O plano de ação envolve revisões por sprint e mapeamento com o currículo, com indicadores de aderência ao conteúdo e aprovação da IBM. A oportunidade está em explorar liberdade criativa para inovar dentro da plataforma.
+O R4 – Desalinhamento com o SkillsBuild possui probabilidade 50 e impacto muito alto. Mesmo com alinhamento inicial, pode haver divergência ao longo do desenvolvimento entre o produto e os objetivos pedagógicos da plataforma, gerando retrabalho ou necessidade de reestruturação. Divergências com parceiros institucionais ao longo de sprints são recorrentes, o que justifica a elevação da probabilidade. O plano de ação envolve revisões por sprint e mapeamento com o currículo, com indicadores de aderência ao conteúdo e aprovação da IBM. A oportunidade está em explorar liberdade criativa para inovar dentro da plataforma.
 
-Entre os riscos moderados, o R5 – Engajamento e Entretenimento apresenta probabilidade 70 e impacto moderado. Há o risco de o produto não se mostrar suficientemente envolvente, seja por mecânicas repetitivas ou pela ausência de recompensas claras, o que pode levar ao abandono precoce por parte dos usuários. Como plano de ação, propõem-se testes de gameplay e a iteração contínua das mecânicas, utilizando indicadores como tempo de sessão e taxa de abandono, sempre com participantes alinhados ao público-alvo do projeto — jovens universitários. Por outro lado, há uma oportunidade relevante em desenvolver um sistema de engajamento baseado em progressão e feedback imediato, capaz de aumentar a retenção e a experiência do usuário.
+O R5 – Engajamento e Entretenimento apresenta probabilidade 70 e impacto alto. Há o risco de o produto não se mostrar suficientemente envolvente, seja por mecânicas repetitivas ou pela ausência de recompensas claras, o que pode levar ao abandono precoce por parte dos usuários. Em um produto gamificado, a falta de engajamento compromete diretamente a retenção e o aprendizado, tornando seu impacto alto. Como plano de ação, propõem-se testes de gameplay e a iteração contínua das mecânicas, utilizando indicadores como tempo de sessão e taxa de abandono, sempre com participantes alinhados ao público-alvo do projeto. Por outro lado, há uma oportunidade relevante em desenvolver um sistema de engajamento baseado em progressão e feedback imediato, capaz de aumentar a retenção e a experiência do usuário.
 
-O R6 – Curva de Aprendizado Inadequada apresenta probabilidade 70 e impacto moderado. Há o risco de a dificuldade escalar de maneira desbalanceada, gerando frustração ou tédio e comprometendo tanto o fluxo de aprendizagem quanto o engajamento do usuário. Como plano de ação, propõe-se o ajuste contínuo da dificuldade do jogo com base em indicadores como tempo por fase e taxa de desistência, considerando testes com jogadores alinhados ao público-alvo. Como oportunidade, destaca-se a implementação de um sistema adaptativo capaz de personalizar a experiência de aprendizado conforme o desempenho do usuário.
+O R6 – Curva de Aprendizado Inadequada apresenta probabilidade 70 e impacto alto. Há o risco de a dificuldade escalar de maneira desbalanceada, gerando frustração ou tédio e comprometendo tanto o fluxo de aprendizagem quanto o engajamento do usuário. Uma curva desbalanceada leva ao abandono, consequência próxima ao comprometimento do objetivo central do projeto. Como plano de ação, propõe-se o ajuste contínuo da dificuldade do jogo com base em indicadores como tempo por fase e taxa de desistência, considerando testes com jogadores alinhados ao público-alvo. Como oportunidade, destaca-se a implementação de um sistema adaptativo capaz de personalizar a experiência de aprendizado conforme o desempenho do usuário.
 
-O R7 – Experiência do Usuário, UX e UI apresenta probabilidade 50 e impacto moderado. Interfaces confusas ou pouco intuitivas podem dificultar a navegação e o entendimento, gerando fricção e erros. O plano de ação envolve testes de usabilidade, com indicadores como erros de navegação e tempo de aprendizado. A oportunidade é desenvolver uma experiência altamente orientada à aprendizagem, reduzindo a carga cognitiva desnecessária.
+O R7 – Storytelling Desconectado apresenta probabilidade 50 e impacto alto. Sendo o storytelling um pilar central do produto, sua desconexão dos objetivos pedagógicos prejudica significativamente a proposta, reduzindo imersão e retenção. O plano de ação é a integração narrativa, com indicadores de clareza percebida e índice de conclusão. A oportunidade está em usar storytelling como suporte direto ao aprendizado.
 
-O R8 – Obsolescência do Conteúdo tem probabilidade 50 e impacto moderado. A rápida evolução da IA pode tornar o conteúdo desatualizado, reduzindo relevância e credibilidade. O plano de ação consiste em atualizações periódicas, com indicador de atualidade. A oportunidade é criar uma arquitetura modular e atualizável.
+O R8 – Falta de Valor para o Usuário possui probabilidade 50 e impacto alto. Usuários que não percebem valor claro no produto tendem a abandoná-lo, afetando a adoção e a validação pela IBM. O plano de ação envolve testes de percepção, com indicadores como NPS e satisfação. A oportunidade é entregar valor tangível em forma de habilidades e compreensão real de IA.
 
-O R9 – Storytelling Desconectado apresenta probabilidade 50 e impacto moderado. A narrativa pode não se integrar bem aos objetivos educacionais, reduzindo imersão e retenção. O plano de ação é a integração narrativa, com indicadores de clareza percebida e índice de conclusão. A oportunidade está em usar storytelling como suporte direto ao aprendizado.
+O R9 – Obsolescência do Conteúdo tem probabilidade 70 e impacto moderado. O ritmo acelerado da área de IA torna real a chance de o conteúdo ficar desatualizado durante o próprio desenvolvimento, reduzindo relevância e credibilidade. O plano de ação consiste em atualizações periódicas, com indicador de atualidade. A oportunidade é criar uma arquitetura modular e atualizável.
 
-O R10 – Falta de Valor para o Usuário possui probabilidade 50 e impacto moderado. Os usuários podem não perceber valor claro no produto, impactando adoção e engajamento. O plano de ação envolve testes de percepção, com indicadores como NPS¹⁷ e satisfação. A oportunidade é entregar valor tangível em forma de habilidades e compreensão real de IA.
+O R10 – Experiência do Usuário, UX e UI apresenta probabilidade 50 e impacto moderado. Interfaces confusas ou pouco intuitivas podem dificultar a navegação e o entendimento, gerando fricção e erros. O plano de ação envolve testes de usabilidade, com indicadores como erros de navegação e tempo de aprendizado. A oportunidade é desenvolver uma experiência altamente orientada à aprendizagem, reduzindo a carga cognitiva desnecessária.
 
 Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 30 e impacto baixo. Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando a percepção de profissionalismo, mas sem comprometer a funcionalidade. O plano de ação é a iteração visual, com indicador de feedback qualitativo. A oportunidade está na construção de uma identidade visual marcante e coerente.
 
@@ -583,19 +525,27 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
-\# | Título | Ocorrência | Autoria | Arquivo
---- | --- | --- | --- | ---
-1 | Trilha principal | Durante todas as cenas do jogo, a não ser fases e minigames | Própria | `assets/bgMusic.wav`
-2 | Trilha secundária | Durante as fases e minigames | Própria | `assets/bgMusicFases.mp3`
-3 | Som de colisão | Sempre que o personagem colide com um objeto | ? | `assets/colisionSound.wav`
-4 | Som do baú abrindo | Sempre que o jogador abrir um baú | ? | `assets/efeitosSonoros/bauAbrindo.mp3`
-5 | Som de papel | Sempre que uma carta ou pergaminho for aberto | ? | `assets/efeitosSonoros/carta.mp3`
-6 | Som de algo quebrando | Quando o chão desmoronar | ? | `assets/efeitosSonoros/chaoQuebrando.mp3`
-7 | Som de digitação | Sempre que estiver sendo exibido um diálogo | ? | `assets/efeitosSonoros/digitacao.mp3`
-8 | Som de acerto | Sempre que o jogador fizer algo corretamente nas fases | ? | `assets/efeitosSonoros/correto.mp3`
-9 | Som de erro | Sempre que o jogador errar algo nas fases ou tiver que reiniciar uma fase | ? | `assets/efeitosSonoros/erro.mp3`
-10 | Som de 'estalo' | Quando o jogador clicar nos nós da rede na Fase Dois | ? | `assets/efeitosSonoros/popNos.mp3`
-11 | Som de vitória | Quando o jogador finalizar corretamente uma fase | ? | `assets/efeitosSonoros/vitoriaSom.mp3`
+| Uso no Jogo          | Nome Original do Áudio           | Criador / Autor        | Duração | Categoria / Tags                                     | Fonte            | Arquivo                                | Ocorrência           |
+|----------------------|----------------------------------|------------------------|---------|------------------------------------------------------|------------------|----------------------------------------|----------------------|
+| Trilha principal     | Big robot footstep 015           | Autoria própria        | -       | Musical, SpaceAmbientPad.                            | Autoria própria  |`assets/bgMusic.wav`.                   |                      |
+| Trilha secundária    | Big robot footstep 015           | Autoria própria        | -       | Musical, SpaceAmbientPad.                            | Autoria própria  |`assets/bgMusicFases.mp3`               |                      |
+| Robô batendo         | Big robot footstep 015           | AudioPapkin            | 0:01    | Film & special effects, BigRobotFootstep             | fiftysounds      |`assets/colisionSound.wav`              |                      |
+| Robô falando         | Robot broken / loading           | Kuzu420                | 0:01    | Film & special effects, RobotTechnologyFuture        | fiftysounds      |                                        |                      |
+| Robô andando         | Robot Walk                       | freesound_community    | 0:10    | Film & special effects, roboAndando                  | pixabay          |                                        |                      |
+| Pulo (Sophia)        | Cartoon jump                     | freesound_community    | 0:01    | Film & special effects, FunnyJumpGame                | pixabay          |                                        |                      |
+| Baú abrindo          | Wooden Trunk Latch 2             | floraphonic            | -       | Film & special effects, OpenLatchLockHandle          | fiftysounds      |`assets/efeitosSonoros/bauAbrindo.mp3`  |                      |
+| Alavanca             | Film advance lever               | spinopel               | 0:01    | Film & special effects, PhotographerCamera           | pixabay          |                                        |                      |
+| Digitando            | Typing Keyboard ASMR             | DRAGON-STUDIO          | 0:08    | Film & special effects, TypingKeyboard               | fiftysounds      |`assets/efeitosSonoros/digitacao.mp3`.  |                      |
+| Som Pop (Geral)      | Sfx Sharp Pop 2                  | FiftySounds            | -       | Corporate videos and games                           | pixabay          |                                        |                      |
+| Som de Nós (Pop)     | Bottle Opening Wine Cork Pop     | Universfield           | -       | Film & special effects, Wine Cork Pop                | pixabay          |`assets/efeitosSonoros/popNos.mp3`.     |                      |
+| Virar Carta          | flipCard                         | freesound_community    | -       | Film & special effects, CardCard-gameFlip            | pixabay          |`assets/efeitosSonoros/carta.mp3`.      |                      |
+| Iniciar Jogo         | Game Start                       | FoxBoyTails            | 0:01    | Film & special effects, InterfaceUiStart             | pixabay          |                                        |                      |
+| Resposta Errada      | Error / Mistake Sound Effect     | Lesiakower             | 0:01    | Film & special effects, ErrorMistakeIncorrect        | pixabay          |`assets/efeitosSonoros/erro.mp3`.       |                      |
+| Apagar (Borracha)    | Dry Erase                        | freesound_community    | 0:18    | Film & special effects, DisappointmentDry-erase      | pixabay          |                                        |                      |
+| Luz / Som            | Healing Magic (4)                | Yodguard               | 0:08    | Film & special effects, Healing Magic                | pixabay          |                                        |                      |
+| Vitória              | Brass fanfare reverberated       | u_ss015dykrt           | 0:09    | Musical, FanfareSuccessTubing                        | pixabay          |`assets/efeitosSonoros/vitoriaSom.mp3`  |                      |
+
+
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
@@ -943,7 +893,8 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
 <div align = "justify">
-Durante a quarta sprint, foram desenvolvidas quatro fases e algumas cenas de transição que implementam elementos narrativos ao jogo, além de terem sido implementadas funções matemáticas, sistemas de diálogo mais definidos e trilha sonora das cenas e fases. As atividades desenvolvidas foram divididas entre os integrantes do grupo para melhor desenvolvimento e foram posteriormente integradas. 
+Durante a quarta sprint, foram desenvolvidas quatro fases completas, junto com cenas de transição que ajudaram a tornar a história do jogo mais clara e interessante, conectando melhor os acontecimentos e melhorando a experiência do jogador. Também foram implementadas funções matemáticas e físicas que auxiliam no funcionamento do jogo e na progressão, além de sistemas de diálogo mais organizados, facilitando a interação entre os personagens. A trilha sonora foi adicionada às cenas e fases, contribuindo para a ambientação do jogo. As atividades foram divididas entre os integrantes do grupo de acordo com as habilidades de cada um, o que ajudou no andamento do trabalho.
+
 
 Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálogo e  as dinâmicas voltadas ao funcionamento das fases. Foram desenvolvidos mais sistemas de diálogos para as fases e cenas pré-fase para melhor imersão do jogador na narrativa do jogo e para apresentação dos conceitos de IA de forma mais dinâmica. </div>
 
@@ -956,7 +907,8 @@ Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálo
 </div>
 
 <div align = "justify">
-Paralelamente, foram desenvolvidos as mecânicas das fases e os fundamentos teóricos trabalhados em cada uma. A segunda fase do jogo trabalha o funcionamento de Redes Neurais Artificiais, iniciando com analogias com o trabalho cerebral e utilizando recursos visuais para ilustrar a captação, processamento e aprendizagem no Deep Learning com redes neurais. </div>
+Paralelamente, foram desenvolvidas as mecânicas das fases e os conceitos teóricos trabalhados em cada uma. A segunda fase do jogo aborda o funcionamento das Redes Neurais Artificiais de forma simples, começando com comparações com o cérebro humano e usando recursos visuais para mostrar como ocorre a entrada de dados, o processamento e o aprendizado no Deep Learning com redes neurais.
+
 
 <div align = "center">
 
@@ -994,7 +946,8 @@ Por fim, a quinta fase foi desenvolvida para finalizar o jogo para que, após a 
 </div>
 
 <div align = "justify">
-Também foram desenvolvidas cenas inseridas entre as fases com o intuito de realizar a imersão do jogador na narrativa do jogo. Na primeira cena, é desenvolvido um diálogo entre Sophia e Watson contextualizando o projeto desenvolvido entre eles e os cientistas. </div>
+
+Também foram desenvolvidas cenas entre as fases com o objetivo de aumentar a imersão do jogador na história do jogo. Na primeira cena, acontece um diálogo entre Sophia e Watson, que apresenta o contexto do projeto criado por eles junto com os cientistas.
  
 <div align = "center">
 
@@ -1016,7 +969,8 @@ Já na segunda cena há um diálogo entre Sophia e Asimov, onde o robô explica 
 </div>
 
 <div align = "justify">
-Por fim, também houve alteração na tela inicial do jogo para que estivesse mais alinhada à paleta de cores do projeto e a adição de um menu para mostrar os controles que o usuário deve utilizar para movimentação e ações. </div>
+
+Por fim, também houve ajustes na tela inicial do jogo para que ficasse mais alinhada com a paleta de cores do projeto, deixando a interface mais consistente e agradável visualmente. Além disso, foi adicionado um menu com instruções dos controles, ajudando o usuário a entender melhor como realizar a movimentação e as ações dentro do jogo.
 
 <div align = "center">
 
@@ -1297,19 +1251,19 @@ Além disso, é imprescindível realizar a correção dos bugs identificados dur
 
 # <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
 
-O projeto cumpriu integralmente os objetivos estabelecidos na Seção 1, que eram aumentar o engajamento de jovens com pouco conhecimento em IA, melhorar a aprendizagem de conceitos básicos de Inteligência Artificial, despertar interesse pela área e incentivar o jogador a concluir o jogo.
+O projeto cumpriu integralmente os objetivos estabelecidos na Seção 1, alcançando de forma consistente as metas propostas de aumentar o engajamento de jovens com pouco conhecimento em IA, ao mesmo tempo em que promoveu uma melhor compreensão dos conceitos básicos de Inteligência Artificial. Além disso, conseguiu despertar o interesse dos participantes pela área, tornando o aprendizado mais atrativo e acessível, e ainda incentivou os jogadores a prosseguirem até a conclusão do jogo.
 
-Esses objetivos foram alcançados por meio de uma experiência que combina storytelling envolvente e minigames educativos, criando uma dinâmica de aprendizado mais eficaz do que a oferecida por cursos tradicionais. Os minigames são objetivos e acessíveis, sem abrir mão do conteúdo essencial, enquanto o storytelling, além de cativante e coeso, integra organicamente conceitos de IA à narrativa. Essa combinação permite que o público-alvo — jovens universitários — vá além do uso superficial de ferramentas como chats de LLMs, assimilando os fundamentos de IA de forma engajante e gamificada, com motivação genuína para concluir o jogo e aprofundar seus conhecimentos na área.
+Esses objetivos foram alcançados por meio de uma experiência cuidadosamente estruturada que combina storytelling envolvente e minigames educativos, criando uma dinâmica de aprendizado mais eficaz e estimulante do que a oferecida por cursos tradicionais. Os minigames são projetados de forma objetiva e acessível, facilitando a compreensão sem abrir mão do conteúdo essencial, enquanto o storytelling, além de cativante e coeso, atua como um elemento integrador que incorpora de maneira orgânica os conceitos de IA à narrativa. Essa articulação entre narrativa e interatividade contribui para uma experiência mais imersiva, permitindo que o público-alvo, jovens universitários, vá além do uso superficial de ferramentas como chats de LLMs, passando a compreender seus fundamentos e aplicações. Dessa forma, o aprendizado ocorre de maneira engajante e gamificada, promovendo não apenas maior compreensão do conteúdo, mas também motivação genuína para concluir o jogo e aprofundar seus conhecimentos na área.
 
 Um aspecto fundamental para o alcance desses objetivos é o fato de o jogo ser executado diretamente no navegador, sem necessidade de instalação ou hardware específico. Essa decisão técnica está diretamente alinhada com a missão do projeto, definida na seção 1.1.3, de democratizar o acesso ao conhecimento sobre IA para jovens de todas as classes sociais. Ao rodar em qualquer navegador, o jogo elimina barreiras de entrada e garante que estudantes com acesso a dispositivos modestos possam vivenciar a mesma experiência que qualquer outro jogador, colocando em prática os valores de democratização da IA e educação lúdica que norteiam o projeto.
 
-Os testes de guerrilha e com o público-alvo confirmaram que os principais pontos fortes do jogo são justamente os minigames e o storytelling. A sinergia entre esses dois elementos ficou evidente nas respostas coletadas nos formulários de teste. Ao ser perguntado sobre o melhor momento do jogo, um participante respondeu: "Gostei das dinâmicas de explicação e depois algum minigame com mecânicas aplicando essas informações. Além disso, gostei da relação com o Robô Asimov." A qualidade individual dos minigames também foi destacada, com outro participante citando como melhor momento "o minigame de limpar as informações".
+Os testes de guerrilha e com o público-alvo confirmaram que os principais pontos fortes do jogo são justamente os minigames e o storytelling. A sinergia entre esses dois elementos ficou evidente nas respostas coletadas nos formulários de teste. Ao ser perguntado sobre o melhor momento do jogo, um participante respondeu: "Gostei das dinâmicas de explicação e depois algum minigame com mecânicas aplicando essas informações. Além disso, gostei da relação com o Robô Asimov." A qualidade individual dos minigames também foi destacada, com outro participante citando como melhor momento "o minigame de limpar as informações". Outros elogios de outros pontos do jogo foram feitos por fora das aulas, como “Esse design está muito bom, vocês não fizeram por IA, né?” isso só confirma a autenticidade do nosso conteúdo.
 
-Os testes também revelaram pontos de melhoria importantes: excesso de texto nos diálogos e problemas no HUD, especialmente sua ausência em algumas fases, o que dificultava a compreensão dos jogadores sobre o que deveriam fazer. Ambos os problemas foram endereçados na versão seguinte do jogo, com a criação de HUDs nas fases que não os possuíam, o aprimoramento dos HUDs existentes e a redução do volume de texto nos diálogos. O resultado foi uma experiência mais dinâmica, menos cansativa e com orientações mais claras ao jogador.
+Os testes também revelaram pontos de melhoria importantes, como o excesso de texto nos diálogos e problemas relacionados ao HUD, especialmente sua ausência em algumas fases, o que dificultava a compreensão dos jogadores sobre seus objetivos e ações esperadas. Além disso, foram identificados diversos bugs, incluindo falhas de colisão e de mecânica, que comprometiam a fluidez da gameplay e impactavam negativamente a experiência do usuário. Ambos os problemas foram endereçados na versão seguinte do jogo, com a implementação de HUDs nas fases que ainda não os possuíam, o aprimoramento dos elementos de interface já existentes, a redução do volume de texto nos diálogos para torná-los mais objetivos, e a correção dos bugs apontados pelos usuários durante os testes. Como resultado, obteve-se uma experiência mais dinâmica, menos cansativa e com orientações mais claras, contribuindo para uma interação mais intuitiva e satisfatória por parte dos jogadores.
 
 Um feedback recorrente apontou que o jogo, em alguns momentos, prioriza a jogabilidade em detrimento do aprendizado, ilustrado pelo seguinte comentário de um participante: "Achei o jogo bem legal no sentido de jogar, porém admito que quando estava jogando não reparei muito no aprendizado e foquei muito mais no jogo e nos minigames, deixando um pouco de lado esse fator didático." Para endereçar esse ponto, propõe-se o desenvolvimento de um sistema de revisão contínua dos conteúdos dentro do próprio jogo. Isso incluiria um inventário de conquistas que registre os conceitos aprendidos, permitindo ao jogador revisitá-los a qualquer momento, bem como a retomada periódica de conteúdos de fases anteriores por meio de alertas ou interações no jogo. Adicionalmente, também correlacionar mais explicitamente os temas entre as fases, reforçando a percepção do aprendizado como um processo contínuo e progressivo. Essas melhorias poderiam ser implementadas em uma próxima versão em até duas semanas, sendo a primeira dedicada ao desenvolvimento das funcionalidades e a segunda à validação com o público-alvo, permitindo ajustes imediatos antes da publicação da versão atualizada.
 
-No horizonte de longo prazo, o jogo pode evoluir em duas frentes principais. A primeira é o aprofundamento do conteúdo educacional, com o aumento no número de fases e na densidade dos conceitos abordados, tornando a experiência mais completa e abrangente no ensino de Inteligência Artificial. A segunda envolve tornar a narrativa mais interativa e imprevisível, com decisões do jogador que impactem diretamente o enredo, modelo adotado por jogos como Detroit: Become Human. Essa abordagem ampliaria as possibilidades de interação e fortaleceria tanto o storytelling quanto o aprendizado, já que um maior nível de engajamento ativo tende a favorecer a fixação do conteúdo.
+No horizonte de longo prazo, o jogo pode evoluir em duas frentes principais, ampliando ainda mais seu potencial educacional e seu poder de engajamento a partir da base já validada nos testes realizados. A primeira consiste no aprofundamento do conteúdo educacional, com a expansão do número de fases e o aumento da densidade e complexidade dos conceitos abordados, permitindo uma progressão mais estruturada e uma cobertura mais abrangente no ensino de Inteligência Artificial. A segunda frente envolve tornar a narrativa mais interativa e imprevisível, incorporando decisões do jogador que impactem diretamente o desenrolar do enredo, seguindo um modelo adotado por jogos como Detroit: Become Human. Essa abordagem ampliaria significativamente as possibilidades de interação, tornando a experiência mais personalizada e imersiva, além de fortalecer tanto o storytelling quanto o processo de aprendizagem, uma vez que um maior nível de engajamento ativo tende a favorecer a fixação do conteúdo e estimular o interesse contínuo do jogador em explorar diferentes caminhos e desdobramentos dentro do jogo, mantendo coerência com os resultados positivos já observados ao longo do desenvolvimento do projeto.
 
 Em sua forma atual, o projeto demonstra que é possível ensinar Inteligência Artificial de maneira acessível, envolvente e inclusiva. A combinação entre uma plataforma web de fácil acesso, minigames bem executados e um storytelling cativante forma uma base sólida que já entrega valor real ao seu público-alvo. Mais do que um jogo, o projeto representa um passo concreto em direção à visão estabelecida na seção 1.1.3: ser um modelo nacional na implementação da gamificação para a educação de IA de maneira inclusiva. Com as melhorias planejadas e o potencial de expansão identificado, o jogo está posicionado para crescer tanto em profundidade pedagógica quanto em alcance, consolidando-se como uma ferramenta relevante na democratização do conhecimento em IA para jovens brasileiros.
 

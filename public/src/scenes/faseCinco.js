@@ -12,11 +12,11 @@ export class faseCinco extends Phaser.Scene {
     // asimov e sophia: spritesheets dos personagens com dimensões definidas
     preload() {
 
-        this.load.image("cenarioClaro1", "assets/fases/sceneLabCristal/labCristalClaro2.png");
+        this.load.image("cenarioClaro1", "public/assets/fases/sceneLabCristal/labCristalClaro2.png");
 
         const sprites = [
-            { key: "asimov", path: "assets/personagens1/asimov.png", w: 32, h: 32 },
-            { key: "sophia", path: "assets/personagens1/sophia.png", w: 64, h: 64 }
+            { key: "asimov", path: "public/assets/personagens1/asimov.png", w: 32, h: 32 },
+            { key: "sophia", path: "public/assets/personagens1/sophia.png", w: 64, h: 64 }
         ];
 
         sprites.forEach(s =>
@@ -24,9 +24,9 @@ export class faseCinco extends Phaser.Scene {
         ); // Carrega spritesheets dos personagens com dimensões específicas
 
         // Carrega os sons para acertos e erros
-        this.load.audio("correto", "assets/efeitosSonoros/correto.mp3");
-        this.load.audio("erro", "assets/efeitosSonoros/erro.mp3");
-        this.load.audio("vitoriaSom", "assets/efeitosSonoros/vitoriaSom.mp3");
+        this.load.audio("correto", "public/assets/efeitosSonoros/correto.mp3");
+        this.load.audio("erro", "public/assets/efeitosSonoros/erro.mp3");
+        this.load.audio("vitoriaSom", "public/assets/efeitosSonoros/vitoriaSom.mp3");
     }
 
     // Inicializa a cena: configura menu, música, fade-in, diálogo e controles
