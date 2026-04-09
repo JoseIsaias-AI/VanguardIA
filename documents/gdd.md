@@ -526,19 +526,27 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
-\# | Título | Ocorrência | Autoria | Arquivo
---- | --- | --- | --- | ---
-1 | Trilha principal | Durante todas as cenas do jogo, a não ser fases e minigames | Própria | `assets/bgMusic.wav`
-2 | Trilha secundária | Durante as fases e minigames | Própria | `assets/bgMusicFases.mp3`
-3 | Som de colisão | Sempre que o personagem colide com um objeto | ? | `assets/colisionSound.wav`
-4 | Som do baú abrindo | Sempre que o jogador abrir um baú | ? | `assets/efeitosSonoros/bauAbrindo.mp3`
-5 | Som de papel | Sempre que uma carta ou pergaminho for aberto | ? | `assets/efeitosSonoros/carta.mp3`
-6 | Som de algo quebrando | Quando o chão desmoronar | ? | `assets/efeitosSonoros/chaoQuebrando.mp3`
-7 | Som de digitação | Sempre que estiver sendo exibido um diálogo | ? | `assets/efeitosSonoros/digitacao.mp3`
-8 | Som de acerto | Sempre que o jogador fizer algo corretamente nas fases | ? | `assets/efeitosSonoros/correto.mp3`
-9 | Som de erro | Sempre que o jogador errar algo nas fases ou tiver que reiniciar uma fase | ? | `assets/efeitosSonoros/erro.mp3`
-10 | Som de 'estalo' | Quando o jogador clicar nos nós da rede na Fase Dois | ? | `assets/efeitosSonoros/popNos.mp3`
-11 | Som de vitória | Quando o jogador finalizar corretamente uma fase | ? | `assets/efeitosSonoros/vitoriaSom.mp3`
+| Uso no Jogo          | Nome Original do Áudio           | Criador / Autor        | Duração | Categoria / Tags                                     | Fonte            | Arquivo                                | Ocorrência           |
+|----------------------|----------------------------------|------------------------|---------|------------------------------------------------------|------------------|----------------------------------------|----------------------|
+| Trilha principal     | Big robot footstep 015           | Autoria própria        | -       | Musical, SpaceAmbientPad.                            | Autoria própria  |`assets/bgMusic.wav`.                   |                      |
+| Trilha secundária    | Big robot footstep 015           | Autoria própria        | -       | Musical, SpaceAmbientPad.                            | Autoria própria  |`assets/bgMusicFases.mp3`               |                      |
+| Robô batendo         | Big robot footstep 015           | AudioPapkin            | 0:01    | Film & special effects, BigRobotFootstep             | fiftysounds      |`assets/colisionSound.wav`              |                      |
+| Robô falando         | Robot broken / loading           | Kuzu420                | 0:01    | Film & special effects, RobotTechnologyFuture        | fiftysounds      |                                        |                      |
+| Robô andando         | Robot Walk                       | freesound_community    | 0:10    | Film & special effects, roboAndando                  | pixabay          |                                        |                      |
+| Pulo (Sophia)        | Cartoon jump                     | freesound_community    | 0:01    | Film & special effects, FunnyJumpGame                | pixabay          |                                        |                      |
+| Baú abrindo          | Wooden Trunk Latch 2             | floraphonic            | -       | Film & special effects, OpenLatchLockHandle          | fiftysounds      |`assets/efeitosSonoros/bauAbrindo.mp3`  |                      |
+| Alavanca             | Film advance lever               | spinopel               | 0:01    | Film & special effects, PhotographerCamera           | pixabay          |                                        |                      |
+| Digitando            | Typing Keyboard ASMR             | DRAGON-STUDIO          | 0:08    | Film & special effects, TypingKeyboard               | fiftysounds      |`assets/efeitosSonoros/digitacao.mp3`.  |                      |
+| Som Pop (Geral)      | Sfx Sharp Pop 2                  | FiftySounds            | -       | Corporate videos and games                           | pixabay          |                                        |                      |
+| Som de Nós (Pop)     | Bottle Opening Wine Cork Pop     | Universfield           | -       | Film & special effects, Wine Cork Pop                | pixabay          |`assets/efeitosSonoros/popNos.mp3`.     |                      |
+| Virar Carta          | flipCard                         | freesound_community    | -       | Film & special effects, CardCard-gameFlip            | pixabay          |`assets/efeitosSonoros/carta.mp3`.      |                      |
+| Iniciar Jogo         | Game Start                       | FoxBoyTails            | 0:01    | Film & special effects, InterfaceUiStart             | pixabay          |                                        |                      |
+| Resposta Errada      | Error / Mistake Sound Effect     | Lesiakower             | 0:01    | Film & special effects, ErrorMistakeIncorrect        | pixabay          |`assets/efeitosSonoros/erro.mp3`.       |                      |
+| Apagar (Borracha)    | Dry Erase                        | freesound_community    | 0:18    | Film & special effects, DisappointmentDry-erase      | pixabay          |                                        |                      |
+| Luz / Som            | Healing Magic (4)                | Yodguard               | 0:08    | Film & special effects, Healing Magic                | pixabay          |                                        |                      |
+| Vitória              | Brass fanfare reverberated       | u_ss015dykrt           | 0:09    | Musical, FanfareSuccessTubing                        | pixabay          |`assets/efeitosSonoros/vitoriaSom.mp3`  |                      |
+
+
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
