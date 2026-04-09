@@ -1333,14 +1333,3 @@ Em sua forma atual, o projeto demonstra que é possível ensinar Inteligência A
 ¹⁶ NUSSENZVEIG, H. M. Curso de Física Básica — Mecânica. Vol. 1, cap. 3. 5ª ed. Blucher, 2013.
 
 ¹⁷ Fundação Instituto de Administração. Net Promoter Score (NPS): o que é, como calcular e exemplos. Disponível em: https://fia.com.br/blog/net-promoter-score-nps/. Acesso em: 6 abr. 2026.
-
-
-# <a name="c8"></a>Anexos
-
-
-
-
-
-
-
-*Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)*
