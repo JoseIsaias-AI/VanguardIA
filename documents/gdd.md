@@ -120,7 +120,7 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 
 <div align = "center">
 <sup>Figura 35: Canvas proposta de valor.</sup><br>
-<img src="./public/assets/canvasPropostadeValor.png"><br>
+<img src="./assets/canvasPropostadeValor.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
@@ -215,6 +215,9 @@ Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 3
 | KPI 4 | KPI | Novos usuários via recomendação (alcance orgânico) | ≥ 50% | Até 1 mês | Alcance / Satisfação |
 | KPI 5 | KPI | Taxa de recomendação do jogo (satisfação) | ≥ 60% | Pós-conclusão | Experiência do usuário |
 | KPI 6 | KPI | Acesso ao IBM SkillsBuild após o jogo | ≥ 30% | Até 30 dias | Impacto educacional |
+
+**Correlação entre objetivos, metas e KPIs**:
+Existe uma correlação clara entre os objetivos estratégicos, as metas e os KPIs, os quais possuem uma relação hierárquica e mensurável, o que garante coerência entre a intenção, a execução e a avaliação do projeto como um todo. Os objetivos definidos apresentam diretrizes qualitativas amplas, como o aumento do engajamento, a melhoria da aprendizagem e o estímulo ao interesse por inteligência artificial. Já as metas traduzem essas diretrizes em resultados quantitativos esperados, como taxa de conclusão, evasão e compartilhamento. Por sua vez, os KPIs permitem a mensuração dos resultados por meio de indicadores concretos do comportamento do usuário, como tempo de uso, taxa de recomendação e acesso a conteúdos educacionais. Dessa forma, cada KPI funciona como uma evidência empírica do atingimento das metas e, por sua vez, representa diretamente o progresso em relação aos objetivos estratégicos, formando um sistema integrado de avaliação baseado em dados, que permite validar o impacto e a efetividade da experiência proposta.
 
 </div>
 
@@ -472,28 +475,25 @@ Por fim, é apresentada no jogo a sala principal de controle do laboratório, on
 | **A** | Move o personagem para a direita (-X) |
 | **SPACE** | Personagem salta (+Y) depois cai (-Y) |
 
----
+
 
 **Interações**
-A tecla **E** é utilizada para interagir com:
-* **Itens do cenário**
-* **NPCs**
 
-O **clique do mouse** é utilizado para interagir com:
-* **Tela inicial**
-* **Menu**
-* **Carta encontrada no baú**
-* **Redes neurais**
-* **Esponja**
-* **Perguntas do Asimov**
+| Entrada         | Elementos Interagíveis                                                                 |
+|-----------------|----------------------------------------------------------------------------------------|
+| Tecla **E**     | Itens do cenário; NPCs                                                                 |
+| Clique do mouse | Tela inicial; Menu; Carta encontrada no baú; Redes neurais; Esponja; Perguntas do Asimov |
 
----
+
 
 **Tipo de Movimentação**
-* **Perspectiva:** Terceira pessoa
-* **Exploração:** Livre dentro do mapa da fase atual
 
----
+| Categoria    | Descrição                          |
+|-------------|------------------------------------|
+| Perspectiva | Terceira pessoa                    |
+| Exploração  | Livre dentro do mapa da fase atual |
+
+
 
 **Estrutura e Funcionamento**
 
