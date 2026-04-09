@@ -639,12 +639,16 @@ export class faseDois extends Phaser.Scene {
     this.mgRede.anims.stop();
     this.mgRede.setFrame(0);
 
-    this.mgDialogo(
-      "Aqui está meu cérebro! Sabe como o seu funciona? Ele recebe informações pelos sentidos, visão, tato, olfato. O meu funciona igual! Lembra daqueles números que coletou na fase 1 então eles são as informações sobre a porta correta. Arraste cada um até os meus 3 neurônios de entrada!",
-      "Asimov",
-      () => this.mgFase1Interativo()
-    );
-  }
+  this.mgDialogo(
+        "Aqui está meu cérebro! Sabe como o seu funciona? Ele recebe informações pelos sentidos: visão, tato, olfato.",
+        "Asimov",
+        () => this.mgDialogo(
+          "O meu funciona igual! Lembra daqueles números que coletou na fase 1? Eles são as informações sobre a porta correta. Arraste cada um até os meus 3 neurônios de entrada!",
+          "Asimov",
+          () => this.mgFase1Interativo()
+        )
+      );
+    }
 
   mgFase1Interativo() {
     // Etapa 1: arrastar os tres binarios ate seus neuronios de entrada.
@@ -779,11 +783,15 @@ export class faseDois extends Phaser.Scene {
     this.mgRede.setFrame(3);
 
     this.mgDialogo(
-      "Isso! As informações entraram! Sabe quando você ouve uma música e reconhece a melodia? Seus neurônios de entrada captaram o som primeiro. Os meus acabaram de captar os dados das portas! Agora precisamos acender o miolo, a parte que pensa de verdade. Clique em todos os 12 neurônios centrais!",
-      "Asimov",
-      () => this.mgFase2Interativo()
-    );
-  }
+          "Isso! As informações entraram! Sabe quando você ouve uma música e reconhece a melodia? Seus neurônios de entrada captaram o som primeiro.",
+          "Asimov",
+          () => this.mgDialogo(
+            "Os meus acabaram de captar os dados das portas! Agora precisamos acender o miolo, a parte que pensa de verdade. Clique em todos os 12 neurônios centrais!",
+            "Asimov",
+            () => this.mgFase2Interativo()
+          )
+        );
+      }
 
   // ═══════════════════════════════════════════════════════════════════════════
   //  FASE 2 — Clicar nos 12 neurônios
@@ -923,11 +931,15 @@ export class faseDois extends Phaser.Scene {
     this.mgRede.setFrame(16);
 
     this.mgDialogo(
-      "Todos os neurônios do miolo estão recebendo as informações! É igualzinho ao seu cérebro quando você estuda: cada vez que você pratica algo, as conexões entre seus neurônios ficam mais fortes. Agora vou usar esses neurônios para aprender com os dados vou errar, corrigir e melhorar várias vezes. Isso se chama treinamento!",
-      "Asimov",
-      () => this.mgFase3Epocas()
-    );
-  }
+          "Todos os neurônios do miolo estão recebendo as informações! É igualzinho ao seu cérebro quando você estuda: cada vez que você pratica algo, as conexões entre seus neurônios ficam mais fortes.",
+          "Asimov",
+          () => this.mgDialogo(
+            "Agora vou usar esses neurônios para aprender com os dados: vou errar, corrigir e melhorar várias vezes. Isso se chama treinamento!",
+            "Asimov",
+            () => this.mgFase3Epocas()
+          )
+        );
+      }
 
   // ═══════════════════════════════════════════════════════════════════════════
   //  FASE 3 — Treinamento
