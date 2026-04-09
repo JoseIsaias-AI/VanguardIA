@@ -111,6 +111,11 @@ export class menu extends Phaser.Scene {
       if (bgMusic) {
         bgMusic.mute = this.musicMuted;
       }
+      // Também muta a música de fases se estiver tocando
+      const musicFases = this.game.sound.get('bg-music-fases');
+      if (musicFases) {
+        musicFases.mute = this.musicMuted;
+      }
     });
 
     // Cria o som de iniciar menu

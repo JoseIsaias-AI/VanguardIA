@@ -41,6 +41,10 @@ export class faseQuatro extends Phaser.Scene {
         this.musicFases = this.sound.add("bg-music-fases");
         this.musicFases.play({ loop: true, volume: 0.2 });
 
+        // Garante que a música de fases seja destruída quando a cena for desligada
+        this.events.on('shutdown', () => this.destruirMusicaFases());
+        this.events.on('sleep', () => this.destruirMusicaFases());
+
         const { width, height } = this.sys.game.config; //a altura e o comprimento recebem valores definidos no sistema
         //altura - heigh
         //largura - width
@@ -377,17 +381,31 @@ export class faseQuatro extends Phaser.Scene {
 
         // ao clicar
         this.input.once('pointerdown', () => {
-            // Para a música de fases e volta a tocar a música de fundo padrão
-            if (this.musicFases && this.musicFases.isPlaying) {
-                this.musicFases.stop();
+            // Destroi a música de fases completamente
+            this.destruirMusicaFases();
+            
+            // Retoma a música de fundo padrão (se existir e não estiver tocando)
+            const bgMusic = this.game.sound.get('bgMusic');
+            if (bgMusic && !bgMusic.isPlaying) {
+                bgMusic.play();
             }
-            this.scene.launch("bgMusic");
 
             this.cameras.main.fadeOut(1000);
             this.cameras.main.once("camerafadeoutcomplete", () => {
                 this.scene.start("sceneRestauracao");
             });
         });
+    }
+
+    // Função auxiliar para destruir a música de fases
+    destruirMusicaFases() {
+        if (this.musicFases) {
+            if (this.musicFases.isPlaying) {
+                this.musicFases.stop();
+            }
+            this.musicFases.destroy();
+            this.musicFases = null;
+        }
     }
 }
 
