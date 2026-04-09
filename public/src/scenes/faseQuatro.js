@@ -377,6 +377,12 @@ export class faseQuatro extends Phaser.Scene {
 
         // ao clicar
         this.input.once('pointerdown', () => {
+            // Para a música de fases e volta a tocar a música de fundo padrão
+            if (this.musicFases && this.musicFases.isPlaying) {
+                this.musicFases.stop();
+            }
+            this.scene.launch("bgMusic");
+
             this.cameras.main.fadeOut(1000);
             this.cameras.main.once("camerafadeoutcomplete", () => {
                 this.scene.start("sceneRestauracao");
