@@ -239,7 +239,7 @@ Os requisitos do projeto estabelecem as diretrizes essenciais para seu desenvolv
 10 | Caso o jogador não alcance o requisito mínimo de vitória de uma fase, a fase em que ele se encontra deve ser reiniciada.
 11 | A fase um deve ser reiniciada caso o jogador colida com qualquer objeto, a não ser o baú no fim do mapa.
 12 | Na fase três, o jogador não pode coletar a imagem errada, que será citada anteriormente.
-13 | O jogador deve limpar 90% da imagem apresentada na fase quatro para que ele seja direcionado para a fase seguinte.
+13 | O jogador deve limpar 100% da imagem apresentada na fase quatro sem chegar ao limite da barra de overfitting para que ele seja direcionado para a fase seguinte.
 14 | A fase cinco deve ser reiniciada caso o jogador classifique corretamente menos de 70% das afirmações.
 15 | As informações necessárias para executar uma fase corretamente devem ser apresentadas em cenas ou fases anteriores.
 
