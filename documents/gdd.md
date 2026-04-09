@@ -120,7 +120,7 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 
 <div align = "center">
 <sup>Figura 35: Canvas proposta de valor.</sup><br>
-<img src="./public/assets/canvasPropostadeValor.png"><br>
+<img src="./assets/canvasPropostadeValor.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
@@ -572,9 +572,9 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 \# | item |  | como obter | função 
 --- | --- | --- | --- | --- 
-1 | baú | <img src="../assets/Objetos/bau.png"> | estão em algumas fases do jogo | guardam recompensas e informações 
-2 | envelope | <img src="../assets/Objetos/faseUm/envelopes.png"> | estará no primeiro baú | dá informações que serão utiliazadas em uma fase futura
-3 | pergaminho | <img src = "../assets/Objetos/faseUm/pergaminho3.png"> | estará no primeiro baú | dá informações sobre a história do jogo 
+1 | baú | <img src="../public/assets/Objetos/bau.png"> | estão em algumas fases do jogo | guardam recompensas e informações 
+2 | envelope | <img src="../public/assets/Objetos/faseUm/envelopes.png"> | estará no primeiro baú | dá informações que serão utiliazadas em uma fase futura
+3 | pergaminho | <img src = "../public/assets/Objetos/faseUm/pergaminho3.png"> | estará no primeiro baú | dá informações sobre a história do jogo 
 4 | Imagens do cristal verdadeiro | <img src = "../public/assets/objetos/faseTres/cristalverdadeiro.png"> | Estará no parkour da fase 3 | Faz o Asimov entender como são os cristais verdadeiros
 5 | Imagens de cristais falsos | <img src = "../public/assets/objetos/faseTres/cristalFalso.png"> | Estará no parkour da fase 3 | Faz o Asimov não entender como são os cristais verdadeiros, e o jogador repetir a fase
 6 | Documentos | <img src = "../public/assets/fases/preFase4/doc1.png"> | Estarão na máquina deescrever da pré fase 4 | Ensinará o jogador sobre o funcionamento de IA e como ela aprende 
