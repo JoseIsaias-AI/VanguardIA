@@ -77,7 +77,7 @@ O mercado de ensino gamificado de IA tem olhado cada vez mais para um público m
 ### 1.1.2. Análise SWOT 
 
 <div align = "center">
-<sup>Figura 35: Análise SWOT relacionada à IBM.</sup><br>
+<sup>Figura 1: Análise SWOT relacionada à IBM.</sup><br>
 <img src="./assets/analiseSwot.png" width="70%">
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
@@ -119,7 +119,7 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 ### 1.1.4. Proposta de Valor
 
 <div align = "center">
-<sup>Figura 35: Canvas proposta de valor.</sup><br>
+<sup>Figura 2: Canvas proposta de valor.</sup><br>
 <img src="./assets/canvasPropostadeValor.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
@@ -159,7 +159,7 @@ A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimi
 ### 1.1.6. Matriz de Riscos 
 
 <div align = "center">
-<sup>Figura 36: Matriz de riscos.</sup><br>
+<sup>Figura 3: Matriz de riscos.</sup><br>
 <img src="./assets/matrizDeRiscos.png" width="100%">
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
@@ -335,7 +335,7 @@ Sophia é uma das personagens controláveis e protagonista da narrativa. Cientis
 </div>
 
 <div align = "center">
-<sup>Figura 2: Sprite de Sophia, a personagem principal.</sup><br>
+<sup>Figura 4: Sprite de Sophia, a personagem principal.</sup><br>
 <img src="../public/assets/personagens1/sophia.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
@@ -347,7 +347,7 @@ Asimov também é personagem controlável em momentos específicos da jogabilida
 </div>
 
 <div align = "center">
-<sup>Figura 3: Sprite de asimov, personagem secundário.</sup><br>
+<sup>Figura 5: Sprite de asimov, personagem secundário.</sup><br>
 <img src="../public/assets/personagens1/asimov.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
@@ -363,7 +363,7 @@ Embora não esteja presente fisicamente no futuro, Watson exerce forte influênc
 </div>
 
 <div align = "center">
-<sup>Figura 4: Sprite de Watson, NPC.</sup><br>
+<sup>Figura 6: Sprite de Watson, NPC.</sup><br>
 <img src="../public/assets/personagens1/watson.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
@@ -397,7 +397,7 @@ O jogo tem cinco diferentes cenários e, entre eles, dois deles tem variações.
 
 <div align = "center">
 
-<sup>Figura 5: Laboratório Inicial antes da viagem no tempo.</sup><br>
+<sup>Figura 7: Laboratório Inicial antes da viagem no tempo.</sup><br>
 <img src="./assets/labBrancoN.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -407,7 +407,7 @@ O cenário seguinte muda após um salto temporal, quando Sophia desperta da crio
 
 <div align = "center">
 
-<sup>Figura 6: Laboratório Inicial depois da viagem no tempo.</sup><br>
+<sup>Figura 8: Laboratório Inicial depois da viagem no tempo.</sup><br>
 <img src="./assets/labBrancoD.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -417,7 +417,7 @@ O segundo cenário apresentado é um corredor onde há vários equipamentos dani
 
 <div align = "center">
 
-<sup>Figura 7: Cenário da Fase 01.</sup><br>
+<sup>Figura 9: Cenário da Fase 01.</sup><br>
 <img src="./assets/faseCorredor.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -427,7 +427,7 @@ Em seguida, Asimov volta para o laboratório destruído e depois leva Sophia par
 
 <div align = "center">
 
-<sup>Figura 8: Cenário da Fase 02, sala das portas.</sup><br>
+<sup>Figura 10: Cenário da Fase 02, sala das portas.</sup><br>
 <img src="./assets/salaPortas.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -437,7 +437,7 @@ Após essa etapa, o jogador é levado à uma sala com diversos equipamentos ao f
 
 <div align = "center">
 
-<sup>Figura 9: Cenário da Fase 03.</sup><br>
+<sup>Figura 11: Cenário da Fase 03.</sup><br>
 <img src="./assets/labFaseTres.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -447,11 +447,11 @@ Por fim, é apresentada no jogo a sala principal de controle do laboratório, on
 
 <div align = "center">
 
-<sup>Figura 10: Laboratório Final antes da restauração.</sup><br>
+<sup>Figura 12: Laboratório Final antes da restauração.</sup><br>
 <img src="./assets/labCristal1.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 11: Laboratório Final depois da restauração.</sup><br>
+<sup>Figura 13: Laboratório Final depois da restauração.</sup><br>
 <img src="./assets/labCristal2.png" width = '70%'><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -517,27 +517,27 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 <div align = "center">
 
-<sup>Figura 7: Concept Art do Laboratório Inicial do jogo.</sup><br>
+<sup>Figura 14: Concept Art do Laboratório Inicial do jogo.</sup><br>
 <img src="./assets/labInicial.png" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 8: Concept Art do minigame do robô entre sucatas.</sup><br>
+<sup>Figura 15: Concept Art do minigame do robô entre sucatas.</sup><br>
 <img src="./assets/lixaoRobo.png" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 9: Concept Art do minigame de Visão Computacional.</sup><br>
+<sup>Figura 16: Concept Art do minigame de Visão Computacional.</sup><br>
 <img src="./assets/gameVisComp.png" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 10: Concept Art do minigame de limpeza de Ruídos.</sup><br>
+<sup>Figura 17: Concept Art do minigame de limpeza de Ruídos.</sup><br>
 <img src="./assets/gameRuidos.png" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 11: Primeira Concept Art de Asimov.</sup><br>
+<sup>Figura 18: Primeira Concept Art de Asimov.</sup><br>
 <img src="./assets/roboInicial.jpeg" width="60%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 12: Segunda Concept Art de Asimov.</sup><br>
+<sup>Figura 19: Segunda Concept Art de Asimov.</sup><br>
 <img src="./assets/roboInicial2.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -588,7 +588,7 @@ A existência de inimigos não foi uma possibilidade acordada dentro do enredo d
 ## 3.5. Gameflow (Diagrama de cenas) 
 
 <div align="center">
-<sub>Figura 13: Storyboard de programação</sub><br>
+<sub>Figura 20: Storyboard de programação</sub><br>
 <img src="./assets/diagramaDeCenas.jpg.png" width="85%"><br>
 <sup>Fonte: Autoria própria (2026).</sup><br>
 </div>
@@ -793,11 +793,11 @@ No decorrer do desenvolvimento, foi construída a tela de uma das fases do jogo,
 
 <div align = "center">
 
-<sup>Figura 14: Imagem do personagem da primeira fase.</sup><br>
+<sup>Figura 21: Imagem do personagem da primeira fase.</sup><br>
 <img src="./assets/telaFase.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 15: Imagem do personagem interagindo com um item.</sup><br>
+<sup>Figura 22: Imagem do personagem interagindo com um item.</sup><br>
 <img src="./assets/interacaoItem.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -809,11 +809,11 @@ Nesta tela também foram implementados um sistema de colisão básico — em ape
 
 <div align = "center">
 
-<sup>Figura 16: Imagem da matriz de colisão na primeira tela.</sup><br>
+<sup>Figura 23: Imagem da matriz de colisão na primeira tela.</sup><br>
 <img src="./assets/matrizColisaoTeste.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 17: Imagem do balão de chat na tela.</sup><br>
+<sup>Figura 24: Imagem do balão de chat na tela.</sup><br>
 <img src="./assets/interacaoChat.jpeg" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -831,11 +831,11 @@ No decorrer do desenvolvimento da segunda sprint, ocorreram alterações estéti
 
 <div align = "center">
 
-<sup>Figura 18: Imagem do Laboratório de Cristal ao começo do jogo.</sup><br>
+<sup>Figura 25: Imagem do Laboratório de Cristal ao começo do jogo.</sup><br>
 <img src="../documents/assets/labCristal1.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 19: Imagem do Laboratório de Cristal ao fim do jogo.</sup><br>
+<sup>Figura 26: Imagem do Laboratório de Cristal ao fim do jogo.</sup><br>
 <img src="./assets/labCristal2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -847,7 +847,7 @@ Além disso, foram refatorados: os sistemas de colisão para que, ao invés de u
 
 <div align = "center">
 
-<sup>Figura 20: Imagem do Laboratório da Cena 01 no jogo.</sup><br>
+<sup>Figura 27: Imagem do Laboratório da Cena 01 no jogo.</sup><br>
 <img src="./assets/faseRefactor.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -859,11 +859,11 @@ Por fim, foram desenvolvidos os designs do background utilizado na Fase 01 e dos
 
 <div align = "center">
 
-<sup>Figura 21: Background utilizado na Fase 01.</sup><br>
+<sup>Figura 28: Background utilizado na Fase 01.</sup><br>
 <img src="../assets/fases/faseUm/fundoFaseUm.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 22: Objetos utilizados na Fase 01.</sup><br>
+<sup>Figura 29: Objetos utilizados na Fase 01.</sup><br>
 <img src="../assets/objetos/faseUm/obstaculosFaseUm.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -879,7 +879,7 @@ Uma das frentes de desenvolvimento foi a implementação do sistema de diálogos
 
 <div align = "center">
 
-<sup>Figura 23: Dialogo com Asimov no futuro.</sup><br>
+<sup>Figura 30: Dialogo com Asimov no futuro.</sup><br>
 <img src="./assets/printDialogo.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -897,7 +897,7 @@ A Fase 1 foi implementada e apresenta o robô Asimov em um cenário destruído. 
 
 <div align = "center">
 
-<sup>Figura 24: Fase 1</sup><br>
+<sup>Figura 31: Fase 1</sup><br>
 <img src="./assets/printFase1.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -908,7 +908,7 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 
 <div align = "center">
 
-<sup>Figura 25: CutScene do despertar.</sup><br>
+<sup>Figura 32: CutScene do despertar.</sup><br>
 <img src="./assets/printCutScene2.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -924,7 +924,7 @@ Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálo
 
 <div align = "center">
 
-<sup>Figura 26: Caixa de diálogo.</sup><br>
+<sup>Figura 33: Caixa de diálogo.</sup><br>
 <img src="./assets/faseRefactor.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -936,7 +936,7 @@ Paralelamente, foram desenvolvidas as mecânicas das fases e os conceitos teóri
 
 <div align = "center">
 
-<sup>Figura 27: Fase 02.</sup><br>
+<sup>Figura 34: Fase 02.</sup><br>
 <img src="./assets/faseRedes.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -947,12 +947,12 @@ A terceira fase  tem como objetivo ilustrar a necessidade de uma separação e c
 
 <div align = "center">
 
-<sup>Figura 28: Fase 03.</sup><br>
+<sup>Figura 35: Fase 03.</sup><br>
 <img src="./assets/labFaseTres.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 
-<sup>Figura 29: Fase 04.</sup><br>
+<sup>Figura 36: Fase 04.</sup><br>
 <img src="./assets/faseQuatro.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -963,7 +963,7 @@ Por fim, a quinta fase foi desenvolvida para finalizar o jogo para que, após a 
 
 <div align = "center">
 
-<sup>Figura 30: Fase 05.</sup><br>
+<sup>Figura 37: Fase 05.</sup><br>
 <img src="./assets/faseCinco.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -975,7 +975,7 @@ Também foram desenvolvidas cenas entre as fases com o objetivo de aumentar a im
  
 <div align = "center">
 
-<sup>Figura 31: Caixa de diálogo inicial.</sup><br>
+<sup>Figura 38: Caixa de diálogo inicial.</sup><br>
 <img src="./assets/dialogoInicial.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -986,7 +986,7 @@ Já na segunda cena há um diálogo entre Sophia e Asimov, onde o robô explica 
 
 <div align = "center">
 
-<sup>Figura 32: Caixa de diálogo entre Asimov e Sophia.</sup><br>
+<sup>Figura 39: Caixa de diálogo entre Asimov e Sophia.</sup><br>
 <img src="./assets/dialogoContexto.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
@@ -998,11 +998,11 @@ Por fim, também houve ajustes na tela inicial do jogo para que ficasse mais ali
 
 <div align = "center">
 
-<sup>Figura 33: Nova tela inicial.</sup><br>
+<sup>Figura 40: Nova tela inicial.</sup><br>
 <img src="./assets/novaTelaInicial.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 34: Novo menu.</sup><br>
+<sup>Figura 41: Novo menu.</sup><br>
 <img src="./assets/novoMenu.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
