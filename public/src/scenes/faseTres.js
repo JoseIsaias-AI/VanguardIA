@@ -99,6 +99,9 @@ export class faseTres extends Phaser.Scene {
 
     // Carrega o som do pulo da Sophia
     this.load.audio("puloSophia", "public/assets/efeitosSonoros/puloSophia.mp3");
+
+    // Carrega a música específica dessa fase
+    this.load.audio("bg-music-fases", "public/assets/bgMusicFases.mp3");
   }
 
   create() {
@@ -302,6 +305,15 @@ export class faseTres extends Phaser.Scene {
 
     // Cria o som do pulo da Sophia
     this.somPuloSophia = this.sound.add("puloSophia", { volume: 0.8 });
+
+    // Para a música padrão se ela estiver tocando e inicia a música específica das fases
+    const bgMusic = this.game.sound.get('bgMusic');
+    if (bgMusic && bgMusic.isPlaying) {
+      bgMusic.stop();
+    }
+
+    this.musicFases = this.sound.add("bg-music-fases");
+    this.musicFases.play({ loop: true, volume: 0.2 });
   }
 
   configurarCameraUI() {
@@ -381,6 +393,10 @@ export class faseTres extends Phaser.Scene {
            this.sistemaDialogo.iniciarDialogo([
                { nome: "Asimov", personagem: null, texto: "Boa, você coletou apenas imagens de cristais verdadeiros, isso é muito importante para evitar que meu sistema seja treinado com informações falsas!" }
            ], () => {
+               // Para a música de fase 3 antes de ir para a pré-fase 4
+               if (this.musicFases && this.musicFases.isPlaying) {
+                 this.musicFases.stop();
+               }
                // Aqui, adicionamos os dois possíveis finais da fase
                this.scene.start("scenePreFase4"); // Aqui, avançamos para a próxima fase
            });

@@ -21,6 +21,9 @@ export class faseQuatro extends Phaser.Scene {
         this.load.image('textoSucesso', 'public/assets/fases/faseQuatro/sucesso.png');
         this.load.spritesheet('barraCarregamento', 'public/assets/fases/faseQuatro/barraProgresso.png', { frameWidth: 200, frameHeight: 128 });
         this.load.audio('borracha', 'public/assets/efeitosSonoros/borracha.m4a');
+
+        // Carrega a música específica dessa fase
+        this.load.audio("bg-music-fases", "public/assets/bgMusicFases.mp3");
     }
 
     //---------------------------------------carrega todas as imagens e sprites----------------------------------------
@@ -28,8 +31,15 @@ export class faseQuatro extends Phaser.Scene {
         registrarTeclaMenu(this);
         this.cameras.main.fadeIn(400, 0, 0, 0);
 
-        // Inicia a cena de música de fundo (bgMusic) que executa em loop em segundo plano.
-        this.scene.launch("bgMusic");
+        // Se a música padrão ainda estiver tocando, pare antes de iniciar a música da fase 4
+        const bgMusic = this.game.sound.get('bgMusic');
+        if (bgMusic && bgMusic.isPlaying) {
+          bgMusic.stop();
+        }
+
+        // Inicia a música específica das fases
+        this.musicFases = this.sound.add("bg-music-fases");
+        this.musicFases.play({ loop: true, volume: 0.2 });
 
         const { width, height } = this.sys.game.config; //a altura e o comprimento recebem valores definidos no sistema
         //altura - heigh
