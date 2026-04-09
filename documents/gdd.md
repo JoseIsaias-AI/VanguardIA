@@ -613,7 +613,9 @@ O jogador pode se movimentar livremente dentro do mapa inicial para explorar o l
 
 Controles de Exploração Livre (Sophia):
 
-Tecla W / Seta para Cima: Move para cima (Eixo Y+). Tecla S / Seta para Baixo: Move para baixo (Eixo Y-). Tecla D / Seta para a Direita: Move para a direita (Eixo X+).Tecla A / Seta para a Esquerda: Move para a esquerda (Eixo X-).Barra de Espaço: Pular. Controles na Sucata (Asimov):Tecla W / Seta para Cima: Move para a faixa de cima. Tecla S / Seta para Baixo: Move para a faixa de baixo.Barra de Espaço: Saltar obstáculos.
+Tecla W / Seta para Cima: Move para cima (Eixo Y+). Tecla S / Seta para Baixo: Move para baixo (Eixo Y-). Tecla D / Seta para a Direita: Move para a direita (Eixo X+).Tecla A / Seta para a Esquerda: Move para a esquerda (Eixo X-).Barra de Espaço: Pular. 
+
+Controles na Sucata (Asimov):Tecla W / Seta para Cima: Move para a faixa de cima. Tecla S / Seta para Baixo: Move para a faixa de baixo.Barra de Espaço: Saltar obstáculos.
 
 2. Interação com objetos e sistemas
 Utilizando a tecla de interação, o jogador pode acessar baús, arquivos, máquinas e terminais do laboratório, além de conversar com o cientista Watson e com Asimov. Esses elementos liberam informações da narrativa ou ativam desafios necessários para continuar a fase.
@@ -621,41 +623,35 @@ Utilizando a tecla de interação, o jogador pode acessar baús, arquivos, máqu
 Controles: Tecla "E" para interagir com personagens, avançar nos diálogos e interagir com objetos.
 
 3. Treinamento da rede neural de Asimov e Válvula Softmax
-Com as pistas coletadas, o jogador inicia o treinamento da rede neural. É obrigatório encontrar e ativar a Válvula Softmax para converter os dados brutos em probabilidades, além de definir o limiar de confiança exato na interface para que Asimov identifique a porta.
+Com as pistas coletadas, o jogador inicia o treinamento da rede neural. É obrigatório encontrar e ativar a Válvula Softmax para converter os dados brutos em probabilidades.
 
 Controles:
 
 Mouse (Movimento) + Clique Único: Para selecionar e ativar os neurônios na tela além de servir para interagir e abrir a Válvula Softmax.
 
-Clique e Arraste (Slider): Para ajustar a barra do "limiar de confiança" de 0 a 100% na interface.
-
 4. Investigação e coleta de informações
-Na sala de arquivos, o jogador encontra documentos e imagens de diferentes cristais armazenados em um baú. Essas informações ajudam a identificar quais cristais possuem as características corretas.
+A Sophia consegue abrir o baú que tem as informações dos cristais, porém o chão desmorona e por isso ela precisa subir pelas plataformas pulando nelas no momento certo e coletando os documentos de cristais corretos. Nesta fase, a Sophia se movimenta por meio das mesmas teclas que funcionam antes. A difereça visual para o jogador acontece na visão do jogador pro jogo, ja que ela deixa de ser top-down para frontal.
 
 Controles: Interação padrão (Tecla "E") para abrir o baú e ler as pistas.
 
-5. Classificação de cristais
-Na sala da esteira, o jogador deve analisar imagens de cristais e realizar a classificação entre cristais verdadeiros e falsos.
-
-Controles (Cliques na Interface):
-
-Botão "Guardar" (Verde): Para cristais verdadeiros (azuis, brilhantes e pontiagudos).
-
-Botão "Incinerar" (Vermelho): Para cristais falsos (com imperfeições ou coloração diferente).
-
-6. Extração de características e Forja Generativa
+5. Limpeza de informações e overfitting
 Após selecionar corretamente os cristais verdadeiros, eles são enviados para um extrator de características, que gera uma matriz de características com os padrões do cristal correto. Em seguida, inicia-se a forja generativa, onde o jogador deve eliminar ativamente os "ruídos" (imperfeições visuais) gerados pelo processo.
 
 Controles:
 
 Tecla "E": Para ativar o terminal do extrator de características.
 
-Clique e Arraste (Botão Esquerdo do Mouse): Clicar e segurar em cima do esfregão e arrastar o mouse por todo o ruído (manchas no cristal em formação) para limpar as falhas até preencher a barra de pureza em 100%.
+Clique e Arraste (Botão Esquerdo do Mouse): Clicar e segurar em cima do esfregão e arrastar o mouse por todo o ruído (manchas no cristal em formação) para limpar as falhas até completar a nítidez em 100%.
 
-7. Restauração do laboratório
-Após a forja e a identificação correta do cristal verdadeiro, Sophia pode levá-lo até a sala principal de controle, onde o cristal é depositado no centro do sistema energético do laboratório, restaurando parte da energia e permitindo a continuidade da narrativa.
+6. Restauração do laboratório
+Após a limpeza dos dados, a sophia leva o cristal correto para o centro da sala do HUB, onde o cristal é depositado no centro do sistema energético do laboratório, restaurando parte da energia e permitindo a continuidade da narrativa que consiste em decidir quais são as aplicações corretas e incorretas com relação a ética e a prompts de IA.
 
-Controles: Movimentação livre (WASD / Setas) para transportar o cristal e Tecla "E" no núcleo central para depositá-lo e acionar a vitória da fase.
+Controles (Cliques na Interface):
+
+Botão "Aplicação correta" (Verde): Para prompt ou ética correta.
+
+Botão "Aplicação incorreta" (Vermelho): Para prompt ou ética incorreta.
+
 </div>
 
 ## 3.8. Implementação Matemática de Animação/Movimento 
