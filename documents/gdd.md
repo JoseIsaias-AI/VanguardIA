@@ -77,7 +77,7 @@ O mercado de ensino gamificado de IA tem olhado cada vez mais para um público m
 ### 1.1.2. Análise SWOT 
 
 <div align = "center">
-<sup>Figura 1: Análise SWOT relacionada à IBM.</sup><br>
+<sup>Figura 35: Análise SWOT relacionada à IBM.</sup><br>
 <img src="./assets/analiseSwot.png" width="70%">
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
@@ -118,6 +118,12 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 
 ### 1.1.4. Proposta de Valor
 
+<div align = "center">
+<sup>Figura 35: Canvas proposta de valor.</sup><br>
+<img src="./public/assets/canvasPropostadeValor.png"><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+</div>
+
 | Seção                  | Categoria              | Itens                                                                  |
 |------------------------|------------------------|------------------------------------------------------------------------|
 | Perfil do Cliente      | Público-alvo principal | Estudantes universitários e jovens com interesse em aprender sobre IA  |
@@ -152,7 +158,11 @@ A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimi
 
 ### 1.1.6. Matriz de Riscos 
 
+<div align = "center">
+<sup>Figura 36: Matriz de riscos.</sup><br>
 <img src="./assets/matrizDeRiscos.png" width="100%">
+<sub>Fonte: Autoria própria (2026). </sub><br>
+</div>
 
 <div align = "justify">
 
