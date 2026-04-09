@@ -1022,6 +1022,7 @@ Por fim, também houve alteração na tela inicial do jogo para que estivesse ma
 ### 5.2.1 Registros de testes
 
 **Testes de guerrilha**
+
 Os testes foram conduzidos em ambiente de sala de aula, durante o horário da disciplina de UX Design. A amostra foi composta por alunos do primeiro ano de diferentes cursos do Inteli, com idades entre 17 e 20 anos, apresentando nível de conhecimento básico ou superficial em Inteligência Artificial. As sessões ocorreram em computadores equipados com sistema operacional Windows 11, utilizando o navegador Google Chrome como plataforma de execução.
 
 Nome | Felipe 
@@ -1121,6 +1122,7 @@ O que poderia melhorar no jogo? | Em relação a melhorias, acredito que o jogo 
 
 
 **Testes com público-alvo**
+
 Os testes foram conduzidos em ambiente de sala de aula, durante o horário da disciplina de UX Design. A amostra foi composta por alunos do primeiro ano de diferentes cursos do Inteli, com idades entre 17 e 20 anos, apresentando nível de conhecimento básico ou superficial em Inteligência Artificial. As sessões ocorreram em computadores equipados com sistema operacional Windows 11, utilizando o navegador Google Chrome como plataforma de execução.
 
 Número formulário | 1 
