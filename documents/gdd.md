@@ -949,26 +949,37 @@ Durante a quarta sprint, foram desenvolvidas quatro fases e algumas cenas de tra
 Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálogo e  as dinâmicas voltadas ao funcionamento das fases. Foram desenvolvidos mais sistemas de diálogos para as fases e cenas pré-fase para melhor imersão do jogador na narrativa do jogo e para apresentação dos conceitos de IA de forma mais dinâmica. </div>
 
 <sup>Figura ?:Caixa de texto.</sup><br>
-<img src="../assets/Fases/FaseUm/caixaDeTextoInicial.png" width = '70%' ><br>
+<img src="../assets/FotosFases/BalaoDeFala.png" width = '70%' ><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 
 <div align = "justify">
 Paralelamente, foram desenvolvidos as mecânicas das fases e os fundamentos teóricos trabalhados em cada uma. A segunda fase do jogo trabalha o funcionamento de Redes Neurais Artificiais, iniciando com analogias com o trabalho cerebral e utilizando recursos visuais para ilustrar a captação, processamento e aprendizagem no Deep Learning com redes neurais. </div>
 
-**imagens da fase 02
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/FotoFase2.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
 
 <div align = "justify">
 A terceira fase  tem como objetivo ilustrar a necessidade de uma separação e coleta de dados bem realizada, nela foi desenvolvido um mini game de plataforma no qual o jogador tem que coletar os cristais corretos, com características previamente informadas e quantidade predefinida de quantos cristais devem ser coletados. Já a quarta fase foi criada com o intuito de ensinar sobre limpeza de dados, utilizando recursos visuais de limpeza de imagens e conceitos teóricos. </div>
 
-**imagens da fase 03
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/FotoFase3.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
-**imagens da fase 04
+
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/FotoFase4.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
 
 <div align = "justify">
 Por fim, a quinta fase foi desenvolvida para finalizar o jogo para que, após a apresentação dos fundamentos da Inteligência Artificial, ensinar a definição de um prompt e a importância da ética na criação dele e treinar o conhecimento do usuário em relação ao assunto. Nessa parte do jogo, o usuário recebe exemplos de prompts reais submetidos às IAs e classificá-los entre corretos e incorretos, sendo necessário um mínimo de acertos para aferir o conhecimento do jogador. </div>
 
-**imagens da fase 05
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/FotosFases/FotoFase5.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
 
 <div align = "justify">
 Também foram desenvolvidas cenas inseridas entre as fases com o intuito de realizar a imersão do jogador na narrativa do jogo. Na primeira cena, é desenvolvido um diálogo entre Sophia e Watson contextualizando o projeto desenvolvido entre eles e os cientistas. </div>
