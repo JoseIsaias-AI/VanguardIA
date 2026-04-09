@@ -315,7 +315,7 @@ Entre os escombros, encontram um baú contendo a imagem de uma porta específica
 
 Ao atravessarem a entrada certa, encontram um novo conjunto de dados: imagens e registros de cristais raros, divididos entre exemplares verdadeiros e falsos. Os cristais adequados são azuis, capazes de armazenar grandes cargas de energia; os inadequados apresentam colorações avermelhadas. Entretanto, antes que pudesse ver detalhadamente as imagens, o chão da sala de quebra e Sophia cai em outro laboratório, onde ela precisa coletar as imagens dos cristais corretos enquanto escala para a sala das portas para continuar sua missão.
 
-Após esse processo, Sophia precisa levas as características para Asimov e insere-as em seu sistema, onde passa por um novo processo de aprendizado, simulando o comportamento de uma rede neural generativa. Ele começa a produzir múltiplas variações com ruídos e interferências. Cabe a Sophia ajustar os parâmetros: reduzir os níveis de erro e limpar as distorções até que o sistema gere um cristal idêntico ao modelo verdadeiro. 
+Após esse processo, Sophia precisa levar as características para Asimov e insere-as em seu sistema, onde passa por um novo processo de aprendizado, simulando o comportamento de uma rede neural generativa. Ele começa a produzir múltiplas variações com ruídos e interferências. Cabe a Sophia ajustar os parâmetros: reduzir os níveis de erro e limpar as distorções até que o sistema gere um cristal idêntico ao modelo verdadeiro. 
 
 Com o padrão final validado, o cristal é forjado e colocado no núcleo do mapa energético do laboratório. A energia da instalação é restaurada, reativando sistemas essenciais e recuperando integralmente o banco de dados de Asimov. Com sua capacidade de processamento ampliada e acesso total às informações originais, ele se torna novamente um agente autônomo avançado, pronto para auxiliar Sophia na reconstrução do conhecimento perdido.
 
@@ -815,7 +815,7 @@ Nesta tela também foram implementados um sistema de colisão básico — em ape
 </div>
 
 <div align = "justify">
-Para os próximos passos, o grupo deseja implementar os requisitos 3 e 4, adicionar novas fases para implemnetar os requisitos 5 e 6. </div>
+Para os próximos passos, o grupo deseja implementar os requisitos 3 e 4, adicionar novas fases para implementar os requisitos 5 e 6. </div>
 
 ## 4.2. Desenvolvimento básico do jogo 
 
@@ -915,7 +915,7 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 Durante a quarta sprint, foram desenvolvidas quatro fases completas, junto com cenas de transição que ajudaram a tornar a história do jogo mais clara e interessante, conectando melhor os acontecimentos e melhorando a experiência do jogador. Também foram implementadas funções matemáticas e físicas que auxiliam no funcionamento do jogo e na progressão, além de sistemas de diálogo mais organizados, facilitando a interação entre os personagens. A trilha sonora foi adicionada às cenas e fases, contribuindo para a ambientação do jogo. As atividades foram divididas entre os integrantes do grupo de acordo com as habilidades de cada um, o que ajudou no andamento do trabalho.
 
 
-Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálogo e  as dinâmicas voltadas ao funcionamento das fases. Foram desenvolvidos mais sistemas de diálogos para as fases e cenas pré-fase para melhor imersão do jogador na narrativa do jogo e para apresentação dos conceitos de IA de forma mais dinâmica. </div>
+Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálogo e  as dinâmicas voltadas ao funcionamento das fases. Foram desenvolvidos mais sistemas de diálogos para as fases e cenas pré-fase para melhor imersão do jogador na narrativa do jogo, e para apresentação dos conceitos de IA de forma mais dinâmica. </div>
 
 <div align = "center">
 
@@ -1040,7 +1040,7 @@ criação de código para caixas de texto padronizadas; lógica de reiniciar fas
 | Finalizar fase 02                                                           | Pressionar tecla E para abrir o baú                                  | Executar corretamente animação de chão quebrando e Sophia caindo                                          |
 | Estar na fase 03                                                            | Apertar tecla SPACE e direcionar personagem na direção de plataforma | Personagem deve colidir corretamente com a plataforma                                                     |
 | Chegar ao topo do cenário da fase 03                                        | Coletar todos os cristais corretos e pular em direção à corda        | Seguir para a próxima cena                                                                                |
-| Dialogar com Asimov                                                         | Pressionar tecla E para ler documentos                               | Abrir corretamente documnetação e ser direcionado à fase 04                                               |
+| Dialogar com Asimov                                                         | Pressionar tecla E para ler documentos                               | Abrir corretamente documentação e ser direcionado à fase 04                                               |
 | Estar na fase 04                                                            | Pressionar botão direito do mouse e arrastar na imagem               | Nitidez crescente nos pontos selecionados da imagem                                                       |
 | Realizar limpeza da imagem                                                  | Possuir nitidez de 99%                                               | Ser direcionado à cena seguinte                                                                           |
 | Estar na fase cinco                                                         | Classificar afirmação como correta ou incorreta                      | Crescimento da contagem de acertos e erros                                                                |
