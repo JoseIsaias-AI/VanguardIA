@@ -944,7 +944,8 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
 <div align = "justify">
-Durante a quarta sprint, foram desenvolvidas quatro fases e algumas cenas de transição que implementam elementos narrativos ao jogo, além de terem sido implementadas funções matemáticas, sistemas de diálogo mais definidos e trilha sonora das cenas e fases. As atividades desenvolvidas foram divididas entre os integrantes do grupo para melhor desenvolvimento e foram posteriormente integradas. 
+Durante a quarta sprint, foram desenvolvidas quatro fases completas, junto com cenas de transição que ajudaram a tornar a história do jogo mais clara e interessante, conectando melhor os acontecimentos e melhorando a experiência do jogador. Também foram implementadas funções matemáticas e físicas que auxiliam no funcionamento do jogo e na progressão, além de sistemas de diálogo mais organizados, facilitando a interação entre os personagens. A trilha sonora foi adicionada às cenas e fases, contribuindo para a ambientação do jogo. As atividades foram divididas entre os integrantes do grupo de acordo com as habilidades de cada um, o que ajudou no andamento do trabalho.
+
 
 Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálogo e  as dinâmicas voltadas ao funcionamento das fases. Foram desenvolvidos mais sistemas de diálogos para as fases e cenas pré-fase para melhor imersão do jogador na narrativa do jogo e para apresentação dos conceitos de IA de forma mais dinâmica. </div>
 
@@ -954,7 +955,8 @@ Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálo
 
 
 <div align = "justify">
-Paralelamente, foram desenvolvidos as mecânicas das fases e os fundamentos teóricos trabalhados em cada uma. A segunda fase do jogo trabalha o funcionamento de Redes Neurais Artificiais, iniciando com analogias com o trabalho cerebral e utilizando recursos visuais para ilustrar a captação, processamento e aprendizagem no Deep Learning com redes neurais. </div>
+Paralelamente, foram desenvolvidas as mecânicas das fases e os conceitos teóricos trabalhados em cada uma. A segunda fase do jogo aborda o funcionamento das Redes Neurais Artificiais de forma simples, começando com comparações com o cérebro humano e usando recursos visuais para mostrar como ocorre a entrada de dados, o processamento e o aprendizado no Deep Learning com redes neurais.
+
 
 <sup>Figura ?:Caixa de texto.</sup><br>
 <img src="../assets/FotosFases/FotoFase2.png" width = '70%' ><br>
@@ -982,7 +984,8 @@ Por fim, a quinta fase foi desenvolvida para finalizar o jogo para que, após a 
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
 <div align = "justify">
-Também foram desenvolvidas cenas inseridas entre as fases com o intuito de realizar a imersão do jogador na narrativa do jogo. Na primeira cena, é desenvolvido um diálogo entre Sophia e Watson contextualizando o projeto desenvolvido entre eles e os cientistas. </div>
+
+Também foram desenvolvidas cenas entre as fases com o objetivo de aumentar a imersão do jogador na história do jogo. Na primeira cena, acontece um diálogo entre Sophia e Watson, que apresenta o contexto do projeto criado por eles junto com os cientistas.
  
 <sup>Figura ?:Caixa de texto.</sup><br>
 <img src="../assets/FotosFases/DialogoSophiaWatson.png" width = '70%' ><br>
@@ -997,7 +1000,8 @@ Já na segunda cena há um diálogo entre Sophia e Asimov, onde o robô explica 
 
 
 <div align = "justify">
-Por fim, também houve alteração na tela inicial do jogo para que estivesse mais alinhada à paleta de cores do projeto e a adição de um menu para mostrar os controles que o usuário deve utilizar para movimentação e ações. </div>
+
+Por fim, também houve ajustes na tela inicial do jogo para que ficasse mais alinhada com a paleta de cores do projeto, deixando a interface mais consistente e agradável visualmente. Além disso, foi adicionado um menu com instruções dos controles, ajudando o usuário a entender melhor como realizar a movimentação e as ações dentro do jogo.
 
 <sup>Figura ?:Caixa de texto.</sup><br>
 <img src="../assets/FotosFases/TelaDeInicio.png" width = '70%' ><br>
