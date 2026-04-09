@@ -36,17 +36,17 @@
 <br>
 
 
-# <a name="c1"></a>1. Introdução (sprints 1 a 4)
+# <a name="c1"></a>1. Introdução 
 
 ## 1.1. Plano Estratégico do Projeto
 
-### 1.1.1. Contexto da indústria (sprint 2)
+### 1.1.1. Contexto da indústria 
 
 <div align = "justify">
 Impulsionada pela pandemia, a indústria de jogos educativos tornou-se um dos nichos mais produzidos no Brasil ¹. Enquanto players consolidados mantêm o foco no ensino passivo via texto e vídeo, a tendência do mercado exige metodologias dinâmicas para ensinar essas tecnologias amplamente usadas pelas grandes empresas de IA. Aproveitando essa lacuna de engajamento prático, o IBM SkillsBuild, plataforma de cursos online, posiciona-se estrategicamente como uma plataforma gratuita de capacitação. A iniciativa de encontrar jogos educativos democratiza o aprendizado tecnológico de ponta, preparando estudantes e profissionais para as reais demandas interativas do mercado de trabalho.
 </div>
 
-#### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
+#### 1.1.1.1. Modelo de 5 Forças de Porter 
 
 **1. Ameaça de Novos Entrantes (Ameaça Média)**
 
@@ -74,7 +74,7 @@ O público-alvo abrange desde estudantes do ensino médio e universitários até
 O mercado de ensino gamificado de IA tem olhado cada vez mais para um público maior e sem o conhecimento, porque não sabe manusear as plataformas. Isso limita avanços para conseguir vender suas próprias IAs e como todo negócio esse é um ramo muito lucrativo que tem rivalidade forte para conseguir a maior fatia. Entre os concorrentes destacam-se o AWS DeepRacer ², que utiliza um simulador 3D gamificado focado estritamente em Aprendizado por Reforço, e o Google Cloud Skills Boost ³, que utiliza laboratórios práticos e um sistema de badges (conquistas) para o ensino de IA na nuvem. Embora essas grandes empresas dominem nichos segmentados, suas ferramentas costumam ter limitações de uso atreladas a custos de infraestrutura (versões pagas após testes) ou focam exclusivamente em seus próprios ecossistemas corporativos.
 </div>
 
-### 1.1.2. Análise SWOT (sprint 2)
+### 1.1.2. Análise SWOT 
 
 <div align = "center">
 <sup>Figura 1: Análise SWOT relacionada à IBM.</sup><br>
@@ -100,7 +100,7 @@ O crescimento acelerado do mercado de IA, aliado à lacuna de conhecimento no Br
 A principal ameaça é a concorrência. Uma busca simples por "curso introdutório de IA" no Google retorna diversas opções gratuitas — como o curso do Centro Paula Souza —, e o próprio Skills Build original pode ser percebido como alternativa mais direta e tradicional. O fato de o jogo adotar uma abordagem pedagógica diferenciada é ao mesmo tempo um diferencial e um risco, já que parte do público pode preferir métodos de ensino convencionais, especialmente num primeiro contato com o tema. Outra ameaça relevante é a velocidade de obsolescência dos conteúdos. Em uma área em que avanços disruptivos ocorrem em questão de meses, manter o jogo atualizado exigirá um processo contínuo de revisão, o que representa um custo operacional significativo ⁴.
 </div>
 
-### 1.1.3. Missão / Visão / Valores (sprint 2)
+### 1.1.3. Missão / Visão / Valores 
 
 <div align = "justify">
 **Missão:**
@@ -128,7 +128,7 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 | Mapa de Valor | Aliviadores de Dores | Substituição de conteúdo passivo por interação<br>Simulação prática<br>Feedback imediato<br>Transformação de conceitos abstratos em interações concretas<br>Uso de microdesafios para aumentar o engajamento<br>Visualização de processos de IA|
 | Mapa de Valor | Criadores de Ganho | Narrativa imersiva<br>Progressão por níveis¹⁰<br>Aplicação prática dos conceitos<br>Puzzles sobre IA |
 
-### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
+### 1.1.5. Descrição da Solução Desenvolvida 
 
 <div align = "justify">
 A solução desenvolvida consiste em um jogo educativo web gamificado voltado ao ensino introdutório de Inteligência Artificial, integrado ao contexto do IBM SkillsBuild. O projeto parte do diagnóstico de que os cursos online tradicionais sofrem com baixo engajamento, altas taxas de evasão e um modelo de aprendizado predominantemente passivo, incapaz de manter o interesse de jovens iniciantes. Esse problema é agravado pela natureza excessivamente técnica de grande parte do conteúdo sobre IA disponível, criando uma barreira de entrada significativa para o público-alvo identificado: jovens universitários de renda média-baixa, egressos de escola pública, com familiaridade cotidiana com tecnologia mas sem formação técnica formal na área.
@@ -149,7 +149,7 @@ A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimi
 </div>
 
 
-### 1.1.6. Matriz de Riscos (sprint 4)
+### 1.1.6. Matriz de Riscos 
 
 <img src="./assets/matrizDeRiscos.png" width="100%">
 
@@ -179,7 +179,7 @@ O R10 – Experiência do Usuário, UX e UI apresenta probabilidade 50 e impacto
 
 Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 30 e impacto baixo. Elementos visuais podem não atingir o nível ideal de qualidade estética ou consistência, afetando a percepção de profissionalismo, mas sem comprometer a funcionalidade. O plano de ação é a iteração visual, com indicador de feedback qualitativo. A oportunidade está na construção de uma identidade visual marcante e coerente.
 
-### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
+### 1.1.7. Objetivos, Metas e Indicadores 
 
 **Objetivos**
 
@@ -207,7 +207,7 @@ Por fim, nos riscos baixos, o R11 – Riscos de Design apresenta probabilidade 3
 
 </div>
 
-## 1.2. Requisitos do Projeto (sprints 1 e 2)
+## 1.2. Requisitos do Projeto 
 
 Os requisitos do projeto estabelecem as diretrizes essenciais para seu desenvolvimento, definindo o que deve ser entregue, como e sob quais condições. Eles servem como base para orientar a equipe em relação ao planejamento, implementação e validação, assegurando uma boa execução do projeto.
 
@@ -229,7 +229,7 @@ Os requisitos do projeto estabelecem as diretrizes essenciais para seu desenvolv
 14 | A fase cinco deve ser reiniciada caso o jogador classifique corretamente menos de 70% das afirmações.
 15 | As informações necessárias para executar uma fase corretamente devem ser apresentadas em cenas ou fases anteriores.
 
-## 1.3. Público-alvo do Projeto (sprint 2)
+## 1.3. Público-alvo do Projeto 
 
 <div align = "justify">
 O público-alvo do jogo são jovens universitários com pouco ou nenhum contato aprofundado com tecnologia — especialmente com Inteligência Artificial. A maioria dessas pessoas limita sua experiência de AI ao uso casual de chatbots como ChatGPT, Gemini ou Claude, o que reflete bem a realidade, em que pesquisas, por exemplo, indicam que menos de 30% das empresas nos EUA de fato adotaram IA em seus processos, evidenciando que a expertise do grande público nessa área é frequentemente superestimada. Por ser um jogo introdutório, ele se encaixa tanto para estudantes de cursos que demandam apenas um uso superficial de IA quanto para calouros de cursos como Ciência da Computação, Engenharia de Software ou Engenharia da Computação que ainda não tiveram uma base sólida no tema, funcionando de forma análoga ao pré-cálculo adotado por diversas universidades para nivelar estudantes com lacunas matemáticas, mas para o uso de AI e sendo muito mais divertido e engajante ⁵.
@@ -237,24 +237,24 @@ O público-alvo do jogo são jovens universitários com pouco ou nenhum contato 
 O perfil mais representativo do nosso usuário é o de um jovem de renda média-baixa, criado fora dos grandes centros urbanos e egresso de escola pública, levando em conta que mais de 80% dos estudantes do ensino médio brasileiro vem de escolas públicas, o público potencial do jogo seria bem grande. Esse usuário potencial do jogo tem afinidade e desenvoltura com tecnologias acessíveis do cotidiano, como celulares e videogames, mas nunca teve a oportunidade de se aprofundar tecnicamente. Agora, ao ingressar na universidade, enfrenta pela primeira vez a necessidade de desenvolver uma compreensão mais sólida da área, e é exatamente para esse primeiro passo que o jogo foi pensado ⁶.
 </div>
 
-# <a name="c2"></a>2. Visão Geral do Jogo (sprint 2)
+# <a name="c2"></a>2. Visão Geral do Jogo 
 
-## 2.1. Objetivos do Jogo (sprint 2)
+## 2.1. Objetivos do Jogo 
 
 <div align = "justify">
 O objetivo do jogo é restaurar o funcionamento do laboratório e proteger os dados essenciais para a humanidade. O objetivo lusório consiste em alcançar esse resultado respeitando as regras e limitações impostas pelo jogo, como desviar de obstáculos, resolver puzzles e utilizar corretamente as mecânicas específicas de cada fase, incluindo os controles de movimentação e os minigames propostos.
 
 Além do objetivo narrativo e lusório, o projeto também possui um propósito educacional de apresentar conceitos básicos de Inteligência Artificial de forma interativa. Por meio das mecânicas, desafios e situações enfrentadas durante a gameplay, o jogador entra em contato com fundamentos de IA, como reconhecimento de padrões e tomada de decisão, adquirindo fluência básica no tema, além de estimular o interesse de estudantes universitários pela área e incentivar a busca por iniciativas educacionais relacionadas, como os próprios cursos oferecidos pelo IBM SkillsBuild.
 
-## 2.2. Características do Jogo (sprint 2) 
+## 2.2. Características do Jogo 
 
 O jogo é uma historia repleta de acão onde a protagonista deverá passar por desafios e durantes eles irá aprender sobre os fundamentos basicos da IA. O jogo tem graficos simples feitos no Piskel. Os personagens são a peca chave para o jogo, todos tem um contexto, historia e motivacões, assim deixando o jogador mais conectado com o jogo. 
 
-### 2.2.1. Gênero do Jogo (sprint 2)
+### 2.2.1. Gênero do Jogo 
 
 O gênero do nosso jogo é de aventura, tendo modo história, ação e puzzles, tudo isso com o objetivo de ensinar.
 
-### 2.2.2. Plataforma do Jogo (sprint 2)
+### 2.2.2. Plataforma do Jogo 
 
 O jogo será desenvolvido para plataforma Web, sendo executado diretamente no navegador por meio do framework Phaser, utilizando tecnologias baseadas em HTML5 e JavaScript. O acesso ocorrerá por meio de um link, sem necessidade de instalação prévia do jogo.
 
@@ -262,23 +262,23 @@ A experiência foi projetada principalmente para computadores (desktop e noteboo
 
 Embora o site possa ser acessado também por dispositivos móveis, o jogo não foi desenvolvido com interface responsiva, pois os controles utilizam teclado e mouse para movimentação e interação.
 
-### 2.2.3. Número de jogadores (sprint 2)
+### 2.2.3. Número de jogadores 
 
 Apenas um jogador. Nosso jogo é uma história onde apenas 1 jogador é controlável, a nossa protagonista Sophia.
 
-### 2.2.4. Títulos semelhantes e inspirações (sprint 2)
+### 2.2.4. Títulos semelhantes e inspirações 
 
 Nós nos inspiramos em jogos baseados em minigames (o jeito que nós iremos ensinar o usuário) , Hollow Knight (Design, como a luz em torno do personagem), Spaceship Runner e Among Us ( Gráfico e puzzles) , a inteligência artificial Learn Ia (Desenvolvimento de habilidades de IA, baseado em textos).
 
-### 2.2.5. Tempo estimado de jogo (sprint 5)
+### 2.2.5. Tempo estimado de jogo 
 
 O tempo estimado do nosso jogo é de 13 minutos.
 
 </div>
 
-# <a name="c3"></a>3. Game Design (sprints 2 e 3)
+# <a name="c3"></a>3. Game Design 
 
-## 3.1. Enredo do Jogo (sprints 2 e 3)
+## 3.1. Enredo do Jogo 
 
 <div align = "justify">
 Em um mundo onde a Inteligência Artificial ainda está em fase de desenvolvimento, surge a constante indagação sobre como essa tecnologia afetará o futuro da sociedade. A narrativa tem início em 2022, em um laboratório de pesquisa focado em aprendizado de máquina e robótica, repleto de profissionais renomados. Entre eles destaca-se Sophia, uma cientista brilhante reconhecida por sua curiosidade inata, mente analítica e criatividade na resolução de problemas. À frente do laboratório está Watson, cientista-chefe e orientador de Sophia, responsável por coordenar os projetos mais ambiciosos da equipe.
@@ -310,7 +310,7 @@ Por fim, Asimov ensina para Sophia sobre a criação de prompts e a importância
 Desse modo, mostrando Sophia ao lado de Asimov com o objetivo de ensinar sobre os fundamentos e a utilização ética da IA para a humanidade, o jogo encerra-se com um desfecho aberto, deixando ao jogador a sensação de que o verdadeiro desafio começa a partir dali.
 </div>
 
-## 3.2. Personagens (sprints 2 e 3)
+## 3.2. Personagens 
 
 ### 3.2.1. Controláveis
 
@@ -322,7 +322,7 @@ Sophia é uma das personagens controláveis e protagonista da narrativa. Cientis
 
 <div align = "center">
 <sup>Figura 2: Sprite de Sophia, a personagem principal.</sup><br>
-<img src="../assets/personagens1/sophia.png"><br>
+<img src="../public/assets/personagens1/sophia.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
@@ -334,7 +334,7 @@ Asimov também é personagem controlável em momentos específicos da jogabilida
 
 <div align = "center">
 <sup>Figura 3: Sprite de asimov, personagem secundário.</sup><br>
-<img src="../assets/personagens1/asimov.png"><br>
+<img src="../public/assets/personagens1/asimov.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
@@ -350,7 +350,7 @@ Embora não esteja presente fisicamente no futuro, Watson exerce forte influênc
 
 <div align = "center">
 <sup>Figura 4: Sprite de Watson, NPC.</sup><br>
-<img src="../assets/personagens1/watson.png"><br>
+<img src="../public/assets/personagens1/watson.png"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
@@ -374,9 +374,9 @@ Watson, por sua vez, representa a tradição científica e a responsabilidade in
 Dessa forma, o jogo promove representatividade de gênero, acadêmica e profissional, posicionando a ciência como espaço acessível, diverso e em constante transformação. A narrativa reforça que o avanço da Inteligência Artificial depende não apenas de inovação técnica, mas também de diversidade, responsabilidade e formação crítica.
 </div>
 
-## 3.3. Mundo do jogo (sprints 2 e 3)
+## 3.3. Mundo do jogo
 
-### 3.3.1. Locações Principais e/ou Mapas (sprints 2 e 3)
+### 3.3.1. Locações Principais e/ou Mapas 
 
 <div align = "justify">
 O jogo tem cinco diferentes cenários e, entre eles, dois deles tem variações. A narrativa se inicia em um laboratório com diversos cientistas, prontos para iniciar o projeto que desenvolveram; esse ambiente é apresentado como um espaço moderno, organizado e com diversos equipamentos tecnológicos, transmitindo a sensação de progresso científico e inovação.
@@ -445,7 +445,7 @@ Por fim, é apresentada no jogo a sala principal de controle do laboratório, on
 
 </div>
 
-### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
+### 3.3.2. Navegação pelo mundo 
 
 **Controles de Movimento**
 
@@ -485,12 +485,12 @@ A tecla **E** é utilizada para interagir com:
 | **Resultado do avanço** | Desbloqueio de nova área |
 | **Progressão narrativa** | Acontece a cada fase concluída |
 
-### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
+### 3.3.3. Condições climáticas e temporais 
 
 <div align = "justify">
 A existência de diferentes condições climáticas não foi uma possibilidade de aplicação dentro do enredo do jogo pois não foi considerado como fator de importância, devido aos ambientes do jogo se passarem em ambientes internos.
 
-### 3.3.4. Concept Art (sprint 2)
+### 3.3.4. Concept Art 
 
 Durante o planejamento do jogo, com o objetivo de obter melhor visualização da proposta dos assets e do encaminhamento do projeto, foram desenvolvidas diversas concept arts relacionadas as cenas e personagens.
 </div>
@@ -523,7 +523,7 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 </div>
 
-### 3.3.5. Trilha sonora (sprint 4)
+### 3.3.5. Trilha sonora 
 
 | Uso no Jogo          | Nome Original do Áudio           | Criador / Autor        | Duração | Categoria / Tags                                     | Fonte            | Arquivo                                | Ocorrência           |
 |----------------------|----------------------------------|------------------------|---------|------------------------------------------------------|------------------|----------------------------------------|----------------------|
@@ -547,7 +547,7 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 
 
-## 3.4. Inventário e Bestiário (sprint 3)
+## 3.4. Inventário e Bestiário 
 
 ### 3.4.1. Inventário
 
@@ -561,7 +561,7 @@ Durante o planejamento do jogo, com o objetivo de obter melhor visualização da
 
 A existência de inimigos não foi uma possibilidade acordada dentro do enredo do jogo devido ao grau de importância que o grupo concluiu para esse fator, pois o projeto trabalhado será mais focado na resolução de problemas lógicos.
 
-## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
+## 3.5. Gameflow (Diagrama de cenas) 
 
 <div align="center">
 <sub>Figura 13: Storyboard de programação</sub><br>
@@ -569,7 +569,7 @@ A existência de inimigos não foi uma possibilidade acordada dentro do enredo d
 <sup>Fonte: Autoria própria (2026).</sup><br>
 </div>
 
-## 3.6. Regras do jogo (sprint 3)
+## 3.6. Regras do jogo 
 
 <div align = "justify">
 O objetivo geral do jogo é investigar um laboratório em ruínas no ano de 2098 e forjar um novo núcleo de energia capaz de reativar o banco de dados do robô Asimov. No prólogo, ocorre um salto temporal em que o jogador viaja para o futuro e estabelece o primeiro contato com a máquina. Nesse momento inicial, a câmara criogênica permanece bloqueada, exigindo que o jogador interaja com o cientista Watson e esgote todas as opções de diálogo disponíveis para liberar a transição temporal. Ao chegar em 2098, a progressão só é habilitada após o jogador ouvir integralmente as instruções iniciais de Asimov, garantindo a compreensão do contexto e das mecânicas básicas.
@@ -578,7 +578,7 @@ Na sequência, a segunda etapa se desenrola em um corredor do laboratório, onde
 
 Na terceira fase, o jogador enfrenta um desafio de classificação de cristais após cair em um buraco, devendo escalá-lo enquanto coleta apenas os cristais verdadeiros, identificados pela cor azul, e evita os falsos, representados em vermelho. A coleta de um cristal incorreto implica penalização e reinício da fase, sendo necessário reunir todos os cristais corretos para prosseguir. Na quarta etapa, o foco recai sobre a limpeza de um cristal imperfeito gerado por Asimov, utilizando um mecanismo de arrasto com o mouse para remover manchas e irregularidades. Durante esse processo, o jogador deve controlar a barra de overfitting, impedindo que atinja 100%, pois isso resulta no reinício da fase; da mesma forma, uma limpeza incompleta impede a conclusão do objetivo. Por fim, na quinta e última fase, o jogador deve avaliar diferentes prompts sob critérios de adequação e ética, classificando-os como apropriados ou não. Para concluir o jogo, é necessário acertar pelo menos sete das dez avaliações apresentadas, consolidando o aprendizado adquirido ao longo da experiência.
 
-## 3.7. Mecânicas do jogo (sprint 3)
+## 3.7. Mecânicas do jogo 
 
 ### Mecânicas principais
 
@@ -634,7 +634,7 @@ Após a forja e a identificação correta do cristal verdadeiro, Sophia pode lev
 Controles: Movimentação livre (WASD / Setas) para transportar o cristal e Tecla "E" no núcleo central para depositá-lo e acionar a vitória da fase.
 </div>
 
-## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
+## 3.8. Implementação Matemática de Animação/Movimento 
 
 
 ## 3.8.1 Parâmetros do Modelo
@@ -759,7 +759,7 @@ Para garantir que a movimentação e a gravidade no jogo funcionem de maneira fl
 
 # <a name="c4"></a>4. Desenvolvimento do Jogo
 
-## 4.1. Desenvolvimento preliminar do jogo (sprint 1)
+## 4.1. Desenvolvimento preliminar do jogo 
 
 <div align = "justify">
 Na primeira sprint o grupo desenvolveu a versão inicial do jogo, tendo como foco os requisitos 1 e 2 do Game Design Document (GDD). A primeira versão é composta pela tela inicial, que contém o botão "Play" para que o jogador inicie o jogo.
@@ -798,7 +798,7 @@ Nesta tela também foram implementados um sistema de colisão básico — em ape
 <div align = "justify">
 Para os próximos passos, o grupo deseja implementar os requisitos 3 e 4, adicionar novas fases para implemnetar os requisitos 5 e 6. </div>
 
-## 4.2. Desenvolvimento básico do jogo (sprint 2)
+## 4.2. Desenvolvimento básico do jogo 
 
 <div align = "justify">
 Na segunda sprint o desenvolvimento do jogo foi focado na implementação da tela inicial do jogo, na elaboração dos backgrounds e periféricos das fases e na correção de bugs.
@@ -845,7 +845,7 @@ Por fim, foram desenvolvidos os designs do background utilizado na Fase 01 e dos
 
 </div> 
 
-## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
+## 4.3. Desenvolvimento intermediário do jogo 
 
 <div align = "justify">
 Durante a Sprint 3, a equipe concentrou-se na implementação de elementos narrativos e mecânicos fundamentais para o funcionamento do jogo. As atividades foram conduzidas de forma paralela entre os membros da equipe e posteriormente integradas para compor a versão intermediária do jogo entregue nesta etapa.
@@ -890,7 +890,7 @@ Também foi desenvolvida a cutscene do despertar de Sophia, responsável por con
 
 </div>
 
-## 4.4. Desenvolvimento final do MVP (sprint 4)
+## 4.4. Desenvolvimento final do MVP 
 
 <div align = "justify">
 Durante a quarta sprint, foram desenvolvidas quatro fases completas, junto com cenas de transição que ajudaram a tornar a história do jogo mais clara e interessante, conectando melhor os acontecimentos e melhorando a experiência do jogador. Também foram implementadas funções matemáticas e físicas que auxiliam no funcionamento do jogo e na progressão, além de sistemas de diálogo mais organizados, facilitando a interação entre os personagens. A trilha sonora foi adicionada às cenas e fases, contribuindo para a ambientação do jogo. As atividades foram divididas entre os integrantes do grupo de acordo com as habilidades de cada um, o que ajudou no andamento do trabalho.
@@ -984,13 +984,13 @@ Por fim, também houve ajustes na tela inicial do jogo para que ficasse mais ali
 
 </div>
 
-## 4.5. Revisão do MVP (sprint 5)
+## 4.5. Revisão do MVP 
 
 *Descreva e ilustre aqui o desenvolvimento dos refinamentos e revisões da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar.*
 
 # <a name="c5"></a>5. Testes
 
-## 5.1. Casos de Teste (sprints 2 a 4)
+## 5.1. Casos de Teste 
 
 | pré-condição | descrição do teste | pós-condição |
 |----------------------------------------|--------------------------------------------------|-----------------------------------------------------------|
@@ -1016,7 +1016,7 @@ Por fim, também houve ajustes na tela inicial do jogo para que ficasse mais ali
 | realizar limpeza da imagem | possuir nitidez de 99% | ser direcionado à cena seguinte |
 | estar na fase cinco | classificar afirmação como correta ou incorreta | crescimento da contagem de acertos e erros |
 
-## 5.2. Testes de jogabilidade (playtests) (sprint 5)
+## 5.2. Testes de jogabilidade (playtests) 
 
 ### 5.2.1 Registros de testes
 
@@ -1249,7 +1249,7 @@ Diante desse cenário, torna-se necessário aprimorar a UX do jogo, com foco na 
 Além disso, é imprescindível realizar a correção dos bugs identificados durante os testes. Considerando que as avaliações foram conduzidas sobre uma versão MVP do jogo, a ocorrência desses problemas já era esperada. Dessa forma, o processo de refatoração do código, deve visar tanto a resolução de erros previamente conhecidos quanto a correção dos novos problemas identificados a partir dos testes realizados.
 
 
-# <a name="c6"></a>6. Conclusões e trabalhos futuros (sprint 5)
+# <a name="c6"></a>6. Conclusões e trabalhos futuros 
 
 O projeto cumpriu integralmente os objetivos estabelecidos na Seção 1, alcançando de forma consistente as metas propostas de aumentar o engajamento de jovens com pouco conhecimento em IA, ao mesmo tempo em que promoveu uma melhor compreensão dos conceitos básicos de Inteligência Artificial. Além disso, conseguiu despertar o interesse dos participantes pela área, tornando o aprendizado mais atrativo e acessível, e ainda incentivou os jogadores a prosseguirem até a conclusão do jogo.
 
@@ -1267,7 +1267,7 @@ No horizonte de longo prazo, o jogo pode evoluir em duas frentes principais, amp
 
 Em sua forma atual, o projeto demonstra que é possível ensinar Inteligência Artificial de maneira acessível, envolvente e inclusiva. A combinação entre uma plataforma web de fácil acesso, minigames bem executados e um storytelling cativante forma uma base sólida que já entrega valor real ao seu público-alvo. Mais do que um jogo, o projeto representa um passo concreto em direção à visão estabelecida na seção 1.1.3: ser um modelo nacional na implementação da gamificação para a educação de IA de maneira inclusiva. Com as melhorias planejadas e o potencial de expansão identificado, o jogo está posicionado para crescer tanto em profundidade pedagógica quanto em alcance, consolidando-se como uma ferramenta relevante na democratização do conhecimento em IA para jovens brasileiros.
 
-# <a name="c7"></a>7. Referências (sprint 5)
+# <a name="c7"></a>7. Referências 
 
 
 ¹ ABRA. A indústria de games BR e o nicho de jogos educativos. Disponível em: https://abra.com.br/artigos/a-industria-de-games-br-e-o-nicho-de-jogos-educativos. Acesso em: 27 fev. 2026.
