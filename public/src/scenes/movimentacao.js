@@ -125,7 +125,7 @@ export function movimentacaoAsimov(cena, asimov, alvo, colisaoFn = null) {
 
 export function criarAnimacaoSophia(cena) {
     if (cena.anims.exists("sophia_esquerda")) return;
-    cena.anims.create({ key: "sophia_esquerda", frames: cena.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }), frameRate: 10, repeat: -1 });
+    cena.anims.create({ key: "sophia_esquerda", frames: cena.anims.generateFrameNumbers("sophia", { start: 22, end: 27 }), frameRate: 10, repeat: -1 });
     cena.anims.create({ key: "sophia_direita",  frames: cena.anims.generateFrameNumbers("sophia", { start: 16, end: 21 }), frameRate: 10, repeat: -1 });
     cena.anims.create({ key: "sophia_frente",   frames: cena.anims.generateFrameNumbers("sophia", { start: 0,  end: 7  }), frameRate: 10, repeat: -1 });
     cena.anims.create({ key: "sophia_tras",     frames: cena.anims.generateFrameNumbers("sophia", { start: 8,  end: 15 }), frameRate: 10, repeat: -1 });

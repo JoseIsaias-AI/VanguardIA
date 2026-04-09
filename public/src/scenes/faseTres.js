@@ -449,7 +449,7 @@ export class faseTres extends Phaser.Scene {
 
     this.anims.create({
       key: "sophia-left",
-      frames: this.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }),
+      frames: this.anims.generateFrameNumbers("sophia", { start: 22, end: 27 }),
       frameRate: 10,
       repeat: -1
     });
