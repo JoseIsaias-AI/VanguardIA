@@ -78,11 +78,12 @@ O mercado de ensino gamificado de IA tem olhado cada vez mais para um público m
 
 <div align = "center">
 <sup>Figura 1: Análise SWOT relacionada à IBM.</sup><br>
-<img src="./assets/analiseSwot.png" width="70%">
+<img src="./assets/analiseSwot.png" width="70%"><br>
 <sub>Fonte: Autoria própria (2026). </sub><br>
 </div>
 
 <div align = "justify">
+
 **Forças**
 
 As principais forças do projeto decorrem da parceria com a IBM, conferindo, por exemplo, credibilidade imediata ao jogo e contato com especialistas em IA, garantindo rigor técnico e relevância no aprendizado. Além da base já consolidada do Skills Build, que traz um eixo de conteúdos e dados para se apoiar. Soma-se a isso a própria composição da equipe, formada por integrantes que fazem parte do público-alvo e com diferentes níveis de conhecimento em IA, possibilitando testar internamente a clareza e a eficácia da abordagem pedagógica do jogo, validando o processo de ensino a partir da própria experiência de aprendizagem do grupo.
@@ -103,6 +104,7 @@ A principal ameaça é a concorrência. Uma busca simples por "curso introdutór
 ### 1.1.3. Missão / Visão / Valores 
 
 <div align = "justify">
+
 **Missão:**
 
 Democratizar o acesso a conhecimentos sobre de IA para jovens de todas as classes sociais através da gamificação com um jogo web de fácil acesso ⁷.
@@ -137,8 +139,8 @@ Educação lúdica, democratização da IA, inovação pedagógica, aprendizado 
 ### 1.1.5. Descrição da Solução Desenvolvida 
 
 <div align = "justify">
-A solução desenvolvida consiste em um jogo educativo web gamificado voltado ao ensino introdutório de Inteligência Artificial, integrado ao contexto do IBM SkillsBuild. O projeto parte do diagnóstico de que os cursos online tradicionais sofrem com baixo engajamento, altas taxas de evasão e um modelo de aprendizado predominantemente passivo, incapaz de manter o interesse de jovens iniciantes. Esse problema é agravado pela natureza excessivamente técnica de grande parte do conteúdo sobre IA disponível, criando uma barreira de entrada significativa para o público-alvo identificado: jovens universitários de renda média-baixa, egressos de escola pública, com familiaridade cotidiana com tecnologia mas sem formação técnica formal na área.
 
+A solução desenvolvida consiste em um jogo educativo web gamificado voltado ao ensino introdutório de Inteligência Artificial, integrado ao contexto do IBM SkillsBuild. O projeto parte do diagnóstico de que os cursos online tradicionais sofrem com baixo engajamento, altas taxas de evasão e um modelo de aprendizado predominantemente passivo, incapaz de manter o interesse de jovens iniciantes. Esse problema é agravado pela natureza excessivamente técnica de grande parte do conteúdo sobre IA disponível, criando uma barreira de entrada significativa para o público-alvo identificado: jovens universitários de renda média-baixa, egressos de escola pública, com familiaridade cotidiana com tecnologia mas sem formação técnica formal na área.
 
 A resposta a esse cenário é uma experiência narrativa e interativa protagonizada por Sophia, cientista que desperta em 2098 após décadas em criogenia, encontrando um mundo devastado pelo uso indevido de Inteligências Artificiais. Acompanhada pelo robô Asimov, ela precisa restaurar o laboratório em ruínas e reconstruir sistemas de IA com responsabilidade. Esse enredo contribui com o jogo, de modo que cada fase da jornada corresponde a um conceito real de Inteligência Artificial, transformando o aprendizado em consequência direta da progressão narrativa.
 
@@ -153,6 +155,7 @@ Na quarta fase, Asimov já possui as informações coletadas e inicia a geraçã
 Com o cristal sintetizado, Sophia o transporta até o centro do laboratório para realizar a restauração final. Nesse momento, antes de depositar o cristal no núcleo energético, o jogador é confrontado com uma série de perguntas éticas sobre o uso da Inteligência Artificial, precisando clicar nas respostas corretas para concluir o jogo. Essa etapa posiciona a ética não como fator primordial e como condição de desfecho, pois o laboratório só é restaurado quando o jogador demonstra compreender que a tecnologia, por si só, não determina seus impactos. Quem a direciona, e com quais valores, é o que define se ela reconstrói ou destrói ¹².
 
 A escolha por plataforma web, desenvolvida com HTML5, JavaScript e Phaser, elimina a necessidade de instalação e garante acesso imediato via navegador, reduzindo uma barreira relevante para o perfil socioeconômico do público-alvo. A progressão linear e sequencial entre as fases, na qual cada etapa só é desbloqueada após a conclusão da anterior, garante que o jogador construa gradualmente os conceitos antes de avançar, evitando que a experiência se torne superficial. A criação de valor do produto está em converter conceitos como reconhecimento de padrões, redes neurais, softmax, visão computacional, modelos generativos e ética em IA em ações concretas que o jogador executa e compreende pelo fazer, ampliando o alcance do IBM SkillsBuild a um público que dificilmente seria atingido por plataformas textuais tradicionais e contribuindo para a democratização do letramento em Inteligência Artificial.
+
 </div>
 
 
@@ -246,9 +249,11 @@ Os requisitos do projeto estabelecem as diretrizes essenciais para seu desenvolv
 ## 1.3. Público-alvo do Projeto 
 
 <div align = "justify">
+
 O público-alvo do jogo são jovens universitários com pouco ou nenhum contato aprofundado com tecnologia — especialmente com Inteligência Artificial. A maioria dessas pessoas limita sua experiência de AI ao uso casual de chatbots como ChatGPT, Gemini ou Claude, o que reflete bem a realidade, em que pesquisas, por exemplo, indicam que menos de 30% das empresas nos EUA de fato adotaram IA em seus processos, evidenciando que a expertise do grande público nessa área é frequentemente superestimada. Por ser um jogo introdutório, ele se encaixa tanto para estudantes de cursos que demandam apenas um uso superficial de IA quanto para calouros de cursos como Ciência da Computação, Engenharia de Software ou Engenharia da Computação que ainda não tiveram uma base sólida no tema, funcionando de forma análoga ao pré-cálculo adotado por diversas universidades para nivelar estudantes com lacunas matemáticas, mas para o uso de AI e sendo muito mais divertido e engajante ¹³.
 
 O perfil mais representativo do nosso usuário é o de um jovem de renda média-baixa, criado fora dos grandes centros urbanos e egresso de escola pública, levando em conta que mais de 80% dos estudantes do ensino médio brasileiro vem de escolas públicas, o público potencial do jogo seria bem grande. Esse usuário potencial do jogo tem afinidade e desenvoltura com tecnologias acessíveis do cotidiano, como celulares e videogames, mas nunca teve a oportunidade de se aprofundar tecnicamente. Agora, ao ingressar na universidade, enfrenta pela primeira vez a necessidade de desenvolver uma compreensão mais sólida da área, e é exatamente para esse primeiro passo que o jogo foi pensado ¹⁴.
+
 </div>
 
 # <a name="c2"></a>2. Visão Geral do Jogo 
@@ -295,6 +300,7 @@ O tempo estimado do nosso jogo é de 16 minutos.
 ## 3.1. Enredo do Jogo 
 
 <div align = "justify">
+
 Em um mundo onde a Inteligência Artificial ainda está em fase de desenvolvimento, surge a constante indagação sobre como essa tecnologia afetará o futuro da sociedade. A narrativa tem início em 2022, em um laboratório de pesquisa focado em aprendizado de máquina e robótica, repleto de profissionais renomados. Entre eles destaca-se Sophia, uma cientista brilhante reconhecida por sua curiosidade inata, mente analítica e criatividade na resolução de problemas. À frente do laboratório está Watson, cientista-chefe e orientador de Sophia, responsável por coordenar os projetos mais ambiciosos da equipe.
 
 À medida que os sistemas evoluem, Watson começa a perceber um risco crescente: a tecnologia criada para auxiliar a humanidade poderia ser facilmente redirecionada para fins de controle e destruição. Ele identifica movimentações externas interessadas em assumir o comando dos projetos e teme que, no futuro, as tecnologias desenvolvidas no laboratório sejam utilizadas para atender interesses negativos. Sem conseguir interromper o avanço inevitável das pesquisas nem garantir que permaneceriam sob controle ético, Watson elabora um plano.
@@ -322,6 +328,7 @@ Com o padrão final validado, o cristal é forjado e colocado no núcleo do mapa
 Por fim, Asimov ensina para Sophia sobre a criação de prompts e a importância da ética no uso da Inteligência Artificial, exibindo exemplos de prompts aos quais a cientista tem que classificar entre aplicações corretas e incorretas para que consiga prosseguir com a missão. Sophia compreende que o problema nunca foi a tecnologia em si, mas a forma como ela é direcionada. 
 
 Desse modo, mostrando Sophia ao lado de Asimov com o objetivo de ensinar sobre os fundamentos e a utilização ética da IA para a humanidade, o jogo encerra-se com um desfecho aberto, deixando ao jogador a sensação de que o verdadeiro desafio começa a partir dali.
+
 </div>
 
 ## 3.2. Personagens 
