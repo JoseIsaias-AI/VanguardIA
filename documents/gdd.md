@@ -1044,6 +1044,7 @@ criação de código para caixas de texto padronizadas; lógica de reiniciar fas
 | Estar na fase 04                                                            | Pressionar botão direito do mouse e arrastar na imagem               | Nitidez crescente nos pontos selecionados da imagem                                                       |
 | Realizar limpeza da imagem                                                  | Possuir nitidez de 99%                                               | Ser direcionado à cena seguinte                                                                           |
 | Estar na fase cinco                                                         | Classificar afirmação como correta ou incorreta                      | Crescimento da contagem de acertos e erros                                                                |
+| Estar nos créditos                                                          | Jogador visualizar os créditos do jogo ao finalizar o mesmo          | Créditos são exibidos corretamente até o final                                                            |
 
 ## 5.2. Testes de jogabilidade (playtests) 
 
