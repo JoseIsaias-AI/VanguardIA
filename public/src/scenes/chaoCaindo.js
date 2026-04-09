@@ -53,7 +53,7 @@ export class chaoCaindo extends Phaser.Scene {
     this.background = this.add.image(0, 0, "portas")
       .setOrigin(0, 0)
       .setScale(this.escalaMapa)
-      .setAlpha(0.2);
+      .setAlpha(0.1);
 
     this.larguraMapa = this.larguraMapaOriginal * this.escalaMapa;
     this.alturaMapa = this.alturaMapaOriginal * this.escalaMapa;
