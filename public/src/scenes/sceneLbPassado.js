@@ -104,6 +104,8 @@ export class sceneLbPassado extends Phaser.Scene {
     this.lendoMensagem = false;
     this.podeInteragir = false;
     this.podeInteragirWatson = false;
+    this.criogeniaInteragida = false;
+    this.criogeniaAutoFechar = false;
     this.scaleMapa = 3;
   }
 
@@ -334,9 +336,17 @@ export class sceneLbPassado extends Phaser.Scene {
     this.principal.setVelocity(0, 0);
     this.principal.anims.stop();
 
+    if (this.criogeniaAutoFechar) {
+      if (!this.sistemaDialogo.estaEscrevendo) {
+        this.criogeniaAutoFechar = false;
+        this.sistemaDialogo.interagir();
+      }
+      return true;
+    }
+
     if (Phaser.Input.Keyboard.JustDown(this.teclaE)) {
-     this.sistemaDialogo.interagir();
-   }
+      this.sistemaDialogo.interagir();
+    }
 
   return true;
 }
@@ -426,6 +436,9 @@ executarInteracoes() {
 
 //Aqui, executamos as interações com a câmara
 interagirCamara() {
+  if (this.criogeniaInteragida) return;
+  this.criogeniaInteragida = true;
+  this.criogeniaAutoFechar = true;
   //Aqui, tocamos o som pop quando interagir com a câmera
   this.somPop.play();
   this.containerTecla.setVisible(false);
