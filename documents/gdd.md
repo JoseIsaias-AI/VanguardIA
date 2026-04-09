@@ -998,23 +998,23 @@ Por fim, também houve ajustes na tela inicial do jogo para que ficasse mais ali
 | Jogo iniciado                                                               | Pressionar setas ou WASD                                             | Personagem se move corretamente nas direções designadas                                                   |
 | Personagem próximo a obstáculo/colisão                                      | Movimentar personagem contra a parede/objeto                         | Personagem não atravessa a parede ou o objeto                                                             |
 | Estar perto do personagem Watson                                            | Pressionar tecla E                                                   | Caixa de diálogo e textos são exibidos na tela                                                            |
-| Função de diálogo ativada                                                   | pressionar tecla E                                                   | mudança do texto exibido na caixa de diálogo                                                              |
-| Explicação por personagem finalizada                                        | pressionar tecla E                                                   | caixa de diálogo para de ser exibida                                                                      |
-| Ter interagido com o personagem Watson e estar próximo da câmara criogência | pressionar tecla E                                                   | vídeo de transição é executado corretamento dentro do espaço designado e transferência para cena seguinte |
-| Estar próximo de personagem Asimov                                          | pressionar tecla E                                                   | caixa de diálogo e textos são exibidos na tela                                                            |
-| Ter dialogado com Asimov                                                    | finalizar diálogo antes da Fase 01                                   | sprite de Sophia não se sobrepõe à animação de Asimov andando automaticamente                             |
-| Estar na fase 01                                                            | apertar tecla SPACE                                                  | personagem deve pular corretamente                                                                        |
-| Estar na fase 01                                                            | colidir com um obstáculo                                             | reiniciar fase 01                                                                                         |
-| Estar perto de um baú                                                       | pressionar tecla E                                                   | baú abrir e dar as informações necessárias                                                                |
-| Ter coletado a carta vermelha                                               | pressioná-la 9 vezes                                                 | carta abrir e mostrar texto corretamente                                                                  |
-| Estar na fase 02                                                            | apertar nos neurônios de Asimov                                      | os neurônios devem acender suas luzes na ordem certa com o clique em cima delas                           |
-| Finalizar fase 02                                                           | pressionar tecla E para abrir o baú                                  | executar corretamente animação de chão quebrando e Sophia caindo                                          |
-| Estar na fase 03                                                            | apertar tecla SPACE e direcionar personagem na direção de plataforma | personagem deve colidir corretamente com a plataforma                                                     |
-| Chegar ao topo do cenário da fase 03                                        | coletar todos os cristais corretos e pular em direção à corda        | seguir para a próxima cena                                                                                |
-| Dialogar com Asimov                                                         | pressionar tecla E para ler documentos                               | abrir corretamente documnetação e ser direcionado à fase 04                                               |
-| Estar na fase 04                                                            | pressionar botão direito do mouse e arrastar na imagem               | nitidez crescente nos pontos selecionados da imagem                                                       |
-| Realizar limpeza da imagem                                                  | possuir nitidez de 99%                                               | ser direcionado à cena seguinte                                                                           |
-| Estar na fase cinco                                                         | classificar afirmação como correta ou incorreta                      | crescimento da contagem de acertos e erros                                                                |
+| Função de diálogo ativada                                                   | Pressionar tecla E                                                   | Mudança do texto exibido na caixa de diálogo                                                              |
+| Explicação por personagem finalizada                                        | Pressionar tecla E                                                   | Caixa de diálogo para de ser exibida                                                                      |
+| Ter interagido com o personagem Watson e estar próximo da câmara criogência | Pressionar tecla E                                                   | Vídeo de transição é executado corretamento dentro do espaço designado e transferência para cena seguinte |
+| Estar próximo de personagem Asimov                                          | Pressionar tecla E                                                   | Caixa de diálogo e textos são exibidos na tela                                                            |
+| Ter dialogado com Asimov                                                    | Finalizar diálogo antes da Fase 01                                   | Sprite de Sophia não se sobrepõe à animação de Asimov andando automaticamente                             |
+| Estar na fase 01                                                            | Apertar tecla SPACE                                                  | Personagem deve pular corretamente                                                                        |
+| Estar na fase 01                                                            | Colidir com um obstáculo                                             | Reiniciar fase 01                                                                                         |
+| Estar perto de um baú                                                       | Pressionar tecla E                                                   | Baú abrir e dar as informações necessárias                                                                |
+| Ter coletado a carta vermelha                                               | Pressioná-la 9 vezes                                                 | Carta abrir e mostrar texto corretamente                                                                  |
+| Estar na fase 02                                                            | Apertar nos neurônios de Asimov                                      | Os neurônios devem acender suas luzes na ordem certa com o clique em cima delas                           |
+| Finalizar fase 02                                                           | Pressionar tecla E para abrir o baú                                  | Executar corretamente animação de chão quebrando e Sophia caindo                                          |
+| Estar na fase 03                                                            | Apertar tecla SPACE e direcionar personagem na direção de plataforma | Personagem deve colidir corretamente com a plataforma                                                     |
+| Chegar ao topo do cenário da fase 03                                        | Coletar todos os cristais corretos e pular em direção à corda        | Seguir para a próxima cena                                                                                |
+| Dialogar com Asimov                                                         | Pressionar tecla E para ler documentos                               | Abrir corretamente documnetação e ser direcionado à fase 04                                               |
+| Estar na fase 04                                                            | Pressionar botão direito do mouse e arrastar na imagem               | Nitidez crescente nos pontos selecionados da imagem                                                       |
+| Realizar limpeza da imagem                                                  | Possuir nitidez de 99%                                               | Ser direcionado à cena seguinte                                                                           |
+| Estar na fase cinco                                                         | Classificar afirmação como correta ou incorreta                      | Crescimento da contagem de acertos e erros                                                                |
 
 ## 5.2. Testes de jogabilidade (playtests) 
 
@@ -1024,67 +1024,67 @@ Por fim, também houve ajustes na tela inicial do jogo para que ficasse mais ali
 
 Os testes foram conduzidos em ambiente de sala de aula, durante o horário da disciplina de UX Design. A amostra foi composta por alunos do primeiro ano de diferentes cursos do Inteli, com idades entre 17 e 20 anos, apresentando nível de conhecimento básico ou superficial em Inteligência Artificial. As sessões ocorreram em computadores equipados com sistema operacional Windows 11, utilizando o navegador Google Chrome como plataforma de execução.
 
-Nome | Felipe 
---- | ---
-Já possuía experiência prévia com games? | Sim, é um jogador casual
-Conseguiu iniciar o jogo? | Não
-Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
-Conseguiu progredir no jogo? | Sim  
-Apresentou dificuldades? | Sim
-Que nota deu ao jogo? | 7.0
-O que gostou no jogo? | Os mini games
-O que poderia melhorar no jogo? | O personagem poderia se mover mais rápido. Bug da sala do cristal. Limpar o cristal com cliques não sobe a barra. Na questão das perguntas ele respondeu uma errado e deu certo
+| Nome | Felipe |
+|-----------------------------------------|----|
+| Já possuía experiência prévia com games? | Sim, é um jogador casual |
+| Conseguiu iniciar o jogo? | Não |
+| Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes |
+| Conseguiu progredir no jogo? | Sim |
+| Apresentou dificuldades? | Sim |
+| Que nota deu ao jogo? | 7.0 |
+| O que gostou no jogo? | Os mini games |
+| O que poderia melhorar no jogo? | O personagem poderia se mover mais rápido. Bug da sala do cristal. Limpar o cristal com cliques não sobe a barra. Na questão das perguntas ele respondeu uma errado e deu certo |
 
 
-Nome | Luis 
---- | ---
-Já possuía experiência prévia com games? | Sim, é um jogador casual
-Conseguiu iniciar o jogo? | Sim
-Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
-Conseguiu progredir no jogo? | Sim  
-Apresentou dificuldades? | Sim
-Que nota deu ao jogo? | 9.0
-O que gostou no jogo? | Design e animações
-O que poderia melhorar no jogo? | Colocar indicadores para orientar o jogador sobre o que deve fazer, reduzindo a necessidade de explicações longas. Diminuir principalmente os textos dos documentos, já que fogem da proposta do jogo, que deve ser mais lúdica. Se o conteúdo dos papéis não tiver função prática na jogabilidade, não há necessidade de mantê-los. Além disso, melhorar o áudio: conforme o diálogo avança, inserir sons adequados, como efeitos de pulo e interação, para enriquecer a experiência
+| Nome | Luis |
+| --- | --- |
+| Já possuía experiência prévia com games? | Sim, é um jogador casual |
+| Conseguiu iniciar o jogo? | Sim |
+| Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes |
+| Conseguiu progredir no jogo? | Sim  |
+| Apresentou dificuldades? | Sim |
+| Que nota deu ao jogo? | 9.0 |
+| O que gostou no jogo? | Design e animações |
+| O que poderia melhorar no jogo? | Colocar indicadores para orientar o jogador sobre o que deve fazer, reduzindo a necessidade de explicações longas. Diminuir principalmente os textos dos documentos, já que fogem da proposta do jogo, que deve ser mais lúdica. Se o conteúdo dos papéis não tiver função prática na jogabilidade, não há necessidade de mantê-los. Além disso, melhorar o áudio: conforme o diálogo avança, inserir sons adequados, como efeitos de pulo e interação, para enriquecer a experiência |
 
 
-Nome | João 
---- | ---
-Já possuía experiência prévia com games? | Sim, é um jogador casual
-Conseguiu iniciar o jogo? | Sim
-Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
-Conseguiu progredir no jogo? | Sim  
-Apresentou dificuldades? | Sim
-Que nota deu ao jogo? | 8.0
-O que gostou no jogo? | Gostou do Asimov e da dinâmica de explicação com o mesmo. Gostou da história, da ideia de que você está no laboratório e você precisa salvar o mundo
-O que poderia melhorar no jogo? | Substituir assets que parecem não combinar com o jogo. Correção de bug entre a parede e o baú. Melhorar a explicação das mecânicas (especialmente algumas serem com o mouse e outras com o E). Explicar melhor sobre os prompts e selecionar eles com a setinha e não com o mouse. Criar uma tela de finalização do jogo. Diminuir textos muito longos e monótonos
+| Nome | João |
+| --- | --- |
+| Já possuía experiência prévia com games? | Sim, é um jogador casual |
+| Conseguiu iniciar o jogo? | Sim |
+| Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes |
+| Conseguiu progredir no jogo? | Sim  |
+| Apresentou dificuldades? | Sim |
+| Que nota deu ao jogo? | 8.0 |
+| O que gostou no jogo? | Gostou do Asimov e da dinâmica de explicação com o mesmo. Gostou da história, da ideia de que você está no laboratório e você precisa salvar o mundo |
+| O que poderia melhorar no jogo? | Substituir assets que parecem não combinar com o jogo. Correção de bug entre a parede e o baú. Melhorar a explicação das mecânicas (especialmente algumas serem com o mouse e outras com o E). Explicar melhor sobre os prompts e selecionar eles com a setinha e não com o mouse. Criar uma tela de finalização do jogo. Diminuir textos muito longos e monótonos |
 
 
-Nome | Manuela 
---- | ---
-Já possuía experiência prévia com games? | Sim, é um jogador casual
-Conseguiu iniciar o jogo? | Não
-Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
-Conseguiu progredir no jogo? | Sim  
-Apresentou dificuldades? | Sim
-Que nota deu ao jogo? | 8.0
-O que gostou no jogo? | A historia ficou muito boa
-O que poderia melhorar no jogo? | Mecânicas e teclas. O ultimo baú ela interagiu e não apareceu nada, Sophia por cima do papel e muito texto
+| Nome | Manuela |
+| --- | --- |
+| Já possuía experiência prévia com games? | Sim, é um jogador casual |
+| Conseguiu iniciar o jogo? | Não |
+| Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes |
+| Conseguiu progredir no jogo? | Sim  |
+| Apresentou dificuldades? | Sim |
+| Que nota deu ao jogo? | 8.0 |
+| O que gostou no jogo? | A historia ficou muito boa |
+| O que poderia melhorar no jogo? | Mecânicas e teclas. O ultimo baú ela interagiu e não apareceu nada, Sophia por cima do papel e muito texto |
 
 
-Nome | Augusto 
---- | ---
-Já possuía experiência prévia com games? | Sim, é um jogador casual
-Conseguiu iniciar o jogo? | Sim
-Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes
-Conseguiu progredir no jogo? | Sim  
-Apresentou dificuldades? | Sim
-Que nota deu ao jogo? | 7.0
-O que gostou no jogo? | O aprendizado está bem desenvolvido, com um bom equilíbrio entre design e informações. Os minigames são bem feitos e divertidos, especialmente nas partes como o cérebro do robô, contribuindo positivamente para a experiência geral de aprendizado no jogo. A movimentação do personagem também está muito boa — o pulo e a velocidade estão bem ajustados, tornando a jogabilidade fluida e agradável. Além disso, o cenário é interessante e interativo, com diversos objetos que enriquecem a exploração
-O que poderia melhorar no jogo? | Há excesso de texto nas conversas, e não está claro qual personagem está falando. Uma solução é diferenciar as falas usando cores distintas nas caixas de diálogo, facilitando a identificação. Os arquivos da copiadora também estão muito grandes, o que acaba prejudicando a imersão do jogador. Além disso, os prompts não estão claros e acabam gerando confusão. No parkour, é importante deixar explícito que, ao pegar o item falso, o jogo deve ser reiniciado. Seria interessante adicionar uma cutscene de transição após o parkour, mostrando o personagem escalando até chegar à parte do baú. As transições, de modo geral, estão confusas e com informação demais em texto, o que quebra o ritmo do jogo — é importante reduzir e distribuir melhor essas informações. O cenário também pode ser mais conectado e exploratório, pois atualmente as áreas parecem soltas e pouco intuitivas. Tornar a progressão das fases mais linear pode ajudar na compreensão do jogador. Por fim, ajustar a contagem de acertos da fase 5 para 10 e, no geral, reduzir a quantidade de informação apresentada ao jogador para melhorar a experiência
+| Nome | Augusto |
+| --- | --- |
+| Já possuía experiência prévia com games? | Sim, é um jogador casual |
+| Conseguiu iniciar o jogo? | Sim |
+| Entendeu as regras e mecânicas do jogo? | Sim, entendeu em partes |
+| Conseguiu progredir no jogo? | Sim  |
+| Apresentou dificuldades? | Sim |
+| Que nota deu ao jogo? | 7.0 |
+| O que gostou no jogo? | O aprendizado está bem desenvolvido, com um bom equilíbrio entre design e informações. Os minigames são bem feitos e divertidos, especialmente nas partes como o cérebro do robô, contribuindo positivamente para a experiência geral de aprendizado no jogo. A movimentação do personagem também está muito boa — o pulo e a velocidade estão bem ajustados, tornando a jogabilidade fluida e agradável. Além disso, o cenário é interessante e interativo, com diversos objetos que enriquecem a exploração |
+| O que poderia melhorar no jogo? | Há excesso de texto nas conversas, e não está claro qual personagem está falando. Uma solução é diferenciar as falas usando cores distintas nas caixas de diálogo, facilitando a identificação. Os arquivos da copiadora também estão muito grandes, o que acaba prejudicando a imersão do jogador. Além disso, os prompts não estão claros e acabam gerando confusão. No parkour, é importante deixar explícito que, ao pegar o item falso, o jogo deve ser reiniciado. Seria interessante adicionar uma cutscene de transição após o parkour, mostrando o personagem escalando até chegar à parte do baú. As transições, de modo geral, estão confusas e com informação demais em texto, o que quebra o ritmo do jogo — é importante reduzir e distribuir melhor essas informações. O cenário também pode ser mais conectado e exploratório, pois atualmente as áreas parecem soltas e pouco intuitivas. Tornar a progressão das fases mais linear pode ajudar na compreensão do jogador. Por fim, ajustar a contagem de acertos da fase 5 para 10 e, no geral, reduzir a quantidade de informação apresentada ao jogador para melhorar a experiência |
 
 
-Nome | Rafael 
+| Nome | Rafael |
 --- | ---
 Já possuía experiência prévia com games? | Sim, é um jogador casual
 Conseguiu iniciar o jogo? | Sim
