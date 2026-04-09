@@ -603,54 +603,117 @@ Na sequência, a segunda etapa se desenrola em um corredor do laboratório, onde
 Na terceira fase, o jogador enfrenta um desafio de classificação de cristais após cair em um buraco, devendo escalá-lo enquanto coleta apenas os cristais verdadeiros, identificados pela cor azul, e evita os falsos, representados em vermelho. A coleta de um cristal incorreto implica penalização e reinício da fase, sendo necessário reunir todos os cristais corretos para prosseguir. Na quarta etapa, o foco recai sobre a limpeza de um cristal imperfeito gerado por Asimov, utilizando um mecanismo de arrasto com o mouse para remover manchas e irregularidades. Durante esse processo, o jogador deve controlar a barra de overfitting, impedindo que atinja 100%, pois isso resulta no reinício da fase; da mesma forma, uma limpeza incompleta impede a conclusão do objetivo. Por fim, na quinta e última fase, o jogador deve avaliar diferentes prompts sob critérios de adequação e ética, classificando-os como apropriados ou não. Para concluir o jogo, é necessário acertar pelo menos sete das dez avaliações apresentadas, consolidando o aprendizado adquirido ao longo da experiência.
 ## 3.7. Mecânicas do jogo 
 
-### Mecânicas principais
+####1. Exploração do Ambiente e Desvio de Obstáculos
 
-As mecânicas do jogo envolvem exploração do ambiente, interação com objetos e resolução de desafios relacionados à inteligência artificial. O jogador controla os personagens para investigar o laboratório, coletar informações e completar tarefas necessárias para avançar nas fases.
+| Elemento          | Descrição                                                        |
+|-------------------|------------------------------------------------------------------|
+| Mecânica          | Exploração livre e desvio de obstáculos                          |
+| Personagens       | Sophia (exploração livre) / Asimov (fase de sucata)              |
+| Exploração Livre  | Movimento livre pelo laboratório                                 |
+| Fase de Sucata    | Percurso linear com necessidade de desviar de detritos           |
 
-1. Exploração do ambiente e Desvio de Obstáculos
-O jogador pode se movimentar livremente dentro do mapa inicial para explorar o laboratório. Na área de sucatas, a exploração muda para o controle de Asimov em um percurso linear, onde é estritamente necessário desviar de detritos.
+#####Controles – Sophia
 
-Controles de Exploração Livre (Sophia):
+| Tecla   | Ação                    |
+|---------|-------------------------|
+| W / ↑   | Mover para cima (Y+)    |
+| S / ↓   | Mover para baixo (Y-)   |
+| D / →   | Mover para direita (X+) |
+| A / ←   | Mover para esquerda (X-)|
+| Espaço  | Pular                   |
 
-Tecla W / Seta para Cima: Move para cima (Eixo Y+). Tecla S / Seta para Baixo: Move para baixo (Eixo Y-). Tecla D / Seta para a Direita: Move para a direita (Eixo X+).Tecla A / Seta para a Esquerda: Move para a esquerda (Eixo X-).Barra de Espaço: Pular. 
+#####Controles – Asimov (Sucata)
 
-Controles na Sucata (Asimov):Tecla W / Seta para Cima: Move para a faixa de cima. Tecla S / Seta para Baixo: Move para a faixa de baixo.Barra de Espaço: Saltar obstáculos.
+| Tecla   | Ação                |
+|---------|---------------------|
+| W / ↑   | Faixa de cima       |
+| S / ↓   | Faixa de baixo      |
+| Espaço  | Saltar obstáculos   |
 
-2. Interação com objetos e sistemas
-Utilizando a tecla de interação, o jogador pode acessar baús, arquivos, máquinas e terminais do laboratório, além de conversar com o cientista Watson e com Asimov. Esses elementos liberam informações da narrativa ou ativam desafios necessários para continuar a fase.
 
-Controles: Tecla "E" para interagir com personagens, avançar nos diálogos e interagir com objetos.
 
-3. Treinamento da rede neural de Asimov e Válvula Softmax
-Com as pistas coletadas, o jogador inicia o treinamento da rede neural. É obrigatório encontrar e ativar a Válvula Softmax para converter os dados brutos em probabilidades.
+#### 2. Interação com Objetos e Sistemas
 
-Controles:
+| Elemento | Descrição                                              |
+|----------|--------------------------------------------------------|
+| Mecânica | Interação com objetos e personagens                    |
+| Objetos  | Baús, arquivos, máquinas, terminais                    |
+| NPCs     | Watson e Asimov                                        |
+| Função   | Liberar narrativa e ativar desafios                    |
 
-Mouse (Movimento) + Clique Único: Para selecionar e ativar os neurônios na tela além de servir para interagir e abrir a Válvula Softmax.
+##### Controles
 
-4. Investigação e coleta de informações
-A Sophia consegue abrir o baú que tem as informações dos cristais, porém o chão desmorona e por isso ela precisa subir pelas plataformas pulando nelas no momento certo e coletando os documentos de cristais corretos. Nesta fase, a Sophia se movimenta por meio das mesmas teclas que funcionam antes. A difereça visual para o jogador acontece na visão do jogador pro jogo, ja que ela deixa de ser top-down para frontal.
+| Tecla | Ação                                           |
+|-------|------------------------------------------------|
+| E     | Interagir, avançar diálogos e acessar itens    |
 
-Controles: Interação padrão (Tecla "E") para abrir o baú e ler as pistas.
 
-5. Limpeza de informações e overfitting
-Após selecionar corretamente os cristais verdadeiros, eles são enviados para um extrator de características, que gera uma matriz de características com os padrões do cristal correto. Em seguida, inicia-se a forja generativa, onde o jogador deve eliminar ativamente os "ruídos" (imperfeições visuais) gerados pelo processo.
 
-Controles:
+#### 3. Treinamento da Rede Neural e Válvula Softmax
 
-Tecla "E": Para ativar o terminal do extrator de características.
+| Elemento       | Descrição                                   |
+|----------------|---------------------------------------------|
+| Mecânica       | Treinamento da rede neural                  |
+| Objetivo       | Converter dados em probabilidades           |
+| Sistema-chave  | Válvula Softmax                             |
 
-Clique e Arraste (Botão Esquerdo do Mouse): Clicar e segurar em cima do esfregão e arrastar o mouse por todo o ruído (manchas no cristal em formação) para limpar as falhas até completar a nítidez em 100%.
+##### Controles
 
-6. Restauração do laboratório
-Após a limpeza dos dados, a sophia leva o cristal correto para o centro da sala do HUB, onde o cristal é depositado no centro do sistema energético do laboratório, restaurando parte da energia e permitindo a continuidade da narrativa que consiste em decidir quais são as aplicações corretas e incorretas com relação a ética e a prompts de IA.
+| Entrada                  | Ação                                         |
+|--------------------------|----------------------------------------------|
+| Mouse (movimento + clique) | Selecionar neurônios e ativar a válvula     |
 
-Controles (Cliques na Interface):
 
-Botão "Aplicação correta" (Verde): Para prompt ou ética correta.
 
-Botão "Aplicação incorreta" (Vermelho): Para prompt ou ética incorreta.
+#### 4. Investigação e Coleta de Informações
 
+| Elemento        | Descrição                                               |
+|-----------------|---------------------------------------------------------|
+| Mecânica        | Coleta de informações e plataforma                      |
+| Evento          | Chão desmorona após abrir o baú                         |
+| Objetivo        | Subir plataformas e coletar documentos corretos         |
+| Mudança visual  | Perspectiva muda de top-down para frontal               |
+
+##### Controles
+
+| Tecla | Ação                                |
+|-------|-------------------------------------|
+| E     | Abrir baú e ler pistas              |
+| Padrão| Movimentação igual à exploração     |
+
+
+
+#### 5. Limpeza de Informações e Overfitting
+
+| Elemento   | Descrição                                               |
+|------------|---------------------------------------------------------|
+| Mecânica   | Limpeza de dados e remoção de ruídos                    |
+| Processo   | Extração de características e forja generativa          |
+| Objetivo   | Limpar imperfeições até 100% de nitidez                 |
+
+##### Controles
+
+| Entrada                    | Ação                                   |
+|----------------------------|----------------------------------------|
+| E                          | Ativar terminal do extrator            |
+| Clique + arraste (mouse)   | Limpar ruídos com o esfregão           |
+
+
+
+#### 6. Restauração do Laboratório
+
+| Elemento      | Descrição                                      |
+|---------------|------------------------------------------------|
+| Mecânica      | Restauração do sistema energético              |
+| Objetivo      | Depositar cristal no HUB                       |
+| Consequência  | Avanço da narrativa e decisões éticas          |
+
+##### Controles (Interface)
+
+| Botão                     | Ação                                |
+|----------------------------|-------------------------------------|
+| Aplicação correta (verde)  | Escolher opção ética correta        |
+| Aplicação incorreta (vermelho) | Escolher opção ética incorreta |
 </div>
 
 ## 3.8. Implementação Matemática de Animação/Movimento 
