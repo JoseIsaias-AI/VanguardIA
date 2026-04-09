@@ -948,7 +948,10 @@ Durante a quarta sprint, foram desenvolvidas quatro fases e algumas cenas de tra
 
 Um dos principais pontos de desenvolvimento do grupo foram os sistemas de diálogo e  as dinâmicas voltadas ao funcionamento das fases. Foram desenvolvidos mais sistemas de diálogos para as fases e cenas pré-fase para melhor imersão do jogador na narrativa do jogo e para apresentação dos conceitos de IA de forma mais dinâmica. </div>
 
-**2 imagens de balão de fala
+<sup>Figura ?:Caixa de texto.</sup><br>
+<img src="../assets/Fases/FaseUm/caixaDeTextoInicial.png" width = '70%' ><br>
+<sub>Fonte: Autoria própria (2026). </sub><br>
+
 
 <div align = "justify">
 Paralelamente, foram desenvolvidos as mecânicas das fases e os fundamentos teóricos trabalhados em cada uma. A segunda fase do jogo trabalha o funcionamento de Redes Neurais Artificiais, iniciando com analogias com o trabalho cerebral e utilizando recursos visuais para ilustrar a captação, processamento e aprendizagem no Deep Learning com redes neurais. </div>
