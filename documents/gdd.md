@@ -829,6 +829,8 @@ Para acesso ao código direto para a linha do console.log da posição Y, soment
 
 Para acesso ao código direto para a linha do inicio da função de matemática/física da bolinha, somente realizar o acesso a este link:https://git.inteli.edu.br/graduacao/2026-1a/t29/g03/-/blob/main/src/scenes/faseTres.js?ref_type=heads#L5
 
+Para acesso ao código direto para a linha de desaceleração da personagem, somente realizar o acesso a este link https://git.inteli.edu.br/graduacao/2026-1a/t29/g03/-/blob/main/public/src/scenes/movimentacao.js#L25 e o link https://git.inteli.edu.br/graduacao/2026-1a/t29/g03/-/blob/main/public/src/scenes/movimentacao.js#L67
+
 ## 3.8.7 Tabela de Validação
 
 | t (s) | x(t) px | vx (px/s) | y(t) px | vy(t) px/s | ay (px/s²) |
