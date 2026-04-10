@@ -295,7 +295,7 @@ export class faseDois extends Phaser.Scene {
     this.asimov.play("asimov_front");
 
     if (!this.anims.exists("sophia-left")) {
-      this.anims.create({ key: "sophia-left",  frames: this.anims.generateFrameNumbers("sophia", { start: 24, end: 29 }), frameRate: 10, repeat: -1 });
+      this.anims.create({ key: "sophia-left",  frames: this.anims.generateFrameNumbers("sophia", { start: 22, end: 27 }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "sophia-right", frames: this.anims.generateFrameNumbers("sophia", { start: 16, end: 21 }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "sophia-front", frames: this.anims.generateFrameNumbers("sophia", { start: 0,  end: 7  }), frameRate: 10, repeat: -1 });
       this.anims.create({ key: "sophia-back",  frames: this.anims.generateFrameNumbers("sophia", { start: 8,  end: 15 }), frameRate: 10, repeat: -1 });
