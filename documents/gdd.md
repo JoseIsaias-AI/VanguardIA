@@ -1140,14 +1140,6 @@ Em relação ao design desenvolvido na sprint 5, foram realizadas diversas melho
 <img src="./assets/Topo.png" width = '70%' ><br>  
 <sub>Fonte: Autoria própria (2026). </sub><br>
 
-<sup>Figura 55: Animacao da sophia caindo.</sup><br>
-<img src="./public/assets/animacaoCaindo.png" width = '70%' ><br>  
-<sub>Fonte: Autoria própria (2026). </sub><br>
-
-
-
-
-
 
 
 # <a name="c5"></a>5. Testes
