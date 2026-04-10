@@ -84,7 +84,7 @@ Para configurar o projeto, certifique-se de ter as versões mais recentes dos se
 
 - O jogo será carregado no seu navegador.
 
-Para abrir diretamente o index.html clique <a href="">aqui</a>.
+Para abrir diretamente o index.html clique <a href="https://graduacao.pages.git.inteli.edu.br/2026-1a/t29/g03/">aqui</a>.
 
 #### Método alternativo
 
